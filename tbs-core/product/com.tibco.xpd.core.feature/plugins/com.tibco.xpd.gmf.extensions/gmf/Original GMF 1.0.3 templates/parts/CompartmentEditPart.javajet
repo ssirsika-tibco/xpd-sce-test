@@ -1,0 +1,151 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.parts" class="CompartmentEditPartGenerator"
+	imports="org.eclipse.emf.codegen.ecore.genmodel.* org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.* org.eclipse.gmf.codegen.gmfgen.util.*"
+	skeleton="../common.skeleton"%>
+<%
+final GenCompartment genCompartment = (GenCompartment) ((Object[]) argument)[0];
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+GenDiagram genDiagram = genCompartment.getDiagram();
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.notation.View;
+<%importManager.markImportLocation(stringBuffer);%>
+
+/**
+ * @generated
+ */
+public class <%=genCompartment.getEditPartClassName()%> extends <%=genCompartment.isListLayout() ? 
+		importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart") : 
+		importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart")%> {
+<%{
+GenCommonBase genCommonBase = genCompartment;%>
+<%@ include file="visualID.jetinc"%>
+<%}%>
+
+	/**
+	 * @generated
+	 */
+	public <%=genCompartment.getEditPartClassName()%>(View view) {
+		super(view);
+	}
+<%if (genCompartment.isListLayout()) {%>
+
+	/**
+	 * @generated
+	 */
+	protected boolean hasModelChildrenChanged(<%=importManager.getImportedName("org.eclipse.emf.common.notify.Notification")%> evt) {
+		return false;
+	}
+<%}%>
+
+	/**
+	 * @generated
+	 */
+	public String getCompartmentName() {
+		return "<%=genCompartment.getTitle()%>";
+	}
+<%if (!genCompartment.isNeedsTitle()) {
+	//by default titles are shown even if there are no TitleStyle
+	//we need to switch it off
+%>
+
+	/**
+	 * @generated
+	 */
+	public <%=importManager.getImportedName("org.eclipse.draw2d.IFigure")%> createFigure() {
+		<%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure")%> result = (<%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure")%>)super.createFigure();
+		result.setTitleVisibility(false);
+		return result;
+	}
+<%}%>
+
+	/**
+	 * @generated
+	 */
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+<%if (genCompartment.isCanCollapse()){ %>
+		installEditPolicy(<%=importManager.getImportedName("org.eclipse.gef.EditPolicy")%>.PRIMARY_DRAG_ROLE, new <%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy")%>());
+<%}%>
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new <%=importManager.getImportedName(genCompartment.getItemSemanticEditPolicyQualifiedClassName())%>());
+<%if (!genCompartment.getChildNodes().isEmpty()) {%>
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new <%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy")%>());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new <%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy")%>());
+<%	if (genDiagram.isSynchronized()) {%>
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new <%=importManager.getImportedName(genCompartment.getCanonicalEditPolicyQualifiedClassName())%>());
+<%	}
+}%>
+	}
+<%
+if (ViewmapLayoutTypeHelper.getSharedInstance().isStoringChildPositions(genCompartment.getNode().getLayoutType())) {%>	
+
+	/**
+	 * @generated
+	 */
+	//public <%=importManager.getImportedName("org.eclipse.draw2d.IFigure")%> createFigure() {
+	//	<%=importManager.getImportedName("org.eclipse.draw2d.IFigure")%> result = super.createFigure();
+	//	result.setBorder(new <%=importManager.getImportedName("org.eclipse.draw2d.LineBorder")%>());
+	//	return result;
+	//}
+
+	/**
+	 * @generated
+	 */
+	protected void refreshVisuals() {
+		super.refreshVisuals();
+		refreshBounds();
+	}
+	
+	/**
+	 * @generated
+	 */
+	protected void handleNotificationEvent(<%=importManager.getImportedName("org.eclipse.emf.common.notify.Notification")%> notification) {
+		super.handleNotificationEvent(notification);
+		Object feature = notification.getFeature();
+		if (<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getSize_Width().equals(feature)
+			|| <%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getSize_Height().equals(feature)
+			|| <%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getLocation_X().equals(feature)
+			|| <%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getLocation_Y().equals(feature)) {
+			refreshBounds();
+		} 
+	}
+	
+	/**
+	 * @generated
+	 */
+	protected void refreshBounds() {
+		int width = ((Integer) getStructuralFeatureValue(<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getSize_Width())).intValue();
+		int height = ((Integer) getStructuralFeatureValue(<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getSize_Height())).intValue();
+		<%=importManager.getImportedName("org.eclipse.draw2d.geometry.Dimension")%> size = new <%=importManager.getImportedName("org.eclipse.draw2d.geometry.Dimension")%>(width, height);
+		int x = ((Integer) getStructuralFeatureValue(<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getLocation_X())).intValue();
+		int y = ((Integer) getStructuralFeatureValue(<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getLocation_Y())).intValue();
+		<%=importManager.getImportedName("org.eclipse.draw2d.geometry.Point")%> loc = new <%=importManager.getImportedName("org.eclipse.draw2d.geometry.Point")%>(x, y);
+		((<%=importManager.getImportedName("org.eclipse.gef.GraphicalEditPart")%>) getParent()).setLayoutConstraint(this, getFigure(), new <%=importManager.getImportedName("org.eclipse.draw2d.geometry.Rectangle")%>(loc, size));
+	}
+<%
+} // helper.isStoring
+%>
+
+	/**
+	 * @generated
+	 */
+	protected void setRatio(Double ratio) {
+<%
+if (ViewmapLayoutType.UNKNOWN_LITERAL.equals(genCompartment.getNode().getLayoutType())) {
+%>
+		if (getFigure().getParent().getLayoutManager() instanceof <%=importManager.getImportedName("org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout")%>) {
+			super.setRatio(ratio);
+		}
+<%
+} else {
+%>
+		// nothing to do -- parent layout does not accept Double constraints as ratio
+		// super.setRatio(ratio); 
+<%
+}
+%>
+	}
+}
+<%importManager.emitSortedImports();%>

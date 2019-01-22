@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         id="com.tibco.xpd.help.toc"
+         point="org.eclipse.help.toc">
+      <toc
+            category="TIBCO Help"
+            file="toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+      <extension
+         point="org.eclipse.help.toc">
+      <toc
+            category="TIBCO Help"
+            file="EclipseDocs/toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+      <extension
+            point="org.eclipse.help.toc">
+         <toc
+               category="TIBCO Help"
+               file="tocTutorials.xml"
+               primary="true">
+         </toc>
+      </extension>
+      <extension
+            point="org.eclipse.help.toc">
+         <toc
+               category="TIBCO Help"
+               file="tocSolutionDesigner.xml"
+               primary="true">
+         </toc>
+      </extension>
+</plugin>

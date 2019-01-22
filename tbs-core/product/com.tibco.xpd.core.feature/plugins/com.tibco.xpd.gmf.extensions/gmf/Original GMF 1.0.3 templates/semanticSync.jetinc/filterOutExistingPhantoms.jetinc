@@ -1,0 +1,7 @@
+for (<%=importManager.getImportedName("java.util.Iterator")%> diagramNodes = getDiagram().getChildren().iterator(); diagramNodes.hasNext();) {
+	<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%> nextView = (<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%>) diagramNodes.next();
+	<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> nextViewElement = nextView.getElement();
+	if (phantomNodes.contains(nextViewElement)) {
+		phantomNodes.remove(nextViewElement);
+	}	
+}

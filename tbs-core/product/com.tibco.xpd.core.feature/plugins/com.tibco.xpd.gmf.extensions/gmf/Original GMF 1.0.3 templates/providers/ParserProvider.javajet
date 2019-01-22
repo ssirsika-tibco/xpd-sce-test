@@ -1,0 +1,172 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.providers" class="ParserProviderGenerator"
+	imports="java.util.* org.eclipse.emf.codegen.ecore.genmodel.* org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.*"%>
+<%
+final GenDiagram genDiagram = (GenDiagram) ((Object[]) argument)[0];
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
+import org.eclipse.gmf.runtime.common.core.service.IOperation;
+import org.eclipse.gmf.runtime.common.ui.services.parser.GetParserOperation;
+import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
+import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
+import org.eclipse.gmf.runtime.notation.View;
+<%importManager.markImportLocation(stringBuffer);%>
+
+/**
+ * @generated
+ */
+public class <%=genDiagram.getParserProviderClassName()%> extends AbstractProvider implements IParserProvider {
+<%
+Map labelMethodNames = new LinkedHashMap(); // GenCommonBase -> String
+for (Iterator contents = genDiagram.eAllContents(); contents.hasNext(); ) {
+	Object next = contents.next();
+	GenCommonBase genHost, genLabel;
+	LabelModelFacet modelFacet;
+	if (next instanceof GenLabel) {
+		genLabel = (GenCommonBase) next;
+		if (genLabel instanceof GenNodeLabel) {
+			genHost = ((GenNodeLabel) genLabel).getNode();
+		} else if (genLabel instanceof GenLinkLabel) {
+			genHost = ((GenLinkLabel) genLabel).getLink();
+		} else {
+			throw new IllegalArgumentException("Unknown label type: " + genLabel);
+		}
+		modelFacet = ((GenLabel) genLabel).getModelFacet();
+	} else if (next instanceof GenChildLabelNode) {
+		genLabel = (GenCommonBase) next;
+		genHost = genLabel;
+		modelFacet = ((GenChildLabelNode) genLabel).getLabelModelFacet();
+	} else {
+		continue; // not a label
+	}
+	if (modelFacet == null || modelFacet instanceof DesignLabelModelFacet) {
+		continue; // custom parser
+	}
+	String baseName = genLabel.getUniqueIdentifier();
+	if (genHost.getClassNamePrefix() != null && genHost.getClassNamePrefix().length() > 0) {
+		baseName = genHost.getClassNamePrefix() + baseName;
+	}
+	char c = baseName.charAt(0);
+	baseName = baseName.substring(1) + "Parser";
+	String fieldName = Character.toLowerCase(c) + baseName;
+	String methodName = Character.toUpperCase(c) + baseName;
+	labelMethodNames.put(genLabel, methodName);
+%>
+
+	/**
+	 * @generated
+	 */
+	private IParser <%=fieldName%>;
+
+	/**
+	 * @generated
+	 */
+	private IParser get<%=methodName%>() {
+		if (<%=fieldName%> == null) {
+			<%=fieldName%> = create<%=methodName%>();
+		}
+		return <%=fieldName%>;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser create<%=methodName%>() {
+<%
+		String parserClassName;
+		String viewPattern;
+		String editPattern;
+		if (modelFacet instanceof FeatureLabelModelFacet) {
+			parserClassName = importManager.getImportedName(genDiagram.getStructuralFeatureParserQualifiedClassName());
+			GenFeature genFeature = ((FeatureLabelModelFacet) modelFacet).getMetaFeature();
+			viewPattern = ((FeatureLabelModelFacet) modelFacet).getViewPattern();
+			editPattern = ((FeatureLabelModelFacet) modelFacet).getEditPattern();
+			String semanticPackageInterfaceName = importManager.getImportedName(genFeature.getGenPackage().getQualifiedPackageInterfaceName());
+%>
+		<%=parserClassName%> parser = new <%=parserClassName%>(<%=semanticPackageInterfaceName%>.eINSTANCE.get<%=genFeature.getGenClass().getClassifierAccessorName()%>().getEStructuralFeature("<%=genFeature.getName()%>")); //$NON-NLS-1$
+<%
+		} else if (modelFacet instanceof CompositeFeatureLabelModelFacet) {
+			parserClassName = importManager.getImportedName(genDiagram.getStructuralFeaturesParserQualifiedClassName());
+			List features = ((CompositeFeatureLabelModelFacet) modelFacet).getMetaFeatures();
+			viewPattern = ((CompositeFeatureLabelModelFacet) modelFacet).getViewPattern();
+			editPattern = ((CompositeFeatureLabelModelFacet) modelFacet).getEditPattern();
+%>
+		<%=importManager.getImportedName("java.util.List")%> features = new <%=importManager.getImportedName("java.util.ArrayList")%>(<%=features.size()%>);
+<%
+			for (java.util.Iterator it = features.iterator(); it.hasNext(); ) {
+				GenFeature genFeature = (GenFeature) it.next();
+				String semanticPackageInterfaceName = importManager.getImportedName(genFeature.getGenPackage().getQualifiedPackageInterfaceName());
+%>
+		features.add(<%=semanticPackageInterfaceName%>.eINSTANCE.get<%=genFeature.getGenClass().getClassifierAccessorName()%>().getEStructuralFeature("<%=genFeature.getName()%>")); //$NON-NLS-1$
+<%			}%>
+		<%=parserClassName%> parser = new <%=parserClassName%>(features);
+<%
+		} else {
+			throw new IllegalArgumentException("Unknown label model facet: " + modelFacet);
+		}
+		if (viewPattern != null && viewPattern.length() != 0) {
+%>
+		parser.setViewPattern("<%=viewPattern%>");
+<%
+		}
+		if (editPattern == null || editPattern.length() == 0) {
+			editPattern = viewPattern;
+		}
+		if (editPattern != null && editPattern.length() != 0) {
+%>
+		parser.setEditPattern("<%=editPattern%>");
+<%		}%>
+		return parser;
+	}
+<%}%>
+
+	/**
+	 * @generated
+	 */
+	protected IParser getParser(int visualID) {
+		switch (visualID) {
+<%
+for (Iterator it = labelMethodNames.keySet().iterator(); it.hasNext(); ) {
+	GenCommonBase genLabel = (GenCommonBase) it.next();
+%>
+			case <%=importManager.getImportedName(genLabel.getEditPartQualifiedClassName())%>.VISUAL_ID:
+				return get<%=labelMethodNames.get(genLabel)%>();
+<%}%>
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	public IParser getParser(IAdaptable hint) {
+		String vid = (String) hint.getAdapter(String.class);
+		if (vid != null) {
+			return getParser(<%=importManager.getImportedName(genDiagram.getVisualIDRegistryQualifiedClassName())%>.getVisualID(vid));
+		}
+		View view = (View) hint.getAdapter(View.class);
+		if (view != null) {
+			return getParser(<%=importManager.getImportedName(genDiagram.getVisualIDRegistryQualifiedClassName())%>.getVisualID(view));
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean provides(IOperation operation) {
+		if (operation instanceof GetParserOperation) {
+			IAdaptable hint = ((GetParserOperation) operation).getHint();
+			if (<%=importManager.getImportedName(genDiagram.getElementTypesQualifiedClassName())%>.getElement(hint) == null) {
+				return false;
+			}
+			return getParser(hint) != null;
+		}
+		return false;
+	}
+}
+<%importManager.emitSortedImports();%>

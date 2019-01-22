@@ -1,0 +1,49 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.editor" class="CreationWizardGenerator"
+    imports="org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.*"%>
+<%
+final GenDiagram genDiagram = (GenDiagram) ((Object[]) argument)[0];
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.wizards.EditorCreationWizard;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IWorkbench;
+
+/**
+ * @generated
+ */
+public class <%=genDiagram.getCreationWizardClassName()%> extends EditorCreationWizard {
+
+	/**
+	 * @generated
+	 */
+	public void addPages() {
+		super.addPages();
+		if (page == null) {
+			page = new <%=genDiagram.getCreationWizardPageClassName()%>(getWorkbench(), getSelection());
+		}
+		addPage(page);
+	}
+
+	/**
+	 * @generated
+	 */
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		super.init(workbench, selection);
+		setWindowTitle("New <%=genDiagram.getEditorGen().getModelID()%> Diagram"); //$NON-NLS-1$
+<%
+final String iconNameStem;
+// @see Generator#generateWizardBanner
+if (genDiagram.getDomainDiagramElement() != null) {
+	iconNameStem = genDiagram.getDomainDiagramElement().getGenPackage().getPrefix();
+} else {
+	iconNameStem = "";
+}
+final String pluginClassName = importManager.getImportedName(genDiagram.getEditorGen().getPlugin().getActivatorQualifiedClassName());
+%>
+		setDefaultPageImageDescriptor(<%=pluginClassName%>.getBundledImageDescriptor("icons/wizban/New<%=iconNameStem%>Wizard.gif")); //$NON-NLS-1$
+		setNeedsProgressMonitor(true);
+	}
+}

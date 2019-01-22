@@ -1,0 +1,25 @@
+<%
+{ /*begin the scope*/
+/*
+java.util.Map __exprEnvVariables
+String __outEnvVarName;
+*/
+if(!__exprEnvVariables.isEmpty() && genDiagram.getEditorGen().getExpressionProviders() != null && 
+	genDiagram.getEditorGen().getExpressionProviders().getProvider(__genValueExpression) 
+	instanceof org.eclipse.gmf.codegen.gmfgen.GenExpressionInterpreter) {	
+%>
+<%=importManager.getImportedName("java.util.Map")%> <%=__outEnvVarName%> = new <%=importManager.getImportedName("java.util.HashMap")%>(3);
+<%
+	for(java.util.Iterator envVarIt = __exprEnvVariables.keySet().iterator(); envVarIt.hasNext();) {
+		String nextVariableName = (String)envVarIt.next();
+		org.eclipse.emf.codegen.ecore.genmodel.GenClassifier nextVariableType = (org.eclipse.emf.codegen.ecore.genmodel.GenClassifier)__exprEnvVariables.get(nextVariableName);
+		String varTypeEClassifierAccess = nextVariableType.getGenPackage().getQualifiedPackageInterfaceName() + ".eINSTANCE.get" + nextVariableType.getClassifierAccessorName()+"()";			
+
+%><%=__outEnvVarName%>.put("<%=nextVariableName%>", <%=varTypeEClassifierAccess%>); //$NON-NLS-1$
+<%	
+	} 
+}
+%>
+<%
+} /*end the scope*/
+%>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions targetNamespace="http://systinet.com/uddi/approval_management_binding/5.0"
+	         xmlns="http://schemas.xmlsoap.org/wsdl/"
+	         xmlns:approval_management_portType="http://systinet.com/uddi/approval_management_portType/5.0"
+	         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <!--
+        Copyright 2001-2005 Systinet Corp. All rights reserved.
+        Use is subject to license terms.
+    -->
+    <documentation>
+	    WSDL SOAP/HTTP binding for Approval Management API.
+    </documentation>
+
+    <import namespace="http://systinet.com/uddi/approval_management_portType/5.0" location="approval_management_portType.wsdl"/>
+
+    <!-- SOAP  binding for the ApprovalManagement portType -->
+    <binding name="approval_management_SoapBinding" type="approval_management_portType:ApprovalManagementApi">
+        <documentation>This is the SOAP binding for the Approval Management portType.</documentation>
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="save">
+            <soap:operation soapAction="save"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="error">
+                <soap:fault name="error" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="addApprover">
+            <soap:operation soapAction="addApprover"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="error">
+                <soap:fault name="error" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="addRequestor">
+            <soap:operation soapAction="addRequestor"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="error">
+                <soap:fault name="error" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="deleteApprover">
+            <soap:operation soapAction="deleteApprover"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="error">
+                <soap:fault name="error" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="deleteRequestor">
+            <soap:operation soapAction="deleteRequestor"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="error">
+                <soap:fault name="error" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="findApprover">
+            <soap:operation soapAction="findApprover"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="error">
+                <soap:fault name="error" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="findRequestor">
+            <soap:operation soapAction="findRequestor"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="error">
+                <soap:fault name="error" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="isApprover">
+            <soap:operation soapAction="isApprover"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="error">
+                <soap:fault name="error" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+</definitions>

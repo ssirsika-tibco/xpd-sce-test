@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.validation" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.validation" id="providerExtension" name="Validation Provider Extension"/>
+      </appinfo>
+      <documentation>
+         This extension point should be used to add rules to an existing validation provider.
+&lt;p&gt;
+Every provider extension can only add rules to one parent provider though many provider extensions can add rules to the same parent provider. Furthermore it inherits the scope provider and the marker type attributes from the parent provider.
+&lt;/p&gt;&lt;p&gt;
+The provider extension can use the issue definitions in the parent provider or from any other validation provider.  If new issues are required then use the &lt;code&gt;com.tibco.xpd.validation.provider&lt;/code&gt; extension to add them.
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="providerExtension" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="providerExtension">
+      <annotation>
+         <documentation>
+            Extension to an existing validation provider.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="rule" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="providerId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  id of the provider extension.  This id must match with any already existing validation provider extension.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+   
+   <element name="rule">
+      <annotation>
+         <documentation>
+            Validation rule.  A rule can create one or more issues (which can be defined either in this extension or other extensions of this extension point).
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  implement IValidationRule to create a validation rule.  This implementation can create one or more issues.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.validation.rules.IValidationRule"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.0.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         &lt;pre&gt;
+
+  &lt;extension
+      point=&quot;com.tibco.xpd.validation.providerExtension&quot;&gt;
+    &lt;providerExtension
+       parentId=&quot;com.tibco.xpd.bom.validator.id&quot;
+      &lt;rule
+           class=&quot;com.tibco.xpd.bom.validation.classDuplicateRuleAdvanced&quot;&gt;
+      &lt;/rule&gt;
+    &lt;/providerExtension&gt;
+  &lt;/extension&gt;
+
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004, 2010. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

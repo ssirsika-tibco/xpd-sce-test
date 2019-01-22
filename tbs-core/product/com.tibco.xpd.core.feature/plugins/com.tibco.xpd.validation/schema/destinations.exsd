@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.validation.destinations" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.validation.destinations" id="destinations" name="Destination Environment"/>
+      </appinfo>
+      <documentation>
+         The destination environment extension point allows plugins to contribute to a list of valid destination environments for a process.
+&lt;br/&gt;
+&lt;code&gt;
+See also: destinationExtension
+&lt;/code&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="destination" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="workspaceResourceDestination" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="destination">
+      <complexType>
+         <sequence>
+            <element ref="validationProvider" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="filter"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A unique identifier for this destination environment and version number.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The display name of the destination environment, not including a version number.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="version" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The version number of the destination environment.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="selectable" type="boolean" use="required">
+            <annotation>
+               <documentation>
+                  Is the environment selectable as a destination (default: true)
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="validationProvider">
+      <annotation>
+         <documentation>
+            Validation provider for this destination
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="filter">
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.validation.provider.IFileFilter"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="validationExtension">
+      <annotation>
+         <documentation>
+            By defining validation extension, it is possible to add validation provider to existing destination envirnment.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="validationProvider" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="destinationId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="workspaceResourceDestination">
+      <annotation>
+         <appinfo>
+            <meta.element labelAttribute="name"/>
+         </appinfo>
+         <documentation>
+            Destination environment for the workspace resource validation provider.  This will tie the validation provider with the project asset (indicates which project the corresponding validators should run).
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="validationProvider" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A unique identifier for this workspace resource destination environment and version number.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The display name of the destination environment, not including a version number.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="version" type="string">
+            <annotation>
+               <documentation>
+                  The version number of the destination environment.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="assetId" type="string">
+            <annotation>
+               <documentation>
+                  Asset id to link this destination to.  The validators assigned to this destination will run against projects with this asset type configured.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc. 2004, 2009. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

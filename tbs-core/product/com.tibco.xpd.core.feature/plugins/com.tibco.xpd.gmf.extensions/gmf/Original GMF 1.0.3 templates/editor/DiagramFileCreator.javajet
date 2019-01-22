@@ -1,0 +1,82 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.editor" class="DiagramFileCreatorGenerator"
+    imports="org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.*"%>
+<%
+final GenDiagram genDiagram = (GenDiagram) ((Object[]) argument)[0];
+final GenEditorGenerator editorGen = genDiagram.getEditorGen();
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.util.IDEEditorFileCreator;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.util.DiagramFileCreator;
+<%
+importManager.markImportLocation(stringBuffer);
+%>
+
+/**
+ * @generated
+ */
+public class <%=genDiagram.getDiagramFileCreatorClassName()%> extends IDEEditorFileCreator {
+
+	/**
+	 * @generated
+	 */
+	private static <%=genDiagram.getDiagramFileCreatorClassName()%> INSTANCE = new <%=genDiagram.getDiagramFileCreatorClassName()%>();
+
+	/**
+	 * @generated
+	 */
+	public static DiagramFileCreator getInstance() {
+		return INSTANCE;
+	}
+
+	/**
+	 * @generated
+	 */
+	public String getExtension() {
+		return ".<%=editorGen.getDiagramFileExtension()%>"; //$NON-NLS-1$
+	}
+	
+<%if (!editorGen.isSameFileForDiagramAndModel()) {%>
+	/**
+	 * @generated
+	 */
+	public String getUniqueFileName(<%=importManager.getImportedName("org.eclipse.core.runtime.IPath")%> containerPath, String fileName) {
+		int nFileNumber = 1;
+		fileName = removeExtensionFromFileName(fileName);
+		String newFileName = fileName;
+		
+		<%=importManager.getImportedName("org.eclipse.core.runtime.IPath")%> diagramFilePath = containerPath.append(appendExtensionToFileName(newFileName));
+		<%=importManager.getImportedName("org.eclipse.core.runtime.IPath")%> modelFilePath = containerPath.append(appendExtensionToModelFileName(newFileName));
+		<%=importManager.getImportedName("org.eclipse.core.resources.IWorkspaceRoot")%> workspaceRoot = <%=importManager.getImportedName("org.eclipse.core.resources.ResourcesPlugin")%>.getWorkspace().getRoot();
+		
+		while (workspaceRoot.exists(diagramFilePath) || workspaceRoot.exists(modelFilePath)) {
+			nFileNumber++;
+			newFileName = fileName + nFileNumber;
+			diagramFilePath = containerPath.append(appendExtensionToFileName(newFileName));
+			modelFilePath = containerPath.append(appendExtensionToModelFileName(newFileName));
+		}
+		return newFileName;
+	}
+	
+	/**
+	 * @generated
+	 */
+	private String removeExtensionFromFileName(String fileName) {
+		if (fileName.endsWith(getExtension())) {
+			return fileName.substring(0, fileName.length() - getExtension().length());
+		}
+		return fileName;
+	}
+	
+	/**
+	 * @generated
+	 */
+	private String appendExtensionToModelFileName(String fileName) {
+		return fileName + ".<%=editorGen.getDomainFileExtension()%>"; //$NON-NLS-1$
+	}
+	
+<%}%>
+}
+<%importManager.emitSortedImports();%>

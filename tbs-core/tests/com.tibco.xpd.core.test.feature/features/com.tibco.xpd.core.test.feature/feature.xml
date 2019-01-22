@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.core.test.feature"
+      label="%featureName"
+      version="5.0.0.qualifier"
+      provider-name="%providerName">
+
+   <description url="">
+      JUnit test Release Unit
+   </description>
+
+   <copyright url="">
+      Copyright 2007 TIBCO Software Inc.
+   </copyright>
+
+   <license url="">
+      For internal use only.
+   </license>
+
+   <requires>
+      <import feature="com.tibco.xpd.core.feature" version="5.0.0" match="compatible"/>
+      <!--<import feature="com.tibco.xpd.process.analyst.feature" version="5.0.0" match="compatible"/>-->
+      <import feature="org.eclipse.test" version="3.7.200" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.xpd.core.test"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.core.builder.test"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.core.testutil"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.core.createtestwizards"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.org.custommonkey.xmlunit"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.core.xmlunit"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+</feature>

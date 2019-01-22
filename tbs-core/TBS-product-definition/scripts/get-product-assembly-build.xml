@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Gets and unpacks product assembly from reldist. 
+-->
+<project name="Download assemblies" default="default">
+	<description>
+    	Gets and unpacks product assembly from reldist. 
+		The product assembly is included in the target platform and build into product p2 repository.
+    </description>
+
+	<!-- Product assembly name (or comma separated list of names) to download. -->
+	<!-- Property moved to: assembly-spec.properties file.
+	<property name="assemblies.list" value="assembly_tibco_com_tibco_xpd_product_feature_5.0.0.003.zip" />
+	-->
+	<property file="assembly-spec.properties" />	
+
+	<!-- Download destination dir. -->
+	<property name="assemblies.download.dir" location="../resources/product-assembly" />
+
+	<!-- Reldist URL base for assemblies. -->
+	<property name="reldist.assembly.url" value="http://reldist.na.tibco.com/package/zip_assembly_archive" />
+
+	<!--classpath is optional if jar copied ot lib ant dir.-->
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+
+	<target name="init">
+		<!-- Loads ${assemblies.list} from the file.
+		<checkFileExists file="${assemblies.file}" />
+		<mkdir dir="${assemblies.download.dir}" />
+		<loadfile property="assemblies.list" srcFile="${assemblies.file}">
+			<filterchain>
+				<tokenfilter>
+					<ignoreblank />
+				</tokenfilter>
+				<tokenfilter delimoutput="," />
+			</filterchain>
+		</loadfile>
+		-->
+	</target>
+
+	<target name="default" depends="init" description="Downloads assemblies.">
+		<antcall target="-downloadAssemblies">
+		</antcall>
+	</target>
+
+	<target name="-downloadAssemblies" description="Downloads list of assemblies specified in the file from reldist.">
+		<echo>Downloading assemblies to: ${assemblies.download.dir}</echo>
+		<echo>Assembly(ies): ${assemblies.list}</echo>
+		<input message="Please enter reldist username:" addproperty="reldist.user" defaultvalue="jarciuch" />
+		<input message="Please enter password for ${reldist.user}:" addproperty="reldist.password">
+			<handler type="secure" />
+		</input>
+		<mkdir dir="${assemblies.download.dir}"/>
+		<for list="${assemblies.list}" param="fileName">
+			<sequential>
+				<echo>Downloading: @{fileName}</echo>
+				<!--<echo>From: ${reldist.assembly.url}/@{fileName}</echo>-->
+				<get src="${reldist.assembly.url}/@{fileName}" dest="${assemblies.download.dir}/@{fileName}" username="${reldist.user}" password="${reldist.password}" usetimestamp="true" />
+				<antcall target="-processAssembly">
+					<param name="assemblyDir" value="${assemblies.download.dir}" />
+					<param name="assemblyFile" value="@{fileName}" />
+				</antcall>
+			</sequential>
+		</for>
+	</target>
+
+	<target name="-processAssembly">
+		<echo>Start processing: ${assemblyFile}</echo>
+
+		<!-- Remove .zip extension from the zip path and put it into assembly.dir property. -->
+		<propertyregex property="assembly.dir" input="${assemblies.download.dir}/${assemblyFile}" regexp="(.*).zip" select="\1" casesensitive="false" />
+		
+		<delete dir="${assembly.dir}" quiet="true" />
+		
+		<unzip dest="${assembly.dir}" src="${assemblies.download.dir}/${assemblyFile}">
+		</unzip>
+
+		<!-- Delete the zip file -->
+		<delete file="${assemblies.download.dir}/${assemblyFile}" quiet="true" />
+		
+		<echo>Processing done for: ${assemblyFile}</echo>
+	</target>
+
+</project>

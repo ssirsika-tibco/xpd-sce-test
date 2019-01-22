@@ -1,0 +1,5 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.editor" class="PluginPropertiesGenerator"
+    imports="org.eclipse.gmf.codegen.gmfgen.*"%>
+<%GenPlugin genPlugin = (GenPlugin) argument;%>
+pluginName=<%=genPlugin.getName()%>
+providerName=<%=genPlugin.getProvider()%>

@@ -1,0 +1,11 @@
+<body>
+This package contains the base resolution classes that developers will
+need to create new resolutions.
+<p>If a custom marker is defined that extends the base <code>com.tibco.xpd.validation.ValidationMarker</code>
+then a marker resolution should be extended for this marker type (if
+quick fixes are required for any issues that will raise a problem with
+this marker type). Define extension <code>org.eclipse.ui.ide.markerResolution</code>
+and use <code>com.tibco.xpd.validation.resolutions.GenericResolutionGenerator</code>
+as the generator class; this class uses the extension <code>com.tibco.xpd.validation.resolution</code>
+to build the quick fixes for validation issues.</p>
+</body>

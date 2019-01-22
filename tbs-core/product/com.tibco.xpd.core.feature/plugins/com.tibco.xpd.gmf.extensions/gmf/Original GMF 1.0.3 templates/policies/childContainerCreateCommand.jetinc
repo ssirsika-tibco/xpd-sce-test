@@ -1,0 +1,194 @@
+	/**
+	 * @generated
+	 */
+	protected <%=importManager.getImportedName("org.eclipse.gef.commands.Command")%> getCreateCommand(<%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest")%> req) {
+<%
+for (Iterator nodes = childNodes.iterator(); nodes.hasNext(); ) {
+	GenNode genChildNode = (GenNode) nodes.next();
+	TypeModelFacet modelFacet = genChildNode.getModelFacet();
+	if (modelFacet == null) {
+		continue;
+	}
+%>
+		if (<%=importManager.getImportedName(genDiagram.getElementTypesQualifiedClassName())%>.<%=genChildNode.getUniqueIdentifier()%> == req.getElementType()) {
+<%
+	GenFeature containmentMetaFeature = modelFacet.getContainmentMetaFeature();
+	GenFeature childMetaFeature = modelFacet.getChildMetaFeature();
+	if (!modelFacet.isPhantomElement()) {
+		int upperContainmentBound = containmentMetaFeature.getEcoreFeature().getUpperBound();
+		int upperChildBound = childMetaFeature.getEcoreFeature().getUpperBound();
+		boolean processChildMetafeature = !childMetaFeature.equals(containmentMetaFeature) && upperChildBound > 0;
+		if (upperContainmentBound > 0 || processChildMetafeature) {
+			String containerInterfaceName = importManager.getImportedName(containerGenClass.getQualifiedInterfaceName());
+%>		
+			<%=containerInterfaceName%> container = (<%=containerInterfaceName%>) (req.getContainer() instanceof <%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%> ? ((<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%>) req.getContainer()).getElement() : req.getContainer());
+<%
+			if (upperContainmentBound > 0) {
+				if (upperContainmentBound == 1) {
+%>
+			if (<%=getFeatureValueGetter("container", containmentMetaFeature, false, importManager)%> != null) {
+<%
+				} else {
+%>
+			if (<%=getFeatureValueGetter("container", containmentMetaFeature, false, importManager)%>.size() >= <%=upperContainmentBound%>) {
+<%
+				}
+%>
+				return super.getCreateCommand(req);
+			}
+<%
+			}
+		
+			if (processChildMetafeature) {
+				if (upperChildBound == 1) {
+%>
+			if (<%=getFeatureValueGetter("container", childMetaFeature, false, importManager)%> != null) {
+<%
+				} else {
+%>
+			if (<%=getFeatureValueGetter("container", childMetaFeature, false, importManager)%>.size() >= <%=upperChildBound%>) {
+<%
+				}
+%>
+				return super.getCreateCommand(req);
+			}
+<%
+			}
+		}
+%>
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(<%=importManager.getImportedName(modelFacet.getContainmentMetaFeature().getGenPackage().getQualifiedPackageInterfaceName())%>.eINSTANCE.get<%=modelFacet.getContainmentMetaFeature().getFeatureAccessorName()%>());
+			}
+<%
+	}
+%>
+			return getMSLWrapper(new Create<%=genChildNode.getUniqueIdentifier()%>Command(req));
+		}
+<%
+}
+%>
+		return super.getCreateCommand(req);
+	}
+<%
+for (Iterator nodes = childNodes.iterator(); nodes.hasNext(); ) {
+	GenNode genChildNode = (GenNode) nodes.next();
+	TypeModelFacet modelFacet = genChildNode.getModelFacet();
+	if (modelFacet == null) {
+		continue;
+	}
+%>
+
+	/**
+	 * @generated
+	 */
+	private static class Create<%=genChildNode.getUniqueIdentifier()%>Command extends <%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand")%> {
+
+		/**
+		 * @generated
+		 */
+		public Create<%=genChildNode.getUniqueIdentifier()%>Command(<%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest")%> req) {
+			super(req);
+		}
+
+		/**
+		 * @generated
+		 */
+		protected <%=importManager.getImportedName("org.eclipse.emf.ecore.EClass")%> getEClassToEdit() {
+			return <%=importManager.getImportedName(containerGenClass.getGenPackage().getQualifiedPackageInterfaceName())%>.eINSTANCE.get<%=containerGenClass.getClassifierAccessorName()%>();
+		};
+
+		/**
+		 * @generated
+		 */
+		protected <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> getElementToEdit() {
+			<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> container = ((<%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest")%>) getRequest()).getContainer();
+			if (container instanceof <%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%>) {
+				container = ((<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%>) container).getElement();
+			}
+			return container;
+		}
+<%
+	boolean processChildMetafeature = !modelFacet.isPhantomElement() && !modelFacet.getChildMetaFeature().isDerived() && !modelFacet.getChildMetaFeature().equals(modelFacet.getContainmentMetaFeature());
+	if (modelFacet.getModelElementInitializer() != null || processChildMetafeature) { 
+		String metaClassName = importManager.getImportedName(modelFacet.getMetaClass().getQualifiedInterfaceName());
+%>
+
+		/**
+		 * @generated
+		 */
+		protected <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> doDefaultElementCreation() {
+			<%=metaClassName%> newElement = (<%=metaClassName%>) super.doDefaultElementCreation();
+			if (newElement != null) {
+<%
+		if (processChildMetafeature) {
+			String containerMetaClass = importManager.getImportedName(modelFacet.getChildMetaFeature().getGenClass().getQualifiedInterfaceName());
+%>
+				 <%=containerMetaClass%> container = (<%=containerMetaClass%>) getElementToEdit();
+				 if (container != null) {
+<%
+			if (modelFacet.getChildMetaFeature().isListType()) {
+%>
+					<%=importManager.getImportedName("java.util.Collection")%> featureValues = container.<%=modelFacet.getChildMetaFeature().getGetAccessor()%>();
+					featureValues.add(newElement);
+<%
+			} else {
+%>
+				 	<%=getFeatureValueSetterPrefix("container", modelFacet.getChildMetaFeature(), false, importManager)%>newElement);
+<%
+			}
+%>
+				 }
+<%
+		}
+		if (modelFacet.getModelElementInitializer() != null) {
+%>		
+				<%=importManager.getImportedName(genDiagram.getElementTypesQualifiedClassName())%>.Initializers.<%=genChildNode.getUniqueIdentifier()%>.init(newElement);
+<%
+		}
+%>
+			}
+			return newElement;
+		}
+<%
+	}
+	
+	if (modelFacet.isPhantomElement()) {
+%>
+
+		/**
+		 * @generated
+		 */
+		public boolean canExecute() {
+			if (getEClass() != null) {
+				return getEClass().isSuperTypeOf(getEClassToEdit());
+			}
+			return true;
+		}
+		
+		/**
+		 * @generated
+		 */
+		protected <%=importManager.getImportedName("org.eclipse.emf.ecore.EReference")%> getContainmentFeature() {
+			return null;
+		}
+		
+		/**
+		 * @generated
+		 */
+		protected <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> doDefaultElementCreation() {
+			// Uncomment to put "phantom" objects into the diagram file.		
+			//<%=importManager.getImportedName("org.eclipse.emf.ecore.resource.Resource")%> resource = ((<%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest")%>) getRequest()).getContainer().eResource();
+			//if (resource == null) {
+			//	return null;
+			//}
+			<%=importManager.getImportedName("org.eclipse.emf.ecore.resource.Resource")%> resource = getElementToEdit().eResource();
+			<%=importManager.getImportedName("org.eclipse.emf.ecore.EClass")%> eClass = getElementType().getEClass();
+			<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> eObject = eClass.getEPackage().getEFactoryInstance().create(eClass);
+			resource.getContents().add(eObject);
+			return eObject;
+		}
+<%
+	}
+%>
+	}
+<%}%>

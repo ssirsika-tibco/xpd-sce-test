@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.ibm.com/wbse" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.ibm.com/wbse" xmlns:intf="http://www.ibm.com/wbse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://www.ibm.com/wbse" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="aComplexType">
+    <sequence>
+     <element name="anySimpleType" type="xsd:anySimpleType"/>
+     <element name="anyURLType" type="xsd:anyURI"/>
+     <element name="booleanType" type="xsd:boolean"/>
+     <element name="byteType" type="xsd:byte"/>
+     <element name="dateType" type="xsd:date"/>
+     <element name="dateTimeType" type="xsd:dateTime"/>
+     <element name="decimalType" type="xsd:decimal"/>
+     <element name="doubleType" type="xsd:double"/>
+     <element name="floatType" type="xsd:float"/>
+     <element name="intType" type="xsd:int"/>
+     <element name="integerType" type="xsd:integer"/>
+     <element name="longType" type="xsd:long"/>
+     <element name="shortType" type="xsd:short"/>
+     <element name="stringType" type="xsd:string"/>
+     <element name="timeType" type="xsd:time"/>
+     <element name="unsignedByteType" type="xsd:unsignedByte"/>
+     <element name="unsignedIntType" type="xsd:unsignedInt"/>
+     <element name="unsignedShortType" type="xsd:unsignedShort"/>
+    </sequence>
+   </complexType>
+   <element name="basicElement" type="impl:aComplexType"/>
+   <element name="responseElement" type="xsd:string"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="BasicElementRequest">
+
+      <wsdl:part element="impl:basicElement" name="basicElement"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="BasicElementResponse">
+
+      <wsdl:part element="impl:responseElement" name="responseElement"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BasicElement">
+
+      <wsdl:operation name="BasicElement" parameterOrder="basicElement">
+	 <wsdl:documentation>This wsdl is just an example to show how elements may be defined.</wsdl:documentation>
+         <wsdl:input message="impl:BasicElementRequest" name="BasicElementRequest"/>
+
+         <wsdl:output message="impl:BasicElementResponse" name="BasicElementResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BasicElementSOAPSoapBinding" type="impl:BasicElement">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="BasicElement">
+
+         <wsdlsoap:operation soapAction="http://BasicElement.wsdl.test/BasicElement"/>
+
+         <wsdl:input name="BasicElementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="BasicElementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BasicElementExampleService">
+      <wsdl:documentation>This wsdl is just an example to show how elements may be defined.</wsdl:documentation>
+      <wsdl:port binding="impl:BasicElementSOAPSoapBinding" name="BasicElementSOAP">
+
+         <wsdlsoap:address location="http://www.ibm.com/services/BasicElementSOAP"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

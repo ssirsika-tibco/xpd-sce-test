@@ -1,0 +1,22 @@
+<%
+GenLink nextLink = (GenLink) genLinks.get(linkIndex);
+if (false == nextLink.getModelFacet() instanceof FeatureModelFacet) {
+	continue;
+}
+FeatureModelFacet linkFMF = (FeatureModelFacet) nextLink.getModelFacet();
+GenFeature genFeature = linkFMF.getMetaFeature();
+GenTopLevelNode phantomNode = (GenTopLevelNode) genClass2Phantom.get(genFeature.getTypeGenClass());
+if (phantomsOnly ? (!genFeature.isContains() || phantomNode == null) : (genFeature.isContains())) {
+// Processing only features which are isPhantoms == phantomsOnly
+	continue;
+}
+%>	if (<%=importManager.getImportedName(genFeature.getGenPackage().getQualifiedPackageInterfaceName())%>.eINSTANCE.get<%=genFeature.getGenClass().getClassifierAccessorName()%>().isSuperTypeOf(containerMetaclass)) {
+<%	if (genFeature.isListType()) {%>
+		for (<%=importManager.getImportedName("java.util.Iterator")%> destinations = <%=getFeatureValueGetter("container", genFeature, true, importManager)%>.iterator(); destinations.hasNext();) {
+			<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> nextDestination = (<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%>) destinations.next();
+<%	} else {%>
+		<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> nextDestination = (<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%>) <%=getFeatureValueGetter("container", genFeature, true, importManager)%>;
+<%	}%>
+<%	if (phantomsOnly) {%>
+		if (<%=importManager.getImportedName(phantomNode.getEditPartQualifiedClassName())%>.VISUAL_ID == <%=importManager.getImportedName(genDiagram.getVisualIDRegistryQualifiedClassName())%>.getNodeVisualID(diagram, nextDestination)) {
+<%	}%>

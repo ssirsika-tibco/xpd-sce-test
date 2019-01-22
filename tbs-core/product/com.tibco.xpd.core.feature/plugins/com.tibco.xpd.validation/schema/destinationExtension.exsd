@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.validation" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.validation" id="destinationExtension" name="Destination Environment Extension"/>
+      </appinfo>
+      <documentation>
+         This extension allows you to add validation providers to an existing validation destination environment.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="destinationExtension"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="destinationExtension">
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="provider"/>
+         </sequence>
+         <attribute name="destinationId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Id of the validation destination environment to extend.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.tibco.xpd.validation.destinations/destination/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="provider">
+      <annotation>
+         <documentation>
+            Validation provider extending destination environment.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="providerId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Id of validation provider.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.tibco.xpd.validation.provider/provider/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.3
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         &lt;pre&gt;
+	&lt;extension
+         point=&quot;com.tibco.xpd.validation.destinationExtension&quot;&gt;
+      &lt;destinationExtension
+            destinationId=&quot;n2pe1.x&quot;&gt;
+         &lt;provider
+               providerId=&quot;com.tibco.bx.validation.provider.scripts&quot;/&gt;
+         &lt;provider
+               providerId=&quot;com.tibco.bx.validation.provider.process&quot;/&gt;
+      &lt;/destinationExtension&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc. 2004, 2009. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

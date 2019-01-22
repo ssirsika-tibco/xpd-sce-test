@@ -1,0 +1,90 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.editor" class="CreationWizardPageGenerator"
+    imports="org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.*"%>
+<%
+final GenDiagram genDiagram = (GenDiagram) ((Object[]) argument)[0];
+final GenEditorGenerator editorGen = genDiagram.getEditorGen();
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+import java.io.InputStream;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.wizards.EditorWizardPage;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.util.DiagramFileCreator;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchWindow;
+
+<%importManager.markImportLocation(stringBuffer);%>
+
+/**
+ * @generated
+ */
+public class <%=genDiagram.getCreationWizardPageClassName()%> extends EditorWizardPage {
+
+	/**
+	 * @generated
+	 */
+	public <%=genDiagram.getCreationWizardPageClassName()%>(IWorkbench workbench, IStructuredSelection selection) {
+		super("CreationWizardPage", workbench, selection); //$NON-NLS-1$
+		setTitle("Create <%=editorGen.getModelID()%> Diagram");
+		setDescription("Create a new <%=editorGen.getModelID()%> diagram.");
+	}
+
+	/**
+	 * @generated
+	 */
+	public IFile createAndOpenDiagram(IPath containerPath, String fileName, InputStream initialContents, String kind, IWorkbenchWindow dWindow, IProgressMonitor progressMonitor, boolean saveDiagram) {
+		return <%=genDiagram.getDiagramEditorUtilClassName()%>.createAndOpenDiagram(getDiagramFileCreator(), containerPath, fileName, initialContents, kind, dWindow, progressMonitor, isOpenNewlyCreatedDiagramEditor(), saveDiagram);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected String getDefaultFileName() {
+		return "default"; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	public DiagramFileCreator getDiagramFileCreator() {
+		return <%=genDiagram.getDiagramFileCreatorClassName()%>.getInstance();
+	}
+
+	/**
+	 * @generated
+	 */
+	protected String getDiagramKind() {
+		return <%=importManager.getImportedName(genDiagram.getEditPartQualifiedClassName())%>.MODEL_ID;
+	}
+	
+<%if (!editorGen.isSameFileForDiagramAndModel()) {%>
+	/**
+	 * @generated
+	 */
+	protected boolean validatePage() {
+		if (super.validatePage()) {
+			String fileName = getFileName();
+			if (fileName == null) {
+				return false;
+			}
+			// appending file extension to correctly process file names including "." symbol
+			IPath path = getContainerFullPath().append(getDiagramFileCreator().appendExtensionToFileName(fileName));
+			path = path.removeFileExtension().addFileExtension("<%=editorGen.getDomainFileExtension()%>"); //$NON-NLS-1$
+			if (<%=importManager.getImportedName("org.eclipse.core.resources.ResourcesPlugin")%>.getWorkspace().getRoot().exists(path)) {
+				setErrorMessage("Model File already exists: " + path.lastSegment());
+				return false;
+			}
+			return true;
+		}
+		return false;
+	}
+	
+<%}%>
+}
+<%importManager.emitSortedImports();%>

@@ -1,0 +1,189 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.expressions" class="OCLExpressionFactoryGenerator"
+    imports="org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.*"%>
+<%
+final GenExpressionInterpreter genInterpreter = (GenExpressionInterpreter) ((Object[]) argument)[0];
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+final GenDiagram genDiagram = genInterpreter.getContainer().getEditorGen().getDiagram();
+final String factoryClassName = genInterpreter.getClassName();
+final String abstractExpressionClass = genInterpreter.getContainer().getAbstractExpressionQualifiedClassName();
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+<%importManager.markImportLocation(stringBuffer);%>
+
+<%
+importManager.registerInnerClass("Expression");
+importManager.addImport("java.util.Collections");
+importManager.addImport("java.util.Iterator");
+importManager.addImport("java.util.Map");
+importManager.addImport("org.eclipse.core.runtime.IStatus");
+importManager.addImport("org.eclipse.emf.ecore.EClassifier");
+importManager.addImport("org.eclipse.emf.ecore.EEnum");
+importManager.addImport("org.eclipse.emf.ecore.EEnumLiteral");
+importManager.addImport("org.eclipse.emf.ecore.ETypedElement");
+importManager.addImport("org.eclipse.emf.ocl.expressions.ExpressionsFactory");
+importManager.addImport("org.eclipse.emf.ocl.expressions.OCLExpression");
+importManager.addImport("org.eclipse.emf.ocl.expressions.Variable");
+importManager.addImport("org.eclipse.emf.ocl.expressions.OperationCallExp");
+importManager.addImport("org.eclipse.emf.ocl.expressions.util.AbstractVisitor");
+importManager.addImport("org.eclipse.emf.ocl.utilities.PredefinedType");
+
+importManager.addImport("org.eclipse.emf.ocl.helper.HelperUtil");
+importManager.addImport("org.eclipse.emf.ocl.helper.IOCLHelper");
+importManager.addImport("org.eclipse.emf.ocl.helper.OCLParsingException");
+importManager.addImport("org.eclipse.emf.ocl.parser.EcoreEnvironment");
+importManager.addImport("org.eclipse.emf.ocl.parser.EcoreEnvironmentFactory");
+importManager.addImport("org.eclipse.emf.ocl.parser.EvaluationEnvironment");
+importManager.addImport("org.eclipse.emf.ocl.parser.Environment");
+importManager.addImport("org.eclipse.emf.ocl.query.Query");
+importManager.addImport("org.eclipse.emf.ocl.query.QueryFactory");
+importManager.addImport("org.eclipse.emf.ocl.types.util.Types");
+%>
+
+/**
+ * @generated 
+ */
+public class <%=factoryClassName%> {
+	/**
+	 * @generated 
+	 */
+	private <%=factoryClassName%>() {
+	}
+
+	/**
+	 * @generated 
+	 */	
+	public static <%=importManager.getImportedName(abstractExpressionClass)%> getExpression(String body, EClassifier context, Map environment) {		
+		return new Expression(body, context, environment);
+	}
+	
+	/**
+	 * @generated 
+	 */	
+	public static <%=importManager.getImportedName(abstractExpressionClass)%> getExpression(String body, EClassifier context) {		
+		return getExpression(body, context, Collections.EMPTY_MAP);
+	}	
+	
+	/**
+	 * @generated 
+	 */	
+	private static class Expression extends <%=importManager.getImportedName(abstractExpressionClass)%> {
+		/**
+		 * @generated 
+		 */		
+		private Query query;
+		/**
+		 * @generated 
+		 */			
+		public Expression(String body, EClassifier context, Map environment) {
+			super(body, context, environment);
+			
+			IOCLHelper oclHelper = (environment.isEmpty()) ? 
+					HelperUtil.createOCLHelper() :
+					HelperUtil.createOCLHelper(createCustomEnv(environment));
+			oclHelper.setContext(context());
+			try {
+				OCLExpression oclExpression = oclHelper.createQuery(body);
+				this.query = QueryFactory.eINSTANCE.createQuery(oclExpression);
+			} catch (OCLParsingException e) {
+				setStatus(IStatus.ERROR, e.getMessage(), e);
+			}			
+		}
+
+		/**
+		 * @generated 
+		 */		
+		protected Object doEvaluate(Object context, Map env) {
+			if (query == null) {
+				return null;
+			}
+			EvaluationEnvironment evalEnv = query.getEvaluationEnvironment();
+			// init environment
+			for (Iterator it = env.entrySet().iterator(); it.hasNext();) {
+				Map.Entry nextEntry = (Map.Entry) it.next();
+				evalEnv.replace((String)nextEntry.getKey(), nextEntry.getValue());					
+			}
+			
+			try {
+				initExtentMap(context);
+				Object result = query.evaluate(context);
+				return (result != Types.OCL_INVALID) ? result : null;
+			} finally {				
+				evalEnv.clear();
+				query.setExtentMap(Collections.EMPTY_MAP);
+			}
+		}
+		
+		/**
+		 * @generated
+		 */	
+		protected Object performCast(Object value, ETypedElement targetType) {
+			if (targetType.getEType() instanceof EEnum) {
+				if(value instanceof EEnumLiteral) {
+					EEnumLiteral literal = (EEnumLiteral)value;
+					return (literal.getInstance() != null) ? literal.getInstance() : literal;
+				}
+			}
+			return super.performCast(value, targetType);
+		}
+
+		/**
+		 * @generated
+		 */	
+		private void initExtentMap(Object context) {
+			if(query == null || context == null) {
+				return;
+			}
+			final Query queryToInit = query;
+			final Object extentContext = context;
+			
+			queryToInit.setExtentMap(Collections.EMPTY_MAP);
+			if(queryToInit.queryText() != null && queryToInit.queryText().indexOf("allInstances") >= 0) {			
+				AbstractVisitor visitior = new AbstractVisitor() {
+					private boolean usesAllInstances  = false;
+					
+					public Object visitOperationCallExp(OperationCallExp oc) {
+						if(!usesAllInstances) {
+							usesAllInstances = PredefinedType.ALL_INSTANCES == oc.getOperationCode();
+							if(usesAllInstances) {
+								queryToInit.setExtentMap(EcoreEnvironmentFactory.ECORE_INSTANCE.createExtentMap(extentContext));
+							}
+						}
+						return super.visitOperationCallExp(oc);
+					}
+				};
+				queryToInit.getExpression().accept(visitior);
+			}
+		}
+
+		/**
+		 * @generated 
+		 */		
+		private static EcoreEnvironmentFactory createCustomEnv(Map environment) {
+			final Map env = environment;
+			return new EcoreEnvironmentFactory() {					
+				public Environment createClassifierContext(Object context) {
+					Environment ecoreEnv = super.createClassifierContext(context);
+					for (Iterator it = env.keySet().iterator(); it.hasNext();) {
+						String varName = (String)it.next();
+						EClassifier varType = (EClassifier)env.get(varName);
+						ecoreEnv.addElement(varName, createVar(varName, varType), false);
+					}
+					return ecoreEnv;
+				}
+			};				
+		}
+		
+		/**
+		 * @generated 
+		 */		
+		private static Variable createVar(String name, EClassifier type) {
+			Variable var = ExpressionsFactory.eINSTANCE.createVariable();
+			var.setName(name);
+			var.setType(EcoreEnvironment.getOCLType(type));
+			return var;
+		}		
+	}
+}
+<%importManager.emitSortedImports();%>

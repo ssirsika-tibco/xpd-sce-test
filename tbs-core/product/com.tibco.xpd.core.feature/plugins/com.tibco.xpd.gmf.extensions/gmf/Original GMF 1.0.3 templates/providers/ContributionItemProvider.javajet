@@ -1,0 +1,28 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.providers" class="ContributionItemProviderGenerator"
+    imports="org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.*"%>
+<%
+final GenDiagram genDiagram = (GenDiagram) ((Object[]) argument)[0];
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+<%importManager.markImportLocation(stringBuffer);%>
+
+/**
+ * @generated
+ */
+public class <%=genDiagram.getContributionItemProviderClassName()%> extends <%=importManager.getImportedName("org.eclipse.gmf.runtime.common.ui.services.action.contributionitem.AbstractContributionItemProvider")%> {
+
+	/**
+	 * @generated
+	 */
+	protected <%=importManager.getImportedName("org.eclipse.jface.action.IAction")%> createAction(String actionId, <%=importManager.getImportedName("org.eclipse.gmf.runtime.common.ui.util.IWorkbenchPartDescriptor")%> partDescriptor) {
+		if (actionId.equals(<%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.printing.actions.PrintPreviewAction")%>.ID)) {
+			return new <%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.printing.render.actions.RenderedPrintPreviewAction")%>(new <%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.printing.render.actions.EnhancedPrintActionHelper")%>());
+		}
+		return super.createAction(actionId, partDescriptor);
+	}
+
+}
+<%importManager.emitSortedImports();%>
