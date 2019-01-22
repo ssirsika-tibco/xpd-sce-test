@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/ComplexTest/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ComplexTest" targetNamespace="http://www.example.org/ComplexTest/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/ComplexTest/">
+      <xsd:element name="NewOperation">
+        <xsd:complexType>
+
+        	<xsd:choice>
+        		<xsd:element name="choice1" type="xsd:string"></xsd:element>
+        		<xsd:element name="choice2" type="xsd:string"></xsd:element>
+        		<xsd:element name="choice3" type="xsd:string"></xsd:element>
+        	</xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse">
+        <xsd:complexType>
+
+        	<xsd:choice>
+        		<xsd:element name="ch1" type="xsd:string"></xsd:element>
+        		<xsd:element name="ch2" type="xsd:string"></xsd:element>
+        		<xsd:element name="ch3" type="xsd:string"></xsd:element>
+        	</xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RequestOnly">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RequestOnlyResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ResponseOnly">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ResponseOnlyResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperation_fault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="NewOperation_fault"
+      				type="xsd:string">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part element="tns:NewOperation" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part element="tns:NewOperationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="RequestOnlyRequest">
+  	<wsdl:part name="parameters" element="tns:NewOperation"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RequestOnlyResponse">
+  	<wsdl:part name="parameters" element="tns:RequestOnlyResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ResponseOnlyRequest">
+  	<wsdl:part name="parameters" element="tns:ResponseOnly"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ResponseOnlyResponse">
+  	<wsdl:part name="parameters" element="tns:ResponseOnlyResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NewOperation_faultMsg">
+  	<wsdl:part name="parameters" element="tns:NewOperation"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ComplexTest">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:NewOperationResponse"/>
+            <wsdl:fault name="fault" message="tns:NewOperation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    <wsdl:operation name="RequestOnly">
+    	<wsdl:input message="tns:RequestOnlyRequest"></wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ComplexTestSOAP" type="tns:ComplexTest">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="NewOperation">
+  		<soap:operation
+  			soapAction="http://www.example.org/ComplexTest/NewOperation" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="RequestOnly">
+  		<soap:operation
+  			soapAction="http://www.example.org/ComplexTest/RequestOnly" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  	</wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="ComplexTest">  	<wsdl:port name="ComplexTestSOAP" binding="tns:ComplexTestSOAP">  		<soap:address location="http://www.example.org/" />
+  	</wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

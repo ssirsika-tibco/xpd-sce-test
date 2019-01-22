@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/NestedAnonymous" xmlns:tns1="http://example.com/NestedAnonymous"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/NestedAnonymous">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/BPMEchoAddress/Business Objects/NestedAnonymous.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="com.example.nested.anonymous_AnonymousNested" abstract="false"
+      mixed="false" name="AnonymousNested">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:Person">
+        <xsd:sequence>
+          <xsd:element id="AnonymousNested_addressType" form="unqualified" maxOccurs="1"
+              minOccurs="1" name="address">
+            <xsd:complexType id="com.example.nested.anonymous_addressType" mixed="false">
+              <xsd:sequence>
+                <xsd:element form="unqualified" maxOccurs="1" minOccurs="1" name="firstline">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element id="AnonymousNested_city" form="unqualified" maxOccurs="1"
+              minOccurs="1" name="city">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="AnonymousNested_country" form="unqualified" maxOccurs="1"
+              minOccurs="1" name="country">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="com.example.nested.anonymous_Person" abstract="false" mixed="false"
+      name="Person">
+    <xsd:sequence>
+      <xsd:element id="Person_name" form="unqualified" maxOccurs="1" minOccurs="1"
+          name="name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

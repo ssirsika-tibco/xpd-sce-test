@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ep:policySetContainer xmlns:ep="http://xsd.tns.tibco.com/amf/models/externalpolicy" 
+   xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" 
+   xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions"  
+   xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"  
+   xmlns:tpa="http://xsd.tns.tibco.com/governance/policy/action/2009"
+   xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+   xmlns:tpc="http://xsd.tns.tibco.com/governance/policy/common/2009"
+   xmlns:jmsbt="http://xsd.tns.tibco.com/amf/models/sca/bindingtype/jms"
+   xmlns:soapbt="http://xsd.tns.tibco.com/amf/models/sca/binding/soap"
+   xmlns:webapp="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/webapp"
+   xmlns:systempolicy="http://xsd.tns.tibco.com/amf/models/sca/policy/system" 
+   targetNamespace="http://www.tibco.com/wrm/policy/pbu">
+ 
+  <!-- add the policy sets here -->
+  <sca:policySet name="PrepareBeforeUndeploy_WRMComponent" appliesTo="sca:implementation" provides="scaext:prepareBeforeUndeploy">
+  	<systempolicy:prepareBeforeUndeploy scaext:label="Prepare Before Undeploy">
+      <scaext:description>Used to indicate that a component might require an arbitrarily long time to prepare (allow ongoing work to complete) before it can be undeployed. A typical example would be a business process involving human tasks, which might take months to complete.</scaext:description>
+    </systempolicy:prepareBeforeUndeploy>
+  </sca:policySet>
+
+</ep:policySetContainer>

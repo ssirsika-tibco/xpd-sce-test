@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.amsbqa.linda19.XSD2Define_Types19" name="com.amsbqa.linda19.XSD2Define_Types19">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FHRaEU1mEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FHRaEk1mEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FHRaE01mEeSLJZkJre4IDg" key="created" value="1412609755313"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FHRaFE1mEeSLJZkJre4IDg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FIcewE1mEeSLJZkJre4IDg" key="checksum" value="3833464318"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.linda19.XSD2Define_Types19Company2" name="Company">
+      <generalization xmi:type="uml:Generalization" xmi:id="_FGR7kE1mEeSLJZkJre4IDg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.linda19.XSD2Define_Types19ContractID2" name="ContractID">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_FGVl8k1mEeSLJZkJre4IDg" body="contract`s ID "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_FGVl8E1mEeSLJZkJre4IDg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.linda19.XSD2Define_Types19Comments2" name="Comments">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_FGaecE1mEeSLJZkJre4IDg" body="comments "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_FGZ3YE1mEeSLJZkJre4IDg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.linda19.XSD2Define_Types19NewType1" name="NewType1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewType1NewElement" name="newElement" type="com.amsbqa.linda19.XSD2Define_Types19Company2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aCompany?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FGev4k1mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FGev4U1mEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewType1ContractElement" name="contractElement" type="com.amsbqa.linda19.XSD2Define_Types19ComplexType?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FG0uJU1mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FG0uJE1mEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.linda19.XSD2Define_Types19ComplexType" name="ComplexType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ComplexTypeCompanyNameAttribute" name="companyNameAttribute" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FGiaQ01mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FGiaQk1mEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ComplexTypeValide" name="valide" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FGkPc01mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FGkPck1mEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ComplexTypeContractLevelAttribute" name="contractLevelAttribute" type="com.amsbqa.linda19.XSD2Define_Types19ContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractLevelAttribute?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FGog5E1mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FGog401mEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ComplexTypeContractSecurity" name="contractSecurity" type="com.amsbqa.linda19.XSD2Define_Types19ContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractSecurity?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FGsLQk1mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FGsLQU1mEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ComplexTypeNewElement" name="newElement" type="com.amsbqa.linda19.XSD2Define_Types19ContractID2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractID?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FGvOk01mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FGvOkk1mEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ComplexTypeNewElement1" name="newElement1" type="com.amsbqa.linda19.XSD2Define_Types19Comments2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComments?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FGyR401mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FGyR4k1mEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.linda19.XSD2Define_Types19ContractLevelAttribute" name="ContractLevelAttribute">
+      <generalization xmi:type="uml:Generalization" xmi:id="_FGmrsU1mEeSLJZkJre4IDg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.linda19.XSD2Define_Types19ContractSecurity" name="ContractSecurity">
+      <generalization xmi:type="uml:Generalization" xmi:id="_FGqWEU1mEeSLJZkJre4IDg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_FFxlQU1mEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FFxlQk1mEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_FFxlQ01mEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FFxlRE1mEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_FFxlRU1mEeSLJZkJre4IDg" base_Package="com.amsbqa.linda19.XSD2Define_Types19?com.amsbqa.linda19.XSD2Define_Types19?" xsdTargetNamespace="http://www.amsbqa.com/linda19/XSD2Define_Types19" xsdSchemaLocation="WSDL2embedsSchema1.wsdl;Contract.xsd;WSDL1importsWSDL2.wsdl;Contract.xsd" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.9.0.qualifier" bomWsdlSources="WSDL2embedsSchema1.wsdl,WSDL1importsWSDL2.wsdl"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FF5hEE1mEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGRUgE1mEeSLJZkJre4IDg" textLength="-1" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19Company2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aCompany?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_FGRUgU1mEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19Company2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aCompany?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_FGR7kU1mEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19Company2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aCompany?" xsdSimpleTypeName="Company" xsdRestrictionBase="string"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGUX0E1mEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGU-4E1mEeSLJZkJre4IDg" textLength="8" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19ContractID2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractID?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_FGU-4U1mEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19ContractID2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractID?" xsdMaxLengthFixed="false" xsdMaxLengthValue="8" xsdMinLengthFixed="false" xsdMinLengthValue="6"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_FGVl8U1mEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19ContractID2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractID?" xsdSimpleTypeName="ContractID" xsdRestrictionBase="string"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGYpQE1mEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGZQUE1mEeSLJZkJre4IDg" textLength="-1" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19Comments2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComments?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_FGZQUU1mEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19Comments2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComments?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_FGZ3YU1mEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19Comments2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComments?" xsdSimpleTypeName="Comments" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_FGcToE1mEeSLJZkJre4IDg" base_Class="com.amsbqa.linda19.XSD2Define_Types19NewType1?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1?" xsdName="NewType1" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_FG1VME1mEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_FGev4E1mEeSLJZkJre4IDg" base_Property="NewType1NewElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1%3a%3anewElement?" xsdName="NewElement" xsdForm="qualified" xsdType="Company" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_FG1VME1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_FGhMIE1mEeSLJZkJre4IDg" base_Class="com.amsbqa.linda19.XSD2Define_Types19ComplexType?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType?" xsdName="ComplexType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_FGzgAE1mEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_FGiaQU1mEeSLJZkJre4IDg" base_Property="ComplexTypeCompanyNameAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acompanyNameAttribute?" xsdName="CompanyNameAttribute" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGiaRE1mEeSLJZkJre4IDg" textLength="-1" base_Property="ComplexTypeCompanyNameAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acompanyNameAttribute?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_FGkPcU1mEeSLJZkJre4IDg" base_Property="ComplexTypeValide?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3avalide?" xsdName="Valide" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGk2gE1mEeSLJZkJre4IDg" textLength="-1" base_Property="ComplexTypeValide?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3avalide?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGnSwE1mEeSLJZkJre4IDg" textLength="-1" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19ContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractLevelAttribute?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_FGn50E1mEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19ContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractLevelAttribute?" xsdSimpleTypeName="ContractLevelAttribute" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:TopLevelAttributes xmi:id="_FGn50U1mEeSLJZkJre4IDg" base_Package="com.amsbqa.linda19.XSD2Define_Types19?com.amsbqa.linda19.XSD2Define_Types19?">
+    <attributes xmi:type="XsdNotationProfile:TopLevelAttribute" xmi:id="_FGog4E1mEeSLJZkJre4IDg" name="ContractLevelAttribute" type="com.amsbqa.linda19.XSD2Define_Types19ContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractLevelAttribute?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/linda19/XSD2Define_Types19"/>
+    <attributes xmi:type="XsdNotationProfile:TopLevelAttribute" xmi:id="_FGrkME1mEeSLJZkJre4IDg" name="ContractSecurity" type="com.amsbqa.linda19.XSD2Define_Types19ContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractSecurity?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/linda19/XSD2Define_Types19"/>
+  </XsdNotationProfile:TopLevelAttributes>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_FGog4k1mEeSLJZkJre4IDg" base_Property="ComplexTypeContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acontractLevelAttribute?" xsdName="ContractLevelAttribute" xsdRef="http://www.amsbqa.com/linda19/XSD2Define_Types19:ContractLevelAttribute" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_FGq9IE1mEeSLJZkJre4IDg" textLength="-1" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19ContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractSecurity?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_FGq9IU1mEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.linda19.XSD2Define_Types19ContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractSecurity?" xsdSimpleTypeName="ContractSecurity" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_FGsLQE1mEeSLJZkJre4IDg" base_Property="ComplexTypeContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acontractSecurity?" xsdName="ContractSecurity" xsdRef="http://www.amsbqa.com/linda19/XSD2Define_Types19:ContractSecurity" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_FGvOkU1mEeSLJZkJre4IDg" base_Property="ComplexTypeNewElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3anewElement?" xsdName="NewElement" xsdForm="qualified" xsdType="ContractID" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_FGzgAE1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_FGyR4U1mEeSLJZkJre4IDg" base_Property="ComplexTypeNewElement1?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3anewElement1?" xsdName="NewElement1" xsdForm="qualified" xsdType="Comments" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_FGzgAE1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_FG0uIE1mEeSLJZkJre4IDg" base_Package="com.amsbqa.linda19.XSD2Define_Types19?com.amsbqa.linda19.XSD2Define_Types19?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_FG0uIU1mEeSLJZkJre4IDg" name="ContractElement" type="com.amsbqa.linda19.XSD2Define_Types19ComplexType?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType?" targetNamespace="http://www.amsbqa.com/linda19/XSD2Define_Types19" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_FG4YgE1mEeSLJZkJre4IDg" name="CompanyElement" type="com.amsbqa.linda19.XSD2Define_Types19Company2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aCompany?" targetNamespace="http://www.amsbqa.com/linda19/XSD2Define_Types19" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_FG5moE1mEeSLJZkJre4IDg" name="BusinessElement" type="com.amsbqa.linda19.XSD2Define_Types19NewType1?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1?" targetNamespace="http://www.amsbqa.com/linda19/XSD2Define_Types19" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_FG0uI01mEeSLJZkJre4IDg" base_Property="NewType1ContractElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1%3a%3acontractElement?" xsdName="ContractElement" xsdRef="http://www.amsbqa.com/linda19/XSD2Define_Types19:ContractElement" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_FG1VME1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG6NsE1mEeSLJZkJre4IDg" base_Element="_FGkPc01mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG6NsU1mEeSLJZkJre4IDg" base_Element="_FGkPck1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG6Nsk1mEeSLJZkJre4IDg" base_Element="_FG0uJU1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG6Ns01mEeSLJZkJre4IDg" base_Element="ComplexTypeValide?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3avalide?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG6NtE1mEeSLJZkJre4IDg" base_Element="_FFxlQU1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG6NtU1mEeSLJZkJre4IDg" base_Element="_FGyR401mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60wE1mEeSLJZkJre4IDg" base_Element="_FGqWEU1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60wU1mEeSLJZkJre4IDg" base_Element="_FGmrsU1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60wk1mEeSLJZkJre4IDg" base_Element="_FGvOkk1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60w01mEeSLJZkJre4IDg" base_Element="_FGsLQU1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60xE1mEeSLJZkJre4IDg" base_Element="_FGZ3YE1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60xU1mEeSLJZkJre4IDg" base_Element="ComplexTypeContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acontractLevelAttribute?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60xk1mEeSLJZkJre4IDg" base_Element="ComplexTypeContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acontractSecurity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60x01mEeSLJZkJre4IDg" base_Element="_FGiaQk1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60yE1mEeSLJZkJre4IDg" base_Element="ComplexTypeNewElement1?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3anewElement1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG60yU1mEeSLJZkJre4IDg" base_Element="_FGog401mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b0E1mEeSLJZkJre4IDg" base_Element="_FGev4k1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b0U1mEeSLJZkJre4IDg" base_Element="_FG0uJE1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b0k1mEeSLJZkJre4IDg" base_Element="com.amsbqa.linda19.XSD2Define_Types19NewType1?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b001mEeSLJZkJre4IDg" base_Element="com.amsbqa.linda19.XSD2Define_Types19ComplexType?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b1E1mEeSLJZkJre4IDg" base_Element="_FGvOk01mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b1U1mEeSLJZkJre4IDg" base_Element="NewType1ContractElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1%3a%3acontractElement?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b1k1mEeSLJZkJre4IDg" base_Element="_FGev4U1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b101mEeSLJZkJre4IDg" base_Element="_FFxlQ01mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b2E1mEeSLJZkJre4IDg" base_Element="_FGyR4k1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG7b2U1mEeSLJZkJre4IDg" base_Element="com.amsbqa.linda19.XSD2Define_Types19Comments2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComments?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C4E1mEeSLJZkJre4IDg" base_Element="_FGog5E1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C4U1mEeSLJZkJre4IDg" base_Element="_FGsLQk1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C4k1mEeSLJZkJre4IDg" base_Element="_FGiaQ01mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C401mEeSLJZkJre4IDg" base_Element="ComplexTypeCompanyNameAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acompanyNameAttribute?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C5E1mEeSLJZkJre4IDg" base_Element="_FGaecE1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C5U1mEeSLJZkJre4IDg" base_Element="ComplexTypeNewElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3anewElement?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C5k1mEeSLJZkJre4IDg" base_Element="_FGVl8k1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C501mEeSLJZkJre4IDg" base_Element="NewType1NewElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1%3a%3anewElement?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C6E1mEeSLJZkJre4IDg" base_Element="com.amsbqa.linda19.XSD2Define_Types19ContractID2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractID?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8C6U1mEeSLJZkJre4IDg" base_Element="_FGVl8E1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8p8E1mEeSLJZkJre4IDg" base_Element="_FGR7kE1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8p8U1mEeSLJZkJre4IDg" base_Element="com.amsbqa.linda19.XSD2Define_Types19ContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractSecurity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8p8k1mEeSLJZkJre4IDg" base_Element="com.amsbqa.linda19.XSD2Define_Types19ContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractLevelAttribute?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_FG8p801mEeSLJZkJre4IDg" base_Element="com.amsbqa.linda19.XSD2Define_Types19Company2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aCompany?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHNvsE1mEeSLJZkJre4IDg" displayLabel="Comments" base_NamedElement="com.amsbqa.linda19.XSD2Define_Types19Comments2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComments?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHNvsU1mEeSLJZkJre4IDg" displayLabel="Company" base_NamedElement="com.amsbqa.linda19.XSD2Define_Types19Company2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aCompany?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHNvsk1mEeSLJZkJre4IDg" displayLabel="ComplexType" base_NamedElement="com.amsbqa.linda19.XSD2Define_Types19ComplexType?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHOWwE1mEeSLJZkJre4IDg" displayLabel="ContractID" base_NamedElement="com.amsbqa.linda19.XSD2Define_Types19ContractID2?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHOWwU1mEeSLJZkJre4IDg" displayLabel="ContractLevelAttribute" base_NamedElement="com.amsbqa.linda19.XSD2Define_Types19ContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractLevelAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHO90E1mEeSLJZkJre4IDg" displayLabel="ContractSecurity" base_NamedElement="com.amsbqa.linda19.XSD2Define_Types19ContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aContractSecurity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHO90U1mEeSLJZkJre4IDg" displayLabel="NewType1" base_NamedElement="com.amsbqa.linda19.XSD2Define_Types19NewType1?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHPk4E1mEeSLJZkJre4IDg" displayLabel="NewElement" base_NamedElement="ComplexTypeNewElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3anewElement?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHPk4U1mEeSLJZkJre4IDg" displayLabel="NewElement1" base_NamedElement="ComplexTypeNewElement1?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3anewElement1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHQL8E1mEeSLJZkJre4IDg" displayLabel="CompanyNameAttribute" base_NamedElement="ComplexTypeCompanyNameAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acompanyNameAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHQL8U1mEeSLJZkJre4IDg" displayLabel="ContractLevelAttribute" base_NamedElement="ComplexTypeContractLevelAttribute?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acontractLevelAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHQL8k1mEeSLJZkJre4IDg" displayLabel="ContractSecurity" base_NamedElement="ComplexTypeContractSecurity?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3acontractSecurity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHQzAE1mEeSLJZkJre4IDg" displayLabel="Valide" base_NamedElement="ComplexTypeValide?com.amsbqa.linda19.XSD2Define_Types19%3a%3aComplexType%3a%3avalide?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHQzAU1mEeSLJZkJre4IDg" displayLabel="ContractElement" base_NamedElement="NewType1ContractElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1%3a%3acontractElement?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FHRaEE1mEeSLJZkJre4IDg" displayLabel="NewElement" base_NamedElement="NewType1NewElement?com.amsbqa.linda19.XSD2Define_Types19%3a%3aNewType1%3a%3anewElement?"/>
+  <notation:Diagram xmi:id="_FHRaFU1mEeSLJZkJre4IDg" type="Business Object Model" element="com.amsbqa.linda19.XSD2Define_Types19?com.amsbqa.linda19.XSD2Define_Types19?" name="com.amsbqa.linda19.XSD2Define_Types19" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_FHRaFk1mEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_FHRaF01mEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns="http://xmlns.enel.com/mercato/libero/presentation/abstract/ServiceCloudGatewayService" xmlns:tns="http://xmlns.enel.com/mercato/libero/presentation/abstract/ServiceCloudGatewayService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/presentation/abstract/ServiceCloudGatewayService">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/presentation/abstract/ServiceCloudGatewayService" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.enel.com/mercato/libero/presentation/abstract/ServiceCloudGatewayService" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="UpdateIncassoFatturaRequestType">
+                <xs:sequence>
+                    <xs:element name="ChiaveUnivocaCRM" type="tns:stringa30"/>
+                    <xs:element name="IdRichiestaFO" type="tns:stringa15"/>
+                    <xs:element name="CausaleBonifico" type="tns:stringa282"/>
+                    <xs:element name="CheckCausaleSAP" type="tns:stringa2"/>
+                    <xs:element name="ImportoBonifico" type="tns:stringa30"/>
+                    <xs:element name="PercBonifico" type="tns:stringa30"/>
+                    <xs:element name="DataValuta" type="xs:date"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="UpdateIncassoFatturaResponseType">
+                <xs:sequence>
+                    <xs:element name="Esito" type="tns:stringa2"/>
+                    <xs:element name="CodiceEsito" type="tns:stringa15" minOccurs="0"/>
+                    <xs:element name="DescrizioneEsito" type="tns:stringa255" minOccurs="0"/>
+                    <xs:element name="SistemaSorgenteEsito" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="stringa1">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="1"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa10">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="10"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa12">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="12"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa15">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="15"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa16">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="16"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa2">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="2"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa20">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="20"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa255">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="255"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa282">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="282"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa30">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="30"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="stringa50">
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="50"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="UpdateIncassoFatturaRequest" type="tns:UpdateIncassoFatturaRequestType"/>
+            <xs:element name="UpdateIncassoFatturaResponse" type="tns:UpdateIncassoFatturaResponseType"/>			
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:portType name="ServiceCloudGatewayPortType">
+        <wsdl:operation name="UpdateIncassoFattura">
+            <wsdl:input message="tns:UpdateIncassoFatturaRequest"/>
+            <wsdl:output message="tns:UpdateIncassoFatturaResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="UpdateIncassoFatturaRequest">
+        <wsdl:part name="input" element="tns:UpdateIncassoFatturaRequest"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateIncassoFatturaResponse">
+        <wsdl:part name="output" element="tns:UpdateIncassoFatturaResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

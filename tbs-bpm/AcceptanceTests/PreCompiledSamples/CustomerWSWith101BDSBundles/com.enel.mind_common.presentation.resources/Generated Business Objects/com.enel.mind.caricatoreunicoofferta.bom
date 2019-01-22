@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.mind.caricatoreunicoofferta" name="com.enel.mind.caricatoreunicoofferta">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HiFssw93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HiFstA93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HiFstQ93EeW3MruGqUCC5Q" key="created" value="1433947598570"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HiFstg93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HjuEUA93EeW3MruGqUCC5Q" key="checksum" value="3424328819"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaInput" name="CaricatoreUnicoOffertaInput">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CaricatoreUnicoOffertaInputdatiMasterInsOffertaIprProcessRequest" name="datiMasterInsOffertaIprProcessRequest" type="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest?" aggregation="composite" association="com.enel.mind.caricatoreunicooffertaComposition3?com.enel.mind.caricatoreunicoofferta%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HgS84g93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HgS84Q93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessRequest" name="DatiMasterInsOffertaIprProcessRequest">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestrichiesta" name="richiesta" type="com.enel.mind.caricatoreunicooffertaRichiestaType?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType?" aggregation="composite" association="com.enel.mind.caricatoreunicooffertaComposition2?com.enel.mind.caricatoreunicoofferta%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfjWAw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfjWAg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestinsOffertaMemo" name="insOffertaMemo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfjWCw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfjWCg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestesitoVBL" name="esitoVBL" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HftHAw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HftHAg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestcausaleVBL" name="causaleVBL" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HftHCg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HftHCQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestcausaleEsitoDescrizioneCVP" name="causaleEsitoDescrizioneCVP" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HftHEQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HftHEA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestdataEsitoInvioCVP" name="dataEsitoInvioCVP" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hf24Aw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hf24Ag93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestesitoCVP" name="esitoCVP" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hf24Cg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hf24CQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestimportMorositaCVP" name="importMorositaCVP" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hf24EQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hf24EA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestmacroCausaleEsitoDescrizioneCVP" name="macroCausaleEsitoDescrizioneCVP" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hf24GA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hf24Fw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestcausaleEsito" name="causaleEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HgAB8w93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HgAB8g93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestORIGINE_FIRST" name="ORIGINE_FIRST" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HgAB-g93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HgAB-Q93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestID_CHIAMATA" name="ID_CHIAMATA" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HgACAQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HgACAA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestTELEFONO_CONTRATTO" name="TELEFONO_CONTRATTO" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HgJy8w93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HgJy8g93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessRequestCONSENSO_PROFILAZIONE" name="CONSENSO_PROFILAZIONE" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HgJy-g93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HgJy-Q93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.mind.caricatoreunicooffertaRichiestaType" name="RichiestaType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypesistemaRichiedente" name="sistemaRichiedente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfaMFQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfaMFA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypecanale" name="canale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfaMHA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfaMGw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeidProcessoBpm" name="idProcessoBpm" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfaMIw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfaMIg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.mind.caricatoreunicooffertaComposition2" name="Composition2" memberEnd="DatiMasterInsOffertaIprProcessRequestrichiesta?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3arichiesta? Composition2datimasterinsoffertaiprprocessrequest?com.enel.mind.caricatoreunicoofferta%3a%3aComposition2%3a%3adatimasterinsoffertaiprprocessrequest?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition2datimasterinsoffertaiprprocessrequest" name="datimasterinsoffertaiprprocessrequest" type="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest?" association="com.enel.mind.caricatoreunicooffertaComposition2?com.enel.mind.caricatoreunicoofferta%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfjWBg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfjWBQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.mind.caricatoreunicooffertaComposition3" name="Composition3" memberEnd="CaricatoreUnicoOffertaInputdatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput%3a%3adatiMasterInsOffertaIprProcessRequest? Composition3caricatoreunicooffertainput?com.enel.mind.caricatoreunicoofferta%3a%3aComposition3%3a%3acaricatoreunicooffertainput?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition3caricatoreunicooffertainput" name="caricatoreunicooffertainput" type="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaInput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput?" association="com.enel.mind.caricatoreunicooffertaComposition3?com.enel.mind.caricatoreunicoofferta%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HgS85Q93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HgS85A93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaOutput" name="CaricatoreUnicoOffertaOutput">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CaricatoreUnicoOffertaOutputdatiMasterInsOffertaIprProcessResponse" name="datiMasterInsOffertaIprProcessResponse" type="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse?" aggregation="composite" association="com.enel.mind.caricatoreunicooffertaComposition5?com.enel.mind.caricatoreunicoofferta%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HhCjxA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HhCjww93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessResponse" name="DatiMasterInsOffertaIprProcessResponse">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessResponseesito" name="esito" type="com.enel.mind.caricatoreunicooffertaEsitoType?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType?" aggregation="composite" association="com.enel.mind.caricatoreunicooffertaComposition4?com.enel.mind.caricatoreunicoofferta%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgme7g93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgme7Q93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessResponsesottoCanale" name="sottoCanale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgme9g93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgme9Q93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessResponsecodCamp" name="codCamp" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgvo1Q93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgvo1A93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessResponsecausaleOperazione" name="causaleOperazione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgvo3A93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgvo2w93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessResponseX_codiceChannel" name="X_codiceChannel" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hg5Z0w93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hg5Z0g93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessResponsecodUnivocoServizioPartener" name="codUnivocoServizioPartener" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hg5Z2g93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hg5Z2Q93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DatiMasterInsOffertaIprProcessResponseX_codiceIncaricato" name="X_codiceIncaricato" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hg5Z4Q93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hg5Z4A93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.mind.caricatoreunicooffertaEsitoType" name="EsitoType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeesito" name="esito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HgS88Q93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HgS88A93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypecodiceEsito" name="codiceEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgct5Q93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgct5A93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypedescrizione" name="descrizione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgct7A93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgct6w93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypetipoEsito" name="tipoEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgct8w93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgct8g93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypesistemaSorgenteEsito" name="sistemaSorgenteEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgme5g93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgme5Q93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.mind.caricatoreunicooffertaComposition4" name="Composition4" memberEnd="DatiMasterInsOffertaIprProcessResponseesito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aesito? Composition4datimasterinsoffertaiprprocessresponse?com.enel.mind.caricatoreunicoofferta%3a%3aComposition4%3a%3adatimasterinsoffertaiprprocessresponse?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition4datimasterinsoffertaiprprocessresponse" name="datimasterinsoffertaiprprocessresponse" type="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse?" association="com.enel.mind.caricatoreunicooffertaComposition4?com.enel.mind.caricatoreunicoofferta%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Hgme8Q93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hgme8A93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.mind.caricatoreunicooffertaComposition5" name="Composition5" memberEnd="CaricatoreUnicoOffertaOutputdatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput%3a%3adatiMasterInsOffertaIprProcessResponse? Composition5caricatoreunicooffertaoutput?com.enel.mind.caricatoreunicoofferta%3a%3aComposition5%3a%3acaricatoreunicooffertaoutput?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition5caricatoreunicooffertaoutput" name="caricatoreunicooffertaoutput" type="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaOutput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput?" association="com.enel.mind.caricatoreunicooffertaComposition5?com.enel.mind.caricatoreunicoofferta%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HhCjxw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HhCjxg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HfQbWw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HfQbXA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HfQbXQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HfQbXg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_HfQbXw93EeW3MruGqUCC5Q" base_Package="com.enel.mind.caricatoreunicoofferta?com.enel.mind.caricatoreunicoofferta?" xsdTargetNamespace="http://mind.enel.com/caricatoreunicoofferta" xsdSchemaLocation="CaricatoreUnicoOffertaServiceAbstract.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="CaricatoreUnicoOffertaServiceAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HfQbYQ93EeW3MruGqUCC5Q" base_Class="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaInput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput?" xsdName="CaricatoreUnicoOffertaInput" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HgS85w93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HfQbYw93EeW3MruGqUCC5Q" base_Class="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest?" xsdName="DatiMasterInsOffertaIprProcessRequest" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HgJy_g93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HfaMEQ93EeW3MruGqUCC5Q" base_Class="com.enel.mind.caricatoreunicooffertaRichiestaType?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType?" xsdName="RichiestaType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HfaMJw93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfaMEw93EeW3MruGqUCC5Q" base_Property="RichiestaTypesistemaRichiedente?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3asistemaRichiedente?" xsdName="sistemaRichiedente" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfaMJw93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HfaMFg93EeW3MruGqUCC5Q" base_Property="RichiestaTypesistemaRichiedente?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3asistemaRichiedente?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HfaMFw93EeW3MruGqUCC5Q" base_Property="RichiestaTypesistemaRichiedente?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3asistemaRichiedente?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HfaMGA93EeW3MruGqUCC5Q" base_Property="RichiestaTypesistemaRichiedente?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3asistemaRichiedente?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfaMGg93EeW3MruGqUCC5Q" base_Property="RichiestaTypecanale?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3acanale?" xsdName="canale" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfaMJw93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HfaMHQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypecanale?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3acanale?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HfaMHg93EeW3MruGqUCC5Q" base_Property="RichiestaTypecanale?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3acanale?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HfaMHw93EeW3MruGqUCC5Q" base_Property="RichiestaTypecanale?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3acanale?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfaMIQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypeidProcessoBpm?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3aidProcessoBpm?" xsdName="idProcessoBpm" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfaMJw93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HfaMJA93EeW3MruGqUCC5Q" base_Property="RichiestaTypeidProcessoBpm?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3aidProcessoBpm?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HfaMJQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypeidProcessoBpm?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3aidProcessoBpm?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HfaMJg93EeW3MruGqUCC5Q" base_Property="RichiestaTypeidProcessoBpm?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3aidProcessoBpm?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfjWBw93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestrichiesta?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3arichiesta?" xsdName="richiesta" xsdForm="unqualified" xsdType="RichiestaType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfjWCQ93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestinsOffertaMemo?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3ainsOffertaMemo?" xsdName="insOffertaMemo" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HfjWDA93EeW3MruGqUCC5Q" textLength="-1" base_Property="DatiMasterInsOffertaIprProcessRequestinsOffertaMemo?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3ainsOffertaMemo?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HftHAQ93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestesitoVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoVBL?" xsdName="esitoVBL" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HftHBA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestesitoVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoVBL?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HftHBQ93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestesitoVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoVBL?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HftHBg93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestesitoVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoVBL?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HftHCA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleVBL?" xsdName="causaleVBL" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HftHCw93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleVBL?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HftHDA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleVBL?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HftHDQ93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleVBL?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HftHDw93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsitoDescrizioneCVP?" xsdName="causaleEsitoDescrizioneCVP" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HftHEg93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsitoDescrizioneCVP?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HftHEw93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsitoDescrizioneCVP?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HftHFA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsitoDescrizioneCVP?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hf24AQ93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestdataEsitoInvioCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3adataEsitoInvioCVP?" xsdName="dataEsitoInvioCVP" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hf24BA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestdataEsitoInvioCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3adataEsitoInvioCVP?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hf24BQ93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestdataEsitoInvioCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3adataEsitoInvioCVP?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hf24Bg93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestdataEsitoInvioCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3adataEsitoInvioCVP?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hf24CA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestesitoCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoCVP?" xsdName="esitoCVP" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hf24Cw93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestesitoCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoCVP?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hf24DA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestesitoCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoCVP?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hf24DQ93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestesitoCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoCVP?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hf24Dw93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestimportMorositaCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aimportMorositaCVP?" xsdName="importMorositaCVP" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hf24Eg93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestimportMorositaCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aimportMorositaCVP?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hf24Ew93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestimportMorositaCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aimportMorositaCVP?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hf24FA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestimportMorositaCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aimportMorositaCVP?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hf24Fg93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestmacroCausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3amacroCausaleEsitoDescrizioneCVP?" xsdName="macroCausaleEsitoDescrizioneCVP" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hf24GQ93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestmacroCausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3amacroCausaleEsitoDescrizioneCVP?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hf24Gg93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestmacroCausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3amacroCausaleEsitoDescrizioneCVP?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hf24Gw93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestmacroCausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3amacroCausaleEsitoDescrizioneCVP?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HgAB8Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleEsito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsito?" xsdName="causaleEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HgAB9A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleEsito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsito?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HgAB9Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleEsito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsito?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HgAB9g93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestcausaleEsito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsito?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HgAB-A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestORIGINE_FIRST?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aORIGINE_FIRST?" xsdName="ORIGINE_FIRST" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HgAB-w93EeW3MruGqUCC5Q" textLength="1" base_Property="DatiMasterInsOffertaIprProcessRequestORIGINE_FIRST?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aORIGINE_FIRST?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HgAB_A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestORIGINE_FIRST?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aORIGINE_FIRST?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HgAB_Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestORIGINE_FIRST?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aORIGINE_FIRST?" xsdMaxLengthFixed="false" xsdMaxLengthValue="1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HgAB_w93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestID_CHIAMATA?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aID_CHIAMATA?" xsdName="ID_CHIAMATA" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HgACAg93EeW3MruGqUCC5Q" textLength="20" base_Property="DatiMasterInsOffertaIprProcessRequestID_CHIAMATA?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aID_CHIAMATA?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HgACAw93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestID_CHIAMATA?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aID_CHIAMATA?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HgACBA93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestID_CHIAMATA?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aID_CHIAMATA?" xsdMaxLengthFixed="false" xsdMaxLengthValue="20"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HgJy8Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestTELEFONO_CONTRATTO?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aTELEFONO_CONTRATTO?" xsdName="TELEFONO_CONTRATTO" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HgJy9A93EeW3MruGqUCC5Q" textLength="20" base_Property="DatiMasterInsOffertaIprProcessRequestTELEFONO_CONTRATTO?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aTELEFONO_CONTRATTO?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HgJy9Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestTELEFONO_CONTRATTO?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aTELEFONO_CONTRATTO?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HgJy9g93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestTELEFONO_CONTRATTO?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aTELEFONO_CONTRATTO?" xsdMaxLengthFixed="false" xsdMaxLengthValue="20"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HgJy-A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestCONSENSO_PROFILAZIONE?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aCONSENSO_PROFILAZIONE?" xsdName="CONSENSO_PROFILAZIONE" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgJy_g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HgJy-w93EeW3MruGqUCC5Q" textLength="1" base_Property="DatiMasterInsOffertaIprProcessRequestCONSENSO_PROFILAZIONE?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aCONSENSO_PROFILAZIONE?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_HgJy_A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestCONSENSO_PROFILAZIONE?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aCONSENSO_PROFILAZIONE?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_HgJy_Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessRequestCONSENSO_PROFILAZIONE?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aCONSENSO_PROFILAZIONE?" xsdMaxLengthFixed="false" xsdMaxLengthValue="1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HgS85g93EeW3MruGqUCC5Q" base_Property="CaricatoreUnicoOffertaInputdatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput%3a%3adatiMasterInsOffertaIprProcessRequest?" xsdName="datiMasterInsOffertaIprProcessRequest" xsdForm="unqualified" xsdType="DatiMasterInsOffertaIprProcessRequest" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HgS85w93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HgS86Q93EeW3MruGqUCC5Q" base_Class="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaOutput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput?" xsdName="CaricatoreUnicoOffertaOutput" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HhCjyQ93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HgS86w93EeW3MruGqUCC5Q" base_Class="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse?" xsdName="DatiMasterInsOffertaIprProcessResponse" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HhCjwA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HgS87Q93EeW3MruGqUCC5Q" base_Class="com.enel.mind.caricatoreunicooffertaEsitoType?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType?" xsdName="EsitoType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_Hgme6g93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HgS87w93EeW3MruGqUCC5Q" base_Property="EsitoTypeesito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3aesito?" xsdName="esito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_Hgme6g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HgS88g93EeW3MruGqUCC5Q" base_Property="EsitoTypeesito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hgct4A93EeW3MruGqUCC5Q" base_Property="EsitoTypeesito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3aesito?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hgct4Q93EeW3MruGqUCC5Q" base_Property="EsitoTypeesito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3aesito?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hgct4w93EeW3MruGqUCC5Q" base_Property="EsitoTypecodiceEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3acodiceEsito?" xsdName="codiceEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_Hgme6g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hgct5g93EeW3MruGqUCC5Q" base_Property="EsitoTypecodiceEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hgct5w93EeW3MruGqUCC5Q" base_Property="EsitoTypecodiceEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3acodiceEsito?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hgct6A93EeW3MruGqUCC5Q" base_Property="EsitoTypecodiceEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3acodiceEsito?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hgct6g93EeW3MruGqUCC5Q" base_Property="EsitoTypedescrizione?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3adescrizione?" xsdName="descrizione" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_Hgme6g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hgct7Q93EeW3MruGqUCC5Q" textLength="255" base_Property="EsitoTypedescrizione?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hgct7g93EeW3MruGqUCC5Q" base_Property="EsitoTypedescrizione?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3adescrizione?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hgct7w93EeW3MruGqUCC5Q" base_Property="EsitoTypedescrizione?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3adescrizione?" xsdMaxLengthFixed="false" xsdMaxLengthValue="255"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hgct8Q93EeW3MruGqUCC5Q" base_Property="EsitoTypetipoEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3atipoEsito?" xsdName="tipoEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_Hgme6g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hgme4A93EeW3MruGqUCC5Q" base_Property="EsitoTypetipoEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hgme4Q93EeW3MruGqUCC5Q" base_Property="EsitoTypetipoEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3atipoEsito?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hgme4g93EeW3MruGqUCC5Q" base_Property="EsitoTypetipoEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3atipoEsito?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hgme5A93EeW3MruGqUCC5Q" base_Property="EsitoTypesistemaSorgenteEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3asistemaSorgenteEsito?" xsdName="sistemaSorgenteEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_Hgme6g93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hgme5w93EeW3MruGqUCC5Q" base_Property="EsitoTypesistemaSorgenteEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3asistemaSorgenteEsito?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hgme6A93EeW3MruGqUCC5Q" base_Property="EsitoTypesistemaSorgenteEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3asistemaSorgenteEsito?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hgme6Q93EeW3MruGqUCC5Q" base_Property="EsitoTypesistemaSorgenteEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3asistemaSorgenteEsito?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hgme8g93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseesito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aesito?" xsdName="esito" xsdForm="unqualified" xsdType="EsitoType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HhCjwA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hgme9A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsesottoCanale?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3asottoCanale?" xsdName="sottoCanale" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HhCjwA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hgme9w93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsesottoCanale?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3asottoCanale?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hgvo0A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsesottoCanale?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3asottoCanale?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hgvo0Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsesottoCanale?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3asottoCanale?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hgvo0w93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecodCamp?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodCamp?" xsdName="codCamp" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HhCjwA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hgvo1g93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecodCamp?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodCamp?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hgvo1w93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecodCamp?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodCamp?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hgvo2A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecodCamp?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodCamp?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hgvo2g93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecausaleOperazione?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acausaleOperazione?" xsdName="causaleOperazione" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HhCjwA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hgvo3Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecausaleOperazione?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acausaleOperazione?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hgvo3g93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecausaleOperazione?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acausaleOperazione?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hgvo3w93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecausaleOperazione?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acausaleOperazione?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hg5Z0Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseX_codiceChannel?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceChannel?" xsdName="X_codiceChannel" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HhCjwA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hg5Z1A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseX_codiceChannel?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceChannel?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hg5Z1Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseX_codiceChannel?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceChannel?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hg5Z1g93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseX_codiceChannel?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceChannel?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hg5Z2A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecodUnivocoServizioPartener?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodUnivocoServizioPartener?" xsdName="codUnivocoServizioPartener" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HhCjwA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hg5Z2w93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecodUnivocoServizioPartener?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodUnivocoServizioPartener?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hg5Z3A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecodUnivocoServizioPartener?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodUnivocoServizioPartener?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hg5Z3Q93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponsecodUnivocoServizioPartener?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodUnivocoServizioPartener?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Hg5Z3w93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseX_codiceIncaricato?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceIncaricato?" xsdName="X_codiceIncaricato" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HhCjwA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Hg5Z4g93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseX_codiceIncaricato?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceIncaricato?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_Hg5Z4w93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseX_codiceIncaricato?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceIncaricato?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Hg5Z5A93EeW3MruGqUCC5Q" base_Property="DatiMasterInsOffertaIprProcessResponseX_codiceIncaricato?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceIncaricato?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HhCjyA93EeW3MruGqUCC5Q" base_Property="CaricatoreUnicoOffertaOutputdatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput%3a%3adatiMasterInsOffertaIprProcessResponse?" xsdName="datiMasterInsOffertaIprProcessResponse" xsdForm="unqualified" xsdType="DatiMasterInsOffertaIprProcessResponse" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HhCjyQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_HhCjyg93EeW3MruGqUCC5Q" base_Package="com.enel.mind.caricatoreunicoofferta?com.enel.mind.caricatoreunicoofferta?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_HhCjyw93EeW3MruGqUCC5Q" name="CaricatoreUnicoOffertaInputElement" type="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaInput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput?" targetNamespace="http://mind.enel.com/caricatoreunicoofferta" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_HhWFwA93EeW3MruGqUCC5Q" name="CaricatoreUnicoOffertaOutputElement" type="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaOutput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput?" targetNamespace="http://mind.enel.com/caricatoreunicoofferta" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_HhWFwQ93EeW3MruGqUCC5Q" name="DatiMasterInsOffertaIprProcessResponseElement" type="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse?" targetNamespace="http://mind.enel.com/caricatoreunicoofferta" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_HhWFwg93EeW3MruGqUCC5Q" name="EsitoTypeElement" type="com.enel.mind.caricatoreunicooffertaEsitoType?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType?" targetNamespace="http://mind.enel.com/caricatoreunicoofferta" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_HhWFww93EeW3MruGqUCC5Q" name="DatiMasterInsOffertaIprProcessRequestElement" type="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest?" targetNamespace="http://mind.enel.com/caricatoreunicoofferta" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_HhfPsA93EeW3MruGqUCC5Q" name="RichiestaTypeElement" type="com.enel.mind.caricatoreunicooffertaRichiestaType?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType?" targetNamespace="http://mind.enel.com/caricatoreunicoofferta" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPsQ93EeW3MruGqUCC5Q" base_Element="_Hf24GA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPsg93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaEsitoType?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPsw93EeW3MruGqUCC5Q" base_Element="_Hg5Z2Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPtA93EeW3MruGqUCC5Q" base_Element="_Hg5Z0w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPtQ93EeW3MruGqUCC5Q" base_Element="_HftHAw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPtg93EeW3MruGqUCC5Q" base_Element="_HftHAg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPtw93EeW3MruGqUCC5Q" base_Element="_HfaMIw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPuA93EeW3MruGqUCC5Q" base_Element="_Hgvo1Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPuQ93EeW3MruGqUCC5Q" base_Element="_HftHCg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPug93EeW3MruGqUCC5Q" base_Element="_HfaMGw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPuw93EeW3MruGqUCC5Q" base_Element="_Hgct8w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPvA93EeW3MruGqUCC5Q" base_Element="_HgAB8g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPvQ93EeW3MruGqUCC5Q" base_Element="_Hgme5g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPvg93EeW3MruGqUCC5Q" base_Element="_HgS85A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPvw93EeW3MruGqUCC5Q" base_Element="Composition2datimasterinsoffertaiprprocessrequest?com.enel.mind.caricatoreunicoofferta%3a%3aComposition2%3a%3adatimasterinsoffertaiprprocessrequest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPwA93EeW3MruGqUCC5Q" base_Element="_Hgct5Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPwQ93EeW3MruGqUCC5Q" base_Element="_Hf24EA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPwg93EeW3MruGqUCC5Q" base_Element="_HfaMHA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPww93EeW3MruGqUCC5Q" base_Element="_HgJy-g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPxA93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestinsOffertaMemo?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3ainsOffertaMemo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPxQ93EeW3MruGqUCC5Q" base_Element="_Hgme8A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPxg93EeW3MruGqUCC5Q" base_Element="_HhCjxA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPxw93EeW3MruGqUCC5Q" base_Element="_HfjWCw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPyA93EeW3MruGqUCC5Q" base_Element="_Hgme8Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPyQ93EeW3MruGqUCC5Q" base_Element="_HgS88Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPyg93EeW3MruGqUCC5Q" base_Element="_Hgme9Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPyw93EeW3MruGqUCC5Q" base_Element="_HgJy-Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPzA93EeW3MruGqUCC5Q" base_Element="_HgJy8g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPzQ93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestrichiesta?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3arichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPzg93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestTELEFONO_CONTRATTO?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aTELEFONO_CONTRATTO?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfPzw93EeW3MruGqUCC5Q" base_Element="_HgS84g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP0A93EeW3MruGqUCC5Q" base_Element="_HftHEQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP0Q93EeW3MruGqUCC5Q" base_Element="RichiestaTypesistemaRichiedente?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3asistemaRichiedente?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP0g93EeW3MruGqUCC5Q" base_Element="_HgAB-Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP0w93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestcausaleVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleVBL?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP1A93EeW3MruGqUCC5Q" base_Element="_Hf24EQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP1Q93EeW3MruGqUCC5Q" base_Element="Composition5caricatoreunicooffertaoutput?com.enel.mind.caricatoreunicoofferta%3a%3aComposition5%3a%3acaricatoreunicooffertaoutput?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP1g93EeW3MruGqUCC5Q" base_Element="EsitoTypetipoEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP1w93EeW3MruGqUCC5Q" base_Element="_Hgct8g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP2A93EeW3MruGqUCC5Q" base_Element="_HfjWBQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP2Q93EeW3MruGqUCC5Q" base_Element="RichiestaTypeidProcessoBpm?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3aidProcessoBpm?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP2g93EeW3MruGqUCC5Q" base_Element="_Hf24Cg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP2w93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaComposition5?com.enel.mind.caricatoreunicoofferta%3a%3aComposition5?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP3A93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestID_CHIAMATA?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aID_CHIAMATA?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP3Q93EeW3MruGqUCC5Q" base_Element="_Hf24Aw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP3g93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP3w93EeW3MruGqUCC5Q" base_Element="_HgACAA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP4A93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaOutput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP4Q93EeW3MruGqUCC5Q" base_Element="_Hgme9g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP4g93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestmacroCausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3amacroCausaleEsitoDescrizioneCVP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP4w93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOffertaOutputdatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput%3a%3adatiMasterInsOffertaIprProcessResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP5A93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaComposition2?com.enel.mind.caricatoreunicoofferta%3a%3aComposition2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP5Q93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessResponseX_codiceChannel?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceChannel?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP5g93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessResponseesito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP5w93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestimportMorositaCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aimportMorositaCVP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP6A93EeW3MruGqUCC5Q" base_Element="_HftHEA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP6Q93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessResponsecodCamp?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodCamp?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP6g93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestcausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsitoDescrizioneCVP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP6w93EeW3MruGqUCC5Q" base_Element="_HhCjxg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP7A93EeW3MruGqUCC5Q" base_Element="_Hgvo2w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP7Q93EeW3MruGqUCC5Q" base_Element="EsitoTypedescrizione?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP7g93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessResponsecausaleOperazione?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acausaleOperazione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP7w93EeW3MruGqUCC5Q" base_Element="_Hg5Z4Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP8A93EeW3MruGqUCC5Q" base_Element="_HgS88A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP8Q93EeW3MruGqUCC5Q" base_Element="_Hf24Ag93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP8g93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP8w93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaRichiestaType?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP9A93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestORIGINE_FIRST?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aORIGINE_FIRST?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP9Q93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaInput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP9g93EeW3MruGqUCC5Q" base_Element="_Hf24CQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP9w93EeW3MruGqUCC5Q" base_Element="_HfQbXQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP-A93EeW3MruGqUCC5Q" base_Element="_Hgvo1A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP-Q93EeW3MruGqUCC5Q" base_Element="_Hgme7g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP-g93EeW3MruGqUCC5Q" base_Element="_HgAB-g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP-w93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestesitoVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoVBL?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP_A93EeW3MruGqUCC5Q" base_Element="_Hgct5A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP_Q93EeW3MruGqUCC5Q" base_Element="EsitoTypesistemaSorgenteEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3asistemaSorgenteEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP_g93EeW3MruGqUCC5Q" base_Element="_HgS84Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfP_w93EeW3MruGqUCC5Q" base_Element="_HhCjxw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQAA93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessResponsecodUnivocoServizioPartener?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodUnivocoServizioPartener?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQAQ93EeW3MruGqUCC5Q" base_Element="_Hgct6w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQAg93EeW3MruGqUCC5Q" base_Element="_HfjWBg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQAw93EeW3MruGqUCC5Q" base_Element="_HgACAQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQBA93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaComposition3?com.enel.mind.caricatoreunicoofferta%3a%3aComposition3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQBQ93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestCONSENSO_PROFILAZIONE?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aCONSENSO_PROFILAZIONE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQBg93EeW3MruGqUCC5Q" base_Element="_Hf24Fw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQBw93EeW3MruGqUCC5Q" base_Element="_Hg5Z4A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQCA93EeW3MruGqUCC5Q" base_Element="_Hg5Z2g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQCQ93EeW3MruGqUCC5Q" base_Element="Composition3caricatoreunicooffertainput?com.enel.mind.caricatoreunicoofferta%3a%3aComposition3%3a%3acaricatoreunicooffertainput?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQCg93EeW3MruGqUCC5Q" base_Element="_HfjWCg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQCw93EeW3MruGqUCC5Q" base_Element="EsitoTypeesito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQDA93EeW3MruGqUCC5Q" base_Element="_HgAB8w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQDQ93EeW3MruGqUCC5Q" base_Element="_HfaMFA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQDg93EeW3MruGqUCC5Q" base_Element="com.enel.mind.caricatoreunicooffertaComposition4?com.enel.mind.caricatoreunicoofferta%3a%3aComposition4?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQDw93EeW3MruGqUCC5Q" base_Element="_HfQbWw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQEA93EeW3MruGqUCC5Q" base_Element="_HftHCQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQEQ93EeW3MruGqUCC5Q" base_Element="_Hgme5Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQEg93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestcausaleEsito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQEw93EeW3MruGqUCC5Q" base_Element="RichiestaTypecanale?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3acanale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQFA93EeW3MruGqUCC5Q" base_Element="_HhCjww93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQFQ93EeW3MruGqUCC5Q" base_Element="_HfjWAw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQFg93EeW3MruGqUCC5Q" base_Element="_Hgme7Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQFw93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessResponsesottoCanale?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3asottoCanale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQGA93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestesitoCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoCVP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQGQ93EeW3MruGqUCC5Q" base_Element="_HfaMIg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQGg93EeW3MruGqUCC5Q" base_Element="_HgS85Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQGw93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessResponseX_codiceIncaricato?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceIncaricato?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQHA93EeW3MruGqUCC5Q" base_Element="_HgJy8w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQHQ93EeW3MruGqUCC5Q" base_Element="_HfjWAg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQHg93EeW3MruGqUCC5Q" base_Element="DatiMasterInsOffertaIprProcessRequestdataEsitoInvioCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3adataEsitoInvioCVP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQHw93EeW3MruGqUCC5Q" base_Element="_HfaMFQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQIA93EeW3MruGqUCC5Q" base_Element="_Hgvo3A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQIQ93EeW3MruGqUCC5Q" base_Element="_Hg5Z0g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQIg93EeW3MruGqUCC5Q" base_Element="Composition4datimasterinsoffertaiprprocessresponse?com.enel.mind.caricatoreunicoofferta%3a%3aComposition4%3a%3adatimasterinsoffertaiprprocessresponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQIw93EeW3MruGqUCC5Q" base_Element="_Hgct7A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQJA93EeW3MruGqUCC5Q" base_Element="EsitoTypecodiceEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HhfQJQ93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOffertaInputdatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput%3a%3adatiMasterInsOffertaIprProcessRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77pA93EeW3MruGqUCC5Q" displayLabel="CaricatoreUnicoOffertaInput" base_NamedElement="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaInput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77pQ93EeW3MruGqUCC5Q" displayLabel="CaricatoreUnicoOffertaOutput" base_NamedElement="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaOutput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77pg93EeW3MruGqUCC5Q" displayLabel="DatiMasterInsOffertaIprProcessRequest" base_NamedElement="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77pw93EeW3MruGqUCC5Q" displayLabel="DatiMasterInsOffertaIprProcessResponse" base_NamedElement="com.enel.mind.caricatoreunicooffertaDatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77qA93EeW3MruGqUCC5Q" displayLabel="EsitoType" base_NamedElement="com.enel.mind.caricatoreunicooffertaEsitoType?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77qQ93EeW3MruGqUCC5Q" displayLabel="RichiestaType" base_NamedElement="com.enel.mind.caricatoreunicooffertaRichiestaType?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77qg93EeW3MruGqUCC5Q" displayLabel="datiMasterInsOffertaIprProcessRequest" base_NamedElement="CaricatoreUnicoOffertaInputdatiMasterInsOffertaIprProcessRequest?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput%3a%3adatiMasterInsOffertaIprProcessRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77qw93EeW3MruGqUCC5Q" displayLabel="datiMasterInsOffertaIprProcessResponse" base_NamedElement="CaricatoreUnicoOffertaOutputdatiMasterInsOffertaIprProcessResponse?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput%3a%3adatiMasterInsOffertaIprProcessResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77rA93EeW3MruGqUCC5Q" displayLabel="CONSENSO_PROFILAZIONE" base_NamedElement="DatiMasterInsOffertaIprProcessRequestCONSENSO_PROFILAZIONE?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aCONSENSO_PROFILAZIONE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77rQ93EeW3MruGqUCC5Q" displayLabel="ID_CHIAMATA" base_NamedElement="DatiMasterInsOffertaIprProcessRequestID_CHIAMATA?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aID_CHIAMATA?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77rg93EeW3MruGqUCC5Q" displayLabel="ORIGINE_FIRST" base_NamedElement="DatiMasterInsOffertaIprProcessRequestORIGINE_FIRST?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aORIGINE_FIRST?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77rw93EeW3MruGqUCC5Q" displayLabel="TELEFONO_CONTRATTO" base_NamedElement="DatiMasterInsOffertaIprProcessRequestTELEFONO_CONTRATTO?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aTELEFONO_CONTRATTO?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77sA93EeW3MruGqUCC5Q" displayLabel="causaleEsito" base_NamedElement="DatiMasterInsOffertaIprProcessRequestcausaleEsito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77sQ93EeW3MruGqUCC5Q" displayLabel="causaleEsitoDescrizioneCVP" base_NamedElement="DatiMasterInsOffertaIprProcessRequestcausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleEsitoDescrizioneCVP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77sg93EeW3MruGqUCC5Q" displayLabel="causaleVBL" base_NamedElement="DatiMasterInsOffertaIprProcessRequestcausaleVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3acausaleVBL?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77sw93EeW3MruGqUCC5Q" displayLabel="dataEsitoInvioCVP" base_NamedElement="DatiMasterInsOffertaIprProcessRequestdataEsitoInvioCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3adataEsitoInvioCVP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77tA93EeW3MruGqUCC5Q" displayLabel="esitoCVP" base_NamedElement="DatiMasterInsOffertaIprProcessRequestesitoCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoCVP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Hh77tQ93EeW3MruGqUCC5Q" displayLabel="esitoVBL" base_NamedElement="DatiMasterInsOffertaIprProcessRequestesitoVBL?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aesitoVBL?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsoA93EeW3MruGqUCC5Q" displayLabel="importMorositaCVP" base_NamedElement="DatiMasterInsOffertaIprProcessRequestimportMorositaCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3aimportMorositaCVP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsoQ93EeW3MruGqUCC5Q" displayLabel="insOffertaMemo" base_NamedElement="DatiMasterInsOffertaIprProcessRequestinsOffertaMemo?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3ainsOffertaMemo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsog93EeW3MruGqUCC5Q" displayLabel="macroCausaleEsitoDescrizioneCVP" base_NamedElement="DatiMasterInsOffertaIprProcessRequestmacroCausaleEsitoDescrizioneCVP?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3amacroCausaleEsitoDescrizioneCVP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsow93EeW3MruGqUCC5Q" displayLabel="richiesta" base_NamedElement="DatiMasterInsOffertaIprProcessRequestrichiesta?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessRequest%3a%3arichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFspA93EeW3MruGqUCC5Q" displayLabel="X_codiceChannel" base_NamedElement="DatiMasterInsOffertaIprProcessResponseX_codiceChannel?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceChannel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFspQ93EeW3MruGqUCC5Q" displayLabel="X_codiceIncaricato" base_NamedElement="DatiMasterInsOffertaIprProcessResponseX_codiceIncaricato?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aX_codiceIncaricato?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFspg93EeW3MruGqUCC5Q" displayLabel="causaleOperazione" base_NamedElement="DatiMasterInsOffertaIprProcessResponsecausaleOperazione?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acausaleOperazione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFspw93EeW3MruGqUCC5Q" displayLabel="codCamp" base_NamedElement="DatiMasterInsOffertaIprProcessResponsecodCamp?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodCamp?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsqA93EeW3MruGqUCC5Q" displayLabel="codUnivocoServizioPartener" base_NamedElement="DatiMasterInsOffertaIprProcessResponsecodUnivocoServizioPartener?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3acodUnivocoServizioPartener?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsqQ93EeW3MruGqUCC5Q" displayLabel="esito" base_NamedElement="DatiMasterInsOffertaIprProcessResponseesito?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsqg93EeW3MruGqUCC5Q" displayLabel="sottoCanale" base_NamedElement="DatiMasterInsOffertaIprProcessResponsesottoCanale?com.enel.mind.caricatoreunicoofferta%3a%3aDatiMasterInsOffertaIprProcessResponse%3a%3asottoCanale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsqw93EeW3MruGqUCC5Q" displayLabel="codiceEsito" base_NamedElement="EsitoTypecodiceEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsrA93EeW3MruGqUCC5Q" displayLabel="descrizione" base_NamedElement="EsitoTypedescrizione?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3adescrizione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsrQ93EeW3MruGqUCC5Q" displayLabel="esito" base_NamedElement="EsitoTypeesito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsrg93EeW3MruGqUCC5Q" displayLabel="sistemaSorgenteEsito" base_NamedElement="EsitoTypesistemaSorgenteEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3asistemaSorgenteEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsrw93EeW3MruGqUCC5Q" displayLabel="tipoEsito" base_NamedElement="EsitoTypetipoEsito?com.enel.mind.caricatoreunicoofferta%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFssA93EeW3MruGqUCC5Q" displayLabel="canale" base_NamedElement="RichiestaTypecanale?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3acanale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFssQ93EeW3MruGqUCC5Q" displayLabel="idProcessoBpm" base_NamedElement="RichiestaTypeidProcessoBpm?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3aidProcessoBpm?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFssg93EeW3MruGqUCC5Q" displayLabel="sistemaRichiedente" base_NamedElement="RichiestaTypesistemaRichiedente?com.enel.mind.caricatoreunicoofferta%3a%3aRichiestaType%3a%3asistemaRichiedente?"/>
+  <notation:Diagram xmi:id="_HiFstw93EeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.mind.caricatoreunicoofferta?com.enel.mind.caricatoreunicoofferta?" name="com.enel.mind.caricatoreunicoofferta" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_HiFsuA93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_HiFsuQ93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

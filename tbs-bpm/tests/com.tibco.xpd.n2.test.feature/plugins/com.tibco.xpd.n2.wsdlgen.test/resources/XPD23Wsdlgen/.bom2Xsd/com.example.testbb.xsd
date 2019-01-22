@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/testbb" xmlns:bns="http://example.com/testbb" xmlns:qld="http://example.com/testaa"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/testbb">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD23Wsdlgen/Business Objects/TestBB.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://example.com/testaa" schemaLocation="com.example.testaa.xsd"/>
+  <xsd:complexType id="_yIHHMDybEd--4bf-6xFCRw" name="BB">
+    <xsd:sequence>
+      <xsd:element id="_1ufYBDybEd--4bf-6xFCRw" maxOccurs="1" minOccurs="1" name="ba"
+          type="BA"/>
+      <xsd:element id="_2PRJ0DybEd--4bf-6xFCRw" maxOccurs="1" minOccurs="0" name="b1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_y12-ADybEd--4bf-6xFCRw" name="BA">
+    <xsd:complexContent>
+      <xsd:extension base="qld:AB"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

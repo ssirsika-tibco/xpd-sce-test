@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.tibco.xpd.bom.feature Overrides">
+
+	 <!-- Switches obfuscator style to none. This needed to be switched off in version 3.6 to overcome OutOfMemory problems.  
+	 -->
+	<property name="autobuild.obfuscator.style" value="none" />
+
+	<property name="autobuild.version.eclipse" value="4.7"/>
+	<property name="autobuild.version.eclipse-host" value="4.7"/>
+
+	<!-- Each Release Unit should change the project name above and the two
+         property definitions below. -->
+	<property name="release-unit" value="com.tibco.xpd.bom.feature" />
+	<property name="feature" value="com.tibco.xpd.bom.feature" />
+
+	<!-- The repository name is only used to separate release unit configurations,
+         preventing confusion of thirdparty common with neo common, for instance. -->
+	<property name="autobuild.repository" value="xpd-repository" />
+
+    <!-- allows for cycles in the binary dependencies -->
+    <property name="allow.binary.cycles" value="true" />
+
+	<!-- if there is a .devdocs feature, and this property is set, the javadoc
+         for the code feature will be output to this location -->
+	<!--property name="javadoc.destination" location="RELATIVE PATH FROM THIS DIRECTORY" /-->
+
+	<!-- these two can be used to automatically initiate a post-build processing
+         step, which will be invoked on successful completion of the release unit build. -->
+	<property name="autobuild.extension.script" location="post-ru-build.xml" />
+	<property name="autobuild.extension.target" value="main" />
+	<property name="javacSource" value="1.8"/>
+	<property name="javacTarget" value="1.8"/>
+	<property name="autobuild.jdk.force-18" value="true"/>
+
+	<!-- for additional information on properties commonly overridden by release units, see:
+         http://wiki.tibco.com/FrameworksWiki/Componentization/Builder -->
+	<property name="javadoc.destination" location="plugins/docs.com.tibco.xpd.bom/html/reference/javadoc" />
+	
+   <!-- Switches on p2 metadata genatation and packaging for this RU. 
+   In case of dual build only *featue.eclipse will have p2 metadata packaged.  -->
+   <property name="autobuild.p2.packaging" value="true"/>
+   
+	<updatesites id="autobuild.workspace.update-sites.list">
+		<updatesite url="http://reldist.na.tibco.com/reldist/debug/site.xml" />
+	</updatesites>
+
+</project>

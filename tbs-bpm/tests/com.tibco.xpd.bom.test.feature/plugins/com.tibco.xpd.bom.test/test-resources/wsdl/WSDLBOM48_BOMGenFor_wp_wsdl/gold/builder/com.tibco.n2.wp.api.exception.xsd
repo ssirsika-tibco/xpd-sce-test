@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://exception.api.wp.n2.tibco.com" xmlns:tns14="http://exception.api.wp.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns12="http://datamodel.common.n2.tibco.com"
+    xmlns:tns4="http://api.brm.n2.tibco.com" xmlns:tns8="http://exception.api.common.n2.tibco.com"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exception.api.wp.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.wp.api.exception.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://exception.api.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.api.exception.xsd"/>
+  <xsd:import namespace="http://api.brm.n2.tibco.com" schemaLocation="com.tibco.n2.brm.api.xsd"/>
+  <xsd:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.datamodel.xsd"/>
+  <xsd:element abstract="false" name="InvalidWorkRequest" nillable="false" type="tns8:DetailedException"/>
+  <xsd:element abstract="false" name="WorkItemUnavailable" nillable="false" type="tns8:DetailedException"/>
+  <xsd:element abstract="false" name="WorkProcessingFault" nillable="false" type="tns8:DetailedException"/>
+  <xsd:element abstract="false" name="ChainedTimeOut" nillable="false" type="tns8:DetailedException"/>
+  <xsd:element abstract="false" name="ChannelUnavailable" nillable="false" type="tns8:DetailedException"/>
+  <xsd:element abstract="false" name="InternalServiceFault" nillable="false" type="tns8:DetailedException"/>
+  <xsd:element abstract="false" name="WorkTypeFault" nillable="false" type="tns8:DetailedException"/>
+  <xsd:element abstract="false" name="BusinessServiceRequestFault" nillable="false"
+      type="tns8:DetailedException"/>
+  <xsd:element abstract="false" name="DataOutOfSyncFault" nillable="false">
+    <xsd:complexType ecore:name="DataOutOfSyncFaultType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns8:DetailedException">
+          <xsd:sequence>
+            <xsd:element ecore:name="managedObjectId" id="DataOutOfSyncFaultTypemanagedObjectId"
+                maxOccurs="1" minOccurs="1" name="managedObjectId" type="tns4:ManagedObjectID"/>
+            <xsd:element ecore:name="dataModel" id="DataOutOfSyncFaultTypedataModel"
+                maxOccurs="1" minOccurs="0" name="dataModel" type="tns12:DataModel"/>
+            <xsd:element ecore:name="ignoreIncomingData" id="DataOutOfSyncFaultTypeignoreIncomingData"
+                form="qualified" maxOccurs="1" minOccurs="1" name="ignoreIncomingData"
+                type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

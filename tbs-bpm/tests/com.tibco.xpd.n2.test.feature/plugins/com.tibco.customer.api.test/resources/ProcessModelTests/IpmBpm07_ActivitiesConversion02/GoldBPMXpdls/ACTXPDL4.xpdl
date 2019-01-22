@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_YqFLpp2AEeSjw__8dByNNA" xpdExt:DisplayName="ACTXPDL4" Name="ACTXPDL4">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2183-10-05</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>kthombar</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:ExternalPackages>
+    <xpdl2:ExternalPackage Id="_YqLSJp2AEeSjw__8dByNNA" href="SUB3">
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="location" Value="/SUB3.xpdl"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:ExternalPackage>
+  </xpdl2:ExternalPackages>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="N65866" xpdExt:DisplayName="Administrator" Name="Administrator">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name = &quot;Administrator&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_Yqv50J2AEeSjw__8dByNNA" xpdExt:DisplayName="E-Mail System Participant" Name="EMailSystemParticipant">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:Email/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="N66513" xpdExt:DisplayName="Default Pool" Name="DefaultPool" BoundaryVisible="true" Process="_YqpzMZ2AEeSjw__8dByNNA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="N66525" xpdExt:DisplayName="Default Lane" Name="DefaultLane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="451.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="N66531" ArtifactType="Annotation" TextAnnotation="Hi this is my process for junit test!!!&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="N66525">
+          <xpdl2:Coordinates XCoordinate="803.0" YCoordinate="199.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="N66547" ArtifactType="Annotation" TextAnnotation="This is my user task 2&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="N66525">
+          <xpdl2:Coordinates XCoordinate="207.0" YCoordinate="343.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="N66563" ArtifactType="Annotation" TextAnnotation="Sub proc call to sub3&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="N66525">
+          <xpdl2:Coordinates XCoordinate="365.0" YCoordinate="70.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_YqpzMZ2AEeSjw__8dByNNA" xpdExt:FlowRoutingStyle="MultiEntryExit" xpdExt:DisplayName="ACTXPDL4" Name="ACTXPDL4" AccessLevel="PUBLIC">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Created></xpdl2:Created>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="N65904" Name="UT1" FinishMode="Manual" StartMode="Manual" xpdExt:ActivityDeadlineEventId="TimerExceptionEvent_N65904" xpdExt:DisplayName="UT1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="msgIn_N65904"/>
+                <xpdl2:MessageOut Id="msgOut_N65904"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>N65866</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="3"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66525" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="263.0" YCoordinate="121.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="AllocateOne" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="TimerExceptionEvent_N65904">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="N65904" Trigger="Timer">
+              <xpdl2:TriggerTimer xpdExt:ContinueOnTimeout="true"/>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Deadline>
+            <xpdl2:DeadlineDuration ScriptGrammar="ConstantPeriod">
+<xpdExt:ConstantPeriod Days="1"/>
+</xpdl2:DeadlineDuration>
+          </xpdl2:Deadline>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66525" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="35.76" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66002" Name="CALLSUB3" FinishMode="Automatic" StartMode="Automatic" xpdExt:DisplayName="CALLSUB3">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_YqpzMJ2AEeSjw__8dByNNA" PackageRef="SUB3" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true"/>
+          </xpdl2:Implementation>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="4"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66525" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="425.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66076" Name="UT2" FinishMode="Manual" StartMode="Manual" xpdExt:DisplayName="UT2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="msgIn_N66076"/>
+                <xpdl2:MessageOut Id="msgOut_N66076"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>N65866</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="5"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66525" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="263.0" YCoordinate="268.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="AllocateOne" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66153">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Parallel"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="42.0" LaneId="N66525" Width="40.0">
+              <xpdl2:Coordinates XCoordinate="671.0" YCoordinate="121.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66203" Name="EAIMAIL" FinishMode="Automatic" StartMode="Automatic" xpdExt:DisplayName="EAIMAIL">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="E-Mail" Implementation="Other">
+                <xpdl2:MessageIn Id="_MsgIn_N66536"/>
+                <xpdl2:MessageOut Id="_MsgOut_N66536"/>
+                <email:Email>
+                  <email:Definition>
+                    <email:From email:Configuration="Server"></email:From>
+                    <email:To>sajain@tibco.com</email:To>
+                    <email:Cc>kthombar@tibco.com</email:Cc>
+                    <email:ReplyTo>aallway@tibco.com</email:ReplyTo>
+                    <email:Priority>High</email:Priority>
+                    <email:Subject>Test Sub</email:Subject>
+                  </email:Definition>
+                  <email:Body>%SW_CASEDESC%%_EAIMAIL_processId_%
+</email:Body>
+                  <email:Attachment>
+                    <email:Value>%SW_STARTER:SW_DOMAIN%</email:Value>
+                    <email:Files>
+                      <email:File>%SW_STEPNAME%</email:File>
+                    </email:Files>
+                  </email:Attachment>
+                  <email:SMTP email:Configuration="Server"/>
+                  <email:Error>
+                    <email:ReturnCode>SW_QRETRYCOUNT</email:ReturnCode>
+                    <email:ReturnMessage>SW_STEPDESC</email:ReturnMessage>
+                  </email:Error>
+                </email:Email>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Yqv50J2AEeSjw__8dByNNA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="6"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_Yq2AcJ2AEeSjw__8dByNNA" xpdExt:DisplayName="Replacement for 'SW_CASENUM'" Name="_EAIMAIL_processId_" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66525" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="819.0" YCoordinate="139.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">_EAIMAIL_processId_=Process.getId();</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66341" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66525" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="1181.0" YCoordinate="166.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66387" Name="Start" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66525" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="75.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="N66437" xpdExt:DisplayName="" Name="" From="N65904" To="N66002">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66442" xpdExt:DisplayName="" Name="" From="TimerExceptionEvent_N65904" To="N66076">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66465" xpdExt:DisplayName="" Name="" From="N66002" To="N66153">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66470" xpdExt:DisplayName="" Name="" From="N66153" To="N66203">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66475" xpdExt:DisplayName="" Name="" From="N66076" To="N66153">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66480" xpdExt:DisplayName="" Name="" From="N66203" To="N66341">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66485" xpdExt:DisplayName="" Name="" From="N66387" To="N65904">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

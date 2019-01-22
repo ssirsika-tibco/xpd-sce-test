@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/presentation/OOLVF.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.enel.com/mercato/libero/schema/presentation/OrdiniOnlineVF.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/presentation/OrdiniOnlineVF.xsd" >
+    <wsdl:documentation>Version 1.0</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/presentation/OOLVF.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/presentation/OOLVF.xsd">
+            <xs:element name="VerificaFattibilitaRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="idLocalitaCrm" type="xs:string"/>
+                        <xs:element minOccurs="0" name="codiceOffertaGas" type="xs:string"/>
+                        <xs:element minOccurs="0" name="codiceOffertaEle" type="xs:string"/>
+                        <xs:element minOccurs="0" name="podEle" type="xs:string"/>
+                        <xs:element minOccurs="0" name="podGas" type="xs:string"/>
+                        <xs:element minOccurs="0" name="partitaIva" type="xs:string"/>
+                        <xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+                        <xs:element minOccurs="0" name="autoCertificazioneStipulaContratto" type="xs:string"/>
+                        <xs:element name="idMittente" type="xs:string"/>
+                        <xs:element minOccurs="0" name="codiceIstat" type="xs:string"/>
+                        <xs:element name="tipoOperazione" type="xs:string"/>
+                        <xs:element name="commodity" type="xs:string"/>
+                        <xs:element name="sistemaChiamante" type="xs:string"/>
+                        <xs:element minOccurs="0" name="causale" type="xs:string"/>
+                        <xs:element minOccurs="0" name="matricolaContatoreGas" type="xs:string"/>
+                        <xs:element name="canale" type="xs:string"/>
+                        <xs:element minOccurs="0" name="erogaEle" type="xs:string"/>
+                        <xs:element minOccurs="0" name="erogaGas" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nuovoContatoreGas" type="xs:string"/>
+                        <xs:element minOccurs="0" name="nuovoContatoreEle" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="VerificaFattibilitaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:EsitoVerifica"/>
+                        <xs:element ref="ns0:FattibilitaOperazione" minOccurs="0"/>
+                        <xs:element ref="ns0:datiCrm" minOccurs="0"/>
+                        <xs:element ref="ns0:datiDistributore" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="VerificaFattibilitaOFFRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="DATIGDO" type="xs:string" minOccurs="0"/>
+                        <xs:element name="INSOFFERTA" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="DATIOUTCDM" type="xs:string" minOccurs="0"/>
+                        <xs:element ref="ns0:FattibilitaOperazione" minOccurs="0"/>
+                        <xs:element ref="ns0:datiCrm" minOccurs="0"/>
+                        <xs:element ref="ns0:datiDistributore" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="VerificaFattibilitaOFFResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:EsitoVerifica"/>
+                        <xs:element name="DATIGDO" type="xs:string" minOccurs="0"/>
+                        <xs:element name="INSOFFERTA" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DATIOUTCDM" type="xs:string" minOccurs="0"/>
+                        <xs:element name="vf_flg_vbl"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="vf_tipo_operazione" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        
+        
+        <xs:element name="EsitoVerifica">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="esito" type="xs:string" />
+                        <xs:element name="codice" type="xs:string" minOccurs="0"/>
+                        <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+                        <xs:element name="sistemaSorgente" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            <xs:element name="FattibilitaOperazione">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tipoOperazione" type="xs:string" minOccurs="0"/>
+                        <xs:element name="codiceFattibilita" type="xs:string" minOccurs="0"/>
+                        <xs:element name="descFattibilita" type="xs:string" minOccurs="0"/>
+                        <xs:element name="id_prod" type="xs:string"  minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            <xs:element name="datiCrm">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:AnagraficaCliente" minOccurs="0"/>
+                        <xs:element ref="ns0:DatiTecniciCrm" minOccurs="0"/>
+                        <xs:element ref="ns0:IndirizzoFatturazione" minOccurs="0"/>
+                        <xs:element ref="ns0:ModalitaPagamento" minOccurs="0"/>
+                        <xs:element ref="ns0:Prodotto" minOccurs="0"/>
+                        <xs:element ref="ns0:Contratto" minOccurs="0"/>
+                        <xs:element ref="ns0:Offerta" minOccurs="0"/>
+                        <xs:element ref="ns0:IndirizzoSedeLegale" minOccurs="0"/>
+                        <xs:element ref="ns0:PodCrm" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="datiDistributore">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:PreckheckEle" minOccurs="0"/>
+                        <xs:element ref="ns0:PrecheckGas" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PreckheckEle">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:IdentificativiRichiesta" minOccurs="0"/>
+                        <xs:element ref="ns0:Distributore" minOccurs="0"/>
+                        <xs:element ref="ns0:DatiTecniciEle" minOccurs="0"/>
+                        <xs:element ref="ns0:ClienteFinale" minOccurs="0"/>
+                        <xs:element ref="ns0:Fornitura" minOccurs="0"/>
+                        <xs:element ref="ns0:EsitoEle" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PrecheckGas">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:DatiTecniciGas" minOccurs="0"/>
+                        <xs:element ref="ns0:EsitoGas" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            <xs:element name="AnagraficaCliente">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="cli_tipologia" type="xs:string" minOccurs="0"/>
+                        <xs:element name="cli_nome" type="xs:string" minOccurs="0"/>
+                        <xs:element name="cli_cognome_ragsoc" type="xs:string" minOccurs="0"/>
+                        <xs:element name="cli_cf" type="xs:string" minOccurs="0"/>
+                        <xs:element name="cli_iva" type="xs:string" minOccurs="0"/>
+                        <xs:element name="cli_tel" type="xs:string" minOccurs="0"/>
+                        <xs:element name="cli_mail" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DatiTecniciCrm">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="sito_potenza"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="sito_liv_tens"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="sito_tens_consegna" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="sito_potenza_contratt"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="sito_potenza_franchigia"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="sito_tipo_misuratore" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="forn_tipo_utilizzo"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="forn_cat_uso" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="forn_cat_consumo"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="forn_cat_mrkt"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="forn_potenzialita" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="for_toponomastica"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="for_indirizzo" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="for_civico"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="for_cap"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="for_comune"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="for_provincia"  type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+             <xs:element name="IndirizzoFatturazione">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fatt_presso" type="xs:string" minOccurs="0"/>
+                        <xs:element name="fatt_toponomastica"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="fatt_indirizzo"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="fatt_civico"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="fatt_cap"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="fatt_comune"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="fatt_provincia"  type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ModalitaPagamento">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="mod_pagamento"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="IBAN"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="titolare_conto"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="cf_titolare_conto"  type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            <xs:element name="Prodotto">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name ="cod_prodotto"  type="xs:string" minOccurs="0"/>
+                        <xs:element name ="desc_prodotto"  type="xs:string" minOccurs="0"/>
+                        <xs:element name ="tipo_prodotto"  type="xs:string" minOccurs="0"/>
+                        <xs:element name ="regime"  type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+             <xs:element name="Contratto">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="num_contratto"  type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Offerta">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="flag_autoriz_sms"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="num_tel_sms"  type="xs:string"  minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            <xs:element name="IndirizzoSedeLegale">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ragsoc_rappr_legale" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ind_leg_toponomastica" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="ind_leg_indirizzo" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ind_leg_civico" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ind_leg_cap" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ind_leg_comune" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ind_leg_provincia" type="xs:string"  minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PodCrm">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="stato_pod" type="xs:string" minOccurs="0"/>
+                        <xs:element name="forma_contrattuale" type="xs:string" minOccurs="0"/>
+                        <xs:element name="data_att_servizio" type="xs:string" minOccurs="0"/>
+                        <xs:element name="data_cess_servizio" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            <xs:element name="IdentificativiRichiesta">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="IdPraticaR2D"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="IdPraticaDistributore"  type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            <xs:element name="Distributore">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="CodiceDistributore" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DescrizioneDistributore" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DatiTecniciEle">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:Misuratore" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+             <xs:element name="Misuratore">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Pod" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Telegestito" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Tipo" type="xs:string" minOccurs="0"/>
+                        <xs:element name="PotenzaContrattuale" type="xs:decimal" minOccurs="0"/>
+                        <xs:element name="PotenzaDisponibile" type="xs:decimal" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ClienteFinale">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="CodiceFiscaleEle"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="PartitaIvaEle"  type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Fornitura">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:Indirizzo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            <xs:element name="Indirizzo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Topnomastica" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="nomeIndirizzo" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="Civico"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="CAP"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="Citta"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="Comune"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="Provincia" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="Scala"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="Piano"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="Interno" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="Istat" type="xs:string"  minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            
+            <xs:element name="EsitoEle">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="EsitoPrecheckEle" type="xs:string" minOccurs="0"/>
+                        <xs:element name="CodiceEsitoEle" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DettaglioEsitoEle"  type="xs:string" minOccurs="0"/>
+                        <xs:element name="MotivazioneEle" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DettaglioMotivazioneEle" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EsitoGas">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="EsitoPrecheckGas" type="xs:string" minOccurs="0"/>
+                        <xs:element name="CodiceEsitoGas" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DettaglioEsitoGas" type="xs:string"  minOccurs="0"/>
+                        <xs:element name="MotivazioneGas" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DettaglioMotivazioneGas" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+               <xs:element name="DatiTecniciGas">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="PDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="TipoPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="StatoPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="TitolaritaPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="ClasseMisuratore"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="MatricolaContatore"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="StatoContatore"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="AnnoFabbricazione"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="MatricolaCorrettore"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="UnitaPotenza"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="CompLettCiclo"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="PotMaxErogabile"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="CategoriaUso"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="ClassePrelievo"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="PrelievoAnnuoPrevisto"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="CodProfiloPrelievo"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="StatoDel40"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="CodiceDistributore"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="CodiceVenditore"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="UserVenditore"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="ComunePDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="IstatPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="ProvinciaPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="CapPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="ToponomasticaPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="IndirizzoPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="CivicoPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="ScalaPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="PianoPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="InternoPDR"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="StatoFornitura"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="Accessibilita"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="Ubicazione"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="Cognome_RagSoc"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="Nome"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="CodiceFiscaleGas"  type="xs:string"  minOccurs="0"/>
+                        <xs:element name="PartitaIVAGas"  type="xs:string"  minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+            
+            
+       </xs:schema>
+            
+    </wsdl:types>
+    <wsdl:portType name="OrdineOnlineVFPortType">
+        <wsdl:operation name="VerificaFattibilita">
+            <wsdl:input message="tns:VerificaFattibilitaRequest"/>
+            <wsdl:output message="tns:VerificaFattibilitaResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="VerificaFattibilitaOFF">
+            <wsdl:input message="tns:VerificaFattibilitaOFFRequest"/>
+            <wsdl:output message="tns:VerificaFattibilitaOFFResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="VerificaFattibilitaRequest">
+        <wsdl:part element="ns0:VerificaFattibilitaRequest" name="request"/>
+    </wsdl:message>
+    <wsdl:message name="VerificaFattibilitaResponse">
+        <wsdl:part element="ns0:VerificaFattibilitaResponse" name="response"/>
+    </wsdl:message>
+    <wsdl:message name="VerificaFattibilitaOFFRequest">
+        <wsdl:part element="ns0:VerificaFattibilitaOFFRequest" name="request"/>
+    </wsdl:message>
+    <wsdl:message name="VerificaFattibilitaOFFResponse">
+        <wsdl:part element="ns0:VerificaFattibilitaOFFResponse" name="response"/>
+    </wsdl:message>
+</wsdl:definitions>

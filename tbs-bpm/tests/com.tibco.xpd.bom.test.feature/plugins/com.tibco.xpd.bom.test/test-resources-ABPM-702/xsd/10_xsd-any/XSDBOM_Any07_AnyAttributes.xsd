@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema2"
+	xmlns:ns0="http://www.example.org/NewXMLSchema2" xmlns:tns="http://www.example.org/NewXMLSchema2"
+	elementFormDefault="qualified">
+
+	<element name="elemWithAnonComplex">
+		<complexType>
+			<simpleContent>
+				<extension base="integer">
+					<anyAttribute namespace="##targetNamespace"
+						processContents="skip"></anyAttribute>
+				</extension>
+			</simpleContent>
+		</complexType>
+	</element>
+
+	<element name="anonComplexType">
+		<complexType>
+			<anyAttribute></anyAttribute>
+		</complexType>
+	</element>
+
+	<complexType name="customer">
+		<anyAttribute></anyAttribute>
+	</complexType>
+
+	<complexType name="customer2">
+		<anyAttribute namespace="##local" processContents="skip"></anyAttribute>
+	</complexType>
+
+	<complexType name="customer3">
+		<complexContent>
+			<extension base="tns:customer5">
+				<anyAttribute namespace="##local" processContents="skip"></anyAttribute>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="customer4">
+		<simpleContent>
+			<extension base="boolean">
+				<anyAttribute namespace="##local" processContents="skip"></anyAttribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="customer5">
+	</complexType>
+</schema>

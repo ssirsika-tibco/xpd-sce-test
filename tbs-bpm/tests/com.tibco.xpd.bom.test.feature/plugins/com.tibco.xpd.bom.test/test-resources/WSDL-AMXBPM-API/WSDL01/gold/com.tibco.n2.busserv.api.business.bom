@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.busserv.api.business2" name="com.tibco.n2.busserv.api.business">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i3tmIBUHEeGvy5vcBZd45A" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i3tmIRUHEeGvy5vcBZd45A" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i3tmIhUHEeGvy5vcBZd45A" key="created" value="1321969394690"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i3tmIxUHEeGvy5vcBZd45A" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businesslistBusinessServicesType" name="listBusinessServicesType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h9pKkBUHEeGvy5vcBZd45A" body="&#xA;          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities&#xA;          associated with the identified Resource.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listBusinessServicesTypechannelId" name="channelId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h9muUBUHEeGvy5vcBZd45A" body="ID of a specific channel for which business services should be listed. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h9k5IhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h9k5IRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businesslistBusinessServicesResponseType" name="listBusinessServicesResponseType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h_tnIBUHEeGvy5vcBZd45A" body="&#xA;          The collection of Resources with the given name.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listBusinessServicesResponseTypestartPosition" name="startPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h-XjUBUHEeGvy5vcBZd45A" body="Position in the list of the first item on this page. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h-VHEBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h-UgARUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listBusinessServicesResponseTypeendPosition" name="endPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h-xzABUHEeGvy5vcBZd45A" body="Position in the list of the last item on this page. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h-vWwBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h-uvshUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listBusinessServicesResponseTypetotalItems" name="totalItems">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h_MCsBUHEeGvy5vcBZd45A" body="Total number of items in the list. (If this value is -1 PFEdid not build the count of total number of items.) "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h_I_YhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h_I_YRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listBusinessServicesResponseTypebusinessCategory" name="businessCategory" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition30?com.tibco.n2.busserv.api.business%3a%3aComposition30?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h_oHkBUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h_ngghUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition30" name="Composition30" memberEnd="listBusinessServicesResponseTypebusinessCategory?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3abusinessCategory? Composition30listbusinessservicesresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition30%3a%3alistbusinessservicesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition30listbusinessservicesresponsetype" name="listbusinessservicesresponsetype" type="com.tibco.n2.busserv.api.businesslistBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType?" association="com.tibco.n2.busserv.api.businessComposition30?com.tibco.n2.busserv.api.business%3a%3aComposition30?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h_oHkxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h_oHkhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businesslistCategoriesType" name="listCategoriesType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iAg4YBUHEeGvy5vcBZd45A" body="&#xA;          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities&#xA;          associated with the identified Resource.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listCategoriesTypechannelId" name="channelId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iAd1EBUHEeGvy5vcBZd45A" body="ID of a specific channel for which business services should be listed. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iAZjohUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iAZjoRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businesslistCategoriesResponseType" name="listCategoriesResponseType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iCnKIBUHEeGvy5vcBZd45A" body="&#xA;          The collection of Resources with the given name.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listCategoriesResponseTypestartPosition" name="startPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iBRGUBUHEeGvy5vcBZd45A" body="Position in the list of the first item on this page. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iBOqERUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iBOqEBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listCategoriesResponseTypeendPosition" name="endPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iBtyQBUHEeGvy5vcBZd45A" body="Position in the list of the last item on this page. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iBqu8hUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iBqu8RUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listCategoriesResponseTypetotalItems" name="totalItems">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iCKeMBUHEeGvy5vcBZd45A" body="Total number of items in the list. (If this value is -1 PFEdid not build the count of total number of items.) "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iCHa4hUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iCHa4RUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listCategoriesResponseTypeCategory" name="category" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition31?com.tibco.n2.busserv.api.business%3a%3aComposition31?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonCategory?com.tibco.n2.pfe.api.common%3a%3aCategory?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iChDgxUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iChDghUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition31" name="Composition31" memberEnd="listCategoriesResponseTypeCategory?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3acategory? Composition31listcategoriesresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition31%3a%3alistcategoriesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition31listcategoriesresponsetype" name="listcategoriesresponsetype" type="com.tibco.n2.busserv.api.businesslistCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType?" association="com.tibco.n2.busserv.api.businessComposition31?com.tibco.n2.busserv.api.business%3a%3aComposition31?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iChqkhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iChqkRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessqueryBusinessServicesType" name="queryBusinessServicesType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iEq_oBUHEeGvy5vcBZd45A" body="&#xA;          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities&#xA;          associated with the identified Resource.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="queryBusinessServicesTypecategory" name="category">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iDkMYBUHEeGvy5vcBZd45A" body="Category name to use for this query.&#x9;&#x9;&#x9;&#x9; "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iDhwIRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iDhwIBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="queryBusinessServicesTypechannelId" name="channelId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iED7oBUHEeGvy5vcBZd45A" body="Channel ID to use for this query.&#x9;&#x9;&#x9; "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iEBfYhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iEBfYRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="queryBusinessServicesTypeincludeFormalParameters" name="includeFormalParameters">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iEmHIBUHEeGvy5vcBZd45A" body="Boolean value defining whether the query should return business services that have formal parameters. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iEk5AhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iEk5ARUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessqueryBusinessServicesResponseType" name="queryBusinessServicesResponseType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iFiiUBUHEeGvy5vcBZd45A" body="&#xA;          The collection of Resources with the given name.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="queryBusinessServicesResponseTypebusinessServiceTemplate" name="businessServiceTemplate" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition32?com.tibco.n2.busserv.api.business%3a%3aComposition32?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iFeQ4xUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iFeQ4hUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition32" name="Composition32" memberEnd="queryBusinessServicesResponseTypebusinessServiceTemplate?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType%3a%3abusinessServiceTemplate? Composition32querybusinessservicesresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition32%3a%3aquerybusinessservicesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition32querybusinessservicesresponsetype" name="querybusinessservicesresponsetype" type="com.tibco.n2.busserv.api.businessqueryBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType?" association="com.tibco.n2.busserv.api.businessComposition32?com.tibco.n2.busserv.api.business%3a%3aComposition32?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iFe38hUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iFe38RUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessqueryCategoriesType" name="queryCategoriesType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iHj7kBUHEeGvy5vcBZd45A" body="&#xA;          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities&#xA;          associated with the identified Resource.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="queryCategoriesTypecategory" name="category">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iGasEBUHEeGvy5vcBZd45A" body="Category name to use for this query.&#x9;&#x9;&#x9;&#x9; "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iGY24RUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iGY24BUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="queryCategoriesTypechannelId" name="channelId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iG7pcBUHEeGvy5vcBZd45A" body="Channel ID to use for this query.&#x9;&#x9;&#x9; "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iG5NMhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iG5NMRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="queryCategoriesTypeincludeFormalParameters" name="includeFormalParameters">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iHecABUHEeGvy5vcBZd45A" body="Boolean value defining whether the query should return business services that have formal parameters. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iHdN4BUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iHcm0RUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessqueryCategoriesResponseType" name="queryCategoriesResponseType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iIWlwBUHEeGvy5vcBZd45A" body="&#xA;          The collection of Resources with the given name.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="queryCategoriesResponseTypebusinessCategory" name="businessCategory" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition33?com.tibco.n2.busserv.api.business%3a%3aComposition33?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iITicRUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iITicBUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition33" name="Composition33" memberEnd="queryCategoriesResponseTypebusinessCategory?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType%3a%3abusinessCategory? Composition33querycategoriesresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition33%3a%3aquerycategoriesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition33querycategoriesresponsetype" name="querycategoriesresponsetype" type="com.tibco.n2.busserv.api.businessqueryCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType?" association="com.tibco.n2.busserv.api.businessComposition33?com.tibco.n2.busserv.api.business%3a%3aComposition33?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iITidBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iITicxUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessstartBusinessServiceType" name="startBusinessServiceType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startBusinessServiceTypebusinessServiceDefinition" name="businessServiceDefinition" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition34?com.tibco.n2.busserv.api.business%3a%3aComposition34?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonBaseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseBusinessServiceTemplate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iJM6UxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iJM6UhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startBusinessServiceTypeformalParams" name="formalParams" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition35?com.tibco.n2.busserv.api.business%3a%3aComposition35?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeeddataPayload?com.tibco.n2.common.datafeed%3a%3adataPayload?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iJgcUxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iJgcUhUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startBusinessServiceTyperesponsePayloadMode" name="responsePayloadMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iJ5d4BUHEeGvy5vcBZd45A" body="Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). &#xA;&#xA;If not specified, the default value is JSON.&#xA;&#xA;(RSS is currently not supported.) "/>
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeedpayloadModeType?com.tibco.n2.common.datafeed%3a%3apayloadModeType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iJ4PwhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iJ4PwRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startBusinessServiceTypecacheTimeout" name="cacheTimeout">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iKbpYBUHEeGvy5vcBZd45A" body="Timeout value (in minutes) for the business service. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iKYmEhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iKYmERUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition34" name="Composition34" memberEnd="startBusinessServiceTypebusinessServiceDefinition?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3abusinessServiceDefinition? Composition34startbusinessservicetype?com.tibco.n2.busserv.api.business%3a%3aComposition34%3a%3astartbusinessservicetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition34startbusinessservicetype" name="startbusinessservicetype" type="com.tibco.n2.busserv.api.businessstartBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType?" association="com.tibco.n2.busserv.api.businessComposition34?com.tibco.n2.busserv.api.business%3a%3aComposition34?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iJNhYhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iJNhYRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition35" name="Composition35" memberEnd="startBusinessServiceTypeformalParams?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3aformalParams? Composition35startbusinessservicetype?com.tibco.n2.busserv.api.business%3a%3aComposition35%3a%3astartbusinessservicetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition35startbusinessservicetype" name="startbusinessservicetype" type="com.tibco.n2.busserv.api.businessstartBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType?" association="com.tibco.n2.busserv.api.businessComposition35?com.tibco.n2.busserv.api.business%3a%3aComposition35?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iJhDYhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iJhDYRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessstartBusinessServiceResponseType" name="startBusinessServiceResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startBusinessServiceResponseTypepageResponse" name="pageResponse" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition36?com.tibco.n2.busserv.api.business%3a%3aComposition36?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iLQv0xUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iLQv0hUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition36" name="Composition36" memberEnd="startBusinessServiceResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType%3a%3apageResponse? Composition36startbusinessserviceresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition36%3a%3astartbusinessserviceresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition36startbusinessserviceresponsetype" name="startbusinessserviceresponsetype" type="com.tibco.n2.busserv.api.businessstartBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType?" association="com.tibco.n2.busserv.api.businessComposition36?com.tibco.n2.busserv.api.business%3a%3aComposition36?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iLRW4RUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iLRW4BUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessupdateBusinessServiceType" name="updateBusinessServiceType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updateBusinessServiceTypecontext" name="context" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition37?com.tibco.n2.busserv.api.business%3a%3aComposition37?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonRequestContext?com.tibco.n2.pfe.api.common%3a%3aRequestContext?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iMHrcBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iMHEYhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updateBusinessServiceTypepageFields" name="pageFields" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition38?com.tibco.n2.busserv.api.business%3a%3aComposition38?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeeddataPayload?com.tibco.n2.common.datafeed%3a%3adataPayload?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iMb0gRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iMb0gBUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updateBusinessServiceTyperesponsePayloadMode" name="responsePayloadMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iMvWgBUHEeGvy5vcBZd45A" body="Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). &#xA;&#xA;If not specified, the default value is JSON.&#xA;&#xA;(RSS is currently not supported.) "/>
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeedpayloadModeType?com.tibco.n2.common.datafeed%3a%3apayloadModeType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iMuIYhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iMuIYRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition37" name="Composition37" memberEnd="updateBusinessServiceTypecontext?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3acontext? Composition37updatebusinessservicetype?com.tibco.n2.busserv.api.business%3a%3aComposition37%3a%3aupdatebusinessservicetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition37updatebusinessservicetype" name="updatebusinessservicetype" type="com.tibco.n2.busserv.api.businessupdateBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType?" association="com.tibco.n2.busserv.api.businessComposition37?com.tibco.n2.busserv.api.business%3a%3aComposition37?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iMHrcxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iMHrchUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition38" name="Composition38" memberEnd="updateBusinessServiceTypepageFields?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3apageFields? Composition38updatebusinessservicetype?com.tibco.n2.busserv.api.business%3a%3aComposition38%3a%3aupdatebusinessservicetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition38updatebusinessservicetype" name="updatebusinessservicetype" type="com.tibco.n2.busserv.api.businessupdateBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType?" association="com.tibco.n2.busserv.api.businessComposition38?com.tibco.n2.busserv.api.business%3a%3aComposition38?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iMb0hBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iMb0gxUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessupdateBusinessServiceResponseType" name="updateBusinessServiceResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updateBusinessServiceResponseTypepageResponse" name="pageResponse" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition39?com.tibco.n2.busserv.api.business%3a%3aComposition39?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iNgykxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iNgykhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition39" name="Composition39" memberEnd="updateBusinessServiceResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType%3a%3apageResponse? Composition39updatebusinessserviceresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition39%3a%3aupdatebusinessserviceresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition39updatebusinessserviceresponsetype" name="updatebusinessserviceresponsetype" type="com.tibco.n2.busserv.api.businessupdateBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType?" association="com.tibco.n2.busserv.api.businessComposition39?com.tibco.n2.busserv.api.business%3a%3aComposition39?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iNhZoRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iNhZoBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventType" name="injectBusinessServiceEventType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="injectBusinessServiceEventTypeeventDefinition" name="eventDefinition" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition40?com.tibco.n2.busserv.api.business%3a%3aComposition40?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonEventDefinitionType?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iOXuMxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iOXuMhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="injectBusinessServiceEventTypeformalParams" name="formalParams" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition41?com.tibco.n2.busserv.api.business%3a%3aComposition41?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeeddataPayload?com.tibco.n2.common.datafeed%3a%3adataPayload?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iOtFYBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iOseUhUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="injectBusinessServiceEventTyperesponsePayloadMode" name="responsePayloadMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iPBOcBUHEeGvy5vcBZd45A" body="Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). &#xA;&#xA;If not specified, the default value is JSON.&#xA;&#xA;(RSS is currently not supported.) "/>
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeedpayloadModeType?com.tibco.n2.common.datafeed%3a%3apayloadModeType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iPAAUhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iPAAURUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition40" name="Composition40" memberEnd="injectBusinessServiceEventTypeeventDefinition?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aeventDefinition? Composition40injectbusinessserviceeventtype?com.tibco.n2.busserv.api.business%3a%3aComposition40%3a%3ainjectbusinessserviceeventtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition40injectbusinessserviceeventtype" name="injectbusinessserviceeventtype" type="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType?" association="com.tibco.n2.busserv.api.businessComposition40?com.tibco.n2.busserv.api.business%3a%3aComposition40?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iOYVQhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iOYVQRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition41" name="Composition41" memberEnd="injectBusinessServiceEventTypeformalParams?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aformalParams? Composition41injectbusinessserviceeventtype?com.tibco.n2.busserv.api.business%3a%3aComposition41%3a%3ainjectbusinessserviceeventtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition41injectbusinessserviceeventtype" name="injectbusinessserviceeventtype" type="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType?" association="com.tibco.n2.busserv.api.businessComposition41?com.tibco.n2.busserv.api.business%3a%3aComposition41?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iOtFYxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iOtFYhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventResponseType" name="injectBusinessServiceEventResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="injectBusinessServiceEventResponseTypepageResponse" name="pageResponse" aggregation="composite" association="com.tibco.n2.busserv.api.businessComposition42?com.tibco.n2.busserv.api.business%3a%3aComposition42?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iP0fsRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iP0fsBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.busserv.api.businessComposition42" name="Composition42" memberEnd="injectBusinessServiceEventResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType%3a%3apageResponse? Composition42injectbusinessserviceeventresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition42%3a%3ainjectbusinessserviceeventresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition42injectbusinessserviceeventresponsetype" name="injectbusinessserviceeventresponsetype" type="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventResponseType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType?" association="com.tibco.n2.busserv.api.businessComposition42?com.tibco.n2.busserv.api.business%3a%3aComposition42?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iP0ftBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iP0fsxUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businesscancelBusinessServiceType" name="cancelBusinessServiceType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="cancelBusinessServiceTypeprocessInstanceId" name="processInstanceId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iQtQgBUHEeGvy5vcBZd45A" body="ID of the business service (pageflow) process instance that is to be cancelled. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iQrbUhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iQrbURUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.api.businesscancelBusinessServiceResponseType" name="cancelBusinessServiceResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="cancelBusinessServiceResponseTypestatus" name="status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iRmBUBUHEeGvy5vcBZd45A" body="Status of the specified business service instance. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iRjlEhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iRjlERUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hMyVYRUHEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hMyVYhUHEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hMyVYxUHEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hMyVZBUHEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_hMy8cBUHEeGvy5vcBZd45A" base_Package="com.tibco.n2.busserv.api.business2?com.tibco.n2.busserv.api.business?" xsdTargetNamespace="http://business.api.busserv.n2.tibco.com" xsdSchemaLocation="busserv.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h9KCYBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businesslistBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType?" xsdName="listBusinessServices" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h9n8cBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h9k5IBUHEeGvy5vcBZd45A" base_Property="listBusinessServicesTypechannelId?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType%3a%3achannelId?" xsdName="channelId" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h9n8cBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h9lgMBUHEeGvy5vcBZd45A" textLength="-1" base_Property="listBusinessServicesTypechannelId?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType%3a%3achannelId?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_h9v4QBUHEeGvy5vcBZd45A" base_Package="com.tibco.n2.busserv.api.business2?com.tibco.n2.busserv.api.business?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_h9v4QRUHEeGvy5vcBZd45A" name="listBusinessServices" type="com.tibco.n2.busserv.api.businesslistBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_h_u1QBUHEeGvy5vcBZd45A" name="listBusinessServicesResponse" type="com.tibco.n2.busserv.api.businesslistBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iAj7sBUHEeGvy5vcBZd45A" name="listCategories" type="com.tibco.n2.busserv.api.businesslistCategoriesType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iCoYQBUHEeGvy5vcBZd45A" name="listCategoriesResponse" type="com.tibco.n2.busserv.api.businesslistCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iEsNwBUHEeGvy5vcBZd45A" name="queryBusinessServices" type="com.tibco.n2.busserv.api.businessqueryBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iFjwcBUHEeGvy5vcBZd45A" name="queryBusinessServicesResponse" type="com.tibco.n2.busserv.api.businessqueryBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iHlJsBUHEeGvy5vcBZd45A" name="queryCategories" type="com.tibco.n2.busserv.api.businessqueryCategoriesType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iIXz4BUHEeGvy5vcBZd45A" name="queryCategoriesResponse" type="com.tibco.n2.busserv.api.businessqueryCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iKhI8BUHEeGvy5vcBZd45A" name="startBusinessService" type="com.tibco.n2.busserv.api.businessstartBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iLVBQBUHEeGvy5vcBZd45A" name="startBusinessServiceResponse" type="com.tibco.n2.busserv.api.businessstartBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iM02EBUHEeGvy5vcBZd45A" name="updateBusinessService" type="com.tibco.n2.busserv.api.businessupdateBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iNlEABUHEeGvy5vcBZd45A" name="updateBusinessServiceResponse" type="com.tibco.n2.busserv.api.businessupdateBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iPGG8BUHEeGvy5vcBZd45A" name="injectBusinessServiceEvent" type="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iP4xIBUHEeGvy5vcBZd45A" name="injectBusinessServiceEventResponse" type="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventResponseType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iQw64BUHEeGvy5vcBZd45A" name="cancelBusinessService" type="com.tibco.n2.busserv.api.businesscancelBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_iRpEoBUHEeGvy5vcBZd45A" name="cancelBusinessServiceResponse" type="com.tibco.n2.busserv.api.businesscancelBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType?" isAnonymous="true" targetNamespace="http://business.api.busserv.n2.tibco.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h96QUBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businesslistBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h_p8wBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h-UgABUHEeGvy5vcBZd45A" base_Property="listBusinessServicesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3astartPosition?" xsdName="startPosition" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h_p8wBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h-VHERUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listBusinessServicesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3astartPosition?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_h-WVMBUHEeGvy5vcBZd45A" base_Property="listBusinessServicesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3astartPosition?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h-uvsRUHEeGvy5vcBZd45A" base_Property="listBusinessServicesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3aendPosition?" xsdName="endPosition" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h_p8wBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h-vWwRUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listBusinessServicesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3aendPosition?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_h-wk4BUHEeGvy5vcBZd45A" base_Property="listBusinessServicesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3aendPosition?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h_I_YBUHEeGvy5vcBZd45A" base_Property="listBusinessServicesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3atotalItems?" xsdName="totalItems" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h_p8wBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h_JmcBUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listBusinessServicesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3atotalItems?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_h_KNgBUHEeGvy5vcBZd45A" base_Property="listBusinessServicesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3atotalItems?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h_ouoBUHEeGvy5vcBZd45A" base_Property="listBusinessServicesResponseTypebusinessCategory?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3abusinessCategory?" xsdName="businessCategory" xsdForm="unqualified" xsdType="BusinessCategory" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h_p8wBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h_8QoBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businesslistCategoriesType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType?" xsdName="listCategories" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iAfDMBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iAZjoBUHEeGvy5vcBZd45A" base_Property="listCategoriesTypechannelId?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType%3a%3achannelId?" xsdName="channelId" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iAfDMBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iAbY0BUHEeGvy5vcBZd45A" textLength="-1" base_Property="listCategoriesTypechannelId?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType%3a%3achannelId?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iAx-IBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businesslistCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iCjfwBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iBODARUHEeGvy5vcBZd45A" base_Property="listCategoriesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3astartPosition?" xsdName="startPosition" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iCjfwBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iBPRIBUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listCategoriesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3astartPosition?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_iBP4MBUHEeGvy5vcBZd45A" base_Property="listCategoriesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3astartPosition?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iBqu8BUHEeGvy5vcBZd45A" base_Property="listCategoriesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3aendPosition?" xsdName="endPosition" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iCjfwBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iBrWABUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listCategoriesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3aendPosition?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_iBr9EBUHEeGvy5vcBZd45A" base_Property="listCategoriesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3aendPosition?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iCHa4BUHEeGvy5vcBZd45A" base_Property="listCategoriesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3atotalItems?" xsdName="totalItems" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iCjfwBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iCIB8BUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listCategoriesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3atotalItems?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_iCIpABUHEeGvy5vcBZd45A" base_Property="listCategoriesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3atotalItems?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iCiRoBUHEeGvy5vcBZd45A" base_Property="listCategoriesResponseTypeCategory?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3acategory?" xsdName="Category" xsdForm="unqualified" xsdType="Category" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iCjfwBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iC1zoBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessqueryBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iEnVQBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iDhJERUHEeGvy5vcBZd45A" base_Property="queryBusinessServicesTypecategory?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3acategory?" xsdName="category" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iEnVQBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iDiXMBUHEeGvy5vcBZd45A" textLength="-1" base_Property="queryBusinessServicesTypecategory?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3acategory?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iEBfYBUHEeGvy5vcBZd45A" base_Property="queryBusinessServicesTypechannelId?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3achannelId?" xsdName="channelId" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iEnVQBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iECGcBUHEeGvy5vcBZd45A" textLength="-1" base_Property="queryBusinessServicesTypechannelId?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3achannelId?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iEk5ABUHEeGvy5vcBZd45A" base_Property="queryBusinessServicesTypeincludeFormalParameters?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3aincludeFormalParameters?" xsdName="includeFormalParameters" xsdForm="unqualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iEnVQBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iE7eUBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessqueryBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iFgtIBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iFffABUHEeGvy5vcBZd45A" base_Property="queryBusinessServicesResponseTypebusinessServiceTemplate?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType%3a%3abusinessServiceTemplate?" xsdName="businessServiceTemplate" xsdForm="unqualified" xsdType="BusinessServiceTemplate" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iFgtIBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iF02MBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessqueryCategoriesType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iHfqIBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iGYP0RUHEeGvy5vcBZd45A" base_Property="queryCategoriesTypecategory?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3acategory?" xsdName="category" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iHfqIBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iGY24hUHEeGvy5vcBZd45A" textLength="-1" base_Property="queryCategoriesTypecategory?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3acategory?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iG5NMBUHEeGvy5vcBZd45A" base_Property="queryCategoriesTypechannelId?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3achannelId?" xsdName="channelId" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iHfqIBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iG50QBUHEeGvy5vcBZd45A" textLength="-1" base_Property="queryCategoriesTypechannelId?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3achannelId?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iHcm0BUHEeGvy5vcBZd45A" base_Property="queryCategoriesTypeincludeFormalParameters?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3aincludeFormalParameters?" xsdName="includeFormalParameters" xsdForm="unqualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iHfqIBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iH1oYBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessqueryCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iIVXoBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iIUJgBUHEeGvy5vcBZd45A" base_Property="queryCategoriesResponseTypebusinessCategory?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType%3a%3abusinessCategory?" xsdName="businessCategory" xsdForm="unqualified" xsdType="BusinessCategory" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iIVXoBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iInEcBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessstartBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iKcQcBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iJNhYxUHEeGvy5vcBZd45A" base_Property="startBusinessServiceTypebusinessServiceDefinition?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3abusinessServiceDefinition?" xsdName="businessServiceDefinition" xsdForm="unqualified" xsdType="BaseBusinessServiceTemplate" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iKcQcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iJhDYxUHEeGvy5vcBZd45A" base_Property="startBusinessServiceTypeformalParams?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3aformalParams?" xsdName="formalParams" xsdForm="unqualified" xsdType="dataPayload" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iKcQcBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iJ4PwBUHEeGvy5vcBZd45A" base_Property="startBusinessServiceTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3aresponsePayloadMode?" xsdName="responsePayloadMode" xsdForm="unqualified" xsdType="df:payloadModeType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iKcQcBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iKYmEBUHEeGvy5vcBZd45A" base_Property="startBusinessServiceTypecacheTimeout?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3acacheTimeout?" xsdName="cacheTimeout" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iKcQcBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iKZNIBUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="startBusinessServiceTypecacheTimeout?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3acacheTimeout?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_iKZ0MBUHEeGvy5vcBZd45A" base_Property="startBusinessServiceTypecacheTimeout?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3acacheTimeout?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iKwZgBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessstartBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iLSlABUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iLRW4hUHEeGvy5vcBZd45A" base_Property="startBusinessServiceResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType%3a%3apageResponse?" xsdName="pageResponse" xsdForm="unqualified" xsdType="PageResponse" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iLSlABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iLlf8BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessupdateBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iMxLsBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iMISgBUHEeGvy5vcBZd45A" base_Property="updateBusinessServiceTypecontext?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3acontext?" xsdName="context" xsdForm="unqualified" xsdType="RequestContext" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iMxLsBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iMcbkBUHEeGvy5vcBZd45A" base_Property="updateBusinessServiceTypepageFields?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3apageFields?" xsdName="pageFields" xsdForm="unqualified" xsdType="dataPayload" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iMxLsBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iMuIYBUHEeGvy5vcBZd45A" base_Property="updateBusinessServiceTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3aresponsePayloadMode?" xsdName="responsePayloadMode" xsdForm="unqualified" xsdType="df:payloadModeType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iMxLsBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iNFUwBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessupdateBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iNinwBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iNhZohUHEeGvy5vcBZd45A" base_Property="updateBusinessServiceResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType%3a%3apageResponse?" xsdName="pageResponse" xsdForm="unqualified" xsdType="PageResponse" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iNinwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iN1isBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iPCckBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iOY8UBUHEeGvy5vcBZd45A" base_Property="injectBusinessServiceEventTypeeventDefinition?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aeventDefinition?" xsdName="eventDefinition" xsdForm="unqualified" xsdType="EventDefinitionType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iPCckBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iOtscBUHEeGvy5vcBZd45A" base_Property="injectBusinessServiceEventTypeformalParams?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aformalParams?" xsdName="formalParams" xsdForm="unqualified" xsdType="dataPayload" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iPCckBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iPAAUBUHEeGvy5vcBZd45A" base_Property="injectBusinessServiceEventTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aresponsePayloadMode?" xsdName="responsePayloadMode" xsdForm="unqualified" xsdType="df:payloadModeType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iPCckBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iPXMsBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventResponseType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iP2U4BUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iP1GwBUHEeGvy5vcBZd45A" base_Property="injectBusinessServiceEventResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType%3a%3apageResponse?" xsdName="pageResponse" xsdForm="unqualified" xsdType="PageResponse" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iP2U4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iQJ24BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businesscancelBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iQueoBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iQrbUBUHEeGvy5vcBZd45A" base_Property="cancelBusinessServiceTypeprocessInstanceId?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType%3a%3aprocessInstanceId?" xsdName="processInstanceId" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iQueoBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iQsCYBUHEeGvy5vcBZd45A" textLength="-1" base_Property="cancelBusinessServiceTypeprocessInstanceId?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType%3a%3aprocessInstanceId?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iRCnsBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.api.businesscancelBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_iRnPcBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_iRjlEBUHEeGvy5vcBZd45A" base_Property="cancelBusinessServiceResponseTypestatus?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType%3a%3astatus?" xsdName="status" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_iRnPcBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_iRkMIBUHEeGvy5vcBZd45A" textLength="-1" base_Property="cancelBusinessServiceResponseTypestatus?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType%3a%3astatus?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSD7YBUHEeGvy5vcBZd45A" base_Element="Composition37updatebusinessservicetype?com.tibco.n2.busserv.api.business%3a%3aComposition37%3a%3aupdatebusinessservicetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSD7YRUHEeGvy5vcBZd45A" base_Element="_iEBfYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSD7YhUHEeGvy5vcBZd45A" base_Element="_h_ngghUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSEicBUHEeGvy5vcBZd45A" base_Element="_iEq_oBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSEicRUHEeGvy5vcBZd45A" base_Element="_h_oHkhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSEichUHEeGvy5vcBZd45A" base_Element="_iDhwIRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSFJgBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessupdateBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSFJgRUHEeGvy5vcBZd45A" base_Element="Composition34startbusinessservicetype?com.tibco.n2.busserv.api.business%3a%3aComposition34%3a%3astartbusinessservicetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSFJghUHEeGvy5vcBZd45A" base_Element="_iQrbUhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSFwkBUHEeGvy5vcBZd45A" base_Element="_iBRGUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSFwkRUHEeGvy5vcBZd45A" base_Element="_iJgcUhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSFwkhUHEeGvy5vcBZd45A" base_Element="_iJgcUxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSGXoBUHEeGvy5vcBZd45A" base_Element="_iNhZoRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSGXoRUHEeGvy5vcBZd45A" base_Element="_iRjlERUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSGXohUHEeGvy5vcBZd45A" base_Element="listCategoriesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3astartPosition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSG-sBUHEeGvy5vcBZd45A" base_Element="startBusinessServiceTypebusinessServiceDefinition?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3abusinessServiceDefinition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSG-sRUHEeGvy5vcBZd45A" base_Element="_iBOqEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSG-shUHEeGvy5vcBZd45A" base_Element="listCategoriesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3atotalItems?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSHlwBUHEeGvy5vcBZd45A" base_Element="injectBusinessServiceEventTypeformalParams?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aformalParams?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSHlwRUHEeGvy5vcBZd45A" base_Element="_iChqkRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSHlwhUHEeGvy5vcBZd45A" base_Element="_iJhDYRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSIM0BUHEeGvy5vcBZd45A" base_Element="_h9k5IhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSIM0RUHEeGvy5vcBZd45A" base_Element="_iP0fsxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSIM0hUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition32?com.tibco.n2.busserv.api.business%3a%3aComposition32?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSIz4BUHEeGvy5vcBZd45A" base_Element="_iRjlEhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSIz4RUHEeGvy5vcBZd45A" base_Element="_iOtFYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSIz4hUHEeGvy5vcBZd45A" base_Element="_iITicBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSJa8BUHEeGvy5vcBZd45A" base_Element="startBusinessServiceResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType%3a%3apageResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSJa8RUHEeGvy5vcBZd45A" base_Element="_iHcm0RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSJa8hUHEeGvy5vcBZd45A" base_Element="_iCKeMBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSKCABUHEeGvy5vcBZd45A" base_Element="_iMb0hBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSKCARUHEeGvy5vcBZd45A" base_Element="_iCnKIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSKCAhUHEeGvy5vcBZd45A" base_Element="_iEmHIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSKpEBUHEeGvy5vcBZd45A" base_Element="_iBqu8hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSKpERUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessqueryBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSKpEhUHEeGvy5vcBZd45A" base_Element="_iFe38RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSLQIBUHEeGvy5vcBZd45A" base_Element="_h_tnIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSLQIRUHEeGvy5vcBZd45A" base_Element="listBusinessServicesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3aendPosition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSLQIhUHEeGvy5vcBZd45A" base_Element="_iBtyQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSL3MBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessupdateBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSL3MRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition34?com.tibco.n2.busserv.api.business%3a%3aComposition34?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSL3MhUHEeGvy5vcBZd45A" base_Element="_iMHEYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSL3MxUHEeGvy5vcBZd45A" base_Element="_iLRW4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSMeQBUHEeGvy5vcBZd45A" base_Element="_iPAAUhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSMeQRUHEeGvy5vcBZd45A" base_Element="_iHecABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSMeQhUHEeGvy5vcBZd45A" base_Element="_h-VHEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSNFUBUHEeGvy5vcBZd45A" base_Element="_h-uvshUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSNFURUHEeGvy5vcBZd45A" base_Element="_iChqkhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSNFUhUHEeGvy5vcBZd45A" base_Element="cancelBusinessServiceResponseTypestatus?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType%3a%3astatus?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSNsYBUHEeGvy5vcBZd45A" base_Element="_iEk5AhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSNsYRUHEeGvy5vcBZd45A" base_Element="Composition32querybusinessservicesresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition32%3a%3aquerybusinessservicesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSNsYhUHEeGvy5vcBZd45A" base_Element="_iFe38hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSOTcBUHEeGvy5vcBZd45A" base_Element="_iJ4PwRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSOTcRUHEeGvy5vcBZd45A" base_Element="Composition42injectbusinessserviceeventresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition42%3a%3ainjectbusinessserviceeventresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSOTchUHEeGvy5vcBZd45A" base_Element="Composition31listcategoriesresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition31%3a%3alistcategoriesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSO6gBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessstartBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSO6gRUHEeGvy5vcBZd45A" base_Element="_iG5NMhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSO6ghUHEeGvy5vcBZd45A" base_Element="updateBusinessServiceTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3aresponsePayloadMode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSO6gxUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition42?com.tibco.n2.busserv.api.business%3a%3aComposition42?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSPhkBUHEeGvy5vcBZd45A" base_Element="_iMHrcxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSPhkRUHEeGvy5vcBZd45A" base_Element="_iCHa4hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSQIoBUHEeGvy5vcBZd45A" base_Element="_iITicxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSQIoRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition40?com.tibco.n2.busserv.api.business%3a%3aComposition40?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSQIohUHEeGvy5vcBZd45A" base_Element="Composition40injectbusinessserviceeventtype?com.tibco.n2.busserv.api.business%3a%3aComposition40%3a%3ainjectbusinessserviceeventtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSQvsBUHEeGvy5vcBZd45A" base_Element="_iG7pcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSQvsRUHEeGvy5vcBZd45A" base_Element="_iChDghUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSQvshUHEeGvy5vcBZd45A" base_Element="_h9muUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSRWwBUHEeGvy5vcBZd45A" base_Element="_iBqu8RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSRWwRUHEeGvy5vcBZd45A" base_Element="_iMuIYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSRWwhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventResponseType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSR90BUHEeGvy5vcBZd45A" base_Element="_iOseUhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSR90RUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition41?com.tibco.n2.busserv.api.business%3a%3aComposition41?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSR90hUHEeGvy5vcBZd45A" base_Element="_iP0fsRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSSk4BUHEeGvy5vcBZd45A" base_Element="cancelBusinessServiceTypeprocessInstanceId?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType%3a%3aprocessInstanceId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSSk4RUHEeGvy5vcBZd45A" base_Element="_h9k5IRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSSk4hUHEeGvy5vcBZd45A" base_Element="_iOYVQRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSSk4xUHEeGvy5vcBZd45A" base_Element="_iDhwIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSTL8BUHEeGvy5vcBZd45A" base_Element="_h_MCsBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSTL8RUHEeGvy5vcBZd45A" base_Element="_iMb0gBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSTL8hUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businesslistCategoriesType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSTzABUHEeGvy5vcBZd45A" base_Element="_iBOqERUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSTzARUHEeGvy5vcBZd45A" base_Element="_iMHrcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSTzAhUHEeGvy5vcBZd45A" base_Element="_iDkMYBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSUaEBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSUaERUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessstartBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSUaEhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businesslistBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSVBIBUHEeGvy5vcBZd45A" base_Element="queryCategoriesTypeincludeFormalParameters?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3aincludeFormalParameters?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSVBIRUHEeGvy5vcBZd45A" base_Element="_iChDgxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSVBIhUHEeGvy5vcBZd45A" base_Element="startBusinessServiceTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3aresponsePayloadMode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSVoMBUHEeGvy5vcBZd45A" base_Element="queryBusinessServicesResponseTypebusinessServiceTemplate?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType%3a%3abusinessServiceTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSVoMRUHEeGvy5vcBZd45A" base_Element="Composition33querycategoriesresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition33%3a%3aquerycategoriesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSVoMhUHEeGvy5vcBZd45A" base_Element="_iPAAURUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSVoMxUHEeGvy5vcBZd45A" base_Element="queryBusinessServicesTypecategory?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3acategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSWPQBUHEeGvy5vcBZd45A" base_Element="injectBusinessServiceEventTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aresponsePayloadMode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSWPQRUHEeGvy5vcBZd45A" base_Element="_iHdN4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSWPQhUHEeGvy5vcBZd45A" base_Element="_h-UgARUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSW2UBUHEeGvy5vcBZd45A" base_Element="_iCHa4RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSW2URUHEeGvy5vcBZd45A" base_Element="_iMb0gxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSW2UhUHEeGvy5vcBZd45A" base_Element="_iGY24BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSXdYBUHEeGvy5vcBZd45A" base_Element="_iPBOcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSXdYRUHEeGvy5vcBZd45A" base_Element="_iGY24RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSXdYhUHEeGvy5vcBZd45A" base_Element="startBusinessServiceTypeformalParams?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3aformalParams?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSYEcBUHEeGvy5vcBZd45A" base_Element="_iMuIYRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSYEcRUHEeGvy5vcBZd45A" base_Element="_iKYmEhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSYEchUHEeGvy5vcBZd45A" base_Element="Composition35startbusinessservicetype?com.tibco.n2.busserv.api.business%3a%3aComposition35%3a%3astartbusinessservicetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSYrgBUHEeGvy5vcBZd45A" base_Element="_iNgykhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSYrgRUHEeGvy5vcBZd45A" base_Element="_iMHrchUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSYrghUHEeGvy5vcBZd45A" base_Element="_iJM6UhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSZSkBUHEeGvy5vcBZd45A" base_Element="_iQtQgBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSZSkRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition35?com.tibco.n2.busserv.api.business%3a%3aComposition35?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSZSkhUHEeGvy5vcBZd45A" base_Element="_iAZjohUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSZ5oBUHEeGvy5vcBZd45A" base_Element="_iITidBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSZ5oRUHEeGvy5vcBZd45A" base_Element="_h-vWwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSZ5ohUHEeGvy5vcBZd45A" base_Element="_iQrbURUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSZ5oxUHEeGvy5vcBZd45A" base_Element="_iOXuMhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSagsBUHEeGvy5vcBZd45A" base_Element="_h_oHkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSagsRUHEeGvy5vcBZd45A" base_Element="_iOtFYxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSagshUHEeGvy5vcBZd45A" base_Element="_iOtFYBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSbHwBUHEeGvy5vcBZd45A" base_Element="_h9pKkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSbHwRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessqueryCategoriesType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSbHwhUHEeGvy5vcBZd45A" base_Element="queryCategoriesTypecategory?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3acategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSbu0BUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businesslistBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSbu0RUHEeGvy5vcBZd45A" base_Element="_iLQv0xUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSbu0hUHEeGvy5vcBZd45A" base_Element="_iAZjoRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSbu0xUHEeGvy5vcBZd45A" base_Element="_iEBfYRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iScV4BUHEeGvy5vcBZd45A" base_Element="updateBusinessServiceTypecontext?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3acontext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iScV4RUHEeGvy5vcBZd45A" base_Element="_iJNhYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iScV4hUHEeGvy5vcBZd45A" base_Element="Composition41injectbusinessserviceeventtype?com.tibco.n2.busserv.api.business%3a%3aComposition41%3a%3ainjectbusinessserviceeventtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSc88BUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition30?com.tibco.n2.busserv.api.business%3a%3aComposition30?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSc88RUHEeGvy5vcBZd45A" base_Element="_iP0fsBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSc88hUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition36?com.tibco.n2.busserv.api.business%3a%3aComposition36?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSdkABUHEeGvy5vcBZd45A" base_Element="_iJhDYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSdkARUHEeGvy5vcBZd45A" base_Element="_iFeQ4xUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSdkAhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition39?com.tibco.n2.busserv.api.business%3a%3aComposition39?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSeLEBUHEeGvy5vcBZd45A" base_Element="_iMb0gRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSeLERUHEeGvy5vcBZd45A" base_Element="updateBusinessServiceResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType%3a%3apageResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSeLEhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessqueryCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSeyIBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition31?com.tibco.n2.busserv.api.business%3a%3aComposition31?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSeyIRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businesscancelBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSeyIhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition37?com.tibco.n2.busserv.api.business%3a%3aComposition37?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSeyIxUHEeGvy5vcBZd45A" base_Element="_iRmBUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSfZMBUHEeGvy5vcBZd45A" base_Element="Composition36startbusinessserviceresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition36%3a%3astartbusinessserviceresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSfZMRUHEeGvy5vcBZd45A" base_Element="queryBusinessServicesTypeincludeFormalParameters?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3aincludeFormalParameters?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSfZMhUHEeGvy5vcBZd45A" base_Element="_iJNhYRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSgAQBUHEeGvy5vcBZd45A" base_Element="_iFeQ4hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSgAQRUHEeGvy5vcBZd45A" base_Element="Composition38updatebusinessservicetype?com.tibco.n2.busserv.api.business%3a%3aComposition38%3a%3aupdatebusinessservicetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSgAQhUHEeGvy5vcBZd45A" base_Element="_iG5NMRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSgnUBUHEeGvy5vcBZd45A" base_Element="listBusinessServicesTypechannelId?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType%3a%3achannelId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSgnURUHEeGvy5vcBZd45A" base_Element="updateBusinessServiceTypepageFields?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3apageFields?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSgnUhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition38?com.tibco.n2.busserv.api.business%3a%3aComposition38?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iShOYBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessqueryBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iShOYRUHEeGvy5vcBZd45A" base_Element="_h-xzABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iShOYhUHEeGvy5vcBZd45A" base_Element="queryBusinessServicesTypechannelId?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3achannelId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iShOYxUHEeGvy5vcBZd45A" base_Element="_iOXuMxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSh1cBUHEeGvy5vcBZd45A" base_Element="_iHj7kBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSh1cRUHEeGvy5vcBZd45A" base_Element="startBusinessServiceTypecacheTimeout?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3acacheTimeout?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSh1chUHEeGvy5vcBZd45A" base_Element="listCategoriesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3aendPosition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSicgBUHEeGvy5vcBZd45A" base_Element="_iAg4YBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSicgRUHEeGvy5vcBZd45A" base_Element="injectBusinessServiceEventResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType%3a%3apageResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSjDkBUHEeGvy5vcBZd45A" base_Element="_iJM6UxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSjDkRUHEeGvy5vcBZd45A" base_Element="listBusinessServicesResponseTypebusinessCategory?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3abusinessCategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSjDkhUHEeGvy5vcBZd45A" base_Element="_iEk5ARUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSjqoBUHEeGvy5vcBZd45A" base_Element="_h-XjUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSjqoRUHEeGvy5vcBZd45A" base_Element="_iNhZoBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSjqohUHEeGvy5vcBZd45A" base_Element="_iLQv0hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSkRsBUHEeGvy5vcBZd45A" base_Element="_iMvWgBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSkRsRUHEeGvy5vcBZd45A" base_Element="_iOYVQhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSkRshUHEeGvy5vcBZd45A" base_Element="_h_I_YhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSk4wBUHEeGvy5vcBZd45A" base_Element="listCategoriesTypechannelId?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType%3a%3achannelId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSk4wRUHEeGvy5vcBZd45A" base_Element="_iKYmERUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSk4whUHEeGvy5vcBZd45A" base_Element="_iED7oBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSk4wxUHEeGvy5vcBZd45A" base_Element="_hMyVYxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSlf0BUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businesslistCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSlf0RUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businesscancelBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSlf0hUHEeGvy5vcBZd45A" base_Element="_hMyVYRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSmG4BUHEeGvy5vcBZd45A" base_Element="_iGasEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSmG4RUHEeGvy5vcBZd45A" base_Element="_iLRW4RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSmG4hUHEeGvy5vcBZd45A" base_Element="Composition30listbusinessservicesresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition30%3a%3alistbusinessservicesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSmt8BUHEeGvy5vcBZd45A" base_Element="_iP0ftBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSmt8RUHEeGvy5vcBZd45A" base_Element="queryCategoriesResponseTypebusinessCategory?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType%3a%3abusinessCategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSmt8hUHEeGvy5vcBZd45A" base_Element="_iFiiUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSmt8xUHEeGvy5vcBZd45A" base_Element="_iNgykxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSnVABUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.busserv.api.businessComposition33?com.tibco.n2.busserv.api.business%3a%3aComposition33?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSnVARUHEeGvy5vcBZd45A" base_Element="listCategoriesResponseTypeCategory?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3acategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSnVAhUHEeGvy5vcBZd45A" base_Element="injectBusinessServiceEventTypeeventDefinition?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aeventDefinition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSn8EBUHEeGvy5vcBZd45A" base_Element="listBusinessServicesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3atotalItems?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSn8ERUHEeGvy5vcBZd45A" base_Element="_iJ5d4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSn8EhUHEeGvy5vcBZd45A" base_Element="_h_I_YRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSojIBUHEeGvy5vcBZd45A" base_Element="_iJ4PwhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSojIRUHEeGvy5vcBZd45A" base_Element="listBusinessServicesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3astartPosition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSojIhUHEeGvy5vcBZd45A" base_Element="_h_oHkxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSpKMBUHEeGvy5vcBZd45A" base_Element="Composition39updatebusinessserviceresponsetype?com.tibco.n2.busserv.api.business%3a%3aComposition39%3a%3aupdatebusinessserviceresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSpKMRUHEeGvy5vcBZd45A" base_Element="_iITicRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSpKMhUHEeGvy5vcBZd45A" base_Element="_iIWlwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSpKMxUHEeGvy5vcBZd45A" base_Element="queryCategoriesTypechannelId?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3achannelId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSpxQBUHEeGvy5vcBZd45A" base_Element="_iAd1EBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSpxQRUHEeGvy5vcBZd45A" base_Element="_iKbpYBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2jvkBUHEeGvy5vcBZd45A" displayLabel="cancelBusinessServiceType" base_NamedElement="com.tibco.n2.busserv.api.businesscancelBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2k9sBUHEeGvy5vcBZd45A" displayLabel="cancelBusinessServiceResponseType" base_NamedElement="com.tibco.n2.busserv.api.businesscancelBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2my4BUHEeGvy5vcBZd45A" displayLabel="injectBusinessServiceEventType" base_NamedElement="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2ooEBUHEeGvy5vcBZd45A" displayLabel="injectBusinessServiceEventResponseType" base_NamedElement="com.tibco.n2.busserv.api.businessinjectBusinessServiceEventResponseType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2rEUBUHEeGvy5vcBZd45A" displayLabel="listBusinessServicesType" base_NamedElement="com.tibco.n2.busserv.api.businesslistBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2s5gBUHEeGvy5vcBZd45A" displayLabel="listBusinessServicesResponseType" base_NamedElement="com.tibco.n2.busserv.api.businesslistBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2uHoBUHEeGvy5vcBZd45A" displayLabel="listCategoriesType" base_NamedElement="com.tibco.n2.busserv.api.businesslistCategoriesType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2wj4BUHEeGvy5vcBZd45A" displayLabel="listCategoriesResponseType" base_NamedElement="com.tibco.n2.busserv.api.businesslistCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2yZEBUHEeGvy5vcBZd45A" displayLabel="queryBusinessServicesType" base_NamedElement="com.tibco.n2.busserv.api.businessqueryBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2znMBUHEeGvy5vcBZd45A" displayLabel="queryBusinessServicesResponseType" base_NamedElement="com.tibco.n2.busserv.api.businessqueryBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i21cYBUHEeGvy5vcBZd45A" displayLabel="queryCategoriesType" base_NamedElement="com.tibco.n2.busserv.api.businessqueryCategoriesType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i22qgBUHEeGvy5vcBZd45A" displayLabel="queryCategoriesResponseType" base_NamedElement="com.tibco.n2.busserv.api.businessqueryCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i24fsBUHEeGvy5vcBZd45A" displayLabel="startBusinessServiceType" base_NamedElement="com.tibco.n2.busserv.api.businessstartBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i25t0BUHEeGvy5vcBZd45A" displayLabel="startBusinessServiceResponseType" base_NamedElement="com.tibco.n2.busserv.api.businessstartBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i27jABUHEeGvy5vcBZd45A" displayLabel="updateBusinessServiceType" base_NamedElement="com.tibco.n2.busserv.api.businessupdateBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i29YMBUHEeGvy5vcBZd45A" displayLabel="updateBusinessServiceResponseType" base_NamedElement="com.tibco.n2.busserv.api.businessupdateBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i2-mUBUHEeGvy5vcBZd45A" displayLabel="processInstanceId" base_NamedElement="cancelBusinessServiceTypeprocessInstanceId?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType%3a%3aprocessInstanceId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3AbgBUHEeGvy5vcBZd45A" displayLabel="status" base_NamedElement="cancelBusinessServiceResponseTypestatus?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType%3a%3astatus?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3BpoBUHEeGvy5vcBZd45A" displayLabel="eventDefinition" base_NamedElement="injectBusinessServiceEventTypeeventDefinition?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aeventDefinition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3C3wBUHEeGvy5vcBZd45A" displayLabel="formalParams" base_NamedElement="injectBusinessServiceEventTypeformalParams?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aformalParams?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3De0BUHEeGvy5vcBZd45A" displayLabel="responsePayloadMode" base_NamedElement="injectBusinessServiceEventTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType%3a%3aresponsePayloadMode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3FUABUHEeGvy5vcBZd45A" displayLabel="pageResponse" base_NamedElement="injectBusinessServiceEventResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType%3a%3apageResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3F7EBUHEeGvy5vcBZd45A" displayLabel="channelId" base_NamedElement="listBusinessServicesTypechannelId?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType%3a%3achannelId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3HwQBUHEeGvy5vcBZd45A" displayLabel="businessCategory" base_NamedElement="listBusinessServicesResponseTypebusinessCategory?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3abusinessCategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3I-YBUHEeGvy5vcBZd45A" displayLabel="endPosition" base_NamedElement="listBusinessServicesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3aendPosition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3KzkBUHEeGvy5vcBZd45A" displayLabel="startPosition" base_NamedElement="listBusinessServicesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3astartPosition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3MowBUHEeGvy5vcBZd45A" displayLabel="totalItems" base_NamedElement="listBusinessServicesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType%3a%3atotalItems?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3Od8BUHEeGvy5vcBZd45A" displayLabel="channelId" base_NamedElement="listCategoriesTypechannelId?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType%3a%3achannelId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3QTIBUHEeGvy5vcBZd45A" displayLabel="Category" base_NamedElement="listCategoriesResponseTypeCategory?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3acategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3RhQBUHEeGvy5vcBZd45A" displayLabel="endPosition" base_NamedElement="listCategoriesResponseTypeendPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3aendPosition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3SvYBUHEeGvy5vcBZd45A" displayLabel="startPosition" base_NamedElement="listCategoriesResponseTypestartPosition?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3astartPosition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3TWcBUHEeGvy5vcBZd45A" displayLabel="totalItems" base_NamedElement="listCategoriesResponseTypetotalItems?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType%3a%3atotalItems?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3VysBUHEeGvy5vcBZd45A" displayLabel="category" base_NamedElement="queryBusinessServicesTypecategory?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3acategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3YO8BUHEeGvy5vcBZd45A" displayLabel="channelId" base_NamedElement="queryBusinessServicesTypechannelId?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3achannelId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3aEIBUHEeGvy5vcBZd45A" displayLabel="includeFormalParameters" base_NamedElement="queryBusinessServicesTypeincludeFormalParameters?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType%3a%3aincludeFormalParameters?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3bSQBUHEeGvy5vcBZd45A" displayLabel="businessServiceTemplate" base_NamedElement="queryBusinessServicesResponseTypebusinessServiceTemplate?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType%3a%3abusinessServiceTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3dugBUHEeGvy5vcBZd45A" displayLabel="category" base_NamedElement="queryCategoriesTypecategory?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3acategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3e8oBUHEeGvy5vcBZd45A" displayLabel="channelId" base_NamedElement="queryCategoriesTypechannelId?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3achannelId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3fjsBUHEeGvy5vcBZd45A" displayLabel="includeFormalParameters" base_NamedElement="queryCategoriesTypeincludeFormalParameters?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType%3a%3aincludeFormalParameters?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3gx0BUHEeGvy5vcBZd45A" displayLabel="businessCategory" base_NamedElement="queryCategoriesResponseTypebusinessCategory?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType%3a%3abusinessCategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3inABUHEeGvy5vcBZd45A" displayLabel="businessServiceDefinition" base_NamedElement="startBusinessServiceTypebusinessServiceDefinition?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3abusinessServiceDefinition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3j1IBUHEeGvy5vcBZd45A" displayLabel="cacheTimeout" base_NamedElement="startBusinessServiceTypecacheTimeout?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3acacheTimeout?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3lDQBUHEeGvy5vcBZd45A" displayLabel="formalParams" base_NamedElement="startBusinessServiceTypeformalParams?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3aformalParams?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3mRYBUHEeGvy5vcBZd45A" displayLabel="responsePayloadMode" base_NamedElement="startBusinessServiceTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType%3a%3aresponsePayloadMode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3nfgBUHEeGvy5vcBZd45A" displayLabel="pageResponse" base_NamedElement="startBusinessServiceResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType%3a%3apageResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3otoBUHEeGvy5vcBZd45A" displayLabel="context" base_NamedElement="updateBusinessServiceTypecontext?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3acontext?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3qi0BUHEeGvy5vcBZd45A" displayLabel="pageFields" base_NamedElement="updateBusinessServiceTypepageFields?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3apageFields?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3rJ4BUHEeGvy5vcBZd45A" displayLabel="responsePayloadMode" base_NamedElement="updateBusinessServiceTyperesponsePayloadMode?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType%3a%3aresponsePayloadMode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3s_EBUHEeGvy5vcBZd45A" displayLabel="pageResponse" base_NamedElement="updateBusinessServiceResponseTypepageResponse?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType%3a%3apageResponse?"/>
+  <notation:Diagram xmi:id="_i3tmJBUHEeGvy5vcBZd45A" type="Business Object Model" element="com.tibco.n2.busserv.api.business2?com.tibco.n2.busserv.api.business?" name="com.tibco.n2.busserv.api.business" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_i3tmJRUHEeGvy5vcBZd45A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_i3tmJhUHEeGvy5vcBZd45A"/>
+  </notation:Diagram>
+</xmi:XMI>

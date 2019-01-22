@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ********************************************************************** -->
+<!-- Create the artefacts necessary to stage a controlled build             -->
+<!-- Should try to get incorporated into Builder at some stage              -->
+<!-- ********************************************************************** -->
+<project name="com.tibco.xpd.script.feature post build script" default="main">
+
+    <target name="main"
+            depends="create-tag, create-mail, create-zip"
+            description="The default entry point for the script"/>
+
+    <target name="init" depends="feature-version, feature-qualifier"/>
+
+    <target name="feature-version">
+        <echo message="${basedir}"/>
+                <tempfile property="featureVersion.property.temp.file" />
+                <xslt in="features/${feature}/feature.xml"
+                      out="${featureVersion.property.temp.file}"
+                      style="${basedir}/featureVersion.xsl">
+                    <param name="propname" expression="feature-version" />
+                </xslt>
+                <property file="${featureVersion.property.temp.file}" />
+                <echo message="${feature-version}"/>
+                <!--delete file="${currentVersion.property.temp.file}" /-->
+    </target>
+
+    <target name="feature-qualifier">
+        <loadfile property="feature-qualifier"
+                srcfile="featureVersions.properties">
+            <filterchain>
+                <tokenfilter>
+                    <containsstring contains="${feature}"/>
+                    <!--replacestring from=".jar" to=""/i-->
+                    <replaceregex pattern="^.*=" replace=""/>
+                    <!--containsregex pattern="\d" /-->
+<scriptfilter language="javascript">
+        <![CDATA[self.setToken(self.getToken().substring(0,3)));]]>
+    </scriptfilter>
+                </tokenfilter>
+            </filterchain>
+        </loadfile>
+        <echo message="${feature-qualifier}**"/>
+    </target>
+
+    <target name="create-tag" 
+            description="creates a tag of the build just made">
+        <echo message="Creating tag for build"/>
+<!--property name="current-version" value="3.0.0.004"/-->
+        <property file="${autobuild.dir.release-unit}/last-build.properties"/>
+	<!--property name="current-version" value="${feature}"/-->
+	<echo message="${feature}"/>
+        
+        <!--loadfile srcfile="${autobuild.dir.release-unit}/current-versions.properties" property="current-version"-->
+        <!--loadfile srcfile="${autobuild.dir.release-unit}/current-versions.properties" property="current-version">
+            <filterchain>
+                <tokenfilter>
+<replacestring from="${feature}=" to=""/>
+                    <!- -containsregex pattern=".*=" replace=""/- ->
+                </tokenfilter>
+            </filterchain>
+        </loadfile>
+        <echo message="${autobuild.dir.release-unit}"/>
+        <echo message="${svn.tagsURL}/${feature}-${feature-version}"/>
+        <echo message="FEATURE VERSN${feature-version}"/>
+        <echo message="${ru.build.qualifier}"/-->
+
+        <exec executable="svn" failonerror="true">
+            <arg value="mkdir"/>
+            <arg value="${svn.tagsURL}/${feature}-${feature-version}.${feature-qualifier}/"/>
+	    <arg value="-m'Create tag dir for official build: ${feature-version}'"/>
+        </exec>
+
+        <echo message="COMMMAND 1: svn copy ${svn.repoURL}/${feature}/ ${svn.tagsURL}/${feature}-${feature-version}.${feature-qualifier} -m'Create tag for official build: ${feature-version}'"/>
+
+        <exec executable="svn" failonerror="true">
+            <arg value="copy"/>
+            <arg value="${svn.repoURL}/${feature}"/>
+            <arg value="${svn.tagsURL}/${feature}-${feature-version}.${feature-qualifier}/${feature}"/>
+	    <arg value="-m'Create tag for official build: ${feature-version}'"/>
+        </exec>
+
+        <echo message="COMMAND 2: svn checkout ${svn.tagsURL}/${feature}-${feature-version}.${feature-qualifier} ${svn.workingcopy.dir}"/>
+        <property name="svn.workingcopy.dir" value="${autobuild.dir.release-unit}/tmp/"/>
+        <delete dir="${svn.workingcopy.dir}"/>
+        <exec executable="svn" failonerror="true">
+            <arg value="checkout"/>
+            <arg value="${svn.tagsURL}/${feature}-${feature-version}.${feature-qualifier}"/>
+	    <arg value="${svn.workingcopy.dir}"/>
+        </exec>
+
+        <echo message="COMMAND 3: cp *Versions.properties ${svn.workingcopy.dir}"/>
+        <copy todir="${svn.workingcopy.dir}">
+	    <fileset dir="${autobuild.dir.release-unit}">
+		<include name="*Versions.properties" />
+	    </fileset>
+        </copy>
+
+        <echo message="COMMAND 4: svn commit ${svn.workingcopy.dir} -m'Add *Versions.properties'"/>
+
+        <!--exec executable="svn" output="svn-commit" failonerror="true">
+            <arg value="commit"/>
+            <arg value="${svn.workingcopy.dir}"/>
+	    <arg value="-m'Add *Version.properties to tag"/>
+        </exec>
+
+        <loadfile srcfile="svn-commit" property="tagged-revision">
+            <filterchain>
+                <tokenfilter>
+                    <containsregex pattern="Committed revision "/>
+                </tokenfilter>
+            </filterchain>
+        </loadfile-->
+    </target>
+
+    <target name="create-zip" 
+            description="creates a zip of both debug and release artefacts">
+        <echo message="Creating zip for distribution"/>
+        <echo message="${autobuild.repository}/${release-unit}"/>
+        <echo message="${autobuild.dir.release-unit}"/>
+        <echo message="${autobuild.dir.output.jars.release}"/>
+
+        <!-- TODO Don't know if there is a better property to use for this? --> 
+        <zip zipfile="${autobuild.dir.output.candidates}/${release-unit}.zip"
+        		       basedir="${autobuild.dir.output.candidates}/jar"
+        		       excludes="*/site.xml, */*.IS_NOT_OBFUSCATED"/>
+    </target>
+
+    <target name="create-mail" 
+            depends="create-tag"
+            description="creates a notification mail with the information about this build">
+        <echo message="Creating a notification mail for the feature"/>
+
+        <!-- Copy the template for the mail notification --> 
+        <copy file="notification-mail-template.txt" tofile="${autobuild.dir.output.candidates}/notification-mail.txt"/>
+
+        <!-- Replace the tokens in the mail notification --> 
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__FEATURE__" value="${feature}"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__SRC_SRC_URL__" value="${svn.repoURL}"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__SRC_REVISION__" value="${svn.revision}"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__SPIN_DEBUG_REVISION__" value="XXXX"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__SPIN_RELEASE_REVISION__" value="XXXX"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__SVN_TAGS_URL__" value="${svn.tagsURL}"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__TAG_REVISION__" value="${tagged-revision}"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__VERSION__" value="${feature-version}"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__FEATURE_LIST__" value="${feature-list}"/>
+        <replace file="${autobuild.dir.output.candidates}/notification-mail.txt"
+                token="__PLUGIN_LIST__" value="${plugin-list}"/>
+    </target>
+
+</project>
+

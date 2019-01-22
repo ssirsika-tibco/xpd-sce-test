@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_L6ohoEUsEd6kN4P-pEMHmQ" xpdExt:DisplayName="PageActivityTest1" Name="PageActivityTest1">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2009-05-20</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author></xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:DataFields>
+    <xpdl2:DataField Id="_lwQayEU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Boolean2" Name="Boolean2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="BOOLEAN"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue></xpdl2:InitialValue>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_lwQayUU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Date2" Name="Date2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="DATE"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue></xpdl2:InitialValue>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_lwQaykU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="DateTime2" Name="DateTime2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="DATETIME"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue></xpdl2:InitialValue>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_lwQay0U3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Decimal2" Name="Decimal2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="FLOAT">
+          <xpdl2:Precision>20</xpdl2:Precision>
+          <xpdl2:Scale>4</xpdl2:Scale>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue></xpdl2:InitialValue>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_lwQazEU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Integer2" Name="Integer2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="INTEGER">
+          <xpdl2:Precision>20</xpdl2:Precision>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue></xpdl2:InitialValue>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_lwQazUU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Performer2" Name="Performer2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="PERFORMER"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue></xpdl2:InitialValue>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_lwQazkU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Time2" Name="Time2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="TIME"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue></xpdl2:InitialValue>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_lwQaz0U3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Text2" Name="Text2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="STRING">
+          <xpdl2:Length>100</xpdl2:Length>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+  </xpdl2:DataFields>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_L6oho0UsEd6kN4P-pEMHmQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_L6ohrUUsEd6kN4P-pEMHmQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_L6ohpEUsEd6kN4P-pEMHmQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_L6ohrUUsEd6kN4P-pEMHmQ" xpdExt:Pageflow="true" xpdExt:DisplayName="Pageflow-Process" Name="PageflowProcess">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_ps0-CEU3Ed6kN4P-pEMHmQ" Name="ParamTime1" Mode="INOUT" Required="false" xpdExt:DisplayName="ParamTime1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ps0-CUU3Ed6kN4P-pEMHmQ" Name="ParamBoolean1" Mode="INOUT" Required="false" xpdExt:DisplayName="ParamBoolean1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ps0-CkU3Ed6kN4P-pEMHmQ" Name="ParamText1" Mode="INOUT" Required="false" xpdExt:DisplayName="ParamText1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ps0-C0U3Ed6kN4P-pEMHmQ" Name="ParamInteger1" Mode="INOUT" Required="false" xpdExt:DisplayName="ParamInteger1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ps0-DEU3Ed6kN4P-pEMHmQ" Name="ParamPerformer1" Mode="INOUT" Required="false" xpdExt:DisplayName="ParamPerformer1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ps0-DUU3Ed6kN4P-pEMHmQ" Name="ParamDec1" Mode="INOUT" Required="false" xpdExt:DisplayName="ParamDec1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ps0-DkU3Ed6kN4P-pEMHmQ" Name="ParamDate" Mode="INOUT" Required="false" xpdExt:DisplayName="ParamDate">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ps0-D0U3Ed6kN4P-pEMHmQ" Name="ParamDateTime1" Mode="INOUT" Required="false" xpdExt:DisplayName="ParamDateTime1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_iKoX6EU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="DateTime1" Name="DateTime1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iKoX6UU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Decimal1" Name="Decimal1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iKoX6kU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Time1" Name="Time1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iKoX60U3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Date1" Name="Date1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iKoX7EU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Integer1" Name="Integer1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iKoX7UU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Performer1" Name="Performer1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iKoX7kU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Text1" Name="Text1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iKoX70U3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="Boolean1" Name="Boolean1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_L6ohrkUsEd6kN4P-pEMHmQ" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="27.0" LaneId="_L6ohpEUsEd6kN4P-pEMHmQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="71.0" YCoordinate="150.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_L6ohr0UsEd6kN4P-pEMHmQ" Name="End" xpdExt:Visibility="Private" xpdExt:DisplayName="End">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="30.0" LaneId="_L6ohpEUsEd6kN4P-pEMHmQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="441.0" YCoordinate="150.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Q0DGkUU3Ed6kN4P-pEMHmQ" Name="PageTask1" xpdExt:Visibility="Private" xpdExt:DisplayName="PageTask1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_Q0DGkkU3Ed6kN4P-pEMHmQ"/>
+                <xpdl2:MessageOut Id="_Q0DGk0U3Ed6kN4P-pEMHmQ"/>
+                <xpdExt:FormImplementation FormType="UserDefined" FormURI="/TestForm.form"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="bpmJspTask" Value="/TestForm.form"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="64.0" LaneId="_L6ohpEUsEd6kN4P-pEMHmQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="277.0" YCoordinate="150.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters>
+            <xpdExt:AssociatedParameter FormalParam="Text2" Mode="IN" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ParamDate" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="ParamPerformer1" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Performer2" Mode="IN" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ParamBoolean1" Mode="OUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="ParamInteger1" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="Date2" Mode="IN" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ParamDec1" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="Time2" Mode="INOUT" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ParamTime1" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="Text1" Mode="OUT" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="DateTime1" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Integer2" Mode="IN" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ParamText1" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="Performer1" Mode="INOUT" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Boolean2" Mode="IN" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Date1" Mode="OUT" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Decimal1" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="DateTime2" Mode="IN" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Decimal2" Mode="OUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Time1" Mode="INOUT" Mandatory="true">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Boolean1" Mode="IN" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="ParamDateTime1" Mode="OUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Integer1" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_L6ohsEUsEd6kN4P-pEMHmQ" xpdExt:DisplayName="" Name="" From="_Q0DGkUU3Ed6kN4P-pEMHmQ" To="_L6ohr0UsEd6kN4P-pEMHmQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Q0M3kEU3Ed6kN4P-pEMHmQ" xpdExt:DisplayName="" Name="" From="_L6ohrkUsEd6kN4P-pEMHmQ" To="_Q0DGkUU3Ed6kN4P-pEMHmQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="N2"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="7"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://example.org/math/types2/" xmlns="http://example.org/math/types2/" xmlns:ns0="http://example.org/math/types/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+
+<xs:import namespace="http://example.org/math/types/" schemaLocation="Simpl.xsd"/>
+ 
+				<xs:complexType name="MathsRestrictedInput">
+				<xs:complexContent>
+					<xs:restriction base="ns0:MathInput">
+						<xs:sequence>
+							<xs:element name="x" type="xs:double" />
+							<xs:element name="y" type="xs:double" />
+							<xs:element name="description" type="xs:string" minOccurs="1" />
+						</xs:sequence>
+					</xs:restriction>
+				</xs:complexContent>
+			</xs:complexType>			
+		
+</xs:schema>

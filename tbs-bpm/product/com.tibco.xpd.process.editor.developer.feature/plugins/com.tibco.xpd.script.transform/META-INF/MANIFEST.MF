@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Transform Plug-in
+Bundle-SymbolicName: com.tibco.xpd.script.transform;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Activator: com.tibco.xpd.script.transform.Activator
+Bundle-Vendor: TIBCO Software Inc.
+Bundle-Localization: plugin
+Require-Bundle: org.openarchitectureware.dependencies;bundle-version="4.3.0",
+ org.openarchitectureware.xsd;bundle-version="4.3.0",
+ com.tibco.xpd.resources.ui,
+ org.eclipse.gmf.runtime.diagram.core;bundle-version="1.1.0",
+ com.tibco.xpd.bom.modeler.diagram,
+ com.tibco.xpd.bom.resources.ui,
+ com.tibco.xpd.processeditor.xpdl2,
+ com.tibco.xpd.ui.properties,
+ com.tibco.xpd.implementer.resources.xpdl2,
+ com.tibco.xpd.implementer.script,
+ com.tibco.xpd.mapper,
+ com.tibco.xpd.xpdl2.edit,
+ com.tibco.xpd.process.js.model,
+ com.tibco.xpd.bom.xsdtransform;visibility:=reexport,
+ com.tibco.xpd.bom.resources,
+ com.tibco.xpd.script.sourceviewer,
+ com.tibco.xpd.wsdl;bundle-version="3.3.1",
+ com.tibco.xpd.xsd.ui,
+ org.eclipse.ui.editors;bundle-version="3.4.0",
+ com.tibco.xpd.implementer.nativeservices,
+ org.apache.xerces;bundle-version="2.9.0",
+ com.tibco.xpd.script.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: com.tibco.xpd.script.transform.document,
+ com.tibco.xpd.script.transform.mapping,
+ com.tibco.xpd.script.transform.properties,
+ com.tibco.xpd.script.transform.util

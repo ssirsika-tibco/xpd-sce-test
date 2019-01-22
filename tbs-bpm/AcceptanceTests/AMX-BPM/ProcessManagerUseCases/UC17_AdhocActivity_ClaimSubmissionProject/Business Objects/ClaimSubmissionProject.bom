@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_QexuMD5aEeS9ur8e37DqxA" name="com.example.claimsubmissionproject">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QexuMT5aEeS9ur8e37DqxA" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QexuMj5aEeS9ur8e37DqxA" key="author" value="kthombar"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QexuMz5aEeS9ur8e37DqxA" key="created" value="1410951810194"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QexuND5aEeS9ur8e37DqxA" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1mEw8D5aEeS9ur8e37DqxA" name="Claim">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3vUVYD5aEeS9ur8e37DqxA" name="ID" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3vVjgj5aEeS9ur8e37DqxA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3vVjgT5aEeS9ur8e37DqxA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3-QwUD5aEeS9ur8e37DqxA" name="claimCode" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3-RXYj5aEeS9ur8e37DqxA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3-RXYT5aEeS9ur8e37DqxA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4M3NAD5aEeS9ur8e37DqxA" name="claimerName" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4M4bIj5aEeS9ur8e37DqxA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4M4bIT5aEeS9ur8e37DqxA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4cuN8D5aEeS9ur8e37DqxA" name="claimReceivedDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4cvcET5aEeS9ur8e37DqxA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4cvcED5aEeS9ur8e37DqxA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4vex4D5aEeS9ur8e37DqxA" name="claimEvaluation" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4vgAAT5aEeS9ur8e37DqxA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4vgAAD5aEeS9ur8e37DqxA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_1mFYAD5aEeS9ur8e37DqxA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1mFYAT5aEeS9ur8e37DqxA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_QexuNT5aEeS9ur8e37DqxA" type="Business Object Model" element="_QexuMD5aEeS9ur8e37DqxA?com.example.claimsubmissionproject?" name="ClaimSubmissionProject.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_Qfff4D5aEeS9ur8e37DqxA" type="1007" element="_QexuMD5aEeS9ur8e37DqxA?com.example.claimsubmissionproject?">
+      <children xmi:type="notation:Node" xmi:id="_QfgG8D5aEeS9ur8e37DqxA" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_QfgG8T5aEeS9ur8e37DqxA" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_QfgG8j5aEeS9ur8e37DqxA" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_QfgG8z5aEeS9ur8e37DqxA" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_QfguAD5aEeS9ur8e37DqxA" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_QfguAT5aEeS9ur8e37DqxA" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_QfguAj5aEeS9ur8e37DqxA" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_QfguAz5aEeS9ur8e37DqxA" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_QfguBD5aEeS9ur8e37DqxA" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_QfguBT5aEeS9ur8e37DqxA" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_QfguBj5aEeS9ur8e37DqxA"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_QfguBz5aEeS9ur8e37DqxA" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_QfguCD5aEeS9ur8e37DqxA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_QfguCT5aEeS9ur8e37DqxA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_Qfff4T5aEeS9ur8e37DqxA" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_Qfff4j5aEeS9ur8e37DqxA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qfff4z5aEeS9ur8e37DqxA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_1mbWQD5aEeS9ur8e37DqxA" type="1002" element="_1mEw8D5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim?">
+      <children xmi:type="notation:Node" xmi:id="_1mb9Uj5aEeS9ur8e37DqxA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_1mb9Uz5aEeS9ur8e37DqxA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_1mb9VD5aEeS9ur8e37DqxA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_1mckYD5aEeS9ur8e37DqxA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_3vYm0D5aEeS9ur8e37DqxA" type="2001" element="_3vUVYD5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aID?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_3vYm0T5aEeS9ur8e37DqxA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_3-YFED5aEeS9ur8e37DqxA" type="2001" element="_3-QwUD5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aclaimCode?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_3-YFET5aEeS9ur8e37DqxA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_4M7ecD5aEeS9ur8e37DqxA" type="2001" element="_4M3NAD5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aclaimerName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_4M7ecT5aEeS9ur8e37DqxA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_4cx4UD5aEeS9ur8e37DqxA" type="2001" element="_4cuN8D5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aclaimReceivedDate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_4cx4UT5aEeS9ur8e37DqxA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_4vjDUD5aEeS9ur8e37DqxA" type="2001" element="_4vex4D5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aclaimEvaluation?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_4vjDUT5aEeS9ur8e37DqxA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_1mckYT5aEeS9ur8e37DqxA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_1mckYj5aEeS9ur8e37DqxA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_1mckYz5aEeS9ur8e37DqxA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_1mckZD5aEeS9ur8e37DqxA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_1mckZT5aEeS9ur8e37DqxA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_1mckZj5aEeS9ur8e37DqxA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_1mckZz5aEeS9ur8e37DqxA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_1mbWQT5aEeS9ur8e37DqxA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_1mb9UD5aEeS9ur8e37DqxA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1mb9UT5aEeS9ur8e37DqxA" x="452" y="56" width="198" height="192"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_QexuNj5aEeS9ur8e37DqxA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_QexuNz5aEeS9ur8e37DqxA"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_1mF_ED5aEeS9ur8e37DqxA" displayLabel="Claim" base_NamedElement="_1mEw8D5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_3vVjgD5aEeS9ur8e37DqxA" displayLabel="ID" base_NamedElement="_3vUVYD5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_3-RXYD5aEeS9ur8e37DqxA" displayLabel="Claim Code" base_NamedElement="_3-QwUD5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aclaimCode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_4M4bID5aEeS9ur8e37DqxA" displayLabel="Claimer Name" base_NamedElement="_4M3NAD5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aclaimerName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_4cu1AD5aEeS9ur8e37DqxA" displayLabel="Claim Received Date" base_NamedElement="_4cuN8D5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aclaimReceivedDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_4vfY8D5aEeS9ur8e37DqxA" displayLabel="Claim Evaluation" base_NamedElement="_4vex4D5aEeS9ur8e37DqxA?com.example.claimsubmissionproject%3a%3aClaim%3a%3aclaimEvaluation?"/>
+</xmi:XMI>

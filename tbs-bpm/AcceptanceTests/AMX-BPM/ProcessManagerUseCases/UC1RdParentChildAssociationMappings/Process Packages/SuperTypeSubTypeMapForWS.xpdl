@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_VaymsLnxEeCJAuWtulnCoA" xpdExt:DisplayName="SuperTypeSubTypeMapForWS" Name="SuperTypeSubTypeMapForWS">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2011-07-29</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>bharge</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_WQASQLx0EeChS7tqB1POOg" xpdExt:DisplayName="NewWSDLFileSOAP_Provider2" Name="NewWSDLFileSOAP_Provider2">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/abc/NewWSDLFileSOAP" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_97GeKLzaEeChS7tqB1POOg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_97GeILzaEeChS7tqB1POOg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_97GeKbzaEeChS7tqB1POOg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_83mZyLzaEeChS7tqB1POOg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_83mZwLzaEeChS7tqB1POOg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_83mZybzaEeChS7tqB1POOg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_7qj-6LzaEeChS7tqB1POOg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_7qj-4LzaEeChS7tqB1POOg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_7qj-6bzaEeChS7tqB1POOg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_7qj-4LzaEeChS7tqB1POOg" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="PersonProcess" iProcessExt:MaxStepIndex="6" Name="PersonProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_CMFyNLzbEeChS7tqB1POOg" Name="myCust" Mode="INOUT" Required="false" xpdExt:DisplayName="myCust">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFileCustomer2"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_CMFyNbzbEeChS7tqB1POOg" Name="myPerson" Mode="IN" Required="false" xpdExt:DisplayName="myPerson">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFilePerson"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_CMFyNrzbEeChS7tqB1POOg" Name="myEmp" Mode="IN" Required="false" xpdExt:DisplayName="myEmp">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFileEmployee"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_CMFyN7zbEeChS7tqB1POOg" Name="textField" Mode="INOUT" Required="false" xpdExt:DisplayName="textField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_7qj-6rzaEeChS7tqB1POOg" Name="PersonProcessStarter" iProcessExt:StepIndex="4" xpdExt:DisplayName="Person Process Starter">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage CatchThrow="CATCH">
+                <xpdl2:Message Id="_E22vULzbEeChS7tqB1POOg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="parameters.person">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myPerson</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_WQASQLx0EeChS7tqB1POOg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_WQASQLx0EeChS7tqB1POOg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_7qj-6bzaEeChS7tqB1POOg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_7qj-67zaEeChS7tqB1POOg" Name="ReplyToPersonProcessStarter" iProcessExt:StepIndex="5" xpdExt:DisplayName="Reply To: Person Process Starter">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_7qj-6rzaEeChS7tqB1POOg" CatchThrow="THROW">
+                <xpdl2:Message Id="_FrKhILzbEeChS7tqB1POOg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="parameters.person">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myCust</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="parameters.out">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_WQASQLx0EeChS7tqB1POOg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_7qj-6bzaEeChS7tqB1POOg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_bapFUrzbEeChS7tqB1POOg" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myCust = org_example_NewWSDLFile_Factory.createCustomer2();&#xD;
+myCust.name = &quot;cust&quot;;&#xD;
+myPerson.name = &quot;modified after return from wsdl&quot; + myPerson.name;&#xD;
+Log.write(&quot;person name after ws invoke and modification = &quot; + myPerson.name);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_7qj-6bzaEeChS7tqB1POOg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="300.0" YCoordinate="153.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_7qj-7LzaEeChS7tqB1POOg" Name="" From="_bapFUrzbEeChS7tqB1POOg" To="_7qj-67zaEeChS7tqB1POOg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_bbFKMLzbEeChS7tqB1POOg" xpdExt:DisplayName="" Name="" From="_7qj-6rzaEeChS7tqB1POOg" To="_bapFUrzbEeChS7tqB1POOg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="myCust"/>
+            <simulation:ParameterDistribution ParameterId="myPerson"/>
+            <simulation:ParameterDistribution ParameterId="myEmp"/>
+            <simulation:ParameterDistribution ParameterId="textField"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_83mZwLzaEeChS7tqB1POOg" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="EmpProcess" iProcessExt:MaxStepIndex="6" Name="EmpProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_Bp98lLzbEeChS7tqB1POOg" Name="myCust" Mode="INOUT" Required="false" xpdExt:DisplayName="myCust">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFileCustomer2"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Bp98lbzbEeChS7tqB1POOg" Name="myPerson" Mode="INOUT" Required="false" xpdExt:DisplayName="myPerson">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFilePerson"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Bp98lrzbEeChS7tqB1POOg" Name="myEmp" Mode="INOUT" Required="false" xpdExt:DisplayName="myEmp">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFileEmployee"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Bp98l7zbEeChS7tqB1POOg" Name="textField" Mode="INOUT" Required="false" xpdExt:DisplayName="textField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_83mZyrzaEeChS7tqB1POOg" Name="EmpProcessStarter" iProcessExt:StepIndex="4" xpdExt:DisplayName="Emp Process Starter">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage CatchThrow="CATCH">
+                <xpdl2:Message Id="_h7yeILzbEeChS7tqB1POOg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="parameters.emp">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myPerson</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_WQASQLx0EeChS7tqB1POOg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="EmpOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_WQASQLx0EeChS7tqB1POOg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_83mZybzaEeChS7tqB1POOg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_83mZy7zaEeChS7tqB1POOg" Name="ReplyToEmpProcessStarter" iProcessExt:StepIndex="5" xpdExt:DisplayName="Reply To: Emp Process Starter">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_83mZyrzaEeChS7tqB1POOg" CatchThrow="THROW">
+                <xpdl2:Message Id="_jXwF0LzbEeChS7tqB1POOg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="parameters.out">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="parameters.emp">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myPerson</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_WQASQLx0EeChS7tqB1POOg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="EmpOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_83mZybzaEeChS7tqB1POOg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_p1Hx4LzbEeChS7tqB1POOg" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">Log.write(&quot;person.name is from emp mapping &quot; + myPerson.name);&#xD;
+myEmp.name = &quot;modified after ws invoke &quot; + myEmp.name;&#xD;
+Log.write(&quot;emp name after modification = &quot; + myEmp.name);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_83mZybzaEeChS7tqB1POOg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="335.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_83mZzLzaEeChS7tqB1POOg" xpdExt:DisplayName="" Name="" From="_p1Hx4LzbEeChS7tqB1POOg" To="_83mZy7zaEeChS7tqB1POOg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_p1Hx4bzbEeChS7tqB1POOg" xpdExt:DisplayName="" Name="" From="_83mZyrzaEeChS7tqB1POOg" To="_p1Hx4LzbEeChS7tqB1POOg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="myCust"/>
+            <simulation:ParameterDistribution ParameterId="myPerson"/>
+            <simulation:ParameterDistribution ParameterId="myEmp"/>
+            <simulation:ParameterDistribution ParameterId="textField"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_97GeILzaEeChS7tqB1POOg" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="CustProcess" iProcessExt:MaxStepIndex="6" Name="CustProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_BEaYdLzbEeChS7tqB1POOg" Name="myCust" Mode="INOUT" Required="false" xpdExt:DisplayName="myCust">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFileCustomer2"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_BEaYdbzbEeChS7tqB1POOg" Name="myPerson" Mode="INOUT" Required="false" xpdExt:DisplayName="myPerson">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFilePerson"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_BEaYdrzbEeChS7tqB1POOg" Name="myEmp" Mode="INOUT" Required="false" xpdExt:DisplayName="myEmp">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.NewWSDLFileEmployee"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_BEaYd7zbEeChS7tqB1POOg" Name="textField" Mode="INOUT" Required="false" xpdExt:DisplayName="textField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_97GeKrzaEeChS7tqB1POOg" Name="CustProcessStarter" iProcessExt:StepIndex="4" xpdExt:DisplayName="Cust Process Starter">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage CatchThrow="CATCH">
+                <xpdl2:Message Id="_vN3iwLzcEeChS7tqB1POOg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="parameters.cust">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myPerson</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_WQASQLx0EeChS7tqB1POOg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="CustomerOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_WQASQLx0EeChS7tqB1POOg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_97GeKbzaEeChS7tqB1POOg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_97GeK7zaEeChS7tqB1POOg" Name="ReplyToCustProcessStarter" iProcessExt:StepIndex="5" xpdExt:DisplayName="Reply To: Cust Process Starter">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_97GeKrzaEeChS7tqB1POOg" CatchThrow="THROW">
+                <xpdl2:Message Id="_xNU5EbzcEeChS7tqB1POOg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="parameters.out">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="parameters.cust">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myPerson</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_WQASQLx0EeChS7tqB1POOg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="CustomerOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_97GeKbzaEeChS7tqB1POOg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_3vHyILzcEeChS7tqB1POOg" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">Log.write(&quot;person.name is from cust mapping &quot; + myPerson.name);&#xD;
+myCust.name = &quot;modified after ws invoke &quot; + myCust.name;&#xD;
+Log.write(&quot;cust name after modification = &quot; + myCust.name);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_97GeKbzaEeChS7tqB1POOg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="328.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_97GeLLzaEeChS7tqB1POOg" xpdExt:DisplayName="" Name="" From="_3vHyILzcEeChS7tqB1POOg" To="_97GeK7zaEeChS7tqB1POOg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_3vHyIbzcEeChS7tqB1POOg" xpdExt:DisplayName="" Name="" From="_97GeKrzaEeChS7tqB1POOg" To="_3vHyILzcEeChS7tqB1POOg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="myCust"/>
+            <simulation:ParameterDistribution ParameterId="myPerson"/>
+            <simulation:ParameterDistribution ParameterId="myEmp"/>
+            <simulation:ParameterDistribution ParameterId="textField"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

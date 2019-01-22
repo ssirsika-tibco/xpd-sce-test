@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.amsbqa.com/linda02/XSD1IncludeXSD2/BothDefineTypes/wsdl" xmlns:ns="http://www.amsbqa.com/linda02/XSD1ImportsXSD2_Both_Define_types02/XSD1" targetNamespace="http://www.amsbqa.com/linda02/XSD1IncludeXSD2/BothDefineTypes/wsdl">
+    <import namespace="http://www.amsbqa.com/linda02/XSD1ImportsXSD2_Both_Define_types02/XSD1" location="XSDBOM_TLE2_DeepImportTopLevelElements.xsd"/>
+    <message name="Requestname">
+        <part name="part1" element="ns:Name"/>
+    </message>
+    <message name="Response">
+        <part name="part1" element="ns:bookInfo"/>
+    </message>
+    <portType name="Book">
+        <operation name="RequestBookInfo">
+            <input message="tns:Requestname"/>
+            <output message="tns:Response"/>
+        </operation>
+    </portType>
+</definitions>

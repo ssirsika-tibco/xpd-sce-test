@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_jphWsDybEd--4bf-6xFCRw" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://example.com/testaa" xmlns:ttns1="http://example.com/testbb" xmlns:ttns2="http://example.com/testcc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WsdlGenTestForRefBoms" targetNamespace="http://www.tibco.com/bs3.0/_jphWsDybEd--4bf-6xFCRw" tibex:XPDL="WsdlGenTestForRefBoms.xpdl">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_jphWsDybEd--4bf-6xFCRw" targetNamespace="http://www.tibco.com/bs3.0/_jphWsDybEd--4bf-6xFCRw"/>
+    <xsd:schema xmlns="http://example.com/testaa" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://example.com/testaa" targetNamespace="http://example.com/testaa">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/XPD23Wsdlgen/Business Objects/TestAA.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType mixed="false" name="AA">
+        <xsd:complexContent>
+          <xsd:extension base="AB">
+            <xsd:sequence>
+              <xsd:element maxOccurs="1" minOccurs="0" name="a1">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="50"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="a2">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="50"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="AB"/>
+      <xsd:element name="AAElement" type="AA"/>
+      <xsd:element name="ABElement" type="AB"/>
+    </xsd:schema>
+    <xsd:schema xmlns="http://example.com/testbb" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://example.com/testaa" xmlns:tns2="http://example.com/testbb" targetNamespace="http://example.com/testbb">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/XPD23Wsdlgen/Business Objects/TestBB.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:import namespace="http://example.com/testaa"/>
+      <xsd:complexType name="BB">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ba" type="BA"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="b1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType mixed="false" name="BA">
+        <xsd:complexContent>
+          <xsd:extension base="tns1:AB"/>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="BBElement" type="BB"/>
+      <xsd:element name="BAElement" type="BA"/>
+    </xsd:schema>
+    <xsd:schema xmlns="http://example.com/testcc" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://example.com/testcc" targetNamespace="http://example.com/testcc">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/XPD23Wsdlgen/Business Objects/TestCC.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:import namespace="http://example.com/testbb"/>
+      <xsd:complexType name="CCC">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="bb" type="ttns1:BB"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CCCElement" type="CCC"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="WsdlGenTestForRefBomsProcess_StartEvent_INPUT">
+    <wsdl:part name="CCC" type="ttns2:CCC"/>
+  </wsdl:message>
+  <wsdl:message name="WsdlGenTestForRefBomsProcess_StartEvent_OUTPUT">
+    <wsdl:part name="CCC" type="ttns2:CCC"/>
+  </wsdl:message>
+  <wsdl:portType name="WsdlGenTestForRefBomsProcess" tibex:FlowContainer="_jqHzoDybEd--4bf-6xFCRw">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="StartEvent">
+      <wsdl:input message="ns:WsdlGenTestForRefBomsProcess_StartEvent_INPUT" tibex:Event="_ptRB0jybEd--4bf-6xFCRw"/>
+      <wsdl:output message="ns:WsdlGenTestForRefBomsProcess_StartEvent_OUTPUT" tibex:Event="_ptRB0jybEd--4bf-6xFCRw"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

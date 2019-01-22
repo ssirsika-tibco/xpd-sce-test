@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_209iACEqEd-0QJF1jgbyJQ" xpdExt:DisplayName="ProcessFrameworkWS" Name="ProcessFrameworkWS">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-02-24</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>swpro</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_G_czoCErEd-0QJF1jgbyJQ" xpdExt:DisplayName="ProcessFrameworkWS-Process (API Activity EndPoint)" Name="ProcessFrameworkWS_ProcessFrameworkWSProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/ProcessFrameworkWS/ProcessFrameworkWSProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_9aiH1yEqEd-0QJF1jgbyJQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_21j-8CEqEd-0QJF1jgbyJQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_9aiH2CEqEd-0QJF1jgbyJQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_21j-8CEqEd-0QJF1jgbyJQ" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="ProcessFrameworkWS-Process" xpdExt:ApiEndPointParticipant="_G_czoCErEd-0QJF1jgbyJQ" iProcessExt:MaxStepIndex="5" Name="ProcessFrameworkWSProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_D2kXJyErEd-0QJF1jgbyJQ" Name="myDate" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="myDate">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_D2kXKCErEd-0QJF1jgbyJQ" Name="myDecimal" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="myDecimal">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_D2kXKSErEd-0QJF1jgbyJQ" Name="myText" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="myText">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_D2kXKiErEd-0QJF1jgbyJQ" Name="myTime" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="myTime">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_D2kXKyErEd-0QJF1jgbyJQ" Name="myInteger" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="myInteger">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_D2kXLCErEd-0QJF1jgbyJQ" Name="myBoolean" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="myBoolean">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_D2kXLSErEd-0QJF1jgbyJQ" Name="myDateTime" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="myDateTime">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_9aiH2SEqEd-0QJF1jgbyJQ" Name="StartEvent" xpdExt:DisplayName="Start Event" xpdExt:Visibility="Private" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_G_J4sCErEd-0QJF1jgbyJQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="myDate">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myDate</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="myDecimal">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myDecimal</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="myText">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myText</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="myTime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="myInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="myBoolean">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myBoolean</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="myDateTime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myDateTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_G_czoCErEd-0QJF1jgbyJQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessFrameworkWS.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ProcessFrameworkWSProcess" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="ProcessFrameworkWS.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_G_czoCErEd-0QJF1jgbyJQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_9aiH2CEqEd-0QJF1jgbyJQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="myDate" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myDecimal" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myText" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myTime" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myInteger" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myBoolean" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myDateTime" Mode="INOUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_9aiH2iEqEd-0QJF1jgbyJQ" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5" xpdExt:Visibility="Private">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_9aiH2SEqEd-0QJF1jgbyJQ" CatchThrow="THROW">
+                <xpdl2:Message Id="_IC84ACErEd-0QJF1jgbyJQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="myDate">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myDate</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="myDecimal">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myDecimal</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="myText">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myText</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="myTime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="myInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="myBoolean">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myBoolean</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="myDateTime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">myDateTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_G_czoCErEd-0QJF1jgbyJQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessFrameworkWS.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ProcessFrameworkWSProcess" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="ProcessFrameworkWS.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_9aiH2CEqEd-0QJF1jgbyJQ" Width="51.0">
+              <xpdl2:Coordinates XCoordinate="586.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="myDate" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myDecimal" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myText" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myTime" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myInteger" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myBoolean" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="myDateTime" Mode="INOUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_9aiH2yEqEd-0QJF1jgbyJQ" xpdExt:DisplayName="" Name="" From="_9aiH2SEqEd-0QJF1jgbyJQ" To="_9aiH2iEqEd-0QJF1jgbyJQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="myDate"/>
+            <simulation:ParameterDistribution ParameterId="myDecimal"/>
+            <simulation:ParameterDistribution ParameterId="myText"/>
+            <simulation:ParameterDistribution ParameterId="myTime"/>
+            <simulation:ParameterDistribution ParameterId="myInteger"/>
+            <simulation:ParameterDistribution ParameterId="myBoolean"/>
+            <simulation:ParameterDistribution ParameterId="myDateTime"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

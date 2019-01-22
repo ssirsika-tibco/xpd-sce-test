@@ -1,0 +1,2191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by Kevin Gee (Tibco Software Limited) -->
+<xs:schema xmlns="http://api.brm.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:exception="http://exception.api.common.n2.tibco.com" xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.brm.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="organisation.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:import namespace="http://exception.api.common.n2.tibco.com" schemaLocation="comexception.xsd"/>
+	<xs:include schemaLocation="brmdto.xsd"/>
+	<xs:element name="addCurrentResourceToView">
+		<xs:annotation>
+			<xs:documentation>Request element for addResourceToView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the work view list from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="addCurrentResourceToViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the addResourceToView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="allocateAndOpenNextWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for allocateAndOpenNextWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Name of the resource to whom the next work item should be allocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="workListViewID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The ID of an optional work list view to apply before selecting the next item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="allocateAndOpenNextWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for allocateAndOpenNextWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItem" type="WorkItem">
+					<xs:annotation>
+						<xs:documentation>Complete details of the work item that has been allocated and opened.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="allocateAndOpenWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for allocateAndOpenWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that is to be allocated and opened.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="resource" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Name of the resource to whom the work item should be allocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="allocateAndOpenWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the allocateAndOpenWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItem" type="WorkItem">
+					<xs:annotation>
+						<xs:documentation>Complete details of a work item that has been allocated and opened.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="allocateWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for allocateWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that is to be allocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="resource" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Name of the resource to whom the work item should be allocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="allocateWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the allocateWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItem" type="WorkItem">
+					<xs:annotation>
+						<xs:documentation>Complete details of a work item that has been allocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncCancelWorkItem">
+		<xs:annotation>
+			<xs:documentation>Async - Request element for cancelWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncCancelWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Async - Reply element for the cancelWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="errorMessage" type="exception:ErrorLine">
+					<xs:annotation>
+						<xs:documentation>Any error message that needs to be reported.  If the errorMessage element is not set, then the operation was successful.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncEndGroup">
+		<xs:annotation>
+			<xs:documentation>Async - Request element for endGroup operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="activityID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Unique identifier for this operation, this identifier should be used to identify the reply to this message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="endGroup"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncEndGroupResponse">
+		<xs:annotation>
+			<xs:documentation>Async - Reply element for the endGroup operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="activityID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Unique identifier for this message, this identifier will match the request identifier</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="groupID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The ID of the group to end</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="errorMessage" type="exception:ErrorLine">
+					<xs:annotation>
+						<xs:documentation>Any error message that needs to be reported.  If the errorMessage element is not set, then the operation was successful.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncRescheduleWorkItem">
+		<xs:annotation>
+			<xs:documentation>Async - Request element for rescheduleWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="itemSchedule" type="ItemSchedule"/>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="itemBody" type="ItemBody">
+					<xs:annotation>
+						<xs:documentation>Optional work item body containing data changes on a  reschedule. The body is the the data as a name/value pair.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncRescheduleWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Async - Reply element for the rescheduleWorkItemResponse operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="errorMessage" type="exception:ErrorLine">
+					<xs:annotation>
+						<xs:documentation>Any error message that needs to be reported.  If the errorMessage element is not set, then the operation was successful.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncResumeWorkItem">
+		<xs:annotation>
+			<xs:documentation>Async - Request element for the resumeWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncResumeWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Async - Reply element for the resumeWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="errorMessage" type="exception:ErrorLine">
+					<xs:annotation>
+						<xs:documentation>Any error message that needs to be reported.  If the errorMessage element is not set, then the operation was successful.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncScheduleWorkItem">
+		<xs:annotation>
+			<xs:documentation>Async - Request element for scheduleWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="scheduleWorkItem"/>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncScheduleWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Async - Reply element for the scheduleWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="errorMessage" type="exception:ErrorLine">
+					<xs:annotation>
+						<xs:documentation>Any error message that needs to be reported.  If the errorMessage element is not set, then the operation was successful.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncScheduleWorkItemWithModel">
+		<xs:annotation>
+			<xs:documentation>Async - Request element for scheduleWorkItemWithModel operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="scheduleWorkItemWithModel"/>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncScheduleWorkItemWithModelResponse">
+		<xs:annotation>
+			<xs:documentation>Async - Reply element for the scheduleWorkItemWithModel operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="errorMessage" type="exception:ErrorLine">
+					<xs:annotation>
+						<xs:documentation>Any error message that needs to be reported.  If the errorMessage element is not set, then the operation was successful.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncStartGroup">
+		<xs:annotation>
+			<xs:documentation>Async - Request element for startGroup operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="activityID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Unique identifier for this operation, this identifier should be used to identify the reply to this message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="groupID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The ID of the group to start</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="startGroup"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncStartGroupResponse">
+		<xs:annotation>
+			<xs:documentation>Async - Reply element for startGroup operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="activityID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Unique identifier for this message, this identifier will match the request identifier</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="groupID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The ID of the group to start</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="errorMessage" type="exception:ErrorLine">
+					<xs:annotation>
+						<xs:documentation>Any error message that needs to be reported.  If the errorMessage element is not set, then the operation was successful.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncSuspendWorkItem">
+		<xs:annotation>
+			<xs:documentation>Async - Request element for the suspendWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element default="false" minOccurs="0" name="forceSuspend" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>If the suspend operation should be forced</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="asyncSuspendWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Async - Reply element for the suspendWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails">
+					<xs:annotation>
+						<xs:documentation>Information to track which work item this message is associated with.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="errorMessage" type="exception:ErrorLine">
+					<xs:annotation>
+						<xs:documentation>Any error message that needs to be reported.  If the errorMessage element is not set, then the operation was successful.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancelWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for cancelWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ObjectID"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancelWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the cancelWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="chainedWorkItemNotification">
+		<xs:annotation>
+			<xs:documentation>Request element for the chainedWorkItemNotification operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="groupID" type="xs:long"/>
+				<xs:element minOccurs="0" name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of the next work item in the chain, if there is no workItemID present then it means that the chaining group has been completed as there are no more work items in this chain.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="closeWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for closeWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that is to be closed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="workItemPayload" type="WorkItemBody">
+					<xs:annotation>
+						<xs:documentation>Complete body of the specified work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="hiddenPeriod" type="HiddenPeriod">
+					<xs:annotation>
+						<xs:documentation>Information about how long the specified work item is hidden.
+
+
+NOTE: If a hiddenPeriod is specified the work item will transition to the PendHidden state, rather than Pended. Operations that work on the Pended state (e.g. reallocateWorkItem) cannot then access the work item until the hiddenPeriod expires, at which point the system automatically transitions the work item back to the Pended state.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="closeWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the closeWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that has been closed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="completeWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for completeWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of the work item that is to be completed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="workItemPayload" type="WorkItemBody">
+					<xs:annotation>
+						<xs:documentation>Complete body of the specified work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="getNextPiledItem" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>True, then return the next piled work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="completeWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the completeWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice minOccurs="0">
+				<xs:element name="groupID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>ID of the work group that this work item belongs to.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="nextWorkItem" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of the next work item in the specified work group.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="createWorkListView" type="WorkListViewEdit">
+		<xs:annotation>
+			<xs:documentation>Request element for createWorkListView operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="createWorkListViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the createWorkListView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteCurrentResourceFromView">
+		<xs:annotation>
+			<xs:documentation>Request element for deleteResourceFromView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the work view list from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteCurrentResourceFromViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the deleteResourceFromView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteOrgEntityConfigAttributes">
+		<xs:annotation>
+			<xs:documentation>Request element for deleteOrgEntityConfigAttributes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="attributeName" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Name of a configuration attribute that should be deleted from the specified resource.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="resource" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>Name of the resource from whom configuration attributes should be deleted.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteOrgEntityConfigAttributesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for deleteOrgEntityConfigAttributes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Boolean value indicating whether the request succeeded or failed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteWorkListView">
+		<xs:annotation>
+			<xs:documentation>Request element for deleteWorkListView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteWorkListViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the deleteWorkListView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="editWorkListView">
+		<xs:annotation>
+			<xs:documentation>Request element for editWorkListView operation.   If any of the opional elements are passed in they will overwrite any existing conguration for this view.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="WorkListViewEdit">
+					<xs:attribute name="workListViewID" type="xs:long" use="required">
+						<xs:annotation>
+							<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="editWorkListViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the editWorkListView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workListViewID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The unique ID of the edited work list view.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="enableWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for enableWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ObjectID"/>
+				<xs:element name="itemBody" type="ItemBody"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="enableWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the enableWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="endGroup">
+		<xs:annotation>
+			<xs:documentation>Request element for endGroup operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="groupID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The ID of the work group to be ended</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="endGroupResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the endGroup operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Whether the request succeeded or failed</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getAllocatedWorkListItems">
+		<xs:annotation>
+			<xs:documentation>Request element for getAllocatedWorkListItems operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="entityID" type="orgdto:XmlModelEntityId">
+					<xs:annotation>
+						<xs:documentation>ID of the organization model entity requiring an allocated work item list. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="orderFilterCriteria" type="OrderFilterCriteria">
+					<xs:annotation>
+						<xs:documentation>Specification of sort/filter criteria to be applied to the work item list.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="startPosition" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the work item list from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="numberOfItems" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Number of work items (in the work item list) to include in this page.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute default="true" name="getTotalCount" type="xs:boolean" use="optional">
+				<xs:annotation>
+					<xs:documentation>Boolean defining whether BRM builds a count of the total number of work items in the work item list. If ‘false’ is passed in this attribute, and: 
+
+- there is at least one item in the list, the totalItems value returned in the response is -1.
+
+- there are no work items in the list, the totalItems value returned in the response is 0 (zero).</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="getEnhancedAttributes" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>if true return a work item with all 40 Work Item attributes, otherwise only the original 14 Work Item Attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBatchGroupIds">
+		<xs:annotation>
+			<xs:documentation>Request element for getBatchGroupIds operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getBatchGroupIdsResponse">
+		<xs:annotation>
+			<xs:documentation>Request element for getBatchGroupIds operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="groupID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>List of group IDs that can be used when a group is required to be created.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getBatchWorkItemIds">
+		<xs:annotation>
+			<xs:documentation>Request element for getBatchWorkItemIds operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getBatchWorkItemIdsResponse">
+		<xs:annotation>
+			<xs:documentation>Request element for getBatchWorkItemIds operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ObjectID"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getEditableWorkListViews">
+		<xs:annotation>
+			<xs:documentation>Request element for getEditableWorkListViews operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="startPosition" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the work view list from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="numberOfItems" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Number of work views (in the work item list) to include in this page.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="apiVersion" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Specify the version of the return data. If omitted or set to 1 this API will return work views without specifying either the getAllocated boolean or the viewType for compatibilty with existing views.  If &gt; 1 additional Work View data will be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getEditableWorkListViewsResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getEditableWorkListViews operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="workListViews" type="WorkListViewPageItem">
+					<xs:annotation>
+						<xs:documentation>Array of work list views the resource has permissions to edit.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getOfferSet">
+		<xs:annotation>
+			<xs:documentation>Request element for the getOfferSet operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of the work item for which an offer set is required.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="apiVersion" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>Specify the version of the return data set.   If omitted or set to 1 this API will return an array of GUIDs as it always has.  If specified as &gt; 1 it will return an array of XmlModelEntityIds.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getOfferSetResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getOfferSet operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="entityGuid" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>ID of an organization model entitiy that belongs to the offer set.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="entityId" type="orgdto:XmlModelEntityId">
+					<xs:annotation>
+						<xs:documentation>The ID (including version and type) of the entity that belongs to the offer set.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getOrgEntityConfigAttributes">
+		<xs:annotation>
+			<xs:documentation>Request element for getOrgEntityConfigAttributes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resource" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Name of the resource for whom configuration attribute information is required.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getOrgEntityConfigAttributesAvailable">
+		<xs:annotation>
+			<xs:documentation>Request element for getOrgEntityConfigAttributesAvailable operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="startAt" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>Position from which to start listing configuration attributes.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="numToReturn" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>Number of configuration attributes to list.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getOrgEntityConfigAttributesAvailableResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for getOrgEntityConfigAttributesAvailable operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="orgEntityConfigAttributesAvailable" type="OrgEntityConfigAttributesAvailable">
+					<xs:annotation>
+						<xs:documentation>List of available configuration attributes that can be applied to an organization model entity.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getOrgEntityConfigAttributesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for getOrgEntityConfigAttributes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="orgEntityConfigAttribute" type="OrgEntityConfigAttribute">
+					<xs:annotation>
+						<xs:documentation>Configuration attribute information for the specified resource.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPublicWorkListViews">
+		<xs:annotation>
+			<xs:documentation>Request element for getPublicWorkViews operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="startPosition" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the work view list from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="numberOfItems" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Number of work views (in the work item list) to include in this page.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="apiVersion" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Specify the version of the return data. If omitted or set to 1 this API will return work views without specifying either the getAllocated boolean or the viewType for compatibilty with existing views.  If &gt; 1 additional Work View data will be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPublicWorkListViewsResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getPublicWorkViews operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="workListViews" type="WorkListViewPageItem">
+					<xs:annotation>
+						<xs:documentation>Array of work list views the resource has permissions to use.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getResourceOrderFilterCriteria">
+		<xs:annotation>
+			<xs:documentation>Request element for getResourceOrderFilterCriteria operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resourceID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>ID of the resource for whom work item list sort/filter criteria is required.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getResourceOrderFilterCriteriaResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for getResourceOrderFilterCriteria operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="orderFilterCriteria" type="OrderFilterCriteria">
+					<xs:annotation>
+						<xs:documentation>Specification of the work item list sort/filter defined for the requested resource.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getViewsForResource">
+		<xs:annotation>
+			<xs:documentation>Request element for getViewsForResource operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="startPosition" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the list of views from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="numberOfItems" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Number of work items (in the work item list) to include in this page.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="apiVersion" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Specify the version of the return data. If omitted or set to 1 this API will return work views without specifying either the getAllocated boolean or the viewType for compatibilty with existing views.  If &gt; 1 additional Work View data will be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getViewsForResourceResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getViewsForResource operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="workListViews" type="WorkListViewPageItem"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkItemHeader">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkItemHeader operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item for which header information is required.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkItemHeaderResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkItemHeader operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemHeader" type="WorkItemHeader">
+					<xs:annotation>
+						<xs:documentation>Header information about a work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkItemOrderFilter">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkItemOrderFilter operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="limitColumns" type="xs:short">
+					<xs:annotation>
+						<xs:documentation>Number of fields about which information should be returned. (Fields means the fields defined by BRM that can be used in sort/filter criteria expressions for work item lists.)
+
+A value of 0 returns information about all fields.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="apiVersion" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Specify the version of the return data. If omitted or set to 1 this API will return standard Order and filter columns. If apiVersion &gt; 1 then it will return extra information about any work item attribute display name that exist.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkItemOrderFilterResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkListOrderFilter operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="columnData" type="ColumnDefinition">
+					<xs:annotation>
+						<xs:documentation>Details of the fields defined by BRM that can be used in sort/filter criteria expressions for work item lists.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkListItems">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkListItems operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:annotation>
+						<xs:documentation>Choice allows either:-
+- Specifying a resourcesRequired of ALL will return a Work List for all resources.
+- Specifying an entityID will return aWork List for that resource only.</xs:documentation>
+					</xs:annotation>
+					<xs:element name="resourcesRequired" type="ResourcesRequiredType">
+						<xs:annotation>
+							<xs:documentation>Enumeration specifying what if any resource processing is required on the Work List.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="entityID" type="orgdto:XmlModelEntityId">
+						<xs:annotation>
+							<xs:documentation>ID of the organization model entity requiring a  work item list.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+				<xs:element minOccurs="0" name="orderFilterCriteria" type="OrderFilterCriteria">
+					<xs:annotation>
+						<xs:documentation>Specification of sort/filter criteria to be applied to the work item list.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="startPosition" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the work item list from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="numberOfItems" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Number of work items (in the work item list) to include in this page.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute default="true" name="getTotalCount" type="xs:boolean" use="optional">
+				<xs:annotation>
+					<xs:documentation>Boolean defining whether BRM builds a count of the total number of work items in the work item list. If ‘false’ is passed in this attribute, and: 
+
+- there is at least one item in the list, the totalItems value returned in the response is -1.
+
+- there are no work items in the list, the totalItems value returned in the response is 0 (zero).</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="getEnhancedAttributes" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>if true return a work item with all 40 Work Item attributes, otherwise only the original 14 Work Item Attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkListItemsForGlobalData">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkLitsItemsForGlobalData operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="globalDataRef" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>List of Global Data References to search for.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="orderFilterCriteria" type="OrderFilterCriteria">
+					<xs:annotation>
+						<xs:documentation>Specification of sort/filter criteria to be applied to the work item list.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="startPosition" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the work item list from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="numberOfItems" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Number of work items (in the work item list) to include in this page.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkListItemsForGlobalDataResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkLitsItemsForGlobalData operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>Contains a page of work item returned from a user request.</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="startPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the work item list of the first work item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="endPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the work item list of the last work item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="workListFacade" type="WorkListFacade">
+					<xs:annotation>
+						<xs:documentation>If defined then this will list any display names that are specified for any Work Item Attributes.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="workItems" type="WorkItem">
+					<xs:annotation>
+						<xs:documentation>Complete details of each work item in this page of the work item  list.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkListItemsForView">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkListItemsForView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The ID of the work list view from which to get the page of work items.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="startPosition" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Position in the work item list from which to start this page. (The list is zero-based. To start at the first item, specify 0.)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="numberOfItems" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>Number of work items (in the work item list) to include in this page.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute default="true" name="getTotalCount" type="xs:boolean" use="optional">
+				<xs:annotation>
+					<xs:documentation>Boolean defining whether BRM builds a count of the total number of work items in the work item list. If ‘false’ is passed in this attribute, and: 
+
+- there is at least one item in the list, the totalItems value returned in the response is -1.
+
+- there are no work items in the list, the totalItems value returned in the response is 0 (zero).</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="getAllocatedItems" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Optional default behaviour is false. If true then this is a request for allocated Work Items. If false then the request is for offered Work Items.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="getEnhancedAttributes" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>if true return a work item with all 40 Work Item attributes, otherwise only the original 14 Work Item Attributes.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkListItemsForViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkListItemsForView operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>Contains a page of work item returned from a user request.</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="startPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the work item list of the first work item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="endPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the work item list of the last work item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="totalItems" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The value returned in this attribute depends on the value specified for the getTotalCount attribute in the request. If:
+
+- getTotalCount was 'true', totalItems returns the total number of work items in the work item list.
+
+- getTotalCount was 'false', totalItems returns -1 if the work item list contains at least one work item, or 0 (zero) if the work item list is empty.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="workListFacade" type="WorkListFacade">
+					<xs:annotation>
+						<xs:documentation>If the request is made with getEnhancedAttributes set, and any are defined then this will list any display names that are specified for any Work Item Attributes.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="workItems" type="WorkItem">
+					<xs:annotation>
+						<xs:documentation>Complete details of each work item in this page of the work item  list.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customData" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A string attribute the caller can use to provide and custom data they wish to store with the work list view.  BRM will not look at or use this attribute value but will just store it with the work view definition.   If storing XML data the value should be wrapped in a CDATA section.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkListItemsResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkListItems operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>Contains a page of work item returned from a user request.</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="startPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the work item list of the first work item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="endPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the work item list of the last work item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="totalItems" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The value returned in this attribute depends on the value specified for the getTotalCount attribute in the request. If:
+
+- getTotalCount was 'true', totalItems returns the total number of work items in the work item list.
+
+- getTotalCount was 'false', totalItems returns -1 if the work item list contains at least one work item, or 0 (zero) if the work item list is empty.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="workListFacade" type="WorkListFacade">
+					<xs:annotation>
+						<xs:documentation>If the request is made with getEnhancedAttributes set, and any are defined then this will list any display names that are specified for any Work Item Attributes.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="workItems" type="WorkItem">
+				<xs:annotation>
+					<xs:documentation>Complete details of each work item in this page of the work item  list.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkListViewDetails">
+		<xs:annotation>
+			<xs:documentation>Request element for the getWorkViewListDetails operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="lockView" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Should this work list view be locked for editing?  A lock record will be placed against this view for the calling resource ID.   This lock is only removed when the view is updated or an explicit unlock is called.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="apiVersion" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Specify the version of the return data. If omitted or set to 1 this API will return work views without specifying either the getAllocated boolean or the viewType for compatibilty with existing views.  If &gt; 1 additional Work View data will be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkListViewDetailsResponse" type="WorkListView">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkViewListDetails operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getWorkModel">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkModel operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workModelID" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkModelResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkModel operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workModel" type="WorkModel"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkModels">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkModels operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="startPosition" type="xs:long"/>
+				<xs:element name="numberOfItems" type="xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkModelsResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkModels operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workModelList" type="WorkModelList"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkType">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkType operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workTypeID" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkTypeResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkType operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workType" type="dm:WorkType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkTypes">
+		<xs:annotation>
+			<xs:documentation>Request element for getWorkTypes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="startPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The position in BRM's complete set of Work Types to start the list from.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="numberOfItems" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The number of Work Types to include in the list.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWorkTypesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the getWorkTypes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workTypelList" type="WorkTypeList">
+					<xs:annotation>
+						<xs:documentation>Defines a 'page' of work type objects, which is a window over the entire set of work types defined in BRM.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="onNotification">
+		<xs:annotation>
+			<xs:documentation>Request element for onNotification operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageDetails" type="AsyncWorkItemDetails"/>
+				<xs:element name="itemBody" type="ItemBody"/>
+				<xs:element maxOccurs="unbounded" name="allocationHistory" type="AllocationHistory"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="onNotificationResponse">
+		<xs:annotation>
+			<xs:documentation>Request element for onNotification operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="openWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for openWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item to be opened.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="openWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the openWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemBody" type="WorkItemBody">
+					<xs:annotation>
+						<xs:documentation>Complete body of an opened work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pendWorkItem" type="pendWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for pendWorkItem operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="pendWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the pendWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that has been pended.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="previewWorkItemFromList">
+		<xs:annotation>
+			<xs:documentation>Request element for previewWorkItemFromList operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="entityID" type="orgdto:XmlModelEntityId">
+					<xs:annotation>
+						<xs:documentation>ID of the organization model entity for whom work items are to be previewed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" name="workItemID" type="ObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item to be previewed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="requiredField" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Fieldname to be included in the returned data. This defines the set of fields for which preview data is to be to be returned:
+
+- If any fieldnames are specified, only those fields will be returned for each work item.
+
+- If no fieldnames are specified, all fields will be returned for each work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="requireWorkType" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Optiional element if set to true, then the response should include Work Type information.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="previewWorkItemFromListResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the previewWorkItemFromList operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemPreview" type="WorkItemPreview">
+					<xs:annotation>
+						<xs:documentation>Data field and value pairs for a previewed work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pushNotification">
+		<xs:annotation>
+			<xs:documentation>Request element for the pushNotification operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of the work item</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="workTypeID" type="dm:WorkTypeSpec">
+					<xs:annotation>
+						<xs:documentation>ID of the work type</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="resourceIDs" type="orgdto:XmlModelEntityId">
+					<xs:annotation>
+						<xs:documentation>list of resource Ids with push destinations</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reallocateWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for reallocateWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that is to be reallocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="resource" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Name of the resource to whom the specified work item should be reallocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="revertData" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Boolean that defines whether the data associated with the specified work item is to be reverted or not.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reallocateWorkItemData" type="reallocateWorkItemData">
+		<xs:annotation>
+			<xs:documentation>Request element for reallocateWorkItemData operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="reallocateWorkItemDataResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the reallocateWorkItemData operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItem" type="WorkItem">
+					<xs:annotation>
+						<xs:documentation>Complete details of a work item that has been reallocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reallocateWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the reallocateWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItem" type="WorkItem">
+					<xs:annotation>
+						<xs:documentation>Complete details of a work item that has been reallocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rescheduleWorkItem" type="rescheduleWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for rescheduleWorkItem operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="rescheduleWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the rescheduleWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Response indicates whether the operation has succeeded.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="resumeWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for the resumeWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ObjectID"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="resumeWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the resumeWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="saveOpenWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for saveOpenWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of the open work item that is to be saved.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="workItemPayload" type="WorkItemBody">
+					<xs:annotation>
+						<xs:documentation>Complete body of the specified work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="saveOpenWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for saveOpenWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of the work item that has been saved.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scheduleWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for scheduleWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="item" type="Item">
+					<xs:annotation>
+						<xs:documentation>Basic, participant and work type information about the work item</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="itemSchedule" type="ItemSchedule">
+					<xs:annotation>
+						<xs:documentation>The schedule period to be associated with the work item.   If no object is passed then the item with have no schedule and cannot be worked on.   If an empty object is passed BRM will default this to immediately available with no target date.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="itemContext" type="ItemContext">
+					<xs:annotation>
+						<xs:documentation>The work item's context, as supplied by the application that scheduled the work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="itemBody" type="ItemBody">
+					<xs:annotation>
+						<xs:documentation>The work item body, containing each data field (as a name/value pair) required by the data model in the work item's work type. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="dynamicOrgAttributes" type="orgdto:XmlDynamicIdField">
+					<xs:annotation>
+						<xs:documentation>If specified, this will specifiy the array of name / value pairs of attributes that DE will use to identify the correct dynamic instance for any template org model entity.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scheduleWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the scheduleWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ObjectID">
+					<xs:annotation>
+						<xs:documentation>The ID of the scheduled work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scheduleWorkItemWithModel">
+		<xs:annotation>
+			<xs:documentation>Request element for scheduleWorkItemWithModel operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="itemSchedule" type="ItemSchedule">
+					<xs:annotation>
+						<xs:documentation>The schedule period to be associated with the work item.   If no object is passed then the item with have no schedule and cannot be worked on.   If an empty object is passed BRM will default this to immediately available with no target date.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="itemContext" type="ItemContext">
+					<xs:annotation>
+						<xs:documentation>The work item's context, as supplied by the application that scheduled the work item.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="itemBody" type="ItemBody">
+					<xs:annotation>
+						<xs:documentation>The work item body, containing each data field (as a name/value pair) required by the data model in the work item's work type.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="dynamicEntities" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>If specified, this will be used to determine the entity that is used to schedule the work item. It will override any settings associated with the work model being used.
+
+This field describes 1 of the following dynamic entities:-
+
+An single resource query that will resolve the entity or entities. The query must conform to the Resource Query Language (RQL) specification. See the product documentation for detailed information about RQL syntax.
+
+1 or more entity GUIDS defining the who the item is scheduled too.
+</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="dynamicOrgAttributes" type="orgdto:XmlDynamicIdField">
+					<xs:annotation>
+						<xs:documentation>If specified, this will specifiy the array of name / value pairs of attributes that DE will use to identify the correct dynamic instance for any template org model entity.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="workModelUID" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>The UID of the work model to scehdule this item against.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="workModelVersion" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The OSGi version range string of the work model to use.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="groupID" type="xs:long">
+				<xs:annotation>
+					<xs:documentation>The ID of the group associated with this operation, if there is one.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scheduleWorkItemWithModelResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the scheduleWorkItemWithModel operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ObjectID"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="setOrgEntityConfigAttributes">
+		<xs:annotation>
+			<xs:documentation>Request element for setOrgEntityConfigAttributes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="orgEntityConfigAttributeSet" type="OrgEntityConfigAttributeSet">
+					<xs:annotation>
+						<xs:documentation>Set of configuration attributes and values to be set for the specified resource.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="resource" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>Name of the resource for whom configuration attributes should be set.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="setOrgEntityConfigAttributesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for setOrgEntityConfigAttributes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Boolean value indicating whether the request succeeded or failed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="setResourceOrderFilterCriteria">
+		<xs:annotation>
+			<xs:documentation>Request element for setResourceOrderFilterCriteria operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="orderFilterCriteria" type="OrderFilterCriteria">
+					<xs:annotation>
+						<xs:documentation>Specification of the work item list sort/filter criteria that should be be set for the specified resource.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="resourceID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>ID of the resource for whom work item list sort/filter criteria should be set.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="setResourceOrderFilterCriteriaResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for setResourceOrderFilterCriteria operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Boolean value that defines whether the request succeedeed or failed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="setWorkItemPriority" type="setWorkItemPriority">
+		<xs:annotation>
+			<xs:documentation>Request element for setWorkItemPriority operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="setWorkItemPriorityResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the setWorkItemPriority operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that has had a priority set</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="skipWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for skipWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that is to be skipped.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="skipWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the skipWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Boolean value that defines whether the request succeedeed or failed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="startGroup">
+		<xs:annotation>
+			<xs:documentation>Request element for startGroup operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="groupType" type="WorkGroupType">
+					<xs:annotation>
+						<xs:documentation>Enumeration identifying the type of work group to be used.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="description" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Textual description of the work group</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="startGroupResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for startGroup operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="groupID" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>The ID of the new work group</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="suspendWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for the suspendWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="workItemID" type="ObjectID"/>
+				<xs:element default="false" minOccurs="0" name="forceSuspend" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="suspendWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the suspendWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="success" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="unallocateWorkItem">
+		<xs:annotation>
+			<xs:documentation>Request element for unallocateWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItemID" type="ManagedObjectID">
+					<xs:annotation>
+						<xs:documentation>ID of a work item that is to be deallocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="unallocateWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the unallocateWorkItem operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="workItem" type="WorkItem">
+					<xs:annotation>
+						<xs:documentation>Complete details of a work item that has been deallocated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="unlockWorkListView">
+		<xs:annotation>
+			<xs:documentation>Request element for the unlockWorkViewList operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="unlockWorkListViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the unlockWorkViewList operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="workListViewID" type="xs:long" use="required">
+				<xs:annotation>
+					<xs:documentation>The unique ID of the work list view to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="getWorkListItemsResponseType">
+		<xs:annotation>
+			<xs:documentation>Contains a page of work item returned from a user request.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="startPosition" type="xs:long">
+				<xs:annotation>
+					<xs:documentation>Position in the work item list of the first work item on this page.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="endPosition" type="xs:long">
+				<xs:annotation>
+					<xs:documentation>Position in the work item list of the last work item on this page.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="totalItems" type="xs:long">
+				<xs:annotation>
+					<xs:documentation>The value returned in this attribute depends on the value specified for the getTotalCount attribute in the request. If:
+
+- getTotalCount was 'true', totalItems returns the total number of work items in the work item list.
+
+- getTotalCount was 'false', totalItems returns -1 if the work item list contains at least one work item, or 0 (zero) if the work item list is empty.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="workItems" type="WorkItem">
+				<xs:annotation>
+					<xs:documentation>Complete details of each work item in this page of the work item  list.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="pendWorkItem">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="workItemID" type="ManagedObjectID">
+				<xs:annotation>
+					<xs:documentation>ID of a work item that is to be pended.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hiddenPeriod" type="HiddenPeriod">
+				<xs:annotation>
+					<xs:documentation>Information about how long the specified work item should remain hidden.
+
+If a hiddenPeriod is specified the work item will transition to the PendHidden state, rather than Pended. Operations that work on the Pended state (e.g. reallocateWorkItem) cannot then access the work item until either of the following occurs.
+
+- the hiddenPeriod expires.
+
+- a further pendWorkItem operation is specified with a hiddenPeriod of 0. This cancels the current hiddenPeriod. (A negative duration or date that is in the past will have the same effect.)
+
+The work item then transitions back to the Pended state.
+
+NOTE: The duration of a hiddenPeriod can also be extended or reduced by issuing a further pendWorkItem operation with a new hiddenPeriod. The new hiddenPeriod overrides the existing hiddenPeriod and is calculated from the current date/time.
+
+For example, suppose that a work item was pended at 2.30 with a hiddenPeriod of 30 minutes. If a further pendWorkItem is issued at 2.45 with:
+
+- a hiddenPeriod of 2 hours, the work item will remain hidden until 4.45.
+
+- a hiddenPeriod of 5 minutes, the work item will remain hidden until 2.50.
+
+- a hiddenPeriod of 0, the work item will immediately transition to the Pended state.
+
+- a hiddenPeriod of -5 minutes, the work item will immediately transition to the Pended state.
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="reallocateWorkItemData">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="workItemID" type="ManagedObjectID">
+				<xs:annotation>
+					<xs:documentation>ID of a work item that is to be reallocated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="resource" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name of the resource to whom the specified work item should be reallocated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="workItemPayload" type="WorkItemBody">
+				<xs:annotation>
+					<xs:documentation>Complete body of the specified work item.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="rescheduleWorkItem">
+		<xs:sequence>
+			<xs:element name="workItemID" type="ObjectID">
+				<xs:annotation>
+					<xs:documentation>ID of a work item that is to be rescheduled. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="itemSchedule" type="ItemSchedule">
+				<xs:annotation>
+					<xs:documentation>Optional item schedule period to be associated with the work item.   If no object is passed then the item schedule period will not be changed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="itemBody" type="ItemBody">
+				<xs:annotation>
+					<xs:documentation>Optional work item body containing data changes on a  reschedule. The body is the the data as a name/value pair.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="dynamicOrgAttributes" type="orgdto:XmlDynamicIdField">
+				<xs:annotation>
+					<xs:documentation>If specified the work item will be "re-offered" to the dynamic instance of the org model pointed to by the array of name / value pairs.  If the work item is opened / allocated to a resource and the resource still has visiblity of the work item in the new entities then it will remain allocated to them.   Otherwise it will be re-offered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="setWorkItemPriority">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="workItemIDandPriority">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="workItemID" type="ManagedObjectID">
+							<xs:annotation>
+								<xs:documentation>ID of a work item that is to be allocated.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="workItemPriority">
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="absPriority" type="xs:int"/>
+									<xs:element name="offsetPriority" type="xs:int"/>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

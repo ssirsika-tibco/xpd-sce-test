@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://mind.enel.com/recuperoinfoattivitasaleforce" xmlns:tns44="http://mind.enel.com/recuperoinfoattivitasaleforce"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mind.enel.com/recuperoinfoattivitasaleforce">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.presentation.resources/Business Objects/RecuperoInfoAttivitaSaleForce.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="RecuperoInfoAttivita_Input" id="_xwJa8CUYEeOxo5Xbl1_e0w"
+      name="RecuperoInfoAttivita_Input">
+    <xsd:sequence>
+      <xsd:element ecore:name="stato" id="_zTBi8CUYEeOxo5Xbl1_e0w" maxOccurs="1" minOccurs="0"
+          name="stato">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="timestamp" id="_zeNfQCUYEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="timestamp">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="assegnatarioLogin" id="_ztEaoCUYEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="assegnatarioLogin">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="causale" id="_z0YjkCUYEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="causale" type="xsd:string"/>
+      <xsd:element ecore:name="descrizione" id="_z7VgICUYEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="descrizione" type="xsd:string"/>
+      <xsd:element ecore:name="descrizioneLavorazione" id="_0IOsoCUYEeOxo5Xbl1_e0w"
+          maxOccurs="1" minOccurs="0" name="descrizioneLavorazione" type="xsd:string"/>
+      <xsd:element ecore:name="esitoLavorazione" id="_1wENICUYEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="esitoLavorazione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="pratica" id="_2E5NoCUYEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="pratica">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="specifica" id="_2QARcCUYEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="specifica">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="tipo" id="_2W7_4CUYEeOxo5Xbl1_e0w" maxOccurs="1" minOccurs="0"
+          name="tipo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idChiamata" id="_OXwDEEuxEeO_6aXLO45VnQ" maxOccurs="1"
+          minOccurs="0" name="idChiamata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idBpm" id="_wjWhkGcMEeOy1qgfVKd_EA" maxOccurs="1" minOccurs="0"
+          name="idBpm">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="RecuperoInfoAttivita_Output" id="_OC1NcCUZEeOxo5Xbl1_e0w"
+      name="RecuperoInfoAttivita_Output">
+    <xsd:sequence>
+      <xsd:element ecore:name="codice" id="_Wj6dsCUZEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="codice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="descrizione" id="_WvJdUCUZEeOxo5Xbl1_e0w" maxOccurs="1"
+          minOccurs="0" name="descrizione" type="xsd:string"/>
+      <xsd:element ecore:name="esito" id="_XLNHMCUZEeOxo5Xbl1_e0w" maxOccurs="1" minOccurs="0"
+          name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="RecuperoInfoAttivita_InputElement" type="RecuperoInfoAttivita_Input"/>
+  <xsd:element name="RecuperoInfoAttivita_OutputElement" type="RecuperoInfoAttivita_Output"/>
+</xsd:schema>

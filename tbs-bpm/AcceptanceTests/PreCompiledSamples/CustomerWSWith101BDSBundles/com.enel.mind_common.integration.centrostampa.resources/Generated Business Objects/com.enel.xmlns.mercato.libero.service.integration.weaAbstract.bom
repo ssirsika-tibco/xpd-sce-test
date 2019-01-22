@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.xmlns.mercato.libero.service.integration.weaAbstract" name="com.enel.xmlns.mercato.libero.service.integration.weaAbstract">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_14CszQ92EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_14Cszg92EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_14Cszw92EeW3MruGqUCC5Q" key="created" value="1433947480076"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_14Cs0A92EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_15YJgA92EeW3MruGqUCC5Q" key="checksum" value="716839023"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.service.integration.weaAbstractWeaPortType" name="WeaPortType">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="WeaPortTypeGetNotificaAT" name="GetNotificaAT">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetNotificaATinput" name="input">
+          <type xmi:type="uml:Class" href="com.tibco.schemas.Muti_Integration_59_2014R3.Processes.Integration.Wea.AbstractWSDL.GetNotificaAT.bom#com.tibco.schemas.Muti_Integration_59_2014R3.Processes.Integration.Wea.AbstractWSDL.GetNotificaATGetNotificaATRequestType?com.tibco.schemas.Muti_Integration_59_2014R3.Processes.Integration.Wea.AbstractWSDL.GetNotificaAT%3a%3aGetNotificaATRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetNotificaAToutput" name="output" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.schemas.Muti_Integration_59_2014R3.Processes.Integration.Wea.AbstractWSDL.GetNotificaAT.bom#com.tibco.schemas.Muti_Integration_59_2014R3.Processes.Integration.Wea.AbstractWSDL.GetNotificaATGetNotificaATResponseType?com.tibco.schemas.Muti_Integration_59_2014R3.Processes.Integration.Wea.AbstractWSDL.GetNotificaAT%3a%3aGetNotificaATResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_13JU7w92EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_13JU8A92EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_13JU8Q92EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_13JU8g92EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_13JU8w92EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.libero.service.integration.weaAbstract?com.enel.xmlns.mercato.libero.service.integration.weaAbstract?" xsdTargetNamespace="http://xmlns.enel.com/mercato/libero/service/integration/weaAbstract" xsdSchemaLocation="WeaServiceAbstract.wsdl" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="WeaServiceAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_13JU9Q92EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.service.integration.weaAbstractWeaPortType?com.enel.xmlns.mercato.libero.service.integration.weaAbstract%3a%3aWeaPortType?" xsdName="WeaPortType" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_14CszA92EeW3MruGqUCC5Q" displayLabel="WeaPortType" base_NamedElement="com.enel.xmlns.mercato.libero.service.integration.weaAbstractWeaPortType?com.enel.xmlns.mercato.libero.service.integration.weaAbstract%3a%3aWeaPortType?"/>
+  <notation:Diagram xmi:id="_14Cs0Q92EeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.xmlns.mercato.libero.service.integration.weaAbstract?com.enel.xmlns.mercato.libero.service.integration.weaAbstract?" name="com.enel.xmlns.mercato.libero.service.integration.weaAbstract" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_14Cs0g92EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_14Cs0w92EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

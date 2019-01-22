@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.core.help.xpdHelpContent">
+		<productHelpContent
+		    downloadUrl="https://docs.tibco.com/pub/business-studio-bpm-edition/4.3.0/tibco-business-studio-bpm-edition-4-3-0_documentation.zip"
+		    offlineFolderName="tibco-business-studio-bpm-edition-4-3-0_documentation"
+		    productHelpUrl="https://docs.tibco.com/products/tibco-business-studio-bpm-edition-4-3-0"
+		    productId="com.tibco.xpd.bpm.help"
+		    productName="%tibcoBusinessStudioBpmHelp_label"
+		    version="4.3.0"
+		    webHelpUrl="https://docs.tibco.com/dyno/business-studio-bpm-edition/4.3.0/doc/html/index.html">
+		</productHelpContent>
+      <productHelpContent
+            downloadUrl="https://docs.tibco.com/dyno/amsg/3.4.0/tibco-activematrix-service-grid-3-4-0_documentation.zip"
+            offlineFolderName="tibco-activematrix-service-grid-3-4-0_documentation"
+            offlineIndexPath="html/index.htm"
+            productId="com.tibco.xpd.bpm.soa.help"
+            productName="%tibcoBusinessStudioSoaHelp_label"
+            version="3.4.0"
+            webHelpUrl="https://docs.tibco.com/products/tibco-activematrix-service-grid-3-4-0">
+      </productHelpContent>
+      <!-- This was removed from product help content to limit number of entries in the grid.
+            productHelpUrl="https://docs.tibco.com/products/tibco-activematrix-service-grid-3-3-0"
+       -->
+   </extension>
+</plugin>

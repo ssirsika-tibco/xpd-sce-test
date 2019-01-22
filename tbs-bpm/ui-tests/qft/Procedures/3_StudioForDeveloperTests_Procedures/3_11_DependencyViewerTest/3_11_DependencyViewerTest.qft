@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.9">
+  <include>qfs.qft</include>
+  <include>../../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="1) Dependency Viewer Test">
+      <ProcedureCall id="_uu1Lt"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:3_11_DependencyViewerProjectTestArchivedFileLocation}/DependencyViewerTestProjects.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu0uG" name="ClearLogs">
+        <SelectionEventStep client="BusinessStudio" component="menu-window"
+                            event="SELECTION" id="_uu1P5"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-window-showView" event="SELECTION"
+                            id="_uu1P6"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemOther..." event="SELECTION"
+                            id="_uu1P7"/>
+        <ComponentWaiter client="BusinessStudio" component="ShowViewDialog"
+                         id="_uu1P8"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="ShowViewDialog.text" id="_uu1P9">
+          <text>Error</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="ShowViewDialog.tree@/General/Error Log"
+                        event="MOUSE_MPRC" id="_uu1PA" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk2" event="MOUSE_MPRC" id="_uu1PB"
+                        modifiers="16"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipClear_Log_Viewer"
+                            event="SELECTION" id="_uu1PL"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1MW" name="Open Dependency Viewer ">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/Project.A"
+                        event="MOUSE_MPRC" id="_uu1MX" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.dependency.visualization.visualizeDependencies.command.ID"
+                            event="SELECTION" id="_uu1MY"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Ni" name="Click On Each Menu Items">
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipShow_All_in_Workspace2"
+                            event="SELECTION" id="_uu1Nl"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipRefresh2" event="SELECTION"
+                            id="_uu1Nm"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipHighlight_Referenced_Resources2"
+                            event="SELECTION" id="_uu1Nn"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipHighlight_Referenced_Resources2"
+                            event="SELECTION" id="_uu1No"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipHighlight_Referencing_Resources"
+                            event="SELECTION" id="_uu1Np"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipHighlight_Referencing_Resources"
+                            event="SELECTION" id="_uu1Nq"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipShow_Unrealted_Nodes"
+                            event="SELECTION" id="_uu1Nr"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipShow_Unrealted_Nodes"
+                            event="SELECTION" id="_uu1Ns"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipZoom" detail="dropdown"
+                            event="SELECTION" id="_uu1Nt"/>
+        <SelectionEventStep client="BusinessStudio" component="menuitem75_"
+                            event="SELECTION" id="_uu1Nu"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="toolItemTipZoom" detail="dropdown"
+                            event="SELECTION" id="_uu1Nv"/>
+        <SelectionEventStep client="BusinessStudio" component="menuitem100_"
+                            event="SELECTION" id="_uu1Nw"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Ny" name="Close Dependency Editor">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-Editor@Project.A Dependencies"
+                            detail="close" event="SELECTION" id="_uu1Nz"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1OE" name="Change to 'BPM Modeling' Perspective">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                            event="SELECTION" id="_uu1OF"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemBPM_Modeling" event="SELECTION"
+                            id="_uu1OG"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1OH" name="Open Dependency Viewer ">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/Project.A"
+                        event="MOUSE_MPRC" id="_uu1OI" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.dependency.visualization.visualizeDependencies.command.ID"
+                            event="SELECTION" id="_uu1OJ"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1OK" name="Close Dependency Editor">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-Editor@Project.A Dependencies"
+                            detail="close" event="SELECTION" id="_uu1OL"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1OY" name="Change to 'BPM Live Dev' Perspective">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                            event="SELECTION" id="_uu1Oa"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemBPM_Live_Dev" event="SELECTION"
+                            id="_uu1Ob"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="MessageDialogWithToggle" id="_uu1Oc"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk" event="MOUSE_MPRC" id="_uu1Od"
+                        modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Oe" name="Open Dependency Viewer ">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/Project.A"
+                        event="MOUSE_MPRC" id="_uu1Of" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.dependency.visualization.visualizeDependencies.command.ID"
+                            event="SELECTION" id="_uu1Og"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Oh" name="Close Dependency Editor">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-Editor@Project.A Dependencies"
+                            detail="close" event="SELECTION" id="_uu1Oi"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Om" name="Change to 'Modeling Perspective'">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                            event="SELECTION" id="_uu1Oo"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemBPM_Modeling" event="SELECTION"
+                            id="_uu1Op"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu0i+"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">Project.C</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Oj"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">Project.B</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Ok"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">Project.A</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1On" name="Check for any error in Error Log view">
+      <SelectionEventStep client="BusinessStudio"
+                          component="tabfolder-bottom@Error Log"
+                          event="SELECTION" id="_uu1Or"/>
+      <ClientScriptStep client="BusinessStudio" id="_ut+a6">
+        <code>import org.eclipse.swt.widgets.Tree
+com = rc.getComponent("Error_Log.tree")
+treesNumTemp = com.getItemCount()
+rc.setLocal("treesNumTemp", treesNumTemp)
+print '### Errors found in Error View are : %d' %treesNumTemp</code>
+      </ClientScriptStep>
+      <IfSequence id="_ut+AH" name="No item shows in Error View"
+                  test="$(treesNumTemp) == 0">
+        <comment>There is no error showing up</comment>
+        <ServerScriptStep id="_ut+AI" name="perform check">
+          <code>print "As no error found, we have got the expected result "</code>
+        </ServerScriptStep>
+        <ElseSequence id="_ut+AM" name="Error or Warnning is present">
+          <ThrowStep id="_uu1Os"
+                     throwmessage="Error are being shown in the error log. In acceptable scenario, no error should have been present. "/>
+        </ElseSequence>
+      </IfSequence>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - TIBCO Business Studio" height="1056"
+                id="WorkbenchWindow" name="WorkbenchWindow" uid="_uu1MS"
+                width="1936">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Window</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <ComponentStep class="Tree" classcount="2" classindex="1" height="622"
+                     id="Project_Explorer" name="Project Explorer"
+                     uid="_uu1MT" width="565" x="15" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="MenuBar"
+                     feature="Popup InvokerName: Project Explorer"
+                     height="561" id="popup-Project_Explorer"
+                     name="popup-Project Explorer" uid="_uu1MU" width="253">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">MenuBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" feature="View Dependencies"
+                       height="19"
+                       id="menu-com.tibco.xpd.dependency.visualization.visualizeDependencies.command.ID"
+                       name="menu-com.tibco.xpd.dependency.visualization.visualizeDependencies.command.ID"
+                       uid="_uu1MV" width="249" x="2" y="294">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">900862785</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">View Dependencies</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Tree" classcount="2" classindex="0" height="252"
+                     id="Deployment_Server" name="Deployment Server"
+                     uid="_uu1MZ" width="565" x="15" y="763">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="25" classindex="22"
+                     feature="Focused Resource: Project.A" height="644"
+                     id="scroll-Editor" name="scroll-Editor" uid="_uu1Ma"
+                     width="1332" x="589" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.ui.forms.widgets.ScrolledForm</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Panel:ScrollPanel</extrafeature>
+        <ComponentStep class="Panel" classcount="1" classindex="0"
+                       feature="Focused Resource: Project.A" height="644"
+                       id="formFocused_Resource:_Project.A" uid="_uu1Mb"
+                       width="1332" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.forms.widgets.Form</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+          <ComponentStep class="SplitPanel" classcount="1" classindex="0"
+                         height="589"
+                         id="formFocused_Resource:_Project.A.sash"
+                         uid="_uu1Mc" width="1324" x="4" y="45">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.SashForm</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">SplitPanel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.SashForm</extrafeature>
+            <ComponentStep class="Panel" classcount="1" classindex="0"
+                           height="589"
+                           id="formFocused_Resource:_Project.A.sectionFocused_Resource:_Project.A"
+                           uid="_uu1Md" width="1324" x="0" y="0">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.ui.forms.widgets.Section</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Focused Resource: Project.A</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+              <ComponentStep class="Panel" classcount="2" classindex="1"
+                             height="565"
+                             id="formFocused_Resource:_Project.A.canvas"
+                             uid="_uu1Me" width="1312" x="6" y="24">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">com.tibco.xpd.dependency.visualization.internal.views.DependencyVisualizationGraphControl</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">Panel</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+          <ComponentStep class="ToolBar" classcount="1" classindex="0"
+                         height="22"
+                         id="formFocused_Resource:_Project.A.toolbar"
+                         uid="_uu1NJ" width="262" x="1063" y="9">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBar</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="2"
+                           feature="ToolTip: Show All in Workspace"
+                           height="22" id="toolItemTipShow_All_in_Workspace2"
+                           uid="_uu1NK" width="23" x="31" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">429708122</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Show All in Workspace</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="4"
+                           feature="ToolTip: Refresh" height="22"
+                           id="toolItemTipRefresh2" uid="_uu1NL" width="23"
+                           x="62" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">1787298296</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Refresh</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="6"
+                           feature="ToolTip: Highlight Referenced Resources"
+                           height="22"
+                           id="toolItemTipHighlight_Referenced_Resources2"
+                           uid="_uu1NM" width="23" x="93" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">-1004628287</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Highlight Referenced Resources</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="7"
+                           feature="ToolTip: Highlight Referencing Resources"
+                           height="22"
+                           id="toolItemTipHighlight_Referencing_Resources"
+                           uid="_uu1NN" width="23" x="116" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">1977915073</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Highlight Referencing Resources</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="8"
+                           feature="ToolTip: Show Unrealted Nodes" height="22"
+                           id="toolItemTipShow_Unrealted_Nodes" uid="_uu1NO"
+                           width="23" x="139" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">-1585972969</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Show Unrealted Nodes</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="13"
+                           feature="ToolTip: Zoom" height="22"
+                           id="toolItemTipZoom" uid="_uu1NP" width="38"
+                           x="224" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">-899960948</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Zoom</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="1" classindex="0"
+                       feature="Focused Resource: PA" height="644"
+                       id="formFocused_Resource:_PA" uid="_uu1Mt" width="1332"
+                       x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.forms.widgets.Form</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+          <ComponentStep class="SplitPanel" classcount="1" classindex="0"
+                         height="589" id="formFocused_Resource:_PA.sash"
+                         uid="_uu1Mu" width="1324" x="4" y="45">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.SashForm</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">SplitPanel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.SashForm</extrafeature>
+            <ComponentStep class="Panel" classcount="1" classindex="0"
+                           height="589"
+                           id="formFocused_Resource:_PA.sectionFocused_Resource:_PA"
+                           uid="_uu1Mv" width="1324" x="0" y="0">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.ui.forms.widgets.Section</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Focused Resource: PA</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+              <ComponentStep class="Panel" classcount="2" classindex="1"
+                             height="565" id="formFocused_Resource:_PA.canvas"
+                             uid="_uu1Mw" width="1312" x="6" y="24">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">com.tibco.xpd.dependency.visualization.internal.views.DependencyVisualizationGraphControl</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">Panel</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+          <ComponentStep class="ToolBar" classcount="1" classindex="0"
+                         height="22" id="formFocused_Resource:_PA.toolbar"
+                         uid="_uu1N8" width="262" x="1063" y="9">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBar</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="0"
+                           feature="ToolTip: Focus on a resource" height="22"
+                           id="tool-find" name="tool-find" uid="_uu1N9"
+                           width="23" x="0" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">-1668061497</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Focus on a resource</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="2"
+                           feature="ToolTip: Show All in Workspace"
+                           height="22" id="toolItemTipShow_All_in_Workspace"
+                           uid="_uu1NA" width="23" x="31" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">429708122</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Show All in Workspace</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="4"
+                           feature="ToolTip: Refresh" height="22"
+                           id="toolItemTipRefresh" uid="_uu1NB" width="23"
+                           x="62" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">1787298296</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Refresh</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+            <ComponentStep class="ToolBarItem" classcount="14" classindex="6"
+                           feature="ToolTip: Highlight Referenced Resources"
+                           height="22"
+                           id="toolItemTipHighlight_Referenced_Resources"
+                           uid="_uu1NC" width="23" x="93" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">-1004628287</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Highlight Referenced Resources</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Popup InvokerClass: Panel"
+                     height="117" id="menuPopup_InvokerClass:_Panel"
+                     uid="_uu1Mx" width="139">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">MenuBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" feature="Focus On ..." height="19"
+                       id="menu-find" name="menu-find" uid="_uu1My"
+                       width="135" x="2" y="21">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-1668061497</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Focus On ...</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Focus On 'PB'" height="19"
+                       id="menuitemFocus_On_'PB'" uid="_uu1Mz" width="134"
+                       x="2" y="2">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-757919222</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Focus On 'PB'</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="26" classindex="23"
+                     height="644" id="Editor" name="Editor" uid="_uu1N3"
+                     width="1332" x="589" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.gef.ui.palette.FlyoutPaletteComposite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="3" classindex="2"
+                       height="644" id="Editor.canvas" uid="_uu1N4"
+                       width="1319" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Popup" height="202"
+                     id="menuPopup" uid="_uu1NQ" width="116">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">MenuBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" feature="75%" height="22"
+                       id="menuitem75_" uid="_uu1NR" width="112" x="2" y="46">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">75%</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">MenuItem:RadioButtonMenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="100%" height="22"
+                       id="menuitem100_" uid="_uu1NS" width="112" x="2"
+                       y="68">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">100%</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">MenuItem:RadioButtonMenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="BPM Modeling" height="19"
+                       id="menuitemBPM_Modeling" uid="_uu1O1" width="194"
+                       x="2" y="21">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">332688852</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">BPM Modeling</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Modeling" height="19"
+                       id="menuitemModeling" uid="_uu1OA" width="194" x="2"
+                       y="40">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-763265226</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Modeling</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="BPM Live Dev" height="19"
+                       id="menuitemBPM_Live_Dev" uid="_uu1OM" width="194"
+                       x="2" y="2">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">494719653</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">BPM Live Dev</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="TabPanel" classcount="4" classindex="0"
+                     feature="ToolTip: Close" height="673"
+                     id="tabfolder-Editor" name="tabfolder-Editor"
+                     uid="_uu1Nx" width="1338" x="586" y="83">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="ToolBar" classcount="10" classindex="1"
+                     height="22" id="WorkbenchWindow.coolbar" uid="_uu1N+"
+                     width="160" x="1768" y="56">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">ToolBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <ComponentStep class="ToolBar" classcount="1" classindex="0"
+                       height="22" id="WorkbenchWindow.toolbar" uid="_uu1N-"
+                       width="159" x="2" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="3" classindex="0"
+                         feature="ToolTip: Open Perspective" height="22"
+                         id="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                         name="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                         uid="_uu1O0" width="24" x="0" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-1087419245</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Open Perspective</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="TabPanel" classcount="4" classindex="0"
+                     feature="ToolTip: Minimize" height="558"
+                     id="tabbedTipMinimize" uid="_uu1O2" width="1431" x="493"
+                     y="83">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <ComponentStep class="Panel" classcount="1" classindex="0"
+                       height="529" id="tabbedTipMinimize.view" uid="_uu1O3"
+                       width="1425" x="3" y="26">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ViewForm</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ViewForm</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="TabPanel" classcount="5" classindex="4"
+                     feature="ToolTip: Close" height="558"
+                     id="tabfolder-topRight" name="tabfolder-topRight"
+                     uid="_uu1OP" width="717" x="1207" y="83">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="23" classindex="14"
+                     height="345" id="Properties" name="Properties"
+                     uid="_uu1OW" width="1425" x="496" y="670">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.ui.part.PageBook</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Tree" classcount="1" classindex="0" height="345"
+                       id="Properties.tree" uid="_uu1OX" width="1425" x="0"
+                       y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Tree</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="TabPanel" classcount="4" classindex="3"
+                     height="259" id="tabfolder-bottom"
+                     name="tabfolder-bottom" uid="_uu1Ov" width="1659" x="265"
+                     y="759">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Bar" height="19" id="menuBar"
+                     uid="_uu1Oy" width="1920" x="8" y="30">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">MenuBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="9" classindex="7"
+                       feature="Window" height="19" id="menu-window"
+                       name="menu-window" uid="_uu1Oz" width="58" x="318"
+                       y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Window</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" classcount="15" classindex="4"
+                         feature="Show View" height="22"
+                         id="menu-window-showView" name="menu-window-showView"
+                         uid="_uu1O+" width="212" x="2" y="76">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Show View</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <ComponentStep class="MenuItem" classcount="12" classindex="11"
+                           feature="Other..." height="19"
+                           id="menuitemOther..." uid="_uu1O-" width="255"
+                           x="2" y="201">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">MenuItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Other...	Alt+Shift+Q, Q</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="23" classindex="15"
+                     height="213" id="Error_Log" name="Error Log" uid="_uu1PC"
+                     width="1653" x="268" y="802">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.ui.dialogs.FilteredTree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="TextField" classcount="1" classindex="0"
+                       height="15" id="Error_Log.text" uid="_uu1PD"
+                       width="1627" x="1" y="2">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Text</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">TextField</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Text</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Tree" classcount="1" classindex="0" height="186"
+                       id="Error_Log.tree" uid="_uu1PE" width="1653" x="0"
+                       y="27">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Tree</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="ToolBar" classcount="10" classindex="5"
+                     height="22" id="toolbar-Error_Log"
+                     name="toolbar-Error Log" uid="_uu1PI" width="184"
+                     x="1682" y="760">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">ToolBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+        <ComponentStep class="ToolBarItem" classcount="8" classindex="4"
+                       feature="ToolTip: Clear Log Viewer" height="22"
+                       id="toolItemTipClear_Log_Viewer" uid="_uu1PJ"
+                       width="23" x="92" y="0">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-486800661</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBarItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Clear Log Viewer</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="BPM Live Development"
+                height="191" id="MessageDialogWithToggle" modal="true"
+                name="MessageDialogWithToggle" uid="_uu1ON" width="522">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Dialog</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+      <ComponentStep class="Button" classcount="1" classindex="0" feature="OK"
+                     height="25" id="buttonOk" name="buttonOk" uid="_uu1OO"
+                     width="92" x="416" y="150">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">OK</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Progress Information"
+                height="209" id="shellProgress_Information" modal="true"
+                uid="_uu1Ol" width="532">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Dialog</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Show View" height="438"
+                id="ShowViewDialog" modal="true" name="ShowViewDialog"
+                uid="_uu1P0" width="311">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Dialog</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+      <ComponentStep class="TextField" classcount="1" classindex="0"
+                     height="15" id="ShowViewDialog.text" uid="_uu1P1"
+                     width="248" x="19" y="43">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TextField</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Tree" classcount="1" classindex="0" height="275"
+                     id="ShowViewDialog.tree" uid="_uu1P2" width="273" x="19"
+                     y="68">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="2" classindex="0" feature="OK"
+                     height="25" id="buttonOk2" name="buttonOk" uid="_uu1P3"
+                     width="92" x="102" y="392">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">OK</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>

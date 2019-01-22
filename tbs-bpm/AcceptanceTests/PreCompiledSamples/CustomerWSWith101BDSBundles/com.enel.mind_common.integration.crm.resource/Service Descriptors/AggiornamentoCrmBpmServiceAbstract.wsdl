@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://com.enel.mind.aggiornamentocrm" 
+
+xmlns:ttns="http://mind.enel.com/aggiornamentocrm"
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ name="AggiornamentoCrm" 
+ targetNamespace="http://com.enel.mind.aggiornamentocrm">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_V8fhUIpBEeGiBZBWfHGeIw_AggiornamentoCodiciListino__V7IVANguEeK3vZ6Q8dp-lw"
+     targetNamespace="http://www.tibco.com/bs3.0/_V8fhUIpBEeGiBZBWfHGeIw_AggiornamentoCodiciListino__V7IVANguEeK3vZ6Q8dp-lw"/>
+    <xsd:schema xmlns="http://mind.enel.com/aggiornamentocrm" 
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" 
+    xmlns:tns6="http://mind.enel.com/aggiornamentocrm" 
+    targetNamespace="http://mind.enel.com/aggiornamentocrm">
+     
+      <xsd:complexType name="Esito">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione" type="xsd:string"/>
+          
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaSorgenteEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AggiornamentoCodicePSMRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codUniConfVen">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codConfVen">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="commodity">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBPMPadre">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBPMFiglio">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AggiornamentoCodicePSMResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idCrm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PSM">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito" type="Esito"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AggiornamentoCodiceListinoRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codUniConfVen">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codConfVen">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBPMPadre">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBPMFiglio">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="commodity">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esitoSap">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceSAP">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizioneSAP">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_DatiFatt" type="xsd:string"/>
+            
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AggiornamentoCodiceListinoResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito" type="Esito"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Richiesta">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaRichiedente">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="canale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idRichiesta">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoOperazione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="causale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idProcessoBPM">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="commodity">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagDelibera40" type="xsd:boolean"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IP">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="profilo">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="matricola">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dataRichiesta" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idMuti">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idDms">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idDmsReclamo">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idR2D" type="IdentificativiR2D"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dataDecorrenza" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoRichiesta">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagComplesso" type="xsd:boolean"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagPreventivo">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagDocumentazione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idCrm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="statoServizio">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="statoOrdine">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="statoFiCa">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="statoISU">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="statoR2D">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="statoSD">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="statoSempre">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="statoUDB">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idR2R">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idAttivitaCrm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IdentificativiR2D">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idDistr">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idDistr2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idR2D">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InfoDisalimentabilitaResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito" type="Esito"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Cliente" type="xsd:string"/>
+          
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Fornitura" type="xsd:string"/>
+          
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_IdISUFatturazione" type="xsd:string"/>
+            
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Richiesta" type="xsd:string"/>
+           
+          <xsd:element maxOccurs="1" minOccurs="0" name="businessPartner">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="contoContrattuale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="contrattoSAP">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="disalimentabile">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagIsu">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idCrm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idCrmCliente">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoPolling">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numeroUtente">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InfoDisalimentabilitaRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Richiersta" type="Richiesta"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Cliente" type="xsd:string"/>
+         
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Fornitura" type="xsd:string"/>
+            
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BonificaTriplettaSapRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="richiesta" type="Richiesta"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Cliente" type="xsd:string"/>
+         
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_FatturazioneIDFatturazione" type="xsd:string"/>
+           
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BonificaTriplettaSapResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Esito" type="Esito"/>
+        </xsd:sequence>
+      </xsd:complexType>
+	  
+	  
+	        <xsd:complexType name="AggiornamentoDatiClienteResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito" type="Esito"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AggiornamentoDatiClienteRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Richiersta" type="Richiesta"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="CDM_Cliente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizioneTelefono" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="altroNumero" type="xsd:string"/>
+		  <xsd:element maxOccurs="1" minOccurs="0" name="telefono" type="xsd:string"/>
+		  <xsd:element maxOccurs="1" minOccurs="0" name="cellulare" type="xsd:string"/>
+            
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EsitoElement" type="Esito"/>
+      <xsd:element name="AggiornamentoCodicePSMRequestElement" type="AggiornamentoCodicePSMRequest"/>
+      <xsd:element name="AggiornamentoCodicePSMResponseElement" type="AggiornamentoCodicePSMResponse"/>
+      <xsd:element name="AggiornamentoCodiceListinoRequestElement" type="AggiornamentoCodiceListinoRequest"/>
+      <xsd:element name="AggiornamentoCodiceListinoResponseElement" type="AggiornamentoCodiceListinoResponse"/>
+      <xsd:element name="RichiestaElement" type="Richiesta"/>
+      <xsd:element name="IdentificativiR2DElement" type="IdentificativiR2D"/>
+      <xsd:element name="InfoDisalimentabilitaResponseElement" type="InfoDisalimentabilitaResponse"/>
+      <xsd:element name="InfoDisalimentabilitaRequestElement" type="InfoDisalimentabilitaRequest"/>
+      <xsd:element name="BonificaTriplettaSapRequestElement" type="BonificaTriplettaSapRequest"/>
+      <xsd:element name="BonificaTriplettaSapResponseElement" type="BonificaTriplettaSapResponse"/>
+	  <xsd:element name="AggiornamentoDatiClienteResponseElement" type="AggiornamentoDatiClienteResponse"/>
+      <xsd:element name="AggiornamentoDatiClienteRequestElement" type="AggiornamentoDatiClienteRequest"/>
+    
+            <xsd:element name="NewElement" type="xsd:string"></xsd:element>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.enel.mind.aggiornamentocrm">
+            <xsd:element name="AvanzamentoStatoBene">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="in" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="AvanzamentoStatoBeneResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="out" type="xsd:string"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="AvanzamentoStatoBeneRequestElement"
+            	type="ns:AvanzamentoStatoBeneRequestType">
+            </xsd:element>
+            <xsd:element name="AvanzamentoStatoBeneResponseElement"
+            	type="ns:AvanzamentoStatoBeneResponseType">
+            </xsd:element>
+            
+            <xsd:complexType name="AvanzamentoStatoBeneRequestType">
+            	<xsd:sequence>
+            		<xsd:element name="TipoEsito" type="xsd:string"
+            			minOccurs="1" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="Esito" type="xsd:string"
+            			minOccurs="1" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="CodiceEsito" type="xsd:string"
+            			minOccurs="0" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="DescrizioneEsito"
+            			type="xsd:string" minOccurs="0" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="DataEvento" type="xsd:string"
+            			minOccurs="1" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="IdentificativoBene"
+            			type="xsd:string" minOccurs="1" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="IdGateway" type="xsd:string"
+            			minOccurs="0" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="CausaleEsito" type="xsd:string"
+            			minOccurs="0" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="DataInstPostRip"
+            			type="xsd:string" minOccurs="0" maxOccurs="1">
+            		</xsd:element>
+
+            		<xsd:element name="IdPraticaFinanziamento"
+            			type="xsd:string" minOccurs="0" maxOccurs="1">
+            		</xsd:element>
+
+            		<xsd:element name="IdBpm" type="xsd:string" minOccurs="1" maxOccurs="1"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+            
+            <xsd:complexType name="AvanzamentoStatoBeneResponseType">
+            	<xsd:sequence>
+            		<xsd:element name="Esito" type="xsd:string"
+            			minOccurs="0" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="CodiceEsito" type="xsd:string"
+            			minOccurs="0" maxOccurs="1">
+            		</xsd:element>
+            		<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="AggiornamentoCrmBpmService_AggiornamentoCodicePSM_INPUT">
+    <wsdl:part element="ttns:AggiornamentoCodicePSMRequestElement" name="AggiornamentoCodicePSMRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AggiornamentoCrmBpmService_AggiornamentoCodicePSM_OUTPUT">
+    <wsdl:part element="ttns:AggiornamentoCodicePSMResponseElement" name="AggiornamentoCodicePSMResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AggiornamentoCrmBpmService_AggiornamentoCodiciListino_INPUT">
+    <wsdl:part element="ttns:AggiornamentoCodiceListinoRequestElement" name="AggiornamentoCodiciListinoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AggiornamentoCrmBpmService_AggiornamentoCodiciListino_OUTPUT">
+    <wsdl:part element="ttns:AggiornamentoCodiceListinoResponseElement" name="AggiornamentoCodiciListinoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AggiornamentoCrmBpmService_BonificaTriplettaSap_INPUT">
+    <wsdl:part element="ttns:BonificaTriplettaSapRequestElement" name="BonificaTriplettaSapRequest"/>
+  </wsdl:message>
+   <wsdl:message name="AggiornamentoCrmBpmService_BonificaTriplettaSap_OUTPUT">
+    <wsdl:part element="ttns:BonificaTriplettaSapResponseElement" name="BonificaTriplettaSapResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AggiornamentoCrmBpmService_InfoDisalimentabilita_INPUT">
+    <wsdl:part element="ttns:InfoDisalimentabilitaRequestElement" name="InfoDisalimentabilitaRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AggiornamentoCrmBpmService_InfoDisalimentabilita_OUTPUT">
+    <wsdl:part element="ttns:InfoDisalimentabilitaResponseElement" name="InfoDisalimentabilitaResponse"/>
+  </wsdl:message>
+  
+    <wsdl:message name="AggiornamentoCrmBpmService_AggiornamentoDatiCliente_INPUT">
+    <wsdl:part element="ttns:AggiornamentoDatiClienteRequestElement" name="AggiornamentoDatiClienteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="AggiornamentoCrmBpmService_AggiornamentoDatiCliente_OUTPUT">
+    <wsdl:part element="ttns:AggiornamentoDatiClienteResponseElement" name="AggiornamentoDatiClienteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AvanzamentoStatoBeneRequest">
+  	<wsdl:part name="AvanzamentoStatoBeneRequest" element="ns:AvanzamentoStatoBeneRequestElement"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AvanzamentoStatoBeneResponse">
+  	<wsdl:part name="AvanzamentoStatoBeneResponse" element="ns:AvanzamentoStatoBeneResponseElement"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AggiornamentoCrmBpmService">
+    
+	<wsdl:operation name="AggiornamentoCodicePSM">
+      <wsdl:input message="ns:AggiornamentoCrmBpmService_AggiornamentoCodicePSM_INPUT" />
+      <wsdl:output message="ns:AggiornamentoCrmBpmService_AggiornamentoCodicePSM_OUTPUT"/>
+    </wsdl:operation>
+	 <wsdl:operation name="AggiornamentoCodiciListino">
+      <wsdl:input message="ns:AggiornamentoCrmBpmService_AggiornamentoCodiciListino_INPUT" />
+      <wsdl:output message="ns:AggiornamentoCrmBpmService_AggiornamentoCodiciListino_OUTPUT"/>
+    </wsdl:operation>
+	 <wsdl:operation name="BonificaTriplettaSap">
+      <wsdl:input message="ns:AggiornamentoCrmBpmService_BonificaTriplettaSap_INPUT"/>
+      <wsdl:output message="ns:AggiornamentoCrmBpmService_BonificaTriplettaSap_OUTPUT"/>
+    </wsdl:operation>
+	<wsdl:operation name="InfoDisalimentabilita">
+      <wsdl:input message="ns:AggiornamentoCrmBpmService_InfoDisalimentabilita_INPUT"/>
+      <wsdl:output message="ns:AggiornamentoCrmBpmService_InfoDisalimentabilita_OUTPUT"/>
+    </wsdl:operation>
+		<wsdl:operation name="AggiornamentoDatiCliente">
+      <wsdl:input message="ns:AggiornamentoCrmBpmService_AggiornamentoDatiCliente_INPUT"/>
+      <wsdl:output message="ns:AggiornamentoCrmBpmService_AggiornamentoDatiCliente_OUTPUT"/>
+    </wsdl:operation>
+
+		<wsdl:operation name="AvanzamentoStatoBene">
+			<wsdl:input message="ns:AvanzamentoStatoBeneRequest"></wsdl:input>
+			<wsdl:output message="ns:AvanzamentoStatoBeneResponse"></wsdl:output>
+		</wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

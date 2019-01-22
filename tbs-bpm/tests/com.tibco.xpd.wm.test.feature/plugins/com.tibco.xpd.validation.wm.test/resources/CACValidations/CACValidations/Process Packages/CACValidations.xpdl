@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_GUgwoJi5EeOiZ41mVqvtaA" xpdExt:DisplayName="CACValidations" Name="CACValidations">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-02-18</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>bharge</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_kIQYwJ-1EeODUsrh1bBnKA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_kGKuEJ-1EeODUsrh1bBnKA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_kIQYwZ-1EeODUsrh1bBnKA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_dWeQYJi5EeOiZ41mVqvtaA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_GU1gwJi5EeOiZ41mVqvtaA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_dWe3cJi5EeOiZ41mVqvtaA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_GU1gwJi5EeOiZ41mVqvtaA" xpdExt:DisplayName="CACValidations-Process" Name="CACValidationsProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_jSdGoJi5EeOiZ41mVqvtaA" xpdExt:DisplayName="customerRef" Name="customerRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_wTJ80Ji5EeOiZ41mVqvtaA" xpdExt:DisplayName="personRef" Name="personRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_1dSZMIa0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_44aicJi5EeOiZ41mVqvtaA" xpdExt:DisplayName="castedCustRef" Name="castedCustRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_DyOkoJi6EeOiZ41mVqvtaA" xpdExt:DisplayName="custBomType" Name="custBomType">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_HReSsJi6EeOiZ41mVqvtaA" xpdExt:DisplayName="custRefList" Name="custRefList" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_p27cEJjAEeOiZ41mVqvtaA" xpdExt:DisplayName="orderRef" Name="orderRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_54c88Ia0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_gXvekKXWEeO9qLgzWbUrYQ" xpdExt:DisplayName="TextArray" Name="TextArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_hd8RoKXWEeO9qLgzWbUrYQ" xpdExt:DisplayName="IntArray" Name="IntArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_kWpkIKXWEeO9qLgzWbUrYQ" xpdExt:DisplayName="CustArray" Name="CustArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="__kyCAKXZEeOioJjjL4VZ9Q" xpdExt:DisplayName="CustSubClass" Name="CustSubClass">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_eTfyEKXaEeOioJjjL4VZ9Q"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_N4uowKXaEeOioJjjL4VZ9Q" xpdExt:DisplayName="textField" Name="textField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_dWe3cZi5EeOiZ41mVqvtaA" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_dWe3cJi5EeOiZ41mVqvtaA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_dWe3cpi5EeOiZ41mVqvtaA" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_dWe3cJi5EeOiZ41mVqvtaA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eWwBoJi5EeOiZ41mVqvtaA" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">castedCustRef = cac_com_example_ordermodel_Customer.customerRef(personRef);&#xD;
+&#xD;
+// find method that returns list of refs&#xD;
+custRefList = cac_com_example_ordermodel_Customer.find(custBomType);&#xD;
+// find method that returns list of paginated list&#xD;
+var vCustPageList = cac_com_example_ordermodel_Customer.find(custBomType,1,5);&#xD;
+vCustPageList.hasMoreResults;&#xD;
+// find all method that returns list of refs&#xD;
+custRefList.addAll(cac_com_example_ordermodel_Customer.findAll());&#xD;
+// find all method that returns paginated list&#xD;
+vCustPageList = cac_com_example_ordermodel_Customer.findAll(2,4);&#xD;
+&#xD;
+var ordCrit = cac_com_example_ordermodel_Order.createCriteria(&quot;orderLines.quantity > 100&quot;);&#xD;
+var ordCrit2 = cac_com_example_ordermodel_Order.createCriteria(&quot;orderLines.quantity > 100&quot;,2,4);&#xD;
+&#xD;
+var pageList = cac_com_example_ordermodel_Order.findByCriteria(ordCrit);&#xD;
+pageList.hasMoreResults;&#xD;
+&#xD;
+var list2 = cac_com_example_ordermodel_Order.findByCriteria(&quot;orderLines.quantity > 100&quot;);&#xD;
+list2.size();&#xD;
+&#xD;
+var pageList2 = cac_com_example_ordermodel_Order.findByCriteria(&quot;orderLines.quantity > 100&quot;, 2, 5);&#xD;
+pageList2.hasMoreResults;&#xD;
+&#xD;
+orderRef = cac_com_example_ordermodel_Order.findByOrderId(&quot;id&quot;);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_dWe3cJi5EeOiZ41mVqvtaA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="283.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oDllYKXVEeO9qLgzWbUrYQ" Name="XPD5920" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="XPD-5920">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// XPD-5920 Criteria.setQueryParameter(String, Object (used to be setQueryerParameter(String, String)&#xD;
+// And other affected methods because we stopped treating Object as a coerced generic&#xD;
+//   as well as E type (because only E type param is meant to do that!&#xD;
+&#xD;
+var criteria = cac_com_example_ordermodel_Customer.createCriteria(&quot;address = ''&quot;);&#xD;
+&#xD;
+// All these are valid as they're parameter = Object (any type).&#xD;
+// (even if not sensible in real world!&#xD;
+criteria.setQueryParameter(&quot;p&quot;, &quot;abc&quot;);&#xD;
+criteria.setQueryParameter(&quot;p2&quot;, 1);&#xD;
+criteria.setQueryParameter(&quot;p3&quot;, DateTimeUtil.createDate());&#xD;
+criteria.setQueryParameter(&quot;p4&quot;, custBomType);&#xD;
+criteria.setQueryParameter(&quot;p5&quot;, com_example_ordermodel_Event.RECEIVED );&#xD;
+&#xD;
+criteria.setQueryParameter(&quot;ap&quot;, TextArray);&#xD;
+criteria.setQueryParameter(&quot;p&quot;, IntArray);&#xD;
+criteria.setQueryParameter(&quot;p&quot;, CustArray);&#xD;
+&#xD;
+// Now try some of the other affected methods &#xD;
+TextArray.addAll(TextArray.subList(1,1));&#xD;
+CustArray.addAll(CustArray.subList(1,1));&#xD;
+IntArray.addAll(IntArray.subList(1,1));&#xD;
+&#xD;
+TextArray.remove(&quot;abc&quot;);&#xD;
+CustArray.remove(custBomType);&#xD;
+CustArray.remove(CustSubClass);&#xD;
+&#xD;
+ScriptUtil.setArrayElement(TextArray,0,&quot;abc&quot;);&#xD;
+ScriptUtil.setArrayElement(TextArray,0,custBomType.address);&#xD;
+&#xD;
+textField = ScriptUtil.getArrayElement(TextArray,0);&#xD;
+custBomType = ScriptUtil.getArrayElement(CustArray,0);&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_dWe3cJi5EeOiZ41mVqvtaA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="449.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_dWe3c5i5EeOiZ41mVqvtaA" Name="" From="_oDllYKXVEeO9qLgzWbUrYQ" To="_dWe3cpi5EeOiZ41mVqvtaA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_eWx20Ji5EeOiZ41mVqvtaA" xpdExt:DisplayName="" Name="" From="_dWe3cZi5EeOiZ41mVqvtaA" To="_eWwBoJi5EeOiZ41mVqvtaA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oD35QKXVEeO9qLgzWbUrYQ" xpdExt:DisplayName="" Name="" From="_eWwBoJi5EeOiZ41mVqvtaA" To="_oDllYKXVEeO9qLgzWbUrYQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_kGKuEJ-1EeODUsrh1bBnKA" xpdExt:DisplayName="CACValidations-InvalidScript" Name="CACValidationsInvalidScript">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_lfZK0J-1EeODUsrh1bBnKA" xpdExt:DisplayName="personRef" Name="personRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_1dSZMIa0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_lfZK0Z-1EeODUsrh1bBnKA" xpdExt:DisplayName="orderRef" Name="orderRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_54c88Ia0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_lfZK0p-1EeODUsrh1bBnKA" xpdExt:DisplayName="custBomType" Name="custBomType">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_lfZK05-1EeODUsrh1bBnKA" xpdExt:DisplayName="customerRef" Name="customerRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_lfZK1J-1EeODUsrh1bBnKA" xpdExt:DisplayName="custRefList" Name="custRefList" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_lfZK1Z-1EeODUsrh1bBnKA" xpdExt:DisplayName="castedCustRef" Name="castedCustRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDSRefModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_n7j5kIa0EeCM87oWUqSXAA"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3wtmEJ-1EeODUsrh1bBnKA" xpdExt:DisplayName="txtField" Name="txtField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6xJ4QJ-1EeODUsrh1bBnKA" xpdExt:DisplayName="txtField2" Name="txtField2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_kIQYwp-1EeODUsrh1bBnKA" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_kIQYwZ-1EeODUsrh1bBnKA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_kIQYw5-1EeODUsrh1bBnKA" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_kIQYwZ-1EeODUsrh1bBnKA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_mn7gMJ-1EeODUsrh1bBnKA" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">var crit1 = cac_com_example_ordermodel_Order.createCriteria(&quot;orderLines.quantity > 100&quot;);&#xD;
+var queryStr = &quot;orderLines.quantity > 100&quot;;&#xD;
+var c2 = cac_com_example_ordermodel_Order.createCriteria(queryStr);&#xD;
+var c3 = cac_com_example_ordermodel_Order.createCriteria(crit1.getQuery());&#xD;
+var x = crit1.getQuery();&#xD;
+txtField = crit1.getQuery();&#xD;
+txtField2 = x;&#xD;
+var c4 = cac_com_example_ordermodel_Order.createCriteria(x);&#xD;
+var c5 = cac_com_example_ordermodel_Order.createCriteria(txtField);&#xD;
+cac_com_example_ordermodel_Order.createCriteria(txtField2);&#xD;
+&#xD;
+Log.write(crit1.getQuery());&#xD;
+Log.write(x);&#xD;
+Log.write(txtField);&#xD;
+Log.write(txtField2);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_kIQYwZ-1EeODUsrh1bBnKA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="291.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_kIQYxJ-1EeODUsrh1bBnKA" xpdExt:DisplayName="" Name="" From="_mn7gMJ-1EeODUsrh1bBnKA" To="_kIQYw5-1EeODUsrh1bBnKA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_mn8uUJ-1EeODUsrh1bBnKA" xpdExt:DisplayName="" Name="" From="_kIQYwp-1EeODUsrh1bBnKA" To="_mn7gMJ-1EeODUsrh1bBnKA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="16"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

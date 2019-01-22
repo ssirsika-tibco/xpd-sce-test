@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM27_ComplexExplicitGroupHierarchyTransformationTest"
+    xmlns:tns1="http://www.example.org/XSDBOM27_ComplexExplicitGroupHierarchyTransformationTest"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM27_ComplexExplicitGroupHierarchyTransformationTest">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfds/Business Objects/XSDBOM27_ComplexExplicitGroupHierarchyTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="org.example.xsdbom2._7.complex.explicit.group.hierarchy.transformation.test_PersonDetails"
+      abstract="false" mixed="false" name="PersonDetails">
+    <xsd:sequence>
+      <xsd:sequence>
+        <xsd:element id="PersonDetails_groupAElem1" form="qualified" maxOccurs="1"
+            minOccurs="1" name="groupAElem1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:element id="PersonDetails_elem1" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elem1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonDetails_elem2" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elem2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:sequence>
+        <xsd:element id="PersonDetails_groupBElem1" form="qualified" maxOccurs="1"
+            minOccurs="1" name="groupBElem1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:sequence>
+          <xsd:element id="PersonDetails_groupBElem2" form="qualified" maxOccurs="1"
+              minOccurs="1" name="groupBElem2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:sequence>
+            <xsd:element id="PersonDetails_groupBElem3" form="qualified" maxOccurs="1"
+                minOccurs="1" name="groupBElem3">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:sequence>
+              <xsd:element id="PersonDetails_groupDElem1" form="qualified" maxOccurs="1"
+                  minOccurs="1" name="groupDElem1">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element id="PersonDetails_groupDElem2" form="qualified" maxOccurs="1"
+                  minOccurs="1" name="groupDElem2">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:element id="PersonDetails_groupBElem4" form="qualified" maxOccurs="1"
+                minOccurs="1" name="groupBElem4">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:sequence>
+      </xsd:sequence>
+      <xsd:element id="PersonDetails_elem3" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elem3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonDetails_elem4" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elem4">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:sequence>
+        <xsd:element id="PersonDetails_groupCElem1" form="qualified" maxOccurs="1"
+            minOccurs="1" name="groupCElem1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:sequence>
+          <xsd:element id="PersonDetails_groupCElem2" form="qualified" maxOccurs="1"
+              minOccurs="1" name="groupCElem2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:sequence>
+            <xsd:element id="PersonDetails_groupCElem3" form="qualified" maxOccurs="1"
+                minOccurs="1" name="groupCElem3">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:sequence>
+              <xsd:element id="PersonDetails_groupCElem4" form="qualified" maxOccurs="1"
+                  minOccurs="1" name="groupCElem4">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element id="PersonDetails_groupCElem5" form="qualified" maxOccurs="1"
+                  minOccurs="1" name="groupCElem5">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:sequence>
+        </xsd:sequence>
+      </xsd:sequence>
+      <xsd:element id="PersonDetails_gdf" form="qualified" maxOccurs="1" minOccurs="1"
+          name="gdf">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute id="PersonDetails_attr1" form="unqualified" name="attr1" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+</xsd:schema>

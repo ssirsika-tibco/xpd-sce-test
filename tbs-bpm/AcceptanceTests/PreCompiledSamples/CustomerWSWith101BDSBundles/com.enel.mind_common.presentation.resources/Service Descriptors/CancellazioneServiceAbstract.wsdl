@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="com.enel.mind.Cancellazione" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/cancellazione" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Presentation_GetDatiInesitoPostaNonRecapitata" targetNamespace="com.enel.mind.Cancellazione" tibex:ServiceTask="_NqMh8EhuEeOAbZA2R6U2NQ" tibex:XPDL="Presentation_GetDatiInesitoPostaNonRecapitata.xpdl" tibex:process="_DbtUsEhuEeOAbZA2R6U2NQ">
+  <wsdl:types>
+    <xsd:schema xmlns="com.enel.mind.Cancellazione" targetNamespace="com.enel.mind.Cancellazione">
+      <xsd:simpleType name="string">
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorCode" type="string"/>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorDetail" type="string"/>
+      <xsd:simpleType name="integer_3">
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="3"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorMaxRetries" type="integer_3"/>
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorPerformer" type="string_50"/>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorRetryCount" type="integer_3"/>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorShortRetries" type="integer_3"/>
+      <xsd:simpleType name="integer_9">
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="9"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorWaitLongDelayMin" type="integer_9"/>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorWaitShortDelayMin" type="integer_9"/>
+      <xsd:simpleType name="string_4000">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_msgPayload" type="string_4000"/>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_parentProcessId" type="string_50"/>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_processId" type="string_50"/>
+      <xsd:simpleType name="string_100">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_processName" type="string_100"/>
+    </xsd:schema>
+    <xsd:schema xmlns="http://mind.enel.com/cancellazione" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/cancellazione" targetNamespace="http://mind.enel.com/cancellazione">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/MIND_Presentation/Business Objects/com.enel.mind.cancellazione.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="Cancellazione_Request">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="datacorrente" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="canaleprovenienza" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idcorrispondenza" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codtipoplico" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagvocal" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="identificativoordineCRM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="master" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idattivita" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="gruppo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idbpm" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numprotocollo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaorigine" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codicefiscale" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="contocontrattuale" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numeroutente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipodocumento" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dataricezioneinesito" type="xsd:date"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Cancellazione_Response">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Cancellazione_RequestElement" type="Cancellazione_Request"/>
+      <xsd:element name="Cancellazione_ResponseElement" type="Cancellazione_Response"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_Cancellazione_INPUT">
+    <wsdl:part element="ttns:Cancellazione_RequestElement" name="Cancellazione_Request"/>
+  </wsdl:message>
+  <wsdl:message name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_Cancellazione_OUTPUT">
+    <wsdl:part element="ttns:Cancellazione_ResponseElement" name="Cancellazione_Response"/>
+  </wsdl:message>
+  <wsdl:message name="Presentation_GetDatiInesitoPostaNonRecapitataProcess_Cancellazione_GenericErrorEvent_fault">
+    <wsdl:part element="ttns:Cancellazione_ResponseElement" name="Cancellazione_Response"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorCode" name="errorCode"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorDetail" name="errorDetail"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorMaxRetries" name="errorMaxRetries"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorPerformer" name="errorPerformer"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorRetryCount" name="errorRetryCount"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorShortRetries" name="errorShortRetries"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorWaitLongDelayMin" name="errorWaitLongDelayMin"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_errorWaitShortDelayMin" name="errorWaitShortDelayMin"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_msgPayload" name="msgPayload"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_parentProcessId" name="parentProcessId"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_processId" name="processId"/>
+    <wsdl:part element="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_processName" name="processName"/>
+  </wsdl:message>
+  <wsdl:portType name="Presentation_GetDatiInesitoPostaNonRecapitataProcess" tibex:FlowContainer="_DbtUsEhuEeOAbZA2R6U2NQ">
+    <wsdl:operation name="Cancellazione">
+      <wsdl:input message="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_Cancellazione_INPUT" tibex:Event="_NqMh8EhuEeOAbZA2R6U2NQ"/>
+      <wsdl:output message="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_Cancellazione_OUTPUT" tibex:Event="_NqMh8EhuEeOAbZA2R6U2NQ"/>
+      <wsdl:fault message="ns:Presentation_GetDatiInesitoPostaNonRecapitataProcess_Cancellazione_GenericErrorEvent_fault" name="GenericErrorEvent" tibex:Error="_NqNJCUhuEeOAbZA2R6U2NQ"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

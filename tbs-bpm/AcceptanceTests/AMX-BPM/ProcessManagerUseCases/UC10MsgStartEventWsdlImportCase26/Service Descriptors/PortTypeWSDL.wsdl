@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:ns="http://tibco.com/amx/integration/test/wsdl/firstimportschema"
+	xmlns:ns0="http://tibco.com/amx/integration/test/wsdl/messages"
+	xmlns:tns="http://tibco.com/amx/integration/test/wsdl/porttype"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	name="PortTypeWSDL"
+	targetNamespace="http://tibco.com/amx/integration/test/wsdl/porttype">
+	<import namespace="http://tibco.com/amx/integration/test/wsdl/messages"
+		location="MessageWSDL.wsdl" />
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://tibco.com/amx/integration/test/wsdl/firstimportschema"
+				schemaLocation="FirstImportSchema.xsd" />
+		</xsd:schema>
+	</types>
+	<message name="SimpleType_SinglePart_InMsg">
+		<part name="InPart" type="ns:ST_Any" />
+	</message>
+	<message name="SimpleType_MultiPart_InMsg">
+		<part name="InPart_String" type="ns:ST_String" />
+		<part name="InPart_Numeric" type="ns:ST_Numeric" />
+		<part name="InPart_Boolean" type="ns:ST_Boolean" />
+		<part name="InPart_Any" type="ns:ST_Any" />
+		<part name="InPart_DateTime" type="ns:ST_DateTime" />
+		<part name="InPart_URI" type="ns:ST_URI" />
+		<part name="InPart_Binary" type="ns:ST_Binary" />
+		<part name="InPart_Integer" type="ns:ST_Integer" />
+	</message>
+	<message name="ComplexType_SinglePart_InMsg">
+		<part name="InPart" type="ns:CT_String" />
+	</message>
+	<message name="SimpleType_SinglePart_OutMsg">
+		<part name="OutPart" type="ns:ST_Any" />
+	</message>
+	<message name="ComplexType_SinglePart_OutMsg">
+		<part name="OutPart" type="ns:CT_String" />
+	</message>
+	<message name="ComplexType_MultiPart_InMsg">
+		<part name="InPart_String" type="ns:CT_String" />
+		<part name="InPart_Numeric" type="ns:CT_Numeric" />
+		<part name="InPart_Boolean" type="ns:CT_Boolean" />
+		<part name="InPart_DateTime" type="ns:CT_DateTime" />
+		<part name="InPart_URI" type="ns:CT_URI" />
+		<part name="InPart_Binary" type="ns:CT_Binary" />
+		<part name="InPart_Integer" type="ns:CT_Integer" />
+	</message>
+	<message name="SimpleElement_SinglePart_InMsg">
+		<part element="ns:SE_Any" name="InPart" />
+	</message>
+	<message name="SimpleElement_MultiPart_InMsg">
+		<part element="ns:SE_String" name="InPart_String" />
+		<part element="ns:SE_Binary" name="InPart_Binary" />
+		<part element="ns:SE_Boolean" name="InPart_Boolean" />
+		<part element="ns:SE_URI" name="InPart_URI" />
+		<part element="ns:SE_DateTime" name="InPart_DateTime" />
+		<part element="ns:SE_Numeric" name="InPart_Numeric" />
+		<part element="ns:SE_Any" name="InPart_Any" />
+		<part element="ns:SE_Integer" name="InPart_Integer" />
+	</message>
+	<message name="ComplexElement_SinglePart_InMsg">
+		<part element="ns:CE_String" name="InPart" />
+	</message>
+	<message name="SimpleElement_SinglePart_OutMsg">
+		<part element="ns:SE_Any" name="OutPart" />
+	</message>
+	<message name="ComplexElement_SinglePart_OutMsg">
+		<part element="ns:CE_String" name="OutPart" />
+	</message>
+	<message name="ComplexElement_MultiPart_InMsg">
+		<part element="ns:CE_String" name="InPart_String" />
+		<part element="ns:CE_Boolean" name="InPart_Boolean" />
+		<part element="ns:CE_URI" name="InPart_URI" />
+		<part element="ns:CE_DateTime" name="InPart_DateTime" />
+		<part element="ns:CE_Integer" name="InPart_Integer" />
+		<part element="ns:CE_Binary" name="InPart_Binary" />
+		<part element="ns:CE_Numeric" name="InPart_Numeric" />
+	</message>
+	<message name="SchemaImport_InMsg">
+		<part name="PurchaseOrderRequest_Element" element="ns:CE_PurchaseOrderRequest" />
+	</message>
+	<message name="SchemaImport_OutMsg">
+		<part name="PurchaseOrderResponse_Element" element="ns:CE_PurchaseOrderResponse" />
+	</message>
+	<message name="SchemaInclude_InMsg">
+		<part name="PurchaseOrderRequest_Type" type="ns:CT_PurchaseOrderRequest" />
+	</message>
+	<message name="SchemaInclude_OutMsg">
+		<part name="PurchaseOrderResponse_Type" type="ns:CT_PurchaseOrderResponse" />
+	</message>
+	<message name="Fault_Message">
+		<part element="ns:CE_FaultMessage" name="Fault_Element" />
+	</message>
+	<portType name="PortType">		
+		<operation name="WsdlImport_Operation">
+			<input message="ns0:WsdlImport_InMsg" />
+			<output message="ns0:WsdlImport_OutMsg" />
+		</operation>
+	</portType>
+</definitions>

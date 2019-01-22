@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.amx.integration.test.wsdl.porttype" name="com.tibco.amx.integration.test.wsdl.porttype">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Do-hYeKmEeSUx-PVYQX5RA" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Do-hYuKmEeSUx-PVYQX5RA" key="author" value="sajain"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Do-hY-KmEeSUx-PVYQX5RA" key="created" value="1429016356470"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Do-hZOKmEeSUx-PVYQX5RA" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DuU7cOKmEeSUx-PVYQX5RA" key="checksum" value="863720549"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.amx.integration.test.wsdl.porttypePortType" name="PortType">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="PortTypeWsdlImport_Operation" name="WsdlImport_Operation">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="WsdlImport_OperationPurchaseOrderRequest_Type" name="PurchaseOrderRequest_Type">
+          <type xmi:type="uml:Class" href="com.tibco.amx.integration.test.wsdl.firstimportschema.bom#com.tibco.amx.integration.test.wsdl.firstimportschemaCT_PurchaseOrderRequest?com.tibco.amx.integration.test.wsdl.firstimportschema%3a%3aCT_PurchaseOrderRequest?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="WsdlImport_OperationPurchaseOrderResponse_Type" name="PurchaseOrderResponse_Type" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.amx.integration.test.wsdl.firstimportschema.bom#com.tibco.amx.integration.test.wsdl.firstimportschemaCT_PurchaseOrderResponse?com.tibco.amx.integration.test.wsdl.firstimportschema%3a%3aCT_PurchaseOrderResponse?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DfFlkeKmEeSUx-PVYQX5RA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DfFlkuKmEeSUx-PVYQX5RA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DfFlk-KmEeSUx-PVYQX5RA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DfFllOKmEeSUx-PVYQX5RA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_DfFlleKmEeSUx-PVYQX5RA" base_Package="com.tibco.amx.integration.test.wsdl.porttype?com.tibco.amx.integration.test.wsdl.porttype?" xsdTargetNamespace="http://tibco.com/amx/integration/test/wsdl/porttype" xsdSchemaLocation="PortTypeWSDL.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.002" bomWsdlSources="PortTypeWSDL.wsdl"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DfZHkOKmEeSUx-PVYQX5RA" base_Element="_DfFlk-KmEeSUx-PVYQX5RA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DfZHkeKmEeSUx-PVYQX5RA" base_Element="_DfFlkeKmEeSUx-PVYQX5RA"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Dfbj0OKmEeSUx-PVYQX5RA" base_Class="com.tibco.amx.integration.test.wsdl.porttypePortType?com.tibco.amx.integration.test.wsdl.porttype%3a%3aPortType?" xsdName="PortType" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Do-hYOKmEeSUx-PVYQX5RA" displayLabel="PortType" base_NamedElement="com.tibco.amx.integration.test.wsdl.porttypePortType?com.tibco.amx.integration.test.wsdl.porttype%3a%3aPortType?"/>
+  <notation:Diagram xmi:id="_Do-hZeKmEeSUx-PVYQX5RA" type="Business Object Model" element="com.tibco.amx.integration.test.wsdl.porttype?com.tibco.amx.integration.test.wsdl.porttype?" name="com.tibco.amx.integration.test.wsdl.porttype" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Do-hZuKmEeSUx-PVYQX5RA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_Do-hZ-KmEeSUx-PVYQX5RA"/>
+  </notation:Diagram>
+</xmi:XMI>

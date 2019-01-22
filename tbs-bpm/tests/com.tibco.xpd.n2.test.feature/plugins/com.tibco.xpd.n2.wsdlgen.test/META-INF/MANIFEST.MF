@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.junit;bundle-version="3.8.2",
+ org.eclipse.core.resources;bundle-version="3.4.2",
+ org.eclipse.emf.common;bundle-version="2.4.0",
+ org.eclipse.emf.ecore;bundle-version="2.4.2",
+ org.eclipse.uml2.uml;bundle-version="2.2.0",
+ com.tibco.xpd.core.testutil,
+ com.tibco.xpd.xpdl2,
+ org.eclipse.emf.common.ui,
+ org.eclipse.wst.validation,
+ com.tibco.xpd.processeditor.xpdl2,
+ com.tibco.xpd.core.test;visibility:=reexport,
+ com.tibco.xpd.implementer.resources.xpdl2,
+ com.tibco.xpd.wsdl,
+ com.tibco.xpd.implementer.script,
+ com.tibco.xpd.n2.test.core;bundle-version="4.0.0"
+Bundle-Vendor: TIBCO
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 4.0.0.qualifier
+Bundle-Name: WSDL Gen Test Plug-in
+Bundle-Activator: com.tibco.xpd.n2.wsdlgen.test.WSDLGenTestPluginActivator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.tibco.xpd.n2.wsdlgen.test
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

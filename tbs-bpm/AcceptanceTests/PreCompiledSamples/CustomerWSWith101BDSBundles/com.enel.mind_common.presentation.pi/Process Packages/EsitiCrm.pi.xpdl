@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_W8OOUMAMEeONyZRy5W3VMw" xpdExt:DisplayName="EsitiCrm.pi" Name="EsitiCrmpi">
+  <xpdl2:PackageHeader xpdExt:Language="it_IT">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-04-09</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>EUR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>egiusro</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:ExternalPackages>
+    <xpdl2:ExternalPackage Id="_639dD8AMEeONyZRy5W3VMw" href="Utility_ErrorHandler">
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="location" Value="/Utility_ErrorHandler.xpdl"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:ExternalPackage>
+  </xpdl2:ExternalPackages>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_639dCMAMEeONyZRy5W3VMw" xpdExt:DisplayName="SESICRMISU_Consumer6" Name="SESICRMISU_Consumer6">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_Zrep4MAMEeONyZRy5W3VMw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_W8OOUcAMEeONyZRy5W3VMw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_Zrep4cAMEeONyZRy5W3VMw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_W8OOUcAMEeONyZRy5W3VMw" xpdExt:DisplayName="EsitiCrmpi-Process" Name="EsitiCrmpiProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_Zrep4sAMEeONyZRy5W3VMw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_Zrep4cAMEeONyZRy5W3VMw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Zrep48AMEeONyZRy5W3VMw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_Zrep4cAMEeONyZRy5W3VMw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_Zrep5MAMEeONyZRy5W3VMw" xpdExt:DisplayName="" Name="" From="_Zrep4sAMEeONyZRy5W3VMw" To="_Zrep48AMEeONyZRy5W3VMw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="14"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_gb9fMMAMEeONyZRy5W3VMw" xpdExt:DisplayName="SESICRMISU_NotificaEsitiCRMFromIsu.pi" Name="SESICRMISU_NotificaEsitiCRMFromIsupi" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_n_oE8sAMEeONyZRy5W3VMw" Name="Request" ReadOnly="false" Mode="IN" Required="false" xpdExt:DisplayName="Request">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.esiticrm.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.mind.esiticrmNotificaEsitiCRMFromIsuRequest"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_n_oE88AMEeONyZRy5W3VMw" Name="Response" ReadOnly="false" Mode="OUT" Required="false" xpdExt:DisplayName="Response">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.esiticrm.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.mind.esiticrmNotificaEsitiCRMFromIsuResponse"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_kc4-AMAMEeONyZRy5W3VMw" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="__u5IwMGPEeOwq7jJw-l7Qg" xpdExt:DisplayName="NotificaDimostratoPagamentoCRM-Interface" Name="NotificaDimostratoPagamentoCRMInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_Gu4ZsMGQEeOwq7jJw-l7Qg" Name="I_IDBPM_MAIN" Mode="IN" Required="false" iProcessExt:SequenceNum="88" xpdExt:DisplayName="I_IDBPM_MAIN">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>15</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZscGQEeOwq7jJw-l7Qg" Name="I_CODICE_ATTIVI" ReadOnly="false" Mode="IN" Required="false" iProcessExt:SequenceNum="80" xpdExt:DisplayName="I_CODICE_ATTIVITA_DM2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZssGQEeOwq7jJw-l7Qg" Name="I_DOCUMENTO_MEM" Mode="IN" Required="false" iProcessExt:SequenceNum="85" xpdExt:DisplayName="I_DOCUMENTO_MEMO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4Zs8GQEeOwq7jJw-l7Qg" Name="I_IMPORTO_DIMPA" ReadOnly="false" Mode="IN" Required="false" iProcessExt:SequenceNum="81" xpdExt:DisplayName="I_IMPORTO_DIMPAG">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZtMGQEeOwq7jJw-l7Qg" Name="I_DATA_ACQUISIZ" ReadOnly="false" Mode="IN" Required="false" iProcessExt:SequenceNum="82" xpdExt:DisplayName="I_DATA_ACQUISIZIONE">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZtcGQEeOwq7jJw-l7Qg" Name="I_CUSTOMERACCOU" ReadOnly="false" Mode="IN" Required="false" iProcessExt:SequenceNum="79" xpdExt:DisplayName="I_CUSTOMERACCOUNT">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZtsGQEeOwq7jJw-l7Qg" Name="O_DescrEsito" ReadOnly="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="91" xpdExt:DisplayName="O_DescrEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4Zt8GQEeOwq7jJw-l7Qg" Name="I_ESITO" Mode="IN" Required="true" iProcessExt:SequenceNum="87" xpdExt:DisplayName="I_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>2</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZuMGQEeOwq7jJw-l7Qg" Name="O_CodiceEsito" ReadOnly="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="90" xpdExt:DisplayName="O_CodiceEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZucGQEeOwq7jJw-l7Qg" Name="O_ID_ACTIVITY" Mode="OUT" Required="false" iProcessExt:SequenceNum="86" xpdExt:DisplayName="O_ID_ACTIVITY">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZusGQEeOwq7jJw-l7Qg" Name="I_ORA_ACQUISIZI" ReadOnly="false" Mode="IN" Required="false" iProcessExt:SequenceNum="83" xpdExt:DisplayName="I_ORA_ACQUISIZIONE">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4Zu8GQEeOwq7jJw-l7Qg" Name="O_Esito" ReadOnly="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="89" xpdExt:DisplayName="O_Esito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZvMGQEeOwq7jJw-l7Qg" Name="I_TIPO_ATTIVITA" Mode="IN" Required="false" iProcessExt:SequenceNum="84" xpdExt:DisplayName="I_TIPO_ATTIVITA_DOC">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Gu4ZvcGQEeOwq7jJw-l7Qg" Name="O_DOCUMENTOMEMO" ReadOnly="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="92" xpdExt:DisplayName="O_DOCUMENTOMEMO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_CHA2sMGQEeOwq7jJw-l7Qg" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_F1jZQPJJEeOm1ZQLYmb0Zw" xpdExt:DisplayName="NotificaEsitiMote-Interface" Name="NotificaEsitiMoteInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_JoNLkfJJEeOm1ZQLYmb0Zw" Name="TipoOperazione" Mode="IN" Required="false" iProcessExt:SequenceNum="173" xpdExt:DisplayName="TipoOperazione">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>30</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLkvJJEeOm1ZQLYmb0Zw" Name="IdRichiesta" Mode="IN" Required="false" iProcessExt:SequenceNum="171" xpdExt:DisplayName="IdRichiesta">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLk_JJEeOm1ZQLYmb0Zw" Name="I_CodEsito" Mode="IN" Required="false" iProcessExt:SequenceNum="166" xpdExt:DisplayName="I_CodEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLlPJJEeOm1ZQLYmb0Zw" Name="Causale" Mode="IN" Required="false" iProcessExt:SequenceNum="174" xpdExt:DisplayName="Causale">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>30</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLlfJJEeOm1ZQLYmb0Zw" Name="O_CodEsito" Mode="OUT" Required="false" iProcessExt:SequenceNum="176" xpdExt:DisplayName="O_CodEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLlvJJEeOm1ZQLYmb0Zw" Name="O_DescEsito" Mode="OUT" Required="false" iProcessExt:SequenceNum="177" xpdExt:DisplayName="O_DescEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>255</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLl_JJEeOm1ZQLYmb0Zw" Name="O_Esito" Mode="OUT" Required="false" iProcessExt:SequenceNum="178" xpdExt:DisplayName="O_Esito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>2</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLmPJJEeOm1ZQLYmb0Zw" Name="I_DescEsito" Mode="IN" Required="false" iProcessExt:SequenceNum="169" xpdExt:DisplayName="I_DescEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>255</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLmfJJEeOm1ZQLYmb0Zw" Name="IdProcessoBpm" Mode="IN" Required="false" iProcessExt:SequenceNum="172" xpdExt:DisplayName="IdProcessoBpm">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLmvJJEeOm1ZQLYmb0Zw" Name="FlagEspletamento" Mode="IN" Required="false" iProcessExt:SequenceNum="165" xpdExt:DisplayName="FlagEspletamento">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>1</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLm_JJEeOm1ZQLYmb0Zw" Name="Commodity" Mode="IN" Required="false" iProcessExt:SequenceNum="167" xpdExt:DisplayName="Commodity">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLnPJJEeOm1ZQLYmb0Zw" Name="Pod" Mode="IN" Required="false" iProcessExt:SequenceNum="164" xpdExt:DisplayName="Pod">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>15</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLnfJJEeOm1ZQLYmb0Zw" Name="SistemaRichiedente" Mode="IN" Required="false" iProcessExt:SequenceNum="179" xpdExt:DisplayName="SistemaRichiedente">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLnvJJEeOm1ZQLYmb0Zw" Name="I_SorgenteEsito" ReadOnly="false" Mode="IN" Required="false" iProcessExt:SequenceNum="181" xpdExt:DisplayName="I_SorgenteEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLn_JJEeOm1ZQLYmb0Zw" Name="I_Esito" Mode="IN" Required="false" iProcessExt:SequenceNum="170" xpdExt:DisplayName="I_Esito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>2</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLoPJJEeOm1ZQLYmb0Zw" Name="I_TipoEsito" ReadOnly="false" Mode="IN" Required="false" iProcessExt:SequenceNum="180" xpdExt:DisplayName="I_TipoEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JoNLofJJEeOm1ZQLYmb0Zw" Name="Canale" Mode="IN" Required="false" iProcessExt:SequenceNum="163" xpdExt:DisplayName="Canale">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_JDAzwPJJEeOm1ZQLYmb0Zw" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_xWocoPbrEeOj9alWWCndSg" xpdExt:DisplayName="NotificaEsitiMatFromSempre-Interface" Name="NotificaEsitiMatFromSempreInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_6qKdgPbrEeOj9alWWCndSg" Name="SESIMATRequest" Mode="IN" Required="false" xpdExt:DisplayName="SESIMATRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.presentation.abstract_.NotificaEsitiCrmFromIsuBpm.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.presentation.abstract_.NotificaEsitiCrmFromIsuBpmNotificaEsitiMatFromSempreRequestType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_D7FPQPbsEeOj9alWWCndSg" Name="SESIMATResponse" Mode="OUT" Required="false" xpdExt:DisplayName="SESIMATResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.presentation.abstract_.NotificaEsitiCrmFromIsuBpm.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.presentation.abstract_.NotificaEsitiCrmFromIsuBpmNotificaEsitiMatFromSempreResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_0_sOAPbrEeOj9alWWCndSg" xpdExt:DisplayName="Start" Name="Start" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_OqKBIPiZEeOfOoEBffzz8Q" xpdExt:DisplayName="NotificaEsitiCrmFromR2d-Interface" Name="NotificaEsitiCrmFromR2dInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_F8LDcPuxEeOgpZPjoYj_QA" Name="IN_MAIN_CASE_NUM" Mode="IN" Required="false" iProcessExt:SequenceNum="162" xpdExt:DisplayName="IN_MAIN_CASE_NUM">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDcfuxEeOgpZPjoYj_QA" Name="IN_DELIBERA_40_FLG" Mode="IN" Required="false" iProcessExt:SequenceNum="160" xpdExt:DisplayName="IN_DELIBERA_40_FLG">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>1</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDcvuxEeOgpZPjoYj_QA" Name="CANALE" Mode="IN" Required="false" iProcessExt:SequenceNum="153" xpdExt:DisplayName="CANALE">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDc_uxEeOgpZPjoYj_QA" Name="OUT_DESC_ESITO" Mode="OUT" Required="false" iProcessExt:SequenceNum="166" xpdExt:DisplayName="OUT_DESC_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>255</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDdPuxEeOgpZPjoYj_QA" Name="IN_TIPOESITO" Mode="IN" Required="false" iProcessExt:SequenceNum="173" xpdExt:DisplayName="IN_TIPOESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>1</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDdfuxEeOgpZPjoYj_QA" Name="OUT_ESITOFIN" Mode="OUT" Required="false" iProcessExt:SequenceNum="176" xpdExt:DisplayName="OUT_ESITOFIN">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>1</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDdvuxEeOgpZPjoYj_QA" Name="OUT_COD_ESITO" Mode="OUT" Required="false" iProcessExt:SequenceNum="165" xpdExt:DisplayName="OUT_COD_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDd_uxEeOgpZPjoYj_QA" Name="IN_ESITO" Mode="IN" Required="false" iProcessExt:SequenceNum="170" xpdExt:DisplayName="IN_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>2</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDePuxEeOgpZPjoYj_QA" Name="IN_ID_RICHIESTA" Mode="IN" Required="false" iProcessExt:SequenceNum="161" xpdExt:DisplayName="IN_ID_RICHIESTA">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>15</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDefuxEeOgpZPjoYj_QA" Name="SISTEMA_RICH" Mode="IN" Required="false" iProcessExt:SequenceNum="169" xpdExt:DisplayName="SISTEMA_RICH">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDevuxEeOgpZPjoYj_QA" Name="IN_TIPO_SERVIZIO" Mode="IN" Required="false" iProcessExt:SequenceNum="164" xpdExt:DisplayName="IN_TIPO_SERVIZIO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>30</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDe_uxEeOgpZPjoYj_QA" Name="IN_CDMOUT" Mode="IN" Required="false" iProcessExt:SequenceNum="174" xpdExt:DisplayName="IN_CDMOUT">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDfPuxEeOgpZPjoYj_QA" Name="IN_CD_AEEG_DISTR" ReadOnly="false" Mode="IN" Required="false" iProcessExt:SequenceNum="177" xpdExt:DisplayName="IN_CD_AEEG_DISTR">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDffuxEeOgpZPjoYj_QA" Name="IN_CODESITO" Mode="IN" Required="false" iProcessExt:SequenceNum="171" xpdExt:DisplayName="IN_CODESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>15</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDfvuxEeOgpZPjoYj_QA" Name="OUT_ESITO" Mode="OUT" Required="false" iProcessExt:SequenceNum="167" xpdExt:DisplayName="OUT_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>2</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDf_uxEeOgpZPjoYj_QA" Name="IN_CDM_FORN" Mode="IN" Required="false" iProcessExt:SequenceNum="175" xpdExt:DisplayName="IN_CDM_FORN">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDgPuxEeOgpZPjoYj_QA" Name="IN_TIPO_PRATICA" Mode="IN" Required="false" iProcessExt:SequenceNum="163" xpdExt:DisplayName="IN_TIPO_PRATICA">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>30</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDgfuxEeOgpZPjoYj_QA" Name="IN_DESCESITO" Mode="IN" Required="false" iProcessExt:SequenceNum="172" xpdExt:DisplayName="IN_DESCESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>255</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F8LDgvuxEeOgpZPjoYj_QA" Name="IN_COMMODITY" Mode="IN" Required="false" iProcessExt:SequenceNum="159" xpdExt:DisplayName="IN_COMMODITY">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_Pu-UIPiZEeOfOoEBffzz8Q" xpdExt:DisplayName="Start" Name="Start" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_Bbof0AKpEeS5VOw7ssdIkQ" xpdExt:DisplayName="NotificaEsitiCrmFromSemprePlain-Interface" Name="NotificaEsitiCrmFromSemprePlainInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_h3vl2QKpEeS5VOw7ssdIkQ" Name="IN_CODESITO" Mode="IN" Required="false" iProcessExt:SequenceNum="166" xpdExt:DisplayName="IN_CODESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl2gKpEeS5VOw7ssdIkQ" Name="SISTEMA_RICH" Mode="IN" Required="false" iProcessExt:SequenceNum="178" xpdExt:DisplayName="SISTEMA_RICH">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl2wKpEeS5VOw7ssdIkQ" Name="IN_DESCESITO" Mode="IN" Required="false" iProcessExt:SequenceNum="169" xpdExt:DisplayName="IN_DESCESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>255</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl3AKpEeS5VOw7ssdIkQ" Name="OUT_COD_ESITO" Mode="OUT" Required="false" iProcessExt:SequenceNum="175" xpdExt:DisplayName="OUT_COD_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl3QKpEeS5VOw7ssdIkQ" Name="IN_ESITO" Mode="IN" Required="false" iProcessExt:SequenceNum="170" xpdExt:DisplayName="IN_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>2</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl3gKpEeS5VOw7ssdIkQ" Name="IN_DELIBERA_40_FLG" Mode="IN" Required="false" iProcessExt:SequenceNum="168" xpdExt:DisplayName="IN_DELIBERA_40_FLG">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>1</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl3wKpEeS5VOw7ssdIkQ" Name="IN_TIPO_SERVIZIO" Mode="IN" Required="false" iProcessExt:SequenceNum="174" xpdExt:DisplayName="IN_TIPO_SERVIZIO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>30</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl4AKpEeS5VOw7ssdIkQ" Name="OUT_DESC_ESITO" Mode="OUT" Required="false" iProcessExt:SequenceNum="176" xpdExt:DisplayName="OUT_DESC_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>255</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl4QKpEeS5VOw7ssdIkQ" Name="CANALE" Mode="IN" Required="false" iProcessExt:SequenceNum="163" xpdExt:DisplayName="CANALE">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl4gKpEeS5VOw7ssdIkQ" Name="OUT_ESITO" Mode="OUT" Required="false" iProcessExt:SequenceNum="177" xpdExt:DisplayName="OUT_ESITO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>2</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl4wKpEeS5VOw7ssdIkQ" Name="IN_COMMODITY" Mode="IN" Required="false" iProcessExt:SequenceNum="167" xpdExt:DisplayName="IN_COMMODITY">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl5AKpEeS5VOw7ssdIkQ" Name="IN_ID_RICHIESTA" Mode="IN" Required="false" iProcessExt:SequenceNum="171" xpdExt:DisplayName="IN_ID_RICHIESTA">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>15</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl5QKpEeS5VOw7ssdIkQ" Name="IN_TIPO_PRATICA" Mode="IN" Required="false" iProcessExt:SequenceNum="173" xpdExt:DisplayName="IN_TIPO_PRATICA">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>30</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_h3vl5gKpEeS5VOw7ssdIkQ" Name="IN_MAIN_CASE_NUM" Mode="IN" Required="false" iProcessExt:SequenceNum="172" xpdExt:DisplayName="IN_MAIN_CASE_NUM">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_EyBM0AKpEeS5VOw7ssdIkQ" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

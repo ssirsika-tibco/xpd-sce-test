@@ -1,0 +1,15 @@
+<xs:schema xmlns="http://example.com/RefComplexRootElement" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/RefComplexRootElement" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:element name="PersonElem" type="Person"/>
+	<xs:element name="BusDriver">
+		<xs:complexType ecore:name="BusDriverType">
+			<xs:sequence>
+				<xs:element ref="PersonElem" ecore:name="personElem"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Person" ecore:name="Person">
+		<xs:sequence>
+			<xs:element name="surname" type="xs:string" ecore:name="surname"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

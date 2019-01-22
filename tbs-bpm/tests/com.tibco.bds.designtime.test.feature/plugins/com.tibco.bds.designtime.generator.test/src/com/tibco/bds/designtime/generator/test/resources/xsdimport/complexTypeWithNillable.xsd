@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://complexTypeWithNillable" targetNamespace="http://complexTypeWithNillable" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="ComplexTypeWithNillable">
+		<xs:sequence>
+			<xs:element name="NillableElement" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

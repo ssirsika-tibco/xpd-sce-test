@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            name="XML Schema from XML Document"
+            icon="icons/sample.gif"
+            category="org.eclipse.wst.XMLCategory"
+            class="com.tibco.xpd.xsd.ui.wizards.NewXsdWizard"
+            id="com.tibco.xpd.xsd.ui.wizards.NewXsdWizard">
+      </wizard>
+   </extension>
+   <extension
+         point="com.tibco.xpd.registry.ui.wsdlImportProvider">
+      <provider
+            id="com.tibco.xpd.xsd.ui.xmlJms"
+            label="%xmlJMSLabel"
+            wizard="com.tibco.xpd.xsd.ui.wizards.DescriptorXMLOverJMSWizard">
+      </provider>
+   </extension>
+
+</plugin>

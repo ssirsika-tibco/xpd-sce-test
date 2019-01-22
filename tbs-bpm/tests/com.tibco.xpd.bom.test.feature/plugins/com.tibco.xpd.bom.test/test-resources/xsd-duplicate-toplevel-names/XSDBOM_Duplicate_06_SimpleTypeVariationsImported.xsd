@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/ElmAndComplex2"
+	targetNamespace="http://example.com/ElmAndComplex2">
+
+	<!-- Tests duplicate simple type and attribute -->
+	<xs:simpleType name="apple">
+		<xs:restriction base="xs:boolean"></xs:restriction>
+	</xs:simpleType>
+	<xs:attribute name="apple" type="xs:boolean"></xs:attribute>
+
+	<!-- Tests duplicate simple type and element -->
+	<xs:simpleType name="banana">
+		<xs:restriction base="xs:boolean"></xs:restriction>
+	</xs:simpleType>
+	<xs:element name="banana" type="xs:string"></xs:element>	
+
+	<!-- Tests duplicate simple type and attribute group -->
+	<xs:simpleType name="orange">
+		<xs:restriction base="xs:boolean"></xs:restriction>
+	</xs:simpleType>
+	<xs:attributeGroup name="orange">
+		<xs:attribute name="attr1" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+
+	<!-- Tests duplicate simple type and group -->
+	<xs:simpleType name="pear">
+		<xs:restriction base="xs:boolean"></xs:restriction>
+	</xs:simpleType>
+	<xs:group name="pear">
+		<xs:sequence>
+			<xs:element name="elem1" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:group>
+	
+	<xs:attribute name="tleAttrTypeBanana" type="banana"></xs:attribute>
+
+	<xs:element name="tleElemTypeOrange" type="orange"></xs:element>
+
+	<xs:simpleType name="tleSimpleTypeBanana">
+		<xs:restriction base="banana"></xs:restriction>
+	</xs:simpleType>	
+
+	<xs:complexType name="tleComplexType">
+		<xs:sequence>
+			<xs:element name="elemTypeOrange" type="orange"></xs:element>			
+			<xs:element name="elemTypeBanana" type="banana"></xs:element>			
+			<xs:element name="elemSimpleTypeBanana">
+				<xs:simpleType>
+					<xs:restriction base="banana"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element ref="banana"></xs:element>
+		</xs:sequence>
+		<xs:attribute ref="apple"></xs:attribute>
+	</xs:complexType>
+</xs:schema>

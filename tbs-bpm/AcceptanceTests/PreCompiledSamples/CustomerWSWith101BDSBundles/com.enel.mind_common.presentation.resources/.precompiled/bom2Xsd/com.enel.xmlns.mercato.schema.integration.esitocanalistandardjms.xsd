@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/schema/integration/esitocanalistandardjms.xsd"
+    xmlns:tns39="http://xmlns.enel.com/mercato/schema/integration/esitocanalistandardjms.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.com/mercato/schema/integration/esitocanalistandardjms.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.presentation.resources/Generated Business Objects/com.enel.xmlns.mercato.schema.integration.esitocanalistandardjms.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="EsitiSendMail" nillable="false">
+    <xsd:complexType ecore:name="EsitiSendMailType" id="com.enel.xmlns.mercato.schema.integration.esitocanalistandardjmsEsitiSendMailType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="identificativoMessaggioChiamante" form="qualified"
+            maxOccurs="1" minOccurs="1" name="identificativoMessaggioChiamante" type="xsd:string"/>
+        <xsd:element ecore:name="identificativoSgPec" form="qualified" maxOccurs="1"
+            minOccurs="1" name="identificativoSgPec" type="xsd:string"/>
+        <xsd:element ecore:name="casellaMailToDestinatario" form="qualified" maxOccurs="unbounded"
+            minOccurs="1" name="casellaMailToDestinatario">
+          <xsd:complexType ecore:name="casellaMailToDestinatarioType" id="com.enel.xmlns.mercato.schema.integration.esitocanalistandardjmscasellaMailToDestinatarioType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="email" form="qualified" maxOccurs="1" minOccurs="1"
+                  name="email">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="1024"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="casellaMailCCDestinatario" form="qualified" maxOccurs="unbounded"
+            minOccurs="0" name="casellaMailCCDestinatario">
+          <xsd:complexType ecore:name="casellaMailCCDestinatarioType" id="com.enel.xmlns.mercato.schema.integration.esitocanalistandardjmscasellaMailCCDestinatarioType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="email" form="qualified" maxOccurs="1" minOccurs="1"
+                  name="email">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="1024"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="canale" form="qualified" maxOccurs="1" minOccurs="0"
+            name="canale" type="xsd:string"/>
+        <xsd:element ecore:name="sistemaRichiedente" form="qualified" maxOccurs="1"
+            minOccurs="0" name="sistemaRichiedente">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="15"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="1"
+            name="esito">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="2"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="codiceEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="codiceEsito" type="xsd:string"/>
+        <xsd:element ecore:name="descrizione" form="qualified" maxOccurs="1" minOccurs="0"
+            name="descrizione" type="xsd:string"/>
+        <xsd:element ecore:name="dataConsegnaEmail" form="qualified" maxOccurs="1"
+            minOccurs="0" name="dataConsegnaEmail" type="xsd:dateTime"/>
+        <xsd:element ecore:name="flagUltimoEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="FlagUltimoEsito">
+          <xsd:simpleType ecore:name="FlagUltimoEsitoType">
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration ecore:name="Y" value="Y"/>
+              <xsd:enumeration ecore:name="N" value="N"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

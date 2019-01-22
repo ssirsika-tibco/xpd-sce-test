@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/schema1" xmlns:tns1="http://www.example.org/schema1"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/schema1">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM04_PropertyAttributesTransformationTest/Business Objects/org.example.schema1.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="positiveinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="myprim" id="org.example.schema1myprim2" name="myprim">
+    <xsd:restriction base="tns1:positiveinteger_StudioGeneratedTemplate"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="myprimWR" id="org.example.schema1myprimWR2" name="myprimWR">
+    <xsd:restriction base="tns1:positiveinteger_StudioGeneratedTemplate">
+      <xsd:maxInclusive fixed="false" value="15"/>
+      <xsd:minInclusive fixed="false" value="5"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Class1" id="org.example.schema1Class1" abstract="false"
+      mixed="false" name="Class1">
+    <xsd:sequence>
+      <xsd:element ecore:name="myClass2" id="Class1myClass2" block="#all" fixed="false"
+          form="qualified" maxOccurs="1" minOccurs="0" name="myClass2" nillable="true"
+          type="xsd:string"/>
+      <xsd:element ecore:name="elemWithMinInc" id="Class1elemWithMinInc" form="qualified"
+          maxOccurs="1" minOccurs="1" name="elemWithMinInc" type="tns1:positiveinteger_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="elemWithMinIncSimple" id="Class1elemWithMinIncSimple"
+          form="qualified" maxOccurs="1" minOccurs="1" name="elemWithMinIncSimple"
+          type="tns1:positiveinteger_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="elemWithMinIncSimpleOveride" id="Class1elemWithMinIncSimpleOveride"
+          form="qualified" maxOccurs="1" minOccurs="1" name="elemWithMinIncSimpleOveride">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:positiveinteger_StudioGeneratedTemplate">
+            <xsd:minInclusive value="2"/>
+            <xsd:maxInclusive value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="attr2" id="Class1attr2" default="defval" form="unqualified"
+        name="attr2" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+</xsd:schema>

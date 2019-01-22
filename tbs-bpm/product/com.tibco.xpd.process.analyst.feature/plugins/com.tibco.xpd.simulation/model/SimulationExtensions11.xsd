@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Kamlesh Upadhyaya (Staffware PLC) -->
+<xs:schema targetNamespace="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tibco.com/xpd/Simulation1.0.1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="ParticipantSimulationDataType">
+		<xs:annotation>
+			<xs:documentation>
+				Participant in this context is the ROLE not the
+				individual. Perhaps later the shift and holiday
+				information?
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Instances">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the number of Available Participants.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TimeUnitCost" type="TimeUnitCostType"/>
+			<xs:element name="SlaMinimumUtilisation" type="xs:double" minOccurs="0"/>
+			<xs:element name="SlaMaximumUtilisation" type="xs:double" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ParticipantSimulationData" type="ParticipantSimulationDataType">
+		<xs:annotation>
+			<xs:documentation>
+				Attached as extended attribute of both Package and
+				Process level Participants
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ActivitySimulationDataType">
+		<xs:sequence>
+			<xs:element name="Duration" type="SimulationRealDistributionType"/>
+			<xs:element name="DisplayTimeUnit" type="TimeDisplayUnitType"/>
+			<xs:element name="LoopControl" type="LoopControlType" minOccurs="0"/>
+			<xs:element name="SlaMaximumDelay" type="xs:double" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ActivitySimulationData" type="ActivitySimulationDataType"/>
+	<xs:complexType name="SimulationRealDistributionType">
+		<xs:choice>
+			<xs:element name="BasicDistribution" type="BasicDistributionType"/>
+			<xs:element name="ParameterBasedDistribution">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ParameterDependentDistribution" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BasicDistribution" type="BasicDistributionType"/>
+									<xs:element name="Expresion">
+										<xs:complexType>
+											<xs:choice>
+												<xs:element name="EnumBasedExpression">
+													<xs:complexType>
+														<xs:attribute name="paramName" type="xs:string"/>
+														<xs:attribute name="enumValue" type="xs:string"/>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ScriptExpression" type="xs:string"/>
+												<xs:element name="StructuredExpression" type="xs:anyType"/>
+												<xs:element name="TrueExpression" type="xs:string"/>
+											</xs:choice>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="WorkflowProcessSimulationData" type="WorkflowProcessSimulationDataType">
+		<xs:annotation>
+			<xs:documentation>
+				Attached as an extended attribute to WorkflowProcess
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WorkflowProcessSimulationDataType">
+		<xs:sequence>
+			<xs:element name="ParameterDistribution" type="ParameterDistributionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ParameterDistributionType">
+		<xs:sequence>
+			<xs:element name="EnumerationValue" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Description" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+					<xs:attribute name="Value" type="xs:string" use="required"/>
+					<xs:attribute name="WeightingFactor" type="xs:double" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ParameterId" type="xs:NMTOKEN" use="required"/>
+	</xs:complexType>
+	<xs:attributeGroup name="ReportableAttributeGroup">
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="ShowInReport" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="ShowInTrace" type="xs:boolean" use="optional" default="false"/>
+	</xs:attributeGroup>
+	<xs:simpleType name="RealDistributionCategory">
+		<xs:restriction base="xs:NCName">
+			<xs:enumeration value="CONSTANT"/>
+			<xs:enumeration value="UNIFORM"/>
+			<xs:enumeration value="NORMAL"/>
+			<xs:enumeration value="EXPONENTIAL"/>
+			<xs:enumeration value="EMPIRICAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TimeUnitCostType">
+		<xs:sequence>
+			<xs:element name="Cost" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>
+						Unit cost are in the same currency for whole
+						package.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TimeDisplayUnit" type="TimeDisplayUnitType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TimeDisplayUnitType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="YEAR"/>
+			<xs:enumeration value="MONTH"/>
+			<xs:enumeration value="DAY"/>
+			<xs:enumeration value="HOUR"/>
+			<xs:enumeration value="MINUTE"/>
+			<xs:enumeration value="SECOND"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="StartSimulationData" type="StartSimulationDataType"/>
+	<xs:complexType name="StartSimulationDataType">
+		<xs:sequence>
+			<xs:element name="Duration" type="BasicDistributionType"/>
+			<xs:element name="DisplayTimeUnit" type="TimeDisplayUnitType"/>
+		</xs:sequence>
+		<xs:attribute name="NumberOfCases" type="xs:long"/>
+	</xs:complexType>
+	<xs:element name="TransitionSimulationData" type="TransitionSimulationDataType"/>
+	<xs:complexType name="TransitionSimulationDataType">
+		<xs:sequence>
+			<xs:element name="ParameterDeterminedCondition" type="xs:boolean" default="true"/>
+			<xs:element name="StructuredCondition" type="StructuredConditionType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StructuredConditionType">
+		<xs:sequence>
+			<xs:element name="ParameterId" type="xs:NMTOKEN"/>
+			<xs:element name="Operator">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="="/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ParameterValue" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SplitSimulationData" type="SplitSimulationDataType"/>
+	<xs:complexType name="SplitSimulationDataType">
+		<xs:sequence>
+			<xs:element name="ParameterDeterminedSplit" type="xs:boolean" default="true"/>
+			<xs:element name="SplitParameter" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="ParameterId" type="xs:NMTOKEN" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasicDistributionType">
+		<xs:choice>
+			<xs:element name="ConstantRealDistribution">
+				<xs:complexType>
+					<xs:attribute name="ConstantValue" type="xs:double" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UniformRealDistribution">
+				<xs:complexType>
+					<xs:attribute name="LowerBorder" type="xs:double" use="required"/>
+					<xs:attribute name="UpperBorder" type="xs:double" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NormalRealDistribution">
+				<xs:complexType>
+					<xs:attribute name="Mean" type="xs:double" use="required"/>
+					<xs:attribute name="StandardDeviation" type="xs:double" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExponentialRealDistribution">
+				<xs:complexType>
+					<xs:attribute name="Mean" type="xs:double" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExternalEmpiricalDistribution">
+				<xs:complexType>
+					<xs:attribute name="Type" type="xs:string" use="required"/>
+					<xs:attribute name="Reference" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="LoopControlType">
+		<xs:choice>
+			<xs:element name="MaxLoopCountStrategy" type="MaxLoopCountStrategyType"/>
+			<xs:element name="NormalDistributionStrategy" type="NormalDistributionStrategyType"/>
+			<xs:element name="MaxElapseTimeStrategy" type="MaxElapseTimeStrategyType"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="MaxLoopCountStrategyType">
+		<xs:complexContent>
+			<xs:extension base="LoopControlTransitionType">
+				<xs:sequence>
+					<xs:element name="MaxLoopCount" type="xs:int"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="LoopControlStrategy">
+		<xs:restriction base="xs:NCName">
+			<xs:enumeration value="MAX_LOOP_COUNT"/>
+			<xs:enumeration value="NORMAL_DISTRIBUTION"/>
+			<xs:enumeration value="MAX_ELAPSE_TIME"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="NormalDistributionStrategyType">
+		<xs:complexContent>
+			<xs:extension base="LoopControlTransitionType">
+				<xs:sequence>
+					<xs:element name="Mean" type="xs:double"/>
+					<xs:element name="StandardDeviation" type="xs:double"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MaxElapseTimeStrategyType">
+		<xs:complexContent>
+			<xs:extension base="LoopControlTransitionType">
+				<xs:sequence>
+					<xs:element name="DisplayTimeUnit" type="TimeDisplayUnitType"/>
+					<xs:element name="MaxElapseTime" type="xs:double"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LoopControlTransitionType">
+		<xs:sequence>
+			<xs:element name="DecisionActivity" type="xs:string"/>
+			<xs:element name="ToActivity" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

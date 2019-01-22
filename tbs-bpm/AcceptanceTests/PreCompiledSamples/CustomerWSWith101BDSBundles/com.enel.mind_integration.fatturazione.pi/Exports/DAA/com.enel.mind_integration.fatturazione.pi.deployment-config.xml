@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<amxdata_base:Enterprise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amxdata="http://tibco.com/amxadministrator/command/line/types" xmlns:amxdata_base="http://tibco.com/amxadministrator/command/line/types_base" xmlns:amxdata_reference="http://tibco.com/amxadministrator/command/line/types_reference" xsi:schemaLocation="http://tibco.com/amxadministrator/command/line/types platform:/plugin/com.tibco.amf.tools.admincligen/model/cli_data.ecore#//types http://tibco.com/amxadministrator/command/line/types_base platform:/plugin/com.tibco.amf.tools.admincligen/model/cli_data.ecore http://tibco.com/amxadministrator/command/line/types_reference platform:/plugin/com.tibco.amf.tools.admincligen/model/cli_data.ecore#//types/types_reference">
+  <Environment xsi:type="amxdata:Environment" name="BPMEnvDevMind">
+    <Application xsi:type="amxdata:Application" name="com.enel.mind_integration.fatturazione.pi" contact="root" distributionPolicy="PRODUCT_APP">
+      <Component xsi:type="amxdata_base:Component_base" name="comenelmind_integrationfatturazionepiProcessFlow"/>
+      <ApplicationTemplate xsi:type="amxdata_reference:ApplicationTemplate_reference" name="com.enel.mind_integration.fatturazione.pi" version="1.0.0.201501081248"/>
+      <TargetApplication xsi:type="amxdata_reference:Application_reference" name="amx.bpm.app"/>
+    </Application>
+  </Environment>
+  <DAA xsi:type="amxdata:DAA" location="C:\ENEL_MIND_AMX_BPM_2014R3\com.enel.mind_gestionebeni\com.enel.mind_integration.fatturazione.pi\Exports\DAA\com.enel.mind_integration.fatturazione.pi.daa">
+    <importFeatureIdentifier>com.enel.mind_integration.fatturazione.pi:1.0.0.201501081248</importFeatureIdentifier>
+  </DAA>
+  <Feature xsi:type="amxdata_base:FeatureID" componentID="com.enel.mind_integration.fatturazione.pi" version="1.0.0.201501081248"/>
+</amxdata_base:Enterprise>

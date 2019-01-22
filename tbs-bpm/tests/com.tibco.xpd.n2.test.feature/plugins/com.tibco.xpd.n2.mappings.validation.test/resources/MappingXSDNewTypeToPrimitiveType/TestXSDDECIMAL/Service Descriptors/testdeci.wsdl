@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://www.example.org/testdeci/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="testdeci" targetNamespace="http://www.example.org/testdeci/">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/testdeci/">
+	<xsd:element name="NewOperation">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="inip4" type="xsd:string"></xsd:element>
+				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="NewOperationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="deciElem" type="tns:NewType"></xsd:element>
+	<xsd:simpleType name="NewType">
+            	<xsd:restriction base="xsd:decimal"></xsd:restriction>
+            </xsd:simpleType>
+</xsd:schema></wsdl:types>
+    <wsdl:message name="NewOperationRequest">
+		<wsdl:part name="param1" element="tns:deciElem"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="NewOperationResponse">
+    	<wsdl:part name="outParam" element="tns:deciElem"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="deciOp">
+    
+    	<wsdl:operation name="NewOperation">
+    		<wsdl:input message="tns:NewOperationRequest"></wsdl:input>
+    		<wsdl:output message="tns:NewOperationResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

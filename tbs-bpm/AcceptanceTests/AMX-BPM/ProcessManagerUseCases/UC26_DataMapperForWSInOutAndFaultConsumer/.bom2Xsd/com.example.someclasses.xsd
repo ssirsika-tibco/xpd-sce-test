@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/someclasses" xmlns:tns1="http://example.com/someclasses"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://example.com/someclasses">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/UC26_DataMapperForWSInOutAndFaultConsumer/Generated Business Objects/com.example.someclasses.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="UC7GClass" id="com.example.someclassesUC7GClass" abstract="false"
+      mixed="false" name="UC7GClass">
+    <xsd:sequence>
+      <xsd:element ecore:name="correlationAttribute" id="UC7GClasscorrelationAttribute"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="correlationAttribute">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="attribute2" id="UC7GClassattribute2" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="attribute2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="attribute3" id="UC7GClassattribute3" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="attribute3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="UC7GClassElement" nillable="false" type="UC7GClass"/>
+</xsd:schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ep:policySetContainer xmlns:ep="http://xsd.tns.tibco.com/amf/models/externalpolicy" 
+		xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" 
+		xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions"  
+		xmlns:systempolicy="http://xsd.tns.tibco.com/amf/models/sca/policy/system" 
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"  
+		xmlns:tpa="http://xsd.tns.tibco.com/governance/policy/action/2009"
+		xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+		xmlns:tpc="http://xsd.tns.tibco.com/governance/policy/common/2009"
+		xmlns:soapbt="http://xsd.tns.tibco.com/amf/models/sca/binding/soap"
+		targetNamespace="http://www.tibco.com/wrm/policy/transactedoneway">
+
+	<sca:policySet name="TransactedOneWay_WRMComponent" provides="sca:transactedOneWay" appliesTo="sca:binding.sca.reference | sca:binding.sca.service | soapbt:binding.soap.reference | soapbt:binding.soap.service">
+		<systempolicy:transactedOneWay scaext:label="Transacted One-Way">
+			<messageRedeliveryConfig redeliveryInterval="60" maxRedeliveryCount="5" enableErrorQueue="true" transactionalErrorQueue="true"/>
+			<scaext:description>This is the default system policy for AMX BPM Transacted One Way Intents</scaext:description>
+		</systempolicy:transactedOneWay>
+	</sca:policySet>
+
+</ep:policySetContainer>

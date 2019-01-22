@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://notification.api.dac.n2.tibco.com" xmlns:tns5="http://notification.api.dac.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://notification.api.dac.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.dac.api.notification.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="deleteReferences" nillable="false">
+    <xsd:complexType ecore:name="deleteReferencesType" id="com.tibco.n2.dac.api.notificationdeleteReferencesType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>Identifies a number of Calendar References that have been deleted by the calling Component. </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="reference" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="reference" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteReferencesResponse" nillable="false">
+    <xsd:complexType ecore:name="deleteReferencesResponseType" id="com.tibco.n2.dac.api.notificationdeleteReferencesResponseType"
+        mixed="false"/>
+  </xsd:element>
+</xsd:schema>

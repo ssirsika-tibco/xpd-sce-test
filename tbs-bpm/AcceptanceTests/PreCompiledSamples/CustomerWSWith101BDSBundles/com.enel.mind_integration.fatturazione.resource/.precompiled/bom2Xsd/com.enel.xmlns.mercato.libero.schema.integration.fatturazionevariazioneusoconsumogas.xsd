@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionevariazioneusoconsumogas.xsd"
+    xmlns:tns4="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionevariazioneusoconsumogas.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionevariazioneusoconsumogas.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_integration.fatturazione.resource/Generated Business Objects/com.enel.xmlns.mercato.libero.schema.integration.fatturazionevariazioneusoconsumogas.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="EsitoType" id="com.enel.xmlns.mercato.libero.schema.integration.fatturazionevariazioneusoconsumogasEsitoType"
+      abstract="false" mixed="false" name="EsitoType">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="EsitoTypeesito" form="qualified" maxOccurs="1"
+          minOccurs="0" name="esito" type="xsd:string"/>
+      <xsd:element ecore:name="codiceEsito" id="EsitoTypecodiceEsito" form="qualified"
+          maxOccurs="1" minOccurs="0" name="codiceEsito" type="xsd:string"/>
+      <xsd:element ecore:name="descrizione" id="EsitoTypedescrizione" form="qualified"
+          maxOccurs="1" minOccurs="0" name="descrizione" type="xsd:string"/>
+      <xsd:element ecore:name="tipoEsito" id="EsitoTypetipoEsito" form="qualified"
+          maxOccurs="1" minOccurs="0" name="tipoEsito" type="xsd:string"/>
+      <xsd:element ecore:name="sistemaSorgenteEsito" id="EsitoTypesistemaSorgenteEsito"
+          form="qualified" maxOccurs="1" minOccurs="1" name="sistemaSorgenteEsito"
+          type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="VariazioneConsumoUsoGasRequest" nillable="false">
+    <xsd:complexType ecore:name="VariazioneConsumoUsoGasRequestType" id="com.enel.xmlns.mercato.libero.schema.integration.fatturazionevariazioneusoconsumogasVariazioneConsumoUsoGasRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idMuti" form="qualified" maxOccurs="1" minOccurs="0"
+            name="idMuti" type="xsd:string"/>
+        <xsd:element ecore:name="causale" form="qualified" maxOccurs="1" minOccurs="0"
+            name="causale" type="xsd:string"/>
+        <xsd:element ecore:name="contrattoSap" form="qualified" maxOccurs="1" minOccurs="0"
+            name="contrattoSap" type="xsd:string"/>
+        <xsd:element ecore:name="numeroUtente" form="qualified" maxOccurs="1" minOccurs="0"
+            name="numeroUtente" type="xsd:string"/>
+        <xsd:element ecore:name="dataModifica" form="qualified" maxOccurs="1" minOccurs="0"
+            name="dataModifica" type="xsd:date"/>
+        <xsd:element ecore:name="CDM_Fornitura" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CDM_Fornitura" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="VariazioneConsumoUsoGasResponse" nillable="false">
+    <xsd:complexType ecore:name="VariazioneConsumoUsoGasResponseType" id="com.enel.xmlns.mercato.libero.schema.integration.fatturazionevariazioneusoconsumogasVariazioneConsumoUsoGasResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Esito" type="EsitoType"/>
+        <xsd:element ecore:name="dataIsu" form="qualified" maxOccurs="1" minOccurs="0"
+            name="dataIsu" type="xsd:date"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

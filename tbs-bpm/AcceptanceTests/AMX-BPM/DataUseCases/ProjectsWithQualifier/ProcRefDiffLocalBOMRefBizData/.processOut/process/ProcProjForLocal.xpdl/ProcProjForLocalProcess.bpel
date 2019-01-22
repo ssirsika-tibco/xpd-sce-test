@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no" name="ProcProjForLocalProcess"
+    suppressJoinFailure="yes" tibex:bxVersion="1.9.0"
+    tibex:explicitCompensation="yes"
+    tibex:xpdlId="_3jpBYVNsEeOUC7phQChPyQ"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="PersistentBatching">
+        <task name="EnterPersonInfo">
+            <startingVariables>
+                <variable>person</variable>
+            </startingVariables>
+        </task>
+        <task name="DisplayData">
+            <startingVariables>
+                <variable>person</variable>
+            </startingVariables>
+        </task>
+        <task name="ScriptTask">
+            <startingVariables>
+                <variable>person</variable>
+            </startingVariables>
+        </task>
+    </tibex:VariableDescriptor>
+    <bpws:documentation/>
+    <bpws:variables>
+        <bpws:variable name="person"
+            tibex:class="com.example.localbomprojrefbdproj.Person" tibex:xpdlId="_71ATcFNtEeOUC7phQChPyQ"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="yes" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:eventHandlers/>
+    <bpws:flow name="_BX_flow">
+        <bpws:links>
+            <bpws:link name="StartEvent to EnterPersonInfo" tibex:xpdlId="_A7azoFNuEeOUC7phQChPyQ"/>
+            <bpws:link name="EnterPersonInfo to ScriptTask" tibex:xpdlId="_C0X5UFNuEeOUC7phQChPyQ"/>
+            <bpws:link name="ScriptTask to DisplayData" tibex:xpdlId="_DQbjMFNuEeOUC7phQChPyQ"/>
+            <bpws:link name="DisplayData to EndEvent" tibex:xpdlId="_98ojxFNsEeOUC7phQChPyQ"/>
+        </bpws:links>
+        <bpws:extensionActivity>
+            <tibex:receiveEvent createInstance="yes" eventTimeout="0"
+                name="StartEvent" tibex:type="startEvent"
+                tibex:xpdlId="_98ojwlNsEeOUC7phQChPyQ" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:sources>
+                    <bpws:source linkName="StartEvent to EnterPersonInfo"/>
+                </bpws:sources>
+                <tibex:eventSource>
+                    <tibex:startEvent eventType="Default"/>
+                </tibex:eventSource>
+            </tibex:receiveEvent>
+        </bpws:extensionActivity>
+        <bpws:empty name="EndEvent" tibex:migrationAllowed="yes"
+            tibex:type="endEvent" tibex:xpdlId="_98ojw1NsEeOUC7phQChPyQ">
+            <bpws:targets>
+                <bpws:target linkName="DisplayData to EndEvent"/>
+            </bpws:targets>
+        </bpws:empty>
+        <bpws:extensionActivity>
+            <tibex:extActivity name="EnterPersonInfo"
+                tibex:migrationAllowed="yes" tibex:type="userTask"
+                tibex:xpdlId="_A7aMkFNuEeOUC7phQChPyQ" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:targets>
+                    <bpws:target linkName="StartEvent to EnterPersonInfo"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="EnterPersonInfo to ScriptTask"/>
+                </bpws:sources>
+                <model:UserTaskDataModelType
+                    distributionStrategy="OFFER" userTaskPriority="50"
+                    workModelID="WM__A7aMkFNuEeOUC7phQChPyQ"
+                    workModelVersionRange="[1.0.0.qualifier,1.0.0.qualifier]"
+                    xmi:version="2.0"
+                    xmlns:model="http://model.ut.n2.tibco.com" xmlns:xmi="http://www.omg.org/XMI">
+                    <userTaskParticipants>
+                        <userTaskParticipant entity="ROLE"
+                            modelVersion="1" uniqueId="_e1GjQFcOEd6ECemE0GiJmQ"/>
+                    </userTaskParticipants>
+                    <userTaskParameters>
+                        <userTaskParameter mandatory="false"
+                            mode="INOUT" name="person"/>
+                    </userTaskParameters>
+                    <userTaskGroupMemberships/>
+                </model:UserTaskDataModelType>
+            </tibex:extActivity>
+        </bpws:extensionActivity>
+        <bpws:extensionActivity>
+            <tibex:extActivity name="ScriptTask"
+                tibex:migrationAllowed="yes" tibex:type="scriptTask"
+                tibex:xpdlId="_C0XSQFNuEeOUC7phQChPyQ" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:targets>
+                    <bpws:target linkName="EnterPersonInfo to ScriptTask"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="ScriptTask to DisplayData"/>
+                </bpws:sources>
+                <tibex:script expressionLanguage="urn:tibco:wsbpel:2.0:sublang:javascript"><![CDATA[var tempaddr = com_example_firstbizdataproj_Factory.createAddress();
+tempaddr.addrLine1 = "kembrey park";
+tempaddr.addrLine2 = "swindon";
+tempaddr.postCode = "sn28b1";
+
+person.addr = tempaddr;
+person.id = "udpated id";
+person.name = "updated name";
+]]></tibex:script>
+            </tibex:extActivity>
+        </bpws:extensionActivity>
+        <bpws:extensionActivity>
+            <tibex:extActivity name="DisplayData"
+                tibex:migrationAllowed="yes" tibex:type="userTask"
+                tibex:xpdlId="_DQZuAFNuEeOUC7phQChPyQ" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:targets>
+                    <bpws:target linkName="ScriptTask to DisplayData"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="DisplayData to EndEvent"/>
+                </bpws:sources>
+                <model:UserTaskDataModelType
+                    distributionStrategy="OFFER" userTaskPriority="50"
+                    workModelID="WM__DQZuAFNuEeOUC7phQChPyQ"
+                    workModelVersionRange="[1.0.0.qualifier,1.0.0.qualifier]"
+                    xmi:version="2.0"
+                    xmlns:model="http://model.ut.n2.tibco.com" xmlns:xmi="http://www.omg.org/XMI">
+                    <userTaskParticipants>
+                        <userTaskParticipant entity="ROLE"
+                            modelVersion="1" uniqueId="_e1GjQFcOEd6ECemE0GiJmQ"/>
+                    </userTaskParticipants>
+                    <userTaskParameters>
+                        <userTaskParameter mandatory="false"
+                            mode="INOUT" name="person"/>
+                    </userTaskParameters>
+                    <userTaskGroupMemberships/>
+                </model:UserTaskDataModelType>
+            </tibex:extActivity>
+        </bpws:extensionActivity>
+    </bpws:flow>
+</bpws:process>

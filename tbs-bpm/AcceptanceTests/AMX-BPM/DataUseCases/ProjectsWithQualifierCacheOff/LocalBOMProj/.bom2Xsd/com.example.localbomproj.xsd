@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/localbomproj" xmlns:tns3="http://example.com/localbomproj"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/localbomproj">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/LocalBOMProj/Business Objects/LocalBOMProj.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Person" id="_BfQV8FNtEeOUC7phQChPyQ" name="Person">
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="_CQJnYFNtEeOUC7phQChPyQ" maxOccurs="1" minOccurs="0"
+          name="id">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="name" id="_Ec06UFNtEeOUC7phQChPyQ" maxOccurs="1" minOccurs="0"
+          name="name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PersonElement" type="Person"/>
+</xsd:schema>

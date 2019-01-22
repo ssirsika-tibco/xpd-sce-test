@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLA01_SimpleElementTypes" xmlns:tns1="http://www.example.org/XSDBOM_TLA01_SimpleElementTypes"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLA01_SimpleElementTypes">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/UC1WaFaultHandlingWS/Business Objects/org.example.XSDBOM_TLA01_SimpleElementTypes.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="tleString" nillable="false" type="xsd:string"/>
+  <xsd:simpleType name="gday_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\-\-\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleGDay" nillable="false" type="tns1:gday_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="gmonth_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\-\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleGMonth" nillable="false" type="tns1:gmonth_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="gmonthday_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\-\-(0[1-9]|[1][0-2])\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleGMonthDay" nillable="false" type="tns1:gmonthday_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="gyear_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(\-\d{4,}|\d{4,})(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleGYear" nillable="false" type="tns1:gyear_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="gyearmonth_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(\-\d{4,}|\d{4,})(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleGYearMonth" nillable="false" type="tns1:gyearmonth_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="id_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleId" nillable="false" type="tns1:id_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="idref_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleIdRef" nillable="false" type="tns1:idref_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="idrefs_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*( [\i-[:]][\c-[:]]*)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleIdRefs" nillable="false" type="tns1:idrefs_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="language_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="([a-zA-Z]{2}|[iI]-[a-zA-Z]+|[xX]-[a-zA-Z]{1,8})(-[a-zA-Z]{1,8})*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleLanguage" nillable="false" type="tns1:language_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="name_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\i\c*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleName" nillable="false" type="tns1:name_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="ncname_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleNCName" nillable="false" type="tns1:ncname_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="nmtoken_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\c+"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleNMToken" nillable="false" type="tns1:nmtoken_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="nmtokens_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\c+( \c+)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleNMTokens" nillable="false" type="tns1:nmtokens_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="normalizedstring_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^&#x9;&#xA;&#xD;]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleNormalizedString" nillable="false" type="tns1:normalizedstring_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="qname_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="([\i-[:]][\c-[:]]*:)?[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleQName" nillable="false" type="tns1:qname_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="entity_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleENTITY" nillable="false" type="tns1:entity_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="entities_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*( [\i-[:]][\c-[:]]*)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleENTITIES" nillable="false" type="tns1:entities_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="token_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^ \t\n\r]+([ ][^ \t\n\r]+)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleToken" nillable="false" type="tns1:token_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="byte_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="-128"/>
+      <xsd:maxInclusive value="127"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleByte" nillable="false" type="tns1:byte_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="unsignedbyte_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleUnsignedByte" nillable="false" type="tns1:unsignedbyte_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="short_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="-32768"/>
+      <xsd:maxInclusive value="32767"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleShort" nillable="false" type="tns1:short_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="unsignedshort_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="65535"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleUnsignedShort" nillable="false" type="tns1:unsignedshort_StudioGeneratedTemplate"/>
+  <xsd:element abstract="false" name="tleInt" nillable="false" type="xsd:int"/>
+  <xsd:element abstract="false" name="tleInteger" nillable="false" type="xsd:integer"/>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleLong" nillable="false" type="tns1:long_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="negativeinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:maxInclusive value="-1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleNegativeInteger" nillable="false" type="tns1:negativeinteger_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="nonnegativeinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleNonNegativeInteger" nillable="false" type="tns1:nonnegativeinteger_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="positiveinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tlePositiveInteger" nillable="false" type="tns1:positiveinteger_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="nonpositiveinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:maxInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleNonPositiveInteger" nillable="false" type="tns1:nonpositiveinteger_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="unsignedint_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="4294967295"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleUnsignedInt" nillable="false" type="tns1:unsignedint_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="unsignedlong_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="18446744073709551615"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleUnsignedLong" nillable="false" type="tns1:unsignedlong_StudioGeneratedTemplate"/>
+  <xsd:element abstract="false" name="tleDecimal" nillable="false" type="xsd:decimal"/>
+  <xsd:simpleType name="float_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-340.28235E+36"/>
+      <xsd:maxInclusive value="340.28235E+36"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleFloat" nillable="false" type="tns1:float_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="double_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-179.76931348623157E+306"/>
+      <xsd:maxInclusive value="179.76931348623157E+306"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="tleDouble" nillable="false" type="tns1:double_StudioGeneratedTemplate"/>
+  <xsd:element abstract="false" name="tleBoolean" nillable="false" type="xsd:boolean"/>
+  <xsd:element abstract="false" name="tleDate" nillable="false" type="xsd:date"/>
+  <xsd:element abstract="false" name="tleTime" nillable="false" type="xsd:time"/>
+  <xsd:element abstract="false" name="tleDateTime" nillable="false" type="xsd:dateTime"/>
+  <xsd:element abstract="false" name="tleAnyURI" nillable="false" type="xsd:anyURI"/>
+  <xsd:element abstract="false" name="tleDuration" nillable="false" type="xsd:duration"/>
+</xsd:schema>

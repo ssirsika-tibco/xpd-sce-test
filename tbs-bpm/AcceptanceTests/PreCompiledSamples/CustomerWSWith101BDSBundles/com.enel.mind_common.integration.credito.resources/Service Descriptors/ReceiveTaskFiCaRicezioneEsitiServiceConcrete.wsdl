@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskficaricezioneesiti" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.enel.com/mercato/libero/service/bpm/receivetaskficaricezioneesiti" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/service/bpm/receivetaskficaricezioneesiti" tibex:src="file:/D:/PROGETTI/MIND/share/ReceiveTaskFiCaRicezioneEsitiServiceConcrete.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskficaricezioneesiti" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskficaricezioneesiti">
+            <xs:element name="FiCaRicezioneEsitiRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="IdRichiesta" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ReleaseId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ABI_CAB" type="xs:string"/>
+                        <xs:element minOccurs="0" name="NomeBanca" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Indirizzo" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Comune" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Provincia" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Denominazione" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Codice" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Descrizione" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ReceiveTaskFiCaRicezioneEsitiService">
+        <wsdl:port binding="tns:ReceiveTaskFicaRicezioneEsitiPortTypeEndpoint1Binding" name="ReceiveTaskFicaRicezioneEsitiPortTypeEndpoint1">
+            <soap:address location="http://localhost:99999/mercato/libero/service/bpm/receivetaskficaricezioneesiti"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="ReceiveTaskFicaRicezioneEsitiPortType">
+        <wsdl:operation name="ReceiveTaskFiCaRicezioneEsiti">
+            <wsdl:input message="tns:FiCaRicezioneEsitiRequest"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ReceiveTaskFicaRicezioneEsitiPortTypeEndpoint1Binding" type="tns:ReceiveTaskFicaRicezioneEsitiPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ReceiveTaskFiCaRicezioneEsiti">
+            <soap:operation soapAction="/Processes/ReceiveTaskFiCaRicezioneEsiti/ReceiveTaskFiCaRicezioneEsitiService.serviceagent/ReceiveTaskFicaRicezioneEsitiPortTypeEndpoint1/ReceiveTaskFicaRicezioneEsiti" style="document"/>
+            <wsdl:input>
+                <soap:body parts="input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="FiCaRicezioneEsitiRequest">
+        <wsdl:part element="ns0:FiCaRicezioneEsitiRequest" name="input"/>
+    </wsdl:message>
+</wsdl:definitions>

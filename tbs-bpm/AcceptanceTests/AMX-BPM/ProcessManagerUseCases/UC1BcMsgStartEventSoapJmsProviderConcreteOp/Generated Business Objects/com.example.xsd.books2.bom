@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example.xsd.books2" name="com.example.xsd.books2">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nm7QogdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nm7QowdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nm7QpAdTEeSRjauCcgnMbg" key="created" value="1404905244970"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nm7QpQdTEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_noNqEAdTEeSRjauCcgnMbg" key="checksum" value="3831856275"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.xsd.books2BookStoreType" name="BookStoreType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookStoreTypeBook" name="book" type="com.example.xsd.books2BookType?com.example.xsd.books2%3a%3aBookType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nmqK4wdTEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nmqK4gdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.xsd.books2BookType" name="BookType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypeTitle" name="title" type="com.example.xsd.books2TitleType?com.example.xsd.books2%3a%3aTitleType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nmcIcQdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nmcIcAdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypeAuthor" name="author" type="com.example.xsd.books2Author?com.example.xsd.books2%3a%3aAuthorType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nmd9pAdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nmd9owdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypeDate" name="date" type="com.example.xsd.books2Date?com.example.xsd.books2%3a%3aDateType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nmgZ4wdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nmgZ4gdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypeISBN" name="ISBN" type="com.example.xsd.books2ISBNType?com.example.xsd.books2%3a%3aISBNType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nmlSZAdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nmlSYwdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypePublisher" name="publisher" type="com.example.xsd.books2Publisher?com.example.xsd.books2%3a%3aPublisherType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nmnuogdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nmnuoQdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.xsd.books2TitleType" name="TitleType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="TitleTypevalue" name="value" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nma6UwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nma6UgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.xsd.books2Author" name="AuthorType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_nmdWkQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.xsd.books2Date" name="DateType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_nmfLwQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.xsd.books2ISBNType" name="ISBNType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ISBNTypevalue" name="value" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nmkrUwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nmkrUgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.xsd.books2Publisher" name="PublisherType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_nmmggQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_nmS-gQdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nmS-ggdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_nmS-gwdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nmS-hAdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_nmS-hQdTEeSRjauCcgnMbg" base_Package="com.example.xsd.books2?com.example.xsd.books2?" xsdTargetNamespace="http://www.example.com/xsd/books2" xsdSchemaLocation="bw_soapoverjms.wsdl" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.8.0.005" bomWsdlSources="bw_soapoverjms.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_nmUMoQdTEeSRjauCcgnMbg" base_Class="com.example.xsd.books2BookStoreType?com.example.xsd.books2%3a%3aBookStoreType?" xsdName="BookStoreType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_nmqx8AdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_nmWo4QdTEeSRjauCcgnMbg" base_Class="com.example.xsd.books2BookType?com.example.xsd.books2%3a%3aBookType?" xsdName="BookType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_nmnuowdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_nmZFIAdTEeSRjauCcgnMbg" base_Class="com.example.xsd.books2TitleType?com.example.xsd.books2%3a%3aTitleType?" xsdName="TitleType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nma6UQdTEeSRjauCcgnMbg" base_Property="TitleTypevalue?com.example.xsd.books2%3a%3aTitleType%3a%3avalue?" xsdName="value" xsdType="string" xsdIsSimpleContentExtension="true"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_nmbhYAdTEeSRjauCcgnMbg" base_Package="com.example.xsd.books2?com.example.xsd.books2?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_nmbhYQdTEeSRjauCcgnMbg" name="Title" type="com.example.xsd.books2TitleType?com.example.xsd.books2%3a%3aTitleType?" targetNamespace="http://www.example.com/xsd/books2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_nmd9oAdTEeSRjauCcgnMbg" name="Author" type="com.example.xsd.books2Author?com.example.xsd.books2%3a%3aAuthorType?" isBaseXSDType="true" targetNamespace="http://www.example.com/xsd/books2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_nmfy0QdTEeSRjauCcgnMbg" name="Date" type="com.example.xsd.books2Date?com.example.xsd.books2%3a%3aDateType?" isBaseXSDType="true" targetNamespace="http://www.example.com/xsd/books2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_nmlSYAdTEeSRjauCcgnMbg" name="ISBN" type="com.example.xsd.books2ISBNType?com.example.xsd.books2%3a%3aISBNType?" targetNamespace="http://www.example.com/xsd/books2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_nmnHkAdTEeSRjauCcgnMbg" name="Publisher" type="com.example.xsd.books2Publisher?com.example.xsd.books2%3a%3aPublisherType?" isBaseXSDType="true" targetNamespace="http://www.example.com/xsd/books2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_nmpj0AdTEeSRjauCcgnMbg" name="Book" type="com.example.xsd.books2BookType?com.example.xsd.books2%3a%3aBookType?" targetNamespace="http://www.example.com/xsd/books2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_nmucUAdTEeSRjauCcgnMbg" name="BookStore" type="com.example.xsd.books2BookStoreType?com.example.xsd.books2%3a%3aBookStoreType?" targetNamespace="http://www.example.com/xsd/books2" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nmbhYwdTEeSRjauCcgnMbg" base_Property="BookTypeTitle?com.example.xsd.books2%3a%3aBookType%3a%3atitle?" xsdName="Title" xsdRef="http://www.example.com/xsd/books2:Title" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_nmnuowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_nmdWkgdTEeSRjauCcgnMbg" base_PrimitiveType="com.example.xsd.books2Author?com.example.xsd.books2%3a%3aAuthorType?" xsdSimpleTypeName="Author" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nmd9ogdTEeSRjauCcgnMbg" base_Property="BookTypeAuthor?com.example.xsd.books2%3a%3aBookType%3a%3aauthor?" xsdName="Author" xsdRef="http://www.example.com/xsd/books2:Author" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_nmnuowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_nmfy0AdTEeSRjauCcgnMbg" base_PrimitiveType="com.example.xsd.books2Date?com.example.xsd.books2%3a%3aDateType?" xsdSimpleTypeName="Date" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nmgZ4QdTEeSRjauCcgnMbg" base_Property="BookTypeDate?com.example.xsd.books2%3a%3aBookType%3a%3adate?" xsdName="Date" xsdRef="http://www.example.com/xsd/books2:Date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_nmnuowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_nmi2IAdTEeSRjauCcgnMbg" base_Class="com.example.xsd.books2ISBNType?com.example.xsd.books2%3a%3aISBNType?" xsdName="ISBNType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nmkrUQdTEeSRjauCcgnMbg" base_Property="ISBNTypevalue?com.example.xsd.books2%3a%3aISBNType%3a%3avalue?" xsdName="value" xsdType="string" xsdIsSimpleContentExtension="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nmlSYgdTEeSRjauCcgnMbg" base_Property="BookTypeISBN?com.example.xsd.books2%3a%3aBookType%3a%3aISBN?" xsdName="ISBN" xsdRef="http://www.example.com/xsd/books2:ISBN" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_nmnuowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_nmmgggdTEeSRjauCcgnMbg" base_PrimitiveType="com.example.xsd.books2Publisher?com.example.xsd.books2%3a%3aPublisherType?" xsdSimpleTypeName="Publisher" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nmnuoAdTEeSRjauCcgnMbg" base_Property="BookTypePublisher?com.example.xsd.books2%3a%3aBookType%3a%3apublisher?" xsdName="Publisher" xsdRef="http://www.example.com/xsd/books2:Publisher" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_nmnuowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nmqK4QdTEeSRjauCcgnMbg" base_Property="BookStoreTypeBook?com.example.xsd.books2%3a%3aBookStoreType%3a%3abook?" xsdName="Book" xsdRef="http://www.example.com/xsd/books2:Book" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_nmqx8AdTEeSRjauCcgnMbg" xsdMaxOccurs="*"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmucUQdTEeSRjauCcgnMbg" base_Element="com.example.xsd.books2Date?com.example.xsd.books2%3a%3aDateType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDYAdTEeSRjauCcgnMbg" base_Element="TitleTypevalue?com.example.xsd.books2%3a%3aTitleType%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDYQdTEeSRjauCcgnMbg" base_Element="_nmS-gQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDYgdTEeSRjauCcgnMbg" base_Element="_nmlSZAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDYwdTEeSRjauCcgnMbg" base_Element="_nmlSYwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDZAdTEeSRjauCcgnMbg" base_Element="_nmnuoQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDZQdTEeSRjauCcgnMbg" base_Element="com.example.xsd.books2ISBNType?com.example.xsd.books2%3a%3aISBNType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDZgdTEeSRjauCcgnMbg" base_Element="BookTypeDate?com.example.xsd.books2%3a%3aBookType%3a%3adate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDZwdTEeSRjauCcgnMbg" base_Element="BookStoreTypeBook?com.example.xsd.books2%3a%3aBookStoreType%3a%3abook?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvDaAdTEeSRjauCcgnMbg" base_Element="_nmfLwQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqcAdTEeSRjauCcgnMbg" base_Element="BookTypeTitle?com.example.xsd.books2%3a%3aBookType%3a%3atitle?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqcQdTEeSRjauCcgnMbg" base_Element="com.example.xsd.books2BookType?com.example.xsd.books2%3a%3aBookType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqcgdTEeSRjauCcgnMbg" base_Element="BookTypePublisher?com.example.xsd.books2%3a%3aBookType%3a%3apublisher?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqcwdTEeSRjauCcgnMbg" base_Element="_nmqK4gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqdAdTEeSRjauCcgnMbg" base_Element="com.example.xsd.books2Author?com.example.xsd.books2%3a%3aAuthorType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqdQdTEeSRjauCcgnMbg" base_Element="_nmgZ4wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqdgdTEeSRjauCcgnMbg" base_Element="_nmdWkQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqdwdTEeSRjauCcgnMbg" base_Element="_nmS-gwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqeAdTEeSRjauCcgnMbg" base_Element="BookTypeAuthor?com.example.xsd.books2%3a%3aBookType%3a%3aauthor?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmvqeQdTEeSRjauCcgnMbg" base_Element="_nmd9owdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRgAdTEeSRjauCcgnMbg" base_Element="_nmgZ4gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRgQdTEeSRjauCcgnMbg" base_Element="BookTypeISBN?com.example.xsd.books2%3a%3aBookType%3a%3aISBN?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRggdTEeSRjauCcgnMbg" base_Element="com.example.xsd.books2BookStoreType?com.example.xsd.books2%3a%3aBookStoreType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRgwdTEeSRjauCcgnMbg" base_Element="_nmmggQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRhAdTEeSRjauCcgnMbg" base_Element="ISBNTypevalue?com.example.xsd.books2%3a%3aISBNType%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRhQdTEeSRjauCcgnMbg" base_Element="_nmcIcQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRhgdTEeSRjauCcgnMbg" base_Element="_nma6UgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRhwdTEeSRjauCcgnMbg" base_Element="_nmcIcAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRiAdTEeSRjauCcgnMbg" base_Element="_nma6UwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmwRiQdTEeSRjauCcgnMbg" base_Element="_nmkrUgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmw4kAdTEeSRjauCcgnMbg" base_Element="_nmnuogdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmw4kQdTEeSRjauCcgnMbg" base_Element="_nmkrUwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmw4kgdTEeSRjauCcgnMbg" base_Element="_nmd9pAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmw4kwdTEeSRjauCcgnMbg" base_Element="com.example.xsd.books2Publisher?com.example.xsd.books2%3a%3aPublisherType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmw4lAdTEeSRjauCcgnMbg" base_Element="_nmqK4wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_nmw4lQdTEeSRjauCcgnMbg" base_Element="com.example.xsd.books2TitleType?com.example.xsd.books2%3a%3aTitleType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm3mQAdTEeSRjauCcgnMbg" displayLabel="BookStoreType" base_NamedElement="com.example.xsd.books2BookStoreType?com.example.xsd.books2%3a%3aBookStoreType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm3mQQdTEeSRjauCcgnMbg" displayLabel="BookType" base_NamedElement="com.example.xsd.books2BookType?com.example.xsd.books2%3a%3aBookType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm4NUAdTEeSRjauCcgnMbg" displayLabel="ISBNType" base_NamedElement="com.example.xsd.books2ISBNType?com.example.xsd.books2%3a%3aISBNType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm4NUQdTEeSRjauCcgnMbg" displayLabel="TitleType" base_NamedElement="com.example.xsd.books2TitleType?com.example.xsd.books2%3a%3aTitleType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm4NUgdTEeSRjauCcgnMbg" displayLabel="Author" base_NamedElement="com.example.xsd.books2Author?com.example.xsd.books2%3a%3aAuthorType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm40YAdTEeSRjauCcgnMbg" displayLabel="Date" base_NamedElement="com.example.xsd.books2Date?com.example.xsd.books2%3a%3aDateType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm40YQdTEeSRjauCcgnMbg" displayLabel="Publisher" base_NamedElement="com.example.xsd.books2Publisher?com.example.xsd.books2%3a%3aPublisherType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm5bcAdTEeSRjauCcgnMbg" displayLabel="Book" base_NamedElement="BookStoreTypeBook?com.example.xsd.books2%3a%3aBookStoreType%3a%3abook?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm5bcQdTEeSRjauCcgnMbg" displayLabel="Author" base_NamedElement="BookTypeAuthor?com.example.xsd.books2%3a%3aBookType%3a%3aauthor?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm6CgAdTEeSRjauCcgnMbg" displayLabel="Date" base_NamedElement="BookTypeDate?com.example.xsd.books2%3a%3aBookType%3a%3adate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm6CgQdTEeSRjauCcgnMbg" displayLabel="ISBN" base_NamedElement="BookTypeISBN?com.example.xsd.books2%3a%3aBookType%3a%3aISBN?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm6pkAdTEeSRjauCcgnMbg" displayLabel="Publisher" base_NamedElement="BookTypePublisher?com.example.xsd.books2%3a%3aBookType%3a%3apublisher?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm6pkQdTEeSRjauCcgnMbg" displayLabel="Title" base_NamedElement="BookTypeTitle?com.example.xsd.books2%3a%3aBookType%3a%3atitle?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm7QoAdTEeSRjauCcgnMbg" displayLabel="value" base_NamedElement="ISBNTypevalue?com.example.xsd.books2%3a%3aISBNType%3a%3avalue?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nm7QoQdTEeSRjauCcgnMbg" displayLabel="value" base_NamedElement="TitleTypevalue?com.example.xsd.books2%3a%3aTitleType%3a%3avalue?"/>
+  <notation:Diagram xmi:id="_nm7QpgdTEeSRjauCcgnMbg" type="Business Object Model" element="com.example.xsd.books2?com.example.xsd.books2?" name="com.example.xsd.books2" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_nm7QpwdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_nm7QqAdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_5fOeUCkiEeCFBurrOzfjTg" xpdExt:DisplayName="ProcessPackage" Name="ProcessPackage">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2011-01-26</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>mtorres</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:DataFields>
+    <xpdl2:DataField Id="_16Ug0jhPEeCk-eO8tx-eSA" xpdExt:DisplayName="address" Name="address">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="AnyTypeTest.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="org.example.AnyTypeTestAddress"/>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_BuzNEIUTEeC_K9Ai71Dp8g" xpdExt:DisplayName="myComplexType" Name="myComplexType">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="AnyTypeTest.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="org.example.AnyTypeTestmyComplexType"/>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_E0cvYIUTEeC_K9Ai71Dp8g" xpdExt:DisplayName="myComplexTypeTLEType" Name="myComplexTypeTLEType">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="AnyTypeTest.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="org.example.AnyTypeTestmyComplexTypeTLEType"/>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_cEJwMIUTEeC_K9Ai71Dp8g" xpdExt:DisplayName="fieldBoolean" Name="fieldBoolean">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="BOOLEAN"/>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_e6WJ0IaKEeCHWtAgdknz4g" xpdExt:DisplayName="myInheritancePrimitiveTypes" Name="myInheritancePrimitiveTypes">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="AnyTypeTest2.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_LRy14IaKEeCHWtAgdknz4g"/>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_FIthEKbyEeCVToYxUuPNBA" xpdExt:DisplayName="myMultipleComplexType" Name="myMultipleComplexType">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="AnyTypeTest.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="org.example.AnyTypeTestmyMultipleComplexType"/>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+  </xpdl2:DataFields>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_FAjzgCkjEeCFBurrOzfjTg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_5gis8CkiEeCFBurrOzfjTg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_FAjzgSkjEeCFBurrOzfjTg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_S_33-SksEeCtMqNRsOlIzg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_S_338CksEeCtMqNRsOlIzg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_S_33-iksEeCtMqNRsOlIzg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_5gis8CkiEeCFBurrOzfjTg" xpdExt:DisplayName="Valid-Primitive-Scripts" Name="ValidPrimitiveScripts">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_FAjzgikjEeCFBurrOzfjTg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_FAjzgSkjEeCFBurrOzfjTg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_FAjzgykjEeCFBurrOzfjTg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_FAjzgSkjEeCFBurrOzfjTg" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="712.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_gIDv0CkkEeCmA7F5VLCzQQ" Name="XSDAnyPrimitiveType" xpdExt:Visibility="Private" xpdExt:DisplayName="XSD Any Primitive Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myComplexType.any = address;&#xD;
+myComplexType.any = ScriptUtil.copy(address);&#xD;
+myComplexType.any = myComplexType.any;&#xD;
+myComplexType.any = null;&#xD;
+&#xD;
+myMultipleComplexType.any.add(address);&#xD;
+myMultipleComplexType.any.add(ScriptUtil.copy(address));&#xD;
+myMultipleComplexType.any.add(myComplexType.any);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="_FAjzgSkjEeCFBurrOzfjTg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="172.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oqWWgoUlEeCyTaKNfcDtjA" Name="XSDAnyTypePrimitiveType" xpdExt:Visibility="Private" xpdExt:DisplayName="XSD Any Type Primitive Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myComplexType.anyTypeElem = &quot;&quot;;&#xD;
+myComplexType.anyTypeElem = 1;&#xD;
+myComplexType.anyTypeElem = fieldBoolean;&#xD;
+myComplexType.anyTypeElem = address.streetName;&#xD;
+myComplexType.anyTypeElem = address;&#xD;
+myComplexType.anyTypeElem = ScriptUtil.copy(address);&#xD;
+myComplexType.anyTypeElem = myComplexType.anyTypeElem;&#xD;
+myComplexType.anyTypeElem  = myInheritancePrimitiveTypes.myAnyTypeSubClass;&#xD;
+myComplexType.anyTypeElem = null;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="_FAjzgSkjEeCFBurrOzfjTg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="319.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_mV8ZAIUnEeCrwu60fPv1Vw" Name="XSDAnySimpleTypePrimitiveType" xpdExt:Visibility="Private" xpdExt:DisplayName="XSD Any Simple Type Primitive Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myComplexType.anySimpleTypeElem = &quot;&quot;;&#xD;
+myComplexType.anySimpleTypeElem = 1;&#xD;
+myComplexType.anySimpleTypeElem = fieldBoolean;&#xD;
+myComplexType.anySimpleTypeElem = address.streetName;&#xD;
+myComplexType.anySimpleTypeElem = myComplexType.anySimpleTypeElem;&#xD;
+myComplexType.anySimpleTypeElem = null; &#xD;
+myComplexType.anySimpleTypeElem = myInheritancePrimitiveTypes.myAnySimpleTypeSubClass;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="_FAjzgSkjEeCFBurrOzfjTg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="468.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2PlLMIUnEeCrwu60fPv1Vw" Name="XSDAnyAttributePrimitiveType" xpdExt:Visibility="Private" xpdExt:DisplayName="XSD Any Attribute Primitive Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myComplexType.anyAttribute = myComplexType.anyAttribute;&#xD;
+myComplexType.anyAttribute = null;  </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="_FAjzgSkjEeCFBurrOzfjTg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="594.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_FAjzhCkjEeCFBurrOzfjTg" xpdExt:DisplayName="" Name="" From="_gIDv0CkkEeCmA7F5VLCzQQ" To="_oqWWgoUlEeCyTaKNfcDtjA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_gIJPYCkkEeCmA7F5VLCzQQ" xpdExt:DisplayName="" Name="" From="_FAjzgikjEeCFBurrOzfjTg" To="_gIDv0CkkEeCmA7F5VLCzQQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_n9dwcIUnEeCrwu60fPv1Vw" xpdExt:DisplayName="" Name="" From="_oqWWgoUlEeCyTaKNfcDtjA" To="_mV8ZAIUnEeCrwu60fPv1Vw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_4dIn4IUnEeCrwu60fPv1Vw" xpdExt:DisplayName="" Name="" From="_mV8ZAIUnEeCrwu60fPv1Vw" To="_2PlLMIUnEeCrwu60fPv1Vw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_4tszcIUnEeCrwu60fPv1Vw" xpdExt:DisplayName="" Name="" From="_2PlLMIUnEeCrwu60fPv1Vw" To="_FAjzgykjEeCFBurrOzfjTg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_S_338CksEeCtMqNRsOlIzg" iProcessExt:MaxStepIndex="6" xpdExt:DisplayName="INValid-Primitive-Scripts" Name="INValidPrimitiveScripts">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_S_338SksEeCtMqNRsOlIzg" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_S_33-iksEeCtMqNRsOlIzg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_S_338iksEeCtMqNRsOlIzg" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_S_33-iksEeCtMqNRsOlIzg" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="722.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_S_338yksEeCtMqNRsOlIzg" Name="XSDAnyPrimitiveType" xpdExt:Visibility="Private" xpdExt:DisplayName="XSD Any Primitive Type" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myComplexType.any = &quot;&quot;;&#xD;
+myComplexType.any = 1;&#xD;
+myComplexType.any = fieldBoolean;&#xD;
+myComplexType.any = address.streetName;&#xD;
+myComplexType.any / 1; &#xD;
+myComplexType.any + 1; &#xD;
+myComplexType.any - 1;&#xD;
+myComplexType.any == 1;&#xD;
+myComplexType.any * 1;&#xD;
+myComplexType.any.add(&quot;&quot;);&#xD;
+myComplexType.any.method();&#xD;
+myComplexType.any = myComplexType.anyAttribute;&#xD;
+myComplexType.any = myComplexType.anySimpleTypeElem;&#xD;
+myComplexType.any = myComplexType.anyTypeElem;&#xD;
+myComplexType.any = myInheritancePrimitiveTypes.myAnySimpleTypeSubClass;&#xD;
+myComplexType.any = myInheritancePrimitiveTypes.myAnyTypeSubClass;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="_S_33-iksEeCtMqNRsOlIzg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="151.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_8yPR0YUlEeCyTaKNfcDtjA" Name="XSDAnyTypePrimitiveType" xpdExt:Visibility="Private" iProcessExt:StepIndex="6" xpdExt:DisplayName="XSD Any Type Primitive Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myComplexType.anyTypeElem / 1;&#xD;
+myComplexType.anyTypeElem + 1;&#xD;
+myComplexType.anyTypeElem - 1;&#xD;
+myComplexType.anyTypeElem == 1;&#xD;
+myComplexType.anyTypeElem * 1;&#xD;
+myComplexType.anyTypeElem.add(&quot;&quot;);&#xD;
+myComplexType.anyTypeElem.method();&#xD;
+myComplexType.anyTypeElem = myComplexType.any;&#xD;
+myComplexType.anyTypeElem = myComplexType.anySimpleTypeElem;&#xD;
+myComplexType.anyTypeElem = myComplexType.anyAttribute; &#xD;
+myComplexType.anyTypeElem = myInheritancePrimitiveTypes.myAnySimpleTypeSubClass;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="_S_33-iksEeCtMqNRsOlIzg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="305.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tebeooUnEeCrwu60fPv1Vw" Name="XSDAnySimpleTypePrimitiveType" xpdExt:Visibility="Private" iProcessExt:StepIndex="6" xpdExt:DisplayName="XSD Any Simple Type Primitive Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myComplexType.anySimpleTypeElem / 1;  &#xD;
+myComplexType.anySimpleTypeElem + 1;&#xD;
+myComplexType.anySimpleTypeElem - 1;&#xD;
+myComplexType.anySimpleTypeElem == 1;&#xD;
+myComplexType.anySimpleTypeElem * 1;&#xD;
+myComplexType.anySimpleTypeElem = address;&#xD;
+myComplexType.anySimpleTypeElem = ScriptUtil.copy(address);&#xD;
+myComplexType.anySimpleTypeElem.add(&quot;&quot;);&#xD;
+myComplexType.anySimpleTypeElem.method();&#xD;
+myComplexType.anySimpleTypeElem = myComplexType.any;&#xD;
+myComplexType.anySimpleTypeElem = myComplexType.anyTypeElem;&#xD;
+myComplexType.anySimpleTypeElem = myComplexType.anyAttribute;&#xD;
+myComplexType.anySimpleTypeElem = myInheritancePrimitiveTypes.myAnyTypeSubClass;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="_S_33-iksEeCtMqNRsOlIzg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="457.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="__DeCsIUnEeCrwu60fPv1Vw" Name="XSDAnyAttributePrimitiveType" xpdExt:Visibility="Private" iProcessExt:StepIndex="6" xpdExt:DisplayName="XSD Any Attribute Primitive Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">myComplexType.anyAttribute / 1;  &#xD;
+myComplexType.anyAttribute + 1;&#xD;
+myComplexType.anyAttribute - 1;&#xD;
+myComplexType.anyAttribute == 1;&#xD;
+myComplexType.anyAttribute * 1;&#xD;
+myComplexType.anyAttribute = &quot;&quot;;&#xD;
+myComplexType.anyAttribute = 1;&#xD;
+myComplexType.anyAttribute = fieldBoolean;&#xD;
+myComplexType.anyAttribute = address.streetName;&#xD;
+myComplexType.anyAttribute = myComplexType.anyTypeElem;&#xD;
+myComplexType.anyAttribute = myComplexType.anySimpleTypeElem;&#xD;
+myComplexType.anyAttribute = address;&#xD;
+myComplexType.anyAttribute = ScriptUtil.copy(address);&#xD;
+myComplexType.anyAttribute.add(&quot;&quot;);&#xD;
+myComplexType.anyAttribute.method();&#xD;
+myComplexType.anyAttribute = myComplexType.any; &#xD;
+myComplexType.anyAttribute = myInheritancePrimitiveTypes.myAnyTypeSubClass;&#xD;
+myComplexType.anyAttribute = myInheritancePrimitiveTypes.myAnySimpleTypeSubClass;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="72.0" LaneId="_S_33-iksEeCtMqNRsOlIzg" Width="113.0">
+              <xpdl2:Coordinates XCoordinate="618.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_S_339CksEeCtMqNRsOlIzg" xpdExt:DisplayName="" Name="" From="_S_338yksEeCtMqNRsOlIzg" To="_8yPR0YUlEeCyTaKNfcDtjA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_S_339SksEeCtMqNRsOlIzg" xpdExt:DisplayName="" Name="" From="_S_338SksEeCtMqNRsOlIzg" To="_S_338yksEeCtMqNRsOlIzg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_uP-3YIUnEeCrwu60fPv1Vw" xpdExt:DisplayName="" Name="" From="_8yPR0YUlEeCyTaKNfcDtjA" To="_tebeooUnEeCrwu60fPv1Vw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="__xSK8IUnEeCrwu60fPv1Vw" xpdExt:DisplayName="" Name="" From="_tebeooUnEeCrwu60fPv1Vw" To="__DeCsIUnEeCrwu60fPv1Vw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MuwG8IUoEeCrwu60fPv1Vw" xpdExt:DisplayName="" Name="" From="__DeCsIUnEeCrwu60fPv1Vw" To="_S_338iksEeCtMqNRsOlIzg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="9"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

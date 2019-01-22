@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns:fault="http://www.tibco.com/bx/_FgeWAOs4EeWM9Z8_2MBCaA/fault" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UC25_DataMapperForCatchAllErrorEventProcess2" targetNamespace="http://www.tibco.com/bx/_FgeWAOs4EeWM9Z8_2MBCaA/fault" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <message name="ErrorEventFault">
+    <part name="errorCode" type="xsd:string"/>
+    <part name="Parameter" type="xsd:string"/>
+  </message>
+  <portType name="UC25_DataMapperForCatchAllErrorEventProcess2">
+    <operation name="UC25_DataMapperForCatchAllErrorEventProcess2">
+      <fault message="fault:ErrorEventFault" name="fault_Error1"/>
+    </operation>
+  </portType>
+</definitions>

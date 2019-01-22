@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/XSDBOM_TLA01_SimpleElementTypes"
+	xmlns:tns="http://www.example.org/XSDBOM_TLA01_SimpleElementTypes"
+	elementFormDefault="qualified">
+
+	<!--
+		Tests 3.1 and 3.2 as described in 'BDS Support for Handling - Studio
+		BOM Import'
+	-->
+
+	<!-- Map to BOM Text -->
+	<element name="tleString" type="string" />
+	<element name="tleGDay" type="gDay" />
+	<element name="tleGMonth" type="gMonth" />
+	<element name="tleGMonthDay" type="gMonthDay" />
+	<element name="tleGYear" type="gYear" />
+	<element name="tleGYearMonth" type="gYearMonth" />
+	<element name="tleId" type="ID" />
+	<element name="tleIdRef" type="IDREF" />
+	<element name="tleIdRefs" type="IDREFS" />
+	<element name="tleLanguage" type="language" />
+	<element name="tleName" type="Name" />
+	<element name="tleNCName" type="NCName" />
+	<element name="tleNMToken" type="NMTOKEN" />
+	<element name="tleNMTokens" type="NMTOKENS" />
+	<element name="tleNormalizedString" type="normalizedString" />
+	<element name="tleQName" type="QName" />
+	<element name="tleENTITY" type="ENTITY" />
+	<element name="tleENTITIES" type="ENTITIES" />
+	<!-- <element name="tleAnySimpleType" type="anySimpleType" /> -->
+	<element name="tleToken" type="token" />
+
+	<!-- Maps to BOM Signed Integer -->
+	<element name="tleByte" type="byte" />
+	<element name="tleUnsignedByte" type="unsignedByte" />
+	<element name="tleShort" type="short" />
+	<element name="tleUnsignedShort" type="unsignedShort" />
+	<element name="tleInt" type="int" />
+
+	<!-- Maps to BOM Fixed length Integer -->
+	<element name="tleInteger" type="integer" />
+	<element name="tleLong" type="long" />
+	<element name="tleNegativeInteger" type="negativeInteger" />
+	<element name="tleNonNegativeInteger" type="nonNegativeInteger" />
+	<element name="tlePositiveInteger" type="positiveInteger" />
+	<element name="tleNonPositiveInteger" type="nonPositiveInteger" />
+	<element name="tleUnsignedInt" type="unsignedInt" />
+	<element name="tleUnsignedLong" type="unsignedLong" />
+
+	<!-- Maps to BOM Fixed Decimal -->
+	<element name="tleDecimal" type="decimal" />
+
+	<!-- Maps to BOM Floating point Decimal -->
+	<element name="tleFloat" type="float" />
+	<element name="tleDouble" type="double" />
+
+	<!-- Map to BOM Boolean -->
+	<element name="tleBoolean" type="boolean" />
+
+	<!-- Maps to BOM Date -->
+	<element name="tleDate" type="date" />
+
+	<!-- Maps to BOM Time -->
+	<element name="tleTime" type="time" />
+
+	<!-- Maps to BOM DateTime -->
+	<element name="tleDateTime" type="dateTime" />
+
+	<!-- Maps to BOM URI -->
+	<element name="tleAnyURI" type="anyURI" />
+
+	<!-- Maps to BOM Duration -->
+	<element name="tleDuration" type="duration" />
+
+
+</schema>

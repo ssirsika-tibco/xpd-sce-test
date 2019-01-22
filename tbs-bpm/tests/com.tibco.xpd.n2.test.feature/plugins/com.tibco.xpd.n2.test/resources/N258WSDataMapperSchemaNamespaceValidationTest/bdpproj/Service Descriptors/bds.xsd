@@ -1,0 +1,1348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by smorgan (Tibco Software Limited) --><xs:schema xmlns="http://api.bds.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.bds.tibco.com" version="1.0">
+	<!--Simple Types-->
+	<xs:simpleType name="AttributeTypeEnum">
+		<xs:annotation>
+			<xs:documentation>Attribute types</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ATTR_TEXT"/>
+			<xs:enumeration value="ATTR_ID"/>
+			<xs:enumeration value="ATTR_URI"/>
+			<xs:enumeration value="ATTR_DATE"/>
+			<xs:enumeration value="ATTR_TIME"/>
+			<xs:enumeration value="ATTR_DATETIME"/>
+			<xs:enumeration value="ATTR_DATETIMETZ"/>
+			<xs:enumeration value="ATTR_DURATION"/>
+			<xs:enumeration value="ATTR_INTEGER"/>
+			<xs:enumeration value="ATTR_DECIMAL"/>
+			<xs:enumeration value="ATTR_BOOLEAN"/>
+			<xs:enumeration value="ATTR_ENUM"/>
+			<xs:enumeration value="OBJECT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CaseModelVersionStateEnum">
+		<xs:annotation>
+			<xs:documentation>Enumerated value specifying state of CaseModelVersion.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="INITIAL"/>
+			<xs:enumeration value="INSTALLED"/>
+			<xs:enumeration value="PENDING_DBA_ACTION_TO_UNINSTALL"/>
+			<xs:enumeration value="PENDING_DBA_ACTION_TO_INSTALL"/>
+			<xs:enumeration value="FAILED_TO_UNINSTALL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DBScriptActionEnum">
+		<xs:annotation>
+			<xs:documentation>Enumerated value specifying state changing actions on Case Model</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CREATE_SCRIPT_EXECUTED"/>
+			<xs:enumeration value="UPDATE_SCRIPT_EXECUTED"/>
+			<xs:enumeration value="DROP_SCRIPT_EXECUTED"/>
+			<xs:enumeration value="FREEZE_CASE_DATA_MODEL"/>
+			<xs:enumeration value="UNFREEZE_CASE_DATA_MODEL"/>
+			<xs:enumeration value="CLEANUP_COMPLETE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SearchOperatorEnum">
+		<xs:annotation>
+			<xs:documentation>Search Operators</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EQ"/>
+			<xs:enumeration value="NEQ"/>
+			<xs:enumeration value="GT"/>
+			<xs:enumeration value="GTE"/>
+			<xs:enumeration value="LT"/>
+			<xs:enumeration value="LTE"/>
+			<xs:enumeration value="SIZE_EQ"/>
+			<xs:enumeration value="SIZE_NEQ"/>
+			<xs:enumeration value="SIZE_GT"/>
+			<xs:enumeration value="SIZE_GTE"/>
+			<xs:enumeration value="SIZE_LT"/>
+			<xs:enumeration value="SIZE_LTE"/>
+			<xs:enumeration value="TYPE_OF"/>
+			<xs:enumeration value="NULL"/>
+			<xs:enumeration value="NOT_NULL"/>
+			<xs:enumeration value="BETWEEN"/>
+			<xs:enumeration value="NOT_BETWEEN"/>
+			<xs:enumeration value="IN"/>
+			<xs:enumeration value="NOT_IN"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SortOrderEnum">
+		<xs:annotation>
+			<xs:documentation>Search Sort Order</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ASC"/>
+			<xs:enumeration value="DESC"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ViewDetailsRequirementEnum">
+		<xs:annotation>
+			<xs:documentation>Determines the required level of detail in a getDataViewDetails request</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NAME"/>
+			<xs:enumeration value="NAME_AND_DESCRIPTION"/>
+			<xs:enumeration value="NAME_AND_PARAMETERS"/>
+			<xs:enumeration value="NAME_DESCRIPTION_AND_PARAMETERS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ParameterValueMultiplicityEnum">
+		<xs:annotation>
+			<xs:documentation>Represents the number of values expected in a named parameter assignment</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ONE"/>
+			<xs:enumeration value="TWO"/>
+			<xs:enumeration value="MANY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Complex Types-->
+	<xs:complexType name="AndGroup">
+		<xs:annotation>
+			<xs:documentation>Search And Operator Group</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ConditionGroup"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AppDetails">
+		<xs:annotation>
+			<xs:documentation>Application Details type (name and version)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="majorVersion" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttributeInfo">
+		<xs:annotation>
+			<xs:documentation>Attribute information (part of CaseClassInfo)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="path" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>an attribute name, or dot-separated if the attribute belongs to a contained global object (and includeGlobalObjectAttributes=true or omitted in the request). Each dot-separated fragment will be followed by [] if it is multiplicity-many.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="label" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>label of the attribute, as defined in the BOM. Only included if includeLabels=true in the request and the application DAA was created in AMX-BPM 3.1 or later.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="AttributeTypeEnum"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="enumLiteral" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttributeSearchCondition">
+		<xs:annotation>
+			<xs:documentation>Search Condition</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="SearchCondition">
+				<xs:sequence>
+					<xs:element name="attrPath" type="xs:string"/>
+					<xs:element name="operator" type="SearchOperatorEnum"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Only required in conjunction with certain operators</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="parameterName" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Allows a parameter name to be assigned that will enable the value(s) for 'value' to be overridden at execution-time</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CaseClassDetails">
+		<xs:annotation>
+			<xs:documentation>Details of a case class: its name and major version</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseClass" type="xs:string"/>
+			<xs:element name="majorVersion" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseClassInfo">
+		<xs:annotation>
+			<xs:documentation>Information about a case class: its name and attribute details</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>fully-qualified class name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="label" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>label of the class, as defined in the BOM. Only included if includeLabels=true in the request and the application DAA was created in AMX-BPM 3.1 or later.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="attributeInfo" type="AttributeInfo">
+				<xs:annotation>
+					<xs:documentation>Only included if includeAttributes=true (or omitted) in the request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="appDetails" type="AppDetails">
+				<xs:annotation>
+					<xs:documentation>Only included if includeAppDetails=true in the request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseClassInfosForApp">
+		<xs:sequence>
+			<xs:element name="appDetails" type="AppDetails"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="caseClassInfo" type="CaseClassInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseCriteriaType">
+		<xs:annotation>
+			<xs:documentation>DQL Criteria for find and navigate by Criteria</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="queryString" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="namedParameterAssignment" type="NamedParameterAssignment">
+				<xs:annotation>
+					<xs:documentation>For each condition that has an associated named parameter, a value must be specified here, except where 
+ condition has a default value for the parameter, in which case overriding it here is optional. This capability would not generally be used, but it is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="paginationOptions" type="PaginationOptions"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseDataType">
+		<xs:annotation>
+			<xs:documentation>Case Reference and Case Payload pair used by read and update operations</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseReference" type="xs:string"/>
+			<xs:element minOccurs="1" name="casePayload" type="xs:string"/>
+			<xs:element minOccurs="0" name="caseMetaData" type="CaseMetaData">
+				<xs:annotation>
+					<xs:documentation>The details about the case state (inc. The name of the attribute that contains the case state)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseModelBasicInfoType">
+		<xs:annotation>
+			<xs:documentation>Case Model Basic Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseModelID" type="xs:long"/>
+			<xs:element name="appName" type="xs:string"/>
+			<xs:element name="majorVersion" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseModelType">
+		<xs:annotation>
+			<xs:documentation>Case Model Full Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseModelID" type="xs:long"/>
+			<xs:element name="appName" type="xs:string"/>
+			<xs:element name="currentVersion" type="xs:string"/>
+			<xs:element minOccurs="0" name="installedVersion" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The version that is currently installed - meaning that all the DB scripts have been run, and is valid to have data present at this version.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="datetimeDeploymentUpdated" type="xs:dateTime"/>
+			<xs:element name="createScript" type="xs:string"/>
+			<xs:element minOccurs="0" name="updateScript" type="xs:string"/>
+			<xs:element minOccurs="0" name="dropScript" type="xs:string"/>
+			<xs:element name="frozenDetails" type="FreezeDetailsType">
+				<xs:annotation>
+					<xs:documentation>Details about if the model has been frozen</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="state" type="CaseModelVersionStateEnum"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="ConditionGroup">
+		<xs:annotation>
+			<xs:documentation>Search Abstract Condition</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="LogicalOperator">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="2" name="condition" type="SearchCondition"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NamedParameterMetadata">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="type" type="AttributeTypeEnum">
+				<xs:annotation>
+					<xs:documentation>A member of AttributeTypeEnum, e.g. ATTR_TEXT or ATTR_INTEGER</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="multiplicity" type="ParameterValueMultiplicityEnum">
+				<xs:annotation>
+					<xs:documentation>Number of values required for the parameter (ONE, TWO or MANY).  If omitted, assume ONE.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="enumLiteral" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>If type=ATTR_ENUM, one or more enumLiteral elements will give the possible values</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreateDataViewRequestType">
+		<xs:annotation>
+			<xs:documentation>Request type for createDataView</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="viewSpecification" type="ViewSpecification"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="category" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreateDataViewResponseType">
+		<xs:annotation>
+			<xs:documentation>Response type for createDataView</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="viewID" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DeleteDataViewRequestType">
+		<xs:annotation>
+			<xs:documentation>Request type for deleteDataView</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:annotation>
+				<xs:documentation>Identify the view to delete by either id or name</xs:documentation>
+			</xs:annotation>
+			<xs:element name="viewID" type="xs:long"/>
+			<xs:element name="viewName" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="DatabaseScriptDetailsType">
+		<xs:annotation>
+			<xs:documentation>Details of all database scripts for a given version of the case model</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="version" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Full case model version of this set of DB scripts e.g. 1.2.3.4</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="revision" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The revision representing the order in which the audit entries were created (lowest value is the oldest entry)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="createScript" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The database create script</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="updateScript" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The database update script</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="dropScript" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The database drop script</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="operationDetails" type="OperationDetailsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EditDataViewRequestType">
+		<xs:annotation>
+			<xs:documentation>Request type for editDataView</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="viewID" type="xs:long"/>
+			<xs:element name="viewSpecification" type="ViewSpecification"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="category" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FreezeDetailsType">
+		<xs:annotation>
+			<xs:documentation>Details about if a given model is frozen and if so by who</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="operationDetails" type="OperationDetailsType"/>
+		</xs:sequence>
+		<xs:attribute name="isFrozen" type="xs:boolean" use="required">
+			<xs:annotation>
+				<xs:documentation>True if the case model is frozen and can not be upgrade.  This prevents a case model being updated</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="GetAuditInfoRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required to retrieve a case model's audit details</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="caseModelID" type="xs:long" use="required">
+			<xs:annotation>
+				<xs:documentation>The internal ID of the case model that the audit information should be retrieved.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="GetAuditInfoResponseType">
+		<xs:annotation>
+			<xs:documentation>Details of all audit details for a given case model</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="auditEntry" type="DatabaseScriptDetailsType">
+				<xs:annotation>
+					<xs:documentation>Sequence of all the audit entries for a given case model</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseModelBasicInfoRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required to retrieve Basic Case Model information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>Leaving appName empty would return all case models</xs:documentation>
+			</xs:annotation>
+			<xs:element minOccurs="0" name="appName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseModelBasicInfoResponseType">
+		<xs:annotation>
+			<xs:documentation>Details (basic) of selected Case Model(s)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="caseModel" type="CaseModelBasicInfoType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseModelRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required to retrieve Full Case Model information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>Leaving appName empty would return all case models</xs:documentation>
+			</xs:annotation>
+			<xs:element minOccurs="0" name="appName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseModelResponseType">
+		<xs:annotation>
+			<xs:documentation>Details (full) of selected Case Model(s)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="caseModel" type="CaseModelType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseClassInfoRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required to retrieve information about Case Classes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identify application either by name/version combo or case model ID. If omitted, information for all apps is returned.</xs:documentation>
+				</xs:annotation>
+				<xs:element name="appDetails" type="AppDetails"/>
+				<xs:element name="caseModelID" type="xs:long"/>
+			</xs:choice>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="caseClass" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>If app details are provided, then caseClass can be set to one or more case class names to get info for  specific class(es) rather than all for the app. Note: This is ignored if no app details are provided.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute default="false" name="includeLabels" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Set true to include labels as well as names in the response (default: false)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute default="true" name="includeAttributes" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Set true to include attribute details (rather than just classes) in the response (default: true)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute default="true" name="includeGlobalObjectAttributes" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Set true to include attributes of contained global objects, as well as the case object itself (default: true). Ignored unless includeAttributes=true.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute default="false" name="includeAppDetails" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Set true to include app details with each CaseClassInfo in the response. Generally set only when retrieving info for multiple apps. (default: false)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="GetCaseClassInfoResponseType">
+		<xs:annotation>
+			<xs:documentation>Details of selected Case Classes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="caseClassInfo" type="CaseClassInfo">
+				<xs:annotation>
+					<xs:documentation>Will be sorted by label (if includeLabels=true). Regardless, will be then sorted on name, app name and app majorVersion.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseReferencesForDataViewRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required to perform a search/view</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Specify either a view ID or name to evaluate a previously saved view, or a number of conditions on a case class that define an ad-hoc view for immediate evluation</xs:documentation>
+				</xs:annotation>
+				<xs:element name="viewID" type="xs:long"/>
+				<xs:element name="viewName" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Globally-unique view name</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="viewDetails" type="ViewDetails"/>
+			</xs:choice>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="namedParameterAssignment" type="NamedParameterAssignment">
+				<xs:annotation>
+					<xs:documentation>For each condition that has an associated named parameter, a value must be specified here, except where that condition has a default value for the parameter, in which case overriding it here is optional. This capability would not generally be used for ad-hoc views, but it is allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="sortAttribute" type="SortAttribute">
+				<xs:annotation>
+					<xs:documentation>Allows sorting behaviour to be defined for ad-hoc views, or overridden for saved views. If omitted for an ad-hoc view, default (GORef) sorting will occur; For a saved view, sorting specified at the time of view creation will be used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="paginationOptions" type="PaginationOptions"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetDataViewCategoriesRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required to obtain category details</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="category" type="CategorySearchDetails"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CategorySearchDetails">
+		<xs:annotation>
+			<xs:documentation>Parameters for searching for category(s)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Slash-separated path to the category in the hierarchy. If omitted, will match all top-level categories</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element default="0" minOccurs="0" name="childDepth" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Number of levels of child categories to get beneath the matching category(s). -1 for unlimited depth. Omit to get no children.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element default="false" minOccurs="0" name="childrenOnly" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>In conjunction with childDepth, if set true, this omits the category itself and only obtains children.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Uncategorized">
+		<xs:annotation>
+			<xs:documentation>Represents a Data View not belonging to a category.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="GetDataViewCategoriesResponseType">
+		<xs:annotation>
+			<xs:documentation>Details of categories</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="category" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetDataViewDetailsRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required to retrieve Data View(s)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Identify a single view either by id or name, or include wildcards in the name to match many. Alternatively, specify an app, case class, or category to get all associated views, or uncategorized to get all views that do not belong to any category.</xs:documentation>
+				</xs:annotation>
+				<xs:element name="viewID" type="xs:long"/>
+				<xs:element name="viewName" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>May use the %_*? wildcard characters (escape with '\'), so can match multiple views</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="appDetails" type="AppDetails"/>
+				<xs:element name="caseClassDetails" type="CaseClassDetails"/>
+				<xs:element maxOccurs="unbounded" name="category" type="CategorySearchDetails"/>
+				<xs:element name="uncategorized" type="Uncategorized">
+					<xs:annotation>
+						<xs:documentation>Empty element indicates that views that do NOT belong to any category should be matched.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element minOccurs="0" name="viewDetailsRequirement" type="ViewDetailsRequirementEnum">
+				<xs:annotation>
+					<xs:documentation>Determines which elements are required for each view in the response: Either NAME,  NAME_AND_DESCRIPTION, NAME_AND_PARAMETERS or NAME_DESCRIPTION_AND_PARAMETERS.  If this element is omitted, then all details will be returned (except parameters as they are present in the condition tree itself)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element default="false" minOccurs="0" name="includeAppDetails" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>If present and set true, this will cause inclusion of an 'appDetails' element within each 'result' element of the response.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="includeCategories" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>If present and set true, this will cause inclusion of which category or categories each view belongs to (default: false).  If the caller intends to subsequently update a view via the editDataView API, then this information will be required.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetDataViewDetailsResponseType">
+		<xs:annotation>
+			<xs:documentation>Details of selected Data Views</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="ViewSpecificationWithID"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="LogicalOperator">
+		<xs:annotation>
+			<xs:documentation>Search - abstract operator</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="SearchCondition"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LinkResponseType">
+		<xs:annotation>
+			<xs:documentation>Response type for linking (link/unlink) operations</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseReference" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" name="targetCaseReference" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NamedParameterAssignment">
+		<xs:annotation>
+			<xs:documentation>Search - parameter assignment</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyDDLExecutionRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required for NotifyDDLExecution operation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseModelID" type="xs:long"/>
+			<xs:element name="databaseScriptAction" type="DBScriptActionEnum">
+				<xs:annotation>
+					<xs:documentation>This can take the following values:
+CREATE_SCRIPT_EXECUTED - Record that the create database script has been run
+UPDATE_SCRIPT_EXECUTED - Record that the update database script has been run
+DROP_SCRIPT_EXECUTED - Record that the drop database script has been run
+FREEZE_CASE_DATA_MODEL - Freeze the model to stop further changes
+UNFREEZE_CASE_DATA_MODEL - Unfreeze the model to allow further changes
+CLEANUP_COMPLETE - Notify that a cleanup operation has been completed
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="skipValidation" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Skip any validation that the DDL has actually been run.  Default for this is to verify it has been run.  Set to TRUE if it is required to disable this validation check.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="OperationDetails" type="OperationDetailsType">
+				<xs:annotation>
+					<xs:documentation>Details about why the operation was performed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OperationDetailsType">
+		<xs:annotation>
+			<xs:documentation>Details about an operation that was made, including who made it, when it was done and why</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="username">
+				<xs:annotation>
+					<xs:documentation>Name or username of the user conducting the operation</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="225"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="comment">
+				<xs:annotation>
+					<xs:documentation>Description of why the operation was done (Maximum length: 400 characters)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="400"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="timeOfOperation" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>When the operation was conducted - if not set when performing an operation, the current time will be recorded</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="userOperation" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>If the operation was performed by a user or automatically by the system (If unset, deemed to be true - i.e. user operation) </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="OrGroup">
+		<xs:annotation>
+			<xs:documentation>Search - Logical OR operator</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ConditionGroup"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PaginationOptions">
+		<xs:annotation>
+			<xs:documentation>Search - Pagination options</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="startPosition" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>0-based</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="maxResults" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>-1 means return all</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="SearchCondition">
+		<xs:annotation>
+			<xs:documentation>Search - top level condition</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="SortAttribute">
+		<xs:annotation>
+			<xs:documentation>Search - sort attribute</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="attrPath" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Must be a multiplicity-one attribute of the case class or of a singularly-contained global class</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="order" type="SortOrderEnum"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SearchResults">
+		<xs:annotation>
+			<xs:documentation>Search - Results</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="caseReference" type="xs:string"/>
+			<xs:element minOccurs="0" name="hasMoreResults" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Only included if the request limited the results via pagination options</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UpdateDBScriptsRequestType">
+		<xs:annotation>
+			<xs:documentation>Details required to a update DB Script</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseModelID" type="xs:long"/>
+			<xs:element minOccurs="0" name="createScript" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The database create script to be updated</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="updateScript" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The database update script to be updated</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="dropScript" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The database drop script to be updated</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="operationDetails" type="OperationDetailsType">
+				<xs:annotation>
+					<xs:documentation>Details about why the operation was performed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ViewDetails">
+		<xs:annotation>
+			<xs:documentation>Search - details of a view</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseClassDetails" type="CaseClassDetails"/>
+			<xs:element minOccurs="0" name="condition" type="SearchCondition"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ViewSpecification">
+		<xs:annotation>
+			<xs:documentation>View Specification Detail</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="caseClassDetails" type="CaseClassDetails"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element minOccurs="0" name="description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Arbitrary text providing a 'friendly' description of the view</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="condition" type="SearchCondition"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="sortAttribute" type="SortAttribute">
+				<xs:annotation>
+					<xs:documentation>If omitted, results will be in ascending case reference order, unless overriden at evaluation time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ViewSpecificationWithID">
+		<xs:annotation>
+			<xs:documentation>One of these will be returned for each matching view, in response to a getDataViewDetails call</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="viewID" type="xs:long"/>
+			<xs:element name="specification" type="ViewSpecification">
+				<xs:annotation>
+					<xs:documentation>Some elements within the ViewSpecification may be missing depending on the value of the viewDetailsRequirement element in the request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="appDetails" type="AppDetails"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter" type="NamedParameterMetadata">
+				<xs:annotation>
+					<xs:documentation>Named parameters and their data types. Only present if requested via viewDetailsRequirement in request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="category" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The category or categories that this view belongs to. Only present if includeCategories=true in the request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseMetaData">
+		<xs:annotation>
+			<xs:documentation>Details about the case state</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="stateName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The name of the attribute that contains the case state</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseSummaryRequestType">
+		<xs:annotation>
+			<xs:documentation>Case Reference to get the summary information for</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="caseReference" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="includeLabelAndType" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>If true, then also include details about the label and type for the attribute in the response. (Default = false - no label or type data returned)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="GetCaseSummaryResponseType">
+		<xs:annotation>
+			<xs:documentation>Case summary information for a given case reference</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="caseReferenceDetails" type="CaseReferenceWithSummaryDetailsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseSummaryDetailsType">
+		<xs:annotation>
+			<xs:documentation>Given set of details for a case summary</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The name of the attribute </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="label" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The label of the attribute</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="value" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The value of the attribute, if it has a value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="type" type="AttributeTypeEnum">
+				<xs:annotation>
+					<xs:documentation>The type of the attribute</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="isCaseIdentifier" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True if the element is a case identifier (False if not set)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isCompositeCaseIdentifier" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True if the element is a composite case identifier (False if not set)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isState" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True if the element is a state (False if not set)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CaseReferenceWithSummaryDetailsType">
+		<xs:annotation>
+			<xs:documentation>Case Reference and it's summary details</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caseReference" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="details" type="CaseSummaryDetailsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Request Objects-->
+	<xs:element name="CreateCaseRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for createCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="caseType" type="xs:string"/>
+				<xs:element name="caseModelVersion" type="xs:string"/>
+				<xs:element maxOccurs="unbounded" name="casePayload" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateDataViewRequest" type="CreateDataViewRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for createDataView Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DeleteCaseByCIDRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for deleteCaseByCID Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="caseModelVersion" type="xs:string"/>
+				<xs:element name="caseType" type="xs:string"/>
+				<xs:element maxOccurs="unbounded" name="casePayload" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeleteCaseByRefRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for deleteCaseByRef Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseReference" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeleteDataViewRequest" type="DeleteDataViewRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for deleteDataView Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="EditDataViewRequest" type="EditDataViewRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for editDataView Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FindAllCasesRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for findAllCases Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="caseModelVersion" type="xs:string"/>
+				<xs:element name="caseType" type="xs:string"/>
+				<xs:element minOccurs="0" name="queryOptions" type="PaginationOptions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FindCaseByCIDRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for findCaseByCID Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="caseModelVersion" type="xs:string"/>
+				<xs:element name="caseType" type="xs:string"/>
+				<xs:element name="casePayload" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FindCaseByCriteriaRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for findCaseByCriteria Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="caseModelVersion" type="xs:string"/>
+				<xs:element name="caseType" type="xs:string"/>
+				<xs:element name="criteria" type="CaseCriteriaType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FindCaseByExampleRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for findCaseByExample Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="caseModelVersion" type="xs:string"/>
+				<xs:element name="caseType" type="xs:string"/>
+				<xs:element name="casePayload" type="xs:string"/>
+				<xs:element minOccurs="0" name="queryOptions" type="PaginationOptions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetAuditInfoRequest" type="GetAuditInfoRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for getAuditInfo Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseClassInfoRequest" type="GetCaseClassInfoRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for getCaseClassInfo Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseModelBasicInfoRequest" type="GetCaseModelBasicInfoRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for getCaseModelBasicInfo Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseModelRequest" type="GetCaseModelRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for getCaseModel Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseReferencesForDataViewRequest" type="GetCaseReferencesForDataViewRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for getCaseReferencesForDataView Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetDataViewDetailsRequest" type="GetDataViewDetailsRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for getDataViewDetails Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetDataViewCategoriesRequest" type="GetDataViewCategoriesRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for getCaseDataViewCategories Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="LinkCaseRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for linkCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="sourceCaseReference" type="xs:string"/>
+				<xs:element maxOccurs="unbounded" name="targetCaseReference" type="xs:string"/>
+				<xs:element name="targetRoleName" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LockCaseRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for lockCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseReferences" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NavigateCaseByCriteriaRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for navigateCaseByCriteria Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="sourceCaseReference" type="xs:string"/>
+				<xs:element name="targetRoleName" type="xs:string"/>
+				<xs:element name="targetCaseCriteria" type="CaseCriteriaType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NavigateCaseRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for navigateCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="sourceCaseReference" type="xs:string"/>
+				<xs:element name="targetRoleName" type="xs:string"/>
+				<xs:element minOccurs="0" name="queryOptions" type="PaginationOptions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NotifyDDLExecutionRequest" type="NotifyDDLExecutionRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for notifyDDLExecution Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReadCaseRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for readCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseReference" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="includeCaseMetaData" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>If the case meta data (including the name of the attribute containing the state) should be included in the response (Default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UnlinkCaseRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for unlinkCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="sourceCaseReference" type="xs:string"/>
+				<xs:element maxOccurs="unbounded" name="targetCaseReference" type="xs:string"/>
+				<xs:element name="targetRoleName" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateCaseRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for updateCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseData" type="CaseDataType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateCasesWithLockRequest">
+		<xs:annotation>
+			<xs:documentation>Request Element for updateCasesWithLock Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseData" type="CaseDataType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateDBScriptsRequest" type="UpdateDBScriptsRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for updateDBScripts Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseSummaryRequest" type="GetCaseSummaryRequestType">
+		<xs:annotation>
+			<xs:documentation>Request Element for getCaseSummary Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!--Response Objects-->
+	<xs:element name="CreateCaseResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for createCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseReference" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateDataViewResponse" type="CreateDataViewResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for createDataView Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DeleteCaseByCIDResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for deleteCaseByCID Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DeleteCaseByRefResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for deleteCaseByRef Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DeleteDataViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for deleteDataView Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="EditDataViewResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for editDataView Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FindAllCasesResponse" type="SearchResults">
+		<xs:annotation>
+			<xs:documentation>Response Element for findAllCases Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FindCaseByCIDResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for findCaseByCID Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="caseReference" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FindCaseByCriteriaResponse" type="SearchResults">
+		<xs:annotation>
+			<xs:documentation>Response Element for findCaseByCriteria Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FindCaseByExampleResponse" type="SearchResults">
+		<xs:annotation>
+			<xs:documentation>Response Element for findCaseByExample Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetAuditInfoResponse" type="GetAuditInfoResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for getAuditInfo Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseClassInfoResponse" type="GetCaseClassInfoResponseType">
+		<xs:annotation>
+			<xs:documentation>Response element for getCaseClassInfo Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseModelBasicInfoResponse" type="GetCaseModelBasicInfoResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for getCaseModelBasicInfo Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseModelResponse" type="GetCaseModelResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for getCaseModelversionInfo Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseReferencesForDataViewResponse" type="SearchResults">
+		<xs:annotation>
+			<xs:documentation>Response element for getCaseReferencesForDataView Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetDataViewCategoriesResponse" type="GetDataViewCategoriesResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for getCaseDataViewCategories Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetDataViewDetailsResponse" type="GetDataViewDetailsResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for getDataViewDetails Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="LinkCaseResponse" type="LinkResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for linkCase Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="LockCaseResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for lockCase Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="NavigateCaseByCriteriaResponse" type="SearchResults">
+		<xs:annotation>
+			<xs:documentation>Response Element for navigateCaseByCriteria Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="NavigateCaseResponse" type="SearchResults">
+		<xs:annotation>
+			<xs:documentation>Response Element for navigateCase Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="NotifyDDLExecutionResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for notifyDDLExecution Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReadCaseResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for readCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseData" type="CaseDataType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UnlinkCaseResponse" type="LinkResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for unlinkCase Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UpdateCaseResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for updateCase Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseReference" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateCasesWithLockResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for updateCasesWithLock Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="caseReference" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateDBScriptsResponse">
+		<xs:annotation>
+			<xs:documentation>Response Element for updateDBScripts Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ViewDetails" type="ViewDetails">
+		<xs:annotation>
+			<xs:documentation>Details of a data view: the case class to which it relates and search condition(s)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetCaseSummaryResponse" type="GetCaseSummaryResponseType">
+		<xs:annotation>
+			<xs:documentation>Response Element for getCaseSummary Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

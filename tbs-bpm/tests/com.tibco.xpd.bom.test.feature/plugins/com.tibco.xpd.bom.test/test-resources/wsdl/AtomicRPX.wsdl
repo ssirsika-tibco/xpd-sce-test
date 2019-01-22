@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:jms="http://www.tibco.com/namespaces/ws/2004/soap/binding/JMS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.t-mobile.com/atomic/rpx/services" xmlns:msg00="http://www.t-mobile.com/esp/atomic/rpx/QueryCoupons" xmlns:msg01="http://www.t-mobile.com/esp/atomic/rpx/ChangeCouponStatus" xmlns:types="http://www.t-mobile.com/esp/atomic/rpx/types" targetNamespace="http://www.t-mobile.com/atomic/rpx/services">
+	<wsdl:import namespace="http://www.t-mobile.com/esp/atomic/rpx/QueryCoupons" location="AtomicRPX/AtomicRPXQueryCoupons.xsd"/>
+	<wsdl:import namespace="http://www.t-mobile.com/esp/atomic/rpx/ChangeCouponStatus" location="AtomicRPX/inner/AtomicRPXChangeCouponStatus.xsd"/>
+	<wsdl:import namespace="http://www.t-mobile.com/esp/atomic/rpx/types" location="AtomicRPX/inner/inner2/AtomicRPXTypes.xsd"/>
+	<wsdl:message name="errorInfo">
+<!--		<wsdl:part name="errorInfo" element="types:errorInfo"/> -->
+		<wsdl:part name="errorInfo" type="types:errorInfo"/>
+	</wsdl:message>
+	<wsdl:message name="queryCouponsRequest">
+<!--		<wsdl:part name="queryCouponsRequest" element="msg00:queryCouponsRequest"/> -->
+		<wsdl:part name="queryCouponsRequest" type="msg00:queryCouponsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="queryCouponsResponse">
+<!--		<wsdl:part name="queryCouponsResponse" element="msg00:queryCouponsResponse"/> -->
+		<wsdl:part name="queryCouponsResponse" type="msg00:queryCouponsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="changeCouponStatusRequest">
+<!--		<wsdl:part name="changeCouponStatusRequest" element="msg01:changeCouponStatusRequest"/> -->
+		<wsdl:part name="changeCouponStatusRequest" type="msg01:changeCouponStatusRequest"/>
+	</wsdl:message>
+	<wsdl:message name="changeCouponStatusResponse">
+<!--		<wsdl:part name="changeCouponStatusResponse" element="msg01:changeCouponStatusResponse"/> -->
+		<wsdl:part name="changeCouponStatusResponse" type="msg01:changeCouponStatusResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="AtomicRPXPort">
+		<wsdl:operation name="queryCoupons">
+			<wsdl:input message="tns:queryCouponsRequest"/>
+			<wsdl:output message="tns:queryCouponsResponse"/>
+			<wsdl:fault name="errorInfo" message="tns:errorInfo"/>
+		</wsdl:operation>
+		<wsdl:operation name="changeCouponStatus">
+			<wsdl:input message="tns:changeCouponStatusRequest"/>
+			<wsdl:output message="tns:changeCouponStatusResponse"/>
+			<wsdl:fault name="errorInfo" message="tns:errorInfo"/>
+		</wsdl:operation>
+		<!-- save for later 
+        <wsdl:operation name="querySubscriberInfo">
+            <wsdl:input message="tns:querySubscriberInfoRequest"/>
+            <wsdl:output message="tns:querySubscriberInfoResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="useCoupons">
+            <wsdl:input message="tns:useCouponsRequest"/>
+            <wsdl:output message="tns:useCouponsResponse"/>
+            <wsdl:fault name="errorInfo" message="tns:errorInfo"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="querySubscriberBalance">
+            <wsdl:input message="tns:querySubscriberBalanceRequest"/>
+            <wsdl:output message="tns:querySubscriberBalanceResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+    -->
+		<!-- not used yet 
+        <wsdl:operation name="unReserveCoupons">
+            <wsdl:input message="tns:unReserveCouponsRequest"/>
+            <wsdl:output message="tns:unReserveCouponsResponse"/>
+            <wsdl:fault name="errorInfo" message="tns:errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="stackCoupon">
+            <wsdl:input message="tns:stackCouponRequest"/>
+            <wsdl:output message="tns:stackCouponResponse"/>
+            <wsdl:fault name="errorInfo" message="tns:errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="reserveStack">
+            <wsdl:input message="tns:reserveStackRequest"/>
+            <wsdl:output message="tns:reserveStackResponse"/>
+            <wsdl:fault name="errorInfo" message="tns:errorInfo"/>
+        </wsdl:operation>  
+        -->
+		<!-- not used yet 
+        <wsdl:operation name="reserveCoupons">
+            <wsdl:input message="tns:reserveCouponsRequest"/>
+            <wsdl:output message="tns:reserveCouponsResponse"/>
+            <wsdl:fault name="errorInfo" message="tns:errorInfo"/>
+        </wsdl:operation>
+        -->
+		<!-- not used yet 
+        <wsdl:operation name="redeemCoupons">
+            <wsdl:input message="tns:redeemCouponsRequest"/>
+            <wsdl:output message="tns:redeemCouponsResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="refillHistory">
+            <wsdl:input message="tns:refillHistoryRequest"/>
+            <wsdl:output message="tns:refillHistoryResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+        -->
+		<!--  These operations are not needed at this time
+        
+        <wsdl:operation name="queryEligiblePrepaidRatePlans">
+            <wsdl:input message="tns:queryEligiblePrepaidRatePlansRequest"/>
+            <wsdl:output message="tns:queryEligiblePrepaidRatePlansResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="changePrepaidRatePlan">
+            <wsdl:input message="tns:changePrepaidRatePlanRequest"/>
+            <wsdl:output message="tns:changePrepaidRatePlanResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSubscriberPreferences">
+            <wsdl:input message="tns:updateSubscriberPreferencesRequest"/>
+            <wsdl:output message="tns:updateSubscriberPreferencesResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="validatePrepaidKitItems">
+            <wsdl:input message="tns:validatePrepaidKitItemsRequest"/>
+            <wsdl:output message="tns:validatePrepaidKitItemsResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="validatePrepaidDealer">
+            <wsdl:input message="tns:validatePrepaidDealerRequest"/>
+            <wsdl:output message="tns:validatePrepaidDealerResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="activatePrepaidSubscriber">
+            <wsdl:input message="tns:activatePrepaidSubscriberRequest"/>
+            <wsdl:output message="tns:activatePrepaidSubscriberResponse"/>
+            <wsdl:fault message="tns:errorInfo" name="errorInfo"/>
+        </wsdl:operation>
+        <wsdl:operation name="addSubscriberToWipAndSwitch">
+            <wsdl:input message="tns:addSubscriberToWipAndSwitchRequest"/>
+            <wsdl:output message="tns:asynchResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="changePrepaidWIPSubscriber">
+            <wsdl:input message="tns:changePrepaidWIPSubscriberRequest"/>
+            <wsdl:output message="tns:asynchResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="changePrepaidWIPStatus">
+            <wsdl:input message="tns:changePrepaidWIPStatusRequest"/>
+            <wsdl:output message="tns:asynchResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="processAsynchJob">
+            <wsdl:input message="tns:processAsynchJobRequest"/>
+            <wsdl:output message="tns:asynchResponse"/>
+        </wsdl:operation>
+        -->
+	</wsdl:portType>
+	<wsdl:binding name="AtomicRPXBinding" type="tns:AtomicRPXPort">
+		<soap:binding style="document" transport="http://www.tibco.com/namespaces/ws/2004/soap/binding/JMS"/>
+		<jms:binding messageFormat="text"/>
+		<jms:connectionFactory>FTQueueConnectionFactory</jms:connectionFactory>
+		<jms:targetAddress destination="queue">TMOBILE.ESP.WRAPPER.RPX.SOAP.IN.QUEUE</jms:targetAddress>
+		<wsdl:operation name="queryCoupons">
+<!--			<soap:operation soapAction="urn:queryCoupons" style="document"/> -->
+		<soap:operation style="document"/>
+			<wsdl:input>
+				<soap:body parts="queryCouponsRequest" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="queryCouponsResponse" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="errorInfo">
+				<soap:fault name="errorInfo" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="changeCouponStatus">
+<!--			<soap:operation soapAction="urn:changeCouponStatus" style="document"/> -->
+		<soap:operation style="document"/>
+			<wsdl:input>
+				<soap:body parts="changeCouponStatusRequest" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="changeCouponStatusResponse" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="errorInfo">
+				<soap:fault name="errorInfo" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- save for later         
+        <wsdl:operation name="useCoupons">
+            <soap:operation soapAction="urn:useCoupons" style="document"/>
+            <wsdl:input>
+                <soap:body parts="useCouponsRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="useCouponsResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="querySubscriberBalance">
+            <soap:operation style="document" soapAction="urn:querySubscriberBalance"/>
+            <wsdl:input >
+                <soap:body use="literal" parts="querySubscriberBalanceRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="querySubscriberBalanceResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="querySubscriberInfo">
+            <soap:operation style="document" soapAction="urn:querySubscriberInfo"/>
+            <wsdl:input >
+                <soap:body use="literal" parts="querySubscriberInfoRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body  use="literal" parts="querySubscriberInfoResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        -->
+		<!-- not used yet
+        <wsdl:operation name="unReserveCoupons">
+            <soap:operation soapAction="urn:unReserveCoupons" style="document"/>
+            <wsdl:input>
+                <soap:body parts="unReserveCouponsRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="unReserveCouponsResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="stackCoupon">
+            <soap:operation soapAction="urn:stackCoupon" style="document"/>
+            <wsdl:input>
+                <soap:body parts="stackCouponRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="stackCouponResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="reserveStack">
+            <soap:operation soapAction="urn:reserveStack" style="document"/>
+            <wsdl:input>
+                <soap:body parts="reserveStackRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="reserveStackResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        -->
+		<!-- not used yet
+        <wsdl:operation name="reserveCoupons">
+            <soap:operation soapAction="urn:reserveCoupons" style="document"/>
+            <wsdl:input>
+                <soap:body parts="reserveCouponsRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="reserveCouponsResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        -->
+		<!-- not used yet 
+        <wsdl:operation name="redeemCoupons">
+            <soap:operation style="document" soapAction="urn:redeemCoupons"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="redeemCouponsRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="redeemCouponsResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="refillHistory">
+            <soap:operation style="document" soapAction="urn:refillHistory"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="refillHistoryRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="refillHistoryResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        -->
+		<!--  These operations are not needed at this time
+        
+        <wsdl:operation name="queryEligiblePrepaidRatePlans">
+            <soap:operation style="document" soapAction="urn:queryEligiblePrepaidRatePlans"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="queryEligiblePrepaidRatePlansRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="queryEligiblePrepaidRatePlansResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="changePrepaidRatePlan">
+            <soap:operation style="document" soapAction="urn:changePrepaidRatePlan"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="changePrepaidRatePlanRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="changePrepaidRatePlanResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="updateSubscriberPreferences">
+            <soap:operation style="document" soapAction="urn:updateSubscriberPreferences"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="updateSubscriberPreferencesRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="updateSubscriberPreferencesResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="validatePrepaidKitItems">
+            <soap:operation style="document" soapAction="urn:validatePrepaidKitItems"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="validatePrepaidKitItemsRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="validatePrepaidKitItemsResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="validatePrepaidDealer">
+            <soap:operation style="document" soapAction="urn:validatePrepaidDealer"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="validatePrepaidDealerRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="validatePrepaidDealerResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="activatePrepaidSubscriber">
+            <soap:operation style="document" soapAction="urn:activatePrepaidSubscriber"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="activatePrepaidSubscriberRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="activatePrepaidSubscriberResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="errorInfo">
+                <soap:fault name="errorInfo" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="addSubscriberToWipAndSwitch">
+            <soap:operation style="document" soapAction="urn:addSubscriberToWipAndSwitch"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="addSubscriberToWipAndSwitchRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="asynchResponse"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="changePrepaidWIPSubscriber">
+            <soap:operation style="document" soapAction="urn:changePrepaidWIPSubscriber"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="changePrepaidWIPSubscriberRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="asynchResponse"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="changePrepaidWIPStatus">
+            <soap:operation style="document" soapAction="urn:changePrepaidWIPStatus"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="changePrepaidWIPStatusRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="asynchResponse"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processAsynchJob">
+            <soap:operation style="document" soapAction="processAsynchJob"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="processAsynchJobRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="asynchResponse"/>
+            </wsdl:output>
+        </wsdl:operation>
+        -->
+	</wsdl:binding>
+	<wsdl:service name="AtomicRPXService">
+		<wsdl:port name="AtomixRPXServicePort" binding="tns:AtomicRPXBinding">
+			<soap:address location="dvtib001.unix.gsm1900.org:7222"/>
+		</wsdl:port>
+	</wsdl:service>
+	<!-- save for later
+    <wsdl:message name="useCouponsRequest">
+        <wsdl:part name="useCouponsRequest" element="request:useCouponsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="useCouponsResponse">
+        <wsdl:part name="useCouponsResponse" element="response:useCouponsResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="querySubscriberBalanceRequest">
+        <wsdl:part element="request:querySubscriberBalanceRequest" name="querySubscriberBalanceRequest"/>
+    </wsdl:message>
+    <wsdl:message name="querySubscriberBalanceResponse">
+        <wsdl:part element="response:querySubscriberBalanceResponse" name="querySubscriberBalanceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="querySubscriberInfoRequest">
+        <wsdl:part element="request:querySubscriberInfoRequest" name="querySubscriberInfoRequest"/>
+    </wsdl:message>
+    <wsdl:message name="querySubscriberInfoResponse">
+        <wsdl:part element="response:querySubscriberInfoResponse" name="querySubscriberInfoResponse"/>
+    </wsdl:message>
+    -->
+	<!-- not used right now
+    <wsdl:message name="unReserveCouponsRequest">
+        <wsdl:part name="unReserveCouponsRequest" element="request:unReserveCouponsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="unReserveCouponsResponse">
+        <wsdl:part name="unReserveCouponsResponse" element="response:unReserveCouponsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="stackCouponRequest">
+        <wsdl:part name="stackCouponRequest" element="request:stackCouponRequest"/>
+    </wsdl:message>
+    <wsdl:message name="stackCouponResponse">
+        <wsdl:part name="stackCouponResponse" element="response:stackCouponResponse"/>
+    </wsdl:message>
+    <wsdl:message name="reserveStackRequest">
+        <wsdl:part name="reserveStackRequest" element="request:reserveStackRequest"/>
+    </wsdl:message>
+    <wsdl:message name="reserveStackResponse">
+        <wsdl:part name="reserveStackResponse" element="response:reserveStackResponse"/>
+    </wsdl:message>
+    <wsdl:message name="reserveCouponsRequest">
+        <wsdl:part name="reserveCouponsRequest" element="request:reserveCouponsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="reserveCouponsResponse">
+        <wsdl:part name="reserveCouponsResponse" element="response:reserveCouponsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="redeemCouponsRequest">
+        <wsdl:part element="request:redeemCouponsRequest" name="redeemCouponsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="redeemCouponsResponse">
+        <wsdl:part element="response:redeemCouponsResponse" name="redeemCouponsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="refillHistoryRequest">
+        <wsdl:part element="request:refillHistoryRequest" name="refillHistoryRequest"/>
+    </wsdl:message>
+    <wsdl:message name="refillHistoryResponse">
+        <wsdl:part element="response:refillHistoryResponse" name="refillHistoryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="queryEligiblePrepaidRatePlansRequest">
+        <wsdl:part element="request:queryEligiblePrepaidRatePlansRequest" name="queryEligiblePrepaidRatePlansRequest"/>
+    </wsdl:message>
+    <wsdl:message name="queryEligiblePrepaidRatePlansResponse">
+        <wsdl:part element="response:queryEligiblePrepaidRatePlansResponse" name="queryEligiblePrepaidRatePlansResponse"/>
+    </wsdl:message>
+    <wsdl:message name="changePrepaidRatePlanRequest">
+        <wsdl:part element="request:changePrepaidRatePlanRequest" name="changePrepaidRatePlanRequest"/>
+    </wsdl:message>
+    <wsdl:message name="changePrepaidRatePlanResponse">
+        <wsdl:part element="response:changePrepaidRatePlanResponse" name="changePrepaidRatePlanResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateSubscriberPreferencesRequest">
+        <wsdl:part element="request:updateSubscriberPreferencesRequest" name="updateSubscriberPreferencesRequest"/>
+    </wsdl:message>
+    <wsdl:message name="updateSubscriberPreferencesResponse">
+        <wsdl:part element="response:updateSubscriberPreferencesResponse" name="updateSubscriberPreferencesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="validatePrepaidKitItemsRequest">
+        <wsdl:part element="request:validatePrepaidKitItemsRequest" name="validatePrepaidKitItemsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="validatePrepaidKitItemsResponse">
+        <wsdl:part element="response:validatePrepaidKitItemsResponse" name="validatePrepaidKitItemsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="validatePrepaidDealerRequest">
+        <wsdl:part element="request:validatePrepaidDealerRequest" name="validatePrepaidDealerRequest"/>
+    </wsdl:message>
+    <wsdl:message name="validatePrepaidDealerResponse">
+        <wsdl:part element="response:validatePrepaidDealerResponse" name="validatePrepaidDealerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="activatePrepaidSubscriberRequest">
+        <wsdl:part element="request:activatePrepaidSubscriberRequest" name="activatePrepaidSubscriberRequest"/>
+    </wsdl:message>
+    <wsdl:message name="activatePrepaidSubscriberResponse">
+        <wsdl:part element="response:activatePrepaidSubscriberResponse" name="activatePrepaidSubscriberResponse"/>
+    </wsdl:message>
+    <wsdl:message name="addSubscriberToWipAndSwitchRequest">
+        <wsdl:part element="request:addSubscriberToWipAndSwitchRequest" name="addSubscriberToWipAndSwitchRequest"/>
+    </wsdl:message>
+    <wsdl:message name="changePrepaidWIPSubscriberRequest">
+        <wsdl:part element="request:changePrepaidWIPSubscriberRequest" name="changePrepaidWIPSubscriberRequest"/>
+    </wsdl:message>
+    <wsdl:message name="changePrepaidWIPStatusRequest">
+        <wsdl:part element="request:changePrepaidWIPStatusRequest" name="changePrepaidWIPStatusRequest"/>
+    </wsdl:message>
+    <wsdl:message name="processAsynchJobRequest">
+        <wsdl:part element="request:processAsynchJobRequest" name="processAsynchJobRequest"/>
+    </wsdl:message>
+    <wsdl:message name="asynchResponse">
+        <wsdl:part element="request:asynchResponseRequest" name="asynchResponse"/>
+    </wsdl:message>
+    -->
+</wsdl:definitions>

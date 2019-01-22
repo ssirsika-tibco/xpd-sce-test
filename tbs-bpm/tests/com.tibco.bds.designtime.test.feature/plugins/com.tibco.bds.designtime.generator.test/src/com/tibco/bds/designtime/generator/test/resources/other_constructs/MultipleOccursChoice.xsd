@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/MultipleOccursChoice" targetNamespace="http://example.com/MultipleOccursChoice" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:complexType name="PlaneMinAndMax" ecore:name="PlaneMinAndMax">
+		<xs:choice minOccurs="2" maxOccurs="3">
+			<!--  BDS introduces a 'group' structural feature to represent the choice. -->
+			<!--  We have elements here called 'group' to deliberately cause a clash -->
+			<!--  and ensure these get HIGHER naming priority -->
+			<xs:element name="group" type="xs:date" ecore:name="group"/>
+			<xs:element name="freightDetails" type="xs:string" ecore:name="freightDetails"/>
+			<xs:element name="passengers" type="xs:int" ecore:name="passengers"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="PlaneMinAndMaxElement" type="PlaneMinAndMax"/>
+	<xs:complexType name="PlaneUnbound" ecore:name="PlaneUnbound">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Group" type="xs:date" ecore:name="group"/>
+			<xs:element name="group" type="xs:int" ecore:name="group1"/>
+			<xs:element name="freightDetails" type="xs:string" ecore:name="freightDetails"/>
+			<xs:element name="passengers" type="xs:int" ecore:name="passengers"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="PlaneUnboundElement" type="PlaneUnbound"/>
+	<xs:complexType name="PlaneUnboundMultiple" ecore:name="PlaneUnboundMultiple">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="freightDetails" type="xs:string" maxOccurs="unbounded" ecore:name="freightDetails"/>
+				<xs:element name="passengers" type="xs:int" minOccurs="0" maxOccurs="unbounded" ecore:name="passengers"/>
+			</xs:choice>
+			<xs:element name="group" type="xs:boolean" ecore:name="group"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="PlaneUnboundMultipleElement" type="PlaneUnboundMultiple"/>
+</xs:schema>

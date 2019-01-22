@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/customer" xmlns:tns1="http://example.com/customer" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/customer">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/UC7DReferencedBom/Business Objects/Customer.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="_xbz7oOEPEd-Watvve-g_vA" name="Cust">
+    <xsd:sequence>
+      <xsd:element id="_yYwFAOEPEd-Watvve-g_vA" maxOccurs="1" minOccurs="1" name="name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_zpEdYOEPEd-Watvve-g_vA" maxOccurs="1" minOccurs="1" name="id">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_10ZsgOEPEd-Watvve-g_vA" maxOccurs="unbounded" minOccurs="0"
+          name="address" type="tns1:Address"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_9tP4EOEPEd-Watvve-g_vA" name="Address">
+    <xsd:sequence>
+      <xsd:element id="_-NvWAOEPEd-Watvve-g_vA" maxOccurs="1" minOccurs="1" name="hno">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="__VHNwOEPEd-Watvve-g_vA" maxOccurs="1" minOccurs="0" name="postcode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_AjDAgOEQEd-Watvve-g_vA" maxOccurs="1" minOccurs="0" name="streetname">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CustElement" type="Cust"/>
+  <xsd:element name="AddressElement" type="Address"/>
+</xsd:schema>

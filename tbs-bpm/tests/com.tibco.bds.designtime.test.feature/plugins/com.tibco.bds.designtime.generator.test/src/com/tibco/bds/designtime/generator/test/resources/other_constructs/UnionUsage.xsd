@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/UnionUsage" targetNamespace="http://example.com/UnionUsage" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:simpleType name="jeans_size" ecore:name="jeans_size">
+		<xs:union memberTypes="sizebyno sizebystring"/>
+	</xs:simpleType>
+	<xs:simpleType name="sizebyno" ecore:name="sizebyno">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:maxInclusive value="42"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="sizebystring" ecore:name="sizebystring">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="small" ecore:name="SMALL"/>
+			<xs:enumeration value="medium" ecore:name="MEDIUM"/>
+			<xs:enumeration value="large" ecore:name="LARGE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Trousers">
+		<xs:complexType ecore:name="TrousersType">
+			<xs:sequence>
+				<xs:element name="length" type="jeans_size" minOccurs="0" ecore:name="length"/>
+				<xs:element name="extended" type="ext_jeans_size" minOccurs="0" ecore:name="extended"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="sizediff" ecore:name="sizediff">
+		<xs:restriction base="xs:negativeInteger">
+			<xs:maxInclusive value="-5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ext_jeans_size" ecore:name="ext_jeans_size">
+		<xs:union memberTypes="sizediff jeans_size"/>
+	</xs:simpleType>
+</xs:schema>

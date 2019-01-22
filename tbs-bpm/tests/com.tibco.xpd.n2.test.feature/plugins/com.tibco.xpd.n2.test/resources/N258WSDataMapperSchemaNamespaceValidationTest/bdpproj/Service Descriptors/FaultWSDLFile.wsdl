@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/FaultWSDLFile/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FaultWSDLFile" targetNamespace="http://www.example.org/FaultWSDLFile/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/FaultWSDLFile/">
+      <xsd:element name="CheckFaultOperationInput">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CheckFaultOperationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CheckFaultOperationFault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+      			<xsd:element name="checkFaultName"
+      				type="xsd:string">
+      			</xsd:element>
+      			<xsd:element name="checkFaultID" type="xsd:int"></xsd:element>
+      			<xsd:element name="checkFaultIsValid" type="xsd:boolean"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckFaultOperationRequest">
+    <wsdl:part element="tns:CheckFaultOperationInput" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckFaultOperationResponse">
+    <wsdl:part element="tns:CheckFaultOperationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CheckFaultOperationFault">
+  	<wsdl:part name="parameters" element="tns:CheckFaultOperationFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="FaultWSDLFile">
+    <wsdl:operation name="CheckFaultOperation">
+      <wsdl:input message="tns:CheckFaultOperationRequest"/>
+      <wsdl:output message="tns:CheckFaultOperationResponse"/>
+            <wsdl:fault name="fault" message="tns:CheckFaultOperationFault"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FaultWSDLFileSOAP" type="tns:FaultWSDLFile">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CheckFaultOperation">
+      <soap:operation soapAction="http://www.example.org/FaultWSDLFile/CheckFaultOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FaultWSDLFile">
+    <wsdl:port binding="tns:FaultWSDLFileSOAP" name="FaultWSDLFileSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

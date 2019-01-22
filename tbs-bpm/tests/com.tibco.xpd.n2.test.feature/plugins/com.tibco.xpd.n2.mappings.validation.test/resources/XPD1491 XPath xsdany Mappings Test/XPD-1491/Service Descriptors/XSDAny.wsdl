@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.example.org/XSDAny/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="XSDAny" targetNamespace="http://www.example.org/XSDAny/" tibex:bdsSupport="false">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/XSDAny/">
+      <xsd:element name="NewOperation" type="tns:NewOperationComplexType">
+      </xsd:element>
+      <xsd:element name="NewOperationResponse" type="tns:NewOperationComplexType">
+      </xsd:element>
+    
+            <xsd:complexType name="TypeWithRequiredSingleAny">
+            	<xsd:sequence>
+            		<xsd:any maxOccurs="1" minOccurs="1" processContents="lax"/>
+            	</xsd:sequence>
+      </xsd:complexType>
+            <xsd:complexType name="NewOperationComplexType">
+            	<xsd:sequence>
+            		<xsd:element minOccurs="1" maxOccurs="1"
+            			name="requiredAnySimpleType" type="xsd:anySimpleType">
+            		</xsd:element>
+            		<xsd:element name="requiredSingleAnyContent"
+            			type="tns:TypeWithRequiredSingleAny">
+            		</xsd:element>
+            		<xsd:element name="requiredArrayAnyContent"
+            			type="tns:TypeWithRequiredArrayAny">
+            		</xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+    
+            <xsd:complexType name="TypeWithOptionalSingleAny">
+            	<xsd:sequence>
+            		<xsd:any processContents="lax" minOccurs="0" maxOccurs="1"></xsd:any>
+            	</xsd:sequence></xsd:complexType>
+        
+            <xsd:complexType name="TypeWithRequiredArrayAny">
+            	<xsd:sequence>
+            		<xsd:any processContents="lax" minOccurs="1" maxOccurs="unbounded"></xsd:any>
+            	</xsd:sequence></xsd:complexType>
+        
+            <xsd:complexType name="TypeWithOptionalArrayAny">
+            	<xsd:sequence>
+            		<xsd:any processContents="lax" minOccurs="0" maxOccurs="unbounded"></xsd:any>
+            	</xsd:sequence></xsd:complexType>
+            <xsd:element name="XsdAny">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="inSingleAny" type="tns:TypeWithRequiredSingleAny"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="XsdAnyResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="outSingleAny" type="tns:TypeWithRequiredSingleAny"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="XsdAnySequence">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="inSequenceAny"
+            				type="tns:TypeWithRequiredArrayAny">
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="XsdAnySequenceResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="outSequenceAny" type="tns:TypeWithRequiredArrayAny"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="XsdAnySimpleType">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="inAnySimpleType" type="xsd:anySimpleType"></xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="XsdAnySimpleTypeResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+
+            			<xsd:element name="outAnySimpleType"
+            				type="xsd:anySimpleType">
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part element="tns:NewOperation" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part element="tns:NewOperationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="XsdAnyRequest">
+  	<wsdl:part name="parameters" element="tns:XsdAny"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="XsdAnyResponse">
+  	<wsdl:part name="parameters" element="tns:XsdAnyResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="XsdAnySequenceRequest">
+  	<wsdl:part name="parameters" element="tns:XsdAnySequence"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="XsdAnySequenceResponse">
+  	<wsdl:part name="parameters" element="tns:XsdAnySequenceResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="XsdAnySimpleTypeRequest">
+  	<wsdl:part name="parameters" element="tns:XsdAnySimpleType"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="XsdAnySimpleTypeResponse">
+  	<wsdl:part name="parameters" element="tns:XsdAnySimpleTypeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="XSDAny">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:NewOperationResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="XsdAny">
+    	<wsdl:input message="tns:XsdAnyRequest"></wsdl:input>
+    	<wsdl:output message="tns:XsdAnyResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XsdAnySequence">
+    	<wsdl:input message="tns:XsdAnySequenceRequest"></wsdl:input>
+    	<wsdl:output message="tns:XsdAnySequenceResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XsdAnySimpleType">
+    	<wsdl:input message="tns:XsdAnySimpleTypeRequest"></wsdl:input>
+    	<wsdl:output message="tns:XsdAnySimpleTypeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="XSDAnySOAP" type="tns:XSDAny">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="NewOperation">
+      <soap:operation soapAction="http://www.example.org/XSDAny/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="XSDAny">
+    <wsdl:port binding="tns:XSDAnySOAP" name="XSDAnySOAP">
+      <soap:address location="http://www.example.org/XSDAny"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

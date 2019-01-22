@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/ChoiceHierarchy"
+	targetNamespace="http://example.com/ChoiceHierarchy">
+	<xs:complexType name="Plane">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="ch1" type="xs:string"></xs:element>
+				<xs:element name="ch2" type="team"></xs:element>
+			</xs:choice>
+			<xs:element name="el1" type="xs:string"></xs:element>
+			<xs:element name="el2" type="xs:string"></xs:element>
+			<xs:choice>
+				<xs:element name="ch3" type="xs:string" />
+				<xs:element name="ch4" type="xs:int" />
+			</xs:choice>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="ch5" type="xs:string" />
+					<xs:element name="ch6" type="xs:string" />
+					<xs:choice>
+						<xs:element name="ch7" type="xs:string" />
+						<xs:element name="ch8" type="xs:string" />
+					</xs:choice>
+					<xs:sequence>
+						<xs:choice>
+							<xs:element name="ch9" type="xs:string" />
+							<xs:element name="ch10" type="xs:string" />
+							<xs:element ref="tleTeam" />
+						</xs:choice>
+					</xs:sequence>
+				</xs:choice>
+			</xs:sequence>
+			<xs:choice>
+				<xs:element name="City" type="xs:string"/>
+				<xs:element name="United"  type="xs:string"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="team">
+		<xs:sequence>
+			<xs:element name="teamname" type="xs:string"></xs:element>
+			<xs:element name="manager" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="tleTeam" type="team"></xs:element>
+
+</xs:schema>

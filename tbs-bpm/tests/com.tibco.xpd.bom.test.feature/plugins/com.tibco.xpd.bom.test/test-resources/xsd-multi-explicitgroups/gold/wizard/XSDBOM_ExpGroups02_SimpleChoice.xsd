@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/SimpleSequence" xmlns:tns1="http://www.example.org/SimpleSequence"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/SimpleSequence">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gdf/Business Objects/XSDBOM_ExpGroups02_SimpleChoice.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="org.example.SimpleSequencecomplexWithChoice" abstract="false"
+      mixed="false" name="complexWithChoice">
+    <xsd:choice maxOccurs="unbounded">
+      <xsd:element id="complexWithChoicetestElem2" form="qualified" maxOccurs="1"
+          minOccurs="1" name="testElem2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="elemWithAnonComplex" nillable="false">
+    <xsd:complexType id="org.example.SimpleSequenceelemWithAnonComplexType" mixed="false">
+      <xsd:choice maxOccurs="unbounded">
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="testElem1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

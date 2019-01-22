@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="reexportTestProjects" default="run" basedir=".">
+<!--
+Updates BRM XSDs from N2 repository.
+
+@autor Jan Arciuchiewicz
+-->
+	<property name="svnN2SchemasURL" value="https://emea-swi-svn.emea.tibco.com/svn/projects/1826/Docs/Work Presentation/Deployment"/>
+
+	<target name="run">
+		<exec executable="svn" >
+			<arg value="export"/>
+			<arg value="${svnN2SchemasURL}/WorkPresentationDeployment.xsd"/>
+		</exec>
+		<exec executable="svn" >
+			<arg value="export"/>
+			<arg value="${svnN2SchemasURL}/channeltype.xsd"/>
+		</exec>
+	</target>	
+</project>

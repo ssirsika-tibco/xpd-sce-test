@@ -1,0 +1,147 @@
+import xpdl2;
+import xpdExtension;
+import om;
+
+extension com::tibco::xpd::process::om::template::Extensions reexport;
+
+OrgModel transform(List[Package] packageTypeList, List[OrgModel] referencedOrgModels): let orgModel = new OrgModel:
+	let organization = new Organization :	
+	orgModel.setDisplayName(getOrgModelName()) ->
+	orgModel.setName(getOrgModelName()) ->	
+	organization.setDisplayName(getOrganizationName()) ->
+	organization.setName(getOrganizationName()) ->	
+	orgModel.organizations.add(organization) -> // setOrganization(organization) ->
+	parseParticipantType(orgModel, packageTypeList) ->			
+	orgModel;
+
+Boolean isParticipantReferenced(Participant participantType, List[Package] packageTypeList) :		
+	let refPerformersOfParticipantType = packageTypeList.eAllContents.typeSelect(Performer).select(e|(e.value != null && e.value.trim().length > 0 && e.value == participantType.id)) :
+	(refPerformersOfParticipantType == null || refPerformersOfParticipantType.size == 0) ? false : true;
+	
+parseParticipantType(OrgModel orgModel, List[Package] packageTypeList) :
+	// selects all participants that are not externally referenced
+	let allParticipantTypes = packageTypeList.eAllContents.typeSelect(Participant).select(e| (e.externalReference == null) || (e.externalReference != null && e.extendedAttributes.extendedAttribute.exists(e|e.name == "DirectoryEngineParticipantID")== false )) :
+	let referencedParticipantTypes = allParticipantTypes.select(e|isParticipantReferenced(e, packageTypeList) == true) :
+	let unreferencedParticipantTypes = allParticipantTypes.without(referencedParticipantTypes) :
+	parseReferencedParticipantTypes(orgModel, packageTypeList, referencedParticipantTypes) ->
+	parseUnreferencedParticipantTypes(orgModel, packageTypeList, unreferencedParticipantTypes) ->
+	null;
+
+addPerformersForParticipant(Participant participantType, List[Package] packageTypeList, List[Performer] performersList ) :
+	let performers = packageTypeList.eAllContents.typeSelect(Performer).select(e|(e.value != null && e.value.trim().length > 0 && e.value == participantType.id)) :	
+	performersList.addAll(performers);
+	
+cached List[Lane] getLanes(List[Package] packageTypeList) :	
+	packageTypeList.eAllContents.typeSelect(Lane).select(e|e.name != null && e.name.trim().length > 0);
+
+String getLaneName(Performer performerType, List[Package] packageTypeList) :	
+	let lanes = getLanes(packageTypeList) :
+	let activity = packageTypeList.eAllContents.typeSelect(Activity).select(e|e.performers.performers.contains(performerType) == true).first() :
+	let activityLaneID = ((GraphicalNode)activity).nodeGraphicsInfos.first().laneId :
+	let laneForActivity = lanes.select(e|e.id == activityLaneID).first() :
+	laneForActivity.name;
+	
+String getLaneDisplayName(Performer performerType, List[Package] packageTypeList) :	
+	let lanes = getLanes(packageTypeList) :
+	let activity = packageTypeList.eAllContents.typeSelect(Activity).select(e|e.performers.performers.contains(performerType) == true).first() :
+	let activityLaneID = ((GraphicalNode)activity).nodeGraphicsInfos.first().laneId :
+	let laneForActivity = lanes.select(e|e.id == activityLaneID).first() :
+	getLaneDisplayName(laneForActivity.id);
+	
+
+cached Participant getParticipantForPerformer(Performer performerType, List[Package] packageTypeList) :
+	packageTypeList.eAllContents.typeSelect(Participant).select(e|e.id == performerType.value).first();
+	
+parseHumanParticipant(OrgModel orgModel, List[Package] packageTypeList, Participant participantType, String laneDisplayName, String laneName) :
+	let orgUnit = createOrgUnit(orgModel, laneDisplayName, laneName, "") :	
+	createPosition(orgUnit, getParticipantDisplayName(participantType.id)+getHumanPostfix(), participantType.name+getHumanPostfix(), participantType.description.value);
+	
+cached parseRoleParticipant(OrgModel orgModel, List[Package] packageTypeList, Participant participantType, String laneDisplayName, String laneName) :
+	let group = new om::Group :
+	group.setDisplayName(getParticipantDisplayName(participantType.id)+getRolePostfix()) ->
+	group.setName(participantType.name+getRolePostfix()) ->	
+	group.setDescription(participantType.description.value) ->			
+	orgModel.groups.add(group);
+	
+parseOrgUnitParticipant(OrgModel orgModel, List[Package] packageTypeList, Participant participantType, String laneDisplayName, String laneName) :
+	let orgUnit1 = createOrgUnit(orgModel, laneDisplayName, laneName, "") :
+	let orgUnit2 = createOrgUnit(orgModel, getParticipantDisplayName(participantType.id)+getOrgUnitPostfix() ,participantType.name+getOrgUnitPostfix(), participantType.description.value) :	
+	createOrgUnitRelationship(orgModel, orgUnit1, orgUnit2);
+	
+parseHumanParticipant(OrgModel orgModel, List[Package] packageTypeList, Participant participantType) :	
+	let orgUnit = createOrgUnit(orgModel, getDefaultOrgUnitFolderDisplayName(), getDefaultOrgUnitFolderName(), getDefaultOrgUnitFolderDesc()) :
+	createPosition(orgUnit, getParticipantDisplayName(participantType.id)+getHumanPostfix(), participantType.name+getHumanPostfix(), participantType.description.value);	
+	
+parseRoleParticipant(OrgModel orgModel, List[Package] packageTypeList, Participant participantType) :
+	let newGroup = new om::Group :
+	let existingGroupWithSameName = orgModel.eAllContents.typeSelect(om::Group).select(e|e.name == (participantType.name+getRolePostfix())).first() :	
+	newGroup.setDisplayName(getParticipantDisplayName(participantType.id)+getRolePostfix()) ->
+	newGroup.setName(participantType.name+getRolePostfix()) ->
+	addDescription(newGroup, participantType.description.value) ->
+	(existingGroupWithSameName == null ? (orgModel.groups.add(newGroup) -> newGroup) 
+		:(		
+			addDescription(existingGroupWithSameName, participantType.description.value) ->
+			existingGroupWithSameName
+	     )
+	);
+	
+parseOrgUnitParticipant(OrgModel orgModel, List[Package] packageTypeList, Participant participantType) :
+	createOrgUnit(orgModel, getParticipantDisplayName(participantType.id)+getOrgUnitPostfix(), participantType.name+getOrgUnitPostfix(), participantType.description.value);				
+	
+parseReferencedParticipantTypes(OrgModel orgModel, List[Package] packageTypeList, List[Participant] referencedParticipantTypes) :
+	let humanPerformersList = {} :	
+	let rolePerformersList = {} :
+	let orgUnitPerformersList = {} :
+	
+	referencedParticipantTypes.select(e|e.participantType.type.toString() == 'HUMAN').select(e|addPerformersForParticipant(e, packageTypeList, humanPerformersList )) ->	
+	referencedParticipantTypes.select(e|e.participantType.type.toString() == 'ROLE').select(e|addPerformersForParticipant(e, packageTypeList, rolePerformersList )) ->
+	referencedParticipantTypes.select(e|e.participantType.type.toString() == 'ORGANIZATIONAL_UNIT').select(e|addPerformersForParticipant(e, packageTypeList, orgUnitPerformersList )) ->
+		
+	humanPerformersList.typeSelect(Performer).collect(e | parseHumanParticipant(orgModel, packageTypeList, getParticipantForPerformer(e, packageTypeList), getLaneDisplayName(e, packageTypeList), getLaneName(e, packageTypeList))) ->
+	rolePerformersList.typeSelect(Performer).collect(e | parseRoleParticipant(orgModel, packageTypeList, getParticipantForPerformer(e, packageTypeList), getLaneDisplayName(e, packageTypeList), getLaneName(e, packageTypeList))) ->
+	orgUnitPerformersList.typeSelect(Performer).collect(e | parseOrgUnitParticipant(orgModel, packageTypeList, getParticipantForPerformer(e, packageTypeList), getLaneDisplayName(e, packageTypeList), getLaneName(e, packageTypeList)));
+	
+parseUnreferencedParticipantTypes(OrgModel orgModel, List[Package] packageTypeList, Set[Participant] unreferencedParticipantTypes) :	
+	unreferencedParticipantTypes.select(e|e.participantType.type.toString() == 'HUMAN').select(e|parseHumanParticipant(orgModel, packageTypeList, e)) ->	
+	unreferencedParticipantTypes.select(e|e.participantType.type.toString() == 'ROLE').select(e|parseRoleParticipant(orgModel, packageTypeList, e)) ->
+	unreferencedParticipantTypes.select(e|e.participantType.type.toString() == 'ORGANIZATIONAL_UNIT').select(e|parseOrgUnitParticipant(orgModel, packageTypeList, e ));
+	
+OrgUnit createOrgUnit(OrgModel orgModel, String displayName, String name, String description) :
+	let newOrgUnit = new OrgUnit :
+	let existingOrgUnitWithSameName = orgModel.eAllContents.typeSelect(OrgUnit).select(e|e.name == name).first() :	
+	traceMe("DDD = " + displayName + " name= "+name) ->
+	newOrgUnit.setDisplayName(displayName) ->
+	newOrgUnit.setName(name) ->
+	addDescription(newOrgUnit, description) ->
+	(existingOrgUnitWithSameName == null ? (orgModel.organizations.first().units.add(newOrgUnit) -> newOrgUnit) 
+		:(		
+			addDescription(existingOrgUnitWithSameName, description) ->
+			existingOrgUnitWithSameName
+	     )
+	);
+	
+cached addDescription(OrgElement element, String description) :
+	let currentDescription = element.description : 
+	(currentDescription == null || currentDescription.trim().length == 0) ? element.setDescription(description) 
+	: 
+	element.setDescription(currentDescription+"&#xD;&#xA;"+description); 
+	
+	
+Position createPosition(OrgUnit orgUnit, String displayName, String name, String description) :
+	let newPosition = new Position :
+	let existingPositionsWithSameName = orgUnit.eAllContents.typeSelect(Position).select(e|e.name == name).first() :
+	newPosition.setDisplayName(displayName) ->
+	newPosition.setName(name) ->
+	addDescription(newPosition, description) ->
+	(existingPositionsWithSameName == null ? (orgUnit.positions.add(newPosition) -> newPosition) 
+	:(		
+			addDescription(existingPositionsWithSameName, description) ->
+			existingPositionsWithSameName
+	     )
+	);
+	
+create OrgUnitRelationship this createOrgUnitRelationship(OrgModel orgModel, OrgUnit orgUnit1, OrgUnit orgUnit2) :
+	let orgUnitRelationship = new OrgUnitRelationship :		
+	orgUnitRelationship.setFrom(orgUnit1) ->
+	orgUnitRelationship.setTo(orgUnit2) ->	
+	orgModel.organizations.first().orgUnitRelationships.add(orgUnitRelationship);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_NlG9gDDYEd-OvJIRy530BQ" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProcessPackage" targetNamespace="http://www.tibco.com/bs3.0/_NlG9gDDYEd-OvJIRy530BQ" tibex:XPDL="ProcessPackage.xpdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_NlG9gDDYEd-OvJIRy530BQ" targetNamespace="http://www.tibco.com/bs3.0/_NlG9gDDYEd-OvJIRy530BQ">
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessPackageProcess_StartEvent_INPUT">
+        <wsdl:part name="Parameter" type="ns:string_50"/>
+        <wsdl:part name="Parameter2" type="ns:string_50"/>
+    </wsdl:message>
+  <wsdl:message name="ProcessPackageProcess_StartEvent_OUTPUT">
+        <wsdl:part name="Parameter" type="ns:string_50"/>
+        <wsdl:part name="Parameter2" type="ns:string_50"/>
+    </wsdl:message>
+  <wsdl:portType name="ProcessPackageProcess" tibex:FlowContainer="_NmAVYDDYEd-OvJIRy530BQ">
+    <wsdl:operation name="StartEvent">
+      <wsdl:input message="ns:ProcessPackageProcess_StartEvent_INPUT" tibex:Event="_RYAAUjDYEd-OvJIRy530BQ"/>
+      <wsdl:output message="ns:ProcessPackageProcess_StartEvent_OUTPUT" tibex:Event="_RYAAUjDYEd-OvJIRy530BQ"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NewBinding" type="ns:ProcessPackageProcess"></wsdl:binding>
+  <wsdl:service name="TestService">
+  	<wsdl:port name="NewPort" binding="ns:NewBinding">
+  		<soap:address location="http://www.example.org/" />
+  	</wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

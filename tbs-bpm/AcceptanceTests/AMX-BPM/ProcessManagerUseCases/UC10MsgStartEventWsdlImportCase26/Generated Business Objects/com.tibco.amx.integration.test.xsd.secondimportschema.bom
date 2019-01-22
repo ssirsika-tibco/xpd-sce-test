@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.amx.integration.test.xsd.secondimportschema" name="com.tibco.amx.integration.test.xsd.secondimportschema">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hql1EQdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hql1EgdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hql1EwdTEeSRjauCcgnMbg" key="created" value="1404905205089"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hql1FAdTEeSRjauCcgnMbg" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hyIngAdTEeSRjauCcgnMbg" key="checksum" value="547770975"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaCE_OrderInfoType" name="CE_OrderInfoType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_OrderInfoTypeOrderID2" name="orderID" type="com.tibco.amx.integration.test.xsd.secondimportschemaOrderID?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderIDType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ho0TcwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ho0TcgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_OrderInfoTypeOrderItem2" name="orderItem" type="com.tibco.amx.integration.test.xsd.secondimportschemaOrderItem?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderItemType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ho3WwQdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ho3WwAdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_OrderInfoTypeItemQuantity2" name="itemQuantity" type="com.tibco.amx.integration.test.xsd.secondimportschemaItemQuantity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemQuantityType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ho6aEwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ho6aEgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_OrderInfoTypeItemPrice2" name="itemPrice" type="com.tibco.amx.integration.test.xsd.secondimportschemaItemPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemPriceType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ho-EcgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ho-EcQdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaOrderID" name="OrderIDType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hoyeQQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaOrderItem" name="OrderItemType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_ho2IoQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaItemQuantity" name="ItemQuantityType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_ho4k4QdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaItemPrice" name="ItemPriceType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_ho8PQQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaCE_BillingAddressType" name="CE_BillingAddressType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_BillingAddressTypeCE_Name2" name="CE_Name" type="com.tibco.amx.integration.test.xsd.secondimportschemaCE_NameType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpJqpAdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpJqowdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_BillingAddressTypeAddress12" name="address1" type="com.tibco.amx.integration.test.xsd.secondimportschemaAddress1?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress1Type?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpMG4wdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpMG4gdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_BillingAddressTypeAddress22" name="address2" type="com.tibco.amx.integration.test.xsd.secondimportschemaAddress2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress2Type?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpOjIwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpOjIgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_BillingAddressTypeCity2" name="city" type="com.tibco.amx.integration.test.xsd.secondimportschemaCity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCityType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpQ_YQdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpQ_YAdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_BillingAddressTypeState2" name="state" type="com.tibco.amx.integration.test.xsd.secondimportschemaState?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aStateType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpS0lAdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpS0kwdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_BillingAddressTypeZip2" name="zip" type="com.tibco.amx.integration.test.xsd.secondimportschemaZip?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aZipType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpV34wdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpV34gdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaCE_NameType" name="CE_NameType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_NameTypeFirstName2" name="firstName" type="com.tibco.amx.integration.test.xsd.secondimportschemaFirstName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aFirstNameType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpGAQgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpGAQQdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_NameTypeLastName2" name="lastName" type="com.tibco.amx.integration.test.xsd.secondimportschemaLastName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aLastNameType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpH1dAdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpH1cwdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaFirstName" name="FirstNameType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpEyIQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaLastName" name="LastNameType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpHOYQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaAddress1" name="Address1Type">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpK4wQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaAddress2" name="Address2Type">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpNVAQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaCity" name="CityType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpPxQQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaState" name="StateType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpSNgQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaZip" name="ZipType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpUCsQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaCE_ShippingAddressType" name="CE_ShippingAddressType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CE_ShippingAddressTypeCE_BillingAddress2" name="CE_BillingAddress" type="com.tibco.amx.integration.test.xsd.secondimportschemaCE_BillingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpbXcwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpbXcgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaPurchaseDate" name="PurchaseDateType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpeawQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaTotalPrice" name="TotalPriceType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hplvgAdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaShippingDate" name="ShippingDateType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hprPEQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.amx.integration.test.xsd.secondimportschemaHomePhone" name="HomePhoneType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_hp7GsQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_he14EQdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_he14EgdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_he14EwdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_he14FAdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_he14FQdTEeSRjauCcgnMbg" base_Package="com.tibco.amx.integration.test.xsd.secondimportschema?com.tibco.amx.integration.test.xsd.secondimportschema?" xsdTargetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" xsdSchemaLocation="SecondImportSchema.xsd" xsdStudioVersion="3.8.0.005" bomWsdlSources="MessageWSDL.wsdl,PortTypeWSDL.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_howCAQdTEeSRjauCcgnMbg" base_Class="com.tibco.amx.integration.test.xsd.secondimportschemaCE_OrderInfoType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ho-rgAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hoyeQgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaOrderID?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderIDType?" xsdSimpleTypeName="OrderID" xsdRestrictionId="" xsdRestrictionBase="long"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_hozFUAdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaOrderID?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderIDType?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hozFUQdTEeSRjauCcgnMbg" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaOrderID?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderIDType?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_hozsYAdTEeSRjauCcgnMbg" base_Package="com.tibco.amx.integration.test.xsd.secondimportschema?com.tibco.amx.integration.test.xsd.secondimportschema?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hozsYQdTEeSRjauCcgnMbg" name="OrderID" type="com.tibco.amx.integration.test.xsd.secondimportschemaOrderID?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderIDType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ho2vsAdTEeSRjauCcgnMbg" name="OrderItem" type="com.tibco.amx.integration.test.xsd.secondimportschemaOrderItem?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderItemType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ho5zAAdTEeSRjauCcgnMbg" name="ItemQuantity" type="com.tibco.amx.integration.test.xsd.secondimportschemaItemQuantity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemQuantityType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ho9dYAdTEeSRjauCcgnMbg" name="ItemPrice" type="com.tibco.amx.integration.test.xsd.secondimportschemaItemPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemPriceType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ho_5oAdTEeSRjauCcgnMbg" name="CE_OrderInfo" type="com.tibco.amx.integration.test.xsd.secondimportschemaCE_OrderInfoType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType?" isAnonymous="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpFZMAdTEeSRjauCcgnMbg" name="FirstName" type="com.tibco.amx.integration.test.xsd.secondimportschemaFirstName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aFirstNameType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpH1cAdTEeSRjauCcgnMbg" name="LastName" type="com.tibco.amx.integration.test.xsd.secondimportschemaLastName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aLastNameType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpJqoAdTEeSRjauCcgnMbg" name="CE_Name" type="com.tibco.amx.integration.test.xsd.secondimportschemaCE_NameType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType?" isAnonymous="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpLf0QdTEeSRjauCcgnMbg" name="Address1" type="com.tibco.amx.integration.test.xsd.secondimportschemaAddress1?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress1Type?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpN8EAdTEeSRjauCcgnMbg" name="Address2" type="com.tibco.amx.integration.test.xsd.secondimportschemaAddress2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress2Type?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpQYUAdTEeSRjauCcgnMbg" name="City" type="com.tibco.amx.integration.test.xsd.secondimportschemaCity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCityType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpS0kAdTEeSRjauCcgnMbg" name="State" type="com.tibco.amx.integration.test.xsd.secondimportschemaState?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aStateType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpVQ0AdTEeSRjauCcgnMbg" name="Zip" type="com.tibco.amx.integration.test.xsd.secondimportschemaZip?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aZipType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpYUIAdTEeSRjauCcgnMbg" name="CE_BillingAddress" type="com.tibco.amx.integration.test.xsd.secondimportschemaCE_BillingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType?" isAnonymous="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpclkAdTEeSRjauCcgnMbg" name="CE_ShippingAddress" type="com.tibco.amx.integration.test.xsd.secondimportschemaCE_ShippingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_ShippingAddressType?" isAnonymous="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpfB0QdTEeSRjauCcgnMbg" name="PurchaseDate" type="com.tibco.amx.integration.test.xsd.secondimportschemaPurchaseDate?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aPurchaseDateType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpmWkQdTEeSRjauCcgnMbg" name="TotalPrice" type="com.tibco.amx.integration.test.xsd.secondimportschemaTotalPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aTotalPriceType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hpr2IAdTEeSRjauCcgnMbg" name="ShippingDate" type="com.tibco.amx.integration.test.xsd.secondimportschemaShippingDate?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aShippingDateType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hp7twAdTEeSRjauCcgnMbg" name="HomePhone" type="com.tibco.amx.integration.test.xsd.secondimportschemaHomePhone?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aHomePhoneType?" isBaseXSDType="true" targetNamespace="http://tibco.com/amx/integration/test/xsd/secondimportschema" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ho0TcQdTEeSRjauCcgnMbg" base_Property="CE_OrderInfoTypeOrderID2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aorderID?" xsdName="OrderID" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:OrderID" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ho-rgAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ho2IogdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaOrderItem?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderItemType?" xsdSimpleTypeName="OrderItem" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ho2vsgdTEeSRjauCcgnMbg" base_Property="CE_OrderInfoTypeOrderItem2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aorderItem?" xsdName="OrderItem" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:OrderItem" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ho-rgAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ho5L8AdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaItemQuantity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemQuantityType?" xsdSimpleTypeName="ItemQuantity" xsdRestrictionId="" xsdRestrictionBase="int"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ho5L8QdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaItemQuantity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemQuantityType?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ho5L8gdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaItemQuantity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemQuantityType?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ho6aEQdTEeSRjauCcgnMbg" base_Property="CE_OrderInfoTypeItemQuantity2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aitemQuantity?" xsdName="ItemQuantity" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:ItemQuantity" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ho-rgAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ho8PQgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaItemPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemPriceType?" xsdSimpleTypeName="ItemPrice" xsdRestrictionId="" xsdRestrictionBase="float"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ho82UAdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaItemPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemPriceType?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="3.4028235E38" xsdMinExclusiveValue="" xsdMinInclusiveValue="-3.4028235E38"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ho82UQdTEeSRjauCcgnMbg" decimalUpper="3.4028235E38" decimalLower="-3.4028235E38" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaItemPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemPriceType?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ho-EcAdTEeSRjauCcgnMbg" base_Property="CE_OrderInfoTypeItemPrice2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aitemPrice?" xsdName="ItemPrice" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:ItemPrice" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ho-rgAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hpBu0QdTEeSRjauCcgnMbg" base_Class="com.tibco.amx.integration.test.xsd.secondimportschemaCE_BillingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hpWe8AdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hpC88QdTEeSRjauCcgnMbg" base_Class="com.tibco.amx.integration.test.xsd.secondimportschemaCE_NameType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hpIcgAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hpEyIgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaFirstName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aFirstNameType?" xsdSimpleTypeName="FirstName" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpGAQAdTEeSRjauCcgnMbg" base_Property="CE_NameTypeFirstName2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType%3a%3afirstName?" xsdName="FirstName" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:FirstName" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpIcgAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hpHOYgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaLastName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aLastNameType?" xsdSimpleTypeName="LastName" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpH1cgdTEeSRjauCcgnMbg" base_Property="CE_NameTypeLastName2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType%3a%3alastName?" xsdName="LastName" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:LastName" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpIcgAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpJqogdTEeSRjauCcgnMbg" base_Property="CE_BillingAddressTypeCE_Name2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aCE_Name?" xsdName="CE_Name" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:CE_Name" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpWe8AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hpLf0AdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaAddress1?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress1Type?" xsdSimpleTypeName="Address1" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpMG4QdTEeSRjauCcgnMbg" base_Property="CE_BillingAddressTypeAddress12?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aaddress1?" xsdName="Address1" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:Address1" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpWe8AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hpNVAgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaAddress2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress2Type?" xsdSimpleTypeName="Address2" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpOjIQdTEeSRjauCcgnMbg" base_Property="CE_BillingAddressTypeAddress22?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aaddress2?" xsdName="Address2" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:Address2" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpWe8AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hpPxQgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaCity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCityType?" xsdSimpleTypeName="City" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpQYUgdTEeSRjauCcgnMbg" base_Property="CE_BillingAddressTypeCity2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3acity?" xsdName="City" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:City" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpWe8AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hpSNggdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaState?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aStateType?" xsdSimpleTypeName="State" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpS0kgdTEeSRjauCcgnMbg" base_Property="CE_BillingAddressTypeState2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3astate?" xsdName="State" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:State" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpWe8AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hpUpwAdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaZip?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aZipType?" xsdSimpleTypeName="Zip" xsdRestrictionId="" xsdRestrictionBase="int"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_hpUpwQdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaZip?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aZipType?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hpUpwgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaZip?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aZipType?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpV34QdTEeSRjauCcgnMbg" base_Property="CE_BillingAddressTypeZip2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3azip?" xsdName="Zip" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:Zip" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpWe8AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hpaJUQdTEeSRjauCcgnMbg" base_Class="com.tibco.amx.integration.test.xsd.secondimportschemaCE_ShippingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_ShippingAddressType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hpb-gAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpbXcQdTEeSRjauCcgnMbg" base_Property="CE_ShippingAddressTypeCE_BillingAddress2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_ShippingAddressType%3a%3aCE_BillingAddress?" xsdName="CE_BillingAddress" xsdRef="http://tibco.com/amx/integration/test/xsd/secondimportschema:CE_BillingAddress" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hpb-gAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hpfB0AdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaPurchaseDate?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aPurchaseDateType?" xsdSimpleTypeName="PurchaseDate" xsdRestrictionId="" xsdRestrictionBase="dateTime"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hplvgQdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaTotalPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aTotalPriceType?" xsdSimpleTypeName="TotalPrice" xsdRestrictionId="" xsdRestrictionBase="decimal"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_hplvggdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaTotalPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aTotalPriceType?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hpmWkAdTEeSRjauCcgnMbg" decimalSubType="fixedPoint" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaTotalPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aTotalPriceType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hprPEgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaShippingDate?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aShippingDateType?" xsdSimpleTypeName="ShippingDate" xsdRestrictionId="" xsdRestrictionBase="dateTime"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hp7GsgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.amx.integration.test.xsd.secondimportschemaHomePhone?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aHomePhoneType?" xsdSimpleTypeName="HomePhone" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqP22AdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaOrderItem?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderItemType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqQd4AdTEeSRjauCcgnMbg" base_Element="_hpMG4wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqQd4QdTEeSRjauCcgnMbg" base_Element="CE_NameTypeFirstName2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType%3a%3afirstName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqQd4gdTEeSRjauCcgnMbg" base_Element="_hpeawQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqQd4wdTEeSRjauCcgnMbg" base_Element="_ho-EcQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqQd5AdTEeSRjauCcgnMbg" base_Element="CE_BillingAddressTypeState2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3astate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqQd5QdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaCE_NameType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqQd5gdTEeSRjauCcgnMbg" base_Element="_ho6aEgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqQd5wdTEeSRjauCcgnMbg" base_Element="_hpS0kwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE8AdTEeSRjauCcgnMbg" base_Element="CE_OrderInfoTypeOrderID2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aorderID?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE8QdTEeSRjauCcgnMbg" base_Element="CE_BillingAddressTypeAddress22?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aaddress2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE8gdTEeSRjauCcgnMbg" base_Element="_hpJqowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE8wdTEeSRjauCcgnMbg" base_Element="_hpOjIwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE9AdTEeSRjauCcgnMbg" base_Element="_hpJqpAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE9QdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaAddress2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress2Type?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE9gdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaOrderID?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderIDType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE9wdTEeSRjauCcgnMbg" base_Element="_hpQ_YAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRE-AdTEeSRjauCcgnMbg" base_Element="CE_OrderInfoTypeItemQuantity2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aitemQuantity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRsAAdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaCity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCityType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRsAQdTEeSRjauCcgnMbg" base_Element="_hpQ_YQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRsAgdTEeSRjauCcgnMbg" base_Element="_hpH1dAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRsAwdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaAddress1?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress1Type?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRsBAdTEeSRjauCcgnMbg" base_Element="_hprPEQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRsBQdTEeSRjauCcgnMbg" base_Element="CE_BillingAddressTypeCE_Name2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aCE_Name?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRsBgdTEeSRjauCcgnMbg" base_Element="_ho0TcgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqRsBwdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaPurchaseDate?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aPurchaseDateType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqSTEAdTEeSRjauCcgnMbg" base_Element="_hpbXcwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqSTEQdTEeSRjauCcgnMbg" base_Element="_ho2IoQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqSTEgdTEeSRjauCcgnMbg" base_Element="_hpK4wQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqSTEwdTEeSRjauCcgnMbg" base_Element="_hpMG4gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqSTFAdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaCE_OrderInfoType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqSTFQdTEeSRjauCcgnMbg" base_Element="_ho3WwQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqSTFgdTEeSRjauCcgnMbg" base_Element="_he14EwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqSTFwdTEeSRjauCcgnMbg" base_Element="_ho8PQQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6IAdTEeSRjauCcgnMbg" base_Element="CE_OrderInfoTypeOrderItem2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aorderItem?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6IQdTEeSRjauCcgnMbg" base_Element="_hpPxQQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6IgdTEeSRjauCcgnMbg" base_Element="_hpGAQgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6IwdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaCE_ShippingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_ShippingAddressType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6JAdTEeSRjauCcgnMbg" base_Element="CE_BillingAddressTypeZip2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3azip?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6JQdTEeSRjauCcgnMbg" base_Element="_ho4k4QdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6JgdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaFirstName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aFirstNameType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6JwdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaCE_BillingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqS6KAdTEeSRjauCcgnMbg" base_Element="_hp7GsQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqThMAdTEeSRjauCcgnMbg" base_Element="_hpEyIQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqThMQdTEeSRjauCcgnMbg" base_Element="_ho0TcwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqThMgdTEeSRjauCcgnMbg" base_Element="_hpOjIgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqThMwdTEeSRjauCcgnMbg" base_Element="_hpV34gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqThNAdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaLastName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aLastNameType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqThNQdTEeSRjauCcgnMbg" base_Element="_hpNVAQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqThNgdTEeSRjauCcgnMbg" base_Element="_hpSNgQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqThNwdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaZip?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aZipType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUIQAdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaTotalPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aTotalPriceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUIQQdTEeSRjauCcgnMbg" base_Element="_hpHOYQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUIQgdTEeSRjauCcgnMbg" base_Element="CE_OrderInfoTypeItemPrice2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aitemPrice?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUIQwdTEeSRjauCcgnMbg" base_Element="_hoyeQQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUIRAdTEeSRjauCcgnMbg" base_Element="CE_BillingAddressTypeCity2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3acity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUIRQdTEeSRjauCcgnMbg" base_Element="_he14EQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUIRgdTEeSRjauCcgnMbg" base_Element="CE_ShippingAddressTypeCE_BillingAddress2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_ShippingAddressType%3a%3aCE_BillingAddress?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUIRwdTEeSRjauCcgnMbg" base_Element="CE_BillingAddressTypeAddress12?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aaddress1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUvUAdTEeSRjauCcgnMbg" base_Element="_ho3WwAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUvUQdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaHomePhone?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aHomePhoneType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUvUgdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaState?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aStateType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUvUwdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaItemPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemPriceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUvVAdTEeSRjauCcgnMbg" base_Element="_hplvgAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUvVQdTEeSRjauCcgnMbg" base_Element="CE_NameTypeLastName2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType%3a%3alastName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUvVgdTEeSRjauCcgnMbg" base_Element="_hpH1cwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqUvVwdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaItemQuantity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemQuantityType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqVWYAdTEeSRjauCcgnMbg" base_Element="_ho6aEwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqVWYQdTEeSRjauCcgnMbg" base_Element="com.tibco.amx.integration.test.xsd.secondimportschemaShippingDate?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aShippingDateType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqVWYgdTEeSRjauCcgnMbg" base_Element="_hpbXcgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqVWYwdTEeSRjauCcgnMbg" base_Element="_hpS0lAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqVWZAdTEeSRjauCcgnMbg" base_Element="_hpV34wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqVWZQdTEeSRjauCcgnMbg" base_Element="_hpGAQQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqVWZgdTEeSRjauCcgnMbg" base_Element="_hpUCsQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hqVWZwdTEeSRjauCcgnMbg" base_Element="_ho-EcgdTEeSRjauCcgnMbg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqaO4AdTEeSRjauCcgnMbg" displayLabel="Address1" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaAddress1?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress1Type?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqa18AdTEeSRjauCcgnMbg" displayLabel="Address2" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaAddress2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aAddress2Type?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqa18QdTEeSRjauCcgnMbg" displayLabel="CE_BillingAddressType" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaCE_BillingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqbdAAdTEeSRjauCcgnMbg" displayLabel="CE_NameType" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaCE_NameType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqcEEAdTEeSRjauCcgnMbg" displayLabel="CE_OrderInfoType" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaCE_OrderInfoType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqcEEQdTEeSRjauCcgnMbg" displayLabel="CE_ShippingAddressType" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaCE_ShippingAddressType?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_ShippingAddressType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqcrIAdTEeSRjauCcgnMbg" displayLabel="City" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaCity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCityType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqcrIQdTEeSRjauCcgnMbg" displayLabel="FirstName" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaFirstName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aFirstNameType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqdSMAdTEeSRjauCcgnMbg" displayLabel="HomePhone" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaHomePhone?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aHomePhoneType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqd5QAdTEeSRjauCcgnMbg" displayLabel="ItemPrice" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaItemPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemPriceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqd5QQdTEeSRjauCcgnMbg" displayLabel="ItemQuantity" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaItemQuantity?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aItemQuantityType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqegUAdTEeSRjauCcgnMbg" displayLabel="LastName" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaLastName?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aLastNameType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqegUQdTEeSRjauCcgnMbg" displayLabel="OrderID" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaOrderID?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderIDType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqfHYAdTEeSRjauCcgnMbg" displayLabel="OrderItem" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaOrderItem?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aOrderItemType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqfHYQdTEeSRjauCcgnMbg" displayLabel="PurchaseDate" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaPurchaseDate?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aPurchaseDateType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqfucAdTEeSRjauCcgnMbg" displayLabel="ShippingDate" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaShippingDate?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aShippingDateType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqfucQdTEeSRjauCcgnMbg" displayLabel="State" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaState?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aStateType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqgVgAdTEeSRjauCcgnMbg" displayLabel="TotalPrice" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaTotalPrice?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aTotalPriceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqg8kAdTEeSRjauCcgnMbg" displayLabel="Zip" base_NamedElement="com.tibco.amx.integration.test.xsd.secondimportschemaZip?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aZipType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqhjoAdTEeSRjauCcgnMbg" displayLabel="Address1" base_NamedElement="CE_BillingAddressTypeAddress12?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aaddress1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqhjoQdTEeSRjauCcgnMbg" displayLabel="Address2" base_NamedElement="CE_BillingAddressTypeAddress22?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aaddress2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqiKsAdTEeSRjauCcgnMbg" displayLabel="CE_Name" base_NamedElement="CE_BillingAddressTypeCE_Name2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3aCE_Name?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqiKsQdTEeSRjauCcgnMbg" displayLabel="City" base_NamedElement="CE_BillingAddressTypeCity2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3acity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqixwAdTEeSRjauCcgnMbg" displayLabel="State" base_NamedElement="CE_BillingAddressTypeState2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqixwQdTEeSRjauCcgnMbg" displayLabel="Zip" base_NamedElement="CE_BillingAddressTypeZip2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_BillingAddressType%3a%3azip?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqjY0AdTEeSRjauCcgnMbg" displayLabel="FirstName" base_NamedElement="CE_NameTypeFirstName2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType%3a%3afirstName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqj_4AdTEeSRjauCcgnMbg" displayLabel="LastName" base_NamedElement="CE_NameTypeLastName2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_NameType%3a%3alastName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqkm8AdTEeSRjauCcgnMbg" displayLabel="ItemPrice" base_NamedElement="CE_OrderInfoTypeItemPrice2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aitemPrice?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqkm8QdTEeSRjauCcgnMbg" displayLabel="ItemQuantity" base_NamedElement="CE_OrderInfoTypeItemQuantity2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aitemQuantity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqlOAAdTEeSRjauCcgnMbg" displayLabel="OrderID" base_NamedElement="CE_OrderInfoTypeOrderID2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aorderID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hqlOAQdTEeSRjauCcgnMbg" displayLabel="OrderItem" base_NamedElement="CE_OrderInfoTypeOrderItem2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_OrderInfoType%3a%3aorderItem?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hql1EAdTEeSRjauCcgnMbg" displayLabel="CE_BillingAddress" base_NamedElement="CE_ShippingAddressTypeCE_BillingAddress2?com.tibco.amx.integration.test.xsd.secondimportschema%3a%3aCE_ShippingAddressType%3a%3aCE_BillingAddress?"/>
+  <notation:Diagram xmi:id="_hql1FQdTEeSRjauCcgnMbg" type="Business Object Model" element="com.tibco.amx.integration.test.xsd.secondimportschema?com.tibco.amx.integration.test.xsd.secondimportschema?" name="com.tibco.amx.integration.test.xsd.secondimportschema" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_hql1FgdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_hql1FwdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

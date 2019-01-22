@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_V8fhUIpBEeGiBZBWfHGeIw_AggiornamentoCrmService__yPZj_8OKEeK-wMpYGGVhbw"  xmlns:ttns="http://mind.enel.com/creazioneordinecrm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://www.tibco.com/bs3.0/_V8fhUIpBEeGiBZBWfHGeIw_AggiornamentoCrmService__yPZj_8OKEeK-wMpYGGVhbw" >
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_V8fhUIpBEeGiBZBWfHGeIw_AggiornamentoCrmService__yPZj_8OKEeK-wMpYGGVhbw" targetNamespace="http://www.tibco.com/bs3.0/_V8fhUIpBEeGiBZBWfHGeIw_AggiornamentoCrmService__yPZj_8OKEeK-wMpYGGVhbw"/>
+    <xsd:schema xmlns="http://mind.enel.com/creazioneordinecrm" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns47="http://mind.enel.com/creazioneordinecrm" targetNamespace="http://mind.enel.com/creazioneordinecrm">
+      <xsd:annotation>
+
+      </xsd:annotation>
+      <xsd:complexType name="CreazioneOrdineCRM_Input">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="canale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceCliente">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="9"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="operazione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="mail">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="cellulare">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="commodity">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="login">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="indirizzoIp">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="prodottoVAS">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dataDecorrenza" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flgTracciamento">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="causale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="specificaAttivita">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizioneAttivita">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codicaCampagna">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBPM">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreazioneOrdineCRM_Output">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sequence" type="Sequence"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Sequence">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="row_id">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaSorgenteEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CreazioneOrdineCRM_InputElement" type="CreazioneOrdineCRM_Input"/>
+      <xsd:element name="CreazioneOrdineCRM_OutputElement" type="CreazioneOrdineCRM_Output"/>
+      <xsd:element name="SequenceElement" type="Sequence"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SAGGCRORD_AggiornamentoCrmService_INPUT">
+    <wsdl:part element="ttns:CreazioneOrdineCRM_InputElement" name="Request_CreazioneOrdineCRM"/>
+  </wsdl:message>
+  <wsdl:message name="SAGGCRORD_AggiornamentoCrmService_OUTPUT">
+    <wsdl:part element="ttns:CreazioneOrdineCRM_OutputElement" name="Response_CreazioneOrdineCRM"/>
+  </wsdl:message>
+  <wsdl:portType name="SAGGCRORD" >
+    <wsdl:operation name="AggiornamentoCrmService">
+      <wsdl:input message="ns:SAGGCRORD_AggiornamentoCrmService_INPUT" />
+      <wsdl:output message="ns:SAGGCRORD_AggiornamentoCrmService_OUTPUT" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 (x64) (http://www.altova.com) by Paul Raby (Tibco Software Limited) -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:impl="http://services.pfe.n2.tibco.com" xmlns:ex="http://exception.pfe.n2.tibco.com" xmlns:pageflow="http://pageflow.api.pfe.n2.tibco.com" xmlns:comex="http://exception.api.common.n2.tibco.com" xmlns:bs="http://base.api.bs.n2.tibco.com" xmlns:presentation="http://presentationmodel.common.n2.tibco.com" xmlns:ch="http://channeltype.common.n2.tibco.com" xmlns:bc="http://basecontext.pfe.n2.tibco.com" xmlns:context="http://context.pfe.n2.tibco.com" xmlns:data="http://data.pfe.n2.tibco.com" xmlns:handlers="http://handlers.pfe.n2.tibco.com" xmlns:pfecom="http://common.api.pfe.n2.tibco.com" xmlns:ns="http://datamodel.common.n2.tibco.com" targetNamespace="http://services.pfe.n2.tibco.com">
+	
+	<wsdl:types>
+		<xs:schema targetNamespace="http://exception.pfe.n2.tibco.com">
+			<xs:include schemaLocation="pfe-exception.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://pageflow.api.pfe.n2.tibco.com">
+			<xs:include schemaLocation="pfe-pageflow-service.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="internalServiceFault">
+		<wsdl:part name="internalServiceFault" element="ex:InternalServiceFault"/>
+	</wsdl:message>
+	<wsdl:message name="listPageFlowsRequest">
+		<wsdl:part name="parameters" element="pageflow:listPageFlows"/>
+	</wsdl:message>
+	<wsdl:message name="listPageFlowsResponse">
+		<wsdl:part name="response" element="pageflow:listPageFlowsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="startPageFlowRequest">
+		<wsdl:part name="parameters" element="pageflow:startPageFlow"/>
+	</wsdl:message>
+	<wsdl:message name="startPageFlowResponse">
+		<wsdl:part name="response" element="pageflow:startPageFlowResponse"/>
+	</wsdl:message>
+	<wsdl:message name="invalidArgumentFault">
+		<wsdl:part name="invalidArgumentFault" element="ex:InvalidArgumentFault"/>
+	</wsdl:message>
+	<wsdl:message name="pageFlowExecutionFault">
+		<wsdl:part name="pageFlowExecutionFault" element="ex:PageFlowExecutionFault"/>
+	</wsdl:message>
+	
+
+	<wsdl:portType name="PageFlowService">
+		<wsdl:documentation>Get information about and interact with deployed pageflows.</wsdl:documentation>
+		<wsdl:operation name="listPageFlows" parameterOrder="parameters">
+			<wsdl:documentation>List deployed pageflows.</wsdl:documentation>
+			<wsdl:input name="listPageFlowsRequest" message="impl:listPageFlowsRequest">
+				<wsdl:documentation>Request message (uses pageflow:listPageFlows element): Specifies whether the response should include pageflows that have formal parameters.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output name="listPageFlowsResponse" message="impl:listPageFlowsResponse">
+				<wsdl:documentation>Response message (uses pageflow:listPageFlowsResponse element): Contains detailed descriptions of deployed pageflows.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault" message="impl:internalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidArgumentFault" message="impl:invalidArgumentFault">
+				<wsdl:documentation>Error message (uses ex:InvalidArgumentFault element): An invalid or missing argument was supplied in the request.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault name="PageFlowExecutionFault" message="impl:pageFlowExecutionFault">
+				<wsdl:documentation>Error message (uses ex:PageFlowExecutionFault): An error occurred when the pageflow Engine executed the request.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="startPageFlow" parameterOrder="parameters">
+			<wsdl:documentation>Start an instance of a deployed pageflow.</wsdl:documentation>
+			<wsdl:input name="startPageFlowRequest" message="impl:startPageFlowRequest">
+				<wsdl:documentation>Request message (uses pageflow:startPageFlow element): Identifies the pageflow instance to be started.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output name="startPageFlowResponse" message="impl:startPageFlowResponse">
+				<wsdl:documentation>Response message (uses pageflow:startPageFlowResponse element): Contains the execution state, context and page data for the started pageflow instance.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault" message="impl:internalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidArgumentFault" message="impl:invalidArgumentFault">
+				<wsdl:documentation>Error message (uses ex:InvalidArgumentFault element): An invalid or missing argument was supplied in the request.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault name="PageFlowExecutionFault" message="impl:pageFlowExecutionFault">
+				<wsdl:documentation>Error message (uses ex:PageFlowExecutionFault): An error occurred when the Page Flow Engine executed the request.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<!-- soap binding 1.1 -->
+	<wsdl:binding name="PageFlowService_EP" type="impl:PageFlowService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listPageFlows">
+			<soap:operation soapAction="listPageFlows" style="document"/>
+			<wsdl:input name="listPageFlowsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listPageFlowsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidArgumentFault">
+				<soap:fault name="InvalidArgumentFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="PageFlowExecutionFault">
+				<soap:fault name="PageFlowExecutionFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="startPageFlow">
+			<soap:operation soapAction="startPageFlow" style="document"/>
+			<wsdl:input name="startPageFlowRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="startPageFlowResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidArgumentFault">
+				<soap:fault name="InvalidArgumentFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="PageFlowExecutionFault">
+				<soap:fault name="PageFlowExecutionFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+	</wsdl:binding>
+	
+	<!-- soap binding 1.2 -->
+	<wsdl:binding name="PageFlowService_EP12" type="impl:PageFlowService">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listPageFlows">
+			<soap12:operation soapAction="listPageFlows" style="document"/>
+			<wsdl:input name="listPageFlowsRequest">
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listPageFlowsResponse">
+				<soap12:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidArgumentFault">
+				<soap:fault name="InvalidArgumentFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="PageFlowExecutionFault">
+				<soap:fault name="PageFlowExecutionFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="startPageFlow">
+			<soap12:operation soapAction="startPageFlow" style="document"/>
+			<wsdl:input name="startPageFlowRequest">
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="startPageFlowResponse">
+				<soap12:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidArgumentFault">
+				<soap:fault name="InvalidArgumentFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="PageFlowExecutionFault">
+				<soap:fault name="PageFlowExecutionFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>	
+	</wsdl:binding>
+	
+	<wsdl:service name="PageFlowService">
+		<!-- 1.1 -->
+		<wsdl:port name="PageFlowService" binding="impl:PageFlowService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/PageFlowService"/>
+		</wsdl:port>
+		<!-- 1.2 -->
+		<wsdl:port name="PageFlowService12" binding="impl:PageFlowService_EP12">
+			<soap12:address location="http://localhost:8080/amxbpm/PageFlowService"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

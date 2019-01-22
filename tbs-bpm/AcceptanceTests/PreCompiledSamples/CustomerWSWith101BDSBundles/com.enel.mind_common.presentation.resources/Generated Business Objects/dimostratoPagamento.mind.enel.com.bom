@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="dimostratoPagamento.mind.enel.com" name="dimostratoPagamento.mind.enel.com">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_I0Ya_g93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_I0Ya_w93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_I0YbAA93EeW3MruGqUCC5Q" key="created" value="1433947607199"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_I0YbAQ93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_I2KjoA93EeW3MruGqUCC5Q" key="checksum" value="915862013"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="dimostratoPagamento.mind.enel.comSNTDMPCR" name="SNTDMPCR">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_I0Xz4Q93EeW3MruGqUCC5Q" body="&#xA;      "/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="SNTDMPCRDimostratoPagamento" name="DimostratoPagamento">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="DimostratoPagamentorequest" name="request">
+          <type xmi:type="uml:Class" href="com.enel.mind.dimostrapagamento.bom#com.enel.mind.dimostrapagamentoDimostraPagamentoInput?com.enel.mind.dimostrapagamento%3a%3aDimostraPagamentoInput?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="DimostratoPagamentoresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.mind.dimostrapagamento.bom#com.enel.mind.dimostrapagamentoDimostraPagamentoOutput?com.enel.mind.dimostrapagamento%3a%3aDimostraPagamentoOutput?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_IzLhEQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IzLhEg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_IzLhEw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IzLhFA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_IzLhFQ93EeW3MruGqUCC5Q" base_Package="dimostratoPagamento.mind.enel.com?dimostratoPagamento.mind.enel.com?" xsdTargetNamespace="http://com.enel.mind.dimostratoPagamento" xsdSchemaLocation="DimostratoPagamentoServiceAbstract.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="DimostratoPagamentoServiceAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_IzLhFg93EeW3MruGqUCC5Q" base_Element="_IzLhEw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_IzLhFw93EeW3MruGqUCC5Q" base_Element="_IzLhEQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_I0Xz4g93EeW3MruGqUCC5Q" base_Class="dimostratoPagamento.mind.enel.comSNTDMPCR?dimostratoPagamento.mind.enel.com%3a%3aSNTDMPCR?" xsdName="SNTDMPCR" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_I0Ya_Q93EeW3MruGqUCC5Q" displayLabel="SNTDMPCR" base_NamedElement="dimostratoPagamento.mind.enel.comSNTDMPCR?dimostratoPagamento.mind.enel.com%3a%3aSNTDMPCR?"/>
+  <notation:Diagram xmi:id="_I0YbAg93EeW3MruGqUCC5Q" type="Business Object Model" element="dimostratoPagamento.mind.enel.com?dimostratoPagamento.mind.enel.com?" name="dimostratoPagamento.mind.enel.com" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_I0YbAw93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_I0YbBA93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

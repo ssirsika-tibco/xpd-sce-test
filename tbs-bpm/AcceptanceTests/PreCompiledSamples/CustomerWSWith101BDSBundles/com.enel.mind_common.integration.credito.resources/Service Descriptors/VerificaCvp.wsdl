@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.enel.com/mercato/libero/interface/integration/contratto/verificacvpbpm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VerificaCvp" targetNamespace="http://xmlns.enel.com/mercato/libero/interface/integration/contratto/verificacvpbpm">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://xmlns.enel.com/mercato/libero/interface/integration/contratto/verificacvpbpm">
+      <xsd:element name="CreditCheck">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="CVP" type="xsd:string" minOccurs="0"/>
+          	<xsd:element name="CDM_Cliente" type="xsd:string" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="canale" type="xsd:string" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="IdRichiesta" type="xsd:string" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="causale" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CreditCheckResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="COD_ESITO_CVP" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="CAUSALE_ESITO_CVP" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="DESC_ESITO_CVP" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="DATA_ESITO_CVP" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="IMP_MOROSITA_CVP" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="MacroCausaleEsitoDescrizione" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="temp1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="temp2" type="xsd:string" minOccurs="0"/>
+          	<xsd:element name="CVPEsitoLight" type="xsd:string" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="FlagMorositaOnline" type="xsd:string" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="FlagMorositaOffline" type="xsd:string" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="FlagVBL" type="xsd:string" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="CfUscente" type="xsd:string" minOccurs="0">
+          	</xsd:element>
+                        <xsd:element name="PivaUscente" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="Esito" minOccurs="1">
+          		<xsd:complexType>
+          			<xsd:sequence>
+          				<xsd:element name="esito" type="xsd:string" minOccurs="0">
+          				</xsd:element>
+          				<xsd:element name="codiceEsito" type="xsd:string" minOccurs="0">
+          				</xsd:element>
+          				<xsd:element name="descrizione" type="xsd:string" minOccurs="0">
+          				</xsd:element>
+          				<xsd:element name="tipoEsito" type="xsd:string" minOccurs="0">
+          				</xsd:element>
+          				<xsd:element name="sistemaSorgenteEsito" type="xsd:string" minOccurs="0">
+          				</xsd:element>
+          			</xsd:sequence>
+          		</xsd:complexType>
+          	</xsd:element>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PostFirma">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="CVP" type="xsd:string"
+      				minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="CVPEsitoLight" type="xsd:string"
+      				minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="CDM_Cliente" type="xsd:string"
+      				minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="CDM_Fatturazione" type="xsd:string"
+      				minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="canale" type="xsd:string"
+      				minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="IdRichiesta" type="xsd:string"
+      				minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="causale" type="xsd:string"
+      				minOccurs="0" />
+      			<xsd:element name="RateCategory" type="xsd:string" minOccurs="0"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PostFirmaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+                <xsd:element name="COD_ESITO_CVP" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="CAUSALE_ESITO_CVP" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="DESC_ESITO_CVP" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="DATA_ESITO_CVP" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="IMP_MOROSITA_CVP" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="MacroCausaleEsitoDescrizione" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="temp1" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="temp2" type="xsd:string" minOccurs="0"/>
+      			<xsd:element name="Esito" minOccurs="1">
+      				<xsd:complexType>
+      					<xsd:sequence>
+      						<xsd:element name="esito" type="xsd:string" minOccurs="0">
+      						</xsd:element>
+      						<xsd:element name="codiceEsito" type="xsd:string" minOccurs="0">
+      						</xsd:element>
+      						<xsd:element name="descrizione" type="xsd:string" minOccurs="0">
+      						</xsd:element>
+      						<xsd:element name="tipoEsito" type="xsd:string" minOccurs="0">
+      						</xsd:element>
+      						<xsd:element name="sistemaSorgenteEsito" type="xsd:string" minOccurs="0">
+      						</xsd:element>
+      					</xsd:sequence>
+      				</xsd:complexType></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CreditCheckRequest">
+    <wsdl:part element="tns:CreditCheck" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CreditCheckResponse">
+    <wsdl:part element="tns:CreditCheckResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="PostFirmaRequest">
+  	<wsdl:part name="parameters" element="tns:PostFirma"/>
+  </wsdl:message>
+  <wsdl:message name="PostFirmaResponse">
+  	<wsdl:part name="parameters" element="tns:PostFirmaResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="VerificaCvp">
+    <wsdl:operation name="CreditCheck">
+      <wsdl:input message="tns:CreditCheckRequest"/>
+      <wsdl:output message="tns:CreditCheckResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="PostFirma">
+    	<wsdl:input message="tns:PostFirmaRequest"/>
+    	<wsdl:output message="tns:PostFirmaResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VerificaCvpSOAP" type="tns:VerificaCvp">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CreditCheck">
+      <soap:operation soapAction="http://xmlns.enel.com/mercato/libero/interface/integration/contratto/verificacvpbpm/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VerificaCvp">
+    <wsdl:port binding="tns:VerificaCvpSOAP" name="VerificaCvpSOAP">
+      <soap:address location="http://xmlns.enel.com/mercato/libero/interface/integration/contratto/verificacvpbpm"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

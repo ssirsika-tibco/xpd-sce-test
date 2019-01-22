@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="channeltype"
+    nsURI="http://channeltype.common.n2.tibco.com" nsPrefix="channeltype">
+  <eClassifiers xsi:type="ecore:EEnum" name="ChannelType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="ChannelType"/>
+    </eAnnotations>
+    <eLiterals name="JSPChannel"/>
+    <eLiterals name="GIChannel" value="1"/>
+    <eLiterals name="PageflowChannel" value="2"/>
+    <eLiterals name="EmailChannel" value="3"/>
+    <eLiterals name="RssChannel" value="4"/>
+    <eLiterals name="openspaceChannel" value="5"/>
+    <eLiterals name="MobileChannel" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ChannelTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="ChannelType:Object"/>
+      <details key="baseType" value="ChannelType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ImplementationType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="ImplementationType"/>
+    </eAnnotations>
+    <eLiterals name="Pull"/>
+    <eLiterals name="Push" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ImplementationTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="ImplementationType:Object"/>
+      <details key="baseType" value="ImplementationType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PresentationType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="PresentationType"/>
+    </eAnnotations>
+    <eLiterals name="JSP"/>
+    <eLiterals name="GI" value="1"/>
+    <eLiterals name="Pageflow" value="2"/>
+    <eLiterals name="Email" value="3"/>
+    <eLiterals name="Rss" value="4"/>
+    <eLiterals name="GWT" value="5"/>
+    <eLiterals name="iPhone" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="PresentationTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="PresentationType:Object"/>
+      <details key="baseType" value="PresentationType"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

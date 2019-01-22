@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Simulation Tests Overrides">
+
+    <property name="autobuild.obfuscator.style" value="none" />
+    <property name="autobuild.version.eclipse" value="4.7"/>
+    <property name="autobuild.version.eclipse-host" value="4.7"/>
+
+    <!-- allows for cycles in the binary dependencies -->
+    <property name="allow.binary.cycles" value="true" />
+
+    <!-- Each Release Unit should change the project name above and the two
+         property definitions below. -->
+    <property name="release-unit" value="com.tibco.xpd.simulation.test.feature" />
+    <property name="feature" value="com.tibco.xpd.simulation.test.feature" />
+    <property name="javacSource" value="1.8"/>
+    <property name="javacTarget" value="1.8"/>
+       <property name="autobuild.jdk.force-18" value="true" />
+
+    <!-- The repository name is only used to separate release unit configurations,
+         preventing confusion of thirdparty common with neo common, for instance. -->
+    <property name="autobuild.repository" value="xpd-repository" />
+
+    <!-- if there is a .devdocs feature, and this property is set, the javadoc
+         for the code feature will be output to this location -->
+    <!--property name="javadoc.destination" location="RELATIVE PATH FROM THIS DIRECTORY" /-->
+
+    <!-- these two can be used to automatically initiate a post-build processing
+         step, which will be invoked on successful completion of the release unit build. -->
+    <!-- property name="autobuild.extension.script" location="SCRIPT_NAME" /-->
+    <!-- property name="autobuild.extension.target" value="TARGET_NAME" /-->
+
+    <!-- for additional information on properties commonly overridden by release units, see:
+         http://wiki.tibco.com/FrameworksWiki/Componentization/Builder -->
+
+    <updatesites id="autobuild.workspace.update-sites.list">
+        <updatesite url="http://reldist.na.tibco.com/reldist/debug/site.xml"/>
+        <updatesite url="http://studiobuild/userContent/eclipse-test-framework-4.7.2/site.xml"/>
+   </updatesites>
+
+</project>

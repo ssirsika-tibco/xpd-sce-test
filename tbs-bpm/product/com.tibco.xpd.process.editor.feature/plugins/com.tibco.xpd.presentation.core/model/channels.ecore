@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="channels"
+    nsURI="http://www.tibco.com/xpd/presentation/channels/1.0" nsPrefix="channels">
+  <eClassifiers xsi:type="ecore:EClass" name="Channels">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channels" upperBound="-1"
+        eType="#//Channel" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Channel" eSuperTypes="channeltypes.ecore#//NamedElement">
+    <eOperations name="getTypeAssociations" ordered="false" upperBound="-1" eType="#//TypeAssociation">
+      <eParameters name="destinations" ordered="false" upperBound="-1" eType="ecore:EClass channeltypes.ecore#//ChannelDestination"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeAssociations" upperBound="-1"
+        eType="#//TypeAssociation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValue">
+    <eOperations name="getResolvedValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="useDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getAttributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumValues" upperBound="-1"
+        eType="ecore:EClass channeltypes.ecore#//EnumLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
+        eType="ecore:EClass channeltypes.ecore#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum channeltypes.ecore#//AttributeType"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeAssociation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channelType" eType="ecore:EClass channeltypes.ecore#//ChannelType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeValues" upperBound="-1"
+        eType="#//AttributeValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extendedAttributes" upperBound="-1"
+        eType="#//ExtendedAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channel" eType="#//Channel"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derivedId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" defaultValueLiteral=""
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtendedAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

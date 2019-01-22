@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.dac.api.calendar2" name="com.tibco.n2.dac.api.calendar">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Sac1kRUfEeGeRrbRLAepWg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Sac1khUfEeGeRrbRLAepWg" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SadcoBUfEeGeRrbRLAepWg" key="created" value="1321979592169"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SadcoRUfEeGeRrbRLAepWg" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.n2.dac.api.calendarupdateWorkingDaysResponse" name="updateWorkingDaysResponseType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_R1EQkBUfEeGeRrbRLAepWg" body="Response element for updateWorkingDays operation. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_R0_YEBUfEeGeRrbRLAepWg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsResponse" name="updateWorkingDayExceptionsResponseType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_R1MzcBUfEeGeRrbRLAepWg" body="Response element for updateWorkingDayExceptions operation. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_R1IiABUfEeGeRrbRLAepWg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsResponse" name="deleteWorkingDayExceptionsResponseType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_R1UvQBUfEeGeRrbRLAepWg" body="Response element for deleteWorkingDayExceptions operation. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_R1Qd0BUfEeGeRrbRLAepWg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.dac.api.calendargetCalendarEntriesType" name="getCalendarEntriesType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="getCalendarEntriesTypeguid" name="guid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R1qtgBUfEeGeRrbRLAepWg" body="ID of the owning entity of the working time information to be returned. "/>
+        <type xmi:type="uml:PrimitiveType" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlGuidType2?com.tibco.n2.dac.api%3a%3aXmlGuidType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R1pfYhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R1pfYRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="getCalendarEntriesTypestart-date-time" name="startdatetime">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R11FkBUfEeGeRrbRLAepWg" body="Optional start filter on the working day exceptions to be returned. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R1z3chUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R1z3cRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="getCalendarEntriesTypeend-date-time" name="enddatetime">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R2AEsBUfEeGeRrbRLAepWg" body="Optional end filter on the working day exceptions to be returned. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R1-PghUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R1-PgRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="getCalendarEntriesTyperequired-detail" name="requireddetail">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R2InkBUfEeGeRrbRLAepWg" body="Optional filter to enhance the detail contained in the response.&#xA;&#xA;WORKING_WEEK: Include working day details in the response.&#xA;FREE_BUSY: Include working day exceptions in the response. "/>
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlRequiredDetailType?com.tibco.n2.dac.api%3a%3aXmlRequiredDetailType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R2IAgBUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R2HZchUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.dac.api.calendarupdateWorkingDaysType" name="updateWorkingDaysType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updateWorkingDaysTypeguid" name="guid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R2bigBUfEeGeRrbRLAepWg" body="ID of the owning entity of the working time information to be modified. "/>
+        <type xmi:type="uml:PrimitiveType" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlGuidType2?com.tibco.n2.dac.api%3a%3aXmlGuidType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R2aUYhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R2aUYRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updateWorkingDaysTypeworking-day" name="workingday" aggregation="composite" association="com.tibco.n2.dac.api.calendarComposition3?com.tibco.n2.dac.api.calendar%3a%3aComposition3?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlDayType?com.tibco.n2.dac.api%3a%3aXmlDayType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R2pk8xUfEeGeRrbRLAepWg" value="7"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R2pk8hUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.dac.api.calendarComposition3" name="Composition3" memberEnd="updateWorkingDaysTypeworking-day?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType%3a%3aworkingday? Composition3updateworkingdaystype?com.tibco.n2.dac.api.calendar%3a%3aComposition3%3a%3aupdateworkingdaystype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition3updateworkingdaystype" name="updateworkingdaystype" type="com.tibco.n2.dac.api.calendarupdateWorkingDaysType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType?" association="com.tibco.n2.dac.api.calendarComposition3?com.tibco.n2.dac.api.calendar%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R2qMAhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R2qMARUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsType" name="addWorkingDayExceptionsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="addWorkingDayExceptionsTypeguid" name="guid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R2_jMBUfEeGeRrbRLAepWg" body="ID of the owning entity of the working time information to be added. "/>
+        <type xmi:type="uml:PrimitiveType" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlGuidType2?com.tibco.n2.dac.api%3a%3aXmlGuidType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R2-VEhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R2-VERUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="addWorkingDayExceptionsTypeadd-exceptions" name="addexceptions" aggregation="composite" association="com.tibco.n2.dac.api.calendarComposition4?com.tibco.n2.dac.api.calendar%3a%3aComposition4?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlNewWorkingDayExceptionType?com.tibco.n2.dac.api%3a%3aXmlNewWorkingDayExceptionType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R3OMsxUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R3OMshUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.dac.api.calendarComposition4" name="Composition4" memberEnd="addWorkingDayExceptionsTypeadd-exceptions?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType%3a%3aaddexceptions? Composition4addworkingdayexceptionstype?com.tibco.n2.dac.api.calendar%3a%3aComposition4%3a%3aaddworkingdayexceptionstype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition4addworkingdayexceptionstype" name="addworkingdayexceptionstype" type="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType?" association="com.tibco.n2.dac.api.calendarComposition4?com.tibco.n2.dac.api.calendar%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R3OzwhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R3OzwRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsResponseType" name="addWorkingDayExceptionsResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="addWorkingDayExceptionsResponseTypeadd-exceptions" name="addexceptions">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R3nOQBUfEeGeRrbRLAepWg" body="List of IDs of exceptions that have been added. "/>
+        <type xmi:type="uml:PrimitiveType" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlGuidType2?com.tibco.n2.dac.api%3a%3aXmlGuidType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R3mAIhUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R3mAIRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsType" name="updateWorkingDayExceptionsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updateWorkingDayExceptionsTypeguid" name="guid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R39zkBUfEeGeRrbRLAepWg" body="ID of the owning entity of the working time information to be modified. "/>
+        <type xmi:type="uml:PrimitiveType" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlGuidType2?com.tibco.n2.dac.api%3a%3aXmlGuidType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R38lcRUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R38lcBUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updateWorkingDayExceptionsTypeupdate-exceptions" name="updateexceptions" aggregation="composite" association="com.tibco.n2.dac.api.calendarComposition5?com.tibco.n2.dac.api.calendar%3a%3aComposition5?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlExistingWorkingDayExceptionType?com.tibco.n2.dac.api%3a%3aXmlExistingWorkingDayExceptionType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R4MdEhUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R4MdERUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.dac.api.calendarComposition5" name="Composition5" memberEnd="updateWorkingDayExceptionsTypeupdate-exceptions?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType%3a%3aupdateexceptions? Composition5updateworkingdayexceptionstype?com.tibco.n2.dac.api.calendar%3a%3aComposition5%3a%3aupdateworkingdayexceptionstype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition5updateworkingdayexceptionstype" name="updateworkingdayexceptionstype" type="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType?" association="com.tibco.n2.dac.api.calendarComposition5?com.tibco.n2.dac.api.calendar%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R4NEIhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R4NEIRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsType" name="deleteWorkingDayExceptionsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="deleteWorkingDayExceptionsTypeguid" name="guid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R4mFsBUfEeGeRrbRLAepWg" body="ID of the owning entity of the working time information to be removed. "/>
+        <type xmi:type="uml:PrimitiveType" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlGuidType2?com.tibco.n2.dac.api%3a%3aXmlGuidType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R4k3khUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R4k3kRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="deleteWorkingDayExceptionsTypedelete-exceptions" name="deleteexceptions">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_R419UBUfEeGeRrbRLAepWg" body="List of IDs of exceptions to be deleted. "/>
+        <type xmi:type="uml:PrimitiveType" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlGuidType2?com.tibco.n2.dac.api%3a%3aXmlGuidType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_R40IIhUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_R40IIRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Rcib0RUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Rcib0hUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Rcib0xUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Rcib1BUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_RclfIBUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.dac.api.calendar2?com.tibco.n2.dac.api.calendar?" xsdTargetNamespace="http://calendar.api.dac.n2.tibco.com" xsdSchemaLocation="dac.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_R1BNQBUfEeGeRrbRLAepWg" textLength="-1" base_PrimitiveType="com.tibco.n2.dac.api.calendarupdateWorkingDaysResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysResponseType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_R1DCcBUfEeGeRrbRLAepWg" base_PrimitiveType="com.tibco.n2.dac.api.calendarupdateWorkingDaysResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysResponseType?" xsdSimpleTypeName="updateWorkingDaysResponse" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_R1E3oBUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.dac.api.calendar2?com.tibco.n2.dac.api.calendar?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R1Gs0BUfEeGeRrbRLAepWg" name="updateWorkingDaysResponse" type="com.tibco.n2.dac.api.calendarupdateWorkingDaysResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysResponseType?" isBaseXSDType="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R1OooBUfEeGeRrbRLAepWg" name="updateWorkingDayExceptionsResponse" type="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsResponseType?" isBaseXSDType="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R1VWUBUfEeGeRrbRLAepWg" name="deleteWorkingDayExceptionsResponse" type="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsResponseType?" isBaseXSDType="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R1bc8BUfEeGeRrbRLAepWg" name="getCalendarEntriesResponse" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup="">
+      <type xmi:type="uml:Class" href="com.tibco.n2.dac.api.bom#com.tibco.n2.dac.apiXmlCalendarEntriesType?com.tibco.n2.dac.api%3a%3aXmlCalendarEntriesType?"/>
+    </elements>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R2M5ABUfEeGeRrbRLAepWg" name="getCalendarEntries" type="com.tibco.n2.dac.api.calendargetCalendarEntriesType?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType?" isAnonymous="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R2udcBUfEeGeRrbRLAepWg" name="updateWorkingDays" type="com.tibco.n2.dac.api.calendarupdateWorkingDaysType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType?" isAnonymous="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R3TFMBUfEeGeRrbRLAepWg" name="addWorkingDayExceptions" type="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType?" isAnonymous="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R3q4oBUfEeGeRrbRLAepWg" name="addWorkingDayExceptionsResponse" type="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsResponseType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsResponseType?" isAnonymous="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R4R8oBUfEeGeRrbRLAepWg" name="updateWorkingDayExceptions" type="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType?" isAnonymous="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_R45AoBUfEeGeRrbRLAepWg" name="deleteWorkingDayExceptions" type="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType?" isAnonymous="true" targetNamespace="http://calendar.api.dac.n2.tibco.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_R1KXMBUfEeGeRrbRLAepWg" textLength="-1" base_PrimitiveType="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsResponseType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_R1LlUBUfEeGeRrbRLAepWg" base_PrimitiveType="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsResponseType?" xsdSimpleTypeName="updateWorkingDayExceptionsResponse" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_R1STABUfEeGeRrbRLAepWg" textLength="-1" base_PrimitiveType="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsResponseType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_R1ThIBUfEeGeRrbRLAepWg" base_PrimitiveType="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsResponseType?" xsdSimpleTypeName="deleteWorkingDayExceptionsResponse" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_R1gVcBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.dac.api.calendargetCalendarEntriesType?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_R2J1sBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R1pfYBUfEeGeRrbRLAepWg" base_Property="getCalendarEntriesTypeguid?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3aguid?" xsdName="guid" xsdForm="unqualified" xsdUse="required" xsdType="dac:XmlGuidType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R1z3cBUfEeGeRrbRLAepWg" base_Property="getCalendarEntriesTypestart-date-time?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3astartdatetime?" xsdName="start-date-time" xsdForm="unqualified" xsdUse="optional" xsdType="dateTime" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R1-PgBUfEeGeRrbRLAepWg" base_Property="getCalendarEntriesTypeend-date-time?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3aenddatetime?" xsdName="end-date-time" xsdForm="unqualified" xsdUse="optional" xsdType="dateTime" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R2HZcRUfEeGeRrbRLAepWg" base_Property="getCalendarEntriesTyperequired-detail?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3arequireddetail?" xsdName="required-detail" xsdForm="unqualified" xsdType="dac:XmlRequiredDetailType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_R2J1sBUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="*"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_R2RKcBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.dac.api.calendarupdateWorkingDaysType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_R2sBMBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R2aUYBUfEeGeRrbRLAepWg" base_Property="updateWorkingDaysTypeguid?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType%3a%3aguid?" xsdName="guid" xsdForm="unqualified" xsdUse="required" xsdType="dac:XmlGuidType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R2qzEBUfEeGeRrbRLAepWg" base_Property="updateWorkingDaysTypeworking-day?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType%3a%3aworkingday?" xsdName="working-day" xsdForm="unqualified" xsdType="XmlDayType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_R2sBMBUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="7"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_R2z9ABUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_R3Qo8BUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R2-VEBUfEeGeRrbRLAepWg" base_Property="addWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType%3a%3aguid?" xsdName="guid" xsdForm="unqualified" xsdUse="required" xsdType="dac:XmlGuidType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R3Pa0BUfEeGeRrbRLAepWg" base_Property="addWorkingDayExceptionsTypeadd-exceptions?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType%3a%3aaddexceptions?" xsdName="add-exceptions" xsdForm="unqualified" xsdType="XmlNewWorkingDayExceptionType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_R3Qo8BUfEeGeRrbRLAepWg" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_R3ZL0BUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsResponseType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_R3ocYBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R3mAIBUfEeGeRrbRLAepWg" base_Property="addWorkingDayExceptionsResponseTypeadd-exceptions?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsResponseType%3a%3aaddexceptions?" xsdName="add-exceptions" xsdForm="unqualified" xsdType="dac:XmlGuidType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_R3ocYBUfEeGeRrbRLAepWg" xsdMaxOccurs="*"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_R3wYMBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_R4O5UBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R37-YRUfEeGeRrbRLAepWg" base_Property="updateWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType%3a%3aguid?" xsdName="guid" xsdForm="unqualified" xsdUse="required" xsdType="dac:XmlGuidType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R4NrMBUfEeGeRrbRLAepWg" base_Property="updateWorkingDayExceptionsTypeupdate-exceptions?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType%3a%3aupdateexceptions?" xsdName="update-exceptions" xsdForm="unqualified" xsdType="XmlExistingWorkingDayExceptionType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_R4O5UBUfEeGeRrbRLAepWg" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_R4YqUBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_R42kYBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R4k3kBUfEeGeRrbRLAepWg" base_Property="deleteWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType%3a%3aguid?" xsdName="guid" xsdForm="unqualified" xsdUse="required" xsdType="dac:XmlGuidType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_R40IIBUfEeGeRrbRLAepWg" base_Property="deleteWorkingDayExceptionsTypedelete-exceptions?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType%3a%3adeleteexceptions?" xsdName="delete-exceptions" xsdForm="unqualified" xsdType="dac:XmlGuidType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_R42kYBUfEeGeRrbRLAepWg" xsdMaxOccurs="*"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R48rABUfEeGeRrbRLAepWg" base_Element="_R3OzwRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R49SEBUfEeGeRrbRLAepWg" base_Element="getCalendarEntriesTypeend-date-time?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3aenddatetime?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R49SERUfEeGeRrbRLAepWg" base_Element="_R2InkBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R495IBUfEeGeRrbRLAepWg" base_Element="addWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R495IRUfEeGeRrbRLAepWg" base_Element="_R1EQkBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R495IhUfEeGeRrbRLAepWg" base_Element="updateWorkingDayExceptionsTypeupdate-exceptions?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType%3a%3aupdateexceptions?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R4-gMBUfEeGeRrbRLAepWg" base_Element="getCalendarEntriesTypestart-date-time?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3astartdatetime?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R4-gMRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendarupdateWorkingDaysType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R4_HQBUfEeGeRrbRLAepWg" base_Element="_R2pk8xUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R4_HQRUfEeGeRrbRLAepWg" base_Element="_Rcib0xUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R4_HQhUfEeGeRrbRLAepWg" base_Element="_R4k3kRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R4_uUBUfEeGeRrbRLAepWg" base_Element="_R419UBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R4_uURUfEeGeRrbRLAepWg" base_Element="_R4MdERUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5AVYBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsResponseType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5AVYRUfEeGeRrbRLAepWg" base_Element="_R2bigBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5A8cBUfEeGeRrbRLAepWg" base_Element="_R2qMAhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5A8cRUfEeGeRrbRLAepWg" base_Element="deleteWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5BjgBUfEeGeRrbRLAepWg" base_Element="_R2AEsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5BjgRUfEeGeRrbRLAepWg" base_Element="addWorkingDayExceptionsTypeadd-exceptions?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType%3a%3aaddexceptions?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5BjghUfEeGeRrbRLAepWg" base_Element="_Rcib0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5CKkBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5CKkRUfEeGeRrbRLAepWg" base_Element="_R2IAgBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5CxoBUfEeGeRrbRLAepWg" base_Element="_R1z3cRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5CxoRUfEeGeRrbRLAepWg" base_Element="_R1UvQBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5CxohUfEeGeRrbRLAepWg" base_Element="_R2HZchUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5DYsBUfEeGeRrbRLAepWg" base_Element="getCalendarEntriesTypeguid?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5DYsRUfEeGeRrbRLAepWg" base_Element="_R2pk8hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5DYshUfEeGeRrbRLAepWg" base_Element="getCalendarEntriesTyperequired-detail?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3arequireddetail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5D_wBUfEeGeRrbRLAepWg" base_Element="Composition4addworkingdayexceptionstype?com.tibco.n2.dac.api.calendar%3a%3aComposition4%3a%3aaddworkingdayexceptionstype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5D_wRUfEeGeRrbRLAepWg" base_Element="_R38lcBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5Em0BUfEeGeRrbRLAepWg" base_Element="_R3OMsxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5Em0RUfEeGeRrbRLAepWg" base_Element="_R40IIhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5Em0hUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendarComposition5?com.tibco.n2.dac.api.calendar%3a%3aComposition5?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5FN4BUfEeGeRrbRLAepWg" base_Element="_R1z3chUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5FN4RUfEeGeRrbRLAepWg" base_Element="_R1IiABUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5F08BUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendarComposition4?com.tibco.n2.dac.api.calendar%3a%3aComposition4?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5F08RUfEeGeRrbRLAepWg" base_Element="updateWorkingDaysTypeguid?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5F08hUfEeGeRrbRLAepWg" base_Element="_R1-PghUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5GcABUfEeGeRrbRLAepWg" base_Element="_R2aUYRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5GcARUfEeGeRrbRLAepWg" base_Element="Composition3updateworkingdaystype?com.tibco.n2.dac.api.calendar%3a%3aComposition3%3a%3aupdateworkingdaystype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5HDEBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5HDERUfEeGeRrbRLAepWg" base_Element="_R4MdEhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5HDEhUfEeGeRrbRLAepWg" base_Element="_R11FkBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5HqIBUfEeGeRrbRLAepWg" base_Element="_R1pfYhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5HqIRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendarComposition3?com.tibco.n2.dac.api.calendar%3a%3aComposition3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5IRMBUfEeGeRrbRLAepWg" base_Element="_R1pfYRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5IRMRUfEeGeRrbRLAepWg" base_Element="updateWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5IRMhUfEeGeRrbRLAepWg" base_Element="_R4NEIhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5I4QBUfEeGeRrbRLAepWg" base_Element="_R2-VEhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5I4QRUfEeGeRrbRLAepWg" base_Element="_R40IIRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5I4QhUfEeGeRrbRLAepWg" base_Element="_R2qMARUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5JfUBUfEeGeRrbRLAepWg" base_Element="_R3OzwhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5JfURUfEeGeRrbRLAepWg" base_Element="_R39zkBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5KGYBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendarupdateWorkingDaysResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5KGYRUfEeGeRrbRLAepWg" base_Element="deleteWorkingDayExceptionsTypedelete-exceptions?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType%3a%3adeleteexceptions?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5KGYhUfEeGeRrbRLAepWg" base_Element="updateWorkingDaysTypeworking-day?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType%3a%3aworkingday?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5KtcBUfEeGeRrbRLAepWg" base_Element="_R4k3khUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5KtcRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5KtchUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendargetCalendarEntriesType?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5LUgBUfEeGeRrbRLAepWg" base_Element="_R4NEIRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5LUgRUfEeGeRrbRLAepWg" base_Element="_R1MzcBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5L7kBUfEeGeRrbRLAepWg" base_Element="_R1Qd0BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5L7kRUfEeGeRrbRLAepWg" base_Element="_R1-PgRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5L7khUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5MioBUfEeGeRrbRLAepWg" base_Element="_R1qtgBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5MioRUfEeGeRrbRLAepWg" base_Element="_R4mFsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5MiohUfEeGeRrbRLAepWg" base_Element="_R3nOQBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5NJsBUfEeGeRrbRLAepWg" base_Element="_R38lcRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5NJsRUfEeGeRrbRLAepWg" base_Element="_R3OMshUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5NwwBUfEeGeRrbRLAepWg" base_Element="Composition5updateworkingdayexceptionstype?com.tibco.n2.dac.api.calendar%3a%3aComposition5%3a%3aupdateworkingdayexceptionstype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5NwwRUfEeGeRrbRLAepWg" base_Element="_R3mAIhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5NwwhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5OX0BUfEeGeRrbRLAepWg" base_Element="_R2-VERUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5OX0RUfEeGeRrbRLAepWg" base_Element="_R0_YEBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5O-4BUfEeGeRrbRLAepWg" base_Element="addWorkingDayExceptionsResponseTypeadd-exceptions?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsResponseType%3a%3aaddexceptions?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5O-4RUfEeGeRrbRLAepWg" base_Element="_R2_jMBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5Pl8BUfEeGeRrbRLAepWg" base_Element="_R3mAIRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_R5Pl8RUfEeGeRrbRLAepWg" base_Element="_R2aUYhUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SZ_ikBUfEeGeRrbRLAepWg" displayLabel="addWorkingDayExceptionsType" base_NamedElement="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaAwsBUfEeGeRrbRLAepWg" displayLabel="addWorkingDayExceptionsResponseType" base_NamedElement="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsResponseType?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaCl4BUfEeGeRrbRLAepWg" displayLabel="deleteWorkingDayExceptionsType" base_NamedElement="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaEbEBUfEeGeRrbRLAepWg" displayLabel="deleteWorkingDayExceptionsResponse" base_NamedElement="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaFpMBUfEeGeRrbRLAepWg" displayLabel="getCalendarEntriesType" base_NamedElement="com.tibco.n2.dac.api.calendargetCalendarEntriesType?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaHeYBUfEeGeRrbRLAepWg" displayLabel="updateWorkingDayExceptionsType" base_NamedElement="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaJTkBUfEeGeRrbRLAepWg" displayLabel="updateWorkingDayExceptionsResponse" base_NamedElement="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaKhsBUfEeGeRrbRLAepWg" displayLabel="updateWorkingDaysType" base_NamedElement="com.tibco.n2.dac.api.calendarupdateWorkingDaysType?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaMW4BUfEeGeRrbRLAepWg" displayLabel="updateWorkingDaysResponse" base_NamedElement="com.tibco.n2.dac.api.calendarupdateWorkingDaysResponse?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaNlABUfEeGeRrbRLAepWg" displayLabel="add-exceptions" base_NamedElement="addWorkingDayExceptionsTypeadd-exceptions?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType%3a%3aaddexceptions?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaOzIBUfEeGeRrbRLAepWg" displayLabel="guid" base_NamedElement="addWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsType%3a%3aguid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaQBQBUfEeGeRrbRLAepWg" displayLabel="add-exceptions" base_NamedElement="addWorkingDayExceptionsResponseTypeadd-exceptions?com.tibco.n2.dac.api.calendar%3a%3aaddWorkingDayExceptionsResponseType%3a%3aaddexceptions?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaRPYBUfEeGeRrbRLAepWg" displayLabel="delete-exceptions" base_NamedElement="deleteWorkingDayExceptionsTypedelete-exceptions?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType%3a%3adeleteexceptions?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaSdgBUfEeGeRrbRLAepWg" displayLabel="guid" base_NamedElement="deleteWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3adeleteWorkingDayExceptionsType%3a%3aguid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaTroBUfEeGeRrbRLAepWg" displayLabel="required-detail" base_NamedElement="getCalendarEntriesTyperequired-detail?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3arequireddetail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaU5wBUfEeGeRrbRLAepWg" displayLabel="end-date-time" base_NamedElement="getCalendarEntriesTypeend-date-time?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3aenddatetime?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaWH4BUfEeGeRrbRLAepWg" displayLabel="guid" base_NamedElement="getCalendarEntriesTypeguid?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3aguid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaXWABUfEeGeRrbRLAepWg" displayLabel="start-date-time" base_NamedElement="getCalendarEntriesTypestart-date-time?com.tibco.n2.dac.api.calendar%3a%3agetCalendarEntriesType%3a%3astartdatetime?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaYkIBUfEeGeRrbRLAepWg" displayLabel="update-exceptions" base_NamedElement="updateWorkingDayExceptionsTypeupdate-exceptions?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType%3a%3aupdateexceptions?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SaZyQBUfEeGeRrbRLAepWg" displayLabel="guid" base_NamedElement="updateWorkingDayExceptionsTypeguid?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDayExceptionsType%3a%3aguid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SabncBUfEeGeRrbRLAepWg" displayLabel="working-day" base_NamedElement="updateWorkingDaysTypeworking-day?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType%3a%3aworkingday?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Sac1kBUfEeGeRrbRLAepWg" displayLabel="guid" base_NamedElement="updateWorkingDaysTypeguid?com.tibco.n2.dac.api.calendar%3a%3aupdateWorkingDaysType%3a%3aguid?"/>
+  <notation:Diagram xmi:id="_SadcohUfEeGeRrbRLAepWg" type="Business Object Model" element="com.tibco.n2.dac.api.calendar2?com.tibco.n2.dac.api.calendar?" name="com.tibco.n2.dac.api.calendar" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_SadcoxUfEeGeRrbRLAepWg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_SadcpBUfEeGeRrbRLAepWg"/>
+  </notation:Diagram>
+</xmi:XMI>

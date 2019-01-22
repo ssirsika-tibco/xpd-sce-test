@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://usersettingsservice.api.de.n2.tibco.com" xmlns:tns18="http://usersettingsservice.api.de.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.de.api.usersettingsservice.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="XmlSettingProperty" id="com.tibco.n2.de.api.usersettingsserviceXmlSettingProperty"
+      abstract="false" mixed="false" name="XmlSettingProperty">
+    <xsd:annotation>
+      <xsd:documentation>Definition of a user setting (a name/value pair). </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="name" id="XmlSettingPropertyName" form="unqualified"
+        name="Name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of a user setting - this can be any caller-specified name. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="value" id="XmlSettingPropertyValue" form="unqualified"
+        name="Value" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Value for this user setting. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlSaveUserSettingsDetail" id="com.tibco.n2.de.api.usersettingsserviceXmlSaveUserSettingsDetail"
+      abstract="false" mixed="false" name="XmlSaveUserSettingsDetail">
+    <xsd:annotation>
+      <xsd:documentation>Details of a user setting. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="settingProperties" id="XmlSaveUserSettingsDetailsettingProperties"
+          form="unqualified" maxOccurs="unbounded" minOccurs="1" name="settingProperties"
+          type="XmlSettingProperty"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="storageKey" id="XmlSaveUserSettingsDetailstorageKey"
+        form="unqualified" name="storageKey" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Key value for this user setting. Typically this will be a resource GUID for resources. However, the caller may specify any key that is required. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="settingId" id="XmlSaveUserSettingsDetailsettingId"
+        form="unqualified" name="settingId" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>ID used to identify a user setting type (controlled by the calling component). </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="saveUserSettingsRequest" nillable="false">
+    <xsd:complexType ecore:name="saveUserSettingsRequestType" id="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="settings" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="settings" type="XmlSaveUserSettingsDetail"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="saveUserSettingsResponse" nillable="false">
+    <xsd:complexType ecore:name="saveUserSettingsResponseType" id="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="empty" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="empty" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getUserSettingsRequest" nillable="false">
+    <xsd:complexType ecore:name="getUserSettingsRequestType" id="com.tibco.n2.de.api.usersettingsservicegetUserSettingsRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="storageKey" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="storageKey" type="xsd:string"/>
+        <xsd:element ecore:name="settingId" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="settingId" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getUserSettingsResponse" nillable="false">
+    <xsd:complexType ecore:name="getUserSettingsResponseType" id="com.tibco.n2.de.api.usersettingsservicegetUserSettingsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="settingProperties" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="settingProperties" type="XmlSettingProperty"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteUserSettingsRequest" nillable="false">
+    <xsd:complexType ecore:name="deleteUserSettingsRequestType" id="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="storageKey" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="storageKey" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteUserSettingsResponse" nillable="false">
+    <xsd:complexType ecore:name="deleteUserSettingsResponseType" id="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="empty" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="empty" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listUserSettingIdsRequest" nillable="false">
+    <xsd:complexType ecore:name="listUserSettingIdsRequestType" id="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="storageKey" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="storageKey" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listUserSettingIdsResponse" nillable="false">
+    <xsd:complexType ecore:name="listUserSettingIdsResponseType" id="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="settingId" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="settingId" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

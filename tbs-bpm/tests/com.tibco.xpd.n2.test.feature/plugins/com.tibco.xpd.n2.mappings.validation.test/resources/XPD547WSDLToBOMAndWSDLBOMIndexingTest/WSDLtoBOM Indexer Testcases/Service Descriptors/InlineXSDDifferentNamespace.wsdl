@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns1="http://www.example.org/DiffNamespace/" xmlns:tns="http://www.example.org/InlineXSDDifferentNamespace/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InlineXSDDifferentNamespace" targetNamespace="http://www.example.org/InlineXSDDifferentNamespace/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/DiffNamespace/">
+        <xsd:complexType name="NewOperation">
+          <xsd:sequence>
+            <xsd:element name="definedInInlineDiffNamespace" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="NewOperationResponse">
+          <xsd:sequence>
+            <xsd:element name="definedInInlineDiffNamespace" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="InlineButDiffNamespaceOperationRequest">
+    <wsdl:part type="tns1:NewOperation" name="inlineDiffNamespaceParam"/>
+  </wsdl:message>
+  <wsdl:message name="InlineButDiffNamespaceOperationResponse">
+    <wsdl:part type="tns1:NewOperationResponse" name="inlineDiffNamespaceParam"/>
+  </wsdl:message>
+  <wsdl:portType name="InlineXSDDifferentNamespace">
+    <wsdl:operation name="InlineButDiffNamespaceOperation">
+      <wsdl:input message="tns:InlineButDiffNamespaceOperationRequest"/>
+      <wsdl:output message="tns:InlineButDiffNamespaceOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InlineXSDDifferentNamespaceSOAP" type="tns:InlineXSDDifferentNamespace">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="InlineButDiffNamespaceOperation">
+      <soap:operation soapAction="http://www.example.org/InlineXSDDifferentNamespace/InlineButDiffNamespaceOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InlineXSDDifferentNamespace">
+    <wsdl:port binding="tns:InlineXSDDifferentNamespaceSOAP" name="InlineXSDDifferentNamespaceSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

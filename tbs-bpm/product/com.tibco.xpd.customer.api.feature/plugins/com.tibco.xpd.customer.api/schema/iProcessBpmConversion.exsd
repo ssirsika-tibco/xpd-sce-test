@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.customer.api" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.customer.api" id="iProcessBpmConversion" name="TIBCO Business Studio – BPM Edition,TIBCO iProcess to TIBCO ActiveMatrix BPM conversion feature"/>
+      </appinfo>
+      <documentation>
+         &lt;p&gt;
+The &lt;b&gt;com.tibco.xpd.customer.api.iProcessBpmConversion&lt;/b&gt; extension point allows pluggable contribution to the &lt;b&gt;TIBCO iProcess To AMX BPM XPDL Conversion Framework&lt;/b&gt; for individual, discreet conversion tasks of TIBCO iProcess processes into TIBCO AMX BPM processes. This extension is used internally by BPM Edition Business Studio to provide base generic conversions and is also available for customer extensibility thus providing the ability to migrate constructs that follow certain recognizable patterns in that customer&apos;s process set that otherwise could not be migrated in the generic, base conversion.
+&lt;/p&gt;
+&lt;p&gt;
+This framework (and hence the conversion extension contributions) is utilised by the following features available to the TIBCO BPM Business Studio user...
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;iProcess to AMX BPM XPDL Import Wizard&lt;/b&gt; for direct import of &lt;b&gt;TIBCO iProcess Modeller-generated XPDL&lt;/b&gt;&lt;/li&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;li&gt;&lt;b&gt;Studio XPDL for iProcess To AMX BPM Destination Conversion Wizard&lt;/b&gt; for the conversion of iProcess-destination Business Studio XPDL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+The conversion extensions are invoked sequentially (in a configurable order) after the &lt;b&gt;iProcess-destination Business Studio XPDL&lt;/b&gt; has been prepared by one the above features. Therefore the conversion extension can function in the same way regardless of which of these features is used (i.e. they will employ the same semantic use of XPDL and the TIBCO extension models).
+&lt;ul&gt;
+  &lt;li&gt;The conversion extension can supply one or more Java classes based on the &lt;b&gt;&lt;code&gt;com.tibco.xpd.customer.api.iprocess.bpm.conversion.AbstractIProcessToBPMContribution&lt;/code&gt;&lt;/b&gt; class from the &lt;b&gt;&lt;code&gt;com.tibco.xpd.customer.api&lt;/code&gt;&lt;/b&gt; TIBCO Business Studio Eclipse plugin.&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Through this class the conversion extension can read and modify the input process models using simple Java interfaces.&lt;/li&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+    &lt;li&gt;Each conversion extension will be create and executed in turn according to a configurable sort order each time a conversion on a set of XPDL files is executed.&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;li&gt;The conversion extension can also supply a Java class based on the &lt;b&gt;&lt;code&gt;com.tibco.xpd.customer.api.iprocess.bpm.conversion.AbstractIProcessToBPMLifeCycleListener&lt;/code&gt;&lt;/b&gt; class from the &lt;b&gt;&lt;code&gt;com.tibco.xpd.customer.api&lt;/code&gt;&lt;/b&gt; TIBCO Business Studio Eclipse plugin.&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Through this class the contributor is notified of various life-cycle milestones during a conversion-run.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;For more information regarding the extension point schema, go to the end of this document.&lt;/b&gt;
+&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;h6 class=&quot;CaptionFigColumn SchemaHeader&quot;&gt;Process Models: &lt;/h6&gt;
+&lt;p&gt;
+By recommendation, the source XPDL should contain the complete set of sub-processes and process-interfaces (iProcess templates) referenced from the top level processes, thus providing full information to the conversion feature. This complete set of iProcess-destination Business Studio processes for conversion are separated into a single process-package (XPDL file) per-process and passed to each contribution in turn.
+&lt;br/&gt;
+&lt;br/&gt;
+The list of processes and process-interfaces to be converted will be presented to the conversion extension class as &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Process&lt;/code&gt;&lt;/b&gt; and &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdExtension.ProcessInterface&lt;/code&gt;&lt;/b&gt; Java objects. These (and the child content) are Java POJO class-like Eclipse Modelling Framework representations of the &lt;b&gt;WFMC XPDL v2.1 schema&lt;/b&gt;
+&lt;ul&gt;
+&lt;li&gt;The XPDL 2.1 schema can be found here: &lt;a href=&quot;http://www.xpdl.org/standards/xpdl-2.1/bpmnxpdl_31a.xsd&quot;&gt;http://www.xpdl.org/standards/xpdl-2.1/bpmnxpdl_31a.xsd&lt;/a&gt;.&lt;/li&gt;
+&lt;br/&gt;
+&lt;li&gt;For a detailed explanatory guide to the suggested generic semantic use of this schema, see &lt;a href=&quot;http://www.xpdl.org/standards/xpdl-2.1/WFMC-TC-1025-Oct-03-08-2-1.pdf&quot;&gt;http://www.xpdl.org/standards/xpdl-2.1/WFMC-TC-1025-Oct-03-08-2-1.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;br/&gt;
+&lt;li&gt;For more information on the EMF framework and API see &lt;a href=&quot;http://www.vogella.com/articles/EclipseEMF/article.html&quot;&gt;http://www.vogella.com/articles/EclipseEMF/article.html&lt;/a&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;b&gt;Note:&lt;/b&gt; there are also TIBCO-specified extension schemas that are utilized in iProcess and AMX BPM XPDL. These are used for the additional configuration of...&lt;/li&gt;
+&lt;ul&gt;
+  &lt;li&gt;Studio iProcess extensions (http://www.tibco.com/XPD/iProcessExt1.0.0)&lt;/li&gt;
+  &lt;li&gt;Studio generic and AMX BPM extensions (http://www.tibco.com/XPD/xpdExtension1.0.0)&lt;/li&gt;
+  &lt;li&gt;Email Service Task extensions (http://www.tibco.com/XPD/email1.0.0)&lt;/li&gt;
+  &lt;li&gt;Java Service Task extensions (http://www.tibco.com/XPD/EAIJava1.0.0)&lt;/li&gt;
+  &lt;li&gt;Database Service Task extensions (http://www.tibco.com/XPD/database1.0.0)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;/p&gt;
+&lt;h6 class=&quot;CaptionFigColumn SchemaHeader&quot;&gt;Guide: Using The XPDL Process Model Java classes&lt;/h6&gt;
+&lt;p&gt;
+Each XPDL element is represented by a POJO style class specific to that element (with super-classes handling common child content values) in the &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2&lt;/code&gt;&lt;/b&gt; Java package.
+&lt;br/&gt;
+&lt;br/&gt;
+Initial access to the model elements representing the &lt;b&gt;xpdl2:WorkflowProcess&lt;/b&gt; and &lt;b&gt;xpdExt:ProcessInterface&lt;/b&gt; elements (represented by the EMF-based &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Process&lt;/code&gt;&lt;/b&gt; and &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdExtension.ProcessInterface&lt;/code&gt;&lt;/b&gt; classes respectively) is provided to the converter extension class via its implementation of the method &lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.convert(List&amp;lt;com.tibco.xpd.xpdl2.Process&amp;gt; processes, List&amp;lt;com.tibco.xpd.xpdExtension.ProcessInterface&amp;gt; processInterfaces, org.eclipse.core.runtime.IProgressMonitor monitor)&lt;/code&gt;&lt;/b&gt;. Please note that the implementations of this method can use the return list of IStatus object(s) to report any Error(s)/Warning(s)/Info(s) encountered during conversion.
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;ul&gt;
+  &lt;li&gt;Usually the XPDL model element classes &lt;b&gt;are&lt;/b&gt; named directly after the XML schema elements and attributes that they represent (but for historical reasons, Process is not).&lt;/li&gt;
+  &lt;br/&gt;
+  &lt;br/&gt;
+  &lt;li&gt;These classes contain getter and setter methods as appropriate for each child element and attribute (as defined in the model’s originating schema).&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;For example, to get the Name attribute on Process object, use the &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Process.getName()&lt;/code&gt;&lt;/b&gt; method.&lt;/li&gt;
+    &lt;br/&gt; 
+    &lt;li&gt;And to set the Name attribute on Process object, use the &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Process.setName(String name)&lt;/code&gt;&lt;/b&gt; method.&lt;/li&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+  &lt;/ul&gt;
+  &lt;li&gt;Single-instance complex element children are set in the same way (each will have a getXXX() and setXXX()).&lt;/li&gt;
+  &lt;br/&gt;
+  &lt;br/&gt;
+  &lt;li&gt;Multi-element sequences are represented as &lt;b&gt;&lt;code&gt;EList&amp;lt;?&amp;gt;&lt;/code&gt;&lt;/b&gt; lists (this is almost identical to the standard &lt;b&gt;&lt;code&gt;java.lang.util.ArrayList&lt;/code&gt;&lt;/b&gt; class in use)...&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;To get the list of activities defined in a process, use the &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Process.getActivities()&lt;/code&gt;&lt;/b&gt; method, which will return a list of &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Activity&lt;/code&gt;&lt;/b&gt; objects&lt;/li&gt;
+    &lt;br/&gt;
+    &lt;li&gt;To add an activity to the set of activities in a process, use &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Process.getActivities().add(Activity activity)&lt;/code&gt;&lt;/b&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;br/&gt;
+  &lt;li&gt;The methods for some commonly contained attributes and elements are often in re-used super-interfaces extended by main element class (for example &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.NamedElement&lt;/code&gt;&lt;/b&gt; is the super-interface of all main element classes that have a &lt;b&gt;Name&lt;/b&gt; attribute&lt;/li&gt;
+  &lt;br/&gt;
+  &lt;br/&gt;
+  &lt;li&gt;Where the original XPDL schema contains a &lt;b&gt;choice&lt;/b&gt; container construct, this is sometimes represented as a common super-interface used by the main element classes for each of the choice elements. In these cases the container class will have getter and setter methods based on this common interface. The getter will return the common interface and &lt;b&gt;&lt;code&gt;instanceof&lt;/code&gt;&lt;/b&gt; can be used to ascertain the specific choice element type that is currently set.&lt;/li&gt; 
+  &lt;ul&gt;
+    &lt;li&gt;For example the &lt;b&gt;xpdl2:Activity/xpdl2:Implementation&lt;/b&gt;&apos;s choices (xpdl2:No, xpdl2:Task, xpdl2:SubFlow and xpdl2:Reference) are represented as classes that implement of &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Implementation&lt;/code&gt;&lt;/b&gt; interface. &lt;/li&gt;
+    &lt;li&gt;The xpdl2:Implementation container element itself is virtualised, so to set the choice to xpdl2:Task you simply used activity.setImplementation() using an instance of &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Task&lt;/code&gt;&lt;/b&gt; directly. There is no need to add the xpdl2:Implementation model element directly.&lt;/li&gt;
+    &lt;li&gt;Likewise, when &lt;b&gt;&lt;code&gt;Activity.getImplementation()&lt;/code&gt;&lt;/b&gt; is called it will return an instance-of &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Task&lt;/code&gt;&lt;/b&gt;, &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.No&lt;/code&gt;&lt;/b&gt;, &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.SubFlow&lt;/code&gt;&lt;/b&gt; or &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.Reference&lt;/code&gt;&lt;/b&gt;.
+  &lt;/ul&gt;
+  &lt;br/&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;h6 class=&quot;CaptionFigColumn SchemaHeader&quot;&gt;Guide: Complex XPDL Element Type Creation &lt;/h6&gt; 
+&lt;p&gt;
+Any complex type XPDL element can be created using the model’s EMF factory class...
+&lt;br&gt;
+&lt;ul&gt;
+  &lt;li&gt;The factory class is provided to the conversion extension via the method &lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getXpdlFactory()&lt;/code&gt;&lt;/b&gt;&lt;/li&gt;
+  &lt;br/&gt;
+  &lt;br/&gt;
+  &lt;li&gt;The factory class contains a creator method for each complex element type in the model.&lt;/li&gt;
+  &lt;br/&gt;
+  &lt;br/&gt;
+  &lt;li&gt;For example, to create an activity, set its name and add it to a process you would do so using the factory method accessible via the ext point contribution class…&lt;/li&gt;
+  &lt;ul&gt;
+   &lt;b&gt;&lt;code&gt;
+      Activity activity = AbstractIProcessToBPMContribution.getXpdlFactory().createActivity();
+      &lt;br/&gt;
+      activity.setName(“Tester�?);
+      &lt;br/&gt;
+      process.getActivities().add(activity);
+    &lt;/code&gt;&lt;/b&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;/p&gt;
+&lt;h6 class=&quot;CaptionFigColumn SchemaHeader&quot;&gt;Guide: Using Process Extension Models&lt;/h6&gt; 
+&lt;p&gt;
+The XPDL 2.1 schema allows for extension of the base schema by the inclusion of the &lt;b&gt;&lt;code&gt;##other&lt;/code&gt;&lt;/b&gt; construct for attributes and elements on many (but not all) XPDL complex type definitions.
+&lt;br/&gt;
+&lt;br/&gt;
+Each of the extension models (noted above) are represented as separate, independent EMF models that produce POJO-like Java classes for each of the extension elements in the same way as the XPDL model noted above.
+&lt;br/&gt;
+&lt;br/&gt;
+The &lt;b&gt;&lt;i&gt;significant difference&lt;/i&gt;&lt;/b&gt; is the way that the extension model attributes and elements are added to the XPDL model types that support the &lt;b&gt;&lt;code&gt;##other&lt;/code&gt;&lt;/b&gt; construct...
+&lt;ul&gt;
+  &lt;li&gt;The extension model types are not compiled into the XPDL model types directly because the XPDL model does not &apos;know&apos; what extension elements may be added (so for instance &lt;b&gt;there will not&lt;/b&gt; be a &lt;b&gt;&lt;code&gt;com.tibco.xpd.Activity.setDisplayName(String)&lt;/code&gt;&lt;/b&gt; method for the &lt;b&gt;&lt;code&gt;xpdExt:DisplayName&lt;/code&gt;&lt;/b&gt; attribute because it is in the XpdExtension schema).
+  &lt;br/&gt;
+  &lt;br/&gt;
+  &lt;li&gt;Instead, the extension attributes and elements are stored in XPDL element classes as an &lt;b&gt;EMF Feature Map&lt;/b&gt;.&lt;/li&gt; 
+  &lt;ul&gt;
+    &lt;li&gt;This is a &lt;i&gt;&lt;b&gt;Model Feature Identifier&lt;/b&gt;&lt;/i&gt; to &lt;i&gt;&lt;b&gt;Feature Value&lt;/b&gt;&lt;/i&gt; pair map and the feature identifiers are specified in a special &lt;i&gt;&lt;b&gt;DocumentRoot&lt;/b&gt;&lt;/i&gt; virtual element in the EMF package derived from each of the extension models.&lt;/li&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+    &lt;li&gt;Each model extension top-level attribute or element is declared as a child feature of the &lt;i&gt;DocumentRoot&lt;/i&gt; element and its identification is accessed via the EMF Package Java class for the extension model.&lt;/li&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+    &lt;li&gt;&lt;b&gt;For example&lt;/b&gt; the &lt;b&gt;&lt;code&gt;xpdExt:DisplayName&lt;/code&gt;&lt;/b&gt; attribute is declared in the XpdExtension schema.&lt;/li&gt; 
+    &lt;ul&gt;
+      &lt;li&gt;The schema model features are represented by the &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdExtension.XpdExtensionPackage&lt;/code&gt;&lt;/b&gt; class.&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;And therefore&lt;/b&gt; the feature identifier for this extension attribute accessible via this class as the method &lt;b&gt;&lt;code&gt;XpdExtensionPackage.getDocumentRoot_&lt;i&gt;DisplayName()&lt;/i&gt;&lt;/li&gt;&lt;/code&gt;&lt;/b&gt;&lt;/li&gt;
+      &lt;li&gt;This feature identifier allows EMF to identify a particular model feature amongst the many that can be added to any &lt;i&gt;##other&lt;/i&gt; capable XPDL model element.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;br/&gt;
+    &lt;li&gt;Access to the extension model EMF packages is provided via underlying methods in the &lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution&lt;/code&gt;&lt;/b&gt; class...&lt;/li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getXpdExtensionPackage()&lt;/code&gt;&lt;/b&gt; - gets the EMF package for the Studio generic and AMX BPM extensions (http://www.tibco.com/XPD/xpdExtension1.0.0) model&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getIProcessExtPackage()&lt;/code&gt;&lt;/b&gt; - gets the EMF package for the Studio iProcess extensions (http://www.tibco.com/XPD/iProcessExt1.0.0) model &lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getEmailPackage()&lt;/code&gt;&lt;/b&gt; - gets the EMF package for the Email Service Task extensions (http://www.tibco.com/XPD/email1.0.0) model&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getDatabasePackage()&lt;/code&gt;&lt;/b&gt; - gets the EMF package for the Database Service Task extensions (http://www.tibco.com/XPD/database1.0.0) model&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getEaijavaPackage()&lt;/code&gt;&lt;/b&gt; - gets the EMF package for the Java Service Task extensions (http://www.tibco.com/XPD/EAIJava1.0.0) model&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/ul&gt;
+  &lt;br/&gt;
+  &lt;li&gt;&lt;b&gt;Methods are provided&lt;/b&gt; in the &lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution&lt;/code&gt;&lt;/b&gt;&lt;/li&gt; class to simplify handling of these extension model elements by providing getter/setter methods...&lt;/li&gt;
+  &lt;ul&gt;
+   &lt;li&gt;&lt;b&gt;&lt;code&gt;Object getExtensionElement(OtherElementsContainer xpdlElement, EStructuralFeature extensionFeature)&lt;/code&gt;&lt;/b&gt;&lt;/li&gt;
+   &lt;ul&gt;
+     Retrieves the extension model element identified by the &lt;b&gt;&lt;code&gt;extensionFeature&lt;/code&gt;&lt;/b&gt; parameter from the given &lt;b&gt;&lt;code&gt;xpdlElement&lt;/code&gt;&lt;/b&gt; extendible XPDL element. The &lt;b&gt;&lt;code&gt;extensionFeature&lt;/code&gt;&lt;/b&gt; must be aa &lt;i&gt;DocumentRoot&lt;/i&gt; child feature from the extension model&apos;s EMF package.
+      &lt;br/&gt;
+      &lt;br/&gt;
+    Example: &lt;b&gt;&lt;code&gt;ActivityResourcePatterns activityResourcePatterns = (ActivityResourcePatterns)getExtensionElement(activity, getXpdExtensionPackage().getDocumentRoot_ActivityResourcePatterns());&lt;/code&gt;&lt;/b&gt;
+   &lt;/ul&gt;
+    &lt;br/&gt;
+   &lt;li&gt;&lt;b&gt;&lt;code&gt;Object getExtensionAttribute(OtherAttributesContainer xpdlElement, EStructuralFeature extensionFeature)&lt;/code&gt;&lt;/b&gt;&lt;/li&gt;
+   &lt;ul&gt;
+     Retrieves the extension model attribute identified by the &lt;b&gt;&lt;code&gt;extensionFeature&lt;/code&gt;&lt;/b&gt; parameter from the given &lt;b&gt;&lt;code&gt;xpdlElement&lt;/code&gt;&lt;/b&gt; extendible XPDL element. The &lt;b&gt;&lt;code&gt;extensionFeature&lt;/code&gt;&lt;/b&gt; must be aa &lt;i&gt;DocumentRoot&lt;/i&gt; child feature from the extension model&apos;s EMF package.
+     &lt;br/&gt;
+     &lt;br/&gt;
+     Example: &lt;b&gt;&lt;code&gt;String displayName = (String)getExtensionAttribute(activity, getXpdExtensionPackage().getDocumentRoot_DisplayName());&lt;/code&gt;&lt;/b&gt;
+   &lt;/ul&gt;
+    &lt;br/&gt;
+   &lt;li&gt;&lt;b&gt;&lt;code&gt;void setExtensionElement(OtherElementsContainer xpdlElement, EStructuralFeature extensionFeature, Object value)&lt;/code&gt;&lt;/b&gt;&lt;/li&gt;
+   &lt;ul&gt;
+     Sets the extension model element identified by the &lt;b&gt;&lt;code&gt;extensionFeature&lt;/code&gt;&lt;/b&gt; parameter on the given &lt;b&gt;&lt;code&gt;xpdlElement&lt;/code&gt;&lt;/b&gt; extendible XPDL element to the given &lt;b&gt;&lt;code&gt;value&lt;/code&gt;&lt;/b&gt;. Passing &lt;b&gt;&lt;code&gt;value = null&lt;/code&gt;&lt;/b&gt; removes the extension element. The &lt;b&gt;&lt;code&gt;extensionFeature&lt;/code&gt;&lt;/b&gt; must be aa &lt;i&gt;DocumentRoot&lt;/i&gt; child feature from the extension model&apos;s EMF package.
+      &lt;br/&gt;
+      &lt;br/&gt;
+    Example: &lt;b&gt;&lt;code&gt;setExtensionElement(activity, getXpdExtensionPackage().getDocumentRoot_ActivityResourcePatterns(), myNewActivityResourcePatterns);&lt;/code&gt;&lt;/b&gt;
+   &lt;/ul&gt;
+    &lt;br/&gt;
+   &lt;li&gt;&lt;b&gt;&lt;code&gt;void setExtensionAttribute(OtherAttributesContainer xpdlElement, EStructuralFeature extensionFeature, Object value)&lt;/code&gt;&lt;/b&gt;&lt;/li&gt;
+   &lt;ul&gt;
+     Sets the extension model attribute identified by the &lt;b&gt;&lt;code&gt;extensionFeature&lt;/code&gt;&lt;/b&gt; parameter on the given &lt;b&gt;&lt;code&gt;xpdlElement&lt;/code&gt;&lt;/b&gt; extendible XPDL element to the given &lt;b&gt;&lt;code&gt;value&lt;/code&gt;&lt;/b&gt;. Passing &lt;b&gt;&lt;code&gt;value = null&lt;/code&gt;&lt;/b&gt; removes the extension attribute. The &lt;b&gt;&lt;code&gt;extensionFeature&lt;/code&gt;&lt;/b&gt; must be aa &lt;i&gt;DocumentRoot&lt;/i&gt; child feature from the extension model&apos;s EMF package.
+      &lt;br/&gt;
+      &lt;br/&gt;
+    Example: &lt;b&gt;&lt;code&gt;setExtensionAttribute(activity, getXpdExtensionPackage().getDocumentRoot_DisplayName(), myDisplayNameString);&lt;/code&gt;&lt;/b&gt;
+   &lt;/ul&gt;
+    &lt;br/&gt;
+    &lt;li&gt;&lt;b&gt;Note:&lt;/b&gt; All XPDL model element classes on which Business Studio allows extension elements to be set, implement the &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.OtherElementsContainer&lt;/code&gt;&lt;/b&gt; interface. All XPDL model element classes on which allow extension attributes can be set, implement the &lt;b&gt;&lt;code&gt;com.tibco.xpd.xpdl2.OtherElementsContainer&lt;/code&gt;&lt;/b&gt; interface.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;br/&gt;
+  &lt;br/&gt;
+ &lt;/ul&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h6 class=&quot;CaptionFigColumn SchemaHeader&quot;&gt;Guide: Complex Extension Element Type Creation &lt;/h6&gt; 
+&lt;p&gt;
+Any complex type extension model element can be created using the model’s EMF factory classes in the same way as noted above for &lt;b&gt;&lt;code&gt;Xpdl2Factory&lt;/code&gt;&lt;/b&gt; above.
+&lt;br&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Access to the extension model EMF factories is provided via underlying methods in the &lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution&lt;/code&gt;&lt;/b&gt; class...&lt;/li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getXpdExtensionFactory()&lt;/code&gt;&lt;/b&gt; - gets the EMF factory for the Studio generic and AMX BPM extensions (http://www.tibco.com/XPD/xpdExtension1.0.0) model&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getIProcessExtFactory()&lt;/code&gt;&lt;/b&gt; - gets the EMF factory for the Studio iProcess extensions (http://www.tibco.com/XPD/iProcessExt1.0.0) model &lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getEmailFactory()&lt;/code&gt;&lt;/b&gt; - gets the EMF factory for the Email Service Task extensions (http://www.tibco.com/XPD/email1.0.0) model&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getDatabaseFactory()&lt;/code&gt;&lt;/b&gt; - gets the EMF factory for the Database Service Task extensions (http://www.tibco.com/XPD/database1.0.0) model&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getEaijavaFactory()&lt;/code&gt;&lt;/b&gt; - gets the EMF factory for the Java Service Task extensions (http://www.tibco.com/XPD/EAIJava1.0.0) model&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/ul&gt;
+  &lt;br/&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <choice>
+               <element ref="Converter" minOccurs="0" maxOccurs="1"/>
+               <element ref="LifeCycleListener" minOccurs="0" maxOccurs="1"/>
+            </choice>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="Converter">
+      <complexType>
+         <attribute name="ConverterId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique identifier of this converter contribution.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="ConversionDescription" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Short description of the conversion performed. This is used for default progress monitoring in the UI.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="ConverterClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The contributed converter class. This must extend the &lt;b&gt;&lt;code&gt;com.tibco.xpd.customer.api.iprocess.bpm.conversion.AbstractIProcessToBPMContribution&lt;/code&gt;&lt;/b&gt; class; see the main extension point description for more details.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.customer.api.iprocess.amxbpm.conversion.AbstractIProcessToBPMContribution:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="OrderingPriority" type="string" use="required">
+            <annotation>
+               <documentation>
+                  This required integer value specifies the order in which individual conversion contributions are executed (lowest-first). For customer development  purposes, information regarding the current set of  &lt;code&gt;iProcessBpmConversion&lt;/code&gt; extension point contributions can be accessed thru a contribution&apos;s own &lt;b&gt;&lt;code&gt;AbstractIProcessToBPMContribution.getConverterContributionsInfo()&lt;/code&gt;&lt;/b&gt; method.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="LifeCycleListener">
+      <complexType>
+         <attribute name="ListenerId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="LifeCycleListenerClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  During a conversion of TIBCO iProcess Modeler XPDL to TIBCO Business Studio XPDL for Active Matrix BPM, life-cycle listeners will be invoked at various significant milestones with in each conversion. The contributor should sub-class this class and override any of the following methods to be notified of the life-cycle events indicated...
+&lt;ul&gt;
+&lt;li&gt;When Initial import and migration to Business Studio XPDL for iProcess destination is completed (importAndMigrationComplete(Collection)).&lt;/li&gt;
+ &lt;li&gt;When separation of all processes into separate (in memory) process packages (including removal of incoming duplicates) is complete (packageSeparationComplete(Collection)).&lt;/li&gt;
+&lt;li&gt;When conversion to XPDL for BPM destination environment is complete (i.e.
+all conversion extensions performed) (conversionExtensionsComplete(Collection, Collection)).&lt;/li&gt;
+&lt;li&gt;When conversion is complete and final XPDL file set has been committed to the work space (conversionComplete(Collection, Collection, Collection)).&lt;/li&gt;
+&lt;/ul&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.customer.api.iprocess.amxbpm.conversion.AbstractIProcessToBPMLifeCycleListener:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="ListenerDescription" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Life-cycle Listener description label (used for progress metering etc).
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         TIBCO Business Studio v3.8.0
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         Please see the general description in conjunction with the JavaDoc for the main contribution classes...
+&lt;ul&gt;
+  &lt;li&gt;&lt;b&gt;&lt;code&gt;com.tibco.xpd.customer.api.iprocess.bpm.conversion.AbstractIProcessToBPMContribution&lt;/code&gt;&lt;/b&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;&lt;code&gt;com.tibco.xpd.customer.api.iprocess.bpm.conversion.AbstractIProcessToBPMLifeCycleListener&lt;/code&gt;&lt;/b&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+Only the TIBCO-owned data and classes used or returned directly or indirectly by the above class are considered public API. 
+&lt;br/&gt;
+Any other data, class or extension point contained with TIBCO-owned features and plug-ins outside of the com.tibco.xpd.customer.api feature and plug-in must be considered internal and private to TIBCO and are subject to change without notice.
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004 - 2014. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

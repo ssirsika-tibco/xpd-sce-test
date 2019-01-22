@@ -1,0 +1,92 @@
+
+	
+<project default="all">
+
+	<!-- TIBCO ActiveMatrix installation location-->
+	<property name="TIBCO-HOME" value="C:\TibcoBPM_AMX"/>
+	<property name="ADMIN-VERSION" value="3.1"/>
+	<property name="remote-properties.file" value="${basedir}/SVIL.properties"/>
+	
+	<!-- Import TIBCO Administrator CLI tasks and classes -->
+	<import file="${TIBCO-HOME}/administrator/${ADMIN-VERSION}/scripts/basic_cli.xml" />
+	
+	<!-- Default task for this build file -->
+	<target name="all" 
+		depends="upload.daa, upgrade.app, edit.properties, wire.application, distribute.app, deploy.app, start.app"
+		description="Default target group, execute following targets: upload.daa, upgrade.app, edit.properties, wire.application, distribute.app, deploy.app, start.app"/>
+	
+
+	<!-- Upload DAA specified in the data file -->
+	<target name="upload.daa" description="Uploading Application">
+  		<AMXAdminTask 
+			action="add" 
+			objectSelector="DAA" 
+			remote="true" 
+			propsFile="${remote-properties.file}" 
+			dataFile="${basedir}/com.enel.mind_integration.fatturazione.deployment-config.xml" 
+			overwrite="false" merge="true" createIfNotExists="true" 
+			force="false" failOnError="false" /> 
+	</target>  		
+
+	<!-- upgrade existing application -->
+	<target name="upgrade.app" description="Upgrade Existing Application">
+		<AMXAdminTask remote="true" propsFile="${remote-properties.file}" 
+			action="upgrade" dataFile="${basedir}/com.enel.mind_integration.fatturazione.deployment-config.xml" 
+			objectSelector="Environment//Application" 
+			overwrite="false" merge="true" 
+			createIfNotExists="true" force="false" failOnError="true" />
+	</target>
+
+
+	<!-- configure properties of the application, and create resource instances if needed -->
+	<target name="edit.properties" description="Editing Properties">
+	
+		
+		
+	</target>
+
+	<!-- create wires to other applications -->
+	<target name="wire.application" description="Wiring Application">
+		<AMXAdminTask remote="true" propsFile="${remote-properties.file}" 
+			action="set" dataFile="${basedir}/com.enel.mind_integration.fatturazione.deployment-config.xml" 
+			objectSelector="//PromotedReference/Wire" 
+			overwrite="false" merge="true" 
+			createIfNotExists="true" force="false" failOnError="true" />
+	</target>
+
+ 
+	<target name="distribute.app" description="Distributing Application">
+	<AMXAdminTask
+			action="set"
+			objectSelector="Environment//Application//Component/Node | Environment//Application//PromotedService//Binding/Node | Environment//Application//PromotedReference//Binding/Node"
+			remote="true"
+			propsFile="${remote-properties.file}"
+			dataFile="${basedir}/com.enel.mind_integration.fatturazione.deployment-config.xml"
+			overwrite="false"
+			merge="true"
+			createIfNotExists="true"
+			force="false"
+			failOnError="false"/>
+	
+	</target>
+
+
+	<!-- deploy the application -->
+	<target name="deploy.app" description="Deploying Application">
+		<AMXAdminTask remote="true" propsFile="${remote-properties.file}" 
+			action="deploy" dataFile="${basedir}/com.enel.mind_integration.fatturazione.deployment-config.xml" 
+			objectSelector="Environment//Application" 
+			overwrite="false" merge="true" 
+			createIfNotExists="true" force="false" failOnError="true" options="handleDependencies"
+			/>
+	</target>
+
+	<target name="start.app" description="Starting Application">
+		<AMXAdminTask remote="true" propsFile="${remote-properties.file}" 
+			action="start" dataFile="${basedir}/com.enel.mind_integration.fatturazione.deployment-config.xml" 
+			objectSelector="Environment//Application" 
+			overwrite="false" merge="true" 
+			createIfNotExists="true" force="false" failOnError="true" />
+	</target>
+
+</project>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksapisuricezioneesiti"
+    xmlns:tns23="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksapisuricezioneesiti"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksapisuricezioneesiti">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_integration.utiliy.resource/Generated Business Objects/com.enel.xmlns.mercato.libero.schema.bpm.receivetasksapisuricezioneesiti.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="SapIsuRicezioneEsitiRequest" nillable="false">
+    <xsd:complexType ecore:name="SapIsuRicezioneEsitiRequestType" id="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksapisuricezioneesitiSapIsuRicezioneEsitiRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="correlationID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="correlationID" type="xsd:string"/>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="esito" type="xsd:string"/>
+        <xsd:element ecore:name="codiceEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="codiceEsito" type="xsd:string"/>
+        <xsd:element ecore:name="descrizioneEsito" form="qualified" maxOccurs="1"
+            minOccurs="0" name="descrizioneEsito" type="xsd:string"/>
+        <xsd:element ecore:name="sistemaSorgente" form="qualified" maxOccurs="1" minOccurs="0"
+            name="SistemaSorgente" type="xsd:string"/>
+        <xsd:element ecore:name="ID_FATTURAZIONE" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_FATTURAZIONE" type="xsd:string"/>
+        <xsd:element ecore:name="BP" form="qualified" maxOccurs="1" minOccurs="0"
+            name="BP" type="xsd:string"/>
+        <xsd:element ecore:name="contoContrattuale" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ContoContrattuale" type="xsd:string"/>
+        <xsd:element ecore:name="contratto" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Contratto" type="xsd:string"/>
+        <xsd:element ecore:name="ESITI" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ESITI" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

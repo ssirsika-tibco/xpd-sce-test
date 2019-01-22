@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://gwl.com/MyClaimRepoCommonLookupRequest.xsd"
+	xmlns:claimidtype="http://gwl.com/MyClaimIdType.xsd"
+	xmlns:requestbasetype="http://gwl.com/MyRequestBaseType.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://gwl.com/MyClaimRepoCommonLookupRequest.xsd">
+	<xs:import namespace="http://gwl.com/MyRequestBaseType.xsd"
+		schemaLocation="MyRequestBaseType.xsd" />
+	<xs:import namespace="http://gwl.com/MyClaimIdType.xsd"
+		schemaLocation="MyClaimIdType.xsd" />
+	<xs:annotation>
+		<xs:documentation>This XSD is used for the TPA Repo Ststus Update
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="ClaimRepoCommonLookupRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Request" type="requestbasetype:RequestBaseType" />
+				<xs:element name="ClaimId" type="claimidtype:ClaimIdType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:annotation>
+		<xs:documentation>This XSD is used for the TPA Repo Ststus Update
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="Password" type="xs:string" />
+	<xs:element name="TpaClaimDeleteRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Request" type="requestbasetype:RequestBaseType" />
+				<xs:element name="ClaimId" type="claimidtype:ClaimIdType" />
+				<xs:element ref="UserInfo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UserInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserName" />
+				<xs:element minOccurs="0" ref="Password" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UserName" type="xs:string" />
+</xs:schema>

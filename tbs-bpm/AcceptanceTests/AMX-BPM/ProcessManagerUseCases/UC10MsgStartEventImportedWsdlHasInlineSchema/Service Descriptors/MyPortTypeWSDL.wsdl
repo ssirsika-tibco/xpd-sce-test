@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example1.org/MyMessageWSDL/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MyPortTypeWSDL"
+	targetNamespace="http://www.example1.org/MyPortTypeWSDL/">
+		
+	<!-- The imported WSDL contains the MESSAGES used by the PortType operations -->	
+	
+	<wsdl:import location="MyMessageWSDL.wsdl"
+		namespace="http://www.example1.org/MyMessageWSDL/" />
+	<wsdl:portType name="MyPortTypeWSDL">
+		<!-- These messages use Top Level Elements -->
+		<wsdl:operation name="PurchaseOrderOperation">
+			<wsdl:input message="tns:PORequestMessage" />
+			<wsdl:output message="tns:POResponseMessage" />
+		</wsdl:operation>
+		
+		<!-- These messages use types -->
+		<wsdl:operation name="PurchaseOrderOperation2">
+			<wsdl:input message="tns:PORequestMessage2" />
+			<wsdl:output message="tns:POResponseMessage2" />
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

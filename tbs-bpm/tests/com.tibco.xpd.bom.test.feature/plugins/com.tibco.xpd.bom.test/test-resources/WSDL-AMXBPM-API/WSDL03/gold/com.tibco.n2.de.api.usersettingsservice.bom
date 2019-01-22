@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.de.api.usersettingsservice2" name="com.tibco.n2.de.api.usersettingsservice">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_24TSsRUfEeGeRrbRLAepWg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_24TSshUfEeGeRrbRLAepWg" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_24TSsxUfEeGeRrbRLAepWg" key="created" value="1321979836891"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_24TStBUfEeGeRrbRLAepWg" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsserviceXmlSettingProperty" name="XmlSettingProperty">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_y1Oe0BUfEeGeRrbRLAepWg" body="Definition of a user setting (a name/value pair). "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_y2oNABUfEeGeRrbRLAepWg" body="Definition of a user setting (a name/value pair) to be stored for this storageKey and settingID. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_y6BfQBUfEeGeRrbRLAepWg" body="Definition of a user setting (a name/value pair). "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlSettingPropertyName" name="name">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y0uvkBUfEeGeRrbRLAepWg" body="Name of a user setting - this can be any caller-specified name. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y0s6YhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y0s6YRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlSettingPropertyValue" name="value">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y1LbgBUfEeGeRrbRLAepWg" body="Value for this user setting. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y1JmUBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y1I_QRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsserviceXmlSaveUserSettingsDetail" name="XmlSaveUserSettingsDetail">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_y2wv4BUfEeGeRrbRLAepWg" body="Details of a user setting. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_y3SUUBUfEeGeRrbRLAepWg" body="Definition of the user settings to be stored. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlSaveUserSettingsDetailstorageKey" name="storageKey">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y13YABUfEeGeRrbRLAepWg" body="Key value for this user setting. Typically this will be a resource GUID for resources. However, the caller may specify any key that is required. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y10UsBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y1ztoRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlSaveUserSettingsDetailsettingId" name="settingId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y2XHQBUfEeGeRrbRLAepWg" body="ID used to identify a user setting type (controlled by the calling component). "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y2UrAhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y2UrARUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlSaveUserSettingsDetailsettingProperties" name="settingProperties" type="com.tibco.n2.de.api.usersettingsserviceXmlSettingProperty?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty?" aggregation="composite" association="com.tibco.n2.de.api.usersettingsserviceComposition32?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition32?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y2tFgxUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y2tFghUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.usersettingsserviceComposition32" name="Composition32" memberEnd="XmlSaveUserSettingsDetailsettingProperties?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3asettingProperties? Composition32xmlsaveusersettingsdetail?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition32%3a%3axmlsaveusersettingsdetail?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition32xmlsaveusersettingsdetail" name="xmlsaveusersettingsdetail" type="com.tibco.n2.de.api.usersettingsserviceXmlSaveUserSettingsDetail?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail?" association="com.tibco.n2.de.api.usersettingsserviceComposition32?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition32?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y2tskhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y2tskRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsRequestType" name="saveUserSettingsRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="saveUserSettingsRequestTypesettings" name="settings" type="com.tibco.n2.de.api.usersettingsserviceXmlSaveUserSettingsDetail?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail?" aggregation="composite" association="com.tibco.n2.de.api.usersettingsserviceComposition33?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition33?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y3WlwxUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y3WlwhUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.usersettingsserviceComposition33" name="Composition33" memberEnd="saveUserSettingsRequestTypesettings?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType%3a%3asettings? Composition33saveusersettingsrequesttype?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition33%3a%3asaveusersettingsrequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition33saveusersettingsrequesttype" name="saveusersettingsrequesttype" type="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType?" association="com.tibco.n2.de.api.usersettingsserviceComposition33?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition33?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y3XM0RUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y3XM0BUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsResponseType" name="saveUserSettingsResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="saveUserSettingsResponseTypeempty" name="empty">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y4J3ABUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y4JP8hUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsservicegetUserSettingsRequestType" name="getUserSettingsRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="getUserSettingsRequestTypestorageKey" name="storageKey">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y5AyoBUfEeGeRrbRLAepWg" body="Key value for this user setting. Typically this will be a resource GUID for resources. However the caller may specify any key that is required. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y4-9chUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y4-9cRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="getUserSettingsRequestTypesettingId" name="settingId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y5essBUfEeGeRrbRLAepWg" body="ID used to identify a user setting type (controlled by the calling component). "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y5cQchUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y5cQcRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsservicegetUserSettingsResponseType" name="getUserSettingsResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="getUserSettingsResponseTypesettingProperties" name="settingProperties" type="com.tibco.n2.de.api.usersettingsserviceXmlSettingProperty?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty?" aggregation="composite" association="com.tibco.n2.de.api.usersettingsserviceComposition34?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition34?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y6GXwRUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y6GXwBUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.usersettingsserviceComposition34" name="Composition34" memberEnd="getUserSettingsResponseTypesettingProperties?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType%3a%3asettingProperties? Composition34getusersettingsresponsetype?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition34%3a%3agetusersettingsresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition34getusersettingsresponsetype" name="getusersettingsresponsetype" type="com.tibco.n2.de.api.usersettingsservicegetUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType?" association="com.tibco.n2.de.api.usersettingsserviceComposition34?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition34?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y6GXxBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y6GXwxUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsRequestType" name="deleteUserSettingsRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="deleteUserSettingsRequestTypestorageKey" name="storageKey">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y64a4BUfEeGeRrbRLAepWg" body="Key value for which user settings are to be deleted. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y62lsBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y61-oRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsResponseType" name="deleteUserSettingsResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="deleteUserSettingsResponseTypeempty" name="empty">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y7nasxUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y7nashUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsRequestType" name="listUserSettingIdsRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listUserSettingIdsRequestTypestorageKey" name="storageKey">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y8p8gBUfEeGeRrbRLAepWg" body="Key value for which user settings are to be listed. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y8ngQhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y8ngQRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsResponseType" name="listUserSettingIdsResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listUserSettingIdsResponseTypesettingId" name="settingId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_y9bYkBUfEeGeRrbRLAepWg" body="ID used to identify a user setting type (controlled by the calling component). "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y9ZjYBUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y9Y8URUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_yy9N8RUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yy9N8hUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_yy9N8xUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yy9N9BUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_yy9N9RUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.de.api.usersettingsservice2?com.tibco.n2.de.api.usersettingsservice?" xsdTargetNamespace="http://usersettingsservice.api.de.n2.tibco.com" xsdSchemaLocation="de.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y0RckBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsserviceXmlSettingProperty?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty?" xsdName="XmlSettingProperty" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y0s6YBUfEeGeRrbRLAepWg" base_Property="XmlSettingPropertyName?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty%3a%3aname?" xsdName="Name" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y0thcBUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlSettingPropertyName?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y1I_QBUfEeGeRrbRLAepWg" base_Property="XmlSettingPropertyValue?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty%3a%3avalue?" xsdName="Value" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y1JmURUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlSettingPropertyValue?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y1Q7EBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsserviceXmlSaveUserSettingsDetail?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail?" xsdName="XmlSaveUserSettingsDetail" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y2vhwBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y1ztoBUfEeGeRrbRLAepWg" base_Property="XmlSaveUserSettingsDetailstorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3astorageKey?" xsdName="storageKey" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y107wBUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlSaveUserSettingsDetailstorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3astorageKey?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y2UrABUfEeGeRrbRLAepWg" base_Property="XmlSaveUserSettingsDetailsettingId?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3asettingId?" xsdName="settingId" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y2VSEBUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlSaveUserSettingsDetailsettingId?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3asettingId?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y2uToBUfEeGeRrbRLAepWg" base_Property="XmlSaveUserSettingsDetailsettingProperties?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3asettingProperties?" xsdName="settingProperties" xsdForm="unqualified" xsdType="XmlSettingProperty" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y2vhwBUfEeGeRrbRLAepWg" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y3AngBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y3Ya8BUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y3XM0hUfEeGeRrbRLAepWg" base_Property="saveUserSettingsRequestTypesettings?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType%3a%3asettings?" xsdName="settings" xsdForm="unqualified" xsdType="XmlSaveUserSettingsDetail" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y3Ya8BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_y3a3MBUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.de.api.usersettingsservice2?com.tibco.n2.de.api.usersettingsservice?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_y3a3MRUfEeGeRrbRLAepWg" name="saveUserSettingsRequest" type="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType?" isAnonymous="true" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_y4OvgBUfEeGeRrbRLAepWg" name="saveUserSettingsResponse" type="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType?" isAnonymous="true" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_y5i-IBUfEeGeRrbRLAepWg" name="getUserSettingsRequest" type="com.tibco.n2.de.api.usersettingsservicegetUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType?" isAnonymous="true" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_y6KCIBUfEeGeRrbRLAepWg" name="getUserSettingsResponse" type="com.tibco.n2.de.api.usersettingsservicegetUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType?" isAnonymous="true" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_y67eMBUfEeGeRrbRLAepWg" name="deleteUserSettingsRequest" type="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsRequestType?" isAnonymous="true" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_y7s6QBUfEeGeRrbRLAepWg" name="deleteUserSettingsResponse" type="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType?" isAnonymous="true" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_y8s_0BUfEeGeRrbRLAepWg" name="listUserSettingIdsRequest" type="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsRequestType?" isAnonymous="true" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_y9eb4BUfEeGeRrbRLAepWg" name="listUserSettingIdsResponse" type="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsResponseType?" isAnonymous="true" targetNamespace="http://usersettingsservice.api.de.n2.tibco.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y3oSkBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y4M6UBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y4JP8RUfEeGeRrbRLAepWg" base_Property="saveUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType%3a%3aempty?" xsdName="empty" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y4M6UBUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y4J3ARUfEeGeRrbRLAepWg" integerLength="-1" base_Property="saveUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType%3a%3aempty?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_y4LFIBUfEeGeRrbRLAepWg" base_Property="saveUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType%3a%3aempty?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y4cx8BUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsservicegetUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y5f60BUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y4-9cBUfEeGeRrbRLAepWg" base_Property="getUserSettingsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType%3a%3astorageKey?" xsdName="storageKey" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y5f60BUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y4_kgBUfEeGeRrbRLAepWg" textLength="-1" base_Property="getUserSettingsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType%3a%3astorageKey?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y5cQcBUfEeGeRrbRLAepWg" base_Property="getUserSettingsRequestTypesettingId?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType%3a%3asettingId?" xsdName="settingId" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y5f60BUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y5c3gBUfEeGeRrbRLAepWg" textLength="-1" base_Property="getUserSettingsRequestTypesettingId?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType%3a%3asettingId?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y5wZgBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsservicegetUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y6IM8BUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y6G-0BUfEeGeRrbRLAepWg" base_Property="getUserSettingsResponseTypesettingProperties?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType%3a%3asettingProperties?" xsdName="settingProperties" xsdForm="unqualified" xsdType="XmlSettingProperty" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y6IM8BUfEeGeRrbRLAepWg" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y6ZSsBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y65B8BUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y61-oBUfEeGeRrbRLAepWg" base_Property="deleteUserSettingsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsRequestType%3a%3astorageKey?" xsdName="storageKey" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y65B8BUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y62lsRUfEeGeRrbRLAepWg" textLength="-1" base_Property="deleteUserSettingsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsRequestType%3a%3astorageKey?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y7KHsBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y7rFEBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y7nasRUfEeGeRrbRLAepWg" base_Property="deleteUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType%3a%3aempty?" xsdName="empty" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y7rFEBUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y7oBwBUfEeGeRrbRLAepWg" integerLength="-1" base_Property="deleteUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType%3a%3aempty?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_y7oo0BUfEeGeRrbRLAepWg" base_Property="deleteUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType%3a%3aempty?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y77jwBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y8qjkBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y8ngQBUfEeGeRrbRLAepWg" base_Property="listUserSettingIdsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsRequestType%3a%3astorageKey?" xsdName="storageKey" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y8qjkBUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y8oHUBUfEeGeRrbRLAepWg" textLength="-1" base_Property="listUserSettingIdsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsRequestType%3a%3astorageKey?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_y87pUBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_y9cmsBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_y9Y8UBUfEeGeRrbRLAepWg" base_Property="listUserSettingIdsResponseTypesettingId?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsResponseType%3a%3asettingId?" xsdName="settingId" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_y9cmsBUfEeGeRrbRLAepWg" xsdMaxOccurs="*"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_y9aKcBUfEeGeRrbRLAepWg" textLength="-1" base_Property="listUserSettingIdsResponseTypesettingId?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsResponseType%3a%3asettingId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_NhQBUfEeGeRrbRLAepWg" base_Element="_y2tFghUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_NhQRUfEeGeRrbRLAepWg" base_Element="_yy9N8xUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_NhQhUfEeGeRrbRLAepWg" base_Element="_y7nasxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_OIUBUfEeGeRrbRLAepWg" base_Element="Composition33saveusersettingsrequesttype?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition33%3a%3asaveusersettingsrequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_OIURUfEeGeRrbRLAepWg" base_Element="Composition34getusersettingsresponsetype?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition34%3a%3agetusersettingsresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_OIUhUfEeGeRrbRLAepWg" base_Element="_y2tskRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_OvYBUfEeGeRrbRLAepWg" base_Element="_y3WlwxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_OvYRUfEeGeRrbRLAepWg" base_Element="_y6BfQBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_OvYhUfEeGeRrbRLAepWg" base_Element="XmlSaveUserSettingsDetailsettingId?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3asettingId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_OvYxUfEeGeRrbRLAepWg" base_Element="_y0s6YhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_PWcBUfEeGeRrbRLAepWg" base_Element="getUserSettingsResponseTypesettingProperties?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType%3a%3asettingProperties?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_PWcRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsserviceComposition32?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition32?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_PWchUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsserviceComposition34?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition34?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_P9gBUfEeGeRrbRLAepWg" base_Element="_y0s6YRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_P9gRUfEeGeRrbRLAepWg" base_Element="_y3XM0BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_P9ghUfEeGeRrbRLAepWg" base_Element="_y3SUUBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_QkkBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsserviceComposition33?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition33?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_QkkRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsserviceXmlSaveUserSettingsDetail?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_QkkhUfEeGeRrbRLAepWg" base_Element="_y5AyoBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_QkkxUfEeGeRrbRLAepWg" base_Element="_y5cQcRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_RLoBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_RLoRUfEeGeRrbRLAepWg" base_Element="saveUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType%3a%3aempty?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_RLohUfEeGeRrbRLAepWg" base_Element="_y5cQchUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_RysBUfEeGeRrbRLAepWg" base_Element="_y6GXwxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_RysRUfEeGeRrbRLAepWg" base_Element="_y13YABUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_RyshUfEeGeRrbRLAepWg" base_Element="_y2wv4BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_SZwBUfEeGeRrbRLAepWg" base_Element="_y6GXwRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_SZwRUfEeGeRrbRLAepWg" base_Element="XmlSettingPropertyValue?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_SZwhUfEeGeRrbRLAepWg" base_Element="_yy9N8RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_SZwxUfEeGeRrbRLAepWg" base_Element="_y6GXxBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_TA0BUfEeGeRrbRLAepWg" base_Element="saveUserSettingsRequestTypesettings?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType%3a%3asettings?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_TA0RUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_TA0hUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_Tn4BUfEeGeRrbRLAepWg" base_Element="deleteUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType%3a%3aempty?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_Tn4RUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsserviceXmlSettingProperty?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_Tn4hUfEeGeRrbRLAepWg" base_Element="_y9ZjYBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_Tn4xUfEeGeRrbRLAepWg" base_Element="_y2UrAhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_UO8BUfEeGeRrbRLAepWg" base_Element="_y10UsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_UO8RUfEeGeRrbRLAepWg" base_Element="listUserSettingIdsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsRequestType%3a%3astorageKey?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_UO8hUfEeGeRrbRLAepWg" base_Element="_y4-9chUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_U2ABUfEeGeRrbRLAepWg" base_Element="_y6GXwBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_U2ARUfEeGeRrbRLAepWg" base_Element="XmlSaveUserSettingsDetailsettingProperties?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3asettingProperties?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_U2AhUfEeGeRrbRLAepWg" base_Element="getUserSettingsRequestTypesettingId?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType%3a%3asettingId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_VdEBUfEeGeRrbRLAepWg" base_Element="_y1I_QRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_VdERUfEeGeRrbRLAepWg" base_Element="_y3WlwhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_VdEhUfEeGeRrbRLAepWg" base_Element="_y9Y8URUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_VdExUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_WEIBUfEeGeRrbRLAepWg" base_Element="_y2oNABUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_WEIRUfEeGeRrbRLAepWg" base_Element="_y1Oe0BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_WEIhUfEeGeRrbRLAepWg" base_Element="_y5essBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_WrMBUfEeGeRrbRLAepWg" base_Element="_y4J3ABUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_WrMRUfEeGeRrbRLAepWg" base_Element="_y1LbgBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_WrMhUfEeGeRrbRLAepWg" base_Element="_y8ngQhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_XSQBUfEeGeRrbRLAepWg" base_Element="_y2XHQBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_XSQRUfEeGeRrbRLAepWg" base_Element="_y2UrARUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_XSQhUfEeGeRrbRLAepWg" base_Element="_y2tFgxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_XSQxUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsservicegetUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_X5UBUfEeGeRrbRLAepWg" base_Element="Composition32xmlsaveusersettingsdetail?com.tibco.n2.de.api.usersettingsservice%3a%3aComposition32%3a%3axmlsaveusersettingsdetail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_X5URUfEeGeRrbRLAepWg" base_Element="getUserSettingsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType%3a%3astorageKey?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_X5UhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_YgYBUfEeGeRrbRLAepWg" base_Element="XmlSaveUserSettingsDetailstorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3astorageKey?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_YgYRUfEeGeRrbRLAepWg" base_Element="_y9bYkBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_YgYhUfEeGeRrbRLAepWg" base_Element="_y8p8gBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_YgYxUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsservicegetUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_ZHcBUfEeGeRrbRLAepWg" base_Element="_y1JmUBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_ZHcRUfEeGeRrbRLAepWg" base_Element="_y8ngQRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_ZHchUfEeGeRrbRLAepWg" base_Element="_y64a4BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_ZugBUfEeGeRrbRLAepWg" base_Element="_y1ztoRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_ZugRUfEeGeRrbRLAepWg" base_Element="_y4-9cRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_ZughUfEeGeRrbRLAepWg" base_Element="listUserSettingIdsResponseTypesettingId?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsResponseType%3a%3asettingId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_aVkBUfEeGeRrbRLAepWg" base_Element="_y61-oRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_aVkRUfEeGeRrbRLAepWg" base_Element="_y0uvkBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_aVkhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_aVkxUfEeGeRrbRLAepWg" base_Element="deleteUserSettingsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsRequestType%3a%3astorageKey?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_a8oBUfEeGeRrbRLAepWg" base_Element="_y2tskhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_a8oRUfEeGeRrbRLAepWg" base_Element="_y4JP8hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_a8ohUfEeGeRrbRLAepWg" base_Element="_y7nashUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_bjsBUfEeGeRrbRLAepWg" base_Element="_y62lsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_bjsRUfEeGeRrbRLAepWg" base_Element="_y3XM0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_y_bjshUfEeGeRrbRLAepWg" base_Element="XmlSettingPropertyName?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_232mwBUfEeGeRrbRLAepWg" displayLabel="XmlSaveUserSettingsDetail" base_NamedElement="com.tibco.n2.de.api.usersettingsserviceXmlSaveUserSettingsDetail?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23304BUfEeGeRrbRLAepWg" displayLabel="XmlSettingProperty" base_NamedElement="com.tibco.n2.de.api.usersettingsserviceXmlSettingProperty?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_235DABUfEeGeRrbRLAepWg" displayLabel="deleteUserSettingsRequestType" base_NamedElement="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_236RIBUfEeGeRrbRLAepWg" displayLabel="deleteUserSettingsResponseType" base_NamedElement="com.tibco.n2.de.api.usersettingsservicedeleteUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_237fQBUfEeGeRrbRLAepWg" displayLabel="getUserSettingsRequestType" base_NamedElement="com.tibco.n2.de.api.usersettingsservicegetUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_238tYBUfEeGeRrbRLAepWg" displayLabel="getUserSettingsResponseType" base_NamedElement="com.tibco.n2.de.api.usersettingsservicegetUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23-ikBUfEeGeRrbRLAepWg" displayLabel="listUserSettingIdsRequestType" base_NamedElement="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23_wsBUfEeGeRrbRLAepWg" displayLabel="listUserSettingIdsResponseType" base_NamedElement="com.tibco.n2.de.api.usersettingsservicelistUserSettingIdsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24A-0BUfEeGeRrbRLAepWg" displayLabel="saveUserSettingsRequestType" base_NamedElement="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsRequestType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24CM8BUfEeGeRrbRLAepWg" displayLabel="saveUserSettingsResponseType" base_NamedElement="com.tibco.n2.de.api.usersettingsservicesaveUserSettingsResponseType?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24DbEBUfEeGeRrbRLAepWg" displayLabel="settingProperties" base_NamedElement="XmlSaveUserSettingsDetailsettingProperties?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3asettingProperties?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24EpMBUfEeGeRrbRLAepWg" displayLabel="settingId" base_NamedElement="XmlSaveUserSettingsDetailsettingId?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3asettingId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24F3UBUfEeGeRrbRLAepWg" displayLabel="storageKey" base_NamedElement="XmlSaveUserSettingsDetailstorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSaveUserSettingsDetail%3a%3astorageKey?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24HsgBUfEeGeRrbRLAepWg" displayLabel="Name" base_NamedElement="XmlSettingPropertyName?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24ITkBUfEeGeRrbRLAepWg" displayLabel="Value" base_NamedElement="XmlSettingPropertyValue?com.tibco.n2.de.api.usersettingsservice%3a%3aXmlSettingProperty%3a%3avalue?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24JhsBUfEeGeRrbRLAepWg" displayLabel="storageKey" base_NamedElement="deleteUserSettingsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsRequestType%3a%3astorageKey?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24Kv0BUfEeGeRrbRLAepWg" displayLabel="empty" base_NamedElement="deleteUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3adeleteUserSettingsResponseType%3a%3aempty?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24L98BUfEeGeRrbRLAepWg" displayLabel="settingId" base_NamedElement="getUserSettingsRequestTypesettingId?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType%3a%3asettingId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24NMEBUfEeGeRrbRLAepWg" displayLabel="storageKey" base_NamedElement="getUserSettingsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsRequestType%3a%3astorageKey?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24OaMBUfEeGeRrbRLAepWg" displayLabel="settingProperties" base_NamedElement="getUserSettingsResponseTypesettingProperties?com.tibco.n2.de.api.usersettingsservice%3a%3agetUserSettingsResponseType%3a%3asettingProperties?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24PoUBUfEeGeRrbRLAepWg" displayLabel="storageKey" base_NamedElement="listUserSettingIdsRequestTypestorageKey?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsRequestType%3a%3astorageKey?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24QPYBUfEeGeRrbRLAepWg" displayLabel="settingId" base_NamedElement="listUserSettingIdsResponseTypesettingId?com.tibco.n2.de.api.usersettingsservice%3a%3alistUserSettingIdsResponseType%3a%3asettingId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24SEkBUfEeGeRrbRLAepWg" displayLabel="settings" base_NamedElement="saveUserSettingsRequestTypesettings?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsRequestType%3a%3asettings?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_24TSsBUfEeGeRrbRLAepWg" displayLabel="empty" base_NamedElement="saveUserSettingsResponseTypeempty?com.tibco.n2.de.api.usersettingsservice%3a%3asaveUserSettingsResponseType%3a%3aempty?"/>
+  <notation:Diagram xmi:id="_24TStRUfEeGeRrbRLAepWg" type="Business Object Model" element="com.tibco.n2.de.api.usersettingsservice2?com.tibco.n2.de.api.usersettingsservice?" name="com.tibco.n2.de.api.usersettingsservice" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_24TSthUfEeGeRrbRLAepWg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_24TStxUfEeGeRrbRLAepWg"/>
+  </notation:Diagram>
+</xmi:XMI>

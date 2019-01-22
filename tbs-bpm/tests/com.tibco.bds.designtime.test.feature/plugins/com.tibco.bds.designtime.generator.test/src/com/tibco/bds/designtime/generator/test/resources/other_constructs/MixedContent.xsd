@@ -1,0 +1,43 @@
+<xs:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns="http://example.com/MixedContent" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://example.com/MixedContent" targetNamespace="http://example.com/MixedContent">
+	<xs:element name="student">
+		<xs:complexType ecore:name="studentType" mixed="true">
+			<xs:sequence>
+				<xs:element ecore:name="name" name="name" type="xs:string"/>
+				<xs:element ecore:name="age" name="age" type="xs:positiveInteger"/>
+				<xs:element ecore:name="birthdate" name="birthdate" type="xs:date"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType ecore:name="Car" name="Car" mixed="true">
+		<xs:sequence>
+			<xs:element ecore:name="colour" name="colour" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType ecore:name="SuperCar" name="SuperCar">
+		<xs:complexContent mixed="true">
+			<xs:extension base="Car">
+				<xs:sequence>
+					<xs:element ecore:name="engine" name="engine" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType ecore:name="GolfCart" name="GolfCart" mixed="true">
+		<xs:complexContent>
+			<xs:extension base="Car">
+				<xs:sequence>
+					<xs:element ecore:name="capacity" name="capacity" type="xs:int" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType ecore:name="GolfCourse" name="GolfCourse" mixed="true">
+		<xs:complexContent>
+			<xs:extension base="GolfCart">
+				<xs:sequence>
+					<xs:element ecore:name="holes" name="holes" type="xs:int"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

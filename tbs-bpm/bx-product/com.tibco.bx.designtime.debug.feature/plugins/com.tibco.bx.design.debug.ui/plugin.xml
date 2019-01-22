@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point 
+   	id="modelTypeImages" 
+   	name="Model Type Images" 
+   	schema="schema/modelTypeImages.exsd"/>
+   <extension-point id="modelLabelProvider" name="modelLabelProvider" schema="schema/modelLabelProvider.exsd"/>
+
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="com.tibco.bx.debug.ui.launching.BxTabGroup"
+            description="Attach to a Tibco Process Engine accepting debug connections"
+            id="com.tibco.bx.debug.ui.tabGroup"
+            type="com.tibco.bx.debug.launchType"/>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            icon="icons/server.png"
+            configTypeID="com.tibco.bx.debug.launchType"
+            id="com.tibco.bx.debug.ui.typeImage"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.tibco.bx.debug.ui.handlers.BxBreakpointPropertiesHandler"
+            description="Edit Breakpoint properties"
+            id="com.tibco.bx.debug.ui.breakpointpropertiescommand"
+            name="Breakpoint Properties Handler">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.debug.ui.BreakpointView?after=additions">
+         <command
+               commandId="com.tibco.bx.debug.ui.breakpointpropertiescommand"
+               id="showbreakpointproperties"
+               label="%BreakpointProperties"
+               style="push">
+               <visibleWhen
+                  checkEnabled="true">
+                  <with variable="selection">
+                  	  <count value="1"/>
+	                  <iterate>
+		               	  <instanceof
+		                        value="com.tibco.bx.debug.core.models.BxBreakpoint">
+		                  </instanceof>
+	                  </iterate>
+                  </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+		<page
+            name="Breakpoint Page"
+            class="com.tibco.bx.debug.ui.propertypages.BxBreakpointPage"
+            id="com.tibco.bx.debug.ui.propertypages.common">
+            <enabledWhen>
+            	<instanceof
+                     value="com.tibco.bx.debug.core.models.BxBreakpoint">
+              	</instanceof>
+              	
+         	</enabledWhen>
+      </page>
+   </extension>
+   
+   <extension
+        point="org.eclipse.ui.views">
+     <view
+           allowMultiple="true"
+           category="org.eclipse.debug.ui"
+           class="com.tibco.bx.debug.ui.views.ProcessLauncherView"
+           icon="icons/Enterprise Business Process 16 n p.png"
+           id="com.tibco.bx.debug.ui.views.ProcessLauncherView"
+           name="%ProcessViewName"
+           restorable="true">
+     </view>
+     <view
+           category="org.eclipse.debug.ui"
+           class="com.tibco.bx.debug.ui.views.EmulationLauncherView"
+           icon="icons/Emulation File 16 n p.png"
+           id="com.tibco.bx.debug.ui.views.EmulationLauncherView"
+           name="%EmulationViewName"
+           restorable="true">
+     </view>
+  </extension>
+  <extension point="org.eclipse.ui.viewActions">
+  	<viewContribution
+            targetID="com.tibco.bx.debug.ui.views.ProcessLauncherView"
+            id="com.tibco.bx.processlauncher.actions">
+         <action
+               class="com.tibco.bx.debug.ui.actions.SaveEmulationResultAction"
+               disabledIcon="icons/save_dis.gif"
+               hoverIcon="icons/save_en.gif"
+               icon="icons/save_en.gif"
+               id="com.tibco.bx.debug.ui.processlauncherview.saveEmulationResult"
+               label="%SaveEmulationResult"
+               toolbarPath="tibco.additions"
+               tooltip="%SaveEmulation">
+         </action>
+         <action
+               class="com.tibco.bx.debug.ui.actions.LoadEmulationFileAction"
+               disabledIcon="icons/import_dis.gif"
+               hoverIcon="icons/import_en.gif"
+               icon="icons/import_en.gif"
+               id="com.tibco.bx.debug.ui.processlauncherview.loadEmulationFile"
+               label="%LoadEmulationLabel"
+               toolbarPath="tibco.additions"
+               tooltip="%LoadEmulationLabel">
+         </action>
+         <action
+               class="com.tibco.bx.debug.ui.actions.CloseAllTabItemsAction"
+               disabledIcon="icons/remove_all_dis.gif"
+               hoverIcon="icons/remove_all_en.gif"
+               icon="icons/remove_all_en.gif"
+               id="com.tibco.bx.debug.ui.processlauncherview.closeAllTabItems"
+               label="%CloseAll"
+               toolbarPath="tibco.additions"
+               tooltip="%CloseAll">
+         </action>
+      </viewContribution>
+      <viewContribution
+            id="com.tibco.bx.processlauncher.actions"
+            targetID="com.tibco.bx.debug.ui.views.EmulationLauncherView">
+         <action
+               class="com.tibco.bx.debug.ui.actions.SaveEmulationResultAction"
+               disabledIcon="icons/save_dis.gif"
+               hoverIcon="icons/save_en.gif"
+               icon="icons/save_en.gif"
+               id="com.tibco.bx.debug.ui.processlauncherview.saveEmulationResult"
+               label="%SaveEmulationResult"
+               toolbarPath="tibco.additions"
+               tooltip="%SaveEmulationResult">
+         </action>
+         <action
+               class="com.tibco.bx.debug.ui.actions.CloseAllTabItemsAction"
+               disabledIcon="icons/remove_all_dis.gif"
+               hoverIcon="icons/remove_all_en.gif"
+               icon="icons/remove_all_en.gif"
+               id="com.tibco.bx.debug.ui.processlauncherview.closeAllTabItems"
+               label="%CloseAll"
+               toolbarPath="tibco.additions"
+               tooltip="%CloseAll">
+         </action>
+      </viewContribution>
+    </extension>
+    <extension
+          point="org.eclipse.ui.viewActions">
+       <viewContribution
+            targetID="org.eclipse.debug.ui.DebugView"
+            id="com.tibco.bx.debug.actions.menubar">
+            <!--action menubarPath="tibco.additions"></action-->
+         <action menubarPath="tibco.additions"
+               id="com.tibco.bx.debug.ui.debugview.menubar.filterThreads"
+               class="com.tibco.bx.debug.ui.actions.ToggleTerminatedInstancesActionDelegate"
+               label="%FilterCompleted"
+               tooltip="%FilterCompleted"
+               style="toggle"
+               state="true">
+         </action>
+      </viewContribution>
+   </extension>
+   <extension point="org.eclipse.ui.perspectiveExtensions">
+	<perspectiveExtension targetID="org.eclipse.debug.ui.DebugPerspective">
+  		<view 
+  			closeable="true" 
+  			id="com.tibco.bx.debug.ui.views.ProcessLauncherView" 
+  			minimized="false" 
+  			moveable="true" 
+  			relationship="stack" 
+  			relative="org.eclipse.ui.console.ConsoleView" 
+  			standalone="true" 
+  			visible="true" /> 
+  		<viewShortcut id="com.tibco.bx.debug.ui.views.ProcessLauncherView"/>	
+  		<view 
+  			closeable="true" 
+  			id="com.tibco.bx.debug.ui.views.EmulationLauncherView" 
+  			minimized="false" 
+  			moveable="true" 
+  			relationship="stack" 
+  			relative="com.tibco.bx.debug.ui.views.ProcessLauncherView" 
+  			standalone="true" 
+  			visible="true" />
+  		<viewShortcut id="com.tibco.bx.debug.ui.views.EmulationLauncherView"/>	
+  	</perspectiveExtension>
+  </extension>
+  <extension
+           point="org.eclipse.ui.contexts">
+        <context
+              description="Process Debugger Context"
+              id="com.tibco.bx.debug.ui.debugging"
+              name="Tibco Process Debugger Context"
+              parentId="org.eclipse.debug.ui.debugging">
+        </context>
+  </extension>
+   <extension
+	         point="org.eclipse.debug.ui.contextViewBindings">
+	      <contextViewBinding
+	      		autoOpen="true"
+	            contextId="com.tibco.bx.debug.ui.debugging"
+	            viewId="com.tibco.bx.debug.ui.views.ProcessLauncherView"/>
+   		 <contextViewBinding
+	      		autoOpen="true"
+	            contextId="com.tibco.bx.debug.ui.debugging"
+	            viewId="com.tibco.bx.debug.ui.views.EmulationLauncherView"/>
+   </extension>
+   <extension
+         point="com.tibco.bx.design.debug.core.launcherService">
+      <launcherService
+            class="com.tibco.bx.debug.ui.invoke.launcher.impl.LauncherServiceImpl">
+      </launcherService>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.tibco.bx.debug.ui.launching.BxLauncherSynchronizer"></startup>
+   </extension>
+</plugin>

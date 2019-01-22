@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://TopLevelElements" xmlns:jbp="http://TopLevelElements" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://TopLevelElements">
+	<xsd:element name="AnonComplex">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="name" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="DocumentRoot">
+		<xsd:sequence>
+			<xsd:element name="originator">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="notes" maxOccurs="unbounded">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="justString" type="xsd:string"/>
+	<xsd:element name="myDocRoot" type="DocumentRoot"/>
+	<xsd:simpleType name="DocumentRoot1">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:element name="car" type="Bus"/>
+	<xsd:element name="bus" type="Bus"/>
+	<xsd:element name="myCAR" type="Car"/>
+	<xsd:element name="myCar" type="Car"/>
+	<xsd:element name="Car" type="Car"/>
+	<xsd:complexType name="Car">
+		<xsd:sequence>
+			<xsd:element name="colour" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Bus">
+		<xsd:sequence>
+			<xsd:element name="route" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RefComplexRootElement" type="Car"/>
+	<xsd:element name="RefComplexRootType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="RefComplexRootElement"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="elementString" type="xsd:string"/>
+	<xsd:element name="elementInteger" type="xsd:int"/>
+	<xsd:attribute name="attributeString" type="xsd:string"/>
+	<xsd:attribute name="attributeDouble" type="xsd:double"/>
+	<xsd:element name="elementEnumeration" type="SubEnumType"/>
+	<xsd:simpleType name="SubEnumType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="One"/>
+			<xsd:enumeration value="Two"/>
+			<xsd:enumeration value="Three"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="AttrOnlyComplex">
+		<xsd:complexType>
+			<xsd:attribute name="attrib1" type="xsd:string"/>
+			<xsd:attribute name="attrib2" type="xsd:int"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

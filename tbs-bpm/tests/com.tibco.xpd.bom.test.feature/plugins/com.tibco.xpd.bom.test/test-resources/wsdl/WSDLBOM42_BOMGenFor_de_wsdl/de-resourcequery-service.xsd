@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Adrian Hussey (Tibco Software Ltd) -->
+<xs:schema xmlns="http://resourcequery.api.de.n2.tibco.com" xmlns:de="http://api.de.n2.tibco.com" xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://resourcequery.api.de.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="organisation.xsd"/>
+	<xs:import namespace="http://api.de.n2.tibco.com" schemaLocation="de.xsd"/>
+	<xs:element name="executeQuery" type="orgdto:XmlExecuteQuery">
+		<xs:annotation>
+			<xs:documentation>Request element for executeQuery operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="XmlSimpleResource">
+		<xs:attribute name="guid" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The resource's unique identifier.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The resource's name (login name).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="label" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The resource's, optional, display name.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute default="false" name="push-enabled" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>True if the entity specified has any push destinations set.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="executeQueryResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for executeQuery operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="resource" type="XmlSimpleResource">
+					<xs:annotation>
+						<xs:documentation>Collection of Resource identifiers that match the query specified in the request. 
+
+(If the singleRandomResult flag was set in the query, only a single Resource is returned.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://mapping.api.de.n2.tibco.com" xmlns:tns17="http://mapping.api.de.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://api.organisation.common.n2.tibco.com"
+    xmlns:tns3="http://api.de.n2.tibco.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mapping.api.de.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.de.api.mapping.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.organisation.api.xsd"/>
+  <xsd:import namespace="http://api.de.n2.tibco.com" schemaLocation="com.tibco.n2.de.api.xsd"/>
+  <xsd:element abstract="false" name="listMappedEntities" nillable="false">
+    <xsd:complexType ecore:name="listMappedEntitiesType" id="com.tibco.n2.de.api.mappinglistMappedEntitiesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="parententity" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="parent-entity" type="tns2:XmlModelEntityId"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="currentonly" id="listMappedEntitiesTypecurrent-only"
+          default="false" form="unqualified" name="current-only" type="xsd:boolean"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Determines whether only resources currently associated with the identified entities are to be include (true). If false, any date ranges applied to the resource or its associations are ignored. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listMappedEntitiesResponse" nillable="false">
+    <xsd:complexType ecore:name="listMappedEntitiesResponseType" id="com.tibco.n2.de.api.mappinglistMappedEntitiesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="resource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="resource" type="tns3:XmlResourceDetail"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="mapEntities" nillable="false">
+    <xsd:complexType ecore:name="mapEntitiesType" id="com.tibco.n2.de.api.mappingmapEntitiesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="entityMapping" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="entityMapping" type="tns3:XmlEntityMapping"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="mapEntitiesResponse" nillable="false">
+    <xsd:complexType ecore:name="mapEntitiesResponseType" id="com.tibco.n2.de.api.mappingmapEntitiesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="result" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="result" type="tns3:XmlEntityInstantiatedList"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="updateCapabilityAssignments" nillable="false">
+    <xsd:complexType ecore:name="updateCapabilityAssignmentsType" id="com.tibco.n2.de.api.mappingupdateCapabilityAssignmentsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="assignment" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="assignment" type="tns3:XmlCapabilityAssignment"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="updateCapabilityAssignmentsResponse" nillable="false">
+    <xsd:complexType ecore:name="updateCapabilityAssignmentsResponseType" id="com.tibco.n2.de.api.mappingupdateCapabilityAssignmentsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="successful" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="successful" type="xsd:boolean"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getResourceGuid" nillable="false">
+    <xsd:complexType ecore:name="getResourceGuidType" id="com.tibco.n2.de.api.mappinggetResourceGuidType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="target" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="target" type="tns3:XmlLdapEntity"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getResourceGuidResponse" nillable="false">
+    <xsd:complexType ecore:name="getResourceGuidResponseType" id="com.tibco.n2.de.api.mappinggetResourceGuidResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="entity" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="entity" type="tns3:XmlLdapEntity"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteResource" nillable="false">
+    <xsd:complexType ecore:name="deleteResourceType" id="com.tibco.n2.de.api.mappingdeleteResourceType"
+        mixed="false">
+      <xsd:attribute ecore:name="resourceguid" id="deleteResourceTyperesource-guid"
+          form="unqualified" name="resource-guid" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>GUID of the resource to be deleted. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteResourceResponse" nillable="false">
+    <xsd:complexType ecore:name="deleteResourceResponseType" id="com.tibco.n2.de.api.mappingdeleteResourceResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="successful" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="successful" type="xsd:boolean"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

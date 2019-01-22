@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:compositenotation="http://www.tibco.com/models/compositenotation" xmlns:java="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/java" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:soapbt="http://xsd.tns.tibco.com/amf/models/sca/binding/soap" xmlns:www.example.org="http://www.example.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmi:id="_4rB3MbBCEd-uV4EU5D-gKQ" targetNamespace="http://www.example.com/surgerylookup-saml.soa" name="surgerylookup-saml.soa" compositeext:version="1.0.0.qualifier" compositeext:formatVersion="2">
+  <sca:service xmi:id="_HUN4sLBEEd-uV4EU5D-gKQ" name="LookUpSurgeryServicePortType" promote="surgerylookup-saml/LookUpSurgeryServicePortType" policySets="www.example.org:SamlAuth" scaext:policySetLocations="../Resource%20Templates/SamlAuth.policysets">
+    <sca:interface.wsdl xmi:id="_HUN4sbBEEd-uV4EU5D-gKQ" interface="http://www.tibco.com/studio-3.3/SurgeryAddressService/_gen#wsdl.interface(LookUpSurgeryServicePortType)" scaext:wsdlLocation="../Service%20Descriptors/SurgeryAddressService_gen.wsdl"/>
+    <sca:binding.sca xmi:id="_HUOfwLBEEd-uV4EU5D-gKQ" name="Virtualization"/>
+    <soapbt:binding.soap.service xmi:id="_efaM8LBEEd-uV4EU5D-gKQ" name="SOAPService_Binding1" transportBindingType="HTTP" attachmentStyle="DOCUMENT" portType="../Service%20Descriptors/SurgeryAddressService_gen.wsdl#//@ePortTypes.0">
+      <operationConfiguration xmi:id="_efj98bBEEd-uV4EU5D-gKQ" operation="../Service%20Descriptors/SurgeryAddressService_gen.wsdl#//@ePortTypes.0/@eOperations.0" action="LookupSurgeryAddress" description="">
+        <messageConfiguration xmi:id="_efj98rBEEd-uV4EU5D-gKQ" message="../Service%20Descriptors/SurgeryAddressService_gen.wsdl#//@eMessages.0">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_efj987BEEd-uV4EU5D-gKQ" messagePart="../Service%20Descriptors/SurgeryAddressService_gen.wsdl#//@eMessages.0/@eParts.0"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_efj99LBEEd-uV4EU5D-gKQ" message="../Service%20Descriptors/SurgeryAddressService_gen.wsdl#//@eMessages.1" messageDirection="OUTPUT">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_efj99bBEEd-uV4EU5D-gKQ" messagePart="../Service%20Descriptors/SurgeryAddressService_gen.wsdl#//@eMessages.1/@eParts.0"/>
+        </messageConfiguration>
+        <bindingType xmi:id="_efj99rBEEd-uV4EU5D-gKQ" style="RPC"/>
+      </operationConfiguration>
+      <inboundConfiguration xsi:type="soapbt:HttpTransportConfiguration" xmi:id="_efj997BEEd-uV4EU5D-gKQ" endpointURI="/lookUpSurgeryServicePortType/"/>
+      <defaultBindingType xmi:id="_efj98LBEEd-uV4EU5D-gKQ" style="RPC"/>
+    </soapbt:binding.soap.service>
+    <scact:bindingAdjunct xmi:id="_HUOfwbBEEd-uV4EU5D-gKQ" bindingName="Virtualization"/>
+    <scact:bindingAdjunct xmi:id="_efj9-LBEEd-uV4EU5D-gKQ" bindingName="SOAPService_Binding1">
+      <sca:property xmi:id="_efj9-bBEEd-uV4EU5D-gKQ" mustSupply="true" name="HttpInboundConnectionConfig" type="xsd:string" scaext:simpleValue="httpConnector"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:component xmi:id="_4sJ4kLBCEd-uV4EU5D-gKQ" name="surgerylookup-saml" compositeext:version="1.0.0.qualifier">
+    <sca:implementation.java xmi:id="_4sJ4kbBCEd-uV4EU5D-gKQ" class="com.sample.surgerylookup.SurgeryLookUp">
+      <scaext:packageVersionRange xmi:id="_4sJ4krBCEd-uV4EU5D-gKQ" lower="1.0.0" upper="2.0.0"/>
+      <java:featureDependency xmi:id="_pu5SQLBGEd-uV4EU5D-gKQ" name="com.tibco.amx.surgerylookup.id">
+        <range xmi:id="_pu5SQbBGEd-uV4EU5D-gKQ" lower="1.0.0" upper="2.0.0"/>
+      </java:featureDependency>
+    </sca:implementation.java>
+    <sca:service xmi:id="_4snLkLBCEd-uV4EU5D-gKQ" name="LookUpSurgeryServicePortType">
+      <sca:interface.wsdl xmi:id="_4snLkbBCEd-uV4EU5D-gKQ" interface="http://www.tibco.com/studio-3.3/SurgeryAddressService/_gen#wsdl.interface(LookUpSurgeryServicePortType)" scaext:wsdlLocation="../Service%20Descriptors/SurgeryAddressService_gen.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <notation:diagram xsi:type="notation:Diagram" xmi:id="_4sIqcLBCEd-uV4EU5D-gKQ" type="Composite" element="#/" name="SCA Composite" measurementUnit="Pixel">
+    <children xmi:id="_41A5oLBCEd-uV4EU5D-gKQ" type="2001" element="#_4rB3MbBCEd-uV4EU5D-gKQ">
+      <children xmi:id="_41D88LBCEd-uV4EU5D-gKQ" type="5004"/>
+      <children xmi:id="_41FyILBCEd-uV4EU5D-gKQ" type="7001">
+        <children xmi:id="_HUQ8ALBEEd-uV4EU5D-gKQ" type="3001" element="#_HUN4sLBEEd-uV4EU5D-gKQ">
+          <children xmi:id="_HURjELBEEd-uV4EU5D-gKQ" type="5002"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_HUQ8AbBEEd-uV4EU5D-gKQ" fontHeight="10"/>
+          <styles xsi:type="compositenotation:ShapeGradientStyle" xmi:id="_HUQ8ArBEEd-uV4EU5D-gKQ" gradStartColor="14150097" gradEndColor="7844710"/>
+          <styles xsi:type="compositenotation:CustomImageStyle" xmi:id="_HUQ8A7BEEd-uV4EU5D-gKQ"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_HUQ8BLBEEd-uV4EU5D-gKQ"/>
+        </children>
+        <styles xsi:type="notation:SortingStyle" xmi:id="_41FyIbBCEd-uV4EU5D-gKQ"/>
+        <styles xsi:type="notation:FilteringStyle" xmi:id="_41FyIrBCEd-uV4EU5D-gKQ"/>
+      </children>
+      <children xmi:id="_41HnULBCEd-uV4EU5D-gKQ" type="7002">
+        <styles xsi:type="notation:SortingStyle" xmi:id="_41HnUbBCEd-uV4EU5D-gKQ"/>
+        <styles xsi:type="notation:FilteringStyle" xmi:id="_41HnUrBCEd-uV4EU5D-gKQ"/>
+      </children>
+      <children xmi:id="_41I1cLBCEd-uV4EU5D-gKQ" type="7003">
+        <children xmi:id="_41PjILBCEd-uV4EU5D-gKQ" type="3003" element="#_4sJ4kLBCEd-uV4EU5D-gKQ">
+          <children xmi:id="_41QxQLBCEd-uV4EU5D-gKQ" type="5001"/>
+          <children xmi:id="_41qZ4LBCEd-uV4EU5D-gKQ" type="7004">
+            <children xmi:id="_41v5cLBCEd-uV4EU5D-gKQ" type="3004" element="#_4snLkLBCEd-uV4EU5D-gKQ">
+              <styles xsi:type="notation:ShapeStyle" xmi:id="_41v5cbBCEd-uV4EU5D-gKQ" fontHeight="10"/>
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_41v5crBCEd-uV4EU5D-gKQ"/>
+            </children>
+            <styles xsi:type="notation:SortingStyle" xmi:id="_41qZ4bBCEd-uV4EU5D-gKQ"/>
+            <styles xsi:type="notation:FilteringStyle" xmi:id="_41qZ4rBCEd-uV4EU5D-gKQ"/>
+          </children>
+          <children xmi:id="_41roALBCEd-uV4EU5D-gKQ" type="7005">
+            <styles xsi:type="notation:SortingStyle" xmi:id="_41roAbBCEd-uV4EU5D-gKQ"/>
+            <styles xsi:type="notation:FilteringStyle" xmi:id="_41roArBCEd-uV4EU5D-gKQ"/>
+          </children>
+          <children xmi:id="_41sPELBCEd-uV4EU5D-gKQ" type="7006">
+            <children xmi:id="_41sPFLBCEd-uV4EU5D-gKQ" visible="false" type="7600">
+              <styles xsi:type="notation:ShapeStyle" xmi:id="_41sPFbBCEd-uV4EU5D-gKQ" fontHeight="10"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_41sPFrBCEd-uV4EU5D-gKQ"/>
+            </children>
+            <styles xsi:type="notation:SortingStyle" xmi:id="_41sPEbBCEd-uV4EU5D-gKQ"/>
+            <styles xsi:type="notation:FilteringStyle" xmi:id="_41sPErBCEd-uV4EU5D-gKQ"/>
+            <styles xsi:type="compositenotation:CollapseStyle" xmi:id="_41sPE7BCEd-uV4EU5D-gKQ"/>
+          </children>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_41PjIbBCEd-uV4EU5D-gKQ" fontHeight="10"/>
+          <styles xsi:type="compositenotation:ShapeGradientStyle" xmi:id="_41PjIrBCEd-uV4EU5D-gKQ" gradStartColor="16642791" gradEndColor="14072216"/>
+          <styles xsi:type="compositenotation:CustomImageStyle" xmi:id="_41PjI7BCEd-uV4EU5D-gKQ"/>
+          <styles xsi:type="compositenotation:CustomComponentIconStyle" xmi:id="_41PjJLBCEd-uV4EU5D-gKQ"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_41PjJbBCEd-uV4EU5D-gKQ" x="85" y="82"/>
+        </children>
+        <styles xsi:type="notation:SortingStyle" xmi:id="_41I1cbBCEd-uV4EU5D-gKQ"/>
+        <styles xsi:type="notation:FilteringStyle" xmi:id="_41I1crBCEd-uV4EU5D-gKQ"/>
+      </children>
+      <children xmi:id="_41KDkLBCEd-uV4EU5D-gKQ" type="7007">
+        <children xmi:id="_41LRsLBCEd-uV4EU5D-gKQ" visible="false" type="7600">
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_41LRsbBCEd-uV4EU5D-gKQ" fontHeight="10"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_41LRsrBCEd-uV4EU5D-gKQ"/>
+        </children>
+        <styles xsi:type="notation:SortingStyle" xmi:id="_41KDkbBCEd-uV4EU5D-gKQ"/>
+        <styles xsi:type="notation:FilteringStyle" xmi:id="_41KDkrBCEd-uV4EU5D-gKQ"/>
+      </children>
+      <styles xsi:type="notation:ShapeStyle" xmi:id="_41A5obBCEd-uV4EU5D-gKQ" fontHeight="10"/>
+      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_41A5orBCEd-uV4EU5D-gKQ" x="10" y="10" width="500" height="350"/>
+    </children>
+    <styles xsi:type="notation:DiagramStyle" xmi:id="_4sIqcbBCEd-uV4EU5D-gKQ"/>
+    <styles xsi:type="compositenotation:CustomImageStyle" xmi:id="_4sIqcrBCEd-uV4EU5D-gKQ"/>
+    <styles xsi:type="compositenotation:ShapeGradientStyle" xmi:id="_4sIqc7BCEd-uV4EU5D-gKQ"/>
+    <edges xmi:id="_HU-tsLBEEd-uV4EU5D-gKQ" type="4002" source="#_HUQ8ALBEEd-uV4EU5D-gKQ" target="#_41v5cLBCEd-uV4EU5D-gKQ">
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_HU-tsbBEEd-uV4EU5D-gKQ" routing="Rectilinear"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_HU-tsrBEEd-uV4EU5D-gKQ" fontHeight="10"/>
+      <element xsi:nil="true"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_HU-ts7BEEd-uV4EU5D-gKQ" points="[0, 30, -180, -112]$[174, 145, -6, 3]"/>
+    </edges>
+  </notation:diagram>
+</sca:composite>

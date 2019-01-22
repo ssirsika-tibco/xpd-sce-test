@@ -1,0 +1,68 @@
+«EXTENSION com::tibco::bds::designtime::generator::oaw::BOMGlobalDataUtils»
+«EXTENSION com::tibco::bds::designtime::generator::oaw::helper»
+«EXTENSION com::tibco::bds::designtime::generator::da::oaw::helper»
+«EXTENSION com::tibco::bds::designtime::generator::oaw::vars»
+
+«DEFINE Root FOR uml::Model»
+  «IF isGlobalDataBOM()»
+  	«EXPAND BuildProperties»
+  	«EXPAND PluginProperties»
+  	«EXPAND Manifest»
+  «ENDIF»
+«ENDDEFINE»
+
+«DEFINE PluginProperties FOR uml::Model»
+  «FILE "plugin.properties"»bundleName = «name» BDS Database Adaptor (DA) bundle
+bundleVendor = TIBCO Software Inc.
+  «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ManifestExportPackage FOR uml::Model-»
+Export-Package:«EXPAND VersionedPackageExpression FOREACH getExportedPackages() SEPARATOR ', \r\n'-»
+«ENDDEFINE»
+
+«DEFINE VersionedPackageExpression FOR String-»
+ «this»;version="«projectVersion()»"«ENDDEFINE»
+
+«DEFINE ManifestRequiredBundle FOR uml::Model-»
+Require-Bundle: «getPackageName()».bds;bundle-version="[«projectVersion()»,«projectVersion()»]"«EXPAND VersionedBundleExpression FOREACH getRequiredBundles()-»
+«ENDDEFINE»
+
+«DEFINE VersionedBundleExpression FOR String-»
+,
+ «this».bds;bundle-version="[«projectVersion()»,«projectVersion()»]",«this».da.bds;bundle-version="[«projectVersion()»,«projectVersion()»]"«ENDDEFINE»
+
+«DEFINE Manifest FOR uml::Model»
+  «FILE "META-INF/MANIFEST.MF"»Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %bundleName
+Bundle-SymbolicName: «getPackageName()».da.bds
+Bundle-Version: «projectVersion()»
+Bundle-Vendor: %bundleVendor
+Bundle-Localization: plugin
+«EXPAND ManifestExportPackage»
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+«EXPAND ManifestRequiredBundle»
+Import-Package: org.eclipse.emf.common;version="[0.0.0,3.0.0)",
+ org.eclipse.emf.common.archive;version="[0.0.0,3.0.0)",
+ org.eclipse.emf.common.command;version="[0.0.0,3.0.0)",
+ org.eclipse.emf.common.notify;version="[0.0.0,3.0.0)",
+ org.eclipse.emf.common.notify.impl;version="[0.0.0,3.0.0)",
+ org.eclipse.emf.common.util;version="[0.0.0,3.0.0)",
+ org.eclipse.emf.ecore;version="[0.0.0,3.0.0)",
+ com.tibco.bds.api.goref;version="[1.0.0,2.0.0)",
+ com.tibco.bds.common.da.service;version="[1.0.0,2.0.0)",
+ com.tibco.bds.common.da.service.impl;version="[1.0.0,2.0.0)",
+ com.tibco.bds.shared.dto.search;version="[1.0.0,2.0.0)"
+
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE BuildProperties FOR uml::Model»
+  «FILE "build.properties"»source.. = src/
+output.. = bin/
+bin.includes = META-INF/,\
+               .,\
+               plugin.properties
+«ENDFILE»
+«ENDDEFINE»

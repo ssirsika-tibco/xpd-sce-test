@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated rsd -->
+      <package
+            uri="http://com.tibco.xpd/rsd"
+            class="com.tibco.xpd.rsd.RsdPackage"
+            genModel="model/rsd.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated rsd -->
+      <parser
+            type="rsd"
+            class="com.tibco.xpd.rsd.util.RsdResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

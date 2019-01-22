@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/elementDeclaredTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/elementDeclaredTypes" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xsd:element name="elementString" type="xsd:string"/>
+	<xsd:element name="elementInteger" type="xsd:int"/>
+	<xsd:attribute name="attributeString" type="xsd:string"/>
+	<xsd:attribute name="attributeDouble" type="xsd:double"/>
+	<xsd:element name="elementEnumeration" type="SubEnumType"/>
+	<xsd:simpleType name="SubEnumType" ecore:name="SubEnumType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="One" ecore:name="ONE"/>
+			<xsd:enumeration value="Two" ecore:name="TWO"/>
+			<xsd:enumeration value="Three" ecore:name="THREE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="elementAnonSimpleType">
+		<xsd:simpleType ecore:name="elementAnonSimpleTypeType">
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="200"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:simpleType name="SimpType" ecore:name="SimpType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:element name="elementSimpType" type="SimpType"/>
+	<xsd:simpleType name="ExtSimpType" ecore:name="ExtSimpType">
+		<xsd:restriction base="SimpType">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="elementExtSimpType" type="ExtSimpType"/>
+</xsd:schema>

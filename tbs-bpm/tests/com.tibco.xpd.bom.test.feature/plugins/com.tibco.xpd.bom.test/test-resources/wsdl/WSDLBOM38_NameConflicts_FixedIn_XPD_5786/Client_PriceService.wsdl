@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://www.tibco.com/AFF/services/pricing/PriceService" xmlns:ns1="http://www.tibco.com/AFF/V4.0.0/classes/order" xmlns:ns2="http://www.tibco.com/AFF/V4.0.0/classes/resultstatus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.example.com/13396641156247878" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.example.com/13396641156247878" tibex:src="file:/C:/Documents%20and%20Settings/annkathrin/Desktop/BW%20examples/FOS_OrderEntry/TestClients/Client_PriceService.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/AFF/V4.0.0/classes/order" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/AFF/V4.0.0/classes/order">
+            <xs:element name="Characteristic">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Name" type="xs:string"/>
+                        <xs:element name="Description" type="xs:string"/>
+                        <xs:element name="Values">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Value">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Name" type="xs:string"/>
+                                                <xs:element name="Type" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="ValueFrom" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="ValueTo" type="xs:string"/>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DeliveryAddress">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AddressLine1" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AddressLine2" type="xs:string"/>
+                        <xs:element name="Locality" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Region" type="xs:string"/>
+                        <xs:element name="PostCode" type="xs:string"/>
+                        <xs:element name="Country" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="InvoiceAddress">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AddressLine1" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AddressLine2" type="xs:string"/>
+                        <xs:element name="Locality" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Region" type="xs:string"/>
+                        <xs:element name="PostCode" type="xs:string"/>
+                        <xs:element name="Country" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Order">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="OrderID" type="xs:string"/>
+                        <xs:element ref="ns1:OrderHeader"/>
+                        <xs:element minOccurs="0" ref="ns1:OrderDetails"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="OrderDetails">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="OrderLines">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:OrderLine"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="OrderHeader">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="OrderRef" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Version" type="xs:long"/>
+                        <xs:element minOccurs="0" name="IsLatestVersion" type="xs:boolean"/>
+                        <xs:element minOccurs="0" name="OrderDescription" type="xs:string"/>
+                        <xs:element minOccurs="0" name="OrderStatus" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CustomerID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SubscriberID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SubmittedDate" type="xs:date"/>
+                        <xs:element minOccurs="0" name="SubmittedTime" type="xs:time"/>
+                        <xs:element minOccurs="0" name="RequiredByDate" type="xs:dateTime"/>
+                        <xs:element minOccurs="0" name="ExpirationDate" type="xs:date"/>
+                        <xs:element minOccurs="0" name="ExpectedCompletionDate" type="xs:dateTime"/>
+                        <xs:element minOccurs="0" ref="ns1:InvoiceAddress"/>
+                        <xs:element minOccurs="0" ref="ns1:DeliveryAddress"/>
+                        <xs:element minOccurs="0" name="Notes" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SLAs">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:SLA"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="UDFs">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="UDF">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Name" type="xs:anyType"/>
+                                                <xs:element name="Value" type="xs:anyType"/>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="OrderLine">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="LineNumber" type="xs:string"/>
+                        <xs:element minOccurs="0" name="OrderLineStatus" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SubscriberID" type="xs:string"/>
+                        <xs:element name="ProductID" type="xs:string"/>
+                        <xs:element name="Quantity" type="xs:long"/>
+                        <xs:element name="UOM" type="xs:string"/>
+                        <xs:element minOccurs="0" ref="ns1:InvoiceAddress"/>
+                        <xs:element minOccurs="0" ref="ns1:DeliveryAddress"/>
+                        <xs:element name="OrderLineAction" type="xs:string">
+                        </xs:element>
+                        <xs:element minOccurs="0" name="OrderLineActionMode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="RequiredByDate" type="xs:dateTime"/>
+                        <xs:element minOccurs="0" name="LinkID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="InventoryID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Notes" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SLAs">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:SLA"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="UDFs">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:UDF"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Characteristics">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:Characteristic"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="CustomerItemID" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SLA">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SLAID" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UDF">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Name">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:minLength value="1"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Value">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:minLength value="1"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/AFF/services/pricing/getPrices" xmlns:ord="http://www.tibco.com/AFF/V4.0.0/classes/order" xmlns:price="http://www.tibco.com/AFF/services/pricing/PriceService" xmlns:rs="http://www.tibco.com/AFF/V4.0.0/classes/resultstatus" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.tibco.com/AFF/services/pricing/PriceService">
+            <xs:import namespace="http://www.tibco.com/AFF/V4.0.0/classes/order"/>
+            <xs:import namespace="http://www.tibco.com/AFF/V4.0.0/classes/resultstatus"/>
+            <xs:complexType name="CalculationResultLineType">
+                <xs:sequence>
+                    <xs:element ref="price:LineNumber"/>
+                    <xs:element name="Product">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="price:Item"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element ref="price:Quantity"/>
+                    <xs:element name="Prices">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" ref="price:PriceItem"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CalculationResultType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" ref="price:CalculationResultLine"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="HeaderType">
+                <xs:sequence>
+                    <xs:element name="BusinessTransactionID" type="xs:string"/>
+                    <xs:element name="RequestID" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BusinessObjectRef" type="xs:string"/>
+                    <xs:element name="MessageTimestamp" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ItemType">
+                <xs:sequence>
+                    <xs:element ref="price:ID"/>
+                    <xs:element minOccurs="0" name="UDFs">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ord:UDF"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="LinkID" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="ModifierItemType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" ref="ord:UDF"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PriceType">
+                <xs:sequence>
+                    <xs:element name="UDFs">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ord:UDF"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Modifiers">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" ref="price:ModifierItem"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="QuantityType">
+                <xs:sequence>
+                    <xs:element name="Amount" type="xs:double"/>
+                    <xs:element name="UOM" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestBodyType">
+                <xs:sequence>
+                    <xs:element ref="price:CorrelationID"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="CalculationProduct">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="price:LineNumber"/>
+                                <xs:element ref="price:Item"/>
+                                <xs:element ref="price:Quantity"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="price:OptionalProduct"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="price:RelatedIProduct"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="price:RelatedSegment"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestsType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" ref="price:RequestBody"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResponseBodyType">
+                <xs:sequence>
+                    <xs:element ref="price:CorrelationID"/>
+                    <xs:element ref="price:Result"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="price:CalculationResult"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResponsesType">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ResponseBody" type="price:ResponseBodyType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResultType">
+                <xs:sequence>
+                    <xs:element name="ReturnCode">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="SUCCESS"/>
+                                <xs:enumeration value="TECHNICAL-ERROR"/>
+                                <xs:enumeration value="BUSINESS-ERROR"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="rs:ResultStatus"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getPricesRequestType">
+                <xs:sequence>
+                    <xs:element ref="price:RequestHeader"/>
+                    <xs:element ref="price:Requests"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getPricesResponseType">
+                <xs:sequence>
+                    <xs:element ref="price:ResponseHeader"/>
+                    <xs:element ref="price:Responses"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CalculationResult" type="price:CalculationResultType"/>
+            <xs:element name="CalculationResultLine" type="price:CalculationResultLineType"/>
+            <xs:element name="CorrelationID" type="xs:string"/>
+            <xs:element name="ID" type="xs:string"/>
+            <xs:element name="Item" type="price:ItemType"/>
+            <xs:element name="LineNumber" type="xs:long"/>
+            <xs:element name="ModifierItem" type="price:ModifierItemType"/>
+            <xs:element name="OptionalProduct">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="price:Item"/>
+                        <xs:element ref="price:Quantity"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Price">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="price:PriceID"/>
+                        <xs:element minOccurs="0" ref="price:PriceValue"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PriceID" type="xs:string"/>
+            <xs:element name="PriceItem" type="price:PriceType"/>
+            <xs:element name="PriceValue" type="xs:string"/>
+            <xs:element name="Prices">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="price:Price"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Quantity" type="price:QuantityType"/>
+            <xs:element name="RelatedIProduct">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="price:Item"/>
+                        <xs:element ref="price:Quantity"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RelatedSegment">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="price:ID"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RequestBody" type="price:RequestBodyType"/>
+            <xs:element name="RequestHeader" type="price:HeaderType"/>
+            <xs:element name="Requests" type="price:RequestsType"/>
+            <xs:element name="ResponseHeader" type="price:HeaderType"/>
+            <xs:element name="Responses" type="price:ResponsesType"/>
+            <xs:element name="Result" type="price:ResultType"/>
+            <xs:element name="getPricesRequest" type="price:getPricesRequestType">
+                <xs:annotation>
+                    <xs:documentation>Price request</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="getPricesResponse" type="price:getPricesResponseType">
+                <xs:annotation>
+                    <xs:documentation>Price response</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="getPricesUIResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="price:Prices"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/AFF/V4.0.0/classes/resultstatus" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/AFF/V4.0.0/classes/resultstatus">
+            <xs:element name="ResultStatus">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Component" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Role" type="xs:string"/>
+                        <xs:element name="Operation" type="xs:string"/>
+                        <xs:element name="Severity" type="xs:string"/>
+                        <xs:element name="Code" type="xs:string"/>
+                        <xs:element name="Message" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="PriceService">
+        <wsdl:port binding="tns:PortTypeEndpoint1Binding" name="PortTypeEndpoint1">
+            <soap:address location="http://localhost:9875/Services/PriceService.serviceagent/PortTypeEndpoint1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="GetUIPrice">
+            <wsdl:input message="tns:GetUIPriceRequest"/>
+            <wsdl:output message="tns:GetUIPriceResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PortTypeEndpoint1Binding" type="tns:PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetUIPrice">
+            <soap:operation soapAction="/Services/PriceService.serviceagent/PortTypeEndpoint1/GetUIPrice" style="rpc"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="part1" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="GetUIPriceRequest">
+        <wsdl:part element="ns0:getPricesRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetUIPriceResponse">
+        <wsdl:part element="ns0:getPricesUIResponse" name="part1"/>
+    </wsdl:message>
+</wsdl:definitions>

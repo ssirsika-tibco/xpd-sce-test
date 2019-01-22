@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_Group02_NestedGroup" xmlns:tns1="http://www.example.org/XSDBOM_Group02_NestedGroup"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_Group02_NestedGroup">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_AttributeGroup02_NestedAttrGroup/Business Objects/org.example.XSDBOM_Group02_NestedGroup.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="PersonDetails" id="org.example.XSDBOM_Group02_NestedGroupPersonDetails"
+      abstract="false" mixed="false" name="PersonDetails">
+    <xsd:attribute ecore:name="firstname" id="PersonDetailsfirstname" form="unqualified"
+        name="firstname" type="xsd:string" use="optional"/>
+    <xsd:attribute ecore:name="surname" id="PersonDetailssurname" form="unqualified"
+        name="surname" type="xsd:string" use="optional"/>
+    <xsd:attribute ecore:name="email" id="PersonDetailsemail" form="unqualified" name="email"
+        type="xsd:string" use="optional"/>
+    <xsd:attribute ecore:name="bankName" id="PersonDetailsbankName" form="unqualified"
+        name="bankName" type="xsd:string" use="optional"/>
+    <xsd:attribute ecore:name="accountNumber" id="PersonDetailsaccountNumber" form="unqualified"
+        name="accountNumber" type="xsd:integer" use="optional"/>
+  </xsd:complexType>
+</xsd:schema>

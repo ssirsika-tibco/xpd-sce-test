@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.amsbqa.com/linda13/Joshua13"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TopONE"
+	targetNamespace="http://www.amsbqa.com/linda13/Joshua13"
+	xmlns:xsd1="http://www.amsbqa.com/linda13/XSD2Define_Types13">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import
+				namespace="http://www.amsbqa.com/linda13/XSD2Define_Types13"
+				schemaLocation="Library.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="NewOperationRequest">
+		<wsdl:part element="xsd1:Library" name="information" />
+	</wsdl:message>
+	<wsdl:message name="NewOperationResponse">
+		<wsdl:part name="result" type="xsd:boolean" />
+	</wsdl:message>
+	<wsdl:portType name="TopONE">
+		<wsdl:operation name="NewOperation">
+			<wsdl:input message="tns:NewOperationRequest" />
+			<wsdl:output message="tns:NewOperationResponse" />
+		</wsdl:operation>
+	</wsdl:portType></wsdl:definitions>

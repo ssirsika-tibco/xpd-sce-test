@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_RvcJQIkKEeOx_4prWFgo8w" xpdExt:DisplayName="GestioneVas" Name="GestioneVas">
+  <xpdl2:PackageHeader xpdExt:Language="it_IT">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-01-29</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>EUR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>egiusro</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:ExternalPackages>
+    <xpdl2:ExternalPackage Id="_VhyZ5YkKEeOx_4prWFgo8w" href="Utility_ErrorHandler">
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="location" Value="/Utility_ErrorHandler.xpdl"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:ExternalPackage>
+    <xpdl2:ExternalPackage Id="_VhyZ5IkKEeOx_4prWFgo8w" href="CrmGateway.pi">
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="location" Value="/CrmGateway.pi.xpdl"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:ExternalPackage>
+    <xpdl2:ExternalPackage Id="_hABXYIkKEeOx_4prWFgo8w" href="GestioneVas.pi">
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="location" Value="/GestioneVas.pi.xpdl"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:ExternalPackage>
+  </xpdl2:ExternalPackages>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_GgOpZIkLEeOx_4prWFgo8w" xpdExt:DisplayName="MutiPresentationGestioneVasAbstract_Consumer" Name="MutiPresentationGestioneVasAbstract_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_VhyZu4kKEeOx_4prWFgo8w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_VhyZvYkKEeOx_4prWFgo8w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_VhyZvIkKEeOx_4prWFgo8w" xpdExt:DisplayName="Service Layer" Name="ServiceLayer">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="430.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_iIGkhYkLEeOx_4prWFgo8w" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_iIGki4kLEeOx_4prWFgo8w">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_iIGkhokLEeOx_4prWFgo8w" xpdExt:DisplayName="Service Layer" Name="ServiceLayer">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="430.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Associations>
+    <xpdl2:Association Id="_VhyZtYkKEeOx_4prWFgo8w" Name="" AssociationDirection="None" Source="_VhyZtIkKEeOx_4prWFgo8w" Target="_VhyZvokKEeOx_4prWFgo8w">
+      <xpdl2:Object Id="_VhyZtokKEeOx_4prWFgo8w"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_VhyZt4kKEeOx_4prWFgo8w" Name="" AssociationDirection="None" Source="_VhyZuokKEeOx_4prWFgo8w" Target="_VhyZyokKEeOx_4prWFgo8w">
+      <xpdl2:Object Id="_VhyZuIkKEeOx_4prWFgo8w"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_iIGkg4kLEeOx_4prWFgo8w" Name="" AssociationDirection="None" Source="_iIGkgokLEeOx_4prWFgo8w" Target="_iIGkjIkLEeOx_4prWFgo8w">
+      <xpdl2:Object Id="_iIGkhIkLEeOx_4prWFgo8w"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_iIGkh4kLEeOx_4prWFgo8w" Name="" AssociationDirection="None" Source="_iIGkiokLEeOx_4prWFgo8w" Target="_iIGklokLEeOx_4prWFgo8w">
+      <xpdl2:Object Id="_iIGkiIkLEeOx_4prWFgo8w"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+  </xpdl2:Associations>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_VhyZtIkKEeOx_4prWFgo8w" ArtifactType="Annotation" TextAnnotation="CHANGE &quot;Activity Type&quot; to &quot;Service Task&quot; and import the WSDL">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="17.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="83.0">
+          <xpdl2:Coordinates XCoordinate="477.0" YCoordinate="38.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_VhyZuYkKEeOx_4prWFgo8w" ArtifactType="Annotation" TextAnnotation="Change with a Receive Task if you need to wait for an async response">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="17.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="344.0">
+          <xpdl2:Coordinates XCoordinate="646.0" YCoordinate="16.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_VhyZuokKEeOx_4prWFgo8w" ArtifactType="Annotation" TextAnnotation="Check Response will depend on the &#xD;&#xA;web serivce exposed in the Receive task. ">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="30.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="207.0">
+          <xpdl2:Coordinates XCoordinate="895.0" YCoordinate="61.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_iIGkgYkLEeOx_4prWFgo8w" ArtifactType="Annotation" TextAnnotation="Change with a Receive Task if you need to wait for an async response">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="17.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="344.0">
+          <xpdl2:Coordinates XCoordinate="646.0" YCoordinate="16.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_iIGkgokLEeOx_4prWFgo8w" ArtifactType="Annotation" TextAnnotation="CHANGE &quot;Activity Type&quot; to &quot;Service Task&quot; and import the WSDL">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="17.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="83.0">
+          <xpdl2:Coordinates XCoordinate="477.0" YCoordinate="38.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_iIGkiokLEeOx_4prWFgo8w" ArtifactType="Annotation" TextAnnotation="Check Response will depend on the &#xD;&#xA;web serivce exposed in the Receive task. ">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="30.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="207.0">
+          <xpdl2:Coordinates XCoordinate="895.0" YCoordinate="61.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_VhyZvYkKEeOx_4prWFgo8w" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="AttivaRVC" Name="SCALLPAR">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_VhyZ14kKEeOx_4prWFgo8w" xpdExt:DisplayName="errorDetail" Name="errorDetail">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ2IkKEeOx_4prWFgo8w" xpdExt:DisplayName="errorCode" Name="errorCode">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ2YkKEeOx_4prWFgo8w" xpdExt:DisplayName="errorRetryCount" Name="errorRetryCount">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ2okKEeOx_4prWFgo8w" xpdExt:DisplayName="msgPayload" Name="msgPayload">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>4000</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ24kKEeOx_4prWFgo8w" xpdExt:DisplayName="processId" Name="processId">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ3IkKEeOx_4prWFgo8w" xpdExt:DisplayName="processName" Name="processName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>100</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ3YkKEeOx_4prWFgo8w" xpdExt:DisplayName="errorMaxRetries" Name="errorMaxRetries">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ3okKEeOx_4prWFgo8w" xpdExt:DisplayName="errorWaitShortDelayMin" Name="errorWaitShortDelayMin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ34kKEeOx_4prWFgo8w" xpdExt:DisplayName="errorPerformer" Name="errorPerformer">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ4IkKEeOx_4prWFgo8w" xpdExt:DisplayName="errorShortRetries" Name="errorShortRetries">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ4YkKEeOx_4prWFgo8w" xpdExt:DisplayName="errorWaitLongDelayMin" Name="errorWaitLongDelayMin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_VhyZ4okKEeOx_4prWFgo8w" xpdExt:DisplayName="parentProcessId" Name="parentProcessId" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_WBSjgIkLEeOx_4prWFgo8w" xpdExt:DisplayName="SistemaSorgenteEsito" Name="SistemaSorgenteEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_VhyZvokKEeOx_4prWFgo8w" Name="RichiestaRVCVAS" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="RichiestaRVCVAS">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_GgOpYokLEeOx_4prWFgo8w">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.idBpm">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ID_BPM</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.idNoVas">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">NoVas</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.generalinput">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">VasPartnerMEMO</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.triplettaBW">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TRIPLAMEMO</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_GgOpY4kLEeOx_4prWFgo8w">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.idBpm">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">P_O_IdBpm</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.idCRM">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">P_O_IdCrm</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.esito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">P_O_Esito</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.codiceEsito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">P_O_Codice</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.descrizioneEsito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">P_O_Descrizione</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.sistemaSorgenteEsito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">SistemaSorgenteEsito</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_GgOpZIkLEeOx_4prWFgo8w" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="MutiPresentationGestioneVasAbstract.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="MutiPresentationGestioneVasAbstract" OperationName="RichiestaRVCVAS">
+                  <xpdExt:ExternalReference location="MutiPresentationGestioneVasAbstract.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_GgOpZIkLEeOx_4prWFgo8w</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="149.0">
+              <xpdl2:Coordinates XCoordinate="453.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_VhyZv4kKEeOx_4prWFgo8w">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:Retry Max="1" InitialPeriod="30" PeriodIncrement="30"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VhyZxIkKEeOx_4prWFgo8w" Name="ErrorHandling" FinishMode="Automatic" StartMode="Automatic" xpdExt:Visibility="Private" xpdExt:DisplayName="Error Handling">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_By-ewLy1EeKe8JLlv2F7-g" PackageRef="Utility_ErrorHandler" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true">
+              <xpdl2:DataMappings>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorCode">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorCode</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorDetail">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorDetail</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_maxRetries">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorMaxRetries</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorProcessID">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">processId</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorProcessName">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">processName</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_waitLongDelayMin">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorWaitLongDelayMin</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_waitShortDelayMin">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorWaitShortDelayMin</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_shortRetries">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorShortRetries</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="IO_retryCount">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorRetryCount</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="IO_performerChoice">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorPerformer</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorPayload">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">msgPayload</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="OUT" Formal="IO_performerChoice">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorPerformer</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="OUT" Formal="IO_retryCount">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorRetryCount</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorMainProcessID">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">parentProcessId</xpdl2:Actual>
+                </xpdl2:DataMapping>
+              </xpdl2:DataMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,128,0" Height="79.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="84.0">
+              <xpdl2:Coordinates XCoordinate="516.0" YCoordinate="268.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VhyZxYkKEeOx_4prWFgo8w" Name="GenericErrorEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Generic Error Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_VhyZvokKEeOx_4prWFgo8w" Trigger="Error">
+              <xpdl2:ResultError>
+                <xpdExt:CatchErrorMappings>
+                  <xpdExt:Message Id="_VhyZxokKEeOx_4prWFgo8w">
+                    <xpdl2:DataMappings>
+                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORDETAIL">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">errorDetail</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORCODE">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">errorCode</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                    </xpdl2:DataMappings>
+                  </xpdExt:Message>
+                </xpdExt:CatchErrorMappings>
+              </xpdl2:ResultError>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,128,128" Height="58.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="65.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="17.84037558685446" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VhyZx4kKEeOx_4prWFgo8w" Name="EndEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="51.0">
+              <xpdl2:Coordinates XCoordinate="945.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VhyZyIkKEeOx_4prWFgo8w" Name="Retry" xpdExt:DisplayName="Retry?">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_VhyZzokKEeOx_4prWFgo8w"/>
+                  <xpdl2:TransitionRef Id="_VhyZ1okKEeOx_4prWFgo8w"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="516.0" YCoordinate="392.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VhyZyYkKEeOx_4prWFgo8w" Name="initErrorServiceFields" xpdExt:Visibility="Private" xpdExt:DisplayName="init Error Service Fields">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Set Process ID and name to pass to EH process&#xD;
+processId = Process.getId();&#xD;
+processName = Process.getName();&#xD;
+&#xD;
+// init parent process Id if exists&#xD;
+if (parentProcessId != null)&#xD;
+{&#xD;
+ 	parentProcessId = &quot;&quot;;&#xD;
+}&#xD;
+// init error Variables (many are optional - default value is set inside the ERH handler)&#xD;
+msgPayload =  &quot;[Request=&quot;+ ID_BPM +&quot;];&quot;;&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="60.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="118.0">
+              <xpdl2:Coordinates XCoordinate="203.0" YCoordinate="105.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VhyZyokKEeOx_4prWFgo8w" Name="CheckEsito" xpdExt:DisplayName="Check Esito">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_VhyZ0YkKEeOx_4prWFgo8w"/>
+                  <xpdl2:TransitionRef Id="_VhyZ0okKEeOx_4prWFgo8w"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="59.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="57.0">
+              <xpdl2:Coordinates XCoordinate="756.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VhyZy4kKEeOx_4prWFgo8w">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="320.0" YCoordinate="107.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hABXYYkKEeOx_4prWFgo8w" Name="StartEvent" xpdExt:DisplayName="Start Event" xpdExt:Implements="__WJ6QIkIEeOx_4prWFgo8w" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="47.0" LaneId="_VhyZvIkKEeOx_4prWFgo8w" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="60.0" YCoordinate="105.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_VhyZzYkKEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_VhyZxYkKEeOx_4prWFgo8w" To="_VhyZxIkKEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="255,128,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="25.757308609418406" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="87.35955056179775" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VhyZzokKEeOx_4prWFgo8w" xpdExt:DisplayName="FORCE CONTINUE" Name="FORCECONTINUE" From="_VhyZyIkKEeOx_4prWFgo8w" To="_VhyZx4kKEeOx_4prWFgo8w">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="246.0" YCoordinate="-21.0"/>
+              <xpdl2:Coordinates XCoordinate="-4.0" YCoordinate="250.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="25.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="22.050095756623573" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="43.188405797101446" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="22.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VhyZ0IkKEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_VhyZvokKEeOx_4prWFgo8w" To="_VhyZyokKEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VhyZ0YkKEeOx_4prWFgo8w" xpdExt:DisplayName="OK" Name="OK" From="_VhyZyokKEeOx_4prWFgo8w" To="_VhyZx4kKEeOx_4prWFgo8w">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">IpeScriptUtil.STRTOLOWER(SistemaSorgenteEsito) != &quot;muti&quot;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VhyZ0okKEeOx_4prWFgo8w" xpdExt:DisplayName="KO" Name="KO" From="_VhyZyokKEeOx_4prWFgo8w" To="_VhyZxIkKEeOx_4prWFgo8w">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="-33.0" YCoordinate="155.0"/>
+              <xpdl2:Coordinates XCoordinate="82.0" YCoordinate="-1.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VhyZ04kKEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_VhyZxIkKEeOx_4prWFgo8w" To="_VhyZyIkKEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VhyZ1IkKEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_VhyZy4kKEeOx_4prWFgo8w" To="_VhyZvokKEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VhyZ1YkKEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_VhyZyYkKEeOx_4prWFgo8w" To="_VhyZy4kKEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VhyZ1okKEeOx_4prWFgo8w" xpdExt:DisplayName="RETRY" Name="RETRY" From="_VhyZyIkKEeOx_4prWFgo8w" To="_VhyZy4kKEeOx_4prWFgo8w">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">errorPerformer.toUpperCase() == &quot;RETRY&quot;;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_h55lsIkKEeOx_4prWFgo8w" Name="" From="_hABXYYkKEeOx_4prWFgo8w" To="_VhyZyYkKEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="2.3696571138744815" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="waitDelaySeconds"/>
+            <simulation:ParameterDistribution ParameterId="I_Esito"/>
+            <simulation:ParameterDistribution ParameterId="I_Codice"/>
+            <simulation:ParameterDistribution ParameterId="I_Descrizione"/>
+            <simulation:ParameterDistribution ParameterId="I_TipoEsito"/>
+            <simulation:ParameterDistribution ParameterId="I_IdCrm"/>
+            <simulation:ParameterDistribution ParameterId="I_IdMuti"/>
+            <simulation:ParameterDistribution ParameterId="O_Esito"/>
+            <simulation:ParameterDistribution ParameterId="O_Descrizione"/>
+            <simulation:ParameterDistribution ParameterId="O_CodEsito"/>
+            <simulation:ParameterDistribution ParameterId="O_SorgenteEsito"/>
+            <simulation:ParameterDistribution ParameterId="I_IDISUFATT_MEMO"/>
+            <simulation:ParameterDistribution ParameterId="I_TipoOperazione"/>
+            <simulation:ParameterDistribution ParameterId="I_Causale"/>
+            <simulation:ParameterDistribution ParameterId="I_Commodity"/>
+            <simulation:ParameterDistribution ParameterId="I_Sorgente"/>
+            <simulation:ParameterDistribution ParameterId="I_CLIENTE_MEMO"/>
+            <simulation:ParameterDistribution ParameterId="I_Ambito"/>
+            <simulation:ParameterDistribution ParameterId="IO_IdAggPag"/>
+            <simulation:ParameterDistribution ParameterId="I_ESITO_MEMO"/>
+            <simulation:ParameterDistribution ParameterId="I_LETTURA_MEMO"/>
+            <simulation:ParameterDistribution ParameterId="I_Ambito_Rilavorazione"/>
+            <simulation:ParameterDistribution ParameterId="I_TitolareConto"/>
+            <simulation:ParameterDistribution ParameterId="I_CFCliente"/>
+            <simulation:ParameterDistribution ParameterId="I_NumConto"/>
+            <simulation:ParameterDistribution ParameterId="I_CinIban"/>
+            <simulation:ParameterDistribution ParameterId="I_Cin"/>
+            <simulation:ParameterDistribution ParameterId="I_Abi"/>
+            <simulation:ParameterDistribution ParameterId="I_MetodoPagamento"/>
+            <simulation:ParameterDistribution ParameterId="I_Cab"/>
+            <simulation:ParameterDistribution ParameterId="I_CodicePaese"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ImplementedInterface xpdExt:PackageRef="GestioneVas.pi" xpdExt:ProcessInterfaceId="_7_ECoIkIEeOx_4prWFgo8w"/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_iIGki4kLEeOx_4prWFgo8w" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="EsitiPartnerRVC" Name="SESIPARR">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_iIGko4kLEeOx_4prWFgo8w" xpdExt:DisplayName="errorDetail" Name="errorDetail">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkpIkLEeOx_4prWFgo8w" xpdExt:DisplayName="errorCode" Name="errorCode">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkpYkLEeOx_4prWFgo8w" xpdExt:DisplayName="errorRetryCount" Name="errorRetryCount">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkpokLEeOx_4prWFgo8w" xpdExt:DisplayName="msgPayload" Name="msgPayload">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>4000</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkp4kLEeOx_4prWFgo8w" xpdExt:DisplayName="processId" Name="processId">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkqIkLEeOx_4prWFgo8w" xpdExt:DisplayName="processName" Name="processName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>100</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkqYkLEeOx_4prWFgo8w" xpdExt:DisplayName="errorMaxRetries" Name="errorMaxRetries">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkqokLEeOx_4prWFgo8w" xpdExt:DisplayName="errorWaitShortDelayMin" Name="errorWaitShortDelayMin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkq4kLEeOx_4prWFgo8w" xpdExt:DisplayName="errorPerformer" Name="errorPerformer">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkrIkLEeOx_4prWFgo8w" xpdExt:DisplayName="errorShortRetries" Name="errorShortRetries">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkrYkLEeOx_4prWFgo8w" xpdExt:DisplayName="errorWaitLongDelayMin" Name="errorWaitLongDelayMin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkrokLEeOx_4prWFgo8w" xpdExt:DisplayName="parentProcessId" Name="parentProcessId" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iIGkr4kLEeOx_4prWFgo8w" xpdExt:DisplayName="SistemaSorgenteEsito" Name="SistemaSorgenteEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_iIGkjIkLEeOx_4prWFgo8w" Name="EsitiAttivazioneVASRVC" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="EsitiAttivazioneVASRVC">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_ye828okLEeOx_4prWFgo8w">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.idBpmPartner">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IdMuti</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.padreIdBpm">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IdBpmPadre</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.idCRM">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IdCrm</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.esito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Esito</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.codiceEsito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Codice</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="request.descrizioneEsito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Descrizione</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_ye8284kLEeOx_4prWFgo8w">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.esito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">O_esito</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.codiceEsito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">O_Codice</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="response.descrizioneEsito">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">O_Descrizione</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_GgOpZIkLEeOx_4prWFgo8w" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="MutiPresentationGestioneVasAbstract.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="MutiPresentationGestioneVasAbstract" OperationName="EsitiAttivazioneVASRVC">
+                  <xpdExt:ExternalReference location="MutiPresentationGestioneVasAbstract.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_GgOpZIkLEeOx_4prWFgo8w</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="149.0">
+              <xpdl2:Coordinates XCoordinate="453.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_iIGkjYkLEeOx_4prWFgo8w">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:Retry Max="1" InitialPeriod="30" PeriodIncrement="30"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iIGkkIkLEeOx_4prWFgo8w" Name="ErrorHandling" FinishMode="Automatic" StartMode="Automatic" xpdExt:Visibility="Private" xpdExt:DisplayName="Error Handling">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_By-ewLy1EeKe8JLlv2F7-g" PackageRef="Utility_ErrorHandler" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true">
+              <xpdl2:DataMappings>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorCode">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorCode</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorDetail">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorDetail</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_maxRetries">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorMaxRetries</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorProcessID">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">processId</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorProcessName">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">processName</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_waitLongDelayMin">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorWaitLongDelayMin</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_waitShortDelayMin">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorWaitShortDelayMin</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_shortRetries">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorShortRetries</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="IO_retryCount">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorRetryCount</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="IO_performerChoice">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorPerformer</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorPayload">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">msgPayload</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="OUT" Formal="IO_performerChoice">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorPerformer</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="OUT" Formal="IO_retryCount">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">errorRetryCount</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="I_errorMainProcessID">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">parentProcessId</xpdl2:Actual>
+                </xpdl2:DataMapping>
+              </xpdl2:DataMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,128,0" Height="79.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="84.0">
+              <xpdl2:Coordinates XCoordinate="516.0" YCoordinate="268.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iIGkkYkLEeOx_4prWFgo8w" Name="GenericErrorEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Generic Error Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_iIGkjIkLEeOx_4prWFgo8w" Trigger="Error">
+              <xpdl2:ResultError>
+                <xpdExt:CatchErrorMappings>
+                  <xpdExt:Message Id="_iIGkkokLEeOx_4prWFgo8w">
+                    <xpdl2:DataMappings>
+                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORDETAIL">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">errorDetail</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="$ERRORCODE">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">errorCode</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                    </xpdl2:DataMappings>
+                  </xpdExt:Message>
+                </xpdExt:CatchErrorMappings>
+              </xpdl2:ResultError>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,128,128" Height="58.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="65.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="17.84037558685446" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iIGkk4kLEeOx_4prWFgo8w" Name="EndEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="51.0">
+              <xpdl2:Coordinates XCoordinate="945.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iIGklIkLEeOx_4prWFgo8w" Name="Retry" xpdExt:DisplayName="Retry?">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_iIGkmokLEeOx_4prWFgo8w"/>
+                  <xpdl2:TransitionRef Id="_iIGkoYkLEeOx_4prWFgo8w"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="516.0" YCoordinate="392.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iIGklYkLEeOx_4prWFgo8w" Name="initErrorServiceFields" xpdExt:Visibility="Private" xpdExt:DisplayName="init Error Service Fields">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Set Process ID and name to pass to EH process&#xD;
+processId = Process.getId();&#xD;
+processName = Process.getName();&#xD;
+&#xD;
+// init parent process Id if exists&#xD;
+if (parentProcessId != null)&#xD;
+{&#xD;
+ 	parentProcessId = &quot;&quot;;&#xD;
+}&#xD;
+// init error Variables (many are optional - default value is set inside the ERH handler)&#xD;
+msgPayload =  &quot;[Request=&quot;+ IdMuti +&quot;];&quot;;&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="60.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="118.0">
+              <xpdl2:Coordinates XCoordinate="203.0" YCoordinate="105.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iIGklokLEeOx_4prWFgo8w" Name="CheckEsito" xpdExt:DisplayName="Check Esito">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_iIGknIkLEeOx_4prWFgo8w"/>
+                  <xpdl2:TransitionRef Id="_iIGknYkLEeOx_4prWFgo8w"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="59.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="57.0">
+              <xpdl2:Coordinates XCoordinate="756.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iIGkl4kLEeOx_4prWFgo8w">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="320.0" YCoordinate="107.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_pj4ZYYkLEeOx_4prWFgo8w" Name="StartEvent" xpdExt:DisplayName="Start Event" xpdExt:Implements="_kYHxEIkJEeOx_4prWFgo8w" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="47.0" LaneId="_iIGkhokLEeOx_4prWFgo8w" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="48.0" YCoordinate="105.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_iIGkmYkLEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_iIGkkYkLEeOx_4prWFgo8w" To="_iIGkkIkLEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="255,128,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="25.757308609418406" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="87.35955056179775" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iIGkmokLEeOx_4prWFgo8w" xpdExt:DisplayName="FORCE CONTINUE" Name="FORCECONTINUE" From="_iIGklIkLEeOx_4prWFgo8w" To="_iIGkk4kLEeOx_4prWFgo8w">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="246.0" YCoordinate="-21.0"/>
+              <xpdl2:Coordinates XCoordinate="-4.0" YCoordinate="250.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="25.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="22.050095756623573" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="43.188405797101446" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="22.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iIGkm4kLEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_iIGkjIkLEeOx_4prWFgo8w" To="_iIGklokLEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iIGknIkLEeOx_4prWFgo8w" xpdExt:DisplayName="OK" Name="OK" From="_iIGklokLEeOx_4prWFgo8w" To="_iIGkk4kLEeOx_4prWFgo8w">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">IpeScriptUtil.STRTOLOWER(O_esito) =='ok'</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iIGknYkLEeOx_4prWFgo8w" xpdExt:DisplayName="KO" Name="KO" From="_iIGklokLEeOx_4prWFgo8w" To="_iIGkkIkLEeOx_4prWFgo8w">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="-33.0" YCoordinate="155.0"/>
+              <xpdl2:Coordinates XCoordinate="82.0" YCoordinate="-1.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iIGknokLEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_iIGkkIkLEeOx_4prWFgo8w" To="_iIGklIkLEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iIGkn4kLEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_iIGkl4kLEeOx_4prWFgo8w" To="_iIGkjIkLEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iIGkoIkLEeOx_4prWFgo8w" xpdExt:DisplayName="" Name="" From="_iIGklYkLEeOx_4prWFgo8w" To="_iIGkl4kLEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iIGkoYkLEeOx_4prWFgo8w" xpdExt:DisplayName="RETRY" Name="RETRY" From="_iIGklIkLEeOx_4prWFgo8w" To="_iIGkl4kLEeOx_4prWFgo8w">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">errorPerformer.toUpperCase() == &quot;RETRY&quot;;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_qjs3oIkLEeOx_4prWFgo8w" Name="" From="_pj4ZYYkLEeOx_4prWFgo8w" To="_iIGklYkLEeOx_4prWFgo8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="0.7951125628088187" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="58.14606741573034" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="waitDelaySeconds"/>
+            <simulation:ParameterDistribution ParameterId="I_Esito"/>
+            <simulation:ParameterDistribution ParameterId="I_Codice"/>
+            <simulation:ParameterDistribution ParameterId="I_Descrizione"/>
+            <simulation:ParameterDistribution ParameterId="I_TipoEsito"/>
+            <simulation:ParameterDistribution ParameterId="I_IdCrm"/>
+            <simulation:ParameterDistribution ParameterId="I_IdMuti"/>
+            <simulation:ParameterDistribution ParameterId="O_Esito"/>
+            <simulation:ParameterDistribution ParameterId="O_Descrizione"/>
+            <simulation:ParameterDistribution ParameterId="O_CodEsito"/>
+            <simulation:ParameterDistribution ParameterId="O_SorgenteEsito"/>
+            <simulation:ParameterDistribution ParameterId="I_IDISUFATT_MEMO"/>
+            <simulation:ParameterDistribution ParameterId="I_TipoOperazione"/>
+            <simulation:ParameterDistribution ParameterId="I_Causale"/>
+            <simulation:ParameterDistribution ParameterId="I_Commodity"/>
+            <simulation:ParameterDistribution ParameterId="I_Sorgente"/>
+            <simulation:ParameterDistribution ParameterId="I_CLIENTE_MEMO"/>
+            <simulation:ParameterDistribution ParameterId="I_Ambito"/>
+            <simulation:ParameterDistribution ParameterId="IO_IdAggPag"/>
+            <simulation:ParameterDistribution ParameterId="I_ESITO_MEMO"/>
+            <simulation:ParameterDistribution ParameterId="I_LETTURA_MEMO"/>
+            <simulation:ParameterDistribution ParameterId="I_Ambito_Rilavorazione"/>
+            <simulation:ParameterDistribution ParameterId="I_TitolareConto"/>
+            <simulation:ParameterDistribution ParameterId="I_CFCliente"/>
+            <simulation:ParameterDistribution ParameterId="I_NumConto"/>
+            <simulation:ParameterDistribution ParameterId="I_CinIban"/>
+            <simulation:ParameterDistribution ParameterId="I_Cin"/>
+            <simulation:ParameterDistribution ParameterId="I_Abi"/>
+            <simulation:ParameterDistribution ParameterId="I_MetodoPagamento"/>
+            <simulation:ParameterDistribution ParameterId="I_Cab"/>
+            <simulation:ParameterDistribution ParameterId="I_CodicePaese"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ImplementedInterface xpdExt:PackageRef="GestioneVas.pi" xpdExt:ProcessInterfaceId="_iMHzkIkJEeOx_4prWFgo8w"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="14"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

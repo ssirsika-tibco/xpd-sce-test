@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions xmlns:ns="com.enel.mind.RecuperoDatiDelCrmGateway.RecuperoAnagraficaSAP"  xmlns:ttns="http://enel.com/mind_recuperodatidelcrmgateway" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  targetNamespace="com.enel.mind.RecuperoDatiDelCrmGateway.RecuperoAnagraficaSAP"  >
+  <wsdl:types>
+    <xsd:schema xmlns="http://enel.com/mind_recuperodatidelcrmgateway" xmlns:tns1="http://enel.com/mind_recuperodatidelcrmgateway" targetNamespace="http://enel.com/mind_recuperodatidelcrmgateway">
+      
+      <xsd:complexType name="RecuperoAnagraficaSapRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceClienteMasterCRM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="chiaveUnivocaBeneCRM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBpm" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RecuperoAnagraficaSapResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceBusinessPartnerSAPSD" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="contoContrattualeSAPSD" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numeroUtente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="nomeCliente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="cognomeCliente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ragioneSociale" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceFiscaleCliente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PIVACliente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceFormaGiuridica" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="recapitoPresso" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="recapitoIndirizzo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="recapitoNumeroCivico" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="recapitoCAP" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="recapitoLocalita" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="recapitoProvincia" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="emailCliente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="carattDetConti" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="chiaveCondPagamento" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="commodity" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="definizioneContoContrattuale" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceEsito" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizioneEsito" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaSorgenteEsito" type="xsd:string"/>
+          <xsd:element name="ContoContrattualeISU" minOccurs="0" type="xsd:string"/>
+          <xsd:element name="ContrattoISU" minOccurs="0" type="xsd:string"/>
+          <xsd:element name="DataAdesione" minOccurs="0" type="xsd:string"/>
+          <xsd:element name="FlagChiaveISU" minOccurs="0" type="xsd:string"/>
+          <xsd:element name="CDM_IDFatturazione" minOccurs="0" type="xsd:string"/>
+          <xsd:element name="CodBpExt" minOccurs="0" type="xsd:string"/>
+          <xsd:element name="CodIndirizzoEsterno" minOccurs="0" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecuperoAnagraficaSapRequestElement" type="RecuperoAnagraficaSapRequest"/>
+      <xsd:element name="RecuperoAnagraficaSapResponseElement" type="RecuperoAnagraficaSapResponse"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Presentation_RecuperoDatiDelCrmGatewayProcess_RecuperoAnagraficaSAPServiceCall_INPUT">
+    <wsdl:part element="ttns:RecuperoAnagraficaSapRequestElement" name="Request"/>
+  </wsdl:message>
+  <wsdl:message name="Presentation_RecuperoDatiDelCrmGatewayProcess_RecuperoAnagraficaSAPServiceCall_OUTPUT">
+    <wsdl:part element="ttns:RecuperoAnagraficaSapResponseElement" name="Response"/>
+  </wsdl:message>
+  <wsdl:portType name="Presentation_RecuperoDatiDelCrmGatewayProcess" >
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="RecuperoAnagraficaSAPServiceCall">
+      <wsdl:input message="ns:Presentation_RecuperoDatiDelCrmGatewayProcess_RecuperoAnagraficaSAPServiceCall_INPUT" />
+      <wsdl:output message="ns:Presentation_RecuperoDatiDelCrmGatewayProcess_RecuperoAnagraficaSAPServiceCall_OUTPUT" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

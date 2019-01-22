@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/XSDBOM_Group02_NestedGroup"
+	xmlns:tns="http://www.example.org/XSDBOM_Group02_NestedGroup"
+	elementFormDefault="qualified">
+
+	<group name="detailsGroup">
+		<sequence>
+			<element name="firstname" type="string" />
+			<element name="surname" type="string" />
+			<element name="email" type="string" />
+			<group ref="tns:accountGroup"></group>
+		</sequence>
+	</group>
+
+	<group name="accountGroup">
+		<sequence>
+			<element name="bankName" type="string" />
+			<element name="accountNumber" type="integer" />
+		</sequence>
+
+	</group>
+
+
+	<complexType name="PersonDetails">
+		<group ref="tns:detailsGroup" />
+	</complexType>
+
+
+
+</schema>

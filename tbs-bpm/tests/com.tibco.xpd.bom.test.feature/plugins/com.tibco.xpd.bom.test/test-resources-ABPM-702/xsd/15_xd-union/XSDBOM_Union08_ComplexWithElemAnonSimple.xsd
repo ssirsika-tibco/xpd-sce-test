@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/Unions"
+	targetNamespace="http://example.com/Unions">
+
+	<xs:complexType name="myComplex">
+		<xs:sequence>
+			<xs:element name="elm">
+				<xs:simpleType>
+					<xs:union memberTypes="xs:int">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="fdsfsd"></xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:union>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

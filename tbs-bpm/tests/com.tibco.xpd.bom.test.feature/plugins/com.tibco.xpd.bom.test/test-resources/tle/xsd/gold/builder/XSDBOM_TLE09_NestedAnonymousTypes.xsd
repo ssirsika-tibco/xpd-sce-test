@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE09_NestedAnonymousTypes" xmlns:tns1="http://www.example.org/XSDBOM_TLE09_NestedAnonymousTypes"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE09_NestedAnonymousTypes">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_TLE09_NestedAnonymousTypes/Business Objects/org.example.XSDBOM_TLE09_NestedAnonymousTypes.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="AnonymousNested" nillable="false">
+    <xsd:complexType ecore:name="AnonymousNestedType" id="org.example.XSDBOM_TLE09_NestedAnonymousTypesAnonymousNestedType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="address" form="qualified" maxOccurs="1" minOccurs="1"
+            name="address">
+          <xsd:complexType ecore:name="addressType" id="org.example.XSDBOM_TLE09_NestedAnonymousTypesaddressType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="firstline" form="qualified" maxOccurs="1" minOccurs="1"
+                  name="firstline" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="city" form="qualified" maxOccurs="1" minOccurs="1"
+            name="city" type="xsd:string"/>
+        <xsd:element ecore:name="country" form="qualified" maxOccurs="1" minOccurs="1"
+            name="country" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="topElement" nillable="false">
+    <xsd:complexType ecore:name="topElementType" id="org.example.XSDBOM_TLE09_NestedAnonymousTypestopElementType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="name" form="qualified" maxOccurs="1" minOccurs="1"
+            name="name" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AnonymousNested2" nillable="false">
+    <xsd:complexType ecore:name="AnonymousNested2Type" id="org.example.XSDBOM_TLE09_NestedAnonymousTypesAnonymousNested2Type"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="address" form="qualified" maxOccurs="1" minOccurs="1"
+            name="address">
+          <xsd:complexType ecore:name="addressType1" id="org.example.XSDBOM_TLE09_NestedAnonymousTypesaddressType2"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="firstline" form="qualified" maxOccurs="1" minOccurs="1"
+                  name="firstline" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="city" form="qualified" maxOccurs="1" minOccurs="1"
+            name="city" type="xsd:string"/>
+        <xsd:element ecore:name="country" form="qualified" maxOccurs="1" minOccurs="1"
+            name="country" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTest"
+    xmlns:tns1="http://www.example.org/XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTest"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTest">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/kapil/Business Objects/org.example.XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="to" id="org.example.XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTestto2"
+      name="to">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="nome1" id="org.example.XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTestnome2"
+      name="nome">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Nome" id="org.example.XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTestNome"
+      abstract="false" mixed="false" name="Nome">
+    <xsd:sequence>
+      <xsd:element ecore:name="nome" id="Nomenome" form="qualified" maxOccurs="1"
+          minOccurs="1" name="nome" type="tns1:nome"/>
+      <xsd:element ecore:name="nome1" id="Nomenome1" form="qualified" maxOccurs="1"
+          minOccurs="1" name="nome1" type="xsd:string"/>
+      <xsd:element ecore:name="elem1" id="Nomeelem1" form="qualified" maxOccurs="1"
+          minOccurs="1" name="elem1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="ref_to" nillable="false" type="to"/>
+  <xsd:element abstract="false" name="to" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="from" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="note" nillable="false">
+    <xsd:complexType ecore:name="noteType" id="org.example.XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTestnoteType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="to" maxOccurs="1" minOccurs="1" ref="tns1:to"/>
+        <xsd:element ecore:name="from" maxOccurs="1" minOccurs="1" ref="tns1:from"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="nome" nillable="false">
+    <xsd:complexType ecore:name="nomeType" id="org.example.XSDBOM33_SimpleTypeAndElementHavingSameNameTransformationTestnomeType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="nome" form="qualified" maxOccurs="1" minOccurs="1"
+            name="nome" type="tns1:nome"/>
+        <xsd:element ecore:name="e1" form="qualified" maxOccurs="1" minOccurs="1"
+            name="e1" type="xsd:string"/>
+        <xsd:element ecore:name="e2" form="qualified" maxOccurs="1" minOccurs="1"
+            name="e2" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

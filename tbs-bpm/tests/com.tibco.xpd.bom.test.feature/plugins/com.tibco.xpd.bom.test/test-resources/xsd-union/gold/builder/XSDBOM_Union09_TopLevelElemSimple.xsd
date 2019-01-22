@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/Unions" xmlns:tns1="http://example.com/Unions" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/Unions">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_Union09_TopLevelElemSimple/Business Objects/com.example.Unions.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="myTopElemSimple" nillable="false">
+    <xsd:simpleType ecore:name="myTopElemSimpleType">
+      <xsd:union memberTypes="xsd:decimal xsd:string xsd:int"/>
+    </xsd:simpleType>
+  </xsd:element>
+</xsd:schema>

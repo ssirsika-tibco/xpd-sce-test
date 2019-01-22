@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://XSDBOM39_SupportEcoreNameForEvementsTransformationTest" xmlns:tns1="http://XSDBOM39_SupportEcoreNameForEvementsTransformationTest"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://XSDBOM39_SupportEcoreNameForEvementsTransformationTest">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/kapil/Business Objects/XSDBOM39_SupportEcoreNameForEvementsTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="TopLevelNonEnumSimple" id="XSDBOM39_SupportEcoreNameForEvementsTransformationTestTopLevelNonEnumSimple2"
+      name="TopLevelNonEnumSimple">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive fixed="false" value="123"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="TopLevelSimpleTime" id="XSDBOM39_SupportEcoreNameForEvementsTransformationTestTopLevelSimpleTime2"
+      name="TopLevelSimpleTime">
+    <xsd:restriction base="xsd:time">
+      <xsd:minExclusive fixed="false" value="01:02:03"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="TopLevelSimpleEnum" id="XSDBOM39_SupportEcoreNameForEvementsTransformationTestTopLevelSimpleEnum"
+      name="TopLevelSimpleEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="TASTY" value="TASTY"/>
+      <xsd:enumeration ecore:name="BLAND" value="BLAND"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="TopLevelSimpleIntEnum" id="XSDBOM39_SupportEcoreNameForEvementsTransformationTestTopLevelSimpleIntEnum"
+      name="TopLevelSimpleIntEnum">
+    <xsd:restriction base="xsd:int">
+      <xsd:enumeration ecore:name="_64" value="64"/>
+      <xsd:enumeration ecore:name="_4096" value="4096"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="TopLevelComplexType" id="XSDBOM39_SupportEcoreNameForEvementsTransformationTestTopLevelComplexType"
+      abstract="false" mixed="false" name="TopLevelComplexType">
+    <xsd:sequence>
+      <xsd:element ecore:name="demoUnion" id="TopLevelComplexTypedemoUnion" form="qualified"
+          maxOccurs="1" minOccurs="1" name="demoUnion">
+        <xsd:simpleType ecore:name="demoUnion">
+          <xsd:union memberTypes="tns1:TopLevelSimpleEnum xsd:date tns1:TopLevelSimpleTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="attributeZero" id="TopLevelComplexTypeattributeZero"
+          form="qualified" maxOccurs="1" minOccurs="1" name="attributeZero" type="xsd:string"/>
+      <xsd:element ecore:name="tlSimpleAttr" id="TopLevelComplexTypetlSimpleAttr"
+          form="qualified" maxOccurs="1" minOccurs="1" name="tlSimpleAttr" type="tns1:TopLevelNonEnumSimple"/>
+      <xsd:element ecore:name="elementInCTWithAnonSimple" id="TopLevelComplexTypeElementInCTWithAnonSimple"
+          form="qualified" maxOccurs="1" minOccurs="1" name="ElementInCTWithAnonSimple">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:minExclusive value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="elementInCTWithAnonEnum" id="TopLevelComplexTypeElementInCTWithAnonEnum"
+          form="qualified" maxOccurs="1" minOccurs="1" name="ElementInCTWithAnonEnum">
+        <xsd:simpleType ecore:name="ElementInCTWithAnonEnumType">
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration ecore:name="COAT" value="COAT"/>
+            <xsd:enumeration ecore:name="SHOES" value="SHOES"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="elementInCTWithAnonCT" id="TopLevelComplexTypeElementInCTWithAnonCTType"
+          form="qualified" maxOccurs="1" minOccurs="1" name="ElementInCTWithAnonCT">
+        <xsd:complexType ecore:name="ElementInCTWithAnonCTType" id="XSDBOM39_SupportEcoreNameForEvementsTransformationTestElementInCTWithAnonCTType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="attributeOne" form="qualified" maxOccurs="1"
+                minOccurs="1" name="attributeOne" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="TLAttr" id="TopLevelComplexTypeTLAttr" ref="tns1:TLAttr"/>
+  </xsd:complexType>
+  <xsd:attribute name="TLAttr" type="xsd:date"/>
+  <xsd:element abstract="false" name="IntDuSimpaleLevelTop" nillable="false" substitutionGroup="tns1:TLESimpleInt"/>
+  <xsd:element abstract="false" name="TLESimpleInt" nillable="false">
+    <xsd:simpleType ecore:name="TLESimpleIntType">
+      <xsd:restriction base="xsd:int">
+        <xsd:minExclusive value="999"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="TLEEnum" nillable="false">
+    <xsd:simpleType ecore:name="TLEEnumType">
+      <xsd:restriction base="xsd:decimal">
+        <xsd:enumeration ecore:name="_372" value="37.2"/>
+        <xsd:enumeration ecore:name="_99999" value="99.999"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="TLEComplex" nillable="false">
+    <xsd:complexType ecore:name="TLEComplexType" id="XSDBOM39_SupportEcoreNameForEvementsTransformationTestTLEComplexType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="TLESimpleInt" maxOccurs="1" minOccurs="1" ref="tns1:TLESimpleInt"/>
+        <xsd:sequence>
+          <xsd:element ecore:name="belgianBun" id="TLEComplexTypebelgianBun" form="qualified"
+              maxOccurs="1" minOccurs="1" name="belgianBun" type="xsd:string"/>
+          <xsd:element ecore:name="maplePecanDanish" id="TLEComplexTypemaplePecanDanish"
+              form="qualified" maxOccurs="1" minOccurs="1" name="maplePecanDanish"
+              type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="tea" id="TLEComplexTypetea" form="unqualified" name="tea"
+          type="xsd:int" use="optional"/>
+      <xsd:attribute ecore:name="coffee" id="TLEComplexTypecoffee" form="unqualified"
+          name="coffee" type="tns1:long_StudioGeneratedTemplate" use="optional"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

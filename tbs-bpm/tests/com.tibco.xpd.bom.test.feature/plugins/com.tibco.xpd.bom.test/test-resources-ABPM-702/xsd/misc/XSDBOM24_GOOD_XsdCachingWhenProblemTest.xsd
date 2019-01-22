@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/NewXMLSchema1" xmlns:tns="http://www.example.org/NewXMLSchema1">
+	<xs:complexType name="file">
+		<xs:attribute name="id" type="xs:integer" />
+	</xs:complexType>
+
+	<xs:complexType name="class2">
+		<xs:sequence>
+			<xs:element name="file" type="tns:file" minOccurs="0"
+				maxOccurs="3" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer" use="required" />
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+</xs:schema>

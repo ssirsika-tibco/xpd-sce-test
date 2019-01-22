@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="xyzcorp.procureservice.Airline" name="xyzcorp.procureservice.Airline">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PWSh0wdUEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PWSh1AdUEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PWTI4AdUEeSRjauCcgnMbg" key="created" value="1404905511662"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PWTI4QdUEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PgcjYAdUEeSRjauCcgnMbg" key="checksum" value="1134842997"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="xyzcorp.procureservice.AirlineFlightPlan" name="FlightPlan">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanairline" name="airline" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPYokgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPYokQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanflightNumber" name="flightNumber" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPZ2swdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPZ2sgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanorigin" name="origin" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPbr4gdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPbr4QdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlandestination" name="destination" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPc6AwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPc6AgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlandepartureTime" name="departureTime" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BAs0YHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPevMwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPevMgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanarrivalTime" name="arrivalTime" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BAs0YHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPgkYwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPgkYgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanstops" name="stops" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPiZkwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPiZkgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlantravelTimeMin" name="travelTimeMin" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPkOwwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPkOwgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanfareFull" name="fareFull" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPmrAwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPmrAgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanfareRestricted" name="fareRestricted" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPogMwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPogMgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanfareSpecial" name="fareSpecial" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPqVYwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPqVYgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FlightPlanfarePromotion" name="farePromotion" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PPsxowdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PPsxogdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PPQswQdUEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PPQswgdUEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PPQswwdUEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PPQsxAdUEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_PPQsxQdUEeSRjauCcgnMbg" base_Package="xyzcorp.procureservice.Airline?xyzcorp.procureservice.Airline?" xsdTargetNamespace="http://www.xyzcorp/procureservice/Airline" xsdSchemaLocation="schemas/airline/Airline.xsd" xsdStudioVersion="3.8.0.005" bomWsdlSources="Query_wsdlEmbedSchema1_Schema1ImportXSD2.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PPWMUQdUEeSRjauCcgnMbg" base_Class="xyzcorp.procureservice.AirlineFlightPlan?xyzcorp.procureservice.Airline%3a%3aFlightPlan?" xsdName="FlightPlan" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PPtYsAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPYokAdUEeSRjauCcgnMbg" base_Property="FlightPlanairline?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aairline?" xsdName="airline" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPZ2sQdUEeSRjauCcgnMbg" base_Property="FlightPlanflightNumber?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aflightNumber?" xsdName="flightNumber" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPbr4AdUEeSRjauCcgnMbg" base_Property="FlightPlanorigin?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aorigin?" xsdName="origin" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPc6AQdUEeSRjauCcgnMbg" base_Property="FlightPlandestination?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3adestination?" xsdName="destination" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPevMQdUEeSRjauCcgnMbg" base_Property="FlightPlandepartureTime?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3adepartureTime?" xsdName="departureTime" xsdForm="unqualified" xsdType="time" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPgkYQdUEeSRjauCcgnMbg" base_Property="FlightPlanarrivalTime?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aarrivalTime?" xsdName="arrivalTime" xsdForm="unqualified" xsdType="time" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPiZkQdUEeSRjauCcgnMbg" base_Property="FlightPlanstops?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3astops?" xsdName="stops" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PPiZlAdUEeSRjauCcgnMbg" base_Property="FlightPlanstops?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3astops?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PPiZlQdUEeSRjauCcgnMbg" base_Property="FlightPlanstops?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3astops?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPkOwQdUEeSRjauCcgnMbg" base_Property="FlightPlantravelTimeMin?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3atravelTimeMin?" xsdName="travelTimeMin" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PPkOxAdUEeSRjauCcgnMbg" base_Property="FlightPlantravelTimeMin?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3atravelTimeMin?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PPkOxQdUEeSRjauCcgnMbg" base_Property="FlightPlantravelTimeMin?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3atravelTimeMin?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPmrAQdUEeSRjauCcgnMbg" base_Property="FlightPlanfareFull?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareFull?" xsdName="fareFull" xsdForm="unqualified" xsdType="float" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PPmrBAdUEeSRjauCcgnMbg" base_Property="FlightPlanfareFull?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareFull?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="3.4028235E38" xsdMinExclusiveValue="" xsdMinInclusiveValue="-3.4028235E38"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PPmrBQdUEeSRjauCcgnMbg" decimalUpper="3.4028235E38" decimalLower="-3.4028235E38" base_Property="FlightPlanfareFull?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareFull?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPogMQdUEeSRjauCcgnMbg" base_Property="FlightPlanfareRestricted?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareRestricted?" xsdName="fareRestricted" xsdForm="unqualified" xsdType="float" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PPogNAdUEeSRjauCcgnMbg" base_Property="FlightPlanfareRestricted?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareRestricted?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="3.4028235E38" xsdMinExclusiveValue="" xsdMinInclusiveValue="-3.4028235E38"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PPogNQdUEeSRjauCcgnMbg" decimalUpper="3.4028235E38" decimalLower="-3.4028235E38" base_Property="FlightPlanfareRestricted?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareRestricted?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPqVYQdUEeSRjauCcgnMbg" base_Property="FlightPlanfareSpecial?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareSpecial?" xsdName="fareSpecial" xsdForm="unqualified" xsdType="float" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PPq8cAdUEeSRjauCcgnMbg" base_Property="FlightPlanfareSpecial?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareSpecial?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="3.4028235E38" xsdMinExclusiveValue="" xsdMinInclusiveValue="-3.4028235E38"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PPq8cQdUEeSRjauCcgnMbg" decimalUpper="3.4028235E38" decimalLower="-3.4028235E38" base_Property="FlightPlanfareSpecial?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareSpecial?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PPsxoQdUEeSRjauCcgnMbg" base_Property="FlightPlanfarePromotion?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afarePromotion?" xsdName="farePromotion" xsdForm="unqualified" xsdType="float" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PPtYsAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PPsxpAdUEeSRjauCcgnMbg" base_Property="FlightPlanfarePromotion?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afarePromotion?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="3.4028235E38" xsdMinExclusiveValue="" xsdMinInclusiveValue="-3.4028235E38"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PPsxpQdUEeSRjauCcgnMbg" decimalUpper="3.4028235E38" decimalLower="-3.4028235E38" base_Property="FlightPlanfarePromotion?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afarePromotion?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT4QdUEeSRjauCcgnMbg" base_Element="_PPsxogdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT4gdUEeSRjauCcgnMbg" base_Element="FlightPlanfareFull?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareFull?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT4wdUEeSRjauCcgnMbg" base_Element="_PPmrAgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT5AdUEeSRjauCcgnMbg" base_Element="_PPZ2swdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT5QdUEeSRjauCcgnMbg" base_Element="_PPsxowdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT5gdUEeSRjauCcgnMbg" base_Element="xyzcorp.procureservice.AirlineFlightPlan?xyzcorp.procureservice.Airline%3a%3aFlightPlan?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT5wdUEeSRjauCcgnMbg" base_Element="FlightPlanfareSpecial?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareSpecial?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT6AdUEeSRjauCcgnMbg" base_Element="_PPqVYgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT6QdUEeSRjauCcgnMbg" base_Element="_PPc6AwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT6gdUEeSRjauCcgnMbg" base_Element="FlightPlanarrivalTime?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aarrivalTime?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi68AdUEeSRjauCcgnMbg" base_Element="FlightPlandepartureTime?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3adepartureTime?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi68QdUEeSRjauCcgnMbg" base_Element="FlightPlanfareRestricted?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareRestricted?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi68gdUEeSRjauCcgnMbg" base_Element="_PPbr4QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi68wdUEeSRjauCcgnMbg" base_Element="_PPYokgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi69AdUEeSRjauCcgnMbg" base_Element="_PPgkYwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi69QdUEeSRjauCcgnMbg" base_Element="_PPc6AgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi69gdUEeSRjauCcgnMbg" base_Element="_PPiZkwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi69wdUEeSRjauCcgnMbg" base_Element="FlightPlanstops?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3astops?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi6-AdUEeSRjauCcgnMbg" base_Element="FlightPlanfarePromotion?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afarePromotion?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi6-QdUEeSRjauCcgnMbg" base_Element="_PPkOwgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVi6-gdUEeSRjauCcgnMbg" base_Element="_PPZ2sgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiAAdUEeSRjauCcgnMbg" base_Element="_PPogMwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiAQdUEeSRjauCcgnMbg" base_Element="FlightPlandestination?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3adestination?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiAgdUEeSRjauCcgnMbg" base_Element="FlightPlanorigin?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aorigin?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiAwdUEeSRjauCcgnMbg" base_Element="_PPiZkgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiBAdUEeSRjauCcgnMbg" base_Element="FlightPlantravelTimeMin?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3atravelTimeMin?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiBQdUEeSRjauCcgnMbg" base_Element="_PPogMgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiBgdUEeSRjauCcgnMbg" base_Element="_PPQswwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiBwdUEeSRjauCcgnMbg" base_Element="FlightPlanflightNumber?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aflightNumber?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiCAdUEeSRjauCcgnMbg" base_Element="_PPevMwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiCQdUEeSRjauCcgnMbg" base_Element="_PPQswQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVjiCgdUEeSRjauCcgnMbg" base_Element="_PPqVYwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJEAdUEeSRjauCcgnMbg" base_Element="_PPmrAwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJEQdUEeSRjauCcgnMbg" base_Element="_PPYokQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJEgdUEeSRjauCcgnMbg" base_Element="_PPbr4gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJEwdUEeSRjauCcgnMbg" base_Element="_PPkOwwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJFAdUEeSRjauCcgnMbg" base_Element="FlightPlanairline?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aairline?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJFQdUEeSRjauCcgnMbg" base_Element="_PPgkYgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJFgdUEeSRjauCcgnMbg" base_Element="_PPevMgdUEeSRjauCcgnMbg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWQFkAdUEeSRjauCcgnMbg" displayLabel="FlightPlan" base_NamedElement="xyzcorp.procureservice.AirlineFlightPlan?xyzcorp.procureservice.Airline%3a%3aFlightPlan?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWQFkQdUEeSRjauCcgnMbg" displayLabel="airline" base_NamedElement="FlightPlanairline?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aairline?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWQsoAdUEeSRjauCcgnMbg" displayLabel="arrivalTime" base_NamedElement="FlightPlanarrivalTime?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aarrivalTime?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWQsoQdUEeSRjauCcgnMbg" displayLabel="departureTime" base_NamedElement="FlightPlandepartureTime?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3adepartureTime?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWQsogdUEeSRjauCcgnMbg" displayLabel="destination" base_NamedElement="FlightPlandestination?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3adestination?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWRTsAdUEeSRjauCcgnMbg" displayLabel="fareFull" base_NamedElement="FlightPlanfareFull?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareFull?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWRTsQdUEeSRjauCcgnMbg" displayLabel="farePromotion" base_NamedElement="FlightPlanfarePromotion?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afarePromotion?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWR6wAdUEeSRjauCcgnMbg" displayLabel="fareRestricted" base_NamedElement="FlightPlanfareRestricted?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareRestricted?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWR6wQdUEeSRjauCcgnMbg" displayLabel="fareSpecial" base_NamedElement="FlightPlanfareSpecial?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3afareSpecial?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWR6wgdUEeSRjauCcgnMbg" displayLabel="flightNumber" base_NamedElement="FlightPlanflightNumber?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aflightNumber?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWSh0AdUEeSRjauCcgnMbg" displayLabel="origin" base_NamedElement="FlightPlanorigin?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3aorigin?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWSh0QdUEeSRjauCcgnMbg" displayLabel="stops" base_NamedElement="FlightPlanstops?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3astops?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWSh0gdUEeSRjauCcgnMbg" displayLabel="travelTimeMin" base_NamedElement="FlightPlantravelTimeMin?xyzcorp.procureservice.Airline%3a%3aFlightPlan%3a%3atravelTimeMin?"/>
+  <notation:Diagram xmi:id="_PWTI4gdUEeSRjauCcgnMbg" type="Business Object Model" element="xyzcorp.procureservice.Airline?xyzcorp.procureservice.Airline?" name="xyzcorp.procureservice.Airline" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_PWTI4wdUEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_PWTI5AdUEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

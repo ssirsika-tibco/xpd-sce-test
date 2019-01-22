@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://enummapping" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="enummapping" targetNamespace="http://enummapping">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://enummapping" xmlns:tns="http://enummapping">
+			<xs:element name="Size">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="SMALL"/>
+						<xs:enumeration value="LARGE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Bus">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="tns:Size" />
+						<xs:element name="StringElem"
+							type="xs:string">
+						</xs:element>
+						<xs:element name="Colour"
+							type="tns:ColourEnum">
+						</xs:element>
+
+						<xs:element name="Float"
+							type="xs:float">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		
+			<xs:simpleType name="ColourEnum">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="red"></xs:enumeration>
+					<xs:enumeration value="green"></xs:enumeration>
+					<xs:enumeration value="blue"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:portType name="busPortType">
+		<wsdl:operation name="busOperation">
+			<wsdl:input message="tns:BusRequest"/>
+			<wsdl:output message="tns:BusResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:message name="BusRequest">
+		<wsdl:part element="tns:Bus" name="in1"/>
+	</wsdl:message>
+	<wsdl:message name="BusResponse">
+		<wsdl:part element="tns:Bus" name="out1"/>
+	</wsdl:message>
+</wsdl:definitions>

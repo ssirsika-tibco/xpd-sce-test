@@ -1,0 +1,58 @@
+/*
+ * Copyright (c) TIBCO Software Inc 2007. All rights reserved.
+ */
+package com.tibco.xpd.bom.modeler.diagram.view.factories;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
+import org.eclipse.gmf.runtime.diagram.ui.util.MeasurementUnitHelper;
+import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractLabelViewFactory;
+import org.eclipse.gmf.runtime.draw2d.ui.mapmode.IMapMode;
+import org.eclipse.gmf.runtime.notation.Location;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.View;
+
+/**
+ * @generated
+ */
+public class AssociationCardinalityAtTargetLabelViewFactory extends
+        AbstractLabelViewFactory {
+
+    /**
+     * @generated NOT
+     */
+    public View createView(IAdaptable semanticAdapter, View containerView,
+            String semanticHint, int index, boolean persisted,
+            PreferencesHint preferencesHint) {
+
+        Node view =
+                (Node) super.createView(semanticAdapter,
+                        containerView,
+                        semanticHint,
+                        index,
+                        persisted,
+                        preferencesHint);
+
+        // The following block of code is not auto generated if the Y
+        // coordinate is set to a negative value. Need to investigate this.
+        Location location = (Location) view.getLayoutConstraint();
+        IMapMode mapMode =
+                MeasurementUnitHelper.getMapMode(containerView.getDiagram()
+                        .getMeasurementUnit());
+        location.setX(mapMode.DPtoLP(0));
+        location.setY(mapMode.DPtoLP(-15));
+
+        return view;
+    }
+
+    /**
+     * @generated
+     */
+    protected List createStyles(View view) {
+        List styles = new ArrayList();
+        return styles;
+    }
+}

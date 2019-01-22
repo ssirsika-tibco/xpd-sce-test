@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:ns="http://xmlns.example.com/1374840433239" xmlns:ns2="http://www.example.org/WSDL3/" xmlns:tns="http://xmlns.example.com/1374840436418"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.example.com/1374840436418">
+
+	<import namespace="http://www.example.org/WSDL3/" location="WSDL3.wsdl" />
+
+	<portType name="PortType">
+		<operation name="InOutOperation">
+			<input message="ns2:InputMessage" />
+			<output message="ns2:OutPutMessage" />
+		</operation>
+	</portType>
+
+</definitions>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://AnyTypeSimpleAttrib" targetNamespace="http://AnyTypeSimpleAttrib">
+	<xs:element name="myAnyTypeComplexType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="myAnyType" type="xs:anyType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="myAnyTypeMultipleComplexType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="2" name="myAnyType" type="xs:anyType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="myAnyTypeTLE" type="xs:anyType"/>
+	<xs:element name="myAnySimpleComplexType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="myAnySimpleType" type="xs:anySimpleType"/>
+				<xs:element maxOccurs="5" minOccurs="0" name="myMultipleAnySimpleType" type="xs:anySimpleType"/>
+				<xs:element default="Default String" name="myDefaultedAnySimpleType" type="xs:anySimpleType"/>
+			</xs:sequence>
+			<xs:attribute name="myAnySimpleTypeAttrib" type="xs:anySimpleType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="myAnySimpleTypeTLE" type="xs:anySimpleType"/>
+	<xs:attribute name="myAnySimpleTypeTLAttrib" type="xs:anySimpleType"/>
+	<xs:element name="myAnyAttribComplexType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="elementData" type="xs:string"/>
+			</xs:sequence>
+			<xs:anyAttribute processContents="lax"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="myAnyAttribStrictComplexType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="elementData" type="xs:string"/>
+			</xs:sequence>
+			<xs:anyAttribute namespace="##local" processContents="strict"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

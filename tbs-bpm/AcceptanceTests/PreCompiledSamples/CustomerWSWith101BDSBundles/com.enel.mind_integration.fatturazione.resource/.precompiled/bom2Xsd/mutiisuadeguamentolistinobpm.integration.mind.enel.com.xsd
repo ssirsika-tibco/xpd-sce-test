@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://com.enel.mind.integration.mutiisuadeguamentolistinobpm" xmlns:tns6="http://com.enel.mind.integration.mutiisuadeguamentolistinobpm"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.enel.mind.integration.mutiisuadeguamentolistinobpm">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_integration.fatturazione.resource/Generated Business Objects/mutiisuadeguamentolistinobpm.integration.mind.enel.com.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="EsitoType" id="mutiisuadeguamentolistinobpm.integration.mind.enel.comEsitoType"
+      abstract="false" mixed="false" name="EsitoType">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="EsitoTypeEsito" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="Esito" type="xsd:string"/>
+      <xsd:element ecore:name="codiceEsito" id="EsitoTypeCodiceEsito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="CodiceEsito" type="xsd:string"/>
+      <xsd:element ecore:name="descrizioneEsito" id="EsitoTypeDescrizioneEsito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="DescrizioneEsito" type="xsd:string"/>
+      <xsd:element ecore:name="sistemaSorgente" id="EsitoTypeSistemaSorgente" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="SistemaSorgente" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="InvioRichiestaRinnovoEsecutivaBpmRequest" nillable="false">
+    <xsd:complexType ecore:name="InvioRichiestaRinnovoEsecutivaBpmRequestType" id="mutiisuadeguamentolistinobpm.integration.mind.enel.comInvioRichiestaRinnovoEsecutivaBpmRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idRichiesta" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="IdRichiesta" type="xsd:string"/>
+        <xsd:element ecore:name="tipoOperazione" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="TipoOperazione" type="xsd:string"/>
+        <xsd:element ecore:name="causale" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="Causale" type="xsd:string"/>
+        <xsd:element ecore:name="contrattoSAP" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="ContrattoSAP" type="xsd:string"/>
+        <xsd:element ecore:name="listinoNew" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="ListinoNew" type="xsd:string"/>
+        <xsd:element ecore:name="dataAdeguamento" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="DataAdeguamento" type="xsd:date"/>
+        <xsd:element ecore:name="subProcedure" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="SubProcedure" type="xsd:string"/>
+        <xsd:element ecore:name="releaseId" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="ReleaseId" type="xsd:string"/>
+        <xsd:element ecore:name="nomeInFattura" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="NomeInFattura" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="InvioRichiestaRinnovoEsecutivaBpmResponse" nillable="false">
+    <xsd:complexType ecore:name="InvioRichiestaRinnovoEsecutivaBpmResponseType" id="mutiisuadeguamentolistinobpm.integration.mind.enel.comInvioRichiestaRinnovoEsecutivaBpmResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Esito" type="EsitoType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

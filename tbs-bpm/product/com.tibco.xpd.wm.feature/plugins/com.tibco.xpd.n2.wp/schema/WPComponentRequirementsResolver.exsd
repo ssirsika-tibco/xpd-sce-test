@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.n2.wp" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.n2.wp" id="WPComponentRequirementsResolver" name="Work Presentation Component Requirements Resolver Extension"/>
+      </appInfo>
+      <documentation>
+         This extension allows the contributor to add additional requirements etc for the Work Presentation component (for adding required capabilities, bundles, featues etc.
+&lt;p&gt;
+Contributor provides an implementation of the interface &lt;code&gt;com.tibco.xpd.n2.wp.component.IWPComponentRequirementsResolver&lt;/code&gt; which is invoked during DAA Export creation and configuration of the WP Component.
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="RequirementResolver"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="RequirementResolver">
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Contributor provides an implementation of the interface &lt;code&gt;com.tibco.xpd.n2.wp.component.IWPComponentRequirementsResolver&lt;/code&gt; which is invoked during DAA Export creation and configuration of the WP Component.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.n2.wp.component.IWPComponentRequirementsResolver"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         com.tibco.xpd.n2.wp plugin version 1.6.0
+
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         See &lt;code&gt;com.tibco.xpd.n2.wp.component.IWPComponentRequirementsResolver&lt;/code&gt; 
+
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004 - 2016. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

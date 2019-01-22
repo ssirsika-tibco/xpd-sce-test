@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://exception.api.ec.n2.tibco.com" xmlns:tns4="http://exception.api.ec.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns5="http://exception.api.common.n2.tibco.com"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exception.api.ec.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.ec.api.exception.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://exception.api.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.api.exception.xsd"/>
+  <xsd:element abstract="false" name="InvalidQueryFault" nillable="false" type="tns5:DetailedException"/>
+  <xsd:element abstract="false" name="InvalidQueryIdentifierFault" nillable="false"
+      type="tns5:DetailedException"/>
+  <xsd:element abstract="false" name="QueryExecutionFault" nillable="false" type="tns5:DetailedException"/>
+  <xsd:element abstract="false" name="QueryNotFoundFault" nillable="false" type="tns5:DetailedException"/>
+  <xsd:element abstract="false" name="NoSuchComponentFault" nillable="false" type="tns5:DetailedException"/>
+  <xsd:element abstract="false" name="InternalServiceFault" nillable="false" type="tns5:DetailedException"/>
+  <xsd:element abstract="false" name="InvalidRequestFault" nillable="false" type="tns5:DetailedException"/>
+  <xsd:element abstract="false" name="DuplicateRegistrationFault" nillable="false"
+      type="tns5:DetailedException"/>
+</xsd:schema>

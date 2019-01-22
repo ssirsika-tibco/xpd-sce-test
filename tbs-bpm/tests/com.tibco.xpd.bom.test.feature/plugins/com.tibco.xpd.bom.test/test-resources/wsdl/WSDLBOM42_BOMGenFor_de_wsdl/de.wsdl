@@ -1,0 +1,2217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by Duncan Head (Tibco Software Limited) -->
+<wsdl:definitions xmlns:admin="http://admin.api.de.n2.tibco.com" xmlns:attr="http://attribute.api.de.n2.tibco.com" xmlns:browse="http://browse.api.de.n2.tibco.com" xmlns:container="http://container.api.de.n2.tibco.com" xmlns:dto="http://api.de.n2.tibco.com" xmlns:ex="http://exception.api.de.n2.tibco.com" xmlns:exporter="http://exporter.api.de.n2.tibco.com" xmlns:impl="http://services.de.n2.tibco.com" xmlns:ldap="http://ldap.api.de.n2.tibco.com" xmlns:ldapservice="http://ldapservice.api.de.n2.tibco.com" xmlns:mapping="http://mapping.api.de.n2.tibco.com" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://tibco.com/n2/directory-metamodel/1.0" xmlns:ns2="http://tibco.com/n2/directory-model/1.0" xmlns:ns3="http://exception.api.common.n2.tibco.com" xmlns:ns4="http://channeltype.common.n2.tibco.com" xmlns:ns5="http://admin.api.de.n2.tibco.com" xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:resolver="http://resolver.api.de.n2.tibco.com" xmlns:resourcequery="http://resourcequery.api.de.n2.tibco.com" xmlns:security="http://security.api.de.n2.tibco.com" xmlns:settings="http://usersettingsservice.api.de.n2.tibco.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DirectoryEngineService" targetNamespace="http://services.de.n2.tibco.com" tibex:src="file:/C:/temp/XPD6080/Public_WSDL_Library/Service%20Descriptors/de.wsdl">
+	<wsdl:types>
+		<!-- Exceptions -->
+		<xs:schema targetNamespace="http://exception.api.de.n2.tibco.com">
+			<xs:include schemaLocation="deexception.xsd"/>
+		</xs:schema>
+		<!-- Types -->
+		<xs:schema targetNamespace="http://api.organisation.common.n2.tibco.com">
+			<xs:include schemaLocation="organisation.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://ldap.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-ldap.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://api.de.n2.tibco.com">
+			<xs:include schemaLocation="de.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://admin.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-admin-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://usersettingsservice.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-usersettings-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://container.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-container-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://mapping.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-mapping-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://exporter.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-exporter-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://resourcequery.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-resourcequery-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://ldapservice.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-ldap-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://security.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-security-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://attribute.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-attribute-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://browse.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-browse-service.xsd"/>
+		</xs:schema>
+		<xs:schema targetNamespace="http://resolver.api.de.n2.tibco.com">
+			<xs:include schemaLocation="de-resolver-service.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="listModelVersionsResponse">
+		<wsdl:part element="browse:listModelVersionsResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="openOrgModelRequest">
+		<wsdl:part element="browse:openOrgModel" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="openOrgModelResponse">
+		<wsdl:part element="browse:openOrgModelResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="browseModelNodeRequest">
+		<wsdl:part element="browse:browseModelNode" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="browseModelNodeResponse">
+		<wsdl:part element="browse:browseModelNodeResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="invalidEntityReferenceFault">
+		<wsdl:part element="ex:InvalidEntityReferenceFault" name="invalidEntityReferenceFault"/>
+	</wsdl:message>
+	<wsdl:message name="internalServiceFault">
+		<wsdl:part element="ex:InternalServiceFault" name="internalServiceFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidOrgModelVersionFault">
+		<wsdl:part element="ex:InvalidOrgModelVersionFault" name="invalidOrgModelVersionFault"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPSourcesResponse">
+		<wsdl:part element="ldapservice:listLDAPSourcesResponse" name="listLDAPSourcesReturn"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPEntitiesRequest">
+		<wsdl:part element="ldapservice:listLDAPEntities" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPEntitiesResponse">
+		<wsdl:part element="ldapservice:listLDAPEntitiesResponse" name="listLDAPEntitiesResponse"/>
+	</wsdl:message>
+	<wsdl:message name="invalidLDAPFault">
+		<wsdl:part element="ex:InvalidLDAPFault" name="invalidLDAPFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidLDAPResourceFault">
+		<wsdl:part element="ex:InvalidLDAPResourceFault" name="invalidLDAPResourceFault"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPSourcesRequest">
+		<wsdl:part element="ldapservice:listLDAPSources" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listModelVersionsRequest">
+		<wsdl:part element="browse:listModelVersions" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPAttributesRequest">
+		<wsdl:part element="ldapservice:listLDAPAttributes" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPAttributesResponse">
+		<wsdl:part element="ldapservice:listLDAPAttributesResponse" name="listLDAPAttributesReturn"/>
+	</wsdl:message>
+	<wsdl:message name="invalidLDAPSearchFault">
+		<wsdl:part element="ex:InvalidLDAPSearchFault" name="invalidLDAPSearchFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidLDAPSourceFault">
+		<wsdl:part element="ex:InvalidLDAPSourceFault" name="invalidLDAPSourceFault"/>
+	</wsdl:message>
+	<wsdl:message name="listMappedEntitiesRequest">
+		<wsdl:part element="mapping:listMappedEntities" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listMappedEntitiesResponse">
+		<wsdl:part element="mapping:listMappedEntitiesResponse" name="listMappedEntitiesReturn"/>
+	</wsdl:message>
+	<wsdl:message name="mapEntitiesRequest">
+		<wsdl:part element="mapping:mapEntities" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="mapEntitiesResponse">
+		<wsdl:part element="mapping:mapEntitiesResponse" name="entityResponse"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPContainersRequest">
+		<wsdl:part element="container:listLDAPContainers" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPContainersResponse">
+		<wsdl:part element="container:listLDAPContainersResponse" name="ldapContainers"/>
+	</wsdl:message>
+	<wsdl:message name="getLDAPContainerDetailRequest">
+		<wsdl:part element="container:getLDAPContainerDetail" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getLDAPContainerDetailResponse">
+		<wsdl:part element="container:getLDAPContainerDetailResponse" name="containerDetail"/>
+	</wsdl:message>
+	<wsdl:message name="listBusinessParametersResponse">
+		<wsdl:part element="attr:listBusinessParametersResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="listBusinessParametersRequest">
+		<wsdl:part element="attr:listBusinessParameters" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getBusinessParametersRequest">
+		<wsdl:part element="attr:getBusinessParameters" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getBusinessParametersResponse">
+		<wsdl:part element="attr:getBusinessParametersResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="setBusinessParametersRequest">
+		<wsdl:part element="attr:setBusinessParameters" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="setBusinessParametersResponse">
+		<wsdl:part element="attr:setBusinessParametersResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="saveLDAPContainerDetailRequest">
+		<wsdl:part element="container:saveLDAPContainerDetail" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="saveLDAPContainerDetailResponse">
+		<wsdl:part element="container:saveLDAPContainerDetailResponse" name="containerId"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPAttributeNamesRequest">
+		<wsdl:part element="ldapservice:listLDAPAttributeNames" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listLDAPAttributeNamesResponse">
+		<wsdl:part element="ldapservice:listLDAPAttributeNamesResponse" name="attributeList"/>
+	</wsdl:message>
+	<wsdl:message name="listOrgModelOverviewRequest">
+		<wsdl:part element="browse:listOrgModelOverview" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listOrgModelOverviewResponse">
+		<wsdl:part element="browse:listOrgModelOverviewResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="getResourceDetailRequest">
+		<wsdl:part element="resolver:getResourceDetail" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getResourceDetailResponse">
+		<wsdl:part element="resolver:getResourceDetailResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="listOrganizationsRequest">
+		<wsdl:part element="browse:listOrganizations" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getResourceGuidResponse">
+		<wsdl:part element="mapping:getResourceGuidResponse" name="entityResponse"/>
+	</wsdl:message>
+	<wsdl:message name="deleteLDAPContainerRequest">
+		<wsdl:part element="container:deleteLDAPContainer" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="deleteLDAPContainerResponse">
+		<wsdl:part element="container:deleteLDAPContainerResponse" name="successful"/>
+	</wsdl:message>
+	<wsdl:message name="authenticateUserRequest">
+		<wsdl:part element="security:authenticateUser" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="authenticateUserResponse">
+		<wsdl:part element="security:authenticateUserResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="getUserPrivilegesRequest">
+		<wsdl:part element="security:getUserPrivileges" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getUserPrivilegesResponse">
+		<wsdl:part element="security:getUserPrivilegesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="invalidServiceRequestFault">
+		<wsdl:part element="ex:InvalidServiceRequestFault" name="invalidServiceRequestFault"/>
+	</wsdl:message>
+	<wsdl:message name="saveUserSettingsRequest">
+		<wsdl:part element="settings:saveUserSettingsRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="saveUserSettingsResponse">
+		<wsdl:part element="settings:saveUserSettingsResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getUserSettingsRequest">
+		<wsdl:part element="settings:getUserSettingsRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getUserSettingsResponse">
+		<wsdl:part element="settings:getUserSettingsResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="deleteUserSettingsRequest">
+		<wsdl:part element="settings:deleteUserSettingsRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="deleteUserSettingsResponse">
+		<wsdl:part element="settings:deleteUserSettingsResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="listUserSettingIdsRequest">
+		<wsdl:part element="settings:listUserSettingIdsRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="listUserSettingIdsResponse">
+		<wsdl:part element="settings:listUserSettingIdsResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="deleteResourceRequest">
+		<wsdl:part element="mapping:deleteResource" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="deleteResourceResponse">
+		<wsdl:part element="mapping:deleteResourceResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="updateCapabilityAssignments">
+		<wsdl:part element="mapping:updateCapabilityAssignments" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="updateCapabilityAssignmentsResponse">
+		<wsdl:part element="mapping:updateCapabilityAssignmentsResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="listAssociatedResourcesRequest">
+		<wsdl:part element="resolver:listAssociatedResources" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listAssociatedResourcesResponse">
+		<wsdl:part element="resolver:listAssociatedResourcesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="getResourceGuidRequest">
+		<wsdl:part element="mapping:getResourceGuid" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listCapabilitiesRequest">
+		<wsdl:part element="browse:listCapabilities" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listCapabilitiesResponse">
+		<wsdl:part element="browse:listCapabilitiesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="listPrivilegesRequest">
+		<wsdl:part element="browse:listPrivileges" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listPrivilegesResponse">
+		<wsdl:part element="browse:listPrivilegesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="getCapabilitiesRequest">
+		<wsdl:part element="browse:getCapabilities" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getCapabilitiesResponse">
+		<wsdl:part element="browse:getCapabilitiesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="getPrivilegesRequest">
+		<wsdl:part element="browse:getPrivileges" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getPrivilegesResponse">
+		<wsdl:part element="browse:getPrivilegesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="invalidLDAPContainerFault">
+		<wsdl:part element="ex:InvalidLDAPContainerFault" name="invalidLDAPContainerFault"/>
+	</wsdl:message>
+	<wsdl:message name="internalDAOErrorFault">
+		<wsdl:part element="ex:InternalDAOErrorFault" name="internalDAOErrorFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidEntityTypeFault">
+		<wsdl:part element="ex:InvalidEntityTypeFault" name="invalidEntityTypeFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidResourceMappingFault">
+		<wsdl:part element="ex:InvalidResourceMappingFault" name="invalidResourceMappingFault"/>
+	</wsdl:message>
+	<wsdl:message name="noUndeliveredGroupFault">
+		<wsdl:part element="ex:NoUndeliveredGroupFault" name="noUndeliveredGroupFault"/>
+	</wsdl:message>
+	<wsdl:message name="exportResourcesRequest">
+		<wsdl:part element="exporter:exportResourcesRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="exportResourcesResponse">
+		<wsdl:part element="exporter:exportResourcesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="importResourcesRequest">
+		<wsdl:part element="exporter:importResourcesRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="importResourcesResponse">
+		<wsdl:part element="exporter:importResourcesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="executeQueryRequest">
+		<wsdl:part element="resourcequery:executeQuery" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="executeQueryResponse">
+		<wsdl:part element="resourcequery:executeQueryResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="noSuchNamedEntityFault">
+		<wsdl:part element="ex:NoSuchNamedEntityFault" name="noSuchNamedEntityFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidModelImportFault">
+		<wsdl:part element="ex:InvalidModelImportFault" name="invalidModelImportFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidQueryFault">
+		<wsdl:part element="ex:InvalidQueryFault" name="invalidQueryFault"/>
+	</wsdl:message>
+	<wsdl:message name="isActionAuthorisedRequest">
+		<wsdl:part element="security:isActionAuthorised" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="isActionAuthorisedResponse">
+		<wsdl:part element="security:isActionAuthorisedResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="listContainerResourcesRequest">
+		<wsdl:part element="ldapservice:listContainerResources" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listContainerResourcesResponse">
+		<wsdl:part element="ldapservice:listContainerResourcesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="getPushDestinationsRequest">
+		<wsdl:part element="attr:getPushDestinations" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getPushDestinationsResponse">
+		<wsdl:part element="attr:getPushDestinationsResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="setPushDestinationsRequest">
+		<wsdl:part element="attr:setPushDestinations" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="setPushDestinationsResponse">
+		<wsdl:part element="attr:setPushDestinationsResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="listActionAuthorisedEntitiesRequest">
+		<wsdl:part element="security:listActionAuthorisedEntities" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listActionAuthorisedEntitiesResponse">
+		<wsdl:part element="security:listActionAuthorisedEntitiesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="securityFault">
+		<wsdl:part element="ex:SecurityFault" name="securityFault"/>
+	</wsdl:message>
+	<wsdl:message name="assignmentNotAllowedFault">
+		<wsdl:part element="ex:AssignmentNotAllowedFault" name="assignmentNotAllowedFault"/>
+	</wsdl:message>
+	<wsdl:message name="listOrganizationsResponse">
+		<wsdl:part element="browse:listOrganizationsResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="listAuthorisedOrgsRequest">
+		<wsdl:part element="security:listAuthorisedOrgs" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="listAuthorisedOrgsResponse">
+		<wsdl:part element="security:listAuthorisedOrgsResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="lookupUserRequest">
+		<wsdl:part element="resolver:lookupUser" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="lookupUserResponse">
+		<wsdl:part element="resolver:lookupUserResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="deleteOrphanReferencesRequest">
+		<wsdl:part element="admin:deleteOrphanReferences" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="deleteOrphanReferencesResponse">
+		<wsdl:part element="admin:deleteOrphanReferencesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="DirectoryEngineFault">
+		<wsdl:part element="ex:DirectoryEngineFault" name="DirectoryEngineFault"/>
+	</wsdl:message>
+	<wsdl:message name="SecurityFault"/>
+	<wsdl:portType name="EntityResolverService">
+		<wsdl:documentation>Get information about resources and their association with specific organization model entities.</wsdl:documentation>
+		<wsdl:operation name="getResourceDetail">
+			<wsdl:documentation>Get detailed information about one or more resources, including the groups, positions, capabilities, privileges and attributes associated with each resource. </wsdl:documentation>
+			<wsdl:input message="impl:getResourceDetailRequest" name="getResourceDetailRequest">
+				<wsdl:documentation>Request message (uses resolver:getResourceDetail element): Identifies the resource(s) for which details are required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getResourceDetailResponse" name="getResourceDetailResponse">
+				<wsdl:documentation>Response message (uses resolver:getResourceDetailResponse element): Contains detailed descriptions of the requested resource(s).</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified resource does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listAssociatedResources">
+			<wsdl:documentation>List the resources associated with one or more organization model entities.</wsdl:documentation>
+			<wsdl:input message="impl:listAssociatedResourcesRequest" name="listAssociatedResourcesRequest">
+				<wsdl:documentation>Request message (uses resolver:listAssociatedResources element): Specifies the organization model entities for which the associated resources are required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listAssociatedResourcesResponse" name="listAssociatedResourcesResponse">
+				<wsdl:documentation>Response message (uses resolver:listAssociatedResourcesResponse element): Contains the details of the resources associated with the specified organization model entities.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified resource does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="lookupUser">
+			<wsdl:documentation>List the resources that match a specified login name or LDAP DN.</wsdl:documentation>
+			<wsdl:input message="impl:lookupUserRequest" name="lookupUserReqest">
+				<wsdl:documentation>Request message (uses resolver:lookupUser element): Specifies the name and/or LDAP DN on which to search, and whether to return details of those users.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:lookupUserResponse" name="lookupUserResponse">
+				<wsdl:documentation>Response message (uses resolver:lookupUserResponse element): Contains the number of users found that match the given criteria and, optionally, lists the details of those users.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="LDAPService">
+		<wsdl:documentation>This service is deprecated and may be removed in future releases. Use DirectoryService instead. This service gets information about and from LDAP sources.</wsdl:documentation>
+		<wsdl:operation name="listLDAPSources">
+			<wsdl:documentation>This operation is deprecated. List all LDAP sources currently available to Directory Engine.</wsdl:documentation>
+			<wsdl:input message="impl:listLDAPSourcesRequest" name="listLDAPSourcesRequest">
+				<wsdl:documentation>Request message (uses ldapservice:listLDAPSources element): Requests a list of all available LDAP sources.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listLDAPSourcesResponse" name="listLDAPSourcesResponse">
+				<wsdl:documentation>Response message (uses ldapservice:listLDAPSourcesResponse element): Contains the names of all LDAP sources currently defined as shared resources on the platform.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listLDAPEntities">
+			<wsdl:documentation>This operation is deprecated. List all the resources avaialble in a particular LDAP container, from which organization model resources can be or have been derived.</wsdl:documentation>
+			<wsdl:input message="impl:listLDAPEntitiesRequest" name="listLDAPEntitiesRequest">
+				<wsdl:documentation>Request message (uses ldapservice:listLDAPEntities element): Specifies the LDAP container whose resources should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listLDAPEntitiesResponse" name="listLDAPEntitiesResponse">
+				<wsdl:documentation>Response message (uses ldapservice:listLDAPEntitiesResponse element): Contains detailed descriptions of all resources available in the specified LDAP container.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPSearchFault" name="InvalidLDAPSearchFault">
+				<wsdl:documentation>Error message (uses ex:invalidLDAPSearchFault element): The specified LDAP filter expression is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPSourceFault" name="InvalidLDAPSourceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPSourceFault element): The specified LDAP source does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPContainerFault" name="InvalidLDAPContainerFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPContainerFault element): The specified LDAP container does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listLDAPAttributes">
+			<wsdl:documentation>This operation is deprecated. List the data values stored in one or more resource attributes for a particular LDAP entity.</wsdl:documentation>
+			<wsdl:input message="impl:listLDAPAttributesRequest" name="listLDAPAttributesRequest">
+				<wsdl:documentation>Request message (uses ldapservice:listLDAPAttributes element): Specifies the LDAP entity and, optionally, resource attributes for which data values should be returned.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listLDAPAttributesResponse" name="listLDAPAttributesResponse">
+				<wsdl:documentation>Response message (uses ldapservice:listLDAPAttributesResponse element): Contains the data values stored for the requested resource attributes, both locally within Directory Engine and and in the LDAP source.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPSourceFault" name="InvalidLDAPSourceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPSourceFault element): The specified LDAP source does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPSearchFault" name="InvalidLDAPSearchFault">
+				<wsdl:documentation>Error message (uses ex:invalidLDAPSearchFault element): The specified LDAP filter expression is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listLDAPAttributeNames">
+			<wsdl:documentation>This operation is deprecated. List all LDAP attribute names (not values) in a particular LDAP source that have data.</wsdl:documentation>
+			<wsdl:input message="impl:listLDAPAttributeNamesRequest" name="listLDAPAttributeNamesRequest">
+				<wsdl:documentation>Request message (uses ldapservice:listLDAPAttributeNames element): Specifies the LDAP source from which attribute data should be returned.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listLDAPAttributeNamesResponse" name="listLDAPAttributeNamesResponse">
+				<wsdl:documentation>Response message (uses ldapservice:listLDAPAttributeNamesResponse element): Contains a list of LDAP attribute names that exist in the specified LDAP source, and (if requested) a list of sample entries.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): Either the requested LDAP source or filter string is invalid, or an internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listContainerResources">
+			<wsdl:documentation>This operation is deprecated. List all the organization model (human) resources derived from a particular LDAP container.      </wsdl:documentation>
+			<wsdl:input message="impl:listContainerResourcesRequest" name="listContainerResourcesRequest">
+				<wsdl:documentation>Request message (uses ldapservice:listContainerResources element): Specifies the LDAP container for which human resources should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listContainerResourcesResponse" name="listContainerResourcesResponse">
+				<wsdl:documentation>Response message (uses ldapservice:listContainerResourcesResponse element): Contains a list of all the organization model (human) resources derived from the specified LDAP container.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="BrowseModelService">
+		<wsdl:documentation>Get information about or from the organization model.</wsdl:documentation>
+		<wsdl:operation name="listModelVersions">
+			<wsdl:documentation>List all major versions of the organization model.</wsdl:documentation>
+			<wsdl:input message="impl:listModelVersionsRequest" name="listModelVersionsRequest">
+				<wsdl:documentation>Request message (uses browse:listModelVersions element): Requests a list of all major versions of the organization model.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listModelVersionsResponse" name="listModelVersionsResponse">
+				<wsdl:documentation>Response message (uses browse:listModelVersionsResponse element): Contains a list of all major versions of the organization model.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="openOrgModel">
+			<wsdl:documentation>Open a major version of the organization model.</wsdl:documentation>
+			<wsdl:input message="impl:openOrgModelRequest" name="openOrgModelRequest">
+				<wsdl:documentation>Request message (uses browse:openOrgModel element): Specifies the major version of the organization model that is to be opened.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:openOrgModelResponse" name="openOrgModelResponse">
+				<wsdl:documentation>Response message (uses browse:openOrgModelResponse element): Contains details of the root node(s) of the organization model tree. (The caller can then use repeated browseModelNode calls to iterate through the organization model.)</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="browseModelNode">
+			<wsdl:documentation>Get details of a particular organization model entity and its children.</wsdl:documentation>
+			<wsdl:input message="impl:browseModelNodeRequest" name="browseModelNodeRequest">
+				<wsdl:documentation>Request message (uses browse:browseModelNode element): Specifies the organization model entity (node) for which details should be returned.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:browseModelNodeResponse" name="browseModelNodeResponse">
+				<wsdl:documentation>Response message (uses browse:browseModelNodeResponse element): Contains details of the specified organization model entity and all of its immediate child entities.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listOrgModelOverview">
+			<wsdl:documentation>List details of every organization, organization unit, position, group and location defined in the organization model.  </wsdl:documentation>
+			<wsdl:input message="impl:listOrgModelOverviewRequest" name="listOrgModelOverviewRequest">
+				<wsdl:documentation>Request message (uses browse:listOrgModelOverview element): Specifies the major version of the organization model for which information should be returned.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listOrgModelOverviewResponse" name="listOrgModelOverviewResponse">
+				<wsdl:documentation>Response message (uses browse:listOrgModelOverviewResponse element): Contains details of every organization, organization unit, position, group and location defined in the organization model.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listCapabilities">
+			<wsdl:documentation>List all the capabilities defined in the organisational model.</wsdl:documentation>
+			<wsdl:input message="impl:listCapabilitiesRequest" name="listCapabilitiesRequest">
+				<wsdl:documentation>Request message (uses browse:listCapabilities element): Specifies the major version of the organization model for which capabilities should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listCapabilitiesResponse" name="listCapabilitiesResponse">
+				<wsdl:documentation>Response message (uses browse:listCapabilitiesResponse element): Contains details of all capabilities defined for the specified organization model version.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listPrivileges">
+			<wsdl:documentation>List all the privileges defined in the organisational model.</wsdl:documentation>
+			<wsdl:input message="impl:listPrivilegesRequest" name="listPrivilegesRequest">
+				<wsdl:documentation>Request message (uses browse:listPrivilges element): Specifies the major version of the organization model for which privileges should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listPrivilegesResponse" name="listPrivilegesResponse">
+				<wsdl:documentation>Response message (uses browse:listPrivilgesResponse element): Contains details of all privileges defined for the specified organization model version.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCapabilities">
+			<wsdl:documentation>Get the capabilities associated with a specific organization model entity.</wsdl:documentation>
+			<wsdl:input message="impl:getCapabilitiesRequest" name="getCapabilitiesRequest">
+				<wsdl:documentation>Request message (uses browse:getCapabilities element): Specifies the organization model entity for which capabilities should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getCapabilitiesResponse" name="getCapabilitiesResponse">
+				<wsdl:documentation>Response message (uses browse:getCapabilitiesResponse element): Contains details of all capabilities associated with the specified organization model entity.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getPrivileges">
+			<wsdl:documentation>Get the privileges associated with a specific organization model entity.</wsdl:documentation>
+			<wsdl:input message="impl:getPrivilegesRequest" name="getPrivilegesRequest">
+				<wsdl:documentation>Request message (uses browse:getPrivilges element): Specifies the organization model entity for which privileges should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getPrivilegesResponse" name="getPrivilegesResponse">
+				<wsdl:documentation>Response message (uses browse:getPrivilgesResponse element): Contains details of all privileges associated with the specified organization model entity.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listOrganizations">
+			<wsdl:documentation>Provide a list of all Model Organizations that have been deployed.</wsdl:documentation>
+			<wsdl:input message="impl:listOrganizationsRequest" name="listOrganizationsRequest">
+				<wsdl:documentation>Request message (browse:listOrganizations) to request a list of all Organizations.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listOrganizationsResponse" name="listOrganizationsResponse">
+				<wsdl:documentation>Response message (browse:listOrgabizationsResponse) Lists all Organizations deployed.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="MappingService">
+		<wsdl:documentation>Manage mappings between organization model resources and LDAP entities.</wsdl:documentation>
+		<wsdl:operation name="listMappedEntities">
+			<wsdl:documentation>List the resources that are currently mapped to a specific organization model entity.</wsdl:documentation>
+			<wsdl:input message="impl:listMappedEntitiesRequest" name="listMappedEntitiesRequest">
+				<wsdl:documentation>Request message (uses mapping:listMappedEntities element): Specifies the organization model entity for which mapped resources should be returned. </wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listMappedEntitiesResponse" name="listMappedEntitiesResponse">
+				<wsdl:documentation>Response message (uses mapping:listMappedEntitiesResponse element): Contains the details of each resource that is mapped to the specified organization model entity.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityTypeFault" name="InvalidEntityTypeFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityTypeFault element): The specified organization model entity type does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="mapEntities">
+			<wsdl:documentation>Map resources to or remove resources from one or more organization model positions or groups.</wsdl:documentation>
+			<wsdl:input message="impl:mapEntitiesRequest" name="mapEntitiesRequest">
+				<wsdl:documentation>Request message (uses mapping:mapEntities element): Specifies the target positions or groups and the resources that are to be mapped to or removed from those positions or groups.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:mapEntitiesResponse" name="mapEntitiesResponse">
+				<wsdl:documentation>Response message (uses mapping:mapEntitiesResponse element): Lists the resources that were mapped to or removed from the specified positions or groups.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPSourceFault" name="InvalidLDAPSourceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPSourceFault element): The specified LDAP source does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPContainerFault" name="InvalidLDAPContainerFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPContainerFault element): The specified LDAP container does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model position or group does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidResourceMappingFault" name="InvalidResourceMappingFault">
+				<wsdl:documentation>Error message (uses ex:InvalidResourceMappingFault element): The specified resource mapping is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityTypeFault" name="InvalidEntityTypeFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityTypeFault element): The specified organization model entity type is not position or group.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:assignmentNotAllowedFault" name="AssignmentNotAllowedFault">
+				<wsdl:documentation>Error message (uses ex:AssignmentNotAllowedFault): The request was refused due to organisational restrictions.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getResourceGuid">
+			<wsdl:documentation>Locate or create an organization model resource.</wsdl:documentation>
+			<wsdl:input message="impl:getResourceGuidRequest" name="getResourceGuidRequest">
+				<wsdl:documentation>Request message (uses mapping:getResourceGuid element): Specifies the details of the organization model resource (and/or its underlying LDAP entries) that is to be found or created.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getResourceGuidResponse" name="getResourceGuidResponse">
+				<wsdl:documentation>Response message (uses mapping:getResourceGuidResponse element): Contains the details of the requested organization model resource (whether found or created).</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPSourceFault" name="InvalidLDAPSourceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPSourceFault element): The specified LDAP source does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPContainerFault" name="InvalidLDAPContainerFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPContainerFault element): The specified LDAP container does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model resource does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteResource">
+			<wsdl:documentation>Delete an organization model resource and its associated organization mappings (if any).</wsdl:documentation>
+			<wsdl:input message="impl:deleteResourceRequest" name="deleteResourceRequest">
+				<wsdl:documentation>Request message (uses mapping:deleteResource element): Specifies the GUID of the organization model resource to be deleted.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:deleteResourceResponse" name="deleteResourceResponse">
+				<wsdl:documentation>Response message (uses mapping:deleteResourceResponse element): Indicates whether the specified organization model resource and its organizational associations have been successfully deleted.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model resource does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalDAOErrorFault" name="InternalDAOErrorFault">
+				<wsdl:documentation>Error message (uses ex:InternalDAOErrorFault element): An internal DAO error has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateCapabilityAssignments">
+			<wsdl:documentation>Assign capabilities to or remove capabilities from one or more organization model resources.</wsdl:documentation>
+			<wsdl:input message="impl:updateCapabilityAssignments" name="updateCapabilityAssignmentsRequest">
+				<wsdl:documentation>Request message (uses mapping:updateCapabilityAssignments element): Specifies the capabilities and the organization model resource to be updated, and whether the capability is to be assigned to or removed from the resource.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:updateCapabilityAssignmentsResponse" name="updateCapabilityAssignmentsResponse">
+				<wsdl:documentation>Response message (uses mapping:updateCapabilityAssignmentsResponse element): Indicates whether the specified organization model resources and capabilities have been successfully modified.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model resource does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="ContainerService">
+		<wsdl:documentation>This service is deprecated and may be removed in future releases. Use DirectoryService instead. This service manages LDAP containers.</wsdl:documentation>
+		<wsdl:operation name="listLDAPContainers">
+			<wsdl:documentation>This operation is deprecated. List details of all currently configured LDAP containers.</wsdl:documentation>
+			<wsdl:input message="impl:listLDAPContainersRequest" name="listLDAPContainersRequest">
+				<wsdl:documentation>Request message (uses container:listLDAPContainers element): Empty - no request parameters are required for this request.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listLDAPContainersResponse" name="listLDAPContainersResponse">
+				<wsdl:documentation>Response message (uses container:listLDAPContainersResponse element): Lists details of all the currently configured LDAP containers.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getLDAPContainerDetail">
+			<wsdl:documentation>This operation is deprecated. List details of a specifc LDAP container.           </wsdl:documentation>
+			<wsdl:input message="impl:getLDAPContainerDetailRequest" name="getLDAPContainerDetailRequest">
+				<wsdl:documentation>Request message (uses container:getLDAPContainerDetail element): Specifies the unique ID of the LDAP container for which details should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getLDAPContainerDetailResponse" name="getLDAPContainerDetailResponse">
+				<wsdl:documentation>Response message (uses container:getLDAPContainerDetailResponse element): Lists details of the specified LDAP container.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPContainerFault" name="InvalidLDAPContainerFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPContainerFault element): The specified LDAP container does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="saveLDAPContainerDetail">
+			<wsdl:documentation>This operation is deprecated. Create a new LDAP container or update the details for an existing LDAP container.</wsdl:documentation>
+			<wsdl:input message="impl:saveLDAPContainerDetailRequest" name="saveLDAPContainerDetailRequest">
+				<wsdl:documentation>Request message (uses container:saveLDAPContainerDetail element): Specifies the details of the LDAP container to be created or updated.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:saveLDAPContainerDetailResponse" name="saveLDAPContainerDetailResponse">
+				<wsdl:documentation>Response message (uses container:saveLDAPContainerDetailResponse element): Returns the unique ID of the newly-created or updated LDAP container.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPContainerFault" name="InvalidLDAPContainerFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPContainerFault element): The specified LDAP container does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteLDAPContainer">
+			<wsdl:documentation>This operation is deprecated. Deletes the LDAP container specified in the request.</wsdl:documentation>
+			<wsdl:input message="impl:deleteLDAPContainerRequest" name="deleteLDAPContainerRequest">
+				<wsdl:documentation>Request message (uses container:deleteLDAPContainer element): Specifies the unique ID of the LDAP container that is to be deleted.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:deleteLDAPContainerResponse" name="deleteLDAPContainerResponse">
+				<wsdl:documentation>Response message (uses container:deleteLDAPContainerResponse element): Indicates whether or not the LDAP container was successfully deleted.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPContainerFault" name="InvalidLDAPContainerFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPContainerFault element): The specified LDAP container does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalDAOErrorFault" name="InternalDAOErrorFault">
+				<wsdl:documentation>Error message (uses ex:InternalDAOErrorFault element): An internal DAO error has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="AttributeService">
+		<wsdl:documentation>Manage resource attributes, including push destinations for work items.</wsdl:documentation>
+		<wsdl:operation name="listBusinessParameters">
+			<wsdl:documentation>List all parameter descriptors that describe resource attributes in a specific version of the organization model.</wsdl:documentation>
+			<wsdl:input message="impl:listBusinessParametersRequest" name="listBusinessParametersRequest">
+				<wsdl:documentation>Request message (uses attr:listBusinessParameters element): Specifies the major version of the organization model for which parameter descriptors describing resource attributes should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listBusinessParametersResponse" name="listBusinessParametersResponse">
+				<wsdl:documentation>Response message (uses attr:listBusinessParametersResponse element): Lists all the parameter descriptors (in the specified version of the organization model) that describe resource attributes.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBusinessParameters">
+			<wsdl:documentation>List resource attribute values for a specific organization model entity.</wsdl:documentation>
+			<wsdl:input message="impl:getBusinessParametersRequest" name="getBusinessParametersRequest">
+				<wsdl:documentation>Request message (uses attr:getBusinessParameters element): Specifies the details of the organization model entity for whom resource attribute values should be returned.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getBusinessParametersResponse" name="getBusinessParametersResponse">
+				<wsdl:documentation>Response message (uses attr:getBusinessParametersResponse element): Lists the resource attribute values currently held by the specified organization model entity.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="setBusinessParameters">
+			<wsdl:documentation>Set resource attribute values for a specific organization model entity.</wsdl:documentation>
+			<wsdl:input message="impl:setBusinessParametersRequest" name="setBusinessParametersRequest">
+				<wsdl:documentation>Request message (uses attr:setBusinessParameters element): Specify the organization model entity for whom resource attribute values are to be set, and the resource attribute values that are to be set.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:setBusinessParametersResponse" name="setBusinessParametersResponse">
+				<wsdl:documentation>Response message (uses attr:setBusinessParametersResponse element): Indicates whether the specified resource attribute values were succssfully set for the specified organization model entity.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getPushDestinations">
+			<wsdl:documentation>List currently defined push destinations for one or more organization model entities.</wsdl:documentation>
+			<wsdl:input message="impl:getPushDestinationsRequest" name="getPushDestinationsRequest">
+				<wsdl:documentation>Request message (uses attr:getPushDestinations element): Specify the organization model entities for whom push destinations should be retrieved.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getPushDestinationsResponse" name="getPushDestinationsResponse">
+				<wsdl:documentation>Response message (uses attr:getPushDestinationsResponse element): Lists the currently defined push destinations for each specified organization model entity.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): One or more of the specified organization model entities does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="setPushDestinations">
+			<wsdl:documentation>Set one or more push destinations for a specific organization model entity.</wsdl:documentation>
+			<wsdl:input message="impl:setPushDestinationsRequest" name="setPushDestinationsRequest">
+				<wsdl:documentation>Request message (uses attr:setPushDestinations element): Specifies an organization model entity and one or more push destinations.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:setPushDestinationsResponse" name="setPushDestinationsResponse">
+				<wsdl:documentation>Response message (uses attr:setPushDestinationsResponse element): Indicates whether the specified push destinations were successfully set for the organization model entity.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="SecurityService">
+		<wsdl:documentation>Manage user authentication and authorization.</wsdl:documentation>
+		<wsdl:operation name="authenticateUser">
+			<wsdl:documentation>Authenticate a user's login name and password. (This operation has been deprecated and should no longer be used. It is only available for backward compatibility, and may be removed in a future release.)</wsdl:documentation>
+			<wsdl:input message="impl:authenticateUserRequest" name="authenticateUserRequest">
+				<wsdl:documentation>Request message (uses security:authenticateUser element): Specifies the login name and password that are to be authenticated.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:authenticateUserResponse" name="authenticateUserResponse">
+				<wsdl:documentation>Response message (uses security:authenticateUserResponse element): Returns either a unique ID for a successfully authenticated user, or a message indicating a possible cause if authentication failed.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getUserPrivileges">
+			<wsdl:documentation>List the privileges currently assigned to a specific user.</wsdl:documentation>
+			<wsdl:input message="impl:getUserPrivilegesRequest" name="getUserPrivilegesRequest">
+				<wsdl:documentation>Request message (uses security:getUserPrivileges element): Specifies the unique ID of the user whose privileges should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getUserPrivilegesResponse" name="getUserPrivilegesResponse">
+				<wsdl:documentation>Response message (uses security:getUserPrivilegesResponse element): Lists the privileges currently assigned to the specified user.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="isActionAuthorised">
+			<wsdl:documentation>Test whether the caller (as identified by the SOAP security header) is authorized to perform one or more system actions, either globally or within the scope of a particular organization model entity.</wsdl:documentation>
+			<wsdl:input message="impl:isActionAuthorisedRequest" name="isActionAuthorisedRequest">
+				<wsdl:documentation>Request message (uses security:isActionAuthorised element): Specifies the system actions to be tested for authorization and, optionally, an organization model entity that defines the scope of the test.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:isActionAuthorisedResponse" name="isActionAuthorisedResponse">
+				<wsdl:documentation>Response message (uses security:isActionAuthorisedResponse element): Lists each requested system action, with its scope and whether the user is authorized to perform the system action.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): The specified organization model entity does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listActionAuthorisedEntities">
+			<wsdl:documentation>List the organization model entities on which the caller (as determined by the SOAP security header) is authorized to perform a specific system action.</wsdl:documentation>
+			<wsdl:input message="impl:listActionAuthorisedEntitiesRequest" name="listActionAuthorisedEntitiesRequest">
+				<wsdl:documentation>Request message (uses security:listActionAuthorisedEntities element): Specifies the system action for which the caller's authorizations should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listActionAuthorisedEntitiesResponse" name="listActionAuthorisedEntitiesResponse">
+				<wsdl:documentation>Response message (uses security:listActionAuthorisedEntitiesResponse element): Lists the unique IDs of organization model entities on which the user is authorized to perform the requested system action.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The specified system action does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listAuthorisedOrgs">
+			<wsdl:documentation>List the organizations on which the caller (as determined by the SOAP security header) is authorized to perform a specific system action.</wsdl:documentation>
+			<wsdl:input message="impl:listAuthorisedOrgsRequest" name="listAuthorisedOrgsRequest">
+				<wsdl:documentation>Request message (uses security:listAuthorisedOrgs element): Specifies the system action for which the caller's authorizations should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listAuthorisedOrgsResponse" name="listAuthorisedOrgsResponse">
+				<wsdl:documentation>Response message (uses security:listAuthorisedOrgsResponse element): Lists the unique IDs of organizations on which the user is authorized to perform the requested system action.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The specified system action does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="UserSettingsService">
+		<wsdl:documentation>Manage user settings.</wsdl:documentation>
+		<wsdl:operation name="saveUserSettings">
+			<wsdl:documentation>Save one or more user settings (name/value pairs) for a specific storageKey and settingID.</wsdl:documentation>
+			<wsdl:input message="impl:saveUserSettingsRequest" name="saveUserSettingsRequest">
+				<wsdl:documentation>Request message (uses settings:saveUserSettingsRequest element): Specifies the user settings (name/value pairs) to be stored and the associated storageKey and settingID.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:saveUserSettingsResponse" name="saveUserSettingsResponse">
+				<wsdl:documentation>Response message (uses settings:saveUserSettingsResponse element): Returns an empty document if the user settings were successfully stored.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getUserSettings">
+			<wsdl:documentation>List the user settings (name/value pairs) currently defined for a specific storageKey and settingID.</wsdl:documentation>
+			<wsdl:input message="impl:getUserSettingsRequest" name="getUserSettingsRequest">
+				<wsdl:documentation>Request message (uses settings:getUserSettingsRequest element): Specifies the storageKey and settingID for which user settings should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getUserSettingsResponse" name="getUserSettingsResponse">
+				<wsdl:documentation>Response message (uses settings:getUserSettingsResponse element): Lists the user settings (name/value pairs) currently defined for the specified specific storageKey and settingID.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteUserSettings">
+			<wsdl:documentation>Delete all user settings (name/value pairs) currently defined for a specific storageKey.</wsdl:documentation>
+			<wsdl:input message="impl:deleteUserSettingsRequest" name="deleteUserSettingsRequest">
+				<wsdl:documentation>Request message (uses settings:deleteUserSettingsRequest element): Specifies the storageKey for which user settings should be deleted.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:deleteUserSettingsResponse" name="deleteUserSettingsResponse">
+				<wsdl:documentation>Response message (uses settings:deleteUserSettingsResponse element): Returns an empty document if the user settings were successfully deleted.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listUserSettingIds">
+			<wsdl:documentation>List all user settingIDs currently defined for a specific storageKey.</wsdl:documentation>
+			<wsdl:input message="impl:listUserSettingIdsRequest" name="listUserSettingIdsRequest">
+				<wsdl:documentation>Request message (uses settings:listUserSettingsIdsRequest element): Specifies the storageKey for which user settingIDs should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:listUserSettingIdsResponse" name="listUserSettingIdsResponse">
+				<wsdl:documentation>Response message (uses settings:listUserSettingsIdsResponse element): Lists the user settingIDs  currently defined for the specified storageKey.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="ExporterService">
+		<wsdl:documentation>Export and import defined LDAP containers, resource mappings and push destinations.</wsdl:documentation>
+		<wsdl:operation name="exportResources">
+			<wsdl:documentation>Export defined LDAP containers, resource mappings and push destinations, either for backup or for subsequent import to other environments.</wsdl:documentation>
+			<wsdl:input message="impl:exportResourcesRequest" name="exportResourcesRequest">
+				<wsdl:documentation>Request message (uses exporter:exportResourcesRequest element): Specifies the elements that are to be exported from this server.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:exportResourcesResponse" name="exportResourcesResponse">
+				<wsdl:documentation>Response message (uses exporter:exportResourcesResponse element): Returns an export object containing the details of all the exported elements.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="importResources">
+			<wsdl:documentation>Import a previously exported object containing details of the exported LDAP containers, resource mappings and push destinations.</wsdl:documentation>
+			<wsdl:input message="impl:importResourcesRequest" name="importResourcesRequest">
+				<wsdl:documentation>Request message (uses exporter:importResourcesRequest element): Specifies the previously exported data object that is to be imported to this server.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:importResourcesResponse" name="importResourcesResponse">
+				<wsdl:documentation>Response message (uses exporter:importResourcesResponse element): Returns a success result if the supplied data has been successfully imported.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidLDAPContainerFault" name="InvalidLDAPContainerFault">
+				<wsdl:documentation>Error message (uses ex:InvalidLDAPContainerFault element): One or more of the specified LDAP containers does not exist on the target system.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidEntityReferenceFault" name="InvalidEntityReferenceFault">
+				<wsdl:documentation>Error message (uses ex:InvalidEntityReference element): One or more of the specified organization model entities does not exist on the target system.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidModelImportFault" name="InvalidModelImportFault">
+				<wsdl:documentation>Error message (uses ex:InvalidModelImportFault element): The import operation failed because of errors in the import data (for example, due to missing LDAP or organization model references on the target system).</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist on the target system.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="ResourceQueryService">
+		<wsdl:documentation>Execute a Resource Query Language (RQL) query to find a set of resources that match specific criteria.</wsdl:documentation>
+		<wsdl:operation name="executeQuery">
+			<wsdl:documentation>Execute a Resource Query Language (RQL) query to find a set of resources that match specific criteria.</wsdl:documentation>
+			<wsdl:input message="impl:executeQueryRequest" name="executeQueryRequest">
+				<wsdl:documentation>Request message (uses resourcequery:executeQuery element): Specifies the query to be executed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:executeQueryResponse" name="executeQueryResponse">
+				<wsdl:documentation>Response message (uses resourcequery:executeQueryResponse element): Lists the unique IDs of resources matching the supplied criteria.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidServiceRequestFault" name="InvalidServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidServiceRequest element): The request message has been incorrectly specified and is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidQueryFault" name="InvalidQueryFault">
+				<wsdl:documentation>Error message (uses ex:InvalidQueryFault element): The specified resource query is invalid. (It does not conform to the RQL sytnax conventions.)</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:noSuchNamedEntityFault" name="NoSuchNamedEntityFault">
+				<wsdl:documentation>Error message (uses ex:NoSuchNamedEntityFault element): An organization model entity specified in the resource query does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidOrgModelVersionFault" name="InvalidOrgModelVersionFault">
+				<wsdl:documentation>Error message (uses ex:invalidOrgModelVersionFault element): The specified organization model version does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="AdminService">
+		<wsdl:documentation>Provides administrative services for Directory Engine.</wsdl:documentation>
+		<wsdl:operation name="deleteOrphanReferences">
+			<wsdl:documentation>This service deletes references to non-existent org-model entities. Such references are normally the result of the org-model getting out of sync due to administrator intervention.
+The response return the GUIDs of those org-model entities that no longer exist but are identified by association records within the database. Those 'orphan' references will have been deleted.</wsdl:documentation>
+			<wsdl:input message="impl:deleteOrphanReferencesRequest" name="deleteOrphanReferencesRequest"/>
+			<wsdl:output message="impl:deleteOrphanReferencesResponse" name="deleteOrphanReferencesResponse"/>
+			<wsdl:fault message="impl:DirectoryEngineFault" name="DirectoryEngineFault"/>
+			<wsdl:fault message="impl:securityFault" name="SecurityFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="EntityResolverService_EP" type="impl:EntityResolverService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getResourceDetail">
+			<soap:operation soapAction="getResourceDetail" style="document"/>
+			<wsdl:input name="getResourceDetailRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getResourceDetailResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listAssociatedResources">
+			<soap:operation soapAction="listAssociatedResources" style="document"/>
+			<wsdl:input name="listAssociatedResourcesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listAssociatedResourcesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="lookupUser">
+			<soap:operation soapAction="lookupUser" style="document"/>
+			<wsdl:input name="lookupUserReqest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="lookupUserResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="LDAPService_EP" type="impl:LDAPService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listLDAPSources">
+			<soap:operation soapAction="listLDAPSources" style="document"/>
+			<wsdl:input name="listLDAPSourcesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listLDAPSourcesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listLDAPEntities">
+			<soap:operation soapAction="listLDAPEntities" style="document"/>
+			<wsdl:input name="listLDAPEntitiesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listLDAPEntitiesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPSearchFault">
+				<soap:fault name="InvalidLDAPSearchFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPSourceFault">
+				<soap:fault name="InvalidLDAPSourceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPContainerFault">
+				<soap:fault name="InvalidLDAPContainerFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listLDAPAttributes">
+			<soap:operation soapAction="listLDAPAttributes" style="document"/>
+			<wsdl:input name="listLDAPAttributesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listLDAPAttributesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidLDAPSearchFault">
+				<soap:fault name="InvalidLDAPSearchFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPSourceFault">
+				<soap:fault name="InvalidLDAPSourceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listLDAPAttributeNames">
+			<soap:operation soapAction="listLDAPAttributeNames" style="document"/>
+			<wsdl:input name="listLDAPAttributeNamesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listLDAPAttributeNamesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listContainerResources">
+			<soap:operation soapAction="listContainerResources" style="document"/>
+			<wsdl:input name="listContainerResourcesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listContainerResourcesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="BrowseModelService_EP" type="impl:BrowseModelService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listModelVersions">
+			<soap:operation soapAction="listModelVersions" style="document"/>
+			<wsdl:input name="listModelVersionsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listModelVersionsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="openOrgModel">
+			<soap:operation soapAction="openOrgModel" style="document"/>
+			<wsdl:input name="openOrgModelRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="openOrgModelResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="browseModelNode">
+			<soap:operation soapAction="browseModelNode" style="document"/>
+			<wsdl:input name="browseModelNodeRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="browseModelNodeResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listOrgModelOverview">
+			<soap:operation soapAction="listOrgModelOverview" style="document"/>
+			<wsdl:input name="listOrgModelOverviewRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listOrgModelOverviewResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listCapabilities">
+			<soap:operation soapAction="listCapabilities" style="document"/>
+			<wsdl:input name="listCapabilitiesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listCapabilitiesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listPrivileges">
+			<soap:operation soapAction="listPrivileges" style="document"/>
+			<wsdl:input name="listPrivilegesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listPrivilegesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCapabilities">
+			<soap:operation soapAction="getCapabilities" style="document"/>
+			<wsdl:input name="getCapabilitiesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getCapabilitiesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getPrivileges">
+			<soap:operation soapAction="getPrivileges" style="document"/>
+			<wsdl:input name="getPrivilegesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getPrivilegesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listOrganizations">
+			<soap:operation soapAction="listOrganizations" style="document"/>
+			<wsdl:input name="listOrganizationsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listOrganizationsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="MappingService_EP" type="impl:MappingService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listMappedEntities">
+			<soap:operation soapAction="listMappedEntities" style="document"/>
+			<wsdl:input name="listMappedEntitiesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listMappedEntitiesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityTypeFault">
+				<soap:fault name="InvalidEntityTypeFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="mapEntities">
+			<soap:operation soapAction="mapEntities" style="document"/>
+			<wsdl:input name="mapEntitiesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="mapEntitiesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPSourceFault">
+				<soap:fault name="InvalidLDAPSourceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPContainerFault">
+				<soap:fault name="InvalidLDAPContainerFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidResourceMappingFault">
+				<soap:fault name="InvalidResourceMappingFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityTypeFault">
+				<soap:fault name="InvalidEntityTypeFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="AssignmentNotAllowedFault">
+				<soap:fault name="AssignmentNotAllowedFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getResourceGuid">
+			<soap:operation soapAction="getResourceGuid" style="document"/>
+			<wsdl:input name="getResourceGuidRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getResourceGuidResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPSourceFault">
+				<soap:fault name="InvalidLDAPSourceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPContainerFault">
+				<soap:fault name="InvalidLDAPContainerFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteResource">
+			<soap:operation soapAction="deleteResource" style="document"/>
+			<wsdl:input name="deleteResourceRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteResourceResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalDAOErrorFault">
+				<soap:fault name="InternalDAOErrorFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateCapabilityAssignments">
+			<soap:operation soapAction="updateCapabilityAssignments" style="document"/>
+			<wsdl:input name="updateCapabilityAssignmentsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="updateCapabilityAssignmentsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ContainerService_EP" type="impl:ContainerService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listLDAPContainers">
+			<soap:operation soapAction="listLDAPContainers" style="document"/>
+			<wsdl:input name="listLDAPContainersRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listLDAPContainersResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getLDAPContainerDetail">
+			<soap:operation soapAction="getLDAPContainerDetail" style="document"/>
+			<wsdl:input name="getLDAPContainerDetailRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getLDAPContainerDetailResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPContainerFault">
+				<soap:fault name="InvalidLDAPContainerFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="saveLDAPContainerDetail">
+			<soap:operation soapAction="saveLDAPContainerDetail" style="document"/>
+			<wsdl:input name="saveLDAPContainerDetailRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="saveLDAPContainerDetailResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPContainerFault">
+				<soap:fault name="InvalidLDAPContainerFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteLDAPContainer">
+			<soap:operation soapAction="deleteLDAPContainer" style="document"/>
+			<wsdl:input name="deleteLDAPContainerRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteLDAPContainerResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPContainerFault">
+				<soap:fault name="InvalidLDAPContainerFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalDAOErrorFault">
+				<soap:fault name="InternalDAOErrorFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="AttributeService_EP" type="impl:AttributeService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="listBusinessParameters">
+			<soap:operation soapAction="listBusinessParameters" style="document"/>
+			<wsdl:input name="listBusinessParametersRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listBusinessParametersResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBusinessParameters">
+			<soap:operation soapAction="getBusinessParameters" style="document"/>
+			<wsdl:input name="getBusinessParametersRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getBusinessParametersResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="setBusinessParameters">
+			<soap:operation soapAction="setBusinessParameters" style="document"/>
+			<wsdl:input name="setBusinessParametersRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="setBusinessParametersResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getPushDestinations">
+			<soap:operation soapAction="getPushDestinations" style="document"/>
+			<wsdl:input name="getPushDestinationsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getPushDestinationsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="setPushDestinations">
+			<soap:operation soapAction="setPushDestinations" style="document"/>
+			<wsdl:input name="setPushDestinationsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="setPushDestinationsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="SecurityService_EP" type="impl:SecurityService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="authenticateUser">
+			<soap:operation soapAction="authenticateUser" style="document"/>
+			<wsdl:input name="authenticateUserRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="authenticateUserResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getUserPrivileges">
+			<soap:operation soapAction="getUserPrivileges" style="document"/>
+			<wsdl:input name="getUserPrivilegesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getUserPrivilegesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="isActionAuthorised">
+			<soap:operation soapAction="isActionAuthorised" style="document"/>
+			<wsdl:input name="isActionAuthorisedRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="isActionAuthorisedResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listActionAuthorisedEntities">
+			<soap:operation soapAction="listActionAuthorisedEntities" style="document"/>
+			<wsdl:input name="listActionAuthorisedEntitiesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listActionAuthorisedEntitiesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listAuthorisedOrgs">
+			<soap:operation soapAction="listAuthorisedOrgs" style="document"/>
+			<wsdl:input name="listAuthorisedOrgsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listAuthorisedOrgsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="UserSettingsService_EP" type="impl:UserSettingsService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="saveUserSettings">
+			<soap:operation soapAction="saveUserSettings" style="document"/>
+			<wsdl:input name="saveUserSettingsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="saveUserSettingsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getUserSettings">
+			<soap:operation soapAction="getUserSettings" style="document"/>
+			<wsdl:input name="getUserSettingsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getUserSettingsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteUserSettings">
+			<soap:operation soapAction="deleteUserSettings" style="document"/>
+			<wsdl:input name="deleteUserSettingsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteUserSettingsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listUserSettingIds">
+			<soap:operation soapAction="listUserSettingIds" style="document"/>
+			<wsdl:input name="listUserSettingIdsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listUserSettingIdsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ExporterService_EP" type="impl:ExporterService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="exportResources">
+			<soap:operation soapAction="exportResources" style="document"/>
+			<wsdl:input name="exportResourcesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="exportResourcesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="importResources">
+			<soap:operation soapAction="importResources" style="document"/>
+			<wsdl:input name="importResourcesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="importResourcesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidLDAPContainerFault">
+				<soap:fault name="InvalidLDAPContainerFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidEntityReferenceFault">
+				<soap:fault name="InvalidEntityReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidModelImportFault">
+				<soap:fault name="InvalidModelImportFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ResourceQueryService_EP" type="impl:ResourceQueryService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="executeQuery">
+			<soap:operation soapAction="executeQuery" style="document"/>
+			<wsdl:input name="executeQueryRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="executeQueryResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidServiceRequestFault">
+				<soap:fault name="InvalidServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidQueryFault">
+				<soap:fault name="InvalidQueryFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="NoSuchNamedEntityFault">
+				<soap:fault name="NoSuchNamedEntityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidOrgModelVersionFault">
+				<soap:fault name="InvalidOrgModelVersionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="AdminService_EP" type="impl:AdminService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="deleteOrphanReferences">
+			<soap:operation soapAction="deleteOrphanReferences" style="document"/>
+			<wsdl:input name="deleteOrphanReferencesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteOrphanReferencesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DirectoryEngineFault">
+				<soap:fault name="DirectoryEngineFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EntityResolverService">
+		<wsdl:port binding="impl:EntityResolverService_EP" name="EntityResolverService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/EntityResolverService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="LDAPService">
+		<wsdl:port binding="impl:LDAPService_EP" name="LDAPService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/LDAPService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="BrowseModelService">
+		<wsdl:port binding="impl:BrowseModelService_EP" name="BrowseModelService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/BrowseModelService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="MappingService">
+		<wsdl:port binding="impl:MappingService_EP" name="MappingService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/MappingService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="ContainerService">
+		<wsdl:port binding="impl:ContainerService_EP" name="ContainerService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/ContainerService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="AttributeService">
+		<wsdl:port binding="impl:AttributeService_EP" name="AttributeService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/AttributeService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="SecurityService">
+		<wsdl:port binding="impl:SecurityService_EP" name="SecurityService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/SecurityService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="UserSettingsService">
+		<wsdl:port binding="impl:UserSettingsService_EP" name="UserSettingsService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/UserSettingsService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="ExporterService">
+		<wsdl:port binding="impl:ExporterService_EP" name="ExporterService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/ExporterService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="ResourceQueryService">
+		<wsdl:port binding="impl:ResourceQueryService_EP" name="ResourceQueryService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/ResourceQueryService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="AdminService">
+		<wsdl:port binding="impl:AdminService_EP" name="AdminService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/AdminService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

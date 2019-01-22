@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://trees" xmlns:tns1="http://trees" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://trees">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/tes/Business Objects/DuplicateNamesDifferentComplexTypesTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="trees_FlightPlan" abstract="false" mixed="false" name="FlightPlan">
+    <xsd:sequence>
+      <xsd:element id="FlightPlan_airline" form="qualified" maxOccurs="1" minOccurs="1"
+          name="airline">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="FlightPlan_departureTime" form="qualified" maxOccurs="1" minOccurs="1"
+          name="departureTime">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:time"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="FlightPlan_stops" form="qualified" maxOccurs="1" minOccurs="1"
+          name="stops">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="FlightPlan_fareFull" form="qualified" maxOccurs="1" minOccurs="1"
+          name="fareFull">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="1.4E-45"/>
+            <xsd:maxInclusive value="340.28235E+36"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="trees_AirlineSearch" abstract="false" mixed="false" name="AirlineSearch">
+    <xsd:sequence>
+      <xsd:element id="AirlineSearch_roundTrip" default="false" form="qualified" maxOccurs="1"
+          minOccurs="1" name="roundTrip">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AirlineSearch_origin" form="qualified" maxOccurs="1" minOccurs="1"
+          name="origin">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AirlineSearch_destination" form="qualified" maxOccurs="1" minOccurs="1"
+          name="destination">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AirlineSearch_departureDate" form="qualified" maxOccurs="1"
+          minOccurs="1" name="departureDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:date"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AirlineSearch_returnDate" form="qualified" maxOccurs="1" minOccurs="0"
+          name="returnDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:date"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AirlineSearch_noOfPassengers" form="qualified" maxOccurs="1"
+          minOccurs="1" name="noOfPassengers">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AirlineSearch_timePreference" form="qualified" maxOccurs="1"
+          minOccurs="1" name="timePreference">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AirlineSearch_flight_elem" maxOccurs="1" minOccurs="1" name="flight"
+          type="FlightPlan"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="trees_AirlineSearchResults" abstract="false" mixed="false"
+      name="AirlineSearchResults">
+    <xsd:sequence>
+      <xsd:element id="AirlineSearchResults_departingFlights" maxOccurs="1" minOccurs="1"
+          name="departingFlights" type="DepartingFlights"/>
+      <xsd:element id="AirlineSearchResults_returningFlights" maxOccurs="1" minOccurs="1"
+          name="returningFlights" type="ReturningFlights"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="trees_DepartingFlights" abstract="false" mixed="false" name="DepartingFlights">
+    <xsd:sequence>
+      <xsd:element id="DepartingFlights_origin" form="qualified" maxOccurs="1" minOccurs="1"
+          name="origin">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="DepartingFlights_destination" form="qualified" maxOccurs="1"
+          minOccurs="1" name="destination">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="DepartingFlights_date" form="qualified" maxOccurs="1" minOccurs="1"
+          name="date">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:date"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="DepartingFlights_flight_elem" maxOccurs="1" minOccurs="1" name="flight"
+          type="FlightPlan"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="trees_ReturningFlights" abstract="false" mixed="false" name="ReturningFlights">
+    <xsd:sequence>
+      <xsd:element id="ReturningFlights_origin" form="qualified" maxOccurs="1" minOccurs="1"
+          name="origin">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ReturningFlights_destination" form="qualified" maxOccurs="1"
+          minOccurs="1" name="destination">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ReturningFlights_date" form="qualified" maxOccurs="1" minOccurs="1"
+          name="date">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:date"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ReturningFlights_flight" maxOccurs="1" minOccurs="1" name="flight"
+          type="FlightPlan"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="trees_searchAirline_fault_type" abstract="false" mixed="false"
+      name="searchAirline_fault">
+    <xsd:sequence>
+      <xsd:element id="searchAirline_fault_type_searchAirline_fault" form="qualified"
+          maxOccurs="1" minOccurs="1" name="searchAirline_fault">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.process.js.model" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.process.js.model" id="modelDefinitionReaders" name="Model Definition Readers"/>
+      </appinfo>
+      <documentation>
+         This extension point is used to bind a DefinitionReader with a file extension, so when a model is contributed in the classContribution extension point, the correct DefinitionReader is used.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="modelDefinitionReader" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="modelDefinitionReader">
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  class that implements the interface &lt;code&gt;com.tibco.xpd.script.ui.internal.IProcessModelDefinitionReader&lt;/code&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.script.ui.internal.IProcessModelDefinitionReader"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="fileExtensions" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Comma separated values that include the file extensions to be bound to the definition reader.
+
+ie: uml,xpdl
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="priority" use="required">
+            <annotation>
+               <documentation>
+                  Priority of the model definition reader. Value is restricted to HIGHEST, HIGH, MEDIUM, LOW, LOWEST
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="HIGHEST">
+                  </enumeration>
+                  <enumeration value="HIGH">
+                  </enumeration>
+                  <enumeration value="MEDIUM">
+                  </enumeration>
+                  <enumeration value="LOW">
+                  </enumeration>
+                  <enumeration value="LOWEST">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.3
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example for Model Definition Readers
+&lt;pre&gt;
+&lt;extension
+      point=&quot;com.tibco.xpd.script.ui.modelDefinitionReaders&quot;&gt;
+   &lt;modelDefinitionReader
+         class=&quot;com.tibco.xpd.process.js.model.DefaultModelProcessDefinitionReader&quot;
+         fileExtensions=&quot;bom,uml&quot;
+         priority=&quot;MEDIUM&quot;&gt;
+   &lt;/modelDefinitionReader&gt;
+&lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

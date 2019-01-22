@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/XSDBOM34_SupportSimpleContentSchemaTransformationTest" xmlns:tns="http://www.example.org/XSDBOM34_SupportSimpleContentSchemaTransformationTest" elementFormDefault="qualified">
+	<xsd:complexType name="Text">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="isHtml" use="optional" default="false"/> <!-- true means text contains html-tags -->
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="Description"> <!--  final="#all" -->
+		<xsd:simpleContent>
+			<xsd:restriction base="tns:Text">
+				<xsd:minLength value="50"/>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+</xsd:schema>

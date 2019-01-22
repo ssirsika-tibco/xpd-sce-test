@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://mind.enel.com/tracciamentoinesito" xmlns:tns23="http://mind.enel.com/tracciamentoinesito"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mind.enel.com/tracciamentoinesito">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.integration.crm.resource/Business Objects/com.enel.mind.tracciamentoattivitainesito.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="TracciamentoInesitoRequest" id="_NqWqMEbSEeO0xK8sSiBUuQ"
+      name="TracciamentoInesitoRequest">
+    <xsd:sequence>
+      <xsd:element ecore:name="idBpm" id="_WwehMEbSEeO0xK8sSiBUuQ" maxOccurs="1" minOccurs="0"
+          name="idBpm">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="tipoAttivita" id="_W-quMEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="tipoAttivita">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="causaleContatto" id="_XLGnsEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="causaleContatto">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="descrizioneAttivita" id="_XaH7IEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="descrizioneAttivita">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="specificaAttivita" id="_dgmKIEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="specificaAttivita">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="statoAttivita" id="_dtkPIEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="statoAttivita">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="flagInvisibile" id="_d7EfoEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="flagInvisibile">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idClienteCRM" id="_gcM_oEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="idClienteCRM">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idOrdineCRM" id="_gnuTIEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="idOrdineCRM">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idOffertaCRM" id="_g1dNIEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="idOffertaCRM">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idAttivitaCRM" id="_hBSCoEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="idAttivitaCRM">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numUte" id="_hOy6MEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="numUte">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="9"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numPratica" id="_hc0vIEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="numPratica">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="podPdr" id="_hqGWIEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="podPdr">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="noteAttivita" id="_h2YeoEbSEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="noteAttivita">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoTotale" id="_9V3_0AKyEeSiZq1qoLxncA" maxOccurs="1"
+          minOccurs="0" name="importoTotale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="categoriaCliente" id="_AlIxIAKzEeSiZq1qoLxncA" maxOccurs="1"
+          minOccurs="0" name="categoriaCliente">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="pluriCA" id="_ECMG0AKzEeSiZq1qoLxncA" maxOccurs="1"
+          minOccurs="0" name="pluriCA">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="flagFirst" id="_H0R4YAKzEeSiZq1qoLxncA" maxOccurs="1"
+          minOccurs="0" name="flagFirst">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TracciamentoInesitoResponse" id="_OfwoMEbSEeO0xK8sSiBUuQ"
+      name="TracciamentoInesitoResponse">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="_XtKWcEbTEeO0xK8sSiBUuQ" maxOccurs="1" minOccurs="0"
+          name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codice" id="_X41a8EbTEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="codice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idAttivita" id="_YcT7cEbTEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="idAttivita">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="descrizione" id="_YCiJgEbTEeO0xK8sSiBUuQ" maxOccurs="1"
+          minOccurs="0" name="descrizione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="sorgenteEsito" id="_vFNqMFamEeO6f8vdBmwSng" maxOccurs="1"
+          minOccurs="0" name="sorgenteEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TracciamentoInesitoRequestElement" type="TracciamentoInesitoRequest"/>
+  <xsd:element name="TracciamentoInesitoResponseElement" type="TracciamentoInesitoResponse"/>
+</xsd:schema>

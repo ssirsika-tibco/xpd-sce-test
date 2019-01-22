@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 2 (x64) (http://www.altova.com) by Paul Raby (Tibco Software Ltd) -->
+<xs:schema xmlns="http://deadline.api.dac.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dac="http://api.dac.n2.tibco.com" targetNamespace="http://deadline.api.dac.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://api.dac.n2.tibco.com" schemaLocation="dac-common.xsd"/>
+	<xs:element name="calcBusinessDeadline">
+		<xs:annotation>
+			<xs:documentation>Request element for calcBusinessDeadline operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="guid" type="dac:XmlGuidType" use="required">
+				<xs:annotation>
+					<xs:documentation>ID of the owning entity of the working time information to be used when calculating the deadline.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="start-date-time" type="xs:dateTime" use="required">
+				<xs:annotation>
+					<xs:documentation>Start date and time for the task.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="duration" type="xs:duration" use="required">
+				<xs:annotation>
+					<xs:documentation>Duration of the task.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="calcBusinessDeadlineResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for calcBusinessDeadline operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="end-date-time" type="xs:dateTime" use="required">
+				<xs:annotation>
+					<xs:documentation>End date and time of the taks based on working time as defined in the associated calendar.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example.xmlns._1311247678646" name="com.example.xmlns._1311247678646">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UN80UQdUEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UN80UgdUEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UN80UwdUEeSRjauCcgnMbg" key="created" value="1404905544341"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UN80VAdUEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_USJX0AdUEeSRjauCcgnMbg" key="checksum" value="1147780574"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.xmlns._1311247678646AnySimpleTypeService" name="AnySimpleTypeService">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="AnySimpleTypeServiceSendRandomData" name="SendRandomData">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="SendRandomDataparameters" name="parameters">
+          <type xmi:type="uml:Class" href="org.example.AnySimpleTypeService.bom#org.example.AnySimpleTypeServiceSendRandomDataType?org.example.AnySimpleTypeService%3a%3aSendRandomDataType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="SendRandomDataparameters2" name="parameters" direction="return">
+          <type xmi:type="uml:Class" href="org.example.AnySimpleTypeService.bom#org.example.AnySimpleTypeServiceSendRandomDataResponseType?org.example.AnySimpleTypeService%3a%3aSendRandomDataResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="AnySimpleTypeServiceGetRandomData" name="GetRandomData">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetRandomDataparameters" name="parameters">
+          <type xmi:type="uml:Class" href="org.example.AnySimpleTypeService.bom#org.example.AnySimpleTypeServiceGetRandomDataType?org.example.AnySimpleTypeService%3a%3aGetRandomDataType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetRandomDataparameters2" name="parameters" direction="return">
+          <type xmi:type="uml:Class" href="org.example.AnySimpleTypeService.bom#org.example.AnySimpleTypeServiceGetRandomDataResponseType?org.example.AnySimpleTypeService%3a%3aGetRandomDataResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UNp5YwdUEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UNp5ZAdUEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_UNp5ZQdUEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UNp5ZgdUEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_UNqgcAdUEeSRjauCcgnMbg" base_Package="com.example.xmlns._1311247678646?com.example.xmlns._1311247678646?" xsdTargetNamespace="http://xmlns.example.com/1311247678646" xsdSchemaLocation="AnySimpleTypeService.wsdl" xsdStudioVersion="3.8.0.005" bomWsdlSources="AnySimpleTypeService.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_UNrHgQdUEeSRjauCcgnMbg" base_Class="com.example.xmlns._1311247678646AnySimpleTypeService?com.example.xmlns._1311247678646%3a%3aAnySimpleTypeService?" xsdName="AnySimpleTypeService" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_UN80UAdUEeSRjauCcgnMbg" displayLabel="AnySimpleTypeService" base_NamedElement="com.example.xmlns._1311247678646AnySimpleTypeService?com.example.xmlns._1311247678646%3a%3aAnySimpleTypeService?"/>
+  <notation:Diagram xmi:id="_UN80VQdUEeSRjauCcgnMbg" type="Business Object Model" element="com.example.xmlns._1311247678646?com.example.xmlns._1311247678646?" name="com.example.xmlns._1311247678646" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_UN80VgdUEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_UN80VwdUEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

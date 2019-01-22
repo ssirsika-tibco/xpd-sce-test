@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.script.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.script.ui" id="scriptGrammar" name="Script Grammar"/>
+      </appinfo>
+      <documentation>
+         This extension point is used to define the Script Grammars that can be used in the Script Editors. These extensions are queried while displaying the grammars for the respective contexts.
+
+The grammars are however required to be Certified by Tibco Business Studio.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="scriptGrammar"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="scriptGrammar">
+      <annotation>
+         <documentation>
+            This describes the script grammar being declared
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="editorSection"/>
+            <element ref="contentAssistProcessor" minOccurs="0" maxOccurs="1"/>
+            <element ref="editorStyleProcessor" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="grammarId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The ID of the grammar. This will be referred to while bindings to the grammar are done.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="grammarName" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The Grammar Name; This value will be used to show up on the drop down on the script editor.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="editorSection">
+      <annotation>
+         <documentation>
+            The editor section for the script grammar.  This editor class creates a script viewer by default, and handles the set/get for the script. However, the commands that work with the script viewer needs to be contributed while binding to the specific context in a given destination.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="editorSectionClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the editor section must extend the class
+
+ &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractScriptEditorSection&lt;/code&gt;
+ 
+ Appropriate methods need to be overriden for the right usage.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.processeditor.xpdl2.properties.script.AbstractScriptEditorSection:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="mappable" type="boolean">
+            <annotation>
+               <documentation>
+                  This asserts whether the given grammar can be used in the mapper view, to map to scripts.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="contentAssistProcessor">
+      <annotation>
+         <documentation>
+            This provides the content assist processor for the script grammar. The content assist processor provides the widgets, and assimilates the menu options, and data that is showed up during the content assist.
+
+Can be left blank if content assist is not required.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  Id of the content assist processor.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  Name of the content assist processor
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="className" type="string">
+            <annotation>
+               <documentation>
+                  The class that handles the content assist processor. This needs to extend &lt;code&gt; com.tibco.xpd.script.sourceviewer.internal.contentassist.AbstractTibcoContentAssistProcessor&lt;/code&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.script.sourceviewer.internal.contentassist.AbstractTibcoContentAssistProcessor:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="preferencesClassName" type="string">
+            <annotation>
+               <documentation>
+                  The preference class name provides the script specific preference for the script grammar.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.script.sourceviewer.internal.preferences.AbstractScriptCommonUIPreferenceNames:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="editorStyleProcessor">
+      <annotation>
+         <documentation>
+            The editor style processor, is responsible for providing listeners to the text, and consequentially providing syntax coloring and other editor features.
+
+Can be left blank if editor styling isn&apos;t required.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  Id of the editor style processor
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  Name of the editor style processor
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="lineStyleListenerProvider" type="string">
+            <annotation>
+               <documentation>
+                  The line style listener provider, acts on the document of the script viewer to provide syntax coloring and other preferred editor styles.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.script.sourceviewer.internal.viewer.listeners.AbstractLineStyleListenerProvider:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.3
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         An Example for the script grammar extensions is as follows :
+
+&lt;pre&gt;
+&lt;extension
+         point=&quot;com.tibco.xpd.script.ui.scriptGrammar&quot;&gt;
+      &lt;scriptGrammar
+            grammarId=&quot;JavaScript&quot;
+            grammarName=&quot;JavaScript&quot;&gt;
+         &lt;editorSection
+               editorSectionClass=&quot;com.tibco.xpd.scripteditors.javascript.JavaScriptEditorSection&quot;
+               mappable=&quot;true&quot;&gt;
+         &lt;/editorSection&gt;
+         &lt;contentAssistProcessor
+               className=&quot;com.tibco.xpd.scripteditors.javascript.JavaScriptContentAssistProcessor&quot;
+               id=&quot;javaScriptContentAssistProcessor&quot;
+               name=&quot;%javascript.contentAssistProcessor.name&quot;
+               preferencesClassName=&quot;com.tibco.xpd.scripteditors.javascript.preferences.ui.JSCommonUIPreferenceNames&quot;&gt;
+         &lt;/contentAssistProcessor&gt;
+         &lt;editorStyleProcessor
+               id=&quot;com.tibco.xpd.scripteditors.javascript.styles.JSLineStyleListenerProvider&quot;
+               lineStyleListenerProvider=&quot;com.tibco.xpd.scripteditors.javascript.styles.JSLineStyleListenerProvider&quot;
+               name=&quot;com.tibco.xpd.scripteditors.javascript.styles.JSLineStyleListenerProvider&quot;&gt;&lt;/editorStyleProcessor&gt;
+      &lt;/scriptGrammar&gt;
+   &lt;/extension&gt;
+   
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+   <!--annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation-->
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_XoAykL3OEeSfH9eOgLpArw" name="com.example.uc19a_providerforserviceprocess">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XoAykb3OEeSfH9eOgLpArw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XoAykr3OEeSfH9eOgLpArw" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XoAyk73OEeSfH9eOgLpArw" key="created" value="1424969077433"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XoAylL3OEeSfH9eOgLpArw" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_YuIB0L6ZEeSf-alPgJEFaA" name="AirlineInfo">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_H6Kf8L6aEeSf-alPgJEFaA" name="serviceName" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H6M8ML6aEeSf-alPgJEFaA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H6MVIb6aEeSf-alPgJEFaA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_o-8k8L6ZEeSf-alPgJEFaA" name="price" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o_KnYb6ZEeSf-alPgJEFaA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o_KnYL6ZEeSf-alPgJEFaA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_rkvigL6ZEeSf-alPgJEFaA" name="stopoverLocation" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rkx-wr6ZEeSf-alPgJEFaA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rkx-wb6ZEeSf-alPgJEFaA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_uUwMAL6ZEeSf-alPgJEFaA" name="waitingTime" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uUyBMr6ZEeSf-alPgJEFaA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uUyBMb6ZEeSf-alPgJEFaA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_tQn1gL6ZEeSf-alPgJEFaA" name="duration" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tQqRwL6ZEeSf-alPgJEFaA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tQpqsb6ZEeSf-alPgJEFaA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dVbusL6aEeSf-alPgJEFaA" name="currency" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dVeK8L6aEeSf-alPgJEFaA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dVdj4b6aEeSf-alPgJEFaA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Ve73EL6bEeSf-alPgJEFaA" name="AirlineDetails">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Y7bMEL6bEeSf-alPgJEFaA" name="airlineInfo" type="_YuIB0L6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Y7doUb6bEeSf-alPgJEFaA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y7doUL6bEeSf-alPgJEFaA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_YuOvgL6ZEeSf-alPgJEFaA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YuRy0L6ZEeSf-alPgJEFaA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_XoAylb3OEeSfH9eOgLpArw" type="Business Object Model" element="_XoAykL3OEeSfH9eOgLpArw?com.example.uc19a_providerforserviceprocess?" name="UC19A_ProviderForServiceProcess.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_YRxdAL6ZEeSf-alPgJEFaA" type="1007" element="_XoAykL3OEeSfH9eOgLpArw?com.example.uc19a_providerforserviceprocess?">
+      <children xmi:type="notation:Node" xmi:id="_YRz5QL6ZEeSf-alPgJEFaA" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_YRz5Qb6ZEeSf-alPgJEFaA" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_YR0gUL6ZEeSf-alPgJEFaA" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_YR1ucL6ZEeSf-alPgJEFaA" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_YR2VgL6ZEeSf-alPgJEFaA" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_YR28kL6ZEeSf-alPgJEFaA" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_YR3joL6ZEeSf-alPgJEFaA" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_YR4KsL6ZEeSf-alPgJEFaA" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_YR4xwL6ZEeSf-alPgJEFaA" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_YR5_4L6ZEeSf-alPgJEFaA" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_YR5_4b6ZEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_YR5_4r6ZEeSf-alPgJEFaA" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_YR5_476ZEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_YR5_5L6ZEeSf-alPgJEFaA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_YRyEEL6ZEeSf-alPgJEFaA" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_YRyEEb6ZEeSf-alPgJEFaA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YRyEEr6ZEeSf-alPgJEFaA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_YuwT8L6ZEeSf-alPgJEFaA" type="1002" element="_YuIB0L6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo?">
+      <children xmi:type="notation:Node" xmi:id="_YuxiEL6ZEeSf-alPgJEFaA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_YuywML6ZEeSf-alPgJEFaA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_YuzXQL6ZEeSf-alPgJEFaA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_Yuz-UL6ZEeSf-alPgJEFaA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_H6SbwL6aEeSf-alPgJEFaA" type="2001" element="_H6Kf8L6aEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3aserviceName?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_H6Sbwb6aEeSf-alPgJEFaA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_o_RVEL6ZEeSf-alPgJEFaA" type="2001" element="_o-8k8L6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3aprice?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_o_RVEb6ZEeSf-alPgJEFaA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_rk3eUL6ZEeSf-alPgJEFaA" type="2001" element="_rkvigL6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3astopoverLocation?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_rk3eUb6ZEeSf-alPgJEFaA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_uU4u4L6ZEeSf-alPgJEFaA" type="2001" element="_uUwMAL6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3awaitingTime?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uU4u4b6ZEeSf-alPgJEFaA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_tQvKQL6ZEeSf-alPgJEFaA" type="2001" element="_tQn1gL6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3aduration?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_tQvKQb6ZEeSf-alPgJEFaA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_dVjDcL6aEeSf-alPgJEFaA" type="2001" element="_dVbusL6aEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3acurrency?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_dVjDcb6aEeSf-alPgJEFaA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_Yuz-Ub6ZEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Yuz-Ur6ZEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Yuz-U76ZEeSf-alPgJEFaA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Yu1zgL6ZEeSf-alPgJEFaA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_Yu1zgb6ZEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Yu1zgr6ZEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Yu1zg76ZEeSf-alPgJEFaA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_YuwT8b6ZEeSf-alPgJEFaA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_YuwT8r6ZEeSf-alPgJEFaA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YuwT876ZEeSf-alPgJEFaA" x="675" y="232" height="215"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_VfX78L6bEeSf-alPgJEFaA" type="1002" element="_Ve73EL6bEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineDetails?">
+      <children xmi:type="notation:Node" xmi:id="_VfYjAL6bEeSf-alPgJEFaA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_VfZKEL6bEeSf-alPgJEFaA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_VfZKEb6bEeSf-alPgJEFaA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_VfZKEr6bEeSf-alPgJEFaA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_Y7ig0L6bEeSf-alPgJEFaA" type="2001" element="_Y7bMEL6bEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineDetails%3a%3aairlineInfo?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Y7ig0b6bEeSf-alPgJEFaA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_VfZKE76bEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_VfZKFL6bEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_VfZKFb6bEeSf-alPgJEFaA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VfZxIL6bEeSf-alPgJEFaA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_VfZxIb6bEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_VfZxIr6bEeSf-alPgJEFaA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_VfZxI76bEeSf-alPgJEFaA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_VfX78b6bEeSf-alPgJEFaA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_VfX78r6bEeSf-alPgJEFaA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VfX7876bEeSf-alPgJEFaA" x="364" y="269"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XoAylr3OEeSfH9eOgLpArw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_XoAyl73OEeSfH9eOgLpArw"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_YuYggL6ZEeSf-alPgJEFaA" displayLabel="Airline Info" base_NamedElement="_YuIB0L6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_o_KAUL6ZEeSf-alPgJEFaA" displayLabel="price" base_NamedElement="_o-8k8L6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3aprice?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rkx-wL6ZEeSf-alPgJEFaA" displayLabel="stopoverLocation" base_NamedElement="_rkvigL6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3astopoverLocation?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_tQpqsL6ZEeSf-alPgJEFaA" displayLabel="duration" base_NamedElement="_tQn1gL6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3aduration?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_uUyBML6ZEeSf-alPgJEFaA" displayLabel="waitingTime" base_NamedElement="_uUwMAL6ZEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3awaitingTime?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_H6MVIL6aEeSf-alPgJEFaA" displayLabel="serviceName" base_NamedElement="_H6Kf8L6aEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3aserviceName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dVdj4L6aEeSf-alPgJEFaA" displayLabel="currency" base_NamedElement="_dVbusL6aEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineInfo%3a%3acurrency?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Ve9FML6bEeSf-alPgJEFaA" displayLabel="Airline Details" base_NamedElement="_Ve73EL6bEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Y7dBQL6bEeSf-alPgJEFaA" displayLabel="airlineInfo" base_NamedElement="_Y7bMEL6bEeSf-alPgJEFaA?com.example.uc19a_providerforserviceprocess%3a%3aAirlineDetails%3a%3aairlineInfo?"/>
+</xmi:XMI>

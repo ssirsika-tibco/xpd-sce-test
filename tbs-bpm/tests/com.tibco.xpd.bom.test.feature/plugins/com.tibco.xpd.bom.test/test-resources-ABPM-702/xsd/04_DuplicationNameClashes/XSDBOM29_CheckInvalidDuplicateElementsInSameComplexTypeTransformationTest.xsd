@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema"
+	xmlns:tns="http://www.example.org/NewXMLSchema" elementFormDefault="qualified">
+
+	<element name="BoatElement" type="tns:Boat" />
+	<complexType name="Boat">
+		<sequence>
+			<element name="power" type="string" minOccurs="3" maxOccurs="3" />
+			<element name="hulltype" type="string" minOccurs="1"
+				maxOccurs="1" />
+			<element name="power" type="string" minOccurs="3" maxOccurs="3" />
+			<element name="testAnonComplex">
+				<complexType>
+					<sequence>
+						<element name="power" type="string" minOccurs="3"
+							maxOccurs="3" />
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+</schema>

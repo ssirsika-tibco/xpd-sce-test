@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/DataTypeRestrictions"
+	xmlns:tns="http://www.example.org/DataTypeRestrictions"
+	elementFormDefault="qualified">
+
+
+	<simpleType name="Text_XsdStringWR">
+		<restriction base="string">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="Text_XsdIdWR">
+		<restriction base="ID">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdGDayWR">
+		<restriction base="gDay">
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdGMonthWR">
+		<restriction base="gMonth">
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdGMonthDayWR">
+		<restriction base="gMonthDay">
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdGYearWR">
+		<restriction base="gYear">
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdGYearMonthWR">
+		<restriction base="gYearMonth">
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdIdRefWR">
+		<restriction base="IDREF">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdIdRefsWR">
+		<restriction base="IDREFS">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdLanguageWR">
+		<restriction base="language">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdNameWR">
+		<restriction base="Name">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdNCNameWR">
+		<restriction base="NCName">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdNMTokenWR">
+		<restriction base="NMTOKEN">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdNMTokensWR">
+		<restriction base="NMTOKENS">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdNormalizedStringWR">
+		<restriction base="normalizedString">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdQNameWR">
+		<restriction base="QName">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdEntityWR">
+		<restriction base="ENTITY">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdEntitiesWR">
+		<restriction base="ENTITIES">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdTokenWR">
+		<restriction base="token">
+			<maxLength value="30"></maxLength>
+			<pattern value="XYZ"></pattern>
+		</restriction>
+	</simpleType>
+
+	<!-- All XSD data type that map to Integer subtype signed int -->
+	<simpleType name="IntegerSignedInt_XsdByteWR1incl">
+		<restriction base="byte">
+			<minInclusive value="-127" />
+			<maxInclusive value="126" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdByteWR2excl">
+		<restriction base="byte">
+			<minExclusive value="-127" />
+			<maxExclusive value="126" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdByteWR3inclexcl">
+		<restriction base="byte">
+			<minInclusive value="-127" />
+			<maxExclusive value="126" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdByteWR4exclincl">
+		<restriction base="byte">
+			<minExclusive value="-127" />
+			<maxInclusive value="126" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdUnsignedByteWR">
+		<restriction base="unsignedByte">
+			<minInclusive value="1" />
+			<maxInclusive value="254" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdShortWR">
+		<restriction base="short">
+			<minInclusive value="-32768" />
+			<maxInclusive value="32766" />
+			<totalDigits value="20" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdUnsignedShortWR">
+		<restriction base="unsignedShort">
+			<minInclusive value="1" />
+			<maxInclusive value="65534" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdIntWR">
+		<restriction base="int">
+			<minInclusive value="-2147483647" />
+			<maxInclusive value="2147483646" />
+		</restriction>
+	</simpleType>
+
+
+	<!-- All XSD data type that map to Integer subtype fixed -->
+
+	<simpleType name="IntegerFixed_XsdIntegerWR1incl">
+		<restriction base="integer">
+			<minInclusive value="-99999" />
+			<maxInclusive value="999999" />
+			<totalDigits value="5" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdIntegerWR2excl">
+		<restriction base="integer">
+			<minExclusive value="-99999" />
+			<maxExclusive value="999999" />
+			<totalDigits value="5" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdIntegerWR3excl">
+		<restriction base="integer">
+			<minInclusive value="-99999" />
+			<maxExclusive value="999999" />
+			<totalDigits value="5" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdIntegerWR4excl">
+		<restriction base="integer">
+			<minExclusive value="-99999" />
+			<maxInclusive value="999999" />
+			<totalDigits value="5" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdLongWR">
+		<restriction base="long">
+			<minInclusive value="-9223372036854775807" />
+			<maxInclusive value="9223372036854775806" />
+			<totalDigits value="20" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdNegativeIntegerWR">
+		<restriction base="negativeInteger">
+			<minInclusive value="-9223372036854775807999999" />
+			<maxInclusive value="-2" />
+			<totalDigits value="30" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdNonNegativeIntegerWR">
+		<restriction base="nonNegativeInteger">
+			<minInclusive value="1" />
+			<maxInclusive value="9" />
+			<totalDigits value="20" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdNonPositiveIntegerWR">
+		<restriction base="nonPositiveInteger">
+			<minInclusive value="-2" />
+			<maxInclusive value="-1" />
+			<totalDigits value="20" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdPositiveIntegerWR">
+		<restriction base="positiveInteger">
+			<minInclusive value="2" />
+			<maxInclusive value="999" />
+			<totalDigits value="20" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdUnsignedIntWR">
+		<restriction base="unsignedInt">
+			<minInclusive value="1" />
+			<maxInclusive value="4294967294" />
+			<totalDigits value="20" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdUnsignedLongWR">
+		<restriction base="unsignedLong">
+			<minInclusive value="1" />
+			<maxInclusive value="18446744073709551614" />
+			<totalDigits value="20" />
+		</restriction>
+	</simpleType>
+
+	<!-- All XSD data type that map to Decimal subtype Fixed -->
+	<!-- Decimal -->
+	<simpleType name="DecimalFixed_XsdDecimalWR1incl">
+		<restriction base="decimal">
+			<minInclusive value="-12345678901234567890" />
+			<maxInclusive value="12345678901234567890" />
+			<totalDigits value="20" />
+			<fractionDigits value="5" />
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="DecimalFixed_XsdDecimalWR2excl">
+		<restriction base="decimal">
+			<minExclusive value="-12345678901234567890" />
+			<maxExclusive value="12345678901234567890" />
+			<totalDigits value="20" />
+			<fractionDigits value="5" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="DecimalFixed_XsdDecimalWR3inclexcl">
+		<restriction base="decimal">
+			<minInclusive value="-12345678901234567890" />
+			<maxExclusive value="12345678901234567890" />
+			<totalDigits value="20" />
+			<fractionDigits value="5" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="DecimalFixed_XsdDecimalWR4exclincl">
+		<restriction base="decimal">
+			<minExclusive value="-12345678901234567890" />
+			<maxInclusive value="12345678901234567890" />
+			<totalDigits value="20" />
+			<fractionDigits value="5" />
+		</restriction>
+	</simpleType>
+
+
+	<!-- All XSD data type that map to Decimal subtype Float -->
+	<!-- Float -->
+	<simpleType name="DecimalFloat_XsdFloatWR1incl">
+		<restriction base="float">
+			<minInclusive value="-1234567890.123456789" />
+			<maxInclusive value="1234567890.123456789" />
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="DecimalFloat_XsdFloatWR2excl">
+		<restriction base="float">
+			<minExclusive value="-1234567890.123456789" />
+			<maxExclusive value="1234567890.123456789" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="DecimalFloat_XsdFloatWR3inclexcl">
+		<restriction base="float">
+			<minInclusive value="-1234567890.123456789" />
+			<maxExclusive value="1234567890.123456789" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="DecimalFloat_XsdFloatWR4exclincl">
+		<restriction base="float">
+			<minExclusive value="-1234567890.123456789" />
+			<maxInclusive value="1234567890.123456789" />
+		</restriction>
+	</simpleType>
+
+
+	<!-- Double -->
+	<simpleType name="DecimalFloat_XsdDoubleWR">
+		<restriction base="double">
+			<minInclusive value="-1234567890.123456789" />
+			<maxInclusive value="1234567890.123456789" />
+		</restriction>
+	</simpleType>
+
+
+</schema>

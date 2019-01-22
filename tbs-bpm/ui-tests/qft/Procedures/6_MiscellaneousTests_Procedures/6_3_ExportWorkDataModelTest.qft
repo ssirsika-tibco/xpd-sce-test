@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.9">
+  <include>qfs.qft</include>
+  <include>../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="1) Export Work Data Model Test">
+      <comment>Procedure that ensures that the export work data model works fine as mentioned http://confluence.tibco.com/display/BPM/6.1+Export+Documentation
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Q9"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:6_MiscellaneousTestArchivedFileLocation}/6_3_WorkDataExportTestProjects.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1QH" name="Export work data model">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1QI" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-common.export.menu"
+                            event="SELECTION" id="_uu1QJ"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemWork_Data_Model_Export"
+                            event="SELECTION" id="_uu1QK"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="WorkDataModelExportWizard" id="_uu1QL"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1QM" modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="WorkDataModelExportWizard" id="_uu1QY"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/GsdProject"
+                        event="MOUSE_MPRC" id="_uu1QN" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-common.export.menu"
+                            event="SELECTION" id="_uu1QO"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemWork_Data_Model_Export"
+                            event="SELECTION" id="_uu1QP"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="WorkDataModelExportWizard" id="_uu1QQ"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1QR" modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="WorkDataModelExportWizard" id="_uu1QZ"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject"
+                        event="MOUSE_MPRC" id="_uu1QS" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-common.export.menu"
+                            event="SELECTION" id="_uu1QT"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemWork_Data_Model_Export"
+                            event="SELECTION" id="_uu1QU"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="WorkDataModelExportWizard" id="_uu1QV"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1QW" modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="WorkDataModelExportWizard" id="_uu1Qa"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Qb" name="Inspect export folders">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1Qc" modifiers="16" x="-31"
+                        y="13"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Exports"
+                        event="MOUSE_MPRC" id="_uu1Qd" modifiers="16" x="-28"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Exports/WorkDataModel"
+                        event="MOUSE_MPRC" id="_uu1Qe" modifiers="16" x="-28"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/GsdProject"
+                        event="MOUSE_MPRC" id="_uu1Qf" modifiers="16" x="-33"
+                        y="3"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/GsdProject/Exports"
+                        event="MOUSE_MPRC" id="_uu1Qg" modifiers="16" x="-24"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/GsdProject/Exports/WorkDataModel"
+                        event="MOUSE_MPRC" id="_uu1Qh" modifiers="16" x="-23"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject"
+                        event="MOUSE_MPRC" id="_uu1Qi" modifiers="16" x="-33"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Exports"
+                        event="MOUSE_MPRC" id="_uu1Qj" modifiers="16" x="-25"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Exports/WorkDataModel"
+                        event="MOUSE_MPRC" id="_uu1Qk" modifiers="16" x="-27"
+                        y="5"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1RM"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RQ"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">GsdProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RR"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - TIBCO Business Studio" height="1056"
+                id="WorkbenchWindow" name="WorkbenchWindow" uid="_uu1QA"
+                width="1936">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Window</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <ComponentStep class="Tree" classcount="2" classindex="1" height="598"
+                     id="Project_Explorer" name="Project Explorer"
+                     uid="_uu1QB" width="244" x="15" y="133">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="MenuBar"
+                     feature="Popup InvokerName: Project Explorer"
+                     height="561" id="popup-Project_Explorer"
+                     name="popup-Project Explorer" uid="_uu1QC" width="253">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">MenuBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="33" classindex="10"
+                       feature="Export" height="19"
+                       id="menu-common.export.menu"
+                       name="menu-common.export.menu" uid="_uu1QD" width="249"
+                       x="2" y="172">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Export</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="Work Data Model Export"
+                         height="19" id="menuitemWork_Data_Model_Export"
+                         uid="_uu1QE" width="297" x="2" y="87">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">116338809</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Work Data Model Export</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt"
+                feature="Work Data Model Export Wizard" height="538"
+                id="WorkDataModelExportWizard" modal="true"
+                name="WorkDataModelExportWizard" uid="_uu1QF" width="525">
+      <extrafeature name="qfs:class" negate="false" regexp="false" state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                    state="0">Dialog</extrafeature>
+      <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                    state="0">org.eclipse.swt.widgets.Shell</extrafeature>
+      <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+      <ComponentStep class="Button" classcount="2" classindex="0"
+                     feature="Finish" height="25" id="buttonFinish"
+                     name="buttonFinish" uid="_uu1QG" width="92" x="316"
+                     y="492">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>

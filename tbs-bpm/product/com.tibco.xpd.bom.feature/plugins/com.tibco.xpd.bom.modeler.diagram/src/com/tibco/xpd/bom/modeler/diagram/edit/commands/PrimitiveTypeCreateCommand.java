@@ -1,0 +1,135 @@
+/*
+ * Copyright (c) TIBCO Software Inc 2007. All rights reserved.
+ */
+package com.tibco.xpd.bom.modeler.diagram.edit.commands;
+
+import java.util.List;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
+import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.uml2.uml.Generalization;
+import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.Stereotype;
+import org.eclipse.uml2.uml.UMLFactory;
+import org.eclipse.uml2.uml.UMLPackage;
+
+import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
+import com.tibco.xpd.bom.resources.utils.UML2ModelUtil;
+import com.tibco.xpd.bom.types.PrimitivesUtil;
+import com.tibco.xpd.resources.XpdResourcesPlugin;
+
+/**
+ * @generated
+ */
+public class PrimitiveTypeCreateCommand extends CreateElementCommand {
+
+    private Stereotype stereo;
+
+    /**
+     * @generated NOT
+     */
+    public PrimitiveTypeCreateCommand(CreateElementRequest req) {
+        super(req);
+        stereo =
+                (Stereotype) req
+                        .getParameter(BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.STEREOTYPE);
+    }
+
+    /**
+     * @generated
+     */
+    protected EObject getElementToEdit() {
+        EObject container =
+                ((CreateElementRequest) getRequest()).getContainer();
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
+
+    /**
+     * @generated
+     */
+    protected EClass getEClassToEdit() {
+        return UMLPackage.eINSTANCE.getPackage();
+    }
+
+    /**
+     * @generated NOT
+     * 
+     *            Override the superclass method so that we can set the default
+     *            name of the Primitive Type
+     * 
+     * @return the new model element that has been created
+     */
+    protected EObject doDefaultElementCreation() {
+        EReference containment = getContainmentFeature();
+        EClass eClass = getElementType().getEClass();
+        EObject primTypeCreated = null;
+
+        if (containment != null) {
+            EObject element = getElementToEdit();
+
+            if (element != null) {
+
+                primTypeCreated =
+                        EMFCoreUtil.create(element, containment, eClass);
+
+                PrimitiveType pT = (PrimitiveType) primTypeCreated;
+                Package pkgParent = (Package) element;
+                String defaultName = null;
+
+                // If stereotype is already applied then it is a mandatory
+                // stereotype
+                List<Stereotype> lstStereos = pT.getAppliedStereotypes();
+                if (!lstStereos.isEmpty()) {
+                    String name = lstStereos.get(0).getLabel();
+                    defaultName =
+                            UML2ModelUtil.createUniqueElementName(pkgParent,
+                                    name);
+                } else if (stereo != null) {
+                    UML2ModelUtil.safeApplyStereotype(pT, stereo);
+                    defaultName =
+                            UML2ModelUtil.createUniqueElementName(pkgParent,
+                                    stereo.getLabel());
+                } else if (getRequest()
+                        .getParameter(BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.NAME) != null) {
+                    // If the default name parameter has been set then use it,
+                    // otherwise use default name
+                    defaultName =
+                            (String) getRequest()
+                                    .getParameter(BOMResourcesPlugin.CREATE_ELEMENT_REQUEST_PARAM.NAME);
+                } else {
+                    defaultName =
+                            UML2ModelUtil
+                                    .createUniquePrimitiveTypeName(pkgParent);
+                }
+
+                pT.setName(defaultName);
+                // Set the display label
+                PrimitivesUtil.setDisplayLabel(pT, defaultName, false);
+
+                Generalization generalization =
+                        UMLFactory.eINSTANCE.createGeneralization();
+                PrimitiveType text =
+                        PrimitivesUtil
+                                .getDefaultPrimitiveType(XpdResourcesPlugin
+                                        .getDefault().getEditingDomain()
+                                        .getResourceSet());
+                generalization.setGeneral(text);
+                pT.getGeneralizations().add(generalization);
+
+            }
+        }
+
+        return primTypeCreated;
+
+    }
+
+}

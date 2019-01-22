@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:tns="http://www.amsbqa.uc4i.com/linda01/XSDDefineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.amsbqa.uc4i.com/linda01/XSDDefineTypes">
+	<xs:complexType name="userDetailsType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="theUsersName" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="passwordDetailsType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="thePassword" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="requestName">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="requestName" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="userName">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="userName" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="password">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="password" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="correlationIdType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="correlationId" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="requestType">
+		<xs:sequence>
+			<xs:element name="requestName" type="tns:requestName"/>
+			<xs:element name="userName" type="tns:userName"/>
+			<xs:element name="password" type="tns:password"/>
+			<xs:element minOccurs="0" name="correlationId" type="tns:correlationIdType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="responseType">
+		<xs:sequence>
+			<xs:element name="userDetails" type="tns:userDetailsType"/>
+			<xs:element name="passwordDetails" type="tns:passwordDetailsType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

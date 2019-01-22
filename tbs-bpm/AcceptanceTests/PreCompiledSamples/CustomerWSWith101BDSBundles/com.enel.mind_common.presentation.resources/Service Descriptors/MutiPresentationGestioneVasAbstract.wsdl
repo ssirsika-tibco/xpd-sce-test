@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://com.enel.mind.presentation.gestionevas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MutiPresentationGestioneVasAbstract" targetNamespace="http://com.enel.mind.presentation.gestionevas" tibex:src="file:/C:/Users/egiusro/Desktop/MIGRAZIONE_AMX_BPM/RVC/MutiPresentationGestioneVasAbstract.wsdl">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://com.enel.mind.presentation.gestionevas">
+    
+          <xsd:element name="RichiestaRVCVASRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+
+
+			<xsd:element minOccurs="1" name="IdBpm" type="xsd:string">
+          	</xsd:element>		
+			<xsd:element minOccurs="0" name="IdNoVas" type="xsd:string">
+          	</xsd:element>			
+			<xsd:element minOccurs="1" name="generalinput" type="xsd:string">
+          	</xsd:element>				
+			<xsd:element minOccurs="0" name="TriplettaBW" type="xsd:string">
+          	</xsd:element>				
+		
+			
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RichiestaRVCVASResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+			<xsd:element minOccurs="1" name="IdBpm" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="1" name="IdCRM" type="xsd:string">
+          	</xsd:element>				
+			<xsd:element minOccurs="1" name="Esito" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="CodiceEsito" type="xsd:string">
+          	</xsd:element>				
+			<xsd:element minOccurs="0" name="DescrizioneEsito" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="SistemaSorgenteEsito" type="xsd:string">
+          	</xsd:element>				
+		
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+
+      <xsd:element name="EsitiAttivazioneVASRVCRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+
+			<xsd:element minOccurs="1" name="IdBpmPartner" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="1" name="PadreIdBpm" type="xsd:string">
+          	</xsd:element>		
+			<xsd:element minOccurs="1" name="IdCRM" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="1" name="Esito" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="CodiceEsito" type="xsd:string">
+          	</xsd:element>				
+			<xsd:element minOccurs="0" name="DescrizioneEsito" type="xsd:string">
+          	</xsd:element>	
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EsitiAttivazioneVASRVCResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+			
+			<xsd:element minOccurs="1" name="Esito" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="CodiceEsito" type="xsd:string">
+          	</xsd:element>				
+			<xsd:element minOccurs="0" name="DescrizioneEsito" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="SistemaSorgenteEsito" type="xsd:string">
+          	</xsd:element>					
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+
+
+	  
+      <xsd:complexType name="RichiestaType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="sistemaRichiedente" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="canale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="idRichiesta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="tipoOperazione" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="causale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="idProcessoBpm" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="commodity" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagDelibera40" type="xsd:boolean"/>
+      		<xsd:element minOccurs="0" name="Ip" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Profilo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Matricola" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="DataRichiesta" type="xsd:date"/>
+      		<xsd:element minOccurs="0" name="IdMuti" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDms" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDmsReclamo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2d" type="tns:IdentificativiR2dType">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="dataDecorrenza" type="xsd:date"/>
+      		<xsd:element minOccurs="0" name="tipoRichiesta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagComplesso" type="xsd:boolean"/>
+      		<xsd:element minOccurs="0" name="flagPreventivo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagDocumentazione" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="idCRM" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoServizio" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoOrdine" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoFiCa" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoISU" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoR2D" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoSempre" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoUDB" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2R" type="tns:IdentificativiR2rType">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="IdAttivitaCrm" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="IdentificativiR2dType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="IdDistr" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDistr2" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2d" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="IdentificativiR2rType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="IdR2R" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="EsitoType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="esito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="codiceEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="descrizione" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="tipoEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="1" name="sistemaSorgenteEsito" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RichiestaRVCVASRequest">
+    <wsdl:part element="tns:RichiestaRVCVASRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="RichiestaRVCVASResponse">
+    <wsdl:part element="tns:RichiestaRVCVASResponse" name="response"/>
+  </wsdl:message>
+  
+  
+  
+  
+  <wsdl:message name="EsitiAttivazioneVASRVCRequest">
+    <wsdl:part element="tns:EsitiAttivazioneVASRVCRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="EsitiAttivazioneVASRVCResponse">
+    <wsdl:part element="tns:EsitiAttivazioneVASRVCResponse" name="response"/>
+  </wsdl:message>
+
+
+
+  
+  <wsdl:portType name="MutiPresentationGestioneVasAbstract">
+    <wsdl:operation name="RichiestaRVCVAS">
+      <wsdl:input message="tns:RichiestaRVCVASRequest"/>
+      <wsdl:output message="tns:RichiestaRVCVASResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="EsitiAttivazioneVASRVC">
+      <wsdl:input message="tns:EsitiAttivazioneVASRVCRequest"/>
+      <wsdl:output message="tns:EsitiAttivazioneVASRVCResponse"/>
+    </wsdl:operation>
+	
+
+
+
+	
+	
+	</wsdl:portType>
+
+
+</wsdl:definitions>

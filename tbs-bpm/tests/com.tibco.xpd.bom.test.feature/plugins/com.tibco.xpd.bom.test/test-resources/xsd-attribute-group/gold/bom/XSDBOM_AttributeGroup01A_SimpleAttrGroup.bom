@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup" name="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_t-ru4U1aEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t-ru4k1aEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t-ru401aEeSLJZkJre4IDg" key="created" value="1412604875598"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t-ru5E1aEeSLJZkJre4IDg" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroupPersonDetails" name="PersonDetails">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PersonDetailsfirstname" name="firstname" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t-hW0k1aEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t-hW0U1aEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PersonDetailssurname" name="surname" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t-jzE01aEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t-jzEk1aEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PersonDetailsemail" name="email" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t-mPU01aEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t-mPUk1aEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_t-dFYU1aEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_t-dFYk1aEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_t-dscE1aEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_t-dscU1aEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_t-dsck1aEeSLJZkJre4IDg" base_Package="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup?" xsdTargetNamespace="http://www.example.org/XSDBOM_AttributeGroup01A_SimpleAttrGroup" xsdSchemaLocation="XsdAttrGroup/XSDBOM_AttributeGroup01A_SimpleAttrGroup.xsd" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.9.0.qualifier"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_t-fhoE1aEeSLJZkJre4IDg" base_Class="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroupPersonDetails?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails?" xsdName="PersonDetails" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_t-hW0E1aEeSLJZkJre4IDg" base_Property="PersonDetailsfirstname?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3afirstname?" xsdName="firstname" xsdForm="unqualified" xsdUse="optional" xsdType="string" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_t-hW001aEeSLJZkJre4IDg" textLength="-1" base_Property="PersonDetailsfirstname?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3afirstname?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_t-jzEU1aEeSLJZkJre4IDg" base_Property="PersonDetailssurname?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3asurname?" xsdName="surname" xsdForm="unqualified" xsdUse="optional" xsdType="string" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_t-jzFE1aEeSLJZkJre4IDg" textLength="-1" base_Property="PersonDetailssurname?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3asurname?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_t-mPUU1aEeSLJZkJre4IDg" base_Property="PersonDetailsemail?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3aemail?" xsdName="email" xsdForm="unqualified" xsdUse="optional" xsdType="string" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_t-m2YE1aEeSLJZkJre4IDg" textLength="-1" base_Property="PersonDetailsemail?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3aemail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-orkE1aEeSLJZkJre4IDg" base_Element="_t-mPU01aEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-orkU1aEeSLJZkJre4IDg" base_Element="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroupPersonDetails?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-orkk1aEeSLJZkJre4IDg" base_Element="_t-hW0k1aEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-ork01aEeSLJZkJre4IDg" base_Element="PersonDetailssurname?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3asurname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-orlE1aEeSLJZkJre4IDg" base_Element="_t-mPUk1aEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-orlU1aEeSLJZkJre4IDg" base_Element="_t-hW0U1aEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-pSoE1aEeSLJZkJre4IDg" base_Element="_t-jzEk1aEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-pSoU1aEeSLJZkJre4IDg" base_Element="_t-dscE1aEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-pSok1aEeSLJZkJre4IDg" base_Element="PersonDetailsemail?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3aemail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-pSo01aEeSLJZkJre4IDg" base_Element="_t-jzE01aEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-pSpE1aEeSLJZkJre4IDg" base_Element="PersonDetailsfirstname?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3afirstname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_t-pSpU1aEeSLJZkJre4IDg" base_Element="_t-dFYU1aEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_t-p5sE1aEeSLJZkJre4IDg" displayLabel="PersonDetails" base_NamedElement="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroupPersonDetails?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_t-qgwE1aEeSLJZkJre4IDg" displayLabel="email" base_NamedElement="PersonDetailsemail?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3aemail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_t-rH0E1aEeSLJZkJre4IDg" displayLabel="firstname" base_NamedElement="PersonDetailsfirstname?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3afirstname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_t-ru4E1aEeSLJZkJre4IDg" displayLabel="surname" base_NamedElement="PersonDetailssurname?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup%3a%3aPersonDetails%3a%3asurname?"/>
+  <notation:Diagram xmi:id="_t-sV8E1aEeSLJZkJre4IDg" type="Business Object Model" element="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup?org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup?" name="org.example.XSDBOM_AttributeGroup01A_SimpleAttrGroup" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_t-sV8U1aEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_t-sV8k1aEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,153 @@
+import xpdl2;
+import xpdExtension;
+import wsdl;
+
+String traceMe(String className):	
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.traceMe(java.lang.String);
+	
+String getClassName(Object obj) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getClassName(java.lang.Object);
+	
+PortType createPortTypeExt(Object qname) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createPortType(java.lang.Object);
+	
+Types createTypesExt(Object definitionObj) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createTypes(java.lang.Object);
+	
+createExtensibilityElementExt(Object definition, Object portType, String elementName, String attrib, String val) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createExtensibilityElement(java.lang.Object, java.lang.Object, java.lang.String, java.lang.String, java.lang.String);
+	
+Operation createOperationExt(Object portType, Object actOrMethod) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createOperation(java.lang.Object, java.lang.Object);
+	
+Param createInputExt(Object definition, Object operation, String procIfcName):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createInput(java.lang.Object, java.lang.Object, java.lang.String);
+	
+Param createOutputExt(Object definition, Object operation, Object formalParamsContainer, Object actOrMethod):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createOutput(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object);
+
+boolean isStartMessageWithReplyImmediate(Object activity) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isStartMessageWithReplyImmediate(java.lang.Object);
+	
+Part createReplyImmediatelyPart(Object definition, Object msg, Object procOrProcIfc, String bindingType):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createReplyImmediatelyPart(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.String);
+		
+Part createPartExt(Object definition, Object msg, String name, Object mode, Object dataType, Object procOrProcIfc, String bindingType):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createPart(java.lang.Object, java.lang.Object, java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.String);
+	
+Definition getRootElement() :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getRootElement();
+
+String getAttribId(Object el):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getAttribId(java.lang.Object);
+	
+setPortTypeQnameExt(Object portType, Object qName) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.setPortTypeQName(java.lang.Object, java.lang.Object);
+	
+addSchemaToTypesExt(Object definitionObj, List xsdList) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.addSchemaToTypes(java.lang.Object, java.util.List);
+	
+boolean isPageFlowProcessExt(Object proc) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isPageFlowProcess(java.lang.Object);
+	
+updateParts(Object definitionObj, Object bomModel) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.updateParts(java.lang.Object, java.lang.Object);
+	
+cleanupInlinedSchemas(Object definitionObj, Object xpdlObj) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.cleanupInlinedSchemas(java.lang.Object, java.lang.Object);
+	
+boolean isImplementedActivityExt(Object activityObj):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isImplementedActivity(java.lang.Object);
+	
+InterfaceMethod getImplementedMethodExt(Object activityObj) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getImplementedMethod(java.lang.Object);
+	
+ProcessInterface getImplementedProcesInterfaceExt(Object processObj) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getImplementedProcesInterface(java.lang.Object);
+	
+wsdl::Message createFaultMsg(Object qn):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createFaultMsg(java.lang.Object);
+	
+boolean _isFaultMsgAlreadyExists(Object definition, Object faultMsg) :	
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper._isFaultMsgAlreadyExists(java.lang.Object, java.lang.Object);
+	
+Object getProcFlowAnalyser(Object proc) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getProcFlowAnalyser(java.lang.Object);
+
+Object _getActivityContainerExt(Object activity) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper._getActivityContainer(java.lang.Object);
+	
+List[Activity] getUpstreamRequestActivities(Object endActivity, Object procFlowAnalyser) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getUpstreamRequestActivities(java.lang.Object, java.lang.Object) ;
+	
+boolean doesHaveReplyActivities(Object activity) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.doesHaveReplyActivities(java.lang.Object) ;
+
+wsdl::Fault createFault() :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createFault() ;
+
+setupProcFlowAnalysers(Object flowContainer) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.setupProcFlowAnalysers(java.lang.Object) ;
+
+doesProcessContainReqdExtAttrExt(Object processObj) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.doesProcessContainReqdExtAttr(java.lang.Object) ;
+	
+isWsdlGenEnabledForProcessInterface(Object processInterface) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isWsdlGenEnabledForProcessInterface(java.lang.Object) ;
+	
+String getProcessInfoIdentifier(Object extensibleElement, Object elementName) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getProcessInfoIdentifier(java.lang.Object, java.lang.Object) ;
+	
+String removeSchemas(Object definition, List namespaces) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.removeSchemas(java.lang.Object, java.util.List) ;
+	
+setOperationName(Object portType, Object operation, Object namedElement) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.setOperationName(java.lang.Object, java.lang.Object, java.lang.Object) ;
+	
+boolean isWebService(Object rcvTask) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isWebService(java.lang.Object) ;
+
+boolean isGeneratedRequestActivity(Object activity) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isGeneratedRequestActivity(java.lang.Object) ;	
+	
+boolean isDestinationFavouredForProcess(Object process) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isDestinationFavouredForProcess(java.lang.Object) ;
+
+boolean isDestinationFavouredForProcessInterface(Object process) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isDestinationFavouredForProcessInterface(java.lang.Object) ;
+	
+String getInternalName(String name) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getInternalName(java.lang.String) ;
+	
+List[Activity] getErrorEventsForActivity(Object activity) : 
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getErrorEventsForActivity(java.lang.Object) ;
+	
+updateDefinitionQName(Object definition, Object xpdlModel) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.updateDefinitionName(java.lang.Object, java.lang.Object) ;	
+	
+updateFaultMessageQName(Object faultMessage, Object qName) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.updateFaultMessageQName(java.lang.Object, java.lang.Object) ;
+	
+createDescription(Object definitionObject, Object wsdlObject, Object procDescObj):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.createDescription(java.lang.Object, java.lang.Object, java.lang.Object) ;
+	
+updatePortTypeDescription(Object wsdlObject, Object procDescObj):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.updatePortTypeDescription(java.lang.Object, java.lang.Object) ;
+	
+boolean isSendOneWayActivity(Object activityObject) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isSendOneWayActivity(java.lang.Object) ;
+	
+String getBindingType(Object procOrProcIfc) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getBindingType(java.lang.Object) ;	
+	
+boolean isImplicitAssociationDisabled(Object activityOrMethod) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.isImplicitAssociationDisabled(java.lang.Object);
+
+List[FormalParameter] getAllFormalParameters(Object formalParametersContainer) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getAllFormalParameters(java.lang.Object);
+	
+List[DataField] getDataFieldsInScope(Object activity) :
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper.getDataFieldsInScope(java.lang.Object);
+
+String _prefixWithUnderscoreIfStartsWithDigit(String name):
+	JAVA com.tibco.xpd.wsdlgen.transform.template.TransformHelper._prefixWithUnderscoreIfStartsWithDigit(java.lang.String) ;

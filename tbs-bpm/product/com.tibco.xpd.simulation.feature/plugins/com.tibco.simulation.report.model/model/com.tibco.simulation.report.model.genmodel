@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="TIBCO Software Inc."
+    modelDirectory="/com.tibco.simulation.report.model/src" modelPluginID="com.tibco.simulation.report.model"
+    templateDirectory="" modelName="SimulationReport" nonNLSMarkers="true" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0">
+  <foreignModel>com.tibco.simulation.report.model.ecore</foreignModel>
+  <genPackages prefix="SimRep" basePackage="com.tibco.simulation" resource="XML" disposableProviderFactory="true"
+      ecorePackage="com.tibco.simulation.report.model.ecore#/">
+    <genEnums ecoreEnum="com.tibco.simulation.report.model.ecore#//SimRepDistributionCategory">
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepDistributionCategory/REAL_CONSTANT"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepDistributionCategory/REAL_UNIFORM"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepDistributionCategory/REAL_NORMAL"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepDistributionCategory/REAL_EXPONENTIAL"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepDistributionCategory/PARAMETER_BASED"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepDistributionCategory/EMPIRICAL"/>
+    </genEnums>
+    <genEnums ecoreEnum="com.tibco.simulation.report.model.ecore#//SimRepExperimentState">
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepExperimentState/NOT_STARTED"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepExperimentState/RUNNING"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepExperimentState/PAUSED"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepExperimentState/FINISHED"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepExperimentState/ABORTED"/>
+    </genEnums>
+    <genEnums ecoreEnum="com.tibco.simulation.report.model.ecore#//SimRepQueueOrder">
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepQueueOrder/FIFO"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepQueueOrder/LIFO"/>
+    </genEnums>
+    <genEnums ecoreEnum="com.tibco.simulation.report.model.ecore#//SimRepReferenceTimeUnit">
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepReferenceTimeUnit/SECOND"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepReferenceTimeUnit/MINUTE"/>
+      <genEnumLiterals ecoreEnumLiteral="com.tibco.simulation.report.model.ecore#//SimRepReferenceTimeUnit/HOUR"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="com.tibco.simulation.report.model.ecore#//SimRepDistributionCategoryObject"/>
+    <genDataTypes ecoreDataType="com.tibco.simulation.report.model.ecore#//SimRepExperimentStateObject"/>
+    <genDataTypes ecoreDataType="com.tibco.simulation.report.model.ecore#//SimRepQueueOrderObject"/>
+    <genDataTypes ecoreDataType="com.tibco.simulation.report.model.ecore#//SimRepReferenceTimeUnitObject"/>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepActivities">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepActivities/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepActivityQueue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivityQueue/queueOrder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivityQueue/observedCases"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivityQueue/currentSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivityQueue/maxSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivityQueue/averageSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivityQueue/averageWait"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepActivity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepActivity/durationDistribution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepActivity/activityQueue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepActivity/activityCost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivity/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivity/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepActivity/averageDuration"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepCases">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepCases/caseStartIntervalDistribution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCases/startedCases"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCases/finishedCases"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCases/averageCaseTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCases/minCaseTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCases/maxCaseTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepCases/caseCost"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepCost">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCost/averageCost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCost/minCost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCost/maxCost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepCost/cumulativeAverageCost"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepDistribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepDistribution/lastResetTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepDistribution/observedElements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepDistribution/distributionCategory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepDistribution/parameter1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepDistribution/parameter2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepDistribution/seed"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//DocumentRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//DocumentRoot/experiment"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepExperimentData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperimentData/experimentState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperimentData/simulationTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperimentData/referenceTimeUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperimentData/referenceStartTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperimentData/realTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperimentData/referenceCostUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepExperiment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepExperiment/experimentData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepExperiment/cases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepExperiment/participants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepExperiment/activities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperiment/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperiment/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperiment/packageId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperiment/processId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperiment/processName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepExperiment/packageName"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepParticipants">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepParticipants/participant"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.simulation.report.model.ecore#//SimRepParticipant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepParticipant/noOfInstances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepParticipant/idleInstances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepParticipant/averageIdle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepParticipant/averageIdleTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepParticipant/averageBusyTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.simulation.report.model.ecore#//SimRepParticipant/costOfWorkForCase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepParticipant/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.simulation.report.model.ecore#//SimRepParticipant/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

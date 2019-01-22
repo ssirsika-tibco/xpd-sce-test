@@ -1,0 +1,26 @@
+DocumentRoot in Extension schema is not normally created as an element when XpdExtension.genmodel is Export Mode -> XML Schema.
+
+This is because it has no MetaData->name attribute value.
+
+If it does not have one then it is not output to schema.
+
+However IF you have one then it blows the model away at runtime.
+
+So to get it included in schema (along with the child elements and their comments...
+
+- TEMPORARILY Set the metadata->name attribute of DocumentRoot to "DocumentRoot" in the ecore file.
+
+- Right click .genmodel, Export Model...,  XML Schema.
+
+== The xsd will have documentRoot elemnet with all the potential top level children that 
+  can be added to XPDL elements
+
+- NOW revert the .ecore file.
+  
+Note : There is one other issue in some naming of elements in ecore which causes issues  
+  You must manually edit the produced schema to remove the invalid ":" from the name of the following entries.
+    -   <xsd:attribute ecore:name="xMLNSPrefixMap" ecore:reference="ecore:EStringToStringMapEntry" ecore:transient="true" name="xmlns:prefix" type="xsd:IDREFS"/>
+    -   <xsd:attribute ecore:name="xSISchemaLocation" ecore:reference="ecore:EStringToStringMapEntry" ecore:transient="true" name="xsi:schemaLocation" type="xsd:IDREFS"/>
+  
+Cheers
+Sid

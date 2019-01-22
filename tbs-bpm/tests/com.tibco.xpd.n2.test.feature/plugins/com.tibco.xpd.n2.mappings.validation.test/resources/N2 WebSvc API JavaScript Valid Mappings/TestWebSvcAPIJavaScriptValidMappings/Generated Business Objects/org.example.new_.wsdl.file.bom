@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.new_.wsdl.file2" name="org.example.new_.wsdl.file">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PlV3sJ44Ed-FEqK5UGTaIg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PlV3sZ44Ed-FEqK5UGTaIg" key="author" value="aallway"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PlV3sp44Ed-FEqK5UGTaIg" key="created" value="1280758624555"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.new_.wsdl.file_InParamsType" name="InParamsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_requiredStringIn" name="requiredStringIn">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PekhU544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PekhUp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_optionalStringIn" name="optionalStringIn">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Peqn8544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Peqn8p44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_requiredIntSeqIn" name="requiredIntSeqIn">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pewuk544Ed-FEqK5UGTaIg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pewukp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_optionalDateSeqIn" name="optionalDateSeqIn">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pe21Mp44Ed-FEqK5UGTaIg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pe21MZ44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_requiredChildIn" name="requiredChildIn" type="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" aggregation="composite" association="org.example.new_.wsdl.file_Composition1?org.example.new_.wsdl.file%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PgYfMJ44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PgSYkp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_optionalChildIn" name="optionalChildIn" type="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" aggregation="composite" association="org.example.new_.wsdl.file_Composition2?org.example.new_.wsdl.file%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pgel0544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pgel0p44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_optionalChildArray" name="optionalChildArray" type="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" aggregation="composite" association="org.example.new_.wsdl.file_Composition3?org.example.new_.wsdl.file%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PhDNk544Ed-FEqK5UGTaIg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PhDNkp44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_requiredSingleChoiceA" name="requiredSingleChoiceA">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PhPa0544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PhPa0p44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_requiredSingleChoiceB" name="requiredSingleChoiceB">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PhVhc544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PhVhcp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_optionalSingleChoiceA" name="optionalSingleChoiceA">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Phhus544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Phhusp44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_optionalSingleChoiceB" name="optionalSingleChoiceB">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Phn1U544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Phn1Up44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InParamsType_simpleStringArrayMin2Max3" name="simpleStringArrayMin2Max3">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pht78544Ed-FEqK5UGTaIg" value="3"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pht78p44Ed-FEqK5UGTaIg" value="2"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.new_.wsdl.file_ChildType" name="ChildType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChildType_requiredChildAttribute" name="requiredChildAttribute">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pe871J44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pe870544Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChildType_optionalChildAttribute" name="optionalChildAttribute">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PfJJE544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PfJJEp44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChildType_requiredChildString" name="requiredChildString">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PfPPs544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PfPPsp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChildType_optionalChildString" name="optionalChildString">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PfVWU544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PfVWUp44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChildType_simpleTypeWithAttr" name="simpleTypeWithAttr" type="org.example.new_.wsdl.file_simpleTypeWithAttrType?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType?" aggregation="composite" association="org.example.new_.wsdl.file_Composition0?org.example.new_.wsdl.file%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pf5-E544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pf5-Ep44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChildType_min0Max2" name="min0Max2">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PgAEs544Ed-FEqK5UGTaIg" value="2"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PgAEsp44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.new_.wsdl.file_simpleTypeWithAttrType" name="SimpleTypeWithAttrType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="simpleTypeWithAttrType_requiredAttribute" name="requiredAttribute">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pfhjk544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pfhjkp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="simpleTypeWithAttrType_optionalAttribute" name="optionalAttribute">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PfnqM544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PfnqMp44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="simpleTypeWithAttrType_value" name="value">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pftw0544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pftw0p44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.new_.wsdl.file_Composition0" name="Composition0" memberEnd="ChildType_simpleTypeWithAttr?org.example.new_.wsdl.file%3a%3aChildType%3a%3asimpleTypeWithAttr? Composition0_ChildType?org.example.new_.wsdl.file%3a%3aComposition0%3a%3aChildType?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0_ChildType" name="ChildType" type="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" association="org.example.new_.wsdl.file_Composition0?org.example.new_.wsdl.file%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pf5-Fp44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pf5-FZ44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.new_.wsdl.file_Composition1" name="Composition1" memberEnd="InParamsType_requiredChildIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredChildIn? Composition1_InParamsType?org.example.new_.wsdl.file%3a%3aComposition1%3a%3aInParamsType?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1_InParamsType" name="InParamsType" type="org.example.new_.wsdl.file_InParamsType?org.example.new_.wsdl.file%3a%3aInParamsType?" association="org.example.new_.wsdl.file_Composition1?org.example.new_.wsdl.file%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PgYfM544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PgYfMp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.new_.wsdl.file_Composition2" name="Composition2" memberEnd="InParamsType_optionalChildIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalChildIn? Composition2_InParamsType?org.example.new_.wsdl.file%3a%3aComposition2%3a%3aInParamsType?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition2_InParamsType" name="InParamsType" type="org.example.new_.wsdl.file_InParamsType?org.example.new_.wsdl.file%3a%3aInParamsType?" association="org.example.new_.wsdl.file_Composition2?org.example.new_.wsdl.file%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pgel1p44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pgel1Z44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.new_.wsdl.file_Composition3" name="Composition3" memberEnd="InParamsType_optionalChildArray?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalChildArray? Composition3_InParamsType?org.example.new_.wsdl.file%3a%3aComposition3%3a%3aInParamsType?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition3_InParamsType" name="InParamsType" type="org.example.new_.wsdl.file_InParamsType?org.example.new_.wsdl.file%3a%3aInParamsType?" association="org.example.new_.wsdl.file_Composition3?org.example.new_.wsdl.file%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PhDNlp44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PhDNlZ44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.new_.wsdl.file_OutParamsType" name="OutParamsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="OutParamsType_requiredStringOut" name="requiredStringOut">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PiMdE544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PiMdEp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="OutParamsType_optionalStringOut" name="optionalStringOut">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Piew8Z44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Piew8J44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="OutParamsType_requiredIntSeqOut" name="requiredIntSeqOut">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pik3k544Ed-FEqK5UGTaIg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pik3kp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="OutParamsType_optionalDateSeqOut" name="optionalDateSeqOut">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Piq-Mp44Ed-FEqK5UGTaIg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Piq-MZ44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="OutParamsType_requiredChildOut" name="requiredChildOut" type="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" aggregation="composite" association="org.example.new_.wsdl.file_Composition4?org.example.new_.wsdl.file%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pi9SE544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pi9SEp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="OutParamsType_optionalChildOut" name="optionalChildOut" type="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" aggregation="composite" association="org.example.new_.wsdl.file_Composition5?org.example.new_.wsdl.file%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PjDYs544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PjDYsp44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.new_.wsdl.file_Composition4" name="Composition4" memberEnd="OutParamsType_requiredChildOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredChildOut? Composition4_OutParamsType?org.example.new_.wsdl.file%3a%3aComposition4%3a%3aOutParamsType?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition4_OutParamsType" name="OutParamsType" type="org.example.new_.wsdl.file_OutParamsType?org.example.new_.wsdl.file%3a%3aOutParamsType?" association="org.example.new_.wsdl.file_Composition4?org.example.new_.wsdl.file%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pi9SFp44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pi9SFZ44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.new_.wsdl.file_Composition5" name="Composition5" memberEnd="OutParamsType_optionalChildOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3aoptionalChildOut? Composition5_OutParamsType?org.example.new_.wsdl.file%3a%3aComposition5%3a%3aOutParamsType?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition5_OutParamsType" name="OutParamsType" type="org.example.new_.wsdl.file_OutParamsType?org.example.new_.wsdl.file%3a%3aOutParamsType?" association="org.example.new_.wsdl.file_Composition5?org.example.new_.wsdl.file%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PjDYtp44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PjDYtZ44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.new_.wsdl.file_FaultParamsType" name="FaultParamsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FaultParamsType_requiredStringFault" name="requiredStringFault">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PjbzMZ44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PjbzMJ44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FaultParamsType_optionalStringFault" name="optionalStringFault">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pjh50544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pjh50p44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FaultParamsType_requiredIntSeqFault" name="requiredIntSeqFault">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pj0Ns544Ed-FEqK5UGTaIg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pj0Nsp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FaultParamsType_optionalDateSeqFault" name="optionalDateSeqFault">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pj6UUp44Ed-FEqK5UGTaIg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pj6UUZ44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FaultParamsType_requiredChildFault" name="requiredChildFault" type="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" aggregation="composite" association="org.example.new_.wsdl.file_Composition6?org.example.new_.wsdl.file%3a%3aComposition6?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PkMoM544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PkMoMp44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FaultParamsType_optionalChildFault" name="optionalChildFault" type="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" aggregation="composite" association="org.example.new_.wsdl.file_Composition7?org.example.new_.wsdl.file%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pke8E544Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pke8Ep44Ed-FEqK5UGTaIg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.new_.wsdl.file_Composition6" name="Composition6" memberEnd="FaultParamsType_requiredChildFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredChildFault? Composition6_FaultParamsType?org.example.new_.wsdl.file%3a%3aComposition6%3a%3aFaultParamsType?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition6_FaultParamsType" name="FaultParamsType" type="org.example.new_.wsdl.file_FaultParamsType?org.example.new_.wsdl.file%3a%3aFaultParamsType?" association="org.example.new_.wsdl.file_Composition6?org.example.new_.wsdl.file%3a%3aComposition6?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PkMoNp44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PkMoNZ44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.new_.wsdl.file_Composition7" name="Composition7" memberEnd="FaultParamsType_optionalChildFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3aoptionalChildFault? Composition7_FaultParamsType?org.example.new_.wsdl.file%3a%3aComposition7%3a%3aFaultParamsType?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition7_FaultParamsType" name="FaultParamsType" type="org.example.new_.wsdl.file_FaultParamsType?org.example.new_.wsdl.file%3a%3aFaultParamsType?" association="org.example.new_.wsdl.file_Composition7?org.example.new_.wsdl.file%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pke8Fp44Ed-FEqK5UGTaIg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pke8FZ44Ed-FEqK5UGTaIg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.new_.wsdl.file_NewWSDLFile" name="NewWSDLFile">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="NewWSDLFile_NewOperation" name="NewOperation">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="NewOperation_inParameters" name="inParameters" type="org.example.new_.wsdl.file_InParamsType?org.example.new_.wsdl.file%3a%3aInParamsType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="NewOperation_outParameters" name="outParameters" type="org.example.new_.wsdl.file_OutParamsType?org.example.new_.wsdl.file%3a%3aOutParamsType?" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PeYUEZ44Ed-FEqK5UGTaIg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PeYUEp44Ed-FEqK5UGTaIg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PeYUE544Ed-FEqK5UGTaIg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PeYUFJ44Ed-FEqK5UGTaIg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_PeYUFZ44Ed-FEqK5UGTaIg" base_Package="org.example.new_.wsdl.file2?org.example.new_.wsdl.file?" xsdTargetNamespace="http://www.example.org/NewWSDLFile/" xsdSchemaLocation="C:\src\Studio_Source\Workspaces\v342\TestWebSvcAPIJavaScriptValidMappings\Service Descriptors\NewWSDLFile.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PeeasZ44Ed-FEqK5UGTaIg" base_Class="org.example.new_.wsdl.file_InParamsType?org.example.new_.wsdl.file%3a%3aInParamsType?" xsdName="InParamsType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdExplicitGroupTree="S,|,C,-,C,~"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PekhUZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="InParamsType_requiredStringIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredStringIn?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PekhVJ44Ed-FEqK5UGTaIg" base_Property="InParamsType_requiredStringIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredStringIn?" xsdName="requiredStringIn" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=1"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Peqn8Z44Ed-FEqK5UGTaIg" textLength="-1" base_Property="InParamsType_optionalStringIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalStringIn?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Peqn9J44Ed-FEqK5UGTaIg" base_Property="InParamsType_optionalStringIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalStringIn?" xsdName="optionalStringIn" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=2"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PewukZ44Ed-FEqK5UGTaIg" integerLength="-1" base_Property="InParamsType_requiredIntSeqIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredIntSeqIn?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PewulJ44Ed-FEqK5UGTaIg" base_Property="InParamsType_requiredIntSeqIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredIntSeqIn?" xsdName="requiredIntSeqIn" xsdForm="unqualified" xsdType="xsd:int" xsdExplicitGroupTree="S,=3"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PewulZ44Ed-FEqK5UGTaIg" base_Property="InParamsType_requiredIntSeqIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredIntSeqIn?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pe21M544Ed-FEqK5UGTaIg" base_Property="InParamsType_optionalDateSeqIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalDateSeqIn?" xsdName="optionalDateSeqIn" xsdForm="unqualified" xsdType="xsd:dateTime" xsdExplicitGroupTree="S,=4"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Pe870Z44Ed-FEqK5UGTaIg" base_Class="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?" xsdName="ChildType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdExplicitGroupTree="~"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pe871Z44Ed-FEqK5UGTaIg" base_Property="ChildType_requiredChildAttribute?org.example.new_.wsdl.file%3a%3aChildType%3a%3arequiredChildAttribute?" xsdName="requiredChildAttribute" xsdForm="unqualified" xsdUse="required" xsdType="xsd:boolean" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PfJJEZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="ChildType_optionalChildAttribute?org.example.new_.wsdl.file%3a%3aChildType%3a%3aoptionalChildAttribute?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PfJJFJ44Ed-FEqK5UGTaIg" base_Property="ChildType_optionalChildAttribute?org.example.new_.wsdl.file%3a%3aChildType%3a%3aoptionalChildAttribute?" xsdName="optionalChildAttribute" xsdForm="unqualified" xsdUse="optional" xsdType="xsd:string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PfPPsZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="ChildType_requiredChildString?org.example.new_.wsdl.file%3a%3aChildType%3a%3arequiredChildString?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PfPPtJ44Ed-FEqK5UGTaIg" base_Property="ChildType_requiredChildString?org.example.new_.wsdl.file%3a%3aChildType%3a%3arequiredChildString?" xsdName="requiredChildString" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=1"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PfVWUZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="ChildType_optionalChildString?org.example.new_.wsdl.file%3a%3aChildType%3a%3aoptionalChildString?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PfVWVJ44Ed-FEqK5UGTaIg" base_Property="ChildType_optionalChildString?org.example.new_.wsdl.file%3a%3aChildType%3a%3aoptionalChildString?" xsdName="optionalChildString" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=2"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Pfbc8Z44Ed-FEqK5UGTaIg" base_Class="org.example.new_.wsdl.file_simpleTypeWithAttrType?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType?" xsdName="simpleTypeWithAttrType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PfhjkZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="simpleTypeWithAttrType_requiredAttribute?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3arequiredAttribute?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PfhjlJ44Ed-FEqK5UGTaIg" base_Property="simpleTypeWithAttrType_requiredAttribute?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3arequiredAttribute?" xsdName="requiredAttribute" xsdForm="unqualified" xsdUse="required" xsdType="xsd:string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PfnqMZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="simpleTypeWithAttrType_optionalAttribute?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3aoptionalAttribute?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PfnqNJ44Ed-FEqK5UGTaIg" base_Property="simpleTypeWithAttrType_optionalAttribute?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3aoptionalAttribute?" xsdName="optionalAttribute" xsdForm="unqualified" xsdUse="optional" xsdType="xsd:string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Pftw0Z44Ed-FEqK5UGTaIg" textLength="-1" base_Property="simpleTypeWithAttrType_value?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pftw1J44Ed-FEqK5UGTaIg" base_Property="simpleTypeWithAttrType_value?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3avalue?" xsdName="value" xsdType="xsd:string" xsdIsSimpleContentExtension="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pf5-F544Ed-FEqK5UGTaIg" base_Property="ChildType_simpleTypeWithAttr?org.example.new_.wsdl.file%3a%3aChildType%3a%3asimpleTypeWithAttr?" xsdName="simpleTypeWithAttr" xsdForm="unqualified" xsdType="simpleTypeWithAttrType" xsdExplicitGroupTree="S,=3"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PgAEsZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="ChildType_min0Max2?org.example.new_.wsdl.file%3a%3aChildType%3a%3amin0Max2?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PgAEtJ44Ed-FEqK5UGTaIg" base_Property="ChildType_min0Max2?org.example.new_.wsdl.file%3a%3aChildType%3a%3amin0Max2?" xsdName="min0Max2" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=4"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PgYfNJ44Ed-FEqK5UGTaIg" base_Property="InParamsType_requiredChildIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredChildIn?" xsdName="requiredChildIn" xsdForm="unqualified" xsdType="ChildType" xsdExplicitGroupTree="S,=5"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pgel1544Ed-FEqK5UGTaIg" base_Property="InParamsType_optionalChildIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalChildIn?" xsdName="optionalChildIn" xsdForm="unqualified" xsdType="ChildType" xsdExplicitGroupTree="S,=6"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PhDNl544Ed-FEqK5UGTaIg" base_Property="InParamsType_optionalChildArray?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalChildArray?" xsdName="optionalChildArray" xsdForm="unqualified" xsdType="ChildType" xsdExplicitGroupTree="S,=7"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PhPa0Z44Ed-FEqK5UGTaIg" textLength="-1" base_Property="InParamsType_requiredSingleChoiceA?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredSingleChoiceA?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PhPa1J44Ed-FEqK5UGTaIg" base_Property="InParamsType_requiredSingleChoiceA?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredSingleChoiceA?" xsdName="requiredSingleChoiceA" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,|,C,=1"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PhVhcZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="InParamsType_requiredSingleChoiceB?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredSingleChoiceB?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PhVhdJ44Ed-FEqK5UGTaIg" base_Property="InParamsType_requiredSingleChoiceB?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredSingleChoiceB?" xsdName="requiredSingleChoiceB" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,|,C,=2"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PhhusZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="InParamsType_optionalSingleChoiceA?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalSingleChoiceA?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PhhutJ44Ed-FEqK5UGTaIg" base_Property="InParamsType_optionalSingleChoiceA?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalSingleChoiceA?" xsdName="optionalSingleChoiceA" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,|,C,-,C,=1"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Phn1UZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="InParamsType_optionalSingleChoiceB?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalSingleChoiceB?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Phn1VJ44Ed-FEqK5UGTaIg" base_Property="InParamsType_optionalSingleChoiceB?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalSingleChoiceB?" xsdName="optionalSingleChoiceB" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,|,C,-,C,=2"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Pht78Z44Ed-FEqK5UGTaIg" textLength="-1" base_Property="InParamsType_simpleStringArrayMin2Max3?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3asimpleStringArrayMin2Max3?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pht79J44Ed-FEqK5UGTaIg" base_Property="InParamsType_simpleStringArrayMin2Max3?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3asimpleStringArrayMin2Max3?" xsdName="simpleStringArrayMin2Max3" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=10"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Ph6JMZ44Ed-FEqK5UGTaIg" base_Class="org.example.new_.wsdl.file_OutParamsType?org.example.new_.wsdl.file%3a%3aOutParamsType?" xsdName="OutParamsType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdExplicitGroupTree="~"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PiMdEZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="OutParamsType_requiredStringOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredStringOut?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PiMdFJ44Ed-FEqK5UGTaIg" base_Property="OutParamsType_requiredStringOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredStringOut?" xsdName="requiredStringOut" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=1"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PiYqUZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="OutParamsType_optionalStringOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3aoptionalStringOut?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Piew8p44Ed-FEqK5UGTaIg" base_Property="OutParamsType_optionalStringOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3aoptionalStringOut?" xsdName="optionalStringOut" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=2"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Pik3kZ44Ed-FEqK5UGTaIg" integerLength="-1" base_Property="OutParamsType_requiredIntSeqOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredIntSeqOut?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pik3lJ44Ed-FEqK5UGTaIg" base_Property="OutParamsType_requiredIntSeqOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredIntSeqOut?" xsdName="requiredIntSeqOut" xsdForm="unqualified" xsdType="xsd:int" xsdExplicitGroupTree="S,=3"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Pik3lZ44Ed-FEqK5UGTaIg" base_Property="OutParamsType_requiredIntSeqOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredIntSeqOut?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Piq-M544Ed-FEqK5UGTaIg" base_Property="OutParamsType_optionalDateSeqOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3aoptionalDateSeqOut?" xsdName="optionalDateSeqOut" xsdForm="unqualified" xsdType="xsd:dateTime" xsdExplicitGroupTree="S,=4"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pi9SF544Ed-FEqK5UGTaIg" base_Property="OutParamsType_requiredChildOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredChildOut?" xsdName="requiredChildOut" xsdForm="unqualified" xsdType="ChildType" xsdExplicitGroupTree="S,=5"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PjJfUJ44Ed-FEqK5UGTaIg" base_Property="OutParamsType_optionalChildOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3aoptionalChildOut?" xsdName="optionalChildOut" xsdForm="unqualified" xsdType="ChildType" xsdExplicitGroupTree="S,=6"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PjPl8Z44Ed-FEqK5UGTaIg" base_Class="org.example.new_.wsdl.file_FaultParamsType?org.example.new_.wsdl.file%3a%3aFaultParamsType?" xsdName="FaultParamsType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdExplicitGroupTree="~"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PjVskZ44Ed-FEqK5UGTaIg" textLength="-1" base_Property="FaultParamsType_requiredStringFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredStringFault?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PjbzMp44Ed-FEqK5UGTaIg" base_Property="FaultParamsType_requiredStringFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredStringFault?" xsdName="requiredStringFault" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=1"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Pjh50Z44Ed-FEqK5UGTaIg" textLength="-1" base_Property="FaultParamsType_optionalStringFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3aoptionalStringFault?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pjh51J44Ed-FEqK5UGTaIg" base_Property="FaultParamsType_optionalStringFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3aoptionalStringFault?" xsdName="optionalStringFault" xsdForm="unqualified" xsdType="xsd:string" xsdExplicitGroupTree="S,=2"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Pj0NsZ44Ed-FEqK5UGTaIg" integerLength="-1" base_Property="FaultParamsType_requiredIntSeqFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredIntSeqFault?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pj0NtJ44Ed-FEqK5UGTaIg" base_Property="FaultParamsType_requiredIntSeqFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredIntSeqFault?" xsdName="requiredIntSeqFault" xsdForm="unqualified" xsdType="xsd:int" xsdExplicitGroupTree="S,=3"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_Pj0NtZ44Ed-FEqK5UGTaIg" base_Property="FaultParamsType_requiredIntSeqFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredIntSeqFault?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pj6UU544Ed-FEqK5UGTaIg" base_Property="FaultParamsType_optionalDateSeqFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3aoptionalDateSeqFault?" xsdName="optionalDateSeqFault" xsdForm="unqualified" xsdType="xsd:dateTime" xsdExplicitGroupTree="S,=4"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PkMoN544Ed-FEqK5UGTaIg" base_Property="FaultParamsType_requiredChildFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredChildFault?" xsdName="requiredChildFault" xsdForm="unqualified" xsdType="ChildType" xsdExplicitGroupTree="S,=5"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Pke8F544Ed-FEqK5UGTaIg" base_Property="FaultParamsType_optionalChildFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3aoptionalChildFault?" xsdName="optionalChildFault" xsdForm="unqualified" xsdType="ChildType" xsdExplicitGroupTree="S,=6"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PklCsJ44Ed-FEqK5UGTaIg" base_Element="FaultParamsType_requiredIntSeqFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredIntSeqFault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PklCsZ44Ed-FEqK5UGTaIg" base_Element="_Pi9SE544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PklCsp44Ed-FEqK5UGTaIg" base_Element="_Phn1U544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PklCs544Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_Composition0?org.example.new_.wsdl.file%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PklCtJ44Ed-FEqK5UGTaIg" base_Element="OutParamsType_optionalChildOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3aoptionalChildOut?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PklCtZ44Ed-FEqK5UGTaIg" base_Element="_PfJJE544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PklCtp44Ed-FEqK5UGTaIg" base_Element="_PjDYs544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkrJUJ44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_Composition4?org.example.new_.wsdl.file%3a%3aComposition4?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP8J44Ed-FEqK5UGTaIg" base_Element="Composition5_OutParamsType?org.example.new_.wsdl.file%3a%3aComposition5%3a%3aOutParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP8Z44Ed-FEqK5UGTaIg" base_Element="_Pfhjkp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP8p44Ed-FEqK5UGTaIg" base_Element="_Pjh50p44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP8544Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_Composition1?org.example.new_.wsdl.file%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP9J44Ed-FEqK5UGTaIg" base_Element="Composition7_FaultParamsType?org.example.new_.wsdl.file%3a%3aComposition7%3a%3aFaultParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP9Z44Ed-FEqK5UGTaIg" base_Element="_PekhUp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP9p44Ed-FEqK5UGTaIg" base_Element="_Pe870544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP9544Ed-FEqK5UGTaIg" base_Element="_Pke8Fp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP-J44Ed-FEqK5UGTaIg" base_Element="Composition2_InParamsType?org.example.new_.wsdl.file%3a%3aComposition2%3a%3aInParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP-Z44Ed-FEqK5UGTaIg" base_Element="_Pj0Ns544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP-p44Ed-FEqK5UGTaIg" base_Element="_Pf5-Ep44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP-544Ed-FEqK5UGTaIg" base_Element="InParamsType_requiredChildIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredChildIn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP_J44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_Composition5?org.example.new_.wsdl.file%3a%3aComposition5?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP_Z44Ed-FEqK5UGTaIg" base_Element="ChildType_requiredChildAttribute?org.example.new_.wsdl.file%3a%3aChildType%3a%3arequiredChildAttribute?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP_p44Ed-FEqK5UGTaIg" base_Element="_Piq-MZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxP_544Ed-FEqK5UGTaIg" base_Element="_PhPa0p44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQAJ44Ed-FEqK5UGTaIg" base_Element="simpleTypeWithAttrType_requiredAttribute?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3arequiredAttribute?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQAZ44Ed-FEqK5UGTaIg" base_Element="Composition4_OutParamsType?org.example.new_.wsdl.file%3a%3aComposition4%3a%3aOutParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQAp44Ed-FEqK5UGTaIg" base_Element="_Pht78p44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQA544Ed-FEqK5UGTaIg" base_Element="_PekhU544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQBJ44Ed-FEqK5UGTaIg" base_Element="_Pe871J44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQBZ44Ed-FEqK5UGTaIg" base_Element="_Peqn8p44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQBp44Ed-FEqK5UGTaIg" base_Element="_PhVhc544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQB544Ed-FEqK5UGTaIg" base_Element="_PeYUEZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQCJ44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_Composition7?org.example.new_.wsdl.file%3a%3aComposition7?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQCZ44Ed-FEqK5UGTaIg" base_Element="_PhDNk544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQCp44Ed-FEqK5UGTaIg" base_Element="simpleTypeWithAttrType_optionalAttribute?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3aoptionalAttribute?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQC544Ed-FEqK5UGTaIg" base_Element="_Pgel1Z44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQDJ44Ed-FEqK5UGTaIg" base_Element="_Pewukp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQDZ44Ed-FEqK5UGTaIg" base_Element="_Pf5-E544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQDp44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_Composition2?org.example.new_.wsdl.file%3a%3aComposition2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQD544Ed-FEqK5UGTaIg" base_Element="Composition3_InParamsType?org.example.new_.wsdl.file%3a%3aComposition3%3a%3aInParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQEJ44Ed-FEqK5UGTaIg" base_Element="FaultParamsType_requiredStringFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredStringFault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQEZ44Ed-FEqK5UGTaIg" base_Element="_Pjh50544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQEp44Ed-FEqK5UGTaIg" base_Element="_PgYfM544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQE544Ed-FEqK5UGTaIg" base_Element="InParamsType_optionalChildArray?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalChildArray?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQFJ44Ed-FEqK5UGTaIg" base_Element="_Pgel0544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQFZ44Ed-FEqK5UGTaIg" base_Element="ChildType_simpleTypeWithAttr?org.example.new_.wsdl.file%3a%3aChildType%3a%3asimpleTypeWithAttr?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PkxQFp44Ed-FEqK5UGTaIg" base_Element="_PfnqMp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WkJ44Ed-FEqK5UGTaIg" base_Element="_PiMdE544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WkZ44Ed-FEqK5UGTaIg" base_Element="_Pj6UUZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wkp44Ed-FEqK5UGTaIg" base_Element="_Pke8E544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wk544Ed-FEqK5UGTaIg" base_Element="_PfVWUp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WlJ44Ed-FEqK5UGTaIg" base_Element="_Piew8Z44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WlZ44Ed-FEqK5UGTaIg" base_Element="_Pht78544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wlp44Ed-FEqK5UGTaIg" base_Element="_PjbzMZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wl544Ed-FEqK5UGTaIg" base_Element="Composition0_ChildType?org.example.new_.wsdl.file%3a%3aComposition0%3a%3aChildType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WmJ44Ed-FEqK5UGTaIg" base_Element="ChildType_optionalChildAttribute?org.example.new_.wsdl.file%3a%3aChildType%3a%3aoptionalChildAttribute?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WmZ44Ed-FEqK5UGTaIg" base_Element="_Pj6UUp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wmp44Ed-FEqK5UGTaIg" base_Element="Composition1_InParamsType?org.example.new_.wsdl.file%3a%3aComposition1%3a%3aInParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wm544Ed-FEqK5UGTaIg" base_Element="OutParamsType_requiredStringOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredStringOut?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WnJ44Ed-FEqK5UGTaIg" base_Element="_Pftw0p44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WnZ44Ed-FEqK5UGTaIg" base_Element="OutParamsType_optionalDateSeqOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3aoptionalDateSeqOut?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wnp44Ed-FEqK5UGTaIg" base_Element="InParamsType_simpleStringArrayMin2Max3?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3asimpleStringArrayMin2Max3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wn544Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_OutParamsType?org.example.new_.wsdl.file%3a%3aOutParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WoJ44Ed-FEqK5UGTaIg" base_Element="ChildType_optionalChildString?org.example.new_.wsdl.file%3a%3aChildType%3a%3aoptionalChildString?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WoZ44Ed-FEqK5UGTaIg" base_Element="_Pfhjk544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wop44Ed-FEqK5UGTaIg" base_Element="_Pf5-FZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wo544Ed-FEqK5UGTaIg" base_Element="simpleTypeWithAttrType_value?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WpJ44Ed-FEqK5UGTaIg" base_Element="InParamsType_optionalChildIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalChildIn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WpZ44Ed-FEqK5UGTaIg" base_Element="_Pi9SFp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wpp44Ed-FEqK5UGTaIg" base_Element="_Peqn8544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wp544Ed-FEqK5UGTaIg" base_Element="_Pgel1p44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WqJ44Ed-FEqK5UGTaIg" base_Element="_Pik3k544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WqZ44Ed-FEqK5UGTaIg" base_Element="_PhDNlZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wqp44Ed-FEqK5UGTaIg" base_Element="FaultParamsType_requiredChildFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3arequiredChildFault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wq544Ed-FEqK5UGTaIg" base_Element="_Pe21MZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WrJ44Ed-FEqK5UGTaIg" base_Element="_PgSYkp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WrZ44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_ChildType?org.example.new_.wsdl.file%3a%3aChildType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wrp44Ed-FEqK5UGTaIg" base_Element="_Piq-Mp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wr544Ed-FEqK5UGTaIg" base_Element="InParamsType_requiredStringIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredStringIn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WsJ44Ed-FEqK5UGTaIg" base_Element="_Phhusp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WsZ44Ed-FEqK5UGTaIg" base_Element="OutParamsType_requiredChildOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredChildOut?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wsp44Ed-FEqK5UGTaIg" base_Element="_PjDYtp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Ws544Ed-FEqK5UGTaIg" base_Element="_Pik3kp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WtJ44Ed-FEqK5UGTaIg" base_Element="_PgAEsp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WtZ44Ed-FEqK5UGTaIg" base_Element="_Pi9SEp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wtp44Ed-FEqK5UGTaIg" base_Element="OutParamsType_requiredIntSeqOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3arequiredIntSeqOut?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wt544Ed-FEqK5UGTaIg" base_Element="_PgYfMp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WuJ44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_Composition6?org.example.new_.wsdl.file%3a%3aComposition6?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3WuZ44Ed-FEqK5UGTaIg" base_Element="_Pke8FZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wup44Ed-FEqK5UGTaIg" base_Element="InParamsType_requiredSingleChoiceA?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredSingleChoiceA?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk3Wu544Ed-FEqK5UGTaIg" base_Element="_PfJJEp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dMJ44Ed-FEqK5UGTaIg" base_Element="_PhPa0544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dMZ44Ed-FEqK5UGTaIg" base_Element="FaultParamsType_optionalStringFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3aoptionalStringFault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dMp44Ed-FEqK5UGTaIg" base_Element="_PhDNlp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dM544Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_FaultParamsType?org.example.new_.wsdl.file%3a%3aFaultParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dNJ44Ed-FEqK5UGTaIg" base_Element="Composition6_FaultParamsType?org.example.new_.wsdl.file%3a%3aComposition6%3a%3aFaultParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dNZ44Ed-FEqK5UGTaIg" base_Element="InParamsType_optionalSingleChoiceB?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalSingleChoiceB?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dNp44Ed-FEqK5UGTaIg" base_Element="FaultParamsType_optionalChildFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3aoptionalChildFault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dN544Ed-FEqK5UGTaIg" base_Element="_Pi9SFZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dOJ44Ed-FEqK5UGTaIg" base_Element="_PjDYsp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dOZ44Ed-FEqK5UGTaIg" base_Element="_PgAEs544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dOp44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_InParamsType?org.example.new_.wsdl.file%3a%3aInParamsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dO544Ed-FEqK5UGTaIg" base_Element="_PfPPs544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dPJ44Ed-FEqK5UGTaIg" base_Element="_Pke8Ep44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dPZ44Ed-FEqK5UGTaIg" base_Element="_PfnqM544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dPp44Ed-FEqK5UGTaIg" base_Element="_Pj0Nsp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dP544Ed-FEqK5UGTaIg" base_Element="_PkMoNp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dQJ44Ed-FEqK5UGTaIg" base_Element="_PeYUE544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dQZ44Ed-FEqK5UGTaIg" base_Element="ChildType_min0Max2?org.example.new_.wsdl.file%3a%3aChildType%3a%3amin0Max2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dQp44Ed-FEqK5UGTaIg" base_Element="_PkMoM544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dQ544Ed-FEqK5UGTaIg" base_Element="InParamsType_optionalDateSeqIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalDateSeqIn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dRJ44Ed-FEqK5UGTaIg" base_Element="_PkMoNZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dRZ44Ed-FEqK5UGTaIg" base_Element="FaultParamsType_optionalDateSeqFault?org.example.new_.wsdl.file%3a%3aFaultParamsType%3a%3aoptionalDateSeqFault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dRp44Ed-FEqK5UGTaIg" base_Element="OutParamsType_optionalStringOut?org.example.new_.wsdl.file%3a%3aOutParamsType%3a%3aoptionalStringOut?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dR544Ed-FEqK5UGTaIg" base_Element="_PhDNkp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dSJ44Ed-FEqK5UGTaIg" base_Element="_Pftw0544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dSZ44Ed-FEqK5UGTaIg" base_Element="InParamsType_requiredSingleChoiceB?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredSingleChoiceB?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dSp44Ed-FEqK5UGTaIg" base_Element="_PjbzMJ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dS544Ed-FEqK5UGTaIg" base_Element="ChildType_requiredChildString?org.example.new_.wsdl.file%3a%3aChildType%3a%3arequiredChildString?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dTJ44Ed-FEqK5UGTaIg" base_Element="_PfVWU544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dTZ44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_Composition3?org.example.new_.wsdl.file%3a%3aComposition3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dTp44Ed-FEqK5UGTaIg" base_Element="_PfPPsp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dT544Ed-FEqK5UGTaIg" base_Element="InParamsType_requiredIntSeqIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3arequiredIntSeqIn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dUJ44Ed-FEqK5UGTaIg" base_Element="InParamsType_optionalStringIn?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalStringIn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dUZ44Ed-FEqK5UGTaIg" base_Element="_PkMoMp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dUp44Ed-FEqK5UGTaIg" base_Element="_Pgel0p44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dU544Ed-FEqK5UGTaIg" base_Element="_Pewuk544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dVJ44Ed-FEqK5UGTaIg" base_Element="_Pf5-Fp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dVZ44Ed-FEqK5UGTaIg" base_Element="_Pe21Mp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dVp44Ed-FEqK5UGTaIg" base_Element="_PiMdEp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dV544Ed-FEqK5UGTaIg" base_Element="_Phn1Up44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dWJ44Ed-FEqK5UGTaIg" base_Element="org.example.new_.wsdl.file_simpleTypeWithAttrType?org.example.new_.wsdl.file%3a%3aSimpleTypeWithAttrType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dWZ44Ed-FEqK5UGTaIg" base_Element="_Phhus544Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dWp44Ed-FEqK5UGTaIg" base_Element="_PgYfMJ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dW544Ed-FEqK5UGTaIg" base_Element="InParamsType_optionalSingleChoiceA?org.example.new_.wsdl.file%3a%3aInParamsType%3a%3aoptionalSingleChoiceA?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dXJ44Ed-FEqK5UGTaIg" base_Element="_PhVhcp44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Pk9dXZ44Ed-FEqK5UGTaIg" base_Element="_Piew8J44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PlDj0J44Ed-FEqK5UGTaIg" base_Element="_PjDYtZ44Ed-FEqK5UGTaIg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PlJqcJ44Ed-FEqK5UGTaIg" base_Class="org.example.new_.wsdl.file_NewWSDLFile?org.example.new_.wsdl.file%3a%3aNewWSDLFile?" xsdName="NewWSDLFile" xsdIsComplexType="false"/>
+  <notation:Diagram xmi:id="_PlV3s544Ed-FEqK5UGTaIg" type="Business Object Model" element="org.example.new_.wsdl.file2?org.example.new_.wsdl.file?" name="org.example.new_.wsdl.file" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_PlV3tJ44Ed-FEqK5UGTaIg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_PlV3tZ44Ed-FEqK5UGTaIg"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/bpm/esitocaricatorevas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.enel.com/mercato/libero/service/bpm/esitocaricamentovas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/service/bpm/esitocaricamentovas" tibex:src="file:/C:/Users/egiusro/Desktop/MIGRAZIONE_AMX_BPM/PORTING_R2/PARTNER_ATTIVAZIONE_VAS/EsitoCaricamentoVasBpmServiceConcrete.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/esitocaricatorevas" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/esitocaricatorevas">
+            <xs:element name="EsitoCaricatoreVas">
+                <xs:complexType>
+                    <xs:sequence>
+                    <xs:element minOccurs="1" name="CorrelationId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdTransizioneCanale" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ChiaveUnivocaBeneCRM" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdBpmLinea" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdBeneCanale" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CodiceEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DescrizioneEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdOffertaCrm" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdAttivitaScarto" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="EsitoCaricamentoVasBpmService">
+        <wsdl:port binding="tns:EsitoCaricamentoVasBpmEndpoint1Binding" name="EsitoCaricamentoVasBpmEndpoint1">
+            <soap:address location="http://localhost:9999/mercato/libero/service/bpm/esitocaricamentovas"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="EsitoCaricamentoVasBpm">
+        <wsdl:operation name="EsitoCaricamentoVas">
+            <wsdl:input message="tns:EsitoCaricamentoVas"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="EsitoCaricamentoVasBpmEndpoint1Binding" type="tns:EsitoCaricamentoVasBpm">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="EsitoCaricamentoVas">
+            <soap:operation soapAction="/EsitoCaricatoreVas/EsitoCaricamentoVasBpmService.serviceagent/EsitoCaricamentoVasBpmEndpoint1/EsitoCaricamentoVas" style="document"/>
+            <wsdl:input>
+                <soap:body parts="input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="EsitoCaricamentoVas">
+        <wsdl:part element="ns0:EsitoCaricatoreVas" name="input"/>
+    </wsdl:message>
+</wsdl:definitions>

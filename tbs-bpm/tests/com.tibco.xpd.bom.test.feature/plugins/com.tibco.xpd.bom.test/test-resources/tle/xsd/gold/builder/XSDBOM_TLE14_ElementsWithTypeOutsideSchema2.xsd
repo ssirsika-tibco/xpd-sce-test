@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/referenced" xmlns:tns3="http://www.example.org/referenced"
+    xmlns:tns1="http://www.example.org/root" xmlns:tns2="http://www.example.org/referenced2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/referenced">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/64564564/Business Objects/org.example.referenced.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.example.org/root" schemaLocation="XSDBOM_TLE14_ElementsWithTypeOutsideSchema.xsd"/>
+  <xsd:import namespace="http://www.example.org/referenced2" schemaLocation="XSDBOM_TLE14_ElementsWithTypeOutsideSchema3.xsd"/>
+  <xsd:simpleType id="org.example.referenced_referencedSimple2" name="referencedSimple">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType id="org.example.referenced_referencedEnum" name="referencedEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ENUMLIT"/>
+      <xsd:enumeration value=" "/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType id="org.example.referenced_referencedComplex" abstract="false"
+      mixed="false" name="referencedComplex"/>
+  <xsd:element abstract="false" name="referencedElem2" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:rootSimple"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="referencedElem5" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="tns2:referenced2Simple"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="referencedElem3" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="tns1:rootEnum"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="referencedElem6" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="tns2:referenced2Enum"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="referencedElem" nillable="false" type="tns1:rootComplex"/>
+  <xsd:element abstract="false" name="referencedElem4" nillable="false" type="tns2:referenced2Complex"/>
+</xsd:schema>

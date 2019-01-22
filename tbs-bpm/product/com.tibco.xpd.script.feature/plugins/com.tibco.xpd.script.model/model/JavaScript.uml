@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XbwAsdGBEdu4j_LxN5OLIw" name="JavaScript">
+  <packagedElement xmi:type="uml:DataType" xmi:id="_gf3WIPxuEduQPNEkUL8doA" name="Float"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="__1YCoPx9EduQPNEkUL8doA" name="Integer"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_xeJlkE3xEd-h8Y40ETH46A" name="NaN"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_y1Lp8E3xEd-h8Y40ETH46A" name="Infinity"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_kr6asNI7EduWapZ5a676CA" name="Date">
+    <ownedOperation xmi:id="_hSmJ4PyKEduQPNEkUL8doA" name="now">
+      <ownedParameter xmi:id="_hSmJ4vyKEduQPNEkUL8doA" type="_kr6asNI7EduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mXSy0PyKEduQPNEkUL8doA" name="getDate">
+      <ownedParameter xmi:id="_mXSy0fyKEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_zdChEPyKEduQPNEkUL8doA" name="getDay">
+      <ownedParameter xmi:id="_zdChEfyKEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_8vSvkPyKEduQPNEkUL8doA" name="getFullYear">
+      <ownedParameter xmi:id="_8vSvkfyKEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_BaghgPyLEduQPNEkUL8doA" name="getHours">
+      <ownedParameter xmi:id="_BaghgfyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_EgjFYPyLEduQPNEkUL8doA" name="getMilliseconds">
+      <ownedParameter xmi:id="_EgjFYfyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_IkbKgPyLEduQPNEkUL8doA" name="getMinutes">
+      <ownedParameter xmi:id="_IkbKgfyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Mh5FoPyLEduQPNEkUL8doA" name="getMonth">
+      <ownedParameter xmi:id="_Mh5FofyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_QybtwPyLEduQPNEkUL8doA" name="getSeconds">
+      <ownedParameter xmi:id="_QybtwfyLEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_cjmxkPySEduQPNEkUL8doA" name="getTime">
+      <ownedParameter xmi:id="_cjmxkfySEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_CfmnsPyTEduQPNEkUL8doA" name="getTimezoneOffset">
+      <ownedParameter xmi:id="_CfmnsfyTEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_NanjwPyTEduQPNEkUL8doA" name="setFullYear">
+      <ownedParameter xmi:id="_TFT1sPyTEduQPNEkUL8doA" name="yearValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_pt2v4PyTEduQPNEkUL8doA" name="setMonth">
+      <ownedParameter xmi:id="_pt2v4fyTEduQPNEkUL8doA" name="yearValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_qPFNoPyTEduQPNEkUL8doA" name="setDate">
+      <ownedParameter xmi:id="_qPFNofyTEduQPNEkUL8doA" name="yearValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_1BmVAPyTEduQPNEkUL8doA" name="setHours">
+      <ownedParameter xmi:id="_1BmVAfyTEduQPNEkUL8doA" name="hourValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_1fjcUPyTEduQPNEkUL8doA" name="setMinutes">
+      <ownedParameter xmi:id="_1fjcUfyTEduQPNEkUL8doA" name="minuteValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_2GcdMPyTEduQPNEkUL8doA" name="setSeconds">
+      <ownedParameter xmi:id="_2GcdMfyTEduQPNEkUL8doA" name="secondsValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_HUrq0PyUEduQPNEkUL8doA" name="setMilliseconds">
+      <ownedParameter xmi:id="_HUrq0fyUEduQPNEkUL8doA" name="secondsValue" type="__1YCoPx9EduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_PndZUPyUEduQPNEkUL8doA" name="toString">
+      <ownedParameter xmi:id="_PndZUfyUEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Co_KUNGrEduWapZ5a676CA" name="Math">
+    <ownedAttribute xmi:id="_NEJtMeeaEduq54ukMAngTQ" name="PI" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA"/>
+    <ownedAttribute xmi:id="_Yu2ZwOeaEduq54ukMAngTQ" name="E" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA"/>
+    <ownedAttribute xmi:id="_honrIPy0EduQPNEkUL8doA" name="LN2" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA"/>
+    <ownedAttribute xmi:id="_kUSAIPy0EduQPNEkUL8doA" name="LN10" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA"/>
+    <ownedOperation xmi:id="_CqxHEDGtEd-1mcuCn1F15g" name="abs" isStatic="true">
+      <ownedParameter xmi:id="_CqxHETGtEd-1mcuCn1F15g" name="number" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_CqxHEjGtEd-1mcuCn1F15g" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ET07gNGrEduWapZ5a676CA" name="asin" isStatic="true">
+      <ownedParameter xmi:id="_FtYvcNGrEduWapZ5a676CA" name="angle" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_JUDUINGrEduWapZ5a676CA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Kxe7cNGrEduWapZ5a676CA" name="max" isStatic="true">
+      <ownedParameter xmi:id="_OXagUNGrEduWapZ5a676CA" name="value1" type="_gf3WIPxuEduQPNEkUL8doA">
+        <upperValue xmi:type="uml:Interval" xmi:id="_ng5XcFLBEd-Qn9jiJ03AwQ" name="*"/>
+        <lowerValue xmi:type="uml:Interval" xmi:id="_uZYSMFLBEd-Qn9jiJ03AwQ" name="2"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_TROu8NGrEduWapZ5a676CA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_CxzSgPy1EduQPNEkUL8doA" name="acos" isStatic="true">
+      <ownedParameter xmi:id="_CxzSgfy1EduQPNEkUL8doA" name="angle" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_CxzSgvy1EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_FRr1UPy1EduQPNEkUL8doA" name="atan" isStatic="true">
+      <ownedParameter xmi:id="_FRr1Ufy1EduQPNEkUL8doA" name="angle" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_FRr1Uvy1EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Ix83EPy1EduQPNEkUL8doA" name="ceil" isStatic="true">
+      <ownedParameter xmi:id="_Ix83Efy1EduQPNEkUL8doA" name="a" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_Ix83Evy1EduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Yv3sUPy1EduQPNEkUL8doA" name="cos" isStatic="true">
+      <ownedParameter xmi:id="_Yv3sUfy1EduQPNEkUL8doA" name="number" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_Yv3sUvy1EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_RitsoPy2EduQPNEkUL8doA" name="exp" isStatic="true">
+      <ownedParameter xmi:id="_Ritsofy2EduQPNEkUL8doA" name="number" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_Ritsovy2EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Wq1dAPy2EduQPNEkUL8doA" name="floor" isStatic="true">
+      <ownedParameter xmi:id="_Wq1dAfy2EduQPNEkUL8doA" name="number" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_Wq1dAvy2EduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_kaTdsPy2EduQPNEkUL8doA" name="log" isStatic="true">
+      <ownedParameter xmi:id="_kaTdsfy2EduQPNEkUL8doA" name="number" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_kaTdsvy2EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_BrOaEPy3EduQPNEkUL8doA" name="min" isStatic="true">
+      <ownedParameter xmi:id="_BrOaEfy3EduQPNEkUL8doA" name="value1" type="_gf3WIPxuEduQPNEkUL8doA">
+        <upperValue xmi:type="uml:Interval" xmi:id="_OYaBAFabEd-_KqpARVsypQ" name="*"/>
+        <lowerValue xmi:type="uml:Interval" xmi:id="_FsSlcVabEd-_KqpARVsypQ" name="2"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_BrOaE_y3EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Wo7jEPy3EduQPNEkUL8doA" name="pow" isStatic="true">
+      <ownedParameter xmi:id="_Wo7jEfy3EduQPNEkUL8doA" name="value1" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_Wo7jEvy3EduQPNEkUL8doA" name="value2" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_Wo7jE_y3EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_dy_WAPy3EduQPNEkUL8doA" name="random" isStatic="true">
+      <ownedParameter xmi:id="_dy_WA_y3EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_liKBIPy3EduQPNEkUL8doA" name="round" isStatic="true">
+      <ownedParameter xmi:id="_liKBIfy3EduQPNEkUL8doA" name="value1" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_liKBI_y3EduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_xrsl0Py3EduQPNEkUL8doA" name="sin" isStatic="true">
+      <ownedParameter xmi:id="_xrsl0fy3EduQPNEkUL8doA" name="value1" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_xrsl0vy3EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_18PN8Py3EduQPNEkUL8doA" name="tan" isStatic="true">
+      <ownedParameter xmi:id="_18PN8fy3EduQPNEkUL8doA" name="value1" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_18PN8vy3EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_vEF08Py4EduQPNEkUL8doA" name="sqrt" isStatic="true">
+      <ownedParameter xmi:id="_vEF08fy4EduQPNEkUL8doA" name="value1" type="_gf3WIPxuEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_vEF08vy4EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_W0LRQNGrEduWapZ5a676CA" name="String">
+    <ownedAttribute xmi:id="_Tf_4EapiEdyEspPRVy5wlQ" name="length" type="__1YCoPx9EduQPNEkUL8doA"/>
+    <ownedOperation xmi:id="_YsbMUNGrEduWapZ5a676CA" name="toString">
+      <ownedParameter xmi:id="_bR-SQNGrEduWapZ5a676CA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_7jSu8fxoEduQPNEkUL8doA" name="charAt">
+      <ownedParameter xmi:id="_XPqIUPxpEduQPNEkUL8doA" name="index" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_7jSu8vxoEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_yONZcPxpEduQPNEkUL8doA" name="charCodeAt">
+      <ownedParameter xmi:id="_yONZcfxpEduQPNEkUL8doA" name="index" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_yONZcvxpEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_h2GGEPxqEduQPNEkUL8doA" name="concat">
+      <ownedParameter xmi:id="_h2GGEfxqEduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA">
+        <upperValue xmi:type="uml:Interval" xmi:id="_6icN8F0CEd-D3_Qjl8GOOQ" name="*"/>
+        <lowerValue xmi:type="uml:Interval" xmi:id="_u5-WAF0CEd-D3_Qjl8GOOQ" name="2"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_h2GGEvxqEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Yke7UPxrEduQPNEkUL8doA" name="indexOf">
+      <ownedParameter xmi:id="_Yke7UfxrEduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_Yke7VPxrEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_hQtEkPxrEduQPNEkUL8doA" name="indexOf">
+      <ownedParameter xmi:id="_hQtEkfxrEduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_iizloPxrEduQPNEkUL8doA" name="index" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_hQtEkvxrEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_tmkOAPxrEduQPNEkUL8doA" name="lastIndexOf">
+      <ownedParameter xmi:id="_tmkOAfxrEduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_tmkOAvxrEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_oybJkPxrEduQPNEkUL8doA" name="lastIndexOf">
+      <ownedParameter xmi:id="_oybJkfxrEduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_oybJkvxrEduQPNEkUL8doA" name="index" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_oybJk_xrEduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_lihwYPy-EduQPNEkUL8doA" name="replace">
+      <ownedParameter xmi:id="_lihwYfy-EduQPNEkUL8doA" name="str1" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_lihwYvy-EduQPNEkUL8doA" name="str2" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_lihwY_y-EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_RGYm4Py_EduQPNEkUL8doA" name="slice">
+      <ownedParameter xmi:id="_RGYm4fy_EduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_RGYm4vy_EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_XypDgPy_EduQPNEkUL8doA" name="slice">
+      <ownedParameter xmi:id="_XypDgfy_EduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_b33McPy_EduQPNEkUL8doA" name="lastIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_XypDgvy_EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_02bzwPzIEduQPNEkUL8doA" name="substr">
+      <ownedParameter xmi:id="_02bzwfzIEduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_02bzwvzIEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_6946MPzIEduQPNEkUL8doA" name="substr">
+      <ownedParameter xmi:id="_6946MfzIEduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_7tH-wPzIEduQPNEkUL8doA" name="length" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_6946MvzIEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_BkoksPzJEduQPNEkUL8doA" name="substring">
+      <ownedParameter xmi:id="_BkoksfzJEduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_Bkoks_zJEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v2cagJwPEdygc4QThAWRoQ" value="1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_CQvcwPzJEduQPNEkUL8doA" name="substring">
+      <ownedParameter xmi:id="_CQvcwfzJEduQPNEkUL8doA" name="startIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_CQvcwvzJEduQPNEkUL8doA" name="endIndex" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_CQvcw_zJEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_JneZwPzJEduQPNEkUL8doA" name="toLowerCase">
+      <ownedParameter xmi:id="_JneZw_zJEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_NQE4IPzJEduQPNEkUL8doA" name="toUpperCase">
+      <ownedParameter xmi:id="_NQE4IfzJEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ECzxkPxsEduQPNEkUL8doA" name="RegExp">
+    <ownedAttribute xmi:id="_IaBSsPzKEduQPNEkUL8doA" name="lastIndex" type="_gf3WIPxuEduQPNEkUL8doA"/>
+    <ownedOperation xmi:id="_SyKLMPzKEduQPNEkUL8doA" name="exec">
+      <ownedParameter xmi:id="_SyKLMfzKEduQPNEkUL8doA" name="string" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_SyKLMvzKEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Znbn4KSlEdyiHJpWQmvoRw" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_h1rNsPzKEduQPNEkUL8doA" name="test">
+      <ownedParameter xmi:id="_h1rNsfzKEduQPNEkUL8doA" name="string" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_h1rNsvzKEduQPNEkUL8doA" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_pIO1UPzKEduQPNEkUL8doA" name="toString">
+      <ownedParameter xmi:id="_pIO1UvzKEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JZXmkPxsEduQPNEkUL8doA" name="Array">
+    <ownedRule xmi:id="_I6sa8Cz1Ed-PoswVw6RFMQ" name="Multiple"/>
+    <ownedAttribute xmi:id="_SUhegPx-EduQPNEkUL8doA" name="index" type="__1YCoPx9EduQPNEkUL8doA"/>
+    <ownedAttribute xmi:id="_ZRnzgPx-EduQPNEkUL8doA" name="length" type="__1YCoPx9EduQPNEkUL8doA"/>
+    <ownedOperation xmi:id="_esXk8Px-EduQPNEkUL8doA" name="pop">
+      <ownedParameter xmi:id="_j94h4Px-EduQPNEkUL8doA" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mDZc4Px-EduQPNEkUL8doA" name="push">
+      <ownedParameter xmi:id="_mDZc4fx-EduQPNEkUL8doA" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_szHi8F0dEd-D3_Qjl8GOOQ" name="element1" type="_Zb2LsPxsEduQPNEkUL8doA">
+        <upperValue xmi:type="uml:Interval" xmi:id="_35T0QF0dEd-D3_Qjl8GOOQ" name="*"/>
+        <lowerValue xmi:type="uml:Interval" xmi:id="_0F0UgF0dEd-D3_Qjl8GOOQ" name="1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_rK7XYPx-EduQPNEkUL8doA" name="reverse"/>
+    <ownedOperation xmi:id="_3tWWIPx-EduQPNEkUL8doA" name="shift">
+      <ownedParameter xmi:id="_3tWWIfx-EduQPNEkUL8doA" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="__iefUPx-EduQPNEkUL8doA" name="sort"/>
+    <ownedOperation xmi:id="_M3RWMPx_EduQPNEkUL8doA" name="unshift">
+      <ownedParameter xmi:id="_M3RWMfx_EduQPNEkUL8doA" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="__PcUUF0dEd-D3_Qjl8GOOQ" name="element1" type="_Zb2LsPxsEduQPNEkUL8doA">
+        <upperValue xmi:type="uml:Interval" xmi:id="__PcUUV0dEd-D3_Qjl8GOOQ" name="*"/>
+        <lowerValue xmi:type="uml:Interval" xmi:id="__PcUUl0dEd-D3_Qjl8GOOQ" name="1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_tI31UPx_EduQPNEkUL8doA" name="concat">
+      <ownedParameter xmi:id="_tI31Ufx_EduQPNEkUL8doA" name="element1" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_tI31Uvx_EduQPNEkUL8doA" name="element2" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_tI31U_x_EduQPNEkUL8doA" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vwPSEKSlEdyiHJpWQmvoRw" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_B8cK4PyAEduQPNEkUL8doA" name="join">
+      <ownedParameter xmi:id="_B8cK4vyAEduQPNEkUL8doA" name="separator" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_B8cK4_yAEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_RO_u8PyAEduQPNEkUL8doA" name="slice">
+      <ownedParameter xmi:id="_RO_u8fyAEduQPNEkUL8doA" name="begin" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_RO_u8vyAEduQPNEkUL8doA" name="end" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_RO_u8_yAEduQPNEkUL8doA" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Kw7RMKSmEdyiHJpWQmvoRw" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_c3wh0PyAEduQPNEkUL8doA" name="toString">
+      <ownedParameter xmi:id="_c3wh0fyAEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Zb2LsPxsEduQPNEkUL8doA" name="Object"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_mFFkIPxsEduQPNEkUL8doA" name="Number">
+    <ownedAttribute xmi:id="_ZDz_MPy5EduQPNEkUL8doA" name="MAX_VALUE" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_cZzDkPy5EduQPNEkUL8doA" name="MIN_VALUE" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_ffY7gPy5EduQPNEkUL8doA" name="NaN" type="_gf3WIPxuEduQPNEkUL8doA"/>
+    <ownedAttribute xmi:id="_59fyAPy5EduQPNEkUL8doA" name="NEGATIVE_INFINITY" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_AF2QUPy6EduQPNEkUL8doA" name="POSITIVE_INFINITY" isStatic="true" type="_gf3WIPxuEduQPNEkUL8doA" isReadOnly="true"/>
+    <ownedOperation xmi:id="_NzrSQPy6EduQPNEkUL8doA" name="toExponential">
+      <ownedParameter xmi:id="_NzrSQfy6EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UtC90Py6EduQPNEkUL8doA" name="toExponential">
+      <ownedParameter xmi:id="_WU6TgPy6EduQPNEkUL8doA" name="fractionDigits" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_UtC90fy6EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_hkfKUPy6EduQPNEkUL8doA" name="toFixed">
+      <ownedParameter xmi:id="_hkfKUfy6EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_hkfKUvy6EduQPNEkUL8doA" name="toFixed">
+      <ownedParameter xmi:id="_hkfKU_y6EduQPNEkUL8doA" name="digits" type="__1YCoPx9EduQPNEkUL8doA"/>
+      <ownedParameter xmi:id="_hkfKVPy6EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_rypAYPy6EduQPNEkUL8doA" name="toString">
+      <ownedParameter xmi:id="_rypAYfy6EduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QoXN4JwPEdygc4QThAWRoQ" value="1"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_uQcfkPy6EduQPNEkUL8doA" name="valueOf">
+      <ownedParameter xmi:id="_uQcfkfy6EduQPNEkUL8doA" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_RaDDAPxtEduQPNEkUL8doA" name="Boolean">
+    <ownedOperation xmi:id="_BaYUwPyCEduQPNEkUL8doA" name="toString">
+      <ownedParameter xmi:id="_BaYUwvyCEduQPNEkUL8doA" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_eIoZ0E3aEd-bTqBcTPF_lg" name="GlobalMethods">
+    <ownedAttribute xmi:id="_Bylo8E3oEd-xkeTsaTegsQ" name="Infinity" type="_y1Lp8E3xEd-h8Y40ETH46A" isReadOnly="true"/>
+    <ownedAttribute xmi:id="_rP5psE3oEd-xkeTsaTegsQ" name="NaN" type="_xeJlkE3xEd-h8Y40ETH46A" isReadOnly="true"/>
+    <ownedOperation xmi:id="_eIoZ2E3aEd-bTqBcTPF_lg" name="decodeURI">
+      <ownedParameter xmi:id="_eIoZ2U3aEd-bTqBcTPF_lg" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ2k3aEd-bTqBcTPF_lg" name="uri" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ203aEd-bTqBcTPF_lg" name="decodeURIComponent">
+      <ownedParameter xmi:id="_eIoZ3E3aEd-bTqBcTPF_lg" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ3U3aEd-bTqBcTPF_lg" name="uri" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ3k3aEd-bTqBcTPF_lg" name="encodeURI">
+      <ownedParameter xmi:id="_eIoZ303aEd-bTqBcTPF_lg" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ4E3aEd-bTqBcTPF_lg" name="uri" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ4U3aEd-bTqBcTPF_lg" name="encodeURIComponent">
+      <ownedParameter xmi:id="_eIoZ4k3aEd-bTqBcTPF_lg" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ403aEd-bTqBcTPF_lg" name="uri" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ5E3aEd-bTqBcTPF_lg" name="escape">
+      <ownedParameter xmi:id="_eIoZ5U3aEd-bTqBcTPF_lg" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ5k3aEd-bTqBcTPF_lg" name="str" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ503aEd-bTqBcTPF_lg" name="eval">
+      <ownedParameter xmi:id="_eIoZ6E3aEd-bTqBcTPF_lg" type="_Zb2LsPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ6U3aEd-bTqBcTPF_lg" name="str" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ6k3aEd-bTqBcTPF_lg" name="isFinite">
+      <ownedParameter xmi:id="_eIoZ603aEd-bTqBcTPF_lg" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ7E3aEd-bTqBcTPF_lg" name="value" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ7U3aEd-bTqBcTPF_lg" name="isNaN">
+      <ownedParameter xmi:id="_eIoZ7k3aEd-bTqBcTPF_lg" type="_RaDDAPxtEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ703aEd-bTqBcTPF_lg" name="value" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ8E3aEd-bTqBcTPF_lg" name="Number">
+      <ownedParameter xmi:id="_eIoZ8U3aEd-bTqBcTPF_lg" type="_mFFkIPxsEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ8k3aEd-bTqBcTPF_lg" name="value" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ilTkAE3bEd-bTqBcTPF_lg" name="parseFloat">
+      <ownedParameter xmi:id="_ilTkAU3bEd-bTqBcTPF_lg" type="_gf3WIPxuEduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_ilTkAk3bEd-bTqBcTPF_lg" name="value" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ0U3aEd-bTqBcTPF_lg" name="parseInt">
+      <ownedParameter xmi:id="_eIoZ0k3aEd-bTqBcTPF_lg" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ003aEd-bTqBcTPF_lg" name="string" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_eIoZ1E3aEd-bTqBcTPF_lg" name="parseInt">
+      <ownedParameter xmi:id="_eIoZ1U3aEd-bTqBcTPF_lg" type="__1YCoPx9EduQPNEkUL8doA" direction="return"/>
+      <ownedParameter xmi:id="_eIoZ1k3aEd-bTqBcTPF_lg" name="string" type="_W0LRQNGrEduWapZ5a676CA"/>
+      <ownedParameter xmi:id="_eIoZ103aEd-bTqBcTPF_lg" name="radix" type="__1YCoPx9EduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_-qZmcE3bEd-bTqBcTPF_lg" name="String">
+      <ownedParameter xmi:id="_-qZmcU3bEd-bTqBcTPF_lg" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+      <ownedParameter xmi:id="_-qZmck3bEd-bTqBcTPF_lg" name="value" type="_Zb2LsPxsEduQPNEkUL8doA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_C2UNQE3cEd-bTqBcTPF_lg" name="unescape">
+      <ownedParameter xmi:id="_C2UNQU3cEd-bTqBcTPF_lg" type="_W0LRQNGrEduWapZ5a676CA" direction="return"/>
+      <ownedParameter xmi:id="_C2UNQk3cEd-bTqBcTPF_lg" name="str" type="_W0LRQNGrEduWapZ5a676CA"/>
+    </ownedOperation>
+  </packagedElement>
+</uml:Model>

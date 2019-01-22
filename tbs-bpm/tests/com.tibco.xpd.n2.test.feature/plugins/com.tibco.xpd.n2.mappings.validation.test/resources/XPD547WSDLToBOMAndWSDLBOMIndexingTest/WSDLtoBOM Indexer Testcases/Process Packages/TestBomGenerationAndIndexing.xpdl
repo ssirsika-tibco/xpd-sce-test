@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_fIVLUE7iEd-A7IOzHllu_g" xpdExt:DisplayName="TestBomGenerationAndIndexing" Name="TestBomGenerationAndIndexing">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-04-23</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_hvs2N07iEd-A7IOzHllu_g" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_fJ9jAE7iEd-A7IOzHllu_g">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_hvs2OE7iEd-A7IOzHllu_g" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_t1xQIU7iEd-A7IOzHllu_g" ArtifactType="Annotation" TextAnnotation="This process is NOT desgined to be executable but is designed to test both WSDL to BOM and WSDLBOMIndexing.&#xD;&#xA;&#xD;&#xA;Each service invocation task is for a different WSDL setup. The mappings have NOT been made ON PURPOSE.&#xD;&#xA;&#xD;&#xA;Each input/outpt mapping section should show the dat for the WSDL side of mapping (check against the WSDL definition).&#xD;&#xA;&#xD;&#xA;If it does not then either the WSDL to BOM generation failed or the Indexing of the WSDLElement &lt;->BOM Class  has failed.&#xD;&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="124.0" LaneId="_hvs2OE7iEd-A7IOzHllu_g" Width="652.0">
+          <xpdl2:Coordinates XCoordinate="26.0" YCoordinate="78.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_fJ9jAE7iEd-A7IOzHllu_g" xpdExt:DisplayName="TestBomGenerationAndIndexing-Process" Name="TestBomGenerationAndIndexingProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_hvs2OU7iEd-A7IOzHllu_g" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_hvs2OE7iEd-A7IOzHllu_g" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="64.0" YCoordinate="205.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hvs2Ok7iEd-A7IOzHllu_g" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_hvs2OE7iEd-A7IOzHllu_g" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="1161.0" YCoordinate="205.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Mlu9Y07jEd-A7IOzHllu_g" Name="Wsdlwithsimplesamenamespaceinlineschema" xpdExt:Visibility="Private" xpdExt:DisplayName="Wsdl with simple same namespace inline schema">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="__0aKgk7jEd-A7IOzHllu_g"/>
+                <xpdl2:MessageOut Id="__0aKg07jEd-A7IOzHllu_g"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="InlineXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="InlineXSD" OperationName="InlineWsdlOperation">
+                  <xpdExt:ExternalReference location="InlineXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="86.0" LaneId="_hvs2OE7iEd-A7IOzHllu_g" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="205.0" YCoordinate="205.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_lr4aEMioEeWQQKTK1l5fnA">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:ScriptInformation Id="_mbyNAMioEeWQQKTK1l5fnA" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_RtPCs07jEd-A7IOzHllu_g" Name="WsdlwithDIFFERENTnamespaceinlineschema" xpdExt:Visibility="Private" xpdExt:DisplayName="Wsdl with DIFFERENT namespace inline schema">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_mqki0k7kEd-A7IOzHllu_g"/>
+                <xpdl2:MessageOut Id="_mqki007kEd-A7IOzHllu_g"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="InlineXSDDifferentNamespace.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="InlineXSDDifferentNamespace" OperationName="InlineButDiffNamespaceOperation">
+                  <xpdExt:ExternalReference location="InlineXSDDifferentNamespace.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="86.0" LaneId="_hvs2OE7iEd-A7IOzHllu_g" Width="134.0">
+              <xpdl2:Coordinates XCoordinate="382.0" YCoordinate="205.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_nfFdEMioEeWQQKTK1l5fnA" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:ScriptInformation Id="_oHEqIMioEeWQQKTK1l5fnA">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_YP6sk07jEd-A7IOzHllu_g" Name="WsdlwithinlineschemathatincludesexternalschemainSAMEnamespace" xpdExt:Visibility="Private" xpdExt:DisplayName="Wsdl with inline schema that includes external schema in SAME namespace.">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_8iVgUk7kEd-A7IOzHllu_g"/>
+                <xpdl2:MessageOut Id="_8iVgU07kEd-A7IOzHllu_g"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ExternalXSDSameNamespace.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ExternalXSDSameNamespace" OperationName="ExtSchemaSameNamespaceOperation">
+                  <xpdExt:ExternalReference location="ExternalXSDSameNamespace.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="86.0" LaneId="_hvs2OE7iEd-A7IOzHllu_g" Width="160.0">
+              <xpdl2:Coordinates XCoordinate="605.0" YCoordinate="205.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_o6j8kMioEeWQQKTK1l5fnA">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:ScriptInformation Id="_p776AMioEeWQQKTK1l5fnA" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_lwLMk07jEd-A7IOzHllu_g" Name="WsdlwithaWSDLimportofexternalschemainDIFFERENTnamespaceANDaninlineschemaimportofaschemainDIFFERENTNAMESPACE" xpdExt:Visibility="Private" xpdExt:DisplayName="Wsdl with a WSDL-import of external schema in DIFFERENT namespace AND an inline-schema-import of a schema in DIFFERENT NAMESPACE">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_cbEXAk7mEd-A7IOzHllu_g"/>
+                <xpdl2:MessageOut Id="_cbEXA07mEd-A7IOzHllu_g"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ExternalXSDDifferentNamespace.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ExternalXSDDifferentNamespace" OperationName="ExtSchemasDifferentNamespaceOperation">
+                  <xpdExt:ExternalReference location="ExternalXSDDifferentNamespace.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="148.0" LaneId="_hvs2OE7iEd-A7IOzHllu_g" Width="164.0">
+              <xpdl2:Coordinates XCoordinate="835.0" YCoordinate="205.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_q0i9AMioEeWQQKTK1l5fnA" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:ScriptInformation Id="_rieaAMioEeWQQKTK1l5fnA">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_hvs2O07iEd-A7IOzHllu_g" Name="" From="_lwLMk07jEd-A7IOzHllu_g" To="_hvs2Ok7iEd-A7IOzHllu_g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Ml4uYE7jEd-A7IOzHllu_g" xpdExt:DisplayName="" Name="" From="_hvs2OU7iEd-A7IOzHllu_g" To="_Mlu9Y07jEd-A7IOzHllu_g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_RtYzsE7jEd-A7IOzHllu_g" xpdExt:DisplayName="" Name="" From="_Mlu9Y07jEd-A7IOzHllu_g" To="_RtPCs07jEd-A7IOzHllu_g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_YQEdkE7jEd-A7IOzHllu_g" xpdExt:DisplayName="" Name="" From="_RtPCs07jEd-A7IOzHllu_g" To="_YP6sk07jEd-A7IOzHllu_g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_lwUWgE7jEd-A7IOzHllu_g" xpdExt:DisplayName="" Name="" From="_YP6sk07jEd-A7IOzHllu_g" To="_lwLMk07jEd-A7IOzHllu_g">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

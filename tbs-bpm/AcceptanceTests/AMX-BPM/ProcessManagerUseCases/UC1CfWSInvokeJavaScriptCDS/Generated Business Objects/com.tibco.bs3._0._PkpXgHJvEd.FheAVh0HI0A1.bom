@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1" name="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oeJzkQdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oeJzkgdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oeJzkwdTEeSRjauCcgnMbg" key="created" value="1404905250761"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oeJzlAdTEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ohiewAdTEeSRjauCcgnMbg" key="checksum" value="2767815773"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1EmployeeAccess" name="EmployeeAccess">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="EmployeeAccessGetRequesteeReportingVP" name="GetRequesteeReportingVP">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetRequesteeReportingVPRequesteeEmployee" name="RequesteeEmployee">
+          <type xmi:type="uml:Class" href="com.example.newuserrequest.bom#com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetRequesteeReportingVPRequesteeEmployeeVP" name="RequesteeEmployeeVP" direction="return">
+          <type xmi:type="uml:Class" href="com.example.newuserrequest.bom#com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="EmployeeAccessGetUserInformation" name="GetUserInformation">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetUserInformationEmployeeDetailsInput" name="EmployeeDetailsInput">
+          <type xmi:type="uml:Class" href="com.example.newuserrequest.bom#com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetUserInformationEmployeeDetailsOutput" name="EmployeeDetailsOutput" direction="return">
+          <type xmi:type="uml:Class" href="com.example.newuserrequest.bom#com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="EmployeeAccessIsRequesteeVPorAbove" name="IsRequesteeVPorAbove">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="IsRequesteeVPorAboveRequesteeEmployee" name="RequesteeEmployee">
+          <type xmi:type="uml:Class" href="com.example.newuserrequest.bom#com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="IsRequesteeVPorAboveIsRequesteeEmployeeVP" name="IsRequesteeEmployeeVP" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A_CheckifRequestorisVPoraboveARMRestfulAPI__TIVgUHl4Ed.VxNqbjTK23A.bom#com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A_CheckifRequestorisVPoraboveARMRestfulAPI__TIVgUHl4Ed.VxNqbjTK23Amyboolean2?com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A_CheckifRequestorisVPoraboveARMRestfulAPI__TIVgUHl4Ed.VxNqbjTK23A%3a%3amyboolean?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1ProductAccess" name="ProductAccess">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="ProductAccessGetProductList" name="GetProductList">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetProductListProductSearchString" name="ProductSearchString">
+          <type xmi:type="uml:PrimitiveType" href="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A_GatherUserInformation__otu80HdGEd.N8_g3KrbO3g.bom#com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A_GatherUserInformation__otu80HdGEd.N8_g3KrbO3gstring_502?com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A_GatherUserInformation__otu80HdGEd.N8_g3KrbO3g%3a%3astring_50?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetProductListProductInformationList" name="ProductInformationList" direction="return">
+          <type xmi:type="uml:Class" href="com.example.newuserrequest.bom#com.example.newuserrequestProductInformationList?com.example.newuserrequest%3a%3aProductInformationList?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="ProductAccessGetProductRolesAndTags" name="GetProductRolesAndTags">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetProductRolesAndTagsGetProductRolesAndTagsRequest" name="GetProductRolesAndTagsRequest">
+          <type xmi:type="uml:Class" href="com.example.newuserrequest.bom#com.example.newuserrequestProductQualifierList?com.example.newuserrequest%3a%3aProductQualifierList?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetProductRolesAndTagsGetProductRolesAndTagsResponse" name="GetProductRolesAndTagsResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.example.newuserrequest.bom#com.example.newuserrequestProductQualifierList?com.example.newuserrequest%3a%3aProductQualifierList?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_odd3EQdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_odd3EgdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_odd3EwdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_odd3FAdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_odd3FQdTEeSRjauCcgnMbg" base_Package="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1?com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1?" xsdTargetNamespace="http://www.tibco.com/bs3.0/_PkpXgHJvEd-FheAVh0HI0A1" xsdSchemaLocation="DummyWS.wsdl" xsdStudioVersion="3.8.0.005" bomWsdlSources="DummyWS.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_odgTUQdTEeSRjauCcgnMbg" base_Class="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1EmployeeAccess?com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1%3a%3aEmployeeAccess?" xsdName="EmployeeAccess" xsdIsComplexType="false"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_odpdQQdTEeSRjauCcgnMbg" base_Class="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1ProductAccess?com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1%3a%3aProductAccess?" xsdName="ProductAccess" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeJMgAdTEeSRjauCcgnMbg" displayLabel="EmployeeAccess" base_NamedElement="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1EmployeeAccess?com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1%3a%3aEmployeeAccess?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeJzkAdTEeSRjauCcgnMbg" displayLabel="ProductAccess" base_NamedElement="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1ProductAccess?com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1%3a%3aProductAccess?"/>
+  <notation:Diagram xmi:id="_oeJzlQdTEeSRjauCcgnMbg" type="Business Object Model" element="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1?com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1?" name="com.tibco.bs3._0._PkpXgHJvEd.FheAVh0HI0A1" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_oeJzlgdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_oeJzlwdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/SimpleSequence"
+	xmlns:tns="http://www.example.org/SimpleSequence" elementFormDefault="qualified">
+
+	<element name="elemWithAnonComplex">
+		<complexType>
+			<choice maxOccurs="unbounded">
+				<element name="testElem1" type="string"></element>
+				<choice minOccurs="3" maxOccurs="6">
+					<element name="innerElem1" type="string"></element>
+					<choice minOccurs="2" maxOccurs="10">
+						<element name="innerInnerElem1" type="string"></element>
+					</choice>
+					<element name="innerElem2" type="string"></element>
+				</choice>
+			</choice>
+		</complexType>
+	</element>
+
+	<complexType name="complexWithChoice">
+		<choice maxOccurs="unbounded">
+			<element name="testElem2" type="string"></element>
+			<choice minOccurs="3" maxOccurs="6">
+				<element name="innerElem3" type="string"></element>
+				<choice minOccurs="2" maxOccurs="10">
+					<element name="innerInnerElem2" type="string"></element>
+				</choice>
+				<element name="innerElem4" type="string"></element>
+			</choice>
+		</choice>
+	</complexType>
+
+</schema>

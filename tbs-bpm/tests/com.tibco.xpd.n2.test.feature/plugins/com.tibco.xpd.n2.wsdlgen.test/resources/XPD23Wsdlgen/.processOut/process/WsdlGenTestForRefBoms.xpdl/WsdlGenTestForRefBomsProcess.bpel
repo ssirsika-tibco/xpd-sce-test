@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="yes"
+    name="WsdlGenTestForRefBomsProcess" suppressJoinFailure="yes"
+    tibex:explicitCompensation="yes"
+    tibex:xpdlId="_jqHzoDybEd--4bf-6xFCRw"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:mtt="http://example.com/testcc"
+    xmlns:ns="http://www.tibco.com/bs3.0/_jphWsDybEd--4bf-6xFCRw"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <bpws:documentation/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/"
+        location="WsdlGenTestForRefBoms.wsdl" namespace="http://www.tibco.com/bs3.0/_jphWsDybEd--4bf-6xFCRw"/>
+    <bpws:partnerLinks>
+        <bpws:partnerLink
+            name="WsdlGenTestForRefBoms_WsdlGenTestForRefBomsProcess"
+            partnerLinkType="ns:WsdlGenTestForRefBomsProcess_PLT" partnerRole="WsdlGenTestForRefBomsProcessProvider"/>
+    </bpws:partnerLinks>
+    <bpws:variables>
+        <bpws:variable name="CCC" tibex:class="com.example.testcc.CCC"
+            tibex:parameter="inout" tibex:xpdlId="_DhQkUDycEd--4bf-6xFCRw"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="yes" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:flow name="flow">
+        <bpws:links>
+            <bpws:link
+                name="_ptRB0jybEd--4bf-6xFCRw to _ptRB0zybEd--4bf-6xFCRw" tibex:xpdlId="_ptRB1DybEd--4bf-6xFCRw"/>
+        </bpws:links>
+        <bpws:scope name="StartEvent" tibex:type="startEvent" tibex:xpdlId="_ptRB0jybEd--4bf-6xFCRw">
+            <bpws:sources>
+                <bpws:source linkName="_ptRB0jybEd--4bf-6xFCRw to _ptRB0zybEd--4bf-6xFCRw"/>
+            </bpws:sources>
+            <bpws:variables>
+                <bpws:variable
+                    messageType="ns:WsdlGenTestForRefBomsProcess_StartEvent_INPUT" name="v_1c48816e"/>
+            </bpws:variables>
+            <bpws:sequence name="sequence">
+                <bpws:receive createInstance="yes" name="receive"
+                    operation="StartEvent"
+                    partnerLink="WsdlGenTestForRefBoms_WsdlGenTestForRefBomsProcess"
+                    portType="ns:WsdlGenTestForRefBomsProcess" variable="v_1c48816e"/>
+                <bpws:assign name="assign" validate="no">
+                    <bpws:copy ignoreMissingFromData="yes"
+                        tibex:objectName="CCC"
+                        tibex:objectNamespace="http://example.com/testcc" tibex:transform="XmlToObject">
+                        <bpws:from part="CCC" variable="v_1c48816e"/>
+                        <bpws:to variable="CCC"/>
+                    </bpws:copy>
+                </bpws:assign>
+            </bpws:sequence>
+        </bpws:scope>
+        <bpws:scope name="EndEvent" tibex:type="endEvent" tibex:xpdlId="_ptRB0zybEd--4bf-6xFCRw">
+            <bpws:targets>
+                <bpws:target linkName="_ptRB0jybEd--4bf-6xFCRw to _ptRB0zybEd--4bf-6xFCRw"/>
+            </bpws:targets>
+            <bpws:variables>
+                <bpws:variable
+                    messageType="ns:WsdlGenTestForRefBomsProcess_StartEvent_OUTPUT" name="v_776923bd"/>
+            </bpws:variables>
+            <bpws:sequence name="sequence_2">
+                <bpws:assign name="assign_2" validate="no">
+                    <bpws:copy ignoreMissingFromData="yes" tibex:transform="ObjectToXml">
+                        <bpws:from variable="CCC"/>
+                        <bpws:to part="CCC" variable="v_776923bd"/>
+                    </bpws:copy>
+                </bpws:assign>
+                <bpws:reply name="reply" operation="StartEvent"
+                    partnerLink="WsdlGenTestForRefBoms_WsdlGenTestForRefBomsProcess"
+                    portType="ns:WsdlGenTestForRefBomsProcess" variable="v_776923bd"/>
+            </bpws:sequence>
+        </bpws:scope>
+    </bpws:flow>
+</bpws:process>

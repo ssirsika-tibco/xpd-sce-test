@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_988lIAvtEeS1yPQQHR22DQ" xpdExt:DisplayName="EAIDB1" Name="EAIDB1">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2177-10-07</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>sajain</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_995nYgvtEeS1yPQQHR22DQ" xpdExt:DisplayName="EAIDB1 (API Activity EndPoint)" Name="EAIDB1">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/EAIDB1/EAIDB1" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_9-BjMAvtEeS1yPQQHR22DQ" xpdExt:DisplayName="Database Participant imap.gmail.com" Name="DatabaseParticipantimapgmailcom">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:Jdbc/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_9-BjMQvtEeS1yPQQHR22DQ" xpdExt:DisplayName="Database Participant BPM Server" Name="DatabaseParticipantBPMServer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:Jdbc/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="N66579" xpdExt:DisplayName="Default Pool" Name="DefaultPool" BoundaryVisible="true" Process="_99ewoAvtEeS1yPQQHR22DQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="N66591" xpdExt:DisplayName="Default Lane" Name="DefaultLane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="416.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Associations>
+    <xpdl2:Association Id="N66152_EAIWithdrawAssociation" Name="" AssociationDirection="To" Source="N66152_EAIWithdrawCompensation" Target="N66152_EAIWithdrawTask">
+      <xpdl2:Object Id="N66152_EAIWithdrawAssociationObject"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="N65945_FixMeAssociation" Name="" AssociationDirection="To" Source="N65945_FixMeAnnotation" Target="N65945">
+      <xpdl2:Object Id="N65945_FixMeAssociationObject"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_996OcgvtEeS1yPQQHR22DQ" Source="_996OcQvtEeS1yPQQHR22DQ" Target="_995nYAvtEeS1yPQQHR22DQ">
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_996OdAvtEeS1yPQQHR22DQ" Source="_996OcwvtEeS1yPQQHR22DQ" Target="N66152_EAIWithdrawTask">
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+  </xpdl2:Associations>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="N66597" ArtifactType="Annotation" TextAnnotation="Simple EAU DB Step with minimal basic settings required.&#xA;&#xA;EAI DB With Procedure Call and parameter Mappings.&#xA;&#xA;EAI DB With Withdraw Step Stored procedure set.&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="N66591">
+          <xpdl2:Coordinates XCoordinate="278.0" YCoordinate="308.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="N65945_FixMeAnnotation" ArtifactType="Annotation" TextAnnotation="FIXME: Original iProcess activity used the conditional deadline feature which has no direct equivalent in BPM. Conditions...&#xA;1&lt;2&#xA;2&lt;1">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="10.0" LaneId="N66591">
+          <xpdl2:Coordinates XCoordinate="248.0" YCoordinate="6.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_996OcQvtEeS1yPQQHR22DQ" ArtifactType="Annotation" TextAnnotation="FIXME: Modify receive task to accept data that the original iProcess EAI step delayed release instruction may have contained.">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="49.0" LaneId="N66591" Width="273.0">
+          <xpdl2:Coordinates XCoordinate="512.0" YCoordinate="24.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_996OcwvtEeS1yPQQHR22DQ" ArtifactType="Annotation" TextAnnotation="FIXME: Withdraw action serves no purpose for iProcess EAI step which are not configured as 'delayed release'.">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="49.0" LaneId="N66591" Width="273.0">
+          <xpdl2:Coordinates XCoordinate="914.0" YCoordinate="216.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_99ewoAvtEeS1yPQQHR22DQ" xpdExt:FlowRoutingStyle="MultiEntryExit" xpdExt:DisplayName="EAIDB1" xpdExt:ApiEndPointParticipant="_995nYgvtEeS1yPQQHR22DQ" Name="EAIDB1" AccessLevel="PUBLIC">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Created></xpdl2:Created>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="N65588" xpdExt:DisplayName="NUM" Name="NUM" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>9</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65891" xpdExt:DisplayName="TXT" Name="TXT" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="N65945" Name="DB1" FinishMode="Automatic" StartMode="Automatic" xpdExt:ActivityDeadlineEventId="TimerExceptionEvent_N65945" xpdExt:DisplayName="EAI DB Description">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Database" Implementation="Other">
+                <xpdl2:MessageIn Id="_MsgIn_N66222">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="Param1">
+                      <xpdl2:Actual>SW_CASEDESC</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="Param2">
+                      <xpdl2:Actual/>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="INOUT" Formal="Param4">
+                      <xpdl2:Actual>TXT</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_MsgOut_N66222">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="Param3">
+                      <xpdl2:Actual>NUM</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <database:Database>
+                  <database:Operation database:Type="StoredProc">
+                    <database:Sql>storedproc01</database:Sql>
+                    <database:Parameters>
+                      <database:Parameter Name="Param1"/>
+                      <database:Parameter Name="Param2"/>
+                      <database:Parameter Name="Param3"/>
+                      <database:Parameter Name="Param4"/>
+                    </database:Parameters>
+                  </database:Operation>
+                </database:Database>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_9-BjMAvtEeS1yPQQHR22DQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="3"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="64.0" LaneId="N66591" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="296.0" YCoordinate="88.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="TimerExceptionEvent_N65945">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_995nYAvtEeS1yPQQHR22DQ" Trigger="Timer">
+              <xpdl2:TriggerTimer xpdExt:ContinueOnTimeout="false"/>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Deadline>
+            <xpdl2:DeadlineDuration ScriptGrammar="ConstantPeriod">
+<xpdExt:ConstantPeriod Years="1"/>
+</xpdl2:DeadlineDuration>
+          </xpdl2:Deadline>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66591" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="35.76" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66152" Name="DB2" FinishMode="Automatic" StartMode="Automatic" xpdExt:DisplayName="EAI DB Description">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Database" Implementation="Other">
+                <xpdl2:MessageIn Id="_MsgIn_N66393"/>
+                <xpdl2:MessageOut Id="_MsgOut_N66393"/>
+                <database:Database>
+                  <database:Operation database:Type="StoredProc">
+                    <database:Sql>storedproc2</database:Sql>
+                    <database:Parameters/>
+                  </database:Operation>
+                </database:Database>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_9-BjMAvtEeS1yPQQHR22DQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="CatchErrorEventCode" Value="SecondaryWithdraw_1"/>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="4"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66591" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="735.0" YCoordinate="178.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:DurationCalculation>
+            <xpdExt:Years>1</xpdExt:Years>
+            <xpdExt:Months>2</xpdExt:Months>
+            <xpdExt:Weeks>3</xpdExt:Weeks>
+            <xpdExt:Days>4</xpdExt:Days>
+            <xpdExt:Hours>5</xpdExt:Hours>
+            <xpdExt:Minutes>6</xpdExt:Minutes>
+            <xpdExt:Seconds>7</xpdExt:Seconds>
+            <xpdExt:Microseconds>8</xpdExt:Microseconds>
+          </xpdExt:DurationCalculation>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="WithdrawEventCatcher_N66152_SecondaryWithdraw_1">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="N66152" Trigger="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="CATCH" Name="SecondaryWithdraw_1"/>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66591" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="25.76" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66315" Name="DB3" FinishMode="Automatic" StartMode="Automatic" xpdExt:DisplayName="EAI DB Description">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Database" Implementation="Other">
+                <xpdl2:MessageIn Id="_MsgIn_N66543"/>
+                <xpdl2:MessageOut Id="_MsgOut_N66543"/>
+                <database:Database>
+                  <database:Operation database:Type="StoredProc">
+                    <database:Sql>storedProc3</database:Sql>
+                    <database:Parameters/>
+                  </database:Operation>
+                </database:Database>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_9-BjMQvtEeS1yPQQHR22DQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="5"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66591" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1041.0" YCoordinate="148.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66429" Name="Start" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66591" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="60.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="WithdrawEventCatcher_N66152_SecondaryWithdraw_1_EndEvent" Name="EndEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66591" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="765.0" YCoordinate="260.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N65945_EAIWithdrawTask" Name="WithdrawCompensation_DB1" IsATransaction="false" IsForCompensation="true" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Withdraw Compensation (EAI DB Description)">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Database" Implementation="Other">
+                <xpdl2:MessageIn Id="N65945_EAIWithdrawTask_msgIn"/>
+                <xpdl2:MessageOut Id="N65945_EAIWithdrawTask_msgOut"/>
+                <database:Database>
+                  <database:Operation database:Type="StoredProc">
+                    <database:Sql>withdrawStoredProc</database:Sql>
+                  </database:Operation>
+                </database:Database>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_9-BjMAvtEeS1yPQQHR22DQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66591" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="379.0" YCoordinate="190.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66152_EAIWithdrawCompensation" Name="" xpdExt:Visibility="Private" xpdExt:DisplayName="">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="N66152" Trigger="Compensation">
+              <xpdl2:TriggerResultCompensation xpdExt:CatchThrow="CATCH"/>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66591" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="20.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66152_EAIWithdrawTask" Name="WithdrawCompensation_DB2" IsATransaction="false" IsForCompensation="true" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Withdraw Compensation (EAI DB Description)">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Database" Implementation="Other">
+                <xpdl2:MessageIn Id="N66152_EAIWithdrawTask_msgIn"/>
+                <xpdl2:MessageOut Id="N66152_EAIWithdrawTask_msgOut"/>
+                <database:Database>
+                  <database:Operation database:Type="StoredProc">
+                    <database:Sql>withdrawstoredproc</database:Sql>
+                  </database:Operation>
+                </database:Database>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_9-BjMAvtEeS1yPQQHR22DQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="64.0" LaneId="N66591" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="818.0" YCoordinate="280.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_995nYAvtEeS1yPQQHR22DQ" Name="ReleaseDB1" xpdExt:DisplayName="ReleaseDB1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:Generated="true" xpdExt:ImplementationType="WebService" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_995nYQvtEeS1yPQQHR22DQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_995nYgvtEeS1yPQQHR22DQ">
+                  <xpdl2:Service xpdExt:IsRemote="true">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="EAIDB1.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="EAIDB1" OperationName="ReleaseDB1">
+                  <xpdExt:ExternalReference location="EAIDB1.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_995nYgvtEeS1yPQQHR22DQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="64.0" LaneId="N66591" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="416.0" YCoordinate="88.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="N66523" xpdExt:DisplayName="" Name="" From="N66152" To="N66315">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66528" xpdExt:DisplayName="" Name="" From="N66429" To="N65945">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66533" xpdExt:DisplayName="" Name="" From="TimerExceptionEvent_N65945" To="N65945_EAIWithdrawTask">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="WithdrawEventCatcher_N66152_SecondaryWithdraw_1_Connect_EndEvent" xpdExt:DisplayName="" Name="" From="WithdrawEventCatcher_N66152_SecondaryWithdraw_1" To="WithdrawEventCatcher_N66152_SecondaryWithdraw_1_EndEvent">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_996OcAvtEeS1yPQQHR22DQ" From="N65945" To="_995nYAvtEeS1yPQQHR22DQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

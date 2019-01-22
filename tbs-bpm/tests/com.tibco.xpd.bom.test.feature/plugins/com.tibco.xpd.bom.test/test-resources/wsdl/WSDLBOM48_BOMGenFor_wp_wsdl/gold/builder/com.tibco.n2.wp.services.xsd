@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://services.wp.n2.tibco.com" xmlns:tns2="http://services.wp.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.wp.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.wp.services.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="getBusinessServiceDetailsByModule" nillable="false">
+    <xsd:complexType ecore:name="getBusinessServiceDetailsByModuleType" id="com.tibco.n2.wp.servicesgetBusinessServiceDetailsByModuleType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="in1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="in" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getBusinessServiceDetailsByModuleResponse" nillable="false">
+    <xsd:complexType ecore:name="getBusinessServiceDetailsByModuleResponseType" id="com.tibco.n2.wp.servicesgetBusinessServiceDetailsByModuleResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="out" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="out" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getBusinessServiceDetailsByModuleFault" nillable="false">
+    <xsd:complexType ecore:name="getBusinessServiceDetailsByModuleFaultType" id="com.tibco.n2.wp.servicesgetBusinessServiceDetailsByModuleFaultType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="getBusinessServiceDetailsByModuleFault" form="unqualified"
+            maxOccurs="1" minOccurs="1" name="getBusinessServiceDetailsByModuleFault"
+            type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

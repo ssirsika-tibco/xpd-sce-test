@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.fragments.fragmentsProvider">
+      <provider
+            class="com.tibco.xpd.n2.processfragment.PackageTemplatesN2Contributor"
+            description="%fragmentContribution.pkgTemplates.Desc"
+            id="com.tibco.xpd.n2.proc.pckg.templates"
+            name="%fragmentContribution.pkgTemplates.Name">
+      </provider>
+   </extension>
+   <extension
+         point="com.tibco.xpd.fragments.fragmentsBinding">
+      <binding
+            editorId="com.tibco.xpd.packageeditor.editor"
+            fragmentId="com.tibco.xpd.n2.proc.pckg.templates">
+         <filter
+               filter="com.tibco.xpd.processeditor.fragments.PackageTemplateFilter">
+         </filter>
+      </binding>
+   </extension>
+
+</plugin>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.example.org/InheritanceTest/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InheritanceTest" targetNamespace="http://www.example.org/InheritanceTest/" tibex:bdsSupport="false">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/InheritanceTest/">
+	<xsd:complexType name="InheritanceTestOpResponse">
+		<xsd:sequence>
+			<xsd:element name="out" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Derived1">
+		<xsd:complexContent>
+			<xsd:extension base="tns:Derived2">
+				<xsd:sequence>
+					<xsd:element name="d1El" type="xsd:string"></xsd:element>
+					<xsd:element name="d1El2" type="xsd:string"></xsd:element>
+				</xsd:sequence>
+
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Derived2">
+		<xsd:complexContent>
+			<xsd:extension base="tns:Derived3">
+				<xsd:sequence>
+					<xsd:element name="d2El1" type="xsd:string"></xsd:element>
+					<xsd:element name="d2El2" type="xsd:string"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Derived3">
+		<xsd:sequence>
+			<xsd:element name="d3El1" type="xsd:string"></xsd:element>
+			<xsd:element name="d3El2" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema></wsdl:types>
+    <wsdl:message name="InheritanceTestOpRequest">
+		<wsdl:part name="parameters" type="tns:Derived1"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="InheritanceTestOpResponse">
+    	<wsdl:part name="parameters" type="tns:InheritanceTestOpResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="InhertinceTestPorttype">
+    	<wsdl:operation name="InheritanceTestOp">
+    		<wsdl:input message="tns:InheritanceTestOpRequest"></wsdl:input>
+    		<wsdl:output message="tns:InheritanceTestOpResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

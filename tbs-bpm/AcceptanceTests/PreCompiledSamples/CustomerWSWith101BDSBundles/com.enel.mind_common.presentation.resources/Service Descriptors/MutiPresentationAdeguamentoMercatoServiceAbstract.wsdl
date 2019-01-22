@@ -1,0 +1,159 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<wsdl:definitions name = "MutiPresentationAdeguamentoMercatoAbstract" targetNamespace = "http://com.enel.mind.presentation.adeguamentomercato" xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns = "http://com.enel.mind.presentation.adeguamentomercato" xmlns:wsdl = "http://schemas.xmlsoap.org/wsdl/" xmlns:xsd = "http://www.w3.org/2001/XMLSchema">  
+	<wsdl:types>  
+    
+		<xsd:schema targetNamespace = "http://com.enel.mind.presentation.adeguamentomercato">      
+			<xsd:element name = "AggiornaMercatoRiferimentoRequest">        
+				<xsd:complexType> 
+          
+					<xsd:sequence>          
+						<xsd:element minOccurs = "0" name = "Richiesta" type = "tns:RichiestaType"/>
+						<xsd:element minOccurs = "0" name = "ClienteCDM" type = "xsd:string">          </xsd:element>
+						<xsd:element minOccurs = "0" name = "FornituraCDM" type = "xsd:string">          </xsd:element>
+					</xsd:sequence>        
+				</xsd:complexType>      
+			</xsd:element>      
+			<xsd:element name = "AggiornaMercatoRiferimentoResponse">        
+				<xsd:complexType>          
+					<xsd:sequence>          
+						<xsd:element minOccurs = "1" name = "Esito" type = "tns:EsitoType"/>          
+					</xsd:sequence>        
+				</xsd:complexType>      
+			</xsd:element>      
+			<xsd:element name = "CalcolaMercatoRiferimentoRequest">        
+				<xsd:complexType> 
+          
+					<xsd:sequence>          
+						<xsd:element minOccurs = "0" name = "Richiesta" type = "tns:RichiestaType"/>
+						<xsd:element minOccurs = "0" name = "ClienteCDM" type = "xsd:string">          </xsd:element>
+						<xsd:element minOccurs = "0" name = "FornituraCDM" type = "xsd:string">          </xsd:element>
+					</xsd:sequence>        
+				</xsd:complexType>      
+			</xsd:element>  
+      
+			<xsd:element name = "CalcolaMercatoRiferimentoResponse">        
+				<xsd:complexType>          
+					<xsd:sequence>          
+						<xsd:element minOccurs = "1" name = "Esito" type = "tns:EsitoType"/>          
+					</xsd:sequence>        
+				</xsd:complexType>      
+			</xsd:element>  
+	  
+      
+			<xsd:complexType name = "RichiestaType">      
+				<xsd:sequence>      
+					<xsd:element minOccurs = "0" name = "sistemaRichiedente" type = "xsd:string">      </xsd:element>      
+					<xsd:element minOccurs = "0" name = "canale" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "idRichiesta" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "tipoOperazione" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "causale" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "idProcessoBpm" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "commodity" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "flagDelibera40" type = "xsd:boolean"/>      
+					<xsd:element minOccurs = "0" name = "Ip" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "Profilo" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "Matricola" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "DataRichiesta" type = "xsd:date"/>      
+					<xsd:element minOccurs = "0" name = "IdMuti" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "IdDms" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "IdDmsReclamo" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "IdR2d" type = "tns:IdentificativiR2dType">      </xsd:element>      
+					<xsd:element minOccurs = "0" name = "dataDecorrenza" type = "xsd:date"/>      
+					<xsd:element minOccurs = "0" name = "tipoRichiesta" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "flagComplesso" type = "xsd:boolean"/>      
+					<xsd:element minOccurs = "0" name = "flagPreventivo" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "flagDocumentazione" type = "xsd:string">      </xsd:element>      
+					<xsd:element minOccurs = "0" name = "idCRM" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "statoServizio" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "statoOrdine" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "statoFiCa" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "statoISU" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "statoR2D" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "statoSD" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "statoSempre" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "statoUDB" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "IdR2R" type = "tns:IdentificativiR2rType">      </xsd:element>      
+					<xsd:element minOccurs = "0" name = "IdAttivitaCrm" type = "xsd:string"/>      
+				</xsd:sequence>      
+			</xsd:complexType>
+			<xsd:complexType name = "Esito_R2D">
+				<xsd:sequence>
+					<xsd:element minOccurs = "0" name = "IdDistr" type = "xsd:string"/>
+					<xsd:element minOccurs = "0" name = "IdDistr2" type = "xsd:string"/>
+					<xsd:element minOccurs = "0" name = "IdR2D" type = "xsd:string"/>
+					<xsd:element minOccurs = "0" name = "DataAttivazioneTrasp" type = "xsd:string"/>
+					<xsd:element minOccurs = "0" name = "DescEsitoDT" type = "xsd:string"/>
+					<xsd:element minOccurs = "0" name = "CodEsitoDT" type = "xsd:string"/>
+					<xsd:element minOccurs = "0" name = "TipoEsitoDT" type = "xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>     
+			<xsd:complexType name = "EsitoUdbType">      
+				<xsd:sequence>      
+					<xsd:element minOccurs = "0" name = "TitolareConto" type = "xsd:string">      </xsd:element>      
+					<xsd:element minOccurs = "0" name = "CFTitolare" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "NumConto" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "CodicePaese" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "CinIban" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "Cin" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "Cab" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "Abi" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "MetodoPagamento" type = "xsd:string"/>      
+				</xsd:sequence>      
+			</xsd:complexType>  
+      
+			<xsd:complexType name = "IdentificativiR2dType">      
+				<xsd:sequence>      
+					<xsd:element minOccurs = "0" name = "IdDistr" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "IdDistr2" type = "xsd:string"/>      
+					<xsd:element minOccurs = "0" name = "IdR2d" type = "xsd:string"/>      
+				</xsd:sequence>      
+			</xsd:complexType>    
+      
+			<xsd:complexType name = "IdentificativiR2rType">      
+				<xsd:sequence>      
+					<xsd:element minOccurs = "0" name = "IdR2R" type = "xsd:string"/>      
+				</xsd:sequence>      
+			</xsd:complexType>    
+      
+			<xsd:complexType name = "EsitoType">      
+				<xsd:sequence>      
+					<xsd:element minOccurs = "0" name = "esito" type = "xsd:string">      </xsd:element>      
+					<xsd:element minOccurs = "0" name = "codiceEsito" type = "xsd:string">      </xsd:element>      
+					<xsd:element minOccurs = "0" name = "descrizione" type = "xsd:string">      </xsd:element>      
+					<xsd:element minOccurs = "0" name = "tipoEsito" type = "xsd:string">      </xsd:element>      
+					<xsd:element minOccurs = "1" name = "sistemaSorgenteEsito" type = "xsd:string"/>      
+				</xsd:sequence>      
+			</xsd:complexType>      
+            
+             
+    
+		</xsd:schema>  
+	</wsdl:types>  
+	<wsdl:message name = "AggiornaMercatoRiferimentoRequest">    
+		  
+		<wsdl:part element = "tns:AggiornaMercatoRiferimentoRequest" name = "request"/>
+	</wsdl:message>  
+	<wsdl:message name = "AggiornaMercatoRiferimentoResponse">    
+		<wsdl:part element = "tns:AggiornaMercatoRiferimentoResponse" name = "response"/>  
+	</wsdl:message>  
+	<wsdl:message name = "CalcolaMercatoRiferimentoRequest">    
+		  
+		<wsdl:part element = "tns:CalcolaMercatoRiferimentoRequest" name = "request"/>
+	</wsdl:message>  
+	<wsdl:message name = "CalcolaMercatoRiferimentoResponse">    
+		<wsdl:part element = "tns:CalcolaMercatoRiferimentoResponse" name = "response"/>  
+	</wsdl:message>  
+ 
+  
+  
+	<wsdl:portType name = "MutiPresentationAdeguamentoMercatoAbstract">    
+		<wsdl:operation name = "AggiornaMercatoRiferimento">      
+			<wsdl:input message = "tns:AggiornaMercatoRiferimentoRequest"/>      
+			<wsdl:output message = "tns:AggiornaMercatoRiferimentoResponse"/>    
+		</wsdl:operation>    
+		<wsdl:operation name = "CalcolaMercatoRiferimento">      
+			<wsdl:input message = "tns:CalcolaMercatoRiferimentoRequest"/>      
+			<wsdl:output message = "tns:CalcolaMercatoRiferimentoResponse"/>    
+		</wsdl:operation>    
+	</wsdl:portType>
+</wsdl:definitions>

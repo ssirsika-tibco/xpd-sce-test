@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_jS5NYEJHEeOds_Fs5Kx-NA_RicercaDuplicatiAzioni__9ZwrQEhrEeOAbZA2R6U2NQ" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/ricercaduplicatiazioni" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Presentation_GetDatiInesitoPostaNonRecapitata" targetNamespace="http://www.tibco.com/bs3.0/_jS5NYEJHEeOds_Fs5Kx-NA_RicercaDuplicatiAzioni__9ZwrQEhrEeOAbZA2R6U2NQ" tibex:ServiceTask="_9ZwrQEhrEeOAbZA2R6U2NQ" tibex:XPDL="Presentation_GetDatiInesitoPostaNonRecapitata.xpdl" tibex:process="_7zxaUEhqEeOAbZA2R6U2NQ">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_jS5NYEJHEeOds_Fs5Kx-NA_RicercaDuplicatiAzioni__9ZwrQEhrEeOAbZA2R6U2NQ" targetNamespace="http://www.tibco.com/bs3.0/_jS5NYEJHEeOds_Fs5Kx-NA_RicercaDuplicatiAzioni__9ZwrQEhrEeOAbZA2R6U2NQ"/>
+    <xsd:schema xmlns="http://mind.enel.com/ricercaduplicatiazioni" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/ricercaduplicatiazioni" targetNamespace="http://mind.enel.com/ricercaduplicatiazioni">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/MIND_Presentation/Business Objects/com.enel.mind.ricercaduplicatiazioni.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="RicercaDuplicatiAzioni_Request">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="datacorrente" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="canaleprovenienza" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idcorrispondenza" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codtipoplico" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagvocal" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="identificativoordineCRM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="master" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idattivita" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="gruppo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numeroutente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codicefiscale" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="contocontrattuale" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dataricezioneinesito" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipodocumento" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistema" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str1" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str2" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str3" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idbpm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numprotocollo">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+         <xsd:element maxOccurs="1" minOccurs="0" name="flagFE" type="xsd:string"/>
+         <xsd:element maxOccurs="1" minOccurs="0" name="idFattura" type="xsd:string"/>
+         <xsd:element maxOccurs="1" minOccurs="0" name="tipoPA" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RicercaDuplicatiAzioni_Response">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="inesitoCRM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="reiteroAutomatico" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="notificaPECMAIL" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="inserimentoSospensiva" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="chiamataUscita" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RicercaDuplicatiAzioni_RequestElement" type="RicercaDuplicatiAzioni_Request"/>
+      <xsd:element name="RicercaDuplicatiAzioni_ResponseElement" type="RicercaDuplicatiAzioni_Response"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RicercaDuplicatiAzioni_Matrice_RicercaDuplicatiAzioni_INPUT">
+    <wsdl:part element="ttns:RicercaDuplicatiAzioni_RequestElement" name="RicercaDuplicatiAzioni_Request"/>
+  </wsdl:message>
+  <wsdl:message name="RicercaDuplicatiAzioni_Matrice_RicercaDuplicatiAzioni_OUTPUT">
+    <wsdl:part element="ttns:RicercaDuplicatiAzioni_ResponseElement" name="RicercaDuplicatiAzioni_Response"/>
+  </wsdl:message>
+  <wsdl:portType name="RicercaDuplicatiAzioni_Matrice" tibex:FlowContainer="_7zxaUEhqEeOAbZA2R6U2NQ">
+    <wsdl:operation name="RicercaDuplicatiAzioni">
+      <wsdl:input message="ns:RicercaDuplicatiAzioni_Matrice_RicercaDuplicatiAzioni_INPUT" tibex:Event="_9ZwrQEhrEeOAbZA2R6U2NQ"/>
+      <wsdl:output message="ns:RicercaDuplicatiAzioni_Matrice_RicercaDuplicatiAzioni_OUTPUT" tibex:Event="_9ZwrQEhrEeOAbZA2R6U2NQ"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

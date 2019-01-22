@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/businessobjectmodel4" xmlns:tns1="http://example.com/businessobjectmodel4"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/businessobjectmodel4">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/GDJunitProj/Business Objects/XSDBOM_GlobalData04_UniDirectionalAssociation.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Order" id="_2hzSsHGWEeC5w-_cphi0rw" name="Order">
+    <xsd:sequence>
+      <xsd:element ecore:name="autoCaseIdentifier1" id="_7KDyAL8mEeOvo6mxMC9AQQ" maxOccurs="1"
+          minOccurs="0" name="autoCaseIdentifier1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="19"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Employee" id="_2zp3sHGWEeC5w-_cphi0rw" name="Employee">
+    <xsd:sequence>
+      <xsd:element ecore:name="autoCaseIdentifier1" id="_QQIM0L8nEeOvo6mxMC9AQQ" maxOccurs="1"
+          minOccurs="0" name="autoCaseIdentifier1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:totalDigits value="19"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="OrderElement" type="Order"/>
+  <xsd:element name="EmployeeElement" type="Employee"/>
+</xsd:schema>

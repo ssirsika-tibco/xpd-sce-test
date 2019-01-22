@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/ComplexRestriction" targetNamespace="http://example.com/ComplexRestriction" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<!-- base type -->
+	<xs:complexType name="BaseInfo" ecore:name="BaseInfo">
+		<xs:sequence>
+			<xs:element name="numPosts" type="xs:float" minOccurs="0" maxOccurs="5" ecore:name="numPosts"/>
+			<xs:element name="notification" type="xs:int" minOccurs="0" ecore:name="notification"/>
+		</xs:sequence>
+		<xs:attribute name="firstSubscribed" type="xs:date" use="optional" ecore:name="firstSubscribed"/>
+		<xs:attribute name="mailReader" type="xs:string" ecore:name="mailReader"/>
+	</xs:complexType>
+	<!-- derived type -->
+	<xs:complexType name="RestrictedOne" ecore:name="RestrictedOne">
+		<xs:complexContent>
+			<xs:restriction base="BaseInfo">
+				<xs:sequence>
+					<xs:element name="numPosts" type="xs:float" minOccurs="0" ecore:name="numPosts"/>
+					<xs:element name="notification" type="xs:int" default="3" ecore:name="notification"/>
+				</xs:sequence>
+				<xs:attribute name="firstSubscribed" type="xs:date" use="required" ecore:name="firstSubscribed"/>
+				<xs:attribute name="mailReader" type="xs:string" fixed="Microsoft Outlook" ecore:name="mailReader"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- derived of derived type -->
+	<xs:complexType name="RestrictedTwo" ecore:name="RestrictedTwo">
+		<xs:complexContent>
+			<xs:restriction base="RestrictedOne">
+				<xs:sequence>
+					<xs:element name="numPosts" type="xs:float" ecore:name="numPosts"/>
+					<xs:element name="notification" type="xs:int" default="2" ecore:name="notification"/>
+				</xs:sequence>
+				<xs:attribute name="firstSubscribed" type="xs:date" use="required" ecore:name="firstSubscribed"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema targetNamespace="http://www.t-mobile.com/esp/atomic/rpx/types" 
+			elementFormDefault="qualified" 
+			attributeFormDefault="unqualified" 
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+			xmlns:tns="http://www.t-mobile.com/esp/atomic/rpx/types">
+	<xs:simpleType name="msisdnType">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:totalDigits value="10"/>
+			<xs:pattern value="[2-9]{1}[0-9]{9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="banType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:length value="9"/>
+			<xs:pattern value="[0-9]{9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="couponPinType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:minLength value="10"/>
+			<xs:maxLength value="14"/>
+			<xs:pattern value="[0-9]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="subscriberPinType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:minLength value="4"/>
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[0-9]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="simType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:minLength value="19"/>
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="authenticationKeyType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="imeiType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:length value="15"/>
+			<xs:pattern value="[0-9]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dealerCodeType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:length value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="npaType">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:totalDigits value="3"/>
+			<xs:pattern value="[1-9]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="cityCodeType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:length value="3"/>
+			<xs:pattern value="[A-Z]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="storeCodeType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+			<xs:pattern value="[0-9]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="personalInfoType">
+		<xs:restriction base="xs:normalizedString">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="middleNameType">
+		<xs:restriction base="tns:personalInfoType">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="cityNameType">
+		<xs:restriction base="tns:personalInfoType">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="zipCodeType">
+		<xs:restriction base="tns:personalInfoType">
+			<xs:minLength value="5"/>
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stateCodeType">
+		<xs:restriction base="tns:personalInfoType">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="contactPhoneType">
+		<xs:restriction base="tns:personalInfoType">
+			<xs:minLength value="2"/>
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="requestName">
+		<xs:restriction base="xs:normalizedString"/>
+	</xs:simpleType>
+	<xs:simpleType name="userName">
+		<xs:restriction base="xs:normalizedString"/>
+	</xs:simpleType>
+	<xs:simpleType name="password">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="correlationIdType">
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="errorCodeType">
+		<xs:restriction base="xs:nonNegativeInteger"/>
+	</xs:simpleType>
+	<xs:simpleType name="errorMessageType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="requestInfoType">
+		<xs:sequence>
+		<!--  These elements are removed from the wrapper wsdl because they should not be provided as input inside amx. we map these into the real RPX WSDL in the RPXServices mediation
+		
+			<xs:element name="requestName" type="tns:requestName"/>
+			<xs:element name="userName" type="tns:userName"/>
+			<xs:element name="password" type="tns:password"/>
+		 -->
+			<xs:element name="correlationId" type="tns:correlationIdType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="errorInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="correlationId" type="tns:correlationIdType" minOccurs="0"/>
+				<xs:element name="errorCode" type="tns:errorCodeType"/>
+				<xs:element name="errorMessage" type="tns:errorMessageType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    
+    <xs:complexType name="flexpaySubscriberIdType">
+		<xs:sequence>
+			<xs:element name="msisdn" type="tns:msisdnType"/>
+			<xs:element name="ban" type="tns:banType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="couponDetailsType">
+		<xs:sequence>
+			<xs:element name="issuerId" type="xs:positiveInteger"/>
+			<xs:element name="serialNumber" type="xs:nonNegativeInteger"/>
+			<xs:element name="validForRefill" type="xs:boolean"/>
+			<xs:element name="validForActivation" type="xs:boolean"/>
+			<xs:element name="faceValue" type="xs:nonNegativeInteger"/>
+			<xs:element name="type">
+				<xs:simpleType>
+					<xs:restriction base="xs:normalizedString">
+						<xs:enumeration value="activation"/>
+						<xs:enumeration value="refill"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="typeCode" type="xs:normalizedString"/>				
+		</xs:sequence>
+	</xs:complexType>
+
+    
+	<xs:complexType name="couponIssuerAndSerialType">
+		<xs:sequence>
+			<xs:element name="serialNumber" type="xs:nonNegativeInteger"/>
+			<xs:element name="issuerId" type="xs:nonNegativeInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+    
+    
+    
+</xs:schema>

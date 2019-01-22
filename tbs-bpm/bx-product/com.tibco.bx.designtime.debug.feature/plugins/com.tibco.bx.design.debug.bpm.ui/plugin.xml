@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+	   <propertyTester
+		   namespace="com.tibco.bx.debug.bpm.ui.popup.breakpoint"
+		   properties="breakWhen"
+		   type="java.lang.Object"
+		   class="com.tibco.bx.debug.bpm.ui.actions.VisiblePropertyTester"
+		   id="com.tibco.bx.debug.bpm.ui.popup.propertyTesters.visible">  
+	   </propertyTester>   
+   </extension>
+   <extension point="org.eclipse.ui.popupMenus">
+       <objectContribution
+            id="com.tibco.bx.debug.bpm.ui.taskContribution1"
+            objectClass="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">
+           <menu
+            	id="com.tibco.bx.debug.bpm.ui.breakpointMarkersMenu"
+            	label="%Breakpoints"
+            	path="breakpoint">
+            	 <groupMarker
+	                  	  name="Add">
+		         </groupMarker>
+         	     <groupMarker
+	                  	  name="Remove">
+		         </groupMarker>
+		         <groupMarker
+		                  name="Toggle">
+		         </groupMarker>
+		         <groupMarker
+		                  name="Properties">
+		         </groupMarker>
+      	 </menu>
+	</objectContribution>
+	<objectContribution
+            id="com.tibco.bx.debug.bpm.ui.taskContribution2"
+            objectClass="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">     
+          <action
+               class="com.tibco.bx.debug.bpm.ui.actions.AddBothBreakpointAction"
+               id="com.tibco.bx.debug.bpm.ui.actions.addbothBreakpoint"
+               label="Add both"
+               menubarPath="com.tibco.bx.debug.bpm.ui.breakpointMarkersMenu/Add"
+			   enablesFor ="1"/>
+		<enablement>
+          	<test property="com.tibco.bx.debug.bpm.ui.popup.breakpoint.breakWhen"
+          		  args="before,after,none"/>
+     	</enablement>
+	</objectContribution>	
+	<objectContribution
+            id="com.tibco.bx.debug.bpm.ui.taskContribution3"
+            objectClass="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">     
+          <action
+               class="com.tibco.bx.debug.bpm.ui.actions.AddAfterBreakpointAction"
+               id="com.tibco.bx.debug.bpm.ui.actions.addAfterBreakpoint"
+               label="Add after"
+               menubarPath="com.tibco.bx.debug.bpm.ui.breakpointMarkersMenu/Add"
+			   enablesFor ="1"/>
+		<enablement>
+          <test property="com.tibco.bx.debug.bpm.ui.popup.breakpoint.breakWhen"
+          		args="none,both"/>
+     	</enablement>
+	</objectContribution>
+	<objectContribution
+            id="com.tibco.bx.debug.bpm.ui.taskContribution4"
+            objectClass="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">     
+          <action
+               class="com.tibco.bx.debug.bpm.ui.actions.AddBeforeBreakpointAction"
+               id="com.tibco.bx.debug.bpm.ui.actions.addBeforeBreakpoint"
+               label="Add before"
+               menubarPath="com.tibco.bx.debug.bpm.ui.breakpointMarkersMenu/Add"
+			   enablesFor ="1"/>
+		<enablement>
+          <test property="com.tibco.bx.debug.bpm.ui.popup.breakpoint.breakWhen"
+          		args="none,both"/>
+     	</enablement>
+	</objectContribution>
+	<objectContribution
+            id="com.tibco.bx.debug.bpm.ui.taskContribution5"
+            objectClass="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">
+           <action
+               class="com.tibco.bx.debug.bpm.ui.actions.RemoveBreakpointAction"
+               id="com.tibco.bx.debug.bpm.ui.actions.RemoveBreakpoint"
+               label="Remove"
+               menubarPath="com.tibco.bx.debug.bpm.ui.breakpointMarkersMenu/Remove"
+			   enablesFor ="1"/>
+          <action
+               class="com.tibco.bx.debug.bpm.ui.actions.ToggleBreakpointAction"
+               id="com.tibco.bx.debug.bpm.ui.actions.ToggleBreakpoint"
+               label="Toggle"
+               menubarPath="com.tibco.bx.debug.bpm.ui.breakpointMarkersMenu/Toggle"
+			   enablesFor ="1"/>  
+          <action
+               class="com.tibco.bx.debug.bpm.ui.actions.BxBreakPointPropertiesAction"
+               id="com.tibco.bx.debug.bpm.ui.actions.conditionalBreakpoint"
+               label="%Properties"
+               menubarPath="com.tibco.bx.debug.bpm.ui.breakpointMarkersMenu/Properties"
+			   enablesFor ="1"/>  
+       <enablement>
+          <test property="com.tibco.bx.debug.bpm.ui.popup.breakpoint.breakWhen"
+          		args="before,after,both"/>
+       </enablement> 
+	</objectContribution>
+   </extension>
+    <extension
+         point="org.eclipse.debug.ui.debugModelPresentations">
+      <debugModelPresentation
+            class="com.tibco.bx.debug.bpm.ui.presentation.BxModelPresentation"
+            id="com.tibco.bx.design.debug.core.debugModel.bpm"/>
+      <debugModelPresentation
+            class="com.tibco.bx.debug.bpm.ui.presentation.BxModelPresentation"
+            id="com.tibco.bx.design.debug.core.debugModel.Pageflow">
+      </debugModelPresentation>
+   </extension>
+   <extension
+         point="com.tibco.xpd.processwidget.diagramAnnotation">
+      <annotationSource factory="com.tibco.bx.debug.bpm.ui.annotations.BxDiagramAnnotationFactoryProvider"/>
+   </extension>
+   <extension
+         point="com.tibco.xpd.processwidget.diagramAnnotation">
+        <annotationSource factory="com.tibco.bx.debug.bpm.ui.annotations.EMAnnotationFactoryProvider4Debugging"/>
+   </extension>
+   <extension
+           point="org.eclipse.ui.contexts">
+        <context
+              parentId="com.tibco.bx.debug.ui.debugging"
+              description="BPM Debugger Context"
+              name="BPM Debugger Context"
+              id="com.tibco.bx.debug.bpm.ui.debugging"/>
+        <context
+              description="Pageflow Debugger Context"
+              id="com.tibco.bx.debug.pageflow.ui.debugging"
+              name="Pageflow Debugger Context"
+              parentId="com.tibco.bx.debug.ui.debugging">
+        </context>
+     </extension>
+  <!--extension
+	        point="org.eclipse.debug.ui.debugModelContextBindings">
+	  <modelContextBinding
+	        contextId="com.tibco.bx.debug.bpm.ui.debugging"
+	        debugModelId="com.tibco.bx.design.debug.core.debugModel.bpm"/>
+      <modelContextBinding
+            contextId="com.tibco.bx.debug.pageflow.ui.debugging"
+            debugModelId="com.tibco.bx.design.debug.core.debugModel.pageflow">
+      </modelContextBinding>
+   </extension-->
+   <extension
+         point="com.tibco.bx.design.debug.ui.modelTypeImages">
+      <modelTypeImage
+            icon="icons/bpm_type.png"
+            id="bpm">
+      </modelTypeImage>
+   </extension>
+   <extension
+         point="com.tibco.bx.design.debug.ui.modelTypeImages">
+      <modelTypeImage
+            icon="icons/pageflow_type.png"
+            id="Pageflow">
+      </modelTypeImage>
+   </extension>
+   <extension
+         point="com.tibco.bx.design.debug.ui.modelTypeImages">
+      <modelTypeImage
+            icon="icons/business_service_type.png"
+            id="BusinessService">
+      </modelTypeImage>
+   </extension>
+   <extension
+         point="com.tibco.bx.design.debug.ui.modelLabelProvider">
+      <modelLabelProvider
+            class="com.tibco.bx.debug.bpm.ui.presentation.BxModelLabelProvider"
+            id="bpm">
+      </modelLabelProvider>
+      <modelLabelProvider
+            class="com.tibco.bx.debug.bpm.ui.presentation.PageflowModelLabelProvider"
+            id="Pageflow">
+      </modelLabelProvider>
+   </extension>
+</plugin>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://gwl.com/MyRequestBaseType.xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://gwl.com/MyRequestBaseType.xsd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:complexType name="RequestBaseType">
+		<xsd:annotation>
+			<xsd:documentation>Comment describing your root element
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RequestID" type="xsd:string" />
+			<xsd:element name="Scope" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Service" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

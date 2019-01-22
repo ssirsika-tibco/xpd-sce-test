@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_n9s5IAtJEeSvqdYV3x9lcg" xpdExt:DisplayName="evtCanHaveSingleFlow" Name="evtCanHaveSingleFlow">
+  <xpdl2:PackageHeader xpdExt:Language="en_US">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-07-14</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>USD</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>sajain</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_rj9_xQtKEeSvqdYV3x9lcg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_n9s5IQtJEeSvqdYV3x9lcg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_rj9_xgtKEeSvqdYV3x9lcg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="336.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_n9s5IQtJEeSvqdYV3x9lcg" xpdExt:DisplayName="evtCanHaveSingleFlow-Process" iProcessExt:MaxStepIndex="11" Name="evtCanHaveSingleFlowProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_rj9_xwtKEeSvqdYV3x9lcg" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_rj9_xgtKEeSvqdYV3x9lcg" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="53.0" YCoordinate="235.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tAeaAAtKEeSvqdYV3x9lcg" Name="DirectDelayValued" xpdExt:DisplayName="Direct Delay Valued?" iProcessExt:StepIndex="6">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_tAeaCgtKEeSvqdYV3x9lcg"/>
+                  <xpdl2:TransitionRef Id="_tAeaCwtKEeSvqdYV3x9lcg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="42.0" LaneId="_rj9_xgtKEeSvqdYV3x9lcg" Width="40.0">
+              <xpdl2:Coordinates XCoordinate="237.0" YCoordinate="179.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:ConditionProperties ConditionPrediction="AlwaysFalse"/>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tAeaAQtKEeSvqdYV3x9lcg" Name="PeriodDelayValued" xpdExt:DisplayName="Period Delay Valued?" iProcessExt:StepIndex="7">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_tAeaCAtKEeSvqdYV3x9lcg"/>
+                  <xpdl2:TransitionRef Id="_tAeaCQtKEeSvqdYV3x9lcg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="42.0" LaneId="_rj9_xgtKEeSvqdYV3x9lcg" Width="40.0">
+              <xpdl2:Coordinates XCoordinate="25.0" YCoordinate="37.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:ConditionProperties ConditionPrediction="AlwaysFalse"/>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tAeaAgtKEeSvqdYV3x9lcg" iProcessExt:StepIndex="8">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_rj9_xgtKEeSvqdYV3x9lcg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="613.0" YCoordinate="109.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tAeaAwtKEeSvqdYV3x9lcg" iProcessExt:StepIndex="9">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_rj9_xgtKEeSvqdYV3x9lcg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="306.0" YCoordinate="253.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tAeaBAtKEeSvqdYV3x9lcg" Name="DDELAY" xpdExt:DisplayName="Delay" iProcessExt:StepIndex="10">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Timer">
+              <xpdl2:TriggerTimer/>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Deadline>
+            <xpdl2:DeadlineDuration ScriptGrammar="iProcessScript">EXPIRY_DATE;;DateExpression
+EXPIRY_TIME;;TimeExpression
+</xpdl2:DeadlineDuration>
+          </xpdl2:Deadline>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="4"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_rj9_xgtKEeSvqdYV3x9lcg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="529.0" YCoordinate="37.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:TaskProperties>
+            <iProcessExt:Prediction UseDeadlineForDuration="false" DontIncludeAsFutureWorkItem="false"/>
+          </iProcessExt:TaskProperties>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tAeaBQtKEeSvqdYV3x9lcg" Name="SETPERIO" xpdExt:DisplayName="Calculate Period Delay" iProcessExt:StepIndex="11">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="iProcessScript">if EXPIRY_DAYS = SW_NA
+	EXPIRY_DAYS := 0
+endif
+if EXPIRY_HOURS = SW_NA
+	EXPIRY_HOURS := 0
+endif
+if EXPIRY_MINUTES = SW_NA
+	EXPIRY_MINUTES := 0
+endif
+if EXPIRY_DATE &lt;> SW_NA and EXPIRY_TIME &lt;> SW_NA
+	FROM_DATE := EXPIRY_DATE
+	FROM_TIME := EXPIRY_TIME
+endif
+
+EXPIRY_TIME := calctime (FROM_TIME, EXPIRY_HOURS, EXPIRY_MINUTES,DAYSOVER)
+DAYSOVER := DAYSOVER + EXPIRY_DAYS
+EXPIRY_DATE := calcdate(FROM_DATE, DAYSOVER, 0, 0, 0)
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="10"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_rj9_xgtKEeSvqdYV3x9lcg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="237.0" YCoordinate="37.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Completed">
+              <xpdExt:Information ScriptGrammar="iProcessScript">&quot;Expiry Date: &quot; + datestr(EXPIRY_DATE) + &quot;, Expiry Time: &quot; + timestr(EXPIRY_TIME)</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+          <iProcessExt:TaskProperties NoDeleteOnWithdraw="false" IgnoreCaseSuspend="false">
+            <iProcessExt:Prediction UseDeadlineForDuration="false" DontIncludeAsFutureWorkItem="false"/>
+          </iProcessExt:TaskProperties>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_tAeaBgtKEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_tAeaBAtKEeSvqdYV3x9lcg" To="_tAeaAgtKEeSvqdYV3x9lcg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_tAeaBwtKEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_tAeaBQtKEeSvqdYV3x9lcg" To="_tAeaBAtKEeSvqdYV3x9lcg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_tAeaCAtKEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_tAeaAQtKEeSvqdYV3x9lcg" To="_tAeaBQtKEeSvqdYV3x9lcg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="iProcessScript">EXPIRY_DAYS &lt;> SW_NA or EXPIRY_HOURS &lt;> SW_NA or EXPIRY_MINUTES &lt;> SW_NA</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_tAeaCQtKEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_tAeaAQtKEeSvqdYV3x9lcg" To="_tAeaAAtKEeSvqdYV3x9lcg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_tAeaCgtKEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_tAeaAAtKEeSvqdYV3x9lcg" To="_tAeaBAtKEeSvqdYV3x9lcg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="iProcessScript">EXPIRY_DATE &lt;> SW_NA and EXPIRY_TIME &lt;> SW_NA</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_tAeaCwtKEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_tAeaAAtKEeSvqdYV3x9lcg" To="_tAeaAwtKEeSvqdYV3x9lcg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_w4bjAAtKEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_rj9_xwtKEeSvqdYV3x9lcg" To="_tAeaAQtKEeSvqdYV3x9lcg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="iProcess"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <iProcessExt:ProcessProperties UseWorkingDays="true" IgnoreBlankAddressees="false" EnableCasePrediction="false" NormaliseCaseData="true" CaseDescOnStart="Required" AutoPurge="false"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="10"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

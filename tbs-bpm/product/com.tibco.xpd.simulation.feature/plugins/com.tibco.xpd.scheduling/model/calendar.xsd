@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/calendar" xmlns:calendar="http://www.tibco.com/calendar">
+	<complexType name="PublicHolidays">
+        <sequence>
+			<element name="SingleHoliday" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<sequence>
+						<element name="Name" type="string"></element>
+						<element name="StartDate" type="string"></element>
+						<element name="EndDate" type="string"></element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="CalculatedHoliday" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<sequence>
+						<element name="Name" type="string"></element>
+						<element name="Script" type="string">
+							<annotation>
+								<documentation>JavaScript which, given a year, will return the date of the holiday in that year.</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Calendar">
+		<sequence>
+			<element name="Name" type="string"></element>
+			<element name="Locale" type="string"></element>
+			<element name="DefaultWorkingSchedule"
+				type="calendar:WorkingSchedule">
+			</element>
+			<element name="PublicHolidays" type="calendar:PublicHolidays"
+				minOccurs="0" maxOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="WorkingSchedule">
+		<sequence>
+			<element name="WorkingDay" type="calendar:WorkingDay" maxOccurs="unbounded" minOccurs="1"></element>
+			<element name="DefaultWorkingTime" type="calendar:WorkingTime"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="WorkingDay">
+		<sequence>
+			<element name="DayOfWeek" type="int"></element>
+			<element name="WorkingTime" type="calendar:WorkingTime" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="WorkingTime">
+		<sequence>
+			<element name="TimeSlot" type="calendar:TimeSlot" minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<element name="Calendar" type="calendar:Calendar"></element>
+
+	<complexType name="TimeSlot">
+		<sequence>
+			<element name="StartTime" type="string"></element>
+			<element name="EndTime" type="string"></element>
+		</sequence>
+	</complexType>
+
+</schema>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" generated="true" id="_6XEZwFjnEeOujN6NvEd9_A" formatVersion="3.0.0">
+  <form:runtimeDependencies>
+    <form:package>com.example.localbomprojrefbdproj.LocalbomprojrefbdprojPackage</form:package>
+    <form:package>com.example.firstbizdataproj.FirstbizdataprojPackage</form:package>
+    <form:factory>com.example.localbomprojrefbdproj.LocalbomprojrefbdprojFactory</form:factory>
+    <form:factory>com.example.firstbizdataproj.FirstbizdataprojFactory</form:factory>
+    <form:class>com.example.localbomprojrefbdproj.Person</form:class>
+    <form:class>com.example.firstbizdataproj.Address</form:class>
+  </form:runtimeDependencies>
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri="EnterPersonInfo.properties" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" name="data.person" label="person" dataType="uml:Class LocalBomProjRefBDProj.bom#_j0BjsFOOEeOydMVTHmI6_w?p=LocalBomProjRefBDProj%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.localbomprojrefbdproj%26n=Person?" type="com.example.localbomprojrefbdproj::Person" inout="INOUT"/>
+  </form:dataModel>
+  <form:services/>
+  <form:actions/>
+  <form:conditions/>
+  <form:rules>
+    <form:rule name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule name="rule.close" label="Close">
+      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
+    </form:rule>
+    <form:rule name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_2XQVQFjnEeOujN6NvEd9_A">
+      <form:source target="data.person" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.person.value"></form:source>
+      <form:destination target="pane.person" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.person.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_2XQ8UVjnEeOujN6NvEd9_A">
+      <form:source target="pane.person" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value LocalBomProjRefBDProj.bom#_m5PBIFOOEeOydMVTHmI6_w?p=LocalBomProjRefBDProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.localbomprojrefbdproj%3a%3aPerson%26n=addr?" data="form.pane.person.value.addr"></form:source>
+      <form:destination target="pane.person_addr" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.person_addr.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_2XQ8UFjnEeOujN6NvEd9_A">
+      <form:source target="pane.person" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value LocalBomProjRefBDProj.bom#_mnnFoFOOEeOydMVTHmI6_w?p=LocalBomProjRefBDProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.localbomprojrefbdproj%3a%3aPerson%26n=id?" data="form.pane.person.value.id"></form:source>
+      <form:destination target="control.person_id" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.person_id.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_2XQ8UljnEeOujN6NvEd9_A">
+      <form:source target="pane.person_addr" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value FirstBizDataProj.bom#_aj0PUFNcEeOUC7phQChPyQ?p=CustomerBizDataProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.firstbizdataproj%3a%3aAddress%26n=addrLine1?" data="form.pane.person_addr.value.addrLine1"></form:source>
+      <form:destination target="control.person_addr_addrLine1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.person_addr_addrLine1.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_2XRjYFjnEeOujN6NvEd9_A">
+      <form:source target="pane.person_addr" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value FirstBizDataProj.bom#_bw4fYFNcEeOUC7phQChPyQ?p=CustomerBizDataProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.firstbizdataproj%3a%3aAddress%26n=addrLine2?" data="form.pane.person_addr.value.addrLine2"></form:source>
+      <form:destination target="control.person_addr_addrLine2" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.person_addr_addrLine2.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_2XRjYVjnEeOujN6NvEd9_A">
+      <form:source target="pane.person_addr" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value FirstBizDataProj.bom#_eGqrAFNcEeOUC7phQChPyQ?p=CustomerBizDataProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.firstbizdataproj%3a%3aAddress%26n=postCode?" data="form.pane.person_addr.value.postCode"></form:source>
+      <form:destination target="control.person_addr_postCode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.person_addr_postCode.value"></form:destination>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_2XSKcFjnEeOujN6NvEd9_A">
+      <form:source target="pane.person" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value LocalBomProjRefBDProj.bom#_orqoEFOOEeOydMVTHmI6_w?p=LocalBomProjRefBDProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.localbomprojrefbdproj%3a%3aPerson%26n=name?" data="form.pane.person.value.name"></form:source>
+      <form:destination target="control.person_name" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.person_name.value"></form:destination>
+    </form:binding>
+  </form:bindings>
+  <form:targets>
+    <form:target ref="iProcessWorkspace_10.7"/>
+  </form:targets>
+  <form:defaults>
+    <form:labelProperties position="top">
+      <form:font fontColor="#000000" fontName="verdana" fontSize="12"/>
+    </form:labelProperties>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.root" paneType="com.tibco.forms.panes.vertical">
+    <form:label>Enter Person Info</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="top"/>
+    </form:defaults>
+    <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class LocalBomProjRefBDProj.bom#_j0BjsFOOEeOydMVTHmI6_w?p=LocalBomProjRefBDProj%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.localbomprojrefbdproj%26n=Person?" name="pane.person" paneType="com.tibco.forms.panes.vertical">
+      <form:label>person</form:label>
+      <form:hint></form:hint>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.person_id">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>id</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="person_id__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class FirstBizDataProj.bom#_X0C2YFNcEeOUC7phQChPyQ?p=CustomerBizDataProj%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.firstbizdataproj%26n=Address?" name="pane.person_addr" paneType="com.tibco.forms.panes.vertical">
+        <form:label>addr</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="top"/>
+        </form:defaults>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.person_addr_addrLine1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>addrLine1</form:label>
+          <form:hint></form:hint>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="person_addr_addrLine1__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.person_addr_addrLine2">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>addrLine2</form:label>
+          <form:hint></form:hint>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="person_addr_addrLine2__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+        <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.person_addr_postCode">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>postCode</form:label>
+          <form:hint></form:hint>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:validation generated="true" messageRef="resource.common.validation_text_length" name="person_addr_postCode__length" type="javascript" when="oncontrolchange" simple="true">
+            <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+          </form:validation>
+          <form:required>false</form:required>
+        </form:control>
+      </form:pane>
+      <form:control generated="true" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.person_name">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>name</form:label>
+        <form:hint></form:hint>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:validation generated="true" messageRef="resource.common.validation_text_length" name="person_name__length" type="javascript" when="oncontrolchange" simple="true">
+          <form:script>typeof context.stringValue != 'undefined' &amp;&amp; typeof tibco.forms.Util != 'undefined' ? tibco.forms.Util.checkTextLength(context.stringValue, 50) ? true : [context.control.getLabel(), '50'] : context.value.length &lt;= 50;</form:script>
+        </form:validation>
+        <form:required>false</form:required>
+      </form:control>
+    </form:pane>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Close</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

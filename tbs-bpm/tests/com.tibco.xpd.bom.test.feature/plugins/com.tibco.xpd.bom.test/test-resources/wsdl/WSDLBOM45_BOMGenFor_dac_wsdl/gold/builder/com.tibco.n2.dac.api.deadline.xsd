@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://deadline.api.dac.n2.tibco.com" xmlns:tns1="http://deadline.api.dac.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns3="http://basic.api.dac.n2.tibco.com"
+    xmlns:tns4="http://api.dac.n2.tibco.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://deadline.api.dac.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.dac.api.deadline.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://basic.api.dac.n2.tibco.com" schemaLocation="com.tibco.n2.dac.api.basic.xsd"/>
+  <xsd:import namespace="http://api.dac.n2.tibco.com" schemaLocation="com.tibco.n2.dac.api.xsd"/>
+  <xsd:complexType ecore:name="XmlCalcDeadlineRequest" id="com.tibco.n2.dac.api.deadlineXmlCalcDeadlineRequest"
+      abstract="false" mixed="false" name="XmlCalcDeadlineRequest">
+    <xsd:annotation>
+      <xsd:documentation>Request element for calcDeadline operation. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="calendarlookup" id="XmlCalcDeadlineRequestcalendar-lookup"
+          form="unqualified" maxOccurs="unbounded" minOccurs="0" name="calendar-lookup"
+          type="tns3:XmlCalendarLookup"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="startdatetime" id="XmlCalcDeadlineRequeststart-date-time"
+        form="unqualified" name="start-date-time" type="xsd:dateTime" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Start date and time for the task. This value is assumed to be expressed as UTC. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="duration" id="XmlCalcDeadlineRequestduration" form="unqualified"
+        name="duration" type="xsd:duration" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Duration of the task in man-hours. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlCalcDeadlineResponse" id="com.tibco.n2.dac.api.deadlineXmlCalcDeadlineResponse"
+      abstract="false" mixed="false" name="XmlCalcDeadlineResponse">
+    <xsd:annotation>
+      <xsd:documentation>Response element for calcDeadline operation. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="enddatetime" id="XmlCalcDeadlineResponseend-date-time"
+        form="unqualified" name="end-date-time" type="xsd:dateTime" use="required">
+      <xsd:annotation>
+        <xsd:documentation>End date and time of the tasks based on the available working time as defined in the associated calendar. This result is expressed in UTC time-zone. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="calcDeadline" nillable="false" type="XmlCalcDeadlineRequest"/>
+  <xsd:element abstract="false" name="calcDeadlineResponse" nillable="false" type="XmlCalcDeadlineResponse"/>
+  <xsd:element abstract="false" name="calcBusinessDeadline" nillable="false">
+    <xsd:complexType ecore:name="calcBusinessDeadlineType" id="com.tibco.n2.dac.api.deadlinecalcBusinessDeadlineType"
+        mixed="false">
+      <xsd:attribute ecore:name="guid" id="calcBusinessDeadlineTypeguid" form="unqualified"
+          name="guid" type="tns4:XmlGuidType" use="required">
+        <xsd:annotation>
+          <xsd:documentation>ID of the Calendar to be used when calculating the deadline. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="startdatetime" id="calcBusinessDeadlineTypestart-date-time"
+          form="unqualified" name="start-date-time" type="xsd:dateTime" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Start date and time for the task. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="duration" id="calcBusinessDeadlineTypeduration" form="unqualified"
+          name="duration" type="xsd:duration" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Duration of the task. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="calcBusinessDeadlineResponse" nillable="false">
+    <xsd:complexType ecore:name="calcBusinessDeadlineResponseType" id="com.tibco.n2.dac.api.deadlinecalcBusinessDeadlineResponseType"
+        mixed="false">
+      <xsd:attribute ecore:name="enddatetime" id="calcBusinessDeadlineResponseTypeend-date-time"
+          form="unqualified" name="end-date-time" type="xsd:dateTime" use="required">
+        <xsd:annotation>
+          <xsd:documentation>End date and time of the taks based on working time as defined in the associated calendar. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

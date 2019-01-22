@@ -1,0 +1,2386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://esb.siemens.net/PublicSchemas/Person/PersonService/PersonBase/2009/07"
+    xmlns:tns1="http://esb.siemens.net/PublicSchemas/Person/PersonService/PersonBase/2009/07"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://esb.siemens.net/PublicSchemas/Person/PersonService/PersonBase/2009/07">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gsdfdf/Business Objects/XSDBOM_TLE23_DuplicateElementsWithAnonymousComplexTypes.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07languageType"
+      name="languageType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="AA"/>
+      <xsd:enumeration value="AB"/>
+      <xsd:enumeration value="AF"/>
+      <xsd:enumeration value="AM"/>
+      <xsd:enumeration value="AR"/>
+      <xsd:enumeration value="AS"/>
+      <xsd:enumeration value="AY"/>
+      <xsd:enumeration value="AZ"/>
+      <xsd:enumeration value="BA"/>
+      <xsd:enumeration value="BE"/>
+      <xsd:enumeration value="BG"/>
+      <xsd:enumeration value="BH"/>
+      <xsd:enumeration value="BI"/>
+      <xsd:enumeration value="BN"/>
+      <xsd:enumeration value="BO"/>
+      <xsd:enumeration value="BR"/>
+      <xsd:enumeration value="CA"/>
+      <xsd:enumeration value="CO"/>
+      <xsd:enumeration value="CS"/>
+      <xsd:enumeration value="CY"/>
+      <xsd:enumeration value="DA"/>
+      <xsd:enumeration value="DE"/>
+      <xsd:enumeration value="DZ"/>
+      <xsd:enumeration value="EL"/>
+      <xsd:enumeration value="EN"/>
+      <xsd:enumeration value="EO"/>
+      <xsd:enumeration value="ES"/>
+      <xsd:enumeration value="ET"/>
+      <xsd:enumeration value="EU"/>
+      <xsd:enumeration value="FA"/>
+      <xsd:enumeration value="FI"/>
+      <xsd:enumeration value="FJ"/>
+      <xsd:enumeration value="FO"/>
+      <xsd:enumeration value="FR"/>
+      <xsd:enumeration value="FY"/>
+      <xsd:enumeration value="GA"/>
+      <xsd:enumeration value="GD"/>
+      <xsd:enumeration value="GL"/>
+      <xsd:enumeration value="GN"/>
+      <xsd:enumeration value="GU"/>
+      <xsd:enumeration value="HA"/>
+      <xsd:enumeration value="HI"/>
+      <xsd:enumeration value="HR"/>
+      <xsd:enumeration value="HU"/>
+      <xsd:enumeration value="HY"/>
+      <xsd:enumeration value="IA"/>
+      <xsd:enumeration value="IE"/>
+      <xsd:enumeration value="IK"/>
+      <xsd:enumeration value="IN"/>
+      <xsd:enumeration value="IS"/>
+      <xsd:enumeration value="IT"/>
+      <xsd:enumeration value="IW"/>
+      <xsd:enumeration value="JA"/>
+      <xsd:enumeration value="JI"/>
+      <xsd:enumeration value="JW"/>
+      <xsd:enumeration value="KA"/>
+      <xsd:enumeration value="KK"/>
+      <xsd:enumeration value="KL"/>
+      <xsd:enumeration value="KM"/>
+      <xsd:enumeration value="KN"/>
+      <xsd:enumeration value="KO"/>
+      <xsd:enumeration value="KS"/>
+      <xsd:enumeration value="KU"/>
+      <xsd:enumeration value="KY"/>
+      <xsd:enumeration value="LA"/>
+      <xsd:enumeration value="LN"/>
+      <xsd:enumeration value="LO"/>
+      <xsd:enumeration value="LT"/>
+      <xsd:enumeration value="LV"/>
+      <xsd:enumeration value="MG"/>
+      <xsd:enumeration value="MI"/>
+      <xsd:enumeration value="MK"/>
+      <xsd:enumeration value="ML"/>
+      <xsd:enumeration value="MN"/>
+      <xsd:enumeration value="MO"/>
+      <xsd:enumeration value="MR"/>
+      <xsd:enumeration value="MS"/>
+      <xsd:enumeration value="MT"/>
+      <xsd:enumeration value="MY"/>
+      <xsd:enumeration value="NA"/>
+      <xsd:enumeration value="NE"/>
+      <xsd:enumeration value="NL"/>
+      <xsd:enumeration value="NO"/>
+      <xsd:enumeration value="OC"/>
+      <xsd:enumeration value="OM"/>
+      <xsd:enumeration value="OR"/>
+      <xsd:enumeration value="PA"/>
+      <xsd:enumeration value="PL"/>
+      <xsd:enumeration value="PS"/>
+      <xsd:enumeration value="PT"/>
+      <xsd:enumeration value="QU"/>
+      <xsd:enumeration value="RM"/>
+      <xsd:enumeration value="RN"/>
+      <xsd:enumeration value="RO"/>
+      <xsd:enumeration value="RU"/>
+      <xsd:enumeration value="RW"/>
+      <xsd:enumeration value="SA"/>
+      <xsd:enumeration value="SD"/>
+      <xsd:enumeration value="SG"/>
+      <xsd:enumeration value="SH"/>
+      <xsd:enumeration value="SI"/>
+      <xsd:enumeration value="SK"/>
+      <xsd:enumeration value="SL"/>
+      <xsd:enumeration value="SM"/>
+      <xsd:enumeration value="SN"/>
+      <xsd:enumeration value="SO"/>
+      <xsd:enumeration value="SQ"/>
+      <xsd:enumeration value="SR"/>
+      <xsd:enumeration value="SS"/>
+      <xsd:enumeration value="ST"/>
+      <xsd:enumeration value="SU"/>
+      <xsd:enumeration value="SV"/>
+      <xsd:enumeration value="SW"/>
+      <xsd:enumeration value="TA"/>
+      <xsd:enumeration value="TE"/>
+      <xsd:enumeration value="TG"/>
+      <xsd:enumeration value="TH"/>
+      <xsd:enumeration value="TI"/>
+      <xsd:enumeration value="TK"/>
+      <xsd:enumeration value="TL"/>
+      <xsd:enumeration value="TN"/>
+      <xsd:enumeration value="TO"/>
+      <xsd:enumeration value="TR"/>
+      <xsd:enumeration value="TS"/>
+      <xsd:enumeration value="TT"/>
+      <xsd:enumeration value="TW"/>
+      <xsd:enumeration value="UK"/>
+      <xsd:enumeration value="UR"/>
+      <xsd:enumeration value="UZ"/>
+      <xsd:enumeration value="VI"/>
+      <xsd:enumeration value="VO"/>
+      <xsd:enumeration value="WO"/>
+      <xsd:enumeration value="XH"/>
+      <xsd:enumeration value="YO"/>
+      <xsd:enumeration value="ZH"/>
+      <xsd:enumeration value="ZU"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07userTypeType"
+      name="userTypeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="internal"/>
+      <xsd:enumeration value="external"/>
+      <xsd:enumeration value="team"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07AddressLocationType"
+      abstract="false" mixed="false" name="AddressLocationType">
+    <xsd:sequence>
+      <xsd:element id="AddressLocationTypezipCode" form="qualified" maxOccurs="1"
+          minOccurs="0" name="zipCode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AddressLocationTypestreet" form="qualified" maxOccurs="1" minOccurs="0"
+          name="street">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AddressLocationTypestreetNumber" form="qualified" maxOccurs="1"
+          minOccurs="0" name="streetNumber">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AddressLocationTypepostOffice" form="qualified" maxOccurs="1"
+          minOccurs="0" name="postOffice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AddressLocationTypezipPostOffice" form="qualified" maxOccurs="1"
+          minOccurs="0" name="zipPostOffice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AddressLocationTypecityPostOffice" form="qualified" maxOccurs="1"
+          minOccurs="0" name="cityPostOffice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="AddressLocationTypephone" form="qualified" maxOccurs="unbounded"
+          minOccurs="0" name="phone" type="PhoneType"/>
+      <xsd:element id="AddressLocationTypeLifeCycleInfo" form="qualified" maxOccurs="1"
+          minOccurs="0" name="LifeCycleInfo" type="LifeCycleType"/>
+      <xsd:element id="AddressLocationTypeadditionalAttributeType" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="additionalAttribute">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07additionalAttributeType"
+            mixed="false">
+          <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+              <xsd:attribute id="additionalAttributeTypename" form="unqualified" name="name"
+                  use="required">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:NMTOKEN">
+                    <xsd:pattern value="\c+"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:attribute>
+            </xsd:extension>
+          </xsd:simpleContent>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute id="AddressLocationTypename" form="unqualified" name="name" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07PhoneType"
+      abstract="false" mixed="false" name="PhoneType">
+    <xsd:sequence>
+      <xsd:element id="PhoneTypecountryCode" form="qualified" maxOccurs="1" minOccurs="0"
+          name="countryCode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PhoneTypeareaCode" form="qualified" maxOccurs="1" minOccurs="0"
+          name="areaCode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PhoneTypephoneNumber" form="qualified" maxOccurs="1" minOccurs="0"
+          name="phoneNumber">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PhoneTypeextension" form="qualified" maxOccurs="1" minOccurs="0"
+          name="extension">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute id="PhoneTypetype" form="unqualified" name="type" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:NMTOKEN">
+          <xsd:enumeration value="phone"/>
+          <xsd:enumeration value="fax"/>
+          <xsd:enumeration value="modem"/>
+          <xsd:enumeration value="combi"/>
+          <xsd:enumeration value="others"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07LifeCycleType"
+      abstract="false" mixed="false" name="LifeCycleType">
+    <xsd:sequence>
+      <xsd:element id="LifeCycleTypecreatedDate" form="qualified" maxOccurs="1" minOccurs="0"
+          name="createdDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="LifeCycleTypemodifiedDate" form="qualified" maxOccurs="1" minOccurs="0"
+          name="modifiedDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="LifeCycleTypedeleteDate" form="qualified" maxOccurs="1" minOccurs="0"
+          name="deleteDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="LifeCycleTypevalidFrom" form="qualified" maxOccurs="1" minOccurs="0"
+          name="validFrom">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="LifeCycleTypevalidTo" form="qualified" maxOccurs="1" minOccurs="0"
+          name="validTo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="LifeCycleTypestatus" form="qualified" maxOccurs="1" minOccurs="0"
+          name="status">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="planned"/>
+            <xsd:enumeration value="enabled"/>
+            <xsd:enumeration value="disabled"/>
+            <xsd:enumeration value="deleted"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="LifeCycleTypeserviceEndDate" form="qualified" maxOccurs="1"
+          minOccurs="0" name="serviceEndDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07AddressType"
+      abstract="false" mixed="false" name="AddressType">
+    <xsd:sequence>
+      <xsd:element id="AddressTypeCountryType" form="qualified" maxOccurs="unbounded"
+          minOccurs="0" name="Country">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07CountryType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns1:State"/>
+          </xsd:sequence>
+          <xsd:attribute id="CountryTypename" form="unqualified" name="name" use="optional">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07ChangeRoleResponseType"
+      abstract="false" mixed="false" name="ChangeRoleResponseType">
+    <xsd:sequence>
+      <xsd:element id="ChangeRoleResponseTypegroupType" form="qualified" maxOccurs="unbounded"
+          minOccurs="1" name="group">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07groupType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="1" name="role">
+              <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07roleType"
+                  mixed="false">
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute id="roleTypename" form="unqualified" name="name"
+                        use="optional">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:attribute>
+                    <xsd:attribute id="roleTypeoldValue" form="unqualified" name="oldValue"
+                        use="optional">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:attribute>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+          </xsd:sequence>
+          <xsd:attribute id="groupTypeid" form="unqualified" name="id" use="optional">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07ChangeRoleType"
+      abstract="false" mixed="false" name="ChangeRoleType">
+    <xsd:sequence>
+      <xsd:element id="ChangeRoleTypegroupType" form="qualified" maxOccurs="unbounded"
+          minOccurs="1" name="group">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07groupType2"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="1" name="role">
+              <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07roleType2"
+                  mixed="false">
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute id="roleTypename2" form="unqualified" name="name"
+                        use="optional">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:attribute>
+                    <xsd:attribute id="roleTypeoldValue2" form="unqualified" name="oldValue"
+                        use="optional">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:attribute>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute id="groupTypevalue" form="unqualified" name="value" use="optional">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07ContractType"
+      abstract="false" mixed="false" name="ContractType">
+    <xsd:sequence>
+      <xsd:element id="ContractTypecontract" form="qualified" maxOccurs="1" minOccurs="0"
+          name="contract">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ContractTypecontractID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="contractID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ContractTypesheet" form="qualified" maxOccurs="1" minOccurs="0"
+          name="sheet">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ContractTypesheetID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="sheetID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ContractTypemodule" form="qualified" maxOccurs="1" minOccurs="0"
+          name="module">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ContractTypemoduleID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="moduleID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ContractTypeelement" form="qualified" maxOccurs="1" minOccurs="0"
+          name="element">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="ContractTypeelementID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="elementID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07LifeCycleQueryType"
+      abstract="false" mixed="false" name="LifeCycleQueryType">
+    <xsd:sequence>
+      <xsd:element id="LifeCycleQueryTypevalidFrom" form="qualified" maxOccurs="1"
+          minOccurs="0" name="validFrom">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="LifeCycleQueryTypevalidTo" form="qualified" maxOccurs="1" minOccurs="0"
+          name="validTo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="LifeCycleQueryTypestatus" form="qualified" maxOccurs="1" minOccurs="0"
+          name="status">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="planned"/>
+            <xsd:enumeration value="enabled"/>
+            <xsd:enumeration value="disabled"/>
+            <xsd:enumeration value="deleted"/>
+            <xsd:enumeration value="all"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07LocationType"
+      abstract="false" mixed="false" name="LocationType">
+    <xsd:sequence>
+      <xsd:element id="LocationTypeadditionalAttributeType" form="qualified" maxOccurs="unbounded"
+          minOccurs="0" name="additionalAttribute">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07additionalAttributeType2"
+            mixed="false">
+          <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+              <xsd:attribute id="additionalAttributeTypename2" form="unqualified"
+                  name="name" use="required">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:NMTOKEN">
+                    <xsd:pattern value="\c+"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:attribute>
+            </xsd:extension>
+          </xsd:simpleContent>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute id="LocationTypename" form="unqualified" name="name" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07OrganisationQueryType"
+      abstract="false" mixed="false" name="OrganisationQueryType">
+    <xsd:sequence>
+      <xsd:element id="OrganisationQueryTypecompanyName" form="qualified" maxOccurs="1"
+          minOccurs="0" name="companyName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationQueryTypeou1" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ou1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationQueryTypeou2" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ou2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationQueryTypeou3" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ou3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationQueryTypeou4" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ou4">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationQueryTypedepartment" form="qualified" maxOccurs="1"
+          minOccurs="0" name="department">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationQueryTypeorgUnitSupplier" form="qualified" maxOccurs="1"
+          minOccurs="0" name="orgUnitSupplier">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07OrganisationType"
+      abstract="false" mixed="false" name="OrganisationType">
+    <xsd:sequence>
+      <xsd:element id="OrganisationTypecompanyName" form="qualified" maxOccurs="1"
+          minOccurs="0" name="companyName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationTypeou1" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ou1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationTypeou2" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ou2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationTypeou3" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ou3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationTypeou4" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ou4">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationTypedepartment" form="qualified" maxOccurs="1"
+          minOccurs="0" name="department">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationTypemandant" form="qualified" maxOccurs="1" minOccurs="0"
+          name="mandant">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationTypeorgUnitSupplier" form="qualified" maxOccurs="1"
+          minOccurs="0" name="orgUnitSupplier">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="OrganisationTypeLifeCycleInfo" form="qualified" maxOccurs="1"
+          minOccurs="0" name="LifeCycleInfo" type="LifeCycleType"/>
+      <xsd:element id="OrganisationTypeContractInfo" form="qualified" maxOccurs="unbounded"
+          minOccurs="0" name="ContractInfo" type="ContractType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07PersonBaseType"
+      abstract="false" mixed="false" name="PersonBaseType">
+    <xsd:sequence>
+      <xsd:element id="PersonBaseTypetitle" form="qualified" maxOccurs="1" minOccurs="0"
+          name="title">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypejobTitle" form="qualified" maxOccurs="1" minOccurs="0"
+          name="jobTitle">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypenamePrefix" form="qualified" maxOccurs="1" minOccurs="0"
+          name="namePrefix">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypepeerage" form="qualified" maxOccurs="1" minOccurs="0"
+          name="peerage">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypefirstName" form="qualified" maxOccurs="1" minOccurs="0"
+          name="firstName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypelastName" form="qualified" maxOccurs="1" minOccurs="0"
+          name="lastName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypenickName" form="qualified" maxOccurs="1" minOccurs="0"
+          name="nickName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypefirstNameInt" form="qualified" maxOccurs="1"
+          minOccurs="0" name="firstNameInt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypelastNameInt" form="qualified" maxOccurs="1" minOccurs="0"
+          name="lastNameInt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeemail" form="qualified" maxOccurs="1" minOccurs="0"
+          name="email">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypecellPhone" form="qualified" maxOccurs="1" minOccurs="0"
+          name="cellPhone">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypevoip" form="qualified" maxOccurs="1" minOccurs="0"
+          name="voip">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeGID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="GID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeSGID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="SGID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeEDID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="EDID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeKDIDENT" form="qualified" maxOccurs="1" minOccurs="0"
+          name="KDIDENT">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypePERSIDENT" form="qualified" maxOccurs="1" minOccurs="0"
+          name="PERSIDENT">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeAPD" form="qualified" maxOccurs="1" minOccurs="0"
+          name="APD">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypePersonalNR" form="qualified" maxOccurs="1" minOccurs="0"
+          name="PersonalNR">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypevip" form="qualified" maxOccurs="1" minOccurs="0"
+          name="vip">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="none"/>
+            <xsd:enumeration value="basic"/>
+            <xsd:enumeration value="standard"/>
+            <xsd:enumeration value="premium"/>
+            <xsd:enumeration value="dedicated"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypemandant" form="qualified" maxOccurs="1" minOccurs="0"
+          name="mandant">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypelanguage" form="qualified" maxOccurs="1" minOccurs="0"
+          name="language">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:languageType"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeuserType" form="qualified" maxOccurs="1" minOccurs="0"
+          name="userType">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:userTypeType"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypesex" form="qualified" maxOccurs="1" minOccurs="0"
+          name="sex">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypemanagerGID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="managerGID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeorgID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="orgID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeARE" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ARE">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypecostCenter" form="qualified" maxOccurs="1" minOccurs="0"
+          name="costCenter">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypecostCenterDescription" form="qualified" maxOccurs="1"
+          minOccurs="0" name="costCenterDescription">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeSDCIdent" form="qualified" maxOccurs="1" minOccurs="0"
+          name="SDCIdent">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypemkTAXID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="mkTAXID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypelavaBKZ" form="qualified" maxOccurs="1" minOccurs="0"
+          name="lavaBKZ">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypejuper" form="qualified" maxOccurs="1" minOccurs="0"
+          name="juper">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypejuperText" form="qualified" maxOccurs="1" minOccurs="0"
+          name="juperText">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypedingoStatus" form="qualified" maxOccurs="1" minOccurs="0"
+          name="dingoStatus">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypedingoID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="dingoID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeWorkplaceType" form="qualified" maxOccurs="unbounded"
+          minOccurs="0" name="Workplace">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07WorkplaceType"
+            mixed="false">
+          <xsd:complexContent>
+            <xsd:extension base="tns1:WorkplaceType"/>
+          </xsd:complexContent>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element id="PersonBaseTypeOrganisation" form="qualified" maxOccurs="1"
+          minOccurs="0" name="Organisation" type="OrganisationType"/>
+      <xsd:element id="PersonBaseTypeLifeCycleInfo" form="qualified" maxOccurs="1"
+          minOccurs="0" name="LifeCycleInfo" type="LifeCycleType"/>
+      <xsd:element id="PersonBaseTypeaddElement" form="qualified" maxOccurs="unbounded"
+          minOccurs="0" name="addElement" type="addElementType"/>
+    </xsd:sequence>
+    <xsd:attribute id="PersonBaseTypeaction" form="unqualified" name="action" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:NMTOKEN">
+          <xsd:enumeration value="new"/>
+          <xsd:enumeration value="update"/>
+          <xsd:enumeration value="delete"/>
+          <xsd:enumeration value="reference"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07WorkplaceType2"
+      abstract="false" mixed="false" name="WorkplaceType">
+    <xsd:sequence>
+      <xsd:element id="WorkplaceTypecountry" form="qualified" maxOccurs="1" minOccurs="0"
+          name="country">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypestate" form="qualified" maxOccurs="1" minOccurs="0"
+          name="state">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypezipCode" form="qualified" maxOccurs="1" minOccurs="0"
+          name="zipCode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypecity" form="qualified" maxOccurs="1" minOccurs="0"
+          name="city">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypestreet" form="qualified" maxOccurs="1" minOccurs="0"
+          name="street">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypestreetNumber" form="qualified" maxOccurs="1" minOccurs="0"
+          name="streetNumber">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypepostOffice" form="qualified" maxOccurs="1" minOccurs="0"
+          name="postOffice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypezipPostOffice" form="qualified" maxOccurs="1"
+          minOccurs="0" name="zipPostOffice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypecityPostOffice" form="qualified" maxOccurs="1"
+          minOccurs="0" name="cityPostOffice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypelocation" form="qualified" maxOccurs="1" minOccurs="0"
+          name="location">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypebuilding" form="qualified" maxOccurs="1" minOccurs="0"
+          name="building">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypefloor" form="qualified" maxOccurs="1" minOccurs="0"
+          name="floor">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTyperoom" form="qualified" maxOccurs="1" minOccurs="0"
+          name="room">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypesurfaceArea" form="qualified" maxOccurs="1" minOccurs="0"
+          name="surfaceArea">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypephone" form="qualified" maxOccurs="unbounded"
+          minOccurs="0" name="phone" type="PhoneType"/>
+      <xsd:element id="WorkplaceTyperemark" form="qualified" maxOccurs="1" minOccurs="0"
+          name="remark">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypeLifeCycleInfo" form="qualified" maxOccurs="1"
+          minOccurs="0" name="LifeCycleInfo" type="LifeCycleType"/>
+      <xsd:element id="WorkplaceTypeARE" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ARE">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypecostCenter" form="qualified" maxOccurs="1" minOccurs="0"
+          name="costCenter">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypedepartment" form="qualified" maxOccurs="1" minOccurs="0"
+          name="department">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypeSDCIdent" form="qualified" maxOccurs="1" minOccurs="0"
+          name="SDCIdent">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypecompanyShort" form="qualified" maxOccurs="1" minOccurs="0"
+          name="companyShort">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypedivision" form="qualified" maxOccurs="1" minOccurs="0"
+          name="division">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypeworkplaceID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="workplaceID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceTypeaddElement" form="qualified" maxOccurs="unbounded"
+          minOccurs="0" name="addElement" type="addElementType"/>
+    </xsd:sequence>
+    <xsd:attribute id="WorkplaceTypemainOffice" form="unqualified" name="mainOffice"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:boolean"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07addElementType"
+      abstract="false" mixed="false" name="addElementType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute id="addElementTypename" form="unqualified" name="name" use="required">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:NMTOKEN">
+              <xsd:pattern value="\c+"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07PersonEntitlementType"
+      abstract="false" mixed="false" name="PersonEntitlementType">
+    <xsd:sequence>
+      <xsd:element id="PersonEntitlementTypefirstName" form="qualified" maxOccurs="1"
+          minOccurs="0" name="firstName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonEntitlementTypelastName" form="qualified" maxOccurs="1"
+          minOccurs="0" name="lastName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonEntitlementTypeemail" form="qualified" maxOccurs="1"
+          minOccurs="0" name="email">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonEntitlementTypeGID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="GID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonEntitlementTypepersonalNo" form="qualified" maxOccurs="1"
+          minOccurs="0" name="personalNo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07PersonKeyType"
+      abstract="false" mixed="false" name="PersonKeyType">
+    <xsd:sequence>
+      <xsd:element id="PersonKeyTypeemail" form="qualified" maxOccurs="1" minOccurs="0"
+          name="email">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonKeyTypeGID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="GID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07PersonQueryType"
+      abstract="false" mixed="false" name="PersonQueryType">
+    <xsd:sequence>
+      <xsd:element id="PersonQueryTypefirstName" form="qualified" maxOccurs="1" minOccurs="0"
+          name="firstName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypelastName" form="qualified" maxOccurs="1" minOccurs="0"
+          name="lastName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeemail" form="qualified" maxOccurs="1" minOccurs="0"
+          name="email">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeGID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="GID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeKDIDENT" form="qualified" maxOccurs="1" minOccurs="0"
+          name="KDIDENT">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypevip" form="qualified" maxOccurs="1" minOccurs="0"
+          name="vip">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="none"/>
+            <xsd:enumeration value="basic"/>
+            <xsd:enumeration value="standard"/>
+            <xsd:enumeration value="premium"/>
+            <xsd:enumeration value="dedicated"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypemandant" form="qualified" maxOccurs="1" minOccurs="0"
+          name="mandant">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypelanguage" form="qualified" maxOccurs="1" minOccurs="0"
+          name="language">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:languageType"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeuserType" form="qualified" maxOccurs="1" minOccurs="0"
+          name="userType">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:userTypeType"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypesex" form="qualified" maxOccurs="1" minOccurs="0"
+          name="sex">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeorgID" form="qualified" maxOccurs="1" minOccurs="0"
+          name="orgID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeARE" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ARE">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypecostCenter" form="qualified" maxOccurs="1" minOccurs="0"
+          name="costCenter">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeSDCIdent" form="qualified" maxOccurs="1" minOccurs="0"
+          name="SDCIdent">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeWorkplaceType" form="qualified" maxOccurs="1"
+          minOccurs="0" name="Workplace">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07WorkplaceType23"
+            mixed="false">
+          <xsd:complexContent>
+            <xsd:extension base="tns1:WorkplaceQueryType"/>
+          </xsd:complexContent>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element id="PersonQueryTypeOrganisation" form="qualified" maxOccurs="1"
+          minOccurs="0" name="Organisation" type="OrganisationQueryType"/>
+      <xsd:element id="PersonQueryTypeLifeCycleInfo" form="qualified" maxOccurs="1"
+          minOccurs="0" name="LifeCycleInfo" type="LifeCycleQueryType"/>
+      <xsd:element id="PersonQueryTypeRoles" form="qualified" maxOccurs="1" minOccurs="0"
+          name="Roles" type="RoleQueryType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07WorkplaceQueryType"
+      abstract="false" mixed="false" name="WorkplaceQueryType">
+    <xsd:sequence>
+      <xsd:element id="WorkplaceQueryTypecountry" form="qualified" maxOccurs="1" minOccurs="0"
+          name="country">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypestate" form="qualified" maxOccurs="1" minOccurs="0"
+          name="state">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypecity" form="qualified" maxOccurs="1" minOccurs="0"
+          name="city">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypelocation" form="qualified" maxOccurs="1"
+          minOccurs="0" name="location">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypebuilding" form="qualified" maxOccurs="1"
+          minOccurs="0" name="building">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypefloor" form="qualified" maxOccurs="1" minOccurs="0"
+          name="floor">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTyperoom" form="qualified" maxOccurs="1" minOccurs="0"
+          name="room">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypeLifeCycleInfo" form="qualified" maxOccurs="1"
+          minOccurs="0" name="LifeCycleInfo" type="LifeCycleType"/>
+      <xsd:element id="WorkplaceQueryTypeARE" form="qualified" maxOccurs="1" minOccurs="0"
+          name="ARE">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypecostCenter" form="qualified" maxOccurs="1"
+          minOccurs="0" name="costCenter">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypedepartment" form="qualified" maxOccurs="1"
+          minOccurs="0" name="department">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypeSDCIdent" form="qualified" maxOccurs="1"
+          minOccurs="0" name="SDCIdent">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceQueryTypeworkplaceID" form="qualified" maxOccurs="1"
+          minOccurs="0" name="workplaceID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07RoleQueryType"
+      abstract="false" mixed="false" name="RoleQueryType">
+    <xsd:sequence>
+      <xsd:element id="RoleQueryTypegroupType" form="qualified" maxOccurs="unbounded"
+          minOccurs="1" name="group">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07groupType23"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="1" name="role">
+              <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07roleType23"
+                  mixed="false">
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute id="roleTypename23" form="unqualified" name="name"
+                        use="optional">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:attribute>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute id="groupTypeid2" form="unqualified" name="id" use="optional">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:attribute>
+          <xsd:attribute id="groupTypewithinSameGroup" default="false" form="unqualified"
+              name="withinSameGroup" use="optional">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:boolean"/>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07PersonReplicationType"
+      abstract="false" mixed="false" name="PersonReplicationType">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:PersonBaseType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07PersonType"
+      abstract="false" mixed="false" name="PersonType">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:PersonBaseType">
+        <xsd:sequence>
+          <xsd:element id="_1TQkwMQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="0" ref="tns1:Roles"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07RoleType"
+      abstract="false" mixed="false" name="RoleType">
+    <xsd:sequence>
+      <xsd:element id="_1TDJYMQQEeCSLI0MjLAyqg" maxOccurs="unbounded" minOccurs="1"
+          ref="tns1:group"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07RemoveRoleResponseType"
+      abstract="false" mixed="false" name="RemoveRoleResponseType">
+    <xsd:sequence>
+      <xsd:element id="RemoveRoleResponseTypegroupType" form="qualified" maxOccurs="unbounded"
+          minOccurs="1" name="group">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07groupType2345"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="role">
+              <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07roleType2345"
+                  mixed="false">
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute id="roleTypename2345" form="unqualified" name="name"
+                        use="optional">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:attribute>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+          </xsd:sequence>
+          <xsd:attribute id="groupTypeid234" form="unqualified" name="id" use="optional">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07RemoveRoleType"
+      abstract="false" mixed="false" name="RemoveRoleType">
+    <xsd:sequence>
+      <xsd:element id="RemoveRoleTypegroupType" form="qualified" maxOccurs="unbounded"
+          minOccurs="1" name="group">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07groupType23456"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="role">
+              <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07roleType23456"
+                  mixed="false">
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute id="roleTypename23456" form="unqualified" name="name"
+                        use="optional">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:attribute>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute id="groupTypeid2345" form="unqualified" name="id" use="optional">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07RoleResponseType"
+      abstract="false" mixed="false" name="RoleResponseType">
+    <xsd:sequence>
+      <xsd:element id="RoleResponseTypegroupType" form="qualified" maxOccurs="unbounded"
+          minOccurs="1" name="group">
+        <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07groupType234567"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="1" name="role">
+              <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07roleType234567"
+                  mixed="false">
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute id="roleTypename234567" form="unqualified" name="name"
+                        use="optional">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:attribute>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+          </xsd:sequence>
+          <xsd:attribute id="groupTypeid23456" form="unqualified" name="id" use="optional">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07WorkplaceKeyType"
+      abstract="false" mixed="false" name="WorkplaceKeyType">
+    <xsd:sequence>
+      <xsd:element id="WorkplaceKeyTypecountry" form="qualified" maxOccurs="1" minOccurs="1"
+          name="country">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceKeyTypestate" form="qualified" maxOccurs="1" minOccurs="0"
+          name="state">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceKeyTypecity" form="qualified" maxOccurs="1" minOccurs="0"
+          name="city">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceKeyTypelocation" form="qualified" maxOccurs="1" minOccurs="0"
+          name="location">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceKeyTypebuilding" form="qualified" maxOccurs="1" minOccurs="0"
+          name="building">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceKeyTypefloor" form="qualified" maxOccurs="1" minOccurs="0"
+          name="floor">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceKeyTyperoom" form="qualified" maxOccurs="1" minOccurs="0"
+          name="room">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="WorkplaceKeyTypeworkplaceID" form="qualified" maxOccurs="1"
+          minOccurs="0" name="workplaceID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute id="WorkplaceKeyTypemainOffice" form="unqualified" name="mainOffice"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:boolean"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07headerACKType"
+      abstract="false" mixed="false" name="headerACKType">
+    <xsd:sequence>
+      <xsd:element id="_2CcmAMQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="1" ref="tns1:messageID"/>
+      <xsd:element id="headerACKTypesrcApplicationID" form="qualified" maxOccurs="1"
+          minOccurs="1" name="srcApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerACKTypedstApplicationID" form="qualified" maxOccurs="1"
+          minOccurs="0" name="dstApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07headerPersonPropagateType"
+      abstract="false" mixed="false" name="headerPersonPropagateType">
+    <xsd:sequence>
+      <xsd:element id="_2EWDcMQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="1" ref="tns1:messageID"/>
+      <xsd:element id="headerPersonPropagateTypereplicationID" form="qualified" maxOccurs="1"
+          minOccurs="1" name="replicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:unsignedLong">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="18446744073709551615"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerPersonPropagateTypesrcApplicationID" form="qualified"
+          maxOccurs="1" minOccurs="1" name="srcApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerPersonPropagateTypedstApplicationID" form="qualified"
+          maxOccurs="1" minOccurs="0" name="dstApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerPersonPropagateTypelastSubset" form="qualified" maxOccurs="1"
+          minOccurs="0" name="lastSubset">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07headerPropagateResponseType"
+      abstract="false" mixed="false" name="headerPropagateResponseType">
+    <xsd:sequence>
+      <xsd:element id="_2HeP8MQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="1" ref="tns1:messageID"/>
+      <xsd:element id="headerPropagateResponseTypereplicationID" form="qualified"
+          maxOccurs="1" minOccurs="1" name="replicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:unsignedLong">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="18446744073709551615"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerPropagateResponseTypesrcApplicationID" form="qualified"
+          maxOccurs="1" minOccurs="1" name="srcApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerPropagateResponseTypedstApplicationID" form="qualified"
+          maxOccurs="1" minOccurs="0" name="dstApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07headerQueryResponseType"
+      abstract="false" mixed="false" name="headerQueryResponseType">
+    <xsd:sequence>
+      <xsd:element id="_2J8VIMQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="1" ref="tns1:messageID"/>
+      <xsd:element id="headerQueryResponseTypesrcApplicationID" form="qualified" maxOccurs="1"
+          minOccurs="1" name="srcApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerQueryResponseTypedstApplicationID" form="qualified" maxOccurs="1"
+          minOccurs="0" name="dstApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerQueryResponseTypelastSubset" form="qualified" maxOccurs="1"
+          minOccurs="0" name="lastSubset">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07headerQueryType"
+      abstract="false" mixed="false" name="headerQueryType">
+    <xsd:sequence>
+      <xsd:element id="_2MMX4MQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="1" ref="tns1:messageID"/>
+      <xsd:element id="headerQueryTypesrcApplicationID" form="qualified" maxOccurs="1"
+          minOccurs="1" name="srcApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerQueryTypedstApplicationID" form="qualified" maxOccurs="1"
+          minOccurs="0" name="dstApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerQueryTypemaxRows" form="qualified" maxOccurs="1" minOccurs="0"
+          name="maxRows">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:positiveInteger">
+            <xsd:minInclusive value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07headerType"
+      abstract="false" mixed="false" name="headerType">
+    <xsd:sequence>
+      <xsd:element id="_2OjIUMQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="1" ref="tns1:messageID"/>
+      <xsd:element id="headerTypesrcApplicationID" form="qualified" maxOccurs="1"
+          minOccurs="1" name="srcApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="headerTypedstApplicationID" form="qualified" maxOccurs="1"
+          minOccurs="0" name="dstApplicationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07subscriptionType"
+      abstract="false" mixed="false" name="subscriptionType">
+    <xsd:sequence>
+      <xsd:element id="subscriptionTypename" form="qualified" maxOccurs="1" minOccurs="1"
+          name="name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="subscriptionTypereplicationMode" form="qualified" maxOccurs="1"
+          minOccurs="1" name="replicationMode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="scheduled"/>
+            <xsd:enumeration value="realtime"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="subscriptionTypeintervall" form="qualified" maxOccurs="1" minOccurs="1"
+          name="intervall">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="hour"/>
+            <xsd:enumeration value="day"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="subscriptionTypefactor" form="qualified" maxOccurs="1" minOccurs="1"
+          name="factor">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:positiveInteger">
+            <xsd:enumeration value="1"/>
+            <xsd:enumeration value="2"/>
+            <xsd:enumeration value="3"/>
+            <xsd:enumeration value="4"/>
+            <xsd:enumeration value="8"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="subscriptionTypestartDay" form="qualified" maxOccurs="1" minOccurs="1"
+          name="startDay">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="monday"/>
+            <xsd:enumeration value="tuesday"/>
+            <xsd:enumeration value="wednesday"/>
+            <xsd:enumeration value="thursday"/>
+            <xsd:enumeration value="friday"/>
+            <xsd:enumeration value="saturday"/>
+            <xsd:enumeration value="sunday"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="subscriptionTypestartTime" form="qualified" maxOccurs="1" minOccurs="1"
+          name="startTime">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:time"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_2kb4wMQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="0" ref="tns1:filter"/>
+      <xsd:element id="_2vlY0MQQEeCSLI0MjLAyqg" maxOccurs="1" minOccurs="1" ref="tns1:target"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07unsubscriptionType"
+      abstract="false" mixed="false" name="unsubscriptionType">
+    <xsd:sequence>
+      <xsd:element id="unsubscriptionTypename" form="qualified" maxOccurs="1" minOccurs="1"
+          name="name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="messageID" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:unsignedLong">
+        <xsd:minInclusive value="0"/>
+        <xsd:maxInclusive value="18446744073709551615"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Address" nillable="false" type="AddressType"/>
+  <xsd:element abstract="false" name="Location" nillable="false" type="LocationType"/>
+  <xsd:element abstract="false" name="QRoles" nillable="false" type="RoleQueryType"/>
+  <xsd:element abstract="false" name="person" nillable="false" type="PersonType"/>
+  <xsd:element abstract="false" name="Roles" nillable="false" type="RoleType"/>
+  <xsd:element abstract="false" name="State" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07StateType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns1:City"/>
+      </xsd:sequence>
+      <xsd:attribute id="StateTypename" form="unqualified" name="name" use="optional">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="City" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07CityType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="Location"
+            type="AddressLocationType"/>
+      </xsd:sequence>
+      <xsd:attribute id="CityTypename" form="unqualified" name="name" use="optional">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="status" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07statusType2"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="returnCode">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="returnMessage">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="group" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07groupType234"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="1" name="role">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07roleType234"
+              mixed="false">
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:string">
+                <xsd:attribute id="roleTypename234" form="unqualified" name="name"
+                    use="optional">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                  </xsd:simpleType>
+                </xsd:attribute>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute id="groupTypeid23" form="unqualified" name="id" use="optional">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="filter" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07filterType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="ou1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="ou2">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="companyName">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="department">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="country">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="location">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="state">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="city">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="costcenter">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="are">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="orgID">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="sdcID">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="target" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07targetType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="format">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="xml"/>
+              <xsd:enumeration value="csv"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="transportType">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="http"/>
+              <xsd:enumeration value="https"/>
+              <xsd:enumeration value="soap"/>
+              <xsd:enumeration value="soaps"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="addresslocation">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="action">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="user">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="passwd">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="certificate">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Building" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07BuildingType"
+        mixed="false">
+      <xsd:attribute id="BuildingTypename" form="unqualified" name="name" use="optional">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Country" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07CountryType2"
+        mixed="false"/>
+  </xsd:element>
+  <xsd:element abstract="false" name="Floor" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07FloorType"
+        mixed="false">
+      <xsd:attribute id="FloorTypename" form="unqualified" name="name" use="optional">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Room" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07RoomType"
+        mixed="false">
+      <xsd:attribute id="RoomTypemainOffice" form="unqualified" name="mainOffice"
+          use="optional">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute id="RoomTypename" form="unqualified" name="name" use="optional">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="addAttr" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07addAttrType"
+        mixed="false">
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute id="addAttrTypename" form="unqualified" name="name" use="required">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:NMTOKEN">
+                <xsd:pattern value="\c+"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="assignRole" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07assignRoleType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" name="item">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07itemType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person"
+                  type="PersonKeyType"/>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Roles"
+                  type="RoleType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="assignRoleResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07assignRoleResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" name="item">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07itemType2"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person"
+                  type="PersonKeyType"/>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Roles">
+                <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07RolesType"
+                    mixed="false">
+                  <xsd:complexContent>
+                    <xsd:extension base="tns1:RoleResponseType"/>
+                  </xsd:complexContent>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="assignWorkplace" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07assignWorkplaceType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Workplace">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07WorkplaceType234"
+              mixed="false">
+            <xsd:complexContent>
+              <xsd:extension base="tns1:WorkplaceKeyType"/>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="assignWorkplaceResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07assignWorkplaceResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Workplace">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07WorkplaceType2345"
+              mixed="false">
+            <xsd:complexContent>
+              <xsd:extension base="tns1:WorkplaceKeyType"/>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="changePerson" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07changePersonType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="reference"
+            type="PersonKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="changeRole" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07changeRoleType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" name="item">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07itemType23"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person"
+                  type="PersonKeyType"/>
+              <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="1" name="Roles"
+                  type="ChangeRoleType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="changeRoleResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07changeRoleResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" name="item">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07itemType234"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person"
+                  type="PersonKeyType"/>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Roles"
+                  type="ChangeRoleResponseType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="createPerson" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07createPersonType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="dack" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07dackType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerACKType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="returnCode">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="returnMessage">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deletePerson" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07deletePersonType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="entitlePerson" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07entitlePersonType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonEntitlementType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="entitlePersonResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07entitlePersonResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getCertificates" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07getCertificatesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getCertificatesResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07getCertificatesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+        <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="cerificate">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07cerificateType"
+              mixed="false">
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:string">
+                <xsd:attribute id="cerificateTypename" form="unqualified" name="name"
+                    use="optional">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string"/>
+                  </xsd:simpleType>
+                </xsd:attribute>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getPerson" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07getPersonType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerQueryType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonQueryType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getPersonResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07getPersonResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerQueryResponseType"/>
+        <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="person"
+            type="PersonType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="moveWorkplace" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07moveWorkplaceType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="oldWorkplace"
+            type="WorkplaceKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="newWorkplace"
+            type="WorkplaceKeyType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="moveWorkplaceResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07moveWorkplaceResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="oldWorkplace"
+            type="WorkplaceKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="newWorkplace"
+            type="WorkplaceKeyType"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="pack" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07packType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerPropagateResponseType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="returnCode">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="0" name="returnMessage">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="propagatePersons" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07propagatePersonsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerPersonPropagateType"/>
+        <xsd:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="person"
+            type="PersonReplicationType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="removeRole" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07removeRoleType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" name="item">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07itemType2345"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person"
+                  type="PersonKeyType"/>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Roles"
+                  type="RemoveRoleType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="removeRoleResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07removeRoleResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" name="item">
+          <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07itemType23456"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person"
+                  type="PersonKeyType"/>
+              <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Roles"
+                  type="RemoveRoleResponseType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="removeWorkplace" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07removeWorkplaceType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Workplace"
+            type="WorkplaceKeyType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="removeWorkplaceResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07removeWorkplaceResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonKeyType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="Workplace"
+            type="WorkplaceKeyType"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="subsribePersonReplication" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07subsribePersonReplicationType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonEntitlementType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="subsription"
+            type="subscriptionType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="subsribePersonReplicationResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07subsribePersonReplicationResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonEntitlementType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="subsription"
+            type="subscriptionType"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="unsubsribePersonReplication" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07unsubsribePersonReplicationType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonEntitlementType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="subsription"
+            type="unsubscriptionType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="unsubsribePersonReplicationResponse" nillable="false">
+    <xsd:complexType id="net.siemens.esb.PublicSchemas.Person.PersonService.PersonBase._2009._07unsubsribePersonReplicationResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="header" type="headerType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="person" type="PersonEntitlementType"/>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="subsription"
+            type="unsubscriptionType"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="tns1:status"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

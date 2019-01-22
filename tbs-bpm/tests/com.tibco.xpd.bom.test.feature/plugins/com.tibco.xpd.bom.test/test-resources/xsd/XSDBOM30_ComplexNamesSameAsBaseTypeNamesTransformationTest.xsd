@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com/complexbasenames" xmlns:tns1="http://com/complexbasenames"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://com/complexbasenames">
+	<xsd:annotation>
+		<xsd:documentation>BOMORIGIN::/fsdfs/Business
+			Objects/AlphaLookupService.bom</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="AccountSearchCriteria">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="name"
+				type="Name" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="boolean"
+				type="boolean" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="dateTime"
+				type="dateTime" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="decimal"
+				type="decimal" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="float"
+				type="float" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Name">
+		<xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="boolean">
+		<xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="dateTime">
+		<xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="decimal">
+		<xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="float">
+		<xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:dto="http://api.brm.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wm="http://workmodel.brm.n2.tibco.com" targetNamespace="http://workmodel.brm.n2.tibco.com" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="organisation.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:import namespace="http://api.brm.n2.tibco.com" schemaLocation="brm.xsd"/>
+	<xs:element name="WorkModels" type="wm:WorkModel">
+		<xs:annotation>
+			<xs:documentation>The root WorkModel element.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WorkModel">
+		<xs:annotation>
+			<xs:documentation>Array of work models.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="WorkModel" type="dto:WorkModel" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="version" type="xs:string" use="required"/>
+		<xs:attribute name="orgModelVersion" type="xs:int" use="optional"/>
+	</xs:complexType>
+</xs:schema>

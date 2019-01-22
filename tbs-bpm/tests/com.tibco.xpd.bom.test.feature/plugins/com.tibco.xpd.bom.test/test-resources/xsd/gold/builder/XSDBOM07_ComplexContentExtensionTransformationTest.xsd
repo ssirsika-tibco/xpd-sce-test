@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://businessobjectmodel" xmlns:tns1="http://businessobjectmodel" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://businessobjectmodel">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM07_ComplexContentExtensionTransformationTest/Business Objects/businessobjectmodel.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="file2" id="businessobjectmodelfile2" abstract="false"
+      mixed="false" name="file2">
+    <xsd:sequence>
+      <xsd:element ecore:name="description" id="file2description" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="description" type="xsd:string"/>
+      <xsd:element ecore:name="contents" id="file2contents" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="contents" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="extFile2" id="businessobjectmodelextFile2" abstract="false"
+      mixed="false" name="extFile2">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:file2">
+        <xsd:sequence>
+          <xsd:element ecore:name="moredetails" id="extFile2moredetails" form="unqualified"
+              maxOccurs="1" minOccurs="1" name="moredetails" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

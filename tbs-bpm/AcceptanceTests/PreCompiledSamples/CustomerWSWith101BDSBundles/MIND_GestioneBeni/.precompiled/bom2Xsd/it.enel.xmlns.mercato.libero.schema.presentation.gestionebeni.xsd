@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.it/mercato/libero/schema/presentation/gestionebeni.xsd"
+    xmlns:tns1="http://xmlns.enel.it/mercato/libero/schema/presentation/gestionebeni.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.it/mercato/libero/schema/presentation/gestionebeni.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/MIND_GestioneBeni/Generated Business Objects/it.enel.xmlns.mercato.libero.schema.presentation.gestionebeni.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="CDM_Prodotto" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CRMCanale" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CVPCanale" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CVPSistema" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CodiceContrattoVAS" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CorrelationId" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="NecEmailCliente" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="NecNotificaCliente" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="StartWS" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="flagInstallazione" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="AreaGeografica" nillable="false">
+    <xsd:simpleType ecore:name="AreaGeograficaType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="50"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AttributoProdotto" nillable="false">
+    <xsd:simpleType ecore:name="AttributoProdottoType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="18"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Bye_CodiceVAS" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Bye_DataAdesione" nillable="false" type="xsd:date"/>
+  <xsd:element abstract="false" name="Bye_DataAttivazione" nillable="false" type="xsd:date"/>
+  <xsd:element abstract="false" name="Bye_NumeroContratto" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Bye_NumeroPratica" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Bye_NumeroUtentePDR" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Bye_TipoDocumento" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CDM_Cliente" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CDM_IdFatturazione" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CDM_IndirizzoFatturazione" nillable="false"
+      type="xsd:string"/>
+  <xsd:element abstract="false" name="CDM_VAS" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Canale" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CarattDeterConti" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Causale" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CausaleOperazione" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Cellulare" nillable="false">
+    <xsd:simpleType ecore:name="CellulareType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="30"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="ChiaveUnivocaBeneCRM" nillable="false">
+    <xsd:simpleType ecore:name="ChiaveUnivocaBeneCRMType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="30"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Codice" nillable="false">
+    <xsd:simpleType ecore:name="CodiceType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="CodiceClienteCRM" nillable="false">
+    <xsd:simpleType ecore:name="CodiceClienteCRMType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="CodicePartner" nillable="false">
+    <xsd:simpleType ecore:name="CodicePartnerType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="30"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="CodiceProdotto" nillable="false">
+    <xsd:simpleType ecore:name="CodiceProdottoType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="18"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Cognome" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Commodity" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="CondizioniPagamento" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="ConsegnaManuale" nillable="false">
+    <xsd:simpleType ecore:name="ConsegnaManualeType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="1"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="DataRichiestaConsegna" nillable="false">
+    <xsd:simpleType ecore:name="DataRichiestaConsegnaType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="8"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Descrizione" nillable="false">
+    <xsd:simpleType ecore:name="DescrizioneType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="255"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Email" nillable="false">
+    <xsd:simpleType ecore:name="EmailType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="241"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Esito" nillable="false">
+    <xsd:simpleType ecore:name="EsitoType1">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="2"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Flag_CVP" nillable="false">
+    <xsd:simpleType ecore:name="Flag_CVPType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="1"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Flag_StandAlone" nillable="false">
+    <xsd:simpleType ecore:name="Flag_StandAloneType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="1"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="GiorniRipensamento" nillable="false" type="xsd:integer"/>
+  <xsd:element abstract="false" name="IdBPM" nillable="false">
+    <xsd:simpleType ecore:name="IdBPMType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IdCaseFatturazioneFO" nillable="false">
+    <xsd:simpleType ecore:name="IdCaseFatturazioneFOType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IdOrdineFO" nillable="false">
+    <xsd:simpleType ecore:name="IdOrdineFOType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IdPraticaFinanziamento" nillable="false">
+    <xsd:simpleType ecore:name="IdPraticaFinanziamentoType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IdRichiestaFO" nillable="false">
+    <xsd:simpleType ecore:name="IdRichiestaFOType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IdRichiestaIPE" nillable="false">
+    <xsd:simpleType ecore:name="IdRichiestaIPEType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="15"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="ImportoTotale" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Nome" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="NumeroUtente" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="OrderStatus" nillable="false">
+    <xsd:simpleType ecore:name="OrderStatusType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="30"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Pod" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="QuantitaProdotto" nillable="false">
+    <xsd:simpleType ecore:name="QuantitaProdottoType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="18"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="RagioneSociale" nillable="false">
+    <xsd:simpleType ecore:name="RagioneSocialeType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="40"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="SistemaOrigineDati" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="SistemaRichiedente" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="Telefono" nillable="false">
+    <xsd:simpleType ecore:name="TelefonoType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="30"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="TipoFlusso" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="TipoOperazione" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="TripBusinessPartner" nillable="false">
+    <xsd:simpleType ecore:name="TripBusinessPartnerType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="10"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="TripContoContr" nillable="false">
+    <xsd:simpleType ecore:name="TripContoContrType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="12"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="TripContrattoSap" nillable="false">
+    <xsd:simpleType ecore:name="TripContrattoSapType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="10"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="cap" nillable="false">
+    <xsd:simpleType ecore:name="capType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="10"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="civico" nillable="false">
+    <xsd:simpleType ecore:name="civicoType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="10"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="comune" nillable="false">
+    <xsd:simpleType ecore:name="comuneType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="40"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="presso" nillable="false">
+    <xsd:simpleType ecore:name="pressoType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="40"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="provincia" nillable="false">
+    <xsd:simpleType ecore:name="provinciaType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="3"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="titolo" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="via" nillable="false">
+    <xsd:simpleType ecore:name="viaType">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="60"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AggiornamentoTempiRipensamentoRequest" nillable="false">
+    <xsd:complexType ecore:name="AggiornamentoTempiRipensamentoRequestType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniAggiornamentoTempiRipensamentoRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idBpm" form="qualified" maxOccurs="1" minOccurs="1"
+            name="IdBpm">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="32"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="giorni_Ripensamento" form="qualified" maxOccurs="1"
+            minOccurs="1" name="Giorni_Ripensamento" type="xsd:int"/>
+        <xsd:element ecore:name="idOrdine" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IdOrdine">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="32"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AggiornamentoTempiRipensamentoResponse" nillable="false">
+    <xsd:complexType ecore:name="AggiornamentoTempiRipensamentoResponseType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniAggiornamentoTempiRipensamentoResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="1"
+            name="esito" type="xsd:string"/>
+        <xsd:element ecore:name="codiceEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="codiceEsito" type="xsd:string"/>
+        <xsd:element ecore:name="descrizioneEsito" form="qualified" maxOccurs="1"
+            minOccurs="0" name="descrizioneEsito" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AttivazioneRateizzoRequest" nillable="false">
+    <xsd:complexType ecore:name="AttivazioneRateizzoRequestType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniAttivazioneRateizzoRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="tipoOperazione" maxOccurs="1" minOccurs="0" ref="tns1:TipoOperazione"/>
+        <xsd:element ecore:name="causaleOperazione" maxOccurs="1" minOccurs="0" ref="tns1:CausaleOperazione"/>
+        <xsd:element ecore:name="tipoFlusso" maxOccurs="1" minOccurs="0" ref="tns1:TipoFlusso"/>
+        <xsd:element ecore:name="idOrdineFO" maxOccurs="1" minOccurs="0" ref="tns1:IdOrdineFO"/>
+        <xsd:element ecore:name="idRichiestaFO" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaFO"/>
+        <xsd:element ecore:name="codiceClienteCRM" maxOccurs="1" minOccurs="0" ref="tns1:CodiceClienteCRM"/>
+        <xsd:element ecore:name="chiaveUnivocaBeneCRM" maxOccurs="1" minOccurs="0"
+            ref="tns1:ChiaveUnivocaBeneCRM"/>
+        <xsd:element ecore:name="idBPM" form="qualified" maxOccurs="1" minOccurs="0"
+            name="idBPM" type="xsd:string"/>
+        <xsd:element ecore:name="nomeFinanziaria" form="qualified" maxOccurs="1" minOccurs="0"
+            name="NomeFinanziaria" type="xsd:string"/>
+        <xsd:element ecore:name="durataFinanziamento" form="qualified" maxOccurs="1"
+            minOccurs="0" name="DurataFinanziamento" type="xsd:int"/>
+        <xsd:element ecore:name="dataFinanziamento" form="qualified" maxOccurs="1"
+            minOccurs="0" name="DataFinanziamento" type="xsd:date"/>
+        <xsd:element ecore:name="totaleFinanziato" form="qualified" maxOccurs="1"
+            minOccurs="0" name="TotaleFinanziato" type="xsd:decimal"/>
+        <xsd:element ecore:name="IDPraticaFinanziamento" form="qualified" maxOccurs="1"
+            minOccurs="0" name="IDPraticaFinanziamento" type="xsd:string"/>
+        <xsd:element ecore:name="frequenzaRate" form="qualified" maxOccurs="1" minOccurs="0"
+            name="FrequenzaRate" type="xsd:int"/>
+        <xsd:element ecore:name="importoInteressi" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ImportoInteressi" type="xsd:decimal"/>
+        <xsd:element ecore:name="importoInteressiRata" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ImportoInteressiRata" type="xsd:decimal"/>
+        <xsd:element ecore:name="importoInteressiScontare" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ImportoInteressiScontare" type="xsd:decimal"/>
+        <xsd:element ecore:name="importoRataSenzaInteressi" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ImportoRataSenzaInteressi" type="xsd:decimal"/>
+        <xsd:element ecore:name="speseComunicazione" form="qualified" maxOccurs="1"
+            minOccurs="0" name="SpeseComunicazione" type="xsd:decimal"/>
+        <xsd:element ecore:name="importoBolloSuContratto" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ImportoBolloSuContratto" type="xsd:decimal"/>
+        <xsd:element ecore:name="impostaBolloSuEstrattoContoAnnuale" form="qualified"
+            maxOccurs="1" minOccurs="0" name="ImpostaBolloSuEstrattoContoAnnuale"
+            type="xsd:decimal"/>
+        <xsd:element ecore:name="dataScadenzaPrimaRata" form="qualified" maxOccurs="1"
+            minOccurs="0" name="DataScadenzaPrimaRata" type="xsd:date"/>
+        <xsd:element ecore:name="dataScadenzaAttesaRateizzo" form="qualified" maxOccurs="1"
+            minOccurs="0" name="DataScadenzaAttesaRateizzo" type="xsd:date"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AvanzamentoStatoBeneRequest" nillable="false">
+    <xsd:complexType ecore:name="AvanzamentoStatoBeneRequestType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniAvanzamentoStatoBeneRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="tipoEsito" form="qualified" maxOccurs="1" minOccurs="1"
+            name="TipoEsito">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="100"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Esito">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="2"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="codiceEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CodiceEsito">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="10"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="descrizioneEsito" form="qualified" maxOccurs="1"
+            minOccurs="0" name="DescrizioneEsito">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="200"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="dataEvento" form="qualified" maxOccurs="1" minOccurs="1"
+            name="DataEvento">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="10"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="identificativoBene" form="qualified" maxOccurs="1"
+            minOccurs="1" name="IdentificativoBene" type="xsd:string"/>
+        <xsd:element ecore:name="idGateway" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IdGateway">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="50"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="causaleEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CausaleEsito">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="50"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="dataInstPostRip" form="qualified" maxOccurs="1" minOccurs="0"
+            name="DataInstPostRip" type="xsd:date"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AvanzamentoStatoBeneResponse" nillable="false">
+    <xsd:complexType ecore:name="AvanzamentoStatoBeneResponseType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniAvanzamentoStatoBeneResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Esito" type="xsd:string"/>
+        <xsd:element ecore:name="codice" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Codice" type="xsd:string"/>
+        <xsd:element ecore:name="descrizione" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Descrizione" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="DatiIndirizzo" nillable="false">
+    <xsd:complexType ecore:name="DatiIndirizzoType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniDatiIndirizzoType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="via" maxOccurs="1" minOccurs="0" ref="tns1:via"/>
+        <xsd:element ecore:name="civico" maxOccurs="1" minOccurs="0" ref="tns1:civico"/>
+        <xsd:element ecore:name="cap" maxOccurs="1" minOccurs="0" ref="tns1:cap"/>
+        <xsd:element ecore:name="comune" maxOccurs="1" minOccurs="0" ref="tns1:comune"/>
+        <xsd:element ecore:name="provincia" maxOccurs="1" minOccurs="0" ref="tns1:provincia"/>
+        <xsd:element ecore:name="titolo" maxOccurs="1" minOccurs="0" ref="tns1:titolo"/>
+        <xsd:element ecore:name="presso" maxOccurs="1" minOccurs="0" ref="tns1:presso"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="DatiInstallatore" nillable="false">
+    <xsd:complexType ecore:name="DatiInstallatoreType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniDatiInstallatoreType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="codice" maxOccurs="1" minOccurs="0" ref="tns1:Codice"/>
+        <xsd:element ecore:name="ragioneSociale" maxOccurs="1" minOccurs="0" ref="tns1:RagioneSociale"/>
+        <xsd:element ecore:name="nome" maxOccurs="1" minOccurs="0" ref="tns1:Nome"/>
+        <xsd:element ecore:name="cognome" maxOccurs="1" minOccurs="0" ref="tns1:Cognome"/>
+        <xsd:element ecore:name="areaGeografica" maxOccurs="1" minOccurs="0" ref="tns1:AreaGeografica"/>
+        <xsd:element ecore:name="email" maxOccurs="1" minOccurs="0" ref="tns1:Email"/>
+        <xsd:element ecore:name="telefono" maxOccurs="1" minOccurs="0" ref="tns1:Telefono"/>
+        <xsd:element ecore:name="cellulare" maxOccurs="1" minOccurs="0" ref="tns1:Cellulare"/>
+        <xsd:element ecore:name="datiIndirizzo" maxOccurs="1" minOccurs="0" ref="tns1:DatiIndirizzo"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="ESITO" nillable="false">
+    <xsd:complexType ecore:name="ESITOType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniESITOType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" maxOccurs="1" minOccurs="0" ref="tns1:Esito"/>
+        <xsd:element ecore:name="codice" maxOccurs="1" minOccurs="0" ref="tns1:Codice"/>
+        <xsd:element ecore:name="descrizione" maxOccurs="1" minOccurs="0" ref="tns1:Descrizione"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="GestioneBeniRequest" nillable="false">
+    <xsd:complexType ecore:name="GestioneBeniRequestType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniGestioneBeniRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="tipoOperazione" maxOccurs="1" minOccurs="0" ref="tns1:TipoOperazione"/>
+        <xsd:element ecore:name="causaleOperazione" maxOccurs="1" minOccurs="0" ref="tns1:CausaleOperazione"/>
+        <xsd:element ecore:name="tipoFlusso" maxOccurs="1" minOccurs="0" ref="tns1:TipoFlusso"/>
+        <xsd:element ecore:name="codiceClienteCRM" maxOccurs="1" minOccurs="0" ref="tns1:CodiceClienteCRM"/>
+        <xsd:element ecore:name="chiaveUnivocaBeneCRM" maxOccurs="1" minOccurs="0"
+            ref="tns1:ChiaveUnivocaBeneCRM"/>
+        <xsd:element ecore:name="idOrdineFO" maxOccurs="1" minOccurs="0" ref="tns1:IdOrdineFO"/>
+        <xsd:element ecore:name="idRichiestaFO" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaFO"/>
+        <xsd:element ecore:name="idCaseFatturazioneFO" maxOccurs="1" minOccurs="0"
+            ref="tns1:IdCaseFatturazioneFO"/>
+        <xsd:element ecore:name="codiceProdotto" maxOccurs="1" minOccurs="0" ref="tns1:CodiceProdotto"/>
+        <xsd:element ecore:name="attributoProdotto" maxOccurs="1" minOccurs="0" ref="tns1:AttributoProdotto"/>
+        <xsd:element ecore:name="quantitaProdotto" maxOccurs="1" minOccurs="0" ref="tns1:QuantitaProdotto"/>
+        <xsd:element ecore:name="dataRichiestaConsegna" maxOccurs="1" minOccurs="0"
+            ref="tns1:DataRichiestaConsegna"/>
+        <xsd:element ecore:name="datiInstallatore" maxOccurs="1" minOccurs="0" ref="tns1:DatiInstallatore"/>
+        <xsd:element ecore:name="idPraticaFinanziamento" maxOccurs="1" minOccurs="0"
+            ref="tns1:IdPraticaFinanziamento"/>
+        <xsd:element ecore:name="orderStatus" maxOccurs="1" minOccurs="0" ref="tns1:OrderStatus"/>
+        <xsd:element ecore:name="idRichiestaIPE" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaIPE"/>
+        <xsd:element ecore:name="sistemaRichiedente" maxOccurs="1" minOccurs="0" ref="tns1:SistemaRichiedente"/>
+        <xsd:element ecore:name="canale" maxOccurs="1" minOccurs="0" ref="tns1:Canale"/>
+        <xsd:element ecore:name="pod" maxOccurs="1" minOccurs="0" ref="tns1:Pod"/>
+        <xsd:element ecore:name="CDM_VAS" maxOccurs="1" minOccurs="0" ref="tns1:CDM_VAS"/>
+        <xsd:element ecore:name="CDM_Cliente" maxOccurs="1" minOccurs="0" ref="tns1:CDM_Cliente"/>
+        <xsd:element ecore:name="CDM_IdFatturazione" maxOccurs="1" minOccurs="0" ref="tns1:CDM_IdFatturazione"/>
+        <xsd:element ecore:name="CDM_IndirizzoFatturazione" maxOccurs="1" minOccurs="0"
+            ref="tns1:CDM_IndirizzoFatturazione"/>
+        <xsd:element ecore:name="bye_NumeroContratto" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_NumeroContratto"/>
+        <xsd:element ecore:name="bye_NumeroPratica" maxOccurs="1" minOccurs="0" ref="tns1:Bye_NumeroPratica"/>
+        <xsd:element ecore:name="bye_NumeroUtentePDR" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_NumeroUtentePDR"/>
+        <xsd:element ecore:name="bye_DataAttivazione" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_DataAttivazione"/>
+        <xsd:element ecore:name="bye_DataAdesione" maxOccurs="1" minOccurs="0" ref="tns1:Bye_DataAdesione"/>
+        <xsd:element ecore:name="bye_TipoDocumento" maxOccurs="1" minOccurs="0" ref="tns1:Bye_TipoDocumento"/>
+        <xsd:element ecore:name="bye_CodiceVAS" maxOccurs="1" minOccurs="0" ref="tns1:Bye_CodiceVAS"/>
+        <xsd:element ecore:name="carattDeterConti" maxOccurs="1" minOccurs="0" ref="tns1:CarattDeterConti"/>
+        <xsd:element ecore:name="condizioniPagamento" maxOccurs="1" minOccurs="0"
+            ref="tns1:CondizioniPagamento"/>
+        <xsd:element ecore:name="commodity" maxOccurs="1" minOccurs="0" ref="tns1:Commodity"/>
+        <xsd:element ecore:name="sistemaOrigineDati" maxOccurs="1" minOccurs="0" ref="tns1:SistemaOrigineDati"/>
+        <xsd:element ecore:name="numeroUtente" maxOccurs="1" minOccurs="0" ref="tns1:NumeroUtente"/>
+        <xsd:element ecore:name="importoTotale" maxOccurs="1" minOccurs="0" ref="tns1:ImportoTotale"/>
+        <xsd:element ecore:name="consegnaManuale" maxOccurs="1" minOccurs="0" ref="tns1:ConsegnaManuale"/>
+        <xsd:element ecore:name="flag_CVP" maxOccurs="1" minOccurs="0" ref="tns1:Flag_CVP"/>
+        <xsd:element ecore:name="flag_StandAlone" maxOccurs="1" minOccurs="0" ref="tns1:Flag_StandAlone"/>
+        <xsd:element ecore:name="giorniRipensamento" form="qualified" maxOccurs="1"
+            minOccurs="0" name="GiorniRipensamento" type="xsd:integer"/>
+        <xsd:element ecore:name="codicePartner" maxOccurs="1" minOccurs="0" ref="tns1:CodicePartner"/>
+        <xsd:element ecore:name="tripBusinessPartner" maxOccurs="1" minOccurs="0"
+            ref="tns1:TripBusinessPartner"/>
+        <xsd:element ecore:name="tripContoContr" maxOccurs="1" minOccurs="0" ref="tns1:TripContoContr"/>
+        <xsd:element ecore:name="tripContrattoSap" maxOccurs="1" minOccurs="0" ref="tns1:TripContrattoSap"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="GestioneBeniRequestV2" nillable="false">
+    <xsd:complexType ecore:name="GestioneBeniRequestV2Type" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniGestioneBeniRequestV2Type"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="tipoOperazione" maxOccurs="1" minOccurs="0" ref="tns1:TipoOperazione"/>
+        <xsd:element ecore:name="causaleOperazione" maxOccurs="1" minOccurs="0" ref="tns1:CausaleOperazione"/>
+        <xsd:element ecore:name="tipoFlusso" maxOccurs="1" minOccurs="0" ref="tns1:TipoFlusso"/>
+        <xsd:element ecore:name="codiceClienteCRM" maxOccurs="1" minOccurs="0" ref="tns1:CodiceClienteCRM"/>
+        <xsd:element ecore:name="chiaveUnivocaBeneCRM" maxOccurs="1" minOccurs="0"
+            ref="tns1:ChiaveUnivocaBeneCRM"/>
+        <xsd:element ecore:name="idOrdineFO" maxOccurs="1" minOccurs="0" ref="tns1:IdOrdineFO"/>
+        <xsd:element ecore:name="idRichiestaFO" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaFO"/>
+        <xsd:element ecore:name="idCaseFatturazioneFO" maxOccurs="1" minOccurs="0"
+            ref="tns1:IdCaseFatturazioneFO"/>
+        <xsd:element ecore:name="codiceProdotto" maxOccurs="1" minOccurs="0" ref="tns1:CodiceProdotto"/>
+        <xsd:element ecore:name="attributoProdotto" maxOccurs="1" minOccurs="0" ref="tns1:AttributoProdotto"/>
+        <xsd:element ecore:name="quantitaProdotto" maxOccurs="1" minOccurs="0" ref="tns1:QuantitaProdotto"/>
+        <xsd:element ecore:name="dataRichiestaConsegna" maxOccurs="1" minOccurs="0"
+            ref="tns1:DataRichiestaConsegna"/>
+        <xsd:element ecore:name="datiInstallatore" maxOccurs="1" minOccurs="0" ref="tns1:DatiInstallatore"/>
+        <xsd:element ecore:name="idPraticaFinanziamento" maxOccurs="1" minOccurs="0"
+            ref="tns1:IdPraticaFinanziamento"/>
+        <xsd:element ecore:name="orderStatus" maxOccurs="1" minOccurs="0" ref="tns1:OrderStatus"/>
+        <xsd:element ecore:name="idRichiestaIPE" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaIPE"/>
+        <xsd:element ecore:name="sistemaRichiedente" maxOccurs="1" minOccurs="0" ref="tns1:SistemaRichiedente"/>
+        <xsd:element ecore:name="canale" maxOccurs="1" minOccurs="0" ref="tns1:Canale"/>
+        <xsd:element ecore:name="pod" maxOccurs="1" minOccurs="0" ref="tns1:Pod"/>
+        <xsd:element ecore:name="CDM_VAS" maxOccurs="1" minOccurs="0" ref="tns1:CDM_VAS"/>
+        <xsd:element ecore:name="CDM_Cliente" maxOccurs="1" minOccurs="0" ref="tns1:CDM_Cliente"/>
+        <xsd:element ecore:name="CDM_IdFatturazione" maxOccurs="1" minOccurs="0" ref="tns1:CDM_IdFatturazione"/>
+        <xsd:element ecore:name="CDM_IndirizzoFatturazione" maxOccurs="1" minOccurs="0"
+            ref="tns1:CDM_IndirizzoFatturazione"/>
+        <xsd:element ecore:name="CDM_Prodotto" maxOccurs="1" minOccurs="0" ref="tns1:CDM_Prodotto"/>
+        <xsd:element ecore:name="bye_NumeroContratto" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_NumeroContratto"/>
+        <xsd:element ecore:name="bye_NumeroPratica" maxOccurs="1" minOccurs="0" ref="tns1:Bye_NumeroPratica"/>
+        <xsd:element ecore:name="bye_NumeroUtentePDR" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_NumeroUtentePDR"/>
+        <xsd:element ecore:name="bye_DataAttivazione" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_DataAttivazione"/>
+        <xsd:element ecore:name="bye_DataAdesione" maxOccurs="1" minOccurs="0" ref="tns1:Bye_DataAdesione"/>
+        <xsd:element ecore:name="bye_TipoDocumento" maxOccurs="1" minOccurs="0" ref="tns1:Bye_TipoDocumento"/>
+        <xsd:element ecore:name="bye_CodiceVAS" maxOccurs="1" minOccurs="0" ref="tns1:Bye_CodiceVAS"/>
+        <xsd:element ecore:name="carattDeterConti" maxOccurs="1" minOccurs="0" ref="tns1:CarattDeterConti"/>
+        <xsd:element ecore:name="condizioniPagamento" maxOccurs="1" minOccurs="0"
+            ref="tns1:CondizioniPagamento"/>
+        <xsd:element ecore:name="commodity" maxOccurs="1" minOccurs="0" ref="tns1:Commodity"/>
+        <xsd:element ecore:name="sistemaOrigineDati" maxOccurs="1" minOccurs="0" ref="tns1:SistemaOrigineDati"/>
+        <xsd:element ecore:name="numeroUtente" maxOccurs="1" minOccurs="0" ref="tns1:NumeroUtente"/>
+        <xsd:element ecore:name="importoTotale" maxOccurs="1" minOccurs="0" ref="tns1:ImportoTotale"/>
+        <xsd:element ecore:name="consegnaManuale" maxOccurs="1" minOccurs="0" ref="tns1:ConsegnaManuale"/>
+        <xsd:element ecore:name="flag_CVP" maxOccurs="1" minOccurs="0" ref="tns1:Flag_CVP"/>
+        <xsd:element ecore:name="flag_StandAlone" maxOccurs="1" minOccurs="0" ref="tns1:Flag_StandAlone"/>
+        <xsd:element ecore:name="giorniRipensamento" maxOccurs="1" minOccurs="0" ref="tns1:GiorniRipensamento"/>
+        <xsd:element ecore:name="codicePartner" maxOccurs="1" minOccurs="0" ref="tns1:CodicePartner"/>
+        <xsd:element ecore:name="tripBusinessPartner" maxOccurs="1" minOccurs="0"
+            ref="tns1:TripBusinessPartner"/>
+        <xsd:element ecore:name="tripContoContr" maxOccurs="1" minOccurs="0" ref="tns1:TripContoContr"/>
+        <xsd:element ecore:name="tripContrattoSap" maxOccurs="1" minOccurs="0" ref="tns1:TripContrattoSap"/>
+        <xsd:element ecore:name="startWS" maxOccurs="1" minOccurs="0" ref="tns1:StartWS"/>
+        <xsd:element ecore:name="necEmailCliente" maxOccurs="1" minOccurs="0" ref="tns1:NecEmailCliente"/>
+        <xsd:element ecore:name="necNotificaCliente" maxOccurs="1" minOccurs="0" ref="tns1:NecNotificaCliente"/>
+        <xsd:element ecore:name="CVPCanale" maxOccurs="1" minOccurs="0" ref="tns1:CVPCanale"/>
+        <xsd:element ecore:name="CVPSistema" maxOccurs="1" minOccurs="0" ref="tns1:CVPSistema"/>
+        <xsd:element ecore:name="flagInstallazione" maxOccurs="1" minOccurs="0" ref="tns1:flagInstallazione"/>
+        <xsd:element ecore:name="codiceContrattoVAS" maxOccurs="1" minOccurs="0" ref="tns1:CodiceContrattoVAS"/>
+        <xsd:element ecore:name="CRMCanale" maxOccurs="1" minOccurs="0" ref="tns1:CRMCanale"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="GestioneBeniResponse" nillable="false">
+    <xsd:complexType ecore:name="GestioneBeniResponseType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniGestioneBeniResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idBPM" maxOccurs="1" minOccurs="0" ref="tns1:IdBPM"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IncassoFatturaVenditaRequest" nillable="false">
+    <xsd:complexType ecore:name="IncassoFatturaVenditaRequestType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniIncassoFatturaVenditaRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="chiaveUnivocaCRM" form="qualified" maxOccurs="1"
+            minOccurs="1" name="ChiaveUnivocaCRM">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="30"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="idRichiestaFO" form="qualified" maxOccurs="1" minOccurs="1"
+            name="IdRichiestaFO">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="15"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="causaleBonifico" form="qualified" maxOccurs="1" minOccurs="1"
+            name="CausaleBonifico">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="282"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="checkCausaleSAP" form="qualified" maxOccurs="1" minOccurs="1"
+            name="CheckCausaleSAP">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="2"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="importoBonifico" form="qualified" maxOccurs="1" minOccurs="1"
+            name="ImportoBonifico">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="10"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="percentualeBonifico" form="qualified" maxOccurs="1"
+            minOccurs="1" name="PercentualeBonifico">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="50"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element ecore:name="dataValuta" form="qualified" maxOccurs="1" minOccurs="1"
+            name="DataValuta" type="xsd:date"/>
+        <xsd:element ecore:name="idFatturaSd" form="qualified" maxOccurs="1" minOccurs="1"
+            name="IdFatturaSd" type="xsd:string"/>
+        <xsd:element ecore:name="idFinanziamento" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IdFinanziamento" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="IncassoFatturaVenditaResponse" nillable="false">
+    <xsd:complexType ecore:name="IncassoFatturaVenditaResponseType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniIncassoFatturaVenditaResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Esito" type="xsd:string"/>
+        <xsd:element ecore:name="codice" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Codice" type="xsd:string"/>
+        <xsd:element ecore:name="descrizione" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Descrizione" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NotificaFatturaRequest" nillable="false">
+    <xsd:complexType ecore:name="NotificaFatturaRequestType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniNotificaFatturaRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="ESITO" maxOccurs="1" minOccurs="0" ref="tns1:ESITO"/>
+        <xsd:element ecore:name="fattura" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Fattura" type="xsd:string"/>
+        <xsd:element ecore:name="tipoOperazione" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TipoOperazione" type="xsd:string"/>
+        <xsd:element ecore:name="causale" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Causale" type="xsd:string"/>
+        <xsd:element ecore:name="tipoFlusso" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TipoFlusso" type="xsd:string"/>
+        <xsd:element ecore:name="idProtocollo" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IdProtocollo" type="xsd:decimal"/>
+        <xsd:element ecore:name="dataEmissione" form="qualified" maxOccurs="1" minOccurs="0"
+            name="DataEmissione" type="xsd:date"/>
+        <xsd:element ecore:name="dataConsegna" form="qualified" maxOccurs="1" minOccurs="0"
+            name="DataConsegna" type="xsd:date"/>
+        <xsd:element ecore:name="numeroFattura" form="qualified" maxOccurs="1" minOccurs="0"
+            name="NumeroFattura" type="xsd:string"/>
+        <xsd:element ecore:name="importoFattura" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ImportoFattura" type="xsd:string"/>
+        <xsd:element ecore:name="importoNetto" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ImportoNetto" type="xsd:string"/>
+        <xsd:element ecore:name="importoIva" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ImportoIva" type="xsd:string"/>
+        <xsd:element ecore:name="idDocumentoStampa" form="qualified" maxOccurs="1"
+            minOccurs="0" name="IdDocumentoStampa" type="xsd:string"/>
+        <xsd:element ecore:name="idOrdineSAP" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IdOrdineSAP" type="xsd:string"/>
+        <xsd:element ecore:name="idRichiesta" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IdRichiesta" type="xsd:string"/>
+        <xsd:element ecore:name="correlationId" maxOccurs="1" minOccurs="0" ref="tns1:CorrelationId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NotificaStepConsegnaRequest" nillable="false">
+    <xsd:complexType ecore:name="NotificaStepConsegnaRequestType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniNotificaStepConsegnaRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="correlationId" maxOccurs="1" minOccurs="0" ref="tns1:CorrelationId"/>
+        <xsd:element ecore:name="numerodtt" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Numerodtt" type="xsd:string"/>
+        <xsd:element ecore:name="timeStampRicezione" form="qualified" maxOccurs="1"
+            minOccurs="0" name="TimeStampRicezione" type="xsd:date"/>
+        <xsd:element ecore:name="ESITO" maxOccurs="1" minOccurs="0" ref="tns1:ESITO"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="ReceiveTaskAnnullamentoResponse" nillable="false">
+    <xsd:complexType ecore:name="ReceiveTaskAnnullamentoResponseType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniReceiveTaskAnnullamentoResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="correlationId" maxOccurs="1" minOccurs="1" ref="tns1:CorrelationId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="ReceiveTaskEsitoISU" nillable="false">
+    <xsd:complexType ecore:name="ReceiveTaskEsitoISUType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniReceiveTaskEsitoISUType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="correlationId" maxOccurs="1" minOccurs="1" ref="tns1:CorrelationId"/>
+        <xsd:element ecore:name="esito" maxOccurs="1" minOccurs="0" ref="tns1:Esito"/>
+        <xsd:element ecore:name="codice" maxOccurs="1" minOccurs="0" ref="tns1:Codice"/>
+        <xsd:element ecore:name="descrizione" maxOccurs="1" minOccurs="0" ref="tns1:Descrizione"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="ReceiveTaskRilavorazioneResponse" nillable="false">
+    <xsd:complexType ecore:name="ReceiveTaskRilavorazioneResponseType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniReceiveTaskRilavorazioneResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="correlationId" maxOccurs="1" minOccurs="1" ref="tns1:CorrelationId"/>
+        <xsd:element ecore:name="tipoOperazione" maxOccurs="1" minOccurs="0" ref="tns1:TipoOperazione"/>
+        <xsd:element ecore:name="causaleOperazione" maxOccurs="1" minOccurs="0" ref="tns1:CausaleOperazione"/>
+        <xsd:element ecore:name="tipoFlusso" maxOccurs="1" minOccurs="0" ref="tns1:TipoFlusso"/>
+        <xsd:element ecore:name="codiceClienteCRM" maxOccurs="1" minOccurs="0" ref="tns1:CodiceClienteCRM"/>
+        <xsd:element ecore:name="chiaveUnivocaBeneCRM" maxOccurs="1" minOccurs="0"
+            ref="tns1:ChiaveUnivocaBeneCRM"/>
+        <xsd:element ecore:name="idOrdineFO" maxOccurs="1" minOccurs="0" ref="tns1:IdOrdineFO"/>
+        <xsd:element ecore:name="idRichiestaFO" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaFO"/>
+        <xsd:element ecore:name="idCaseFatturazioneFO" maxOccurs="1" minOccurs="0"
+            ref="tns1:IdCaseFatturazioneFO"/>
+        <xsd:element ecore:name="codiceProdotto" maxOccurs="1" minOccurs="0" ref="tns1:CodiceProdotto"/>
+        <xsd:element ecore:name="attributoProdotto" maxOccurs="1" minOccurs="0" ref="tns1:AttributoProdotto"/>
+        <xsd:element ecore:name="quantitaProdotto" maxOccurs="1" minOccurs="0" ref="tns1:QuantitaProdotto"/>
+        <xsd:element ecore:name="dataRichiestaConsegna" maxOccurs="1" minOccurs="0"
+            ref="tns1:DataRichiestaConsegna"/>
+        <xsd:element ecore:name="datiInstallatore" maxOccurs="1" minOccurs="0" ref="tns1:DatiInstallatore"/>
+        <xsd:element ecore:name="idPraticaFinanziamento" maxOccurs="1" minOccurs="0"
+            ref="tns1:IdPraticaFinanziamento"/>
+        <xsd:element ecore:name="orderStatus" maxOccurs="1" minOccurs="0" ref="tns1:OrderStatus"/>
+        <xsd:element ecore:name="idRichiestaIPE" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaIPE"/>
+        <xsd:element ecore:name="sistemaRichiedente" maxOccurs="1" minOccurs="0" ref="tns1:SistemaRichiedente"/>
+        <xsd:element ecore:name="canale" maxOccurs="1" minOccurs="0" ref="tns1:Canale"/>
+        <xsd:element ecore:name="pod" maxOccurs="1" minOccurs="0" ref="tns1:Pod"/>
+        <xsd:element ecore:name="CDM_VAS" maxOccurs="1" minOccurs="0" ref="tns1:CDM_VAS"/>
+        <xsd:element ecore:name="CDM_Cliente" maxOccurs="1" minOccurs="0" ref="tns1:CDM_Cliente"/>
+        <xsd:element ecore:name="CDM_IdFatturazione" maxOccurs="1" minOccurs="0" ref="tns1:CDM_IdFatturazione"/>
+        <xsd:element ecore:name="CDM_IndirizzoFatturazione" maxOccurs="1" minOccurs="0"
+            ref="tns1:CDM_IndirizzoFatturazione"/>
+        <xsd:element ecore:name="bye_NumeroContratto" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_NumeroContratto"/>
+        <xsd:element ecore:name="bye_NumeroPratica" maxOccurs="1" minOccurs="0" ref="tns1:Bye_NumeroPratica"/>
+        <xsd:element ecore:name="bye_NumeroUtentePDR" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_NumeroUtentePDR"/>
+        <xsd:element ecore:name="bye_DataAttivazione" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_DataAttivazione"/>
+        <xsd:element ecore:name="bye_DataAdesione" maxOccurs="1" minOccurs="0" ref="tns1:Bye_DataAdesione"/>
+        <xsd:element ecore:name="bye_TipoDocumento" maxOccurs="1" minOccurs="0" ref="tns1:Bye_TipoDocumento"/>
+        <xsd:element ecore:name="bye_CodiceVAS" maxOccurs="1" minOccurs="0" ref="tns1:Bye_CodiceVAS"/>
+        <xsd:element ecore:name="carattDeterConti" maxOccurs="1" minOccurs="0" ref="tns1:CarattDeterConti"/>
+        <xsd:element ecore:name="condizioniPagamento" maxOccurs="1" minOccurs="0"
+            ref="tns1:CondizioniPagamento"/>
+        <xsd:element ecore:name="commodity" maxOccurs="1" minOccurs="0" ref="tns1:Commodity"/>
+        <xsd:element ecore:name="sistemaOrigineDati" maxOccurs="1" minOccurs="0" ref="tns1:SistemaOrigineDati"/>
+        <xsd:element ecore:name="numeroUtente" maxOccurs="1" minOccurs="0" ref="tns1:NumeroUtente"/>
+        <xsd:element ecore:name="importoTotale" maxOccurs="1" minOccurs="0" ref="tns1:ImportoTotale"/>
+        <xsd:element ecore:name="consegnaManuale" maxOccurs="1" minOccurs="0" ref="tns1:ConsegnaManuale"/>
+        <xsd:element ecore:name="flag_CVP" maxOccurs="1" minOccurs="0" ref="tns1:Flag_CVP"/>
+        <xsd:element ecore:name="flag_StandAlone" maxOccurs="1" minOccurs="0" ref="tns1:Flag_StandAlone"/>
+        <xsd:element ecore:name="giorniRipensamento" form="qualified" maxOccurs="1"
+            minOccurs="0" name="GiorniRipensamento" type="xsd:integer"/>
+        <xsd:element ecore:name="codicePartner" maxOccurs="1" minOccurs="0" ref="tns1:CodicePartner"/>
+        <xsd:element ecore:name="tripBusinessPartner" maxOccurs="1" minOccurs="0"
+            ref="tns1:TripBusinessPartner"/>
+        <xsd:element ecore:name="tripContoContr" maxOccurs="1" minOccurs="0" ref="tns1:TripContoContr"/>
+        <xsd:element ecore:name="tripContrattoSap" maxOccurs="1" minOccurs="0" ref="tns1:TripContrattoSap"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="ReceiveTaskRisveglio" nillable="false">
+    <xsd:complexType ecore:name="ReceiveTaskRisveglioType" id="it.enel.xmlns.mercato.libero.schema.presentation.gestionebeniReceiveTaskRisveglioType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="tipoOperazione" maxOccurs="1" minOccurs="0" ref="tns1:TipoOperazione"/>
+        <xsd:element ecore:name="causaleOperazione" maxOccurs="1" minOccurs="0" ref="tns1:CausaleOperazione"/>
+        <xsd:element ecore:name="tipoFlusso" maxOccurs="1" minOccurs="0" ref="tns1:TipoFlusso"/>
+        <xsd:element ecore:name="codiceClienteCRM" maxOccurs="1" minOccurs="0" ref="tns1:CodiceClienteCRM"/>
+        <xsd:element ecore:name="chiaveUnivocaBeneCRM" maxOccurs="1" minOccurs="0"
+            ref="tns1:ChiaveUnivocaBeneCRM"/>
+        <xsd:element ecore:name="idOrdineFO" maxOccurs="1" minOccurs="0" ref="tns1:IdOrdineFO"/>
+        <xsd:element ecore:name="idRichiestaFO" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaFO"/>
+        <xsd:element ecore:name="idCaseFatturazioneFO" maxOccurs="1" minOccurs="0"
+            ref="tns1:IdCaseFatturazioneFO"/>
+        <xsd:element ecore:name="codiceProdotto" maxOccurs="1" minOccurs="0" ref="tns1:CodiceProdotto"/>
+        <xsd:element ecore:name="attributoProdotto" maxOccurs="1" minOccurs="0" ref="tns1:AttributoProdotto"/>
+        <xsd:element ecore:name="quantitaProdotto" maxOccurs="1" minOccurs="0" ref="tns1:QuantitaProdotto"/>
+        <xsd:element ecore:name="dataRichiestaConsegna" maxOccurs="1" minOccurs="0"
+            ref="tns1:DataRichiestaConsegna"/>
+        <xsd:element ecore:name="datiInstallatore" maxOccurs="1" minOccurs="0" ref="tns1:DatiInstallatore"/>
+        <xsd:element ecore:name="idPraticaFinanziamento" maxOccurs="1" minOccurs="0"
+            ref="tns1:IdPraticaFinanziamento"/>
+        <xsd:element ecore:name="orderStatus" maxOccurs="1" minOccurs="0" ref="tns1:OrderStatus"/>
+        <xsd:element ecore:name="idRichiestaIPE" maxOccurs="1" minOccurs="0" ref="tns1:IdRichiestaIPE"/>
+        <xsd:element ecore:name="sistemaRichiedente" maxOccurs="1" minOccurs="0" ref="tns1:SistemaRichiedente"/>
+        <xsd:element ecore:name="canale" maxOccurs="1" minOccurs="0" ref="tns1:Canale"/>
+        <xsd:element ecore:name="pod" maxOccurs="1" minOccurs="0" ref="tns1:Pod"/>
+        <xsd:element ecore:name="CDM_VAS" maxOccurs="1" minOccurs="0" ref="tns1:CDM_VAS"/>
+        <xsd:element ecore:name="CDM_Cliente" maxOccurs="1" minOccurs="0" ref="tns1:CDM_Cliente"/>
+        <xsd:element ecore:name="CDM_IdFatturazione" maxOccurs="1" minOccurs="0" ref="tns1:CDM_IdFatturazione"/>
+        <xsd:element ecore:name="CDM_IndirizzoFatturazione" maxOccurs="1" minOccurs="0"
+            ref="tns1:CDM_IndirizzoFatturazione"/>
+        <xsd:element ecore:name="CDM_Prodotto" maxOccurs="1" minOccurs="0" ref="tns1:CDM_Prodotto"/>
+        <xsd:element ecore:name="bye_NumeroContratto" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_NumeroContratto"/>
+        <xsd:element ecore:name="bye_NumeroPratica" maxOccurs="1" minOccurs="0" ref="tns1:Bye_NumeroPratica"/>
+        <xsd:element ecore:name="bye_NumeroUtentePDR" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_NumeroUtentePDR"/>
+        <xsd:element ecore:name="bye_DataAttivazione" maxOccurs="1" minOccurs="0"
+            ref="tns1:Bye_DataAttivazione"/>
+        <xsd:element ecore:name="bye_DataAdesione" maxOccurs="1" minOccurs="0" ref="tns1:Bye_DataAdesione"/>
+        <xsd:element ecore:name="bye_TipoDocumento" maxOccurs="1" minOccurs="0" ref="tns1:Bye_TipoDocumento"/>
+        <xsd:element ecore:name="bye_CodiceVAS" maxOccurs="1" minOccurs="0" ref="tns1:Bye_CodiceVAS"/>
+        <xsd:element ecore:name="carattDeterConti" maxOccurs="1" minOccurs="0" ref="tns1:CarattDeterConti"/>
+        <xsd:element ecore:name="condizioniPagamento" maxOccurs="1" minOccurs="0"
+            ref="tns1:CondizioniPagamento"/>
+        <xsd:element ecore:name="commodity" maxOccurs="1" minOccurs="0" ref="tns1:Commodity"/>
+        <xsd:element ecore:name="sistemaOrigineDati" maxOccurs="1" minOccurs="0" ref="tns1:SistemaOrigineDati"/>
+        <xsd:element ecore:name="numeroUtente" maxOccurs="1" minOccurs="0" ref="tns1:NumeroUtente"/>
+        <xsd:element ecore:name="importoTotale" maxOccurs="1" minOccurs="0" ref="tns1:ImportoTotale"/>
+        <xsd:element ecore:name="consegnaManuale" maxOccurs="1" minOccurs="0" ref="tns1:ConsegnaManuale"/>
+        <xsd:element ecore:name="flag_CVP" maxOccurs="1" minOccurs="0" ref="tns1:Flag_CVP"/>
+        <xsd:element ecore:name="flag_StandAlone" maxOccurs="1" minOccurs="0" ref="tns1:Flag_StandAlone"/>
+        <xsd:element ecore:name="giorniRipensamento" maxOccurs="1" minOccurs="0" ref="tns1:GiorniRipensamento"/>
+        <xsd:element ecore:name="codicePartner" maxOccurs="1" minOccurs="0" ref="tns1:CodicePartner"/>
+        <xsd:element ecore:name="idBPM" maxOccurs="1" minOccurs="0" ref="tns1:IdBPM"/>
+        <xsd:element ecore:name="tripBusinessPartner" maxOccurs="1" minOccurs="0"
+            ref="tns1:TripBusinessPartner"/>
+        <xsd:element ecore:name="tripContoContr" maxOccurs="1" minOccurs="0" ref="tns1:TripContoContr"/>
+        <xsd:element ecore:name="tripContrattoSap" maxOccurs="1" minOccurs="0" ref="tns1:TripContrattoSap"/>
+        <xsd:element ecore:name="CVPCanale" maxOccurs="1" minOccurs="0" ref="tns1:CVPCanale"/>
+        <xsd:element ecore:name="CVPSistema" maxOccurs="1" minOccurs="0" ref="tns1:CVPSistema"/>
+        <xsd:element ecore:name="flagInstallazione" maxOccurs="1" minOccurs="0" ref="tns1:flagInstallazione"/>
+        <xsd:element ecore:name="codiceContrattoVAS" maxOccurs="1" minOccurs="0" ref="tns1:CodiceContrattoVAS"/>
+        <xsd:element ecore:name="CRMCanale" maxOccurs="1" minOccurs="0" ref="tns1:CRMCanale"/>
+        <xsd:element ecore:name="correlationId" maxOccurs="1" minOccurs="1" ref="tns1:CorrelationId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

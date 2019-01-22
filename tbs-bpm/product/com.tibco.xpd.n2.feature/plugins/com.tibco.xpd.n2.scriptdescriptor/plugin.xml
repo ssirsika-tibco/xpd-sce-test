@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.tibco.com/XPD/ScriptDescriptor/"
+            class="com.tibco.xpd.script.descriptor.DescriptorPackage"
+            genModel="model/ScriptDescriptor.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="scripts"
+            class="com.tibco.xpd.script.descriptor.util.DescriptorResourceFactoryImpl"/>
+   </extension>
+
+<!--
+Sid 02 July 2013. I think this contribution is a mistake (probably some old code) committed by Alisha as part
+ 	of XPD-3131 for Global Data stuff. It causes the following cosole output during all BPM deploys
+ 	  "Failed to load package: http://bds.tibco.com/scripts/ (java.lang.ClassNotFoundException: com.tibco.bds.bdsDescriptor.bdsDescriptorPackage)"
+ 	
+ 	It has nothing to do with deploy it is just the EMF meta model registry looking for a given extension schema contribution that
+ 	  comes across this broken contribution.
+ 	
+ 	This looks like a left over contribution as the actual global-data gen-model is in model/globalData/globaldatascriptdescriptor.genmodel
+ 	
+ 	The reason I haven't deleted it altogether is that I can't find a reference to globaldatascriptdescriptor.genmodel anywhere
+ 	  that is similar to the contribution below. Therefore I don't know whether the conbtribution was ultimately not required
+ 	  (and therefore everything in global data works) or whether it is required but is not working because this contribution is incorrect).
+ 	  
+ 	  So if you come to this message once you know global data is working then you can remove this comment and contribution!
+ 				 
+ <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://bds.tibco.com/scripts/"
+            class="com.tibco.bds.bdsDescriptor.bdsDescriptorPackage"
+            genModel="model/BDSScriptDescriptor.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="bdsDescriptor"
+            class="com.tibco.bds.bdsDescriptor.util.bdsDescriptorResourceFactoryImpl"/>
+   </extension>
+-->
+</plugin>

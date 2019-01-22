@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://XSDBOM_TLE2_DeepImportTopLevelElements2" xmlns:tns2="http://XSDBOM_TLE2_DeepImportTopLevelElements2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://XSDBOM_TLE2_DeepImportTopLevelElements2">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gfdgdf/Generated Business Objects/com.amsbqa.linda02.xsd._1import.xsd2.xsd2.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="Title" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Author" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Date" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="ISBN" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Publisher" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Book" nillable="false">
+    <xsd:complexType id="com.amsbqa.linda02.xsd._1import.xsd2.xsd2_BookType" mixed="false">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="Title"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="Author"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="Date"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="ISBN"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="Publisher"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="BookStore" nillable="false">
+    <xsd:complexType id="com.amsbqa.linda02.xsd._1import.xsd2.xsd2_BookStoreType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" minOccurs="1" ref="Book"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="root" nillable="false">
+    <xsd:complexType id="com.amsbqa.linda02.xsd._1import.xsd2.xsd2_rootType" mixed="false">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="Book"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

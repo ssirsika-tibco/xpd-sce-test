@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://com.enel.mind.presentation.crmgateway" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MutiPresentationCrmGatewayAbstract" targetNamespace="http://com.enel.mind.presentation.crmgateway" tibex:src="file:/C:/Users/egiusro/Desktop/MutiPresentationCrmGatewayAbstract.wsdl">
+  <wsdl:types>
+  
+    <xsd:schema targetNamespace="http://com.enel.mind.presentation.crmgateway">
+      <xsd:element name="RicezioneEsitiAttivazioniRequest">
+        <xsd:complexType> 
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+          	<xsd:element minOccurs="0" name="Esito" type="tns:EsitoType">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="EsitiCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="IdFatturazioneSapCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="ClienteCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="Ambito" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="LetturaCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="Ambito_Rilavorazione" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="BonusCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="ScontoCDM" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RicezioneEsitiAttivazioniResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+          	<xsd:element minOccurs="0" name="IdAggModPag" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+	  
+      <xsd:element name="OrdineAdeguamentoMercatoRequest">
+        <xsd:complexType> 
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+
+          	<xsd:element minOccurs="0" name="FornituraCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="ClienteCDM" type="xsd:string">
+          	</xsd:element>
+			
+          	<xsd:element minOccurs="0" name="Pod" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+      <xsd:element name="OrdineAdeguamentoMercatoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>		
+          	<xsd:element minOccurs="0" name="RichiestaCDM" type="xsd:string"/>		
+			<xsd:element minOccurs="0" name="ClienteCDM" type="xsd:string"/>					
+			<xsd:element minOccurs="0" name="FornituraCDM" type="xsd:string"/>	
+			<xsd:element minOccurs="0" name="IdFatturazioneIsuCDM" type="xsd:string"/>	
+			<xsd:element minOccurs="0" name="PreventivoTecnicoCDM" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="NumeroUtente" type="xsd:string"/>		
+			<xsd:element minOccurs="0" name="Pod" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="DataDecorrenza" type="xsd:string"/>
+          	<xsd:element minOccurs="0" name="IdAggModPag" type="xsd:string"/>
+			<xsd:element minOccurs="1" name="IdFatturazioneCrm" type="tns:IdFatturazioneCrmType"/>
+			
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+	  
+	  
+
+      <xsd:element name="RicezioneEsitiDistributoreRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+          	<xsd:element minOccurs="0" name="Esito" type="tns:EsitoType">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="RichiestaCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="ClienteCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="LetturaCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="FornituraCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IndirizzoDistributoreCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="PreventivoTecnicoCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="PreventivoCommercialeCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="AppuntamentoCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="DatiOutCdmSDM" type="xsd:string">
+          	</xsd:element>
+          	
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RicezioneEsitiDistributoreResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+		    <xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+          	<xsd:element minOccurs="0" name="Esito" type="tns:EsitoType"/>
+          	
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+
+
+      <xsd:element name="RicezioneEsitiPreventivoCommercialeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+          	<xsd:element minOccurs="0" name="Esito" type="tns:EsitoType">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IdFatturazioneSdCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="PreventivoCommercialeCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="DatiOutCdmSDM" type="xsd:string">
+          	</xsd:element>
+          	
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RicezioneEsitiPreventivoCommercialeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+		    
+          	<xsd:element minOccurs="0" name="Esito" type="tns:EsitoType"/>
+          	
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+
+
+      <xsd:element name="RicezioneEsitiSdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+          	<xsd:element minOccurs="0" name="Esito" type="tns:EsitoType">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="FatturaCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="TipoFlusso" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="1" name="Ambito" type="xsd:string">
+          	</xsd:element>
+          	
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RicezioneEsitiSdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+		    
+          	<xsd:element minOccurs="0" name="Esito" type="tns:EsitoType"/>
+          	
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+	
+
+
+      <xsd:element name="RicezioneEsitiRvcCompletaRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+          	<xsd:element minOccurs="0" name="Esito" type="tns:EsitoType">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="EsitiCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="IdFatturazioneSapCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="ClienteCDM" type="xsd:string">
+          	</xsd:element>
+			
+          	<xsd:element minOccurs="0" name="Ambito" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="EsitoUdb" type="tns:EsitoUdbType"/>
+			<xsd:element minOccurs="0" name="Esito_R2D" type="tns:Esito_R2D"/>
+          	<xsd:element minOccurs="0" name="LetturaCDM" type="xsd:string"/>
+          	<xsd:element minOccurs="0" name="Ambito_Rilavorazione" type="xsd:string"/>
+          	<xsd:element minOccurs="0" name="FornituraMemo" type="xsd:string"/>
+          	<xsd:element minOccurs="0" name="ProdottoMemo" type="xsd:string"/>			
+          	
+		</xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RicezioneEsitiRvcCompletaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+          	<xsd:element minOccurs="0" name="IdAggModPag" type="xsd:string"/>
+          	<xsd:element minOccurs="0" name="DataAttivazione" type="xsd:date"/>
+          	<xsd:element minOccurs="0" name="DataCessazione" type="xsd:date"/>
+			
+          	<xsd:element minOccurs="0" name="FornituraMemo" type="xsd:string"/>
+          	<xsd:element minOccurs="0" name="ProdottoMemo" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	
+	
+	
+		<xsd:element name="EsitoScontiBonusPSRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element minOccurs="0" name="idRichiesta" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="idCRM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="TipoOperazione" type="xsd:string">
+          	</xsd:element>
+			
+          	<xsd:element minOccurs="0" name="Esito" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CodiceEsito" type="xsd:string"/>
+          	<xsd:element minOccurs="0" name="Descrizione" type="xsd:string">
+          	</xsd:element>
+
+		</xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EsitoScontiBonusPSResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+          	
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	
+            <xsd:element name="IscrizioneCRMRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="CDM_RICHIESTA" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="CDM_FORNITURA" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="CDM_CLIENTE" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Codice_Loyalty" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Codice_Utente" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Applicazione_Loyalty" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Flag_Stato_Iscrizione" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Data" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Data_Scadenza" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Segmento" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Codice_Sottocanale" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="Data_Sottoscrizione" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="TipologiaEnelMia">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element minOccurs="0" name="CodTipoEnelMia" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="TipoEnelMia" type="xsd:string"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="IscrizioneCRMResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name = "Esito" type= "tns:EsitoType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="NotificaEsitiVasRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="IdMuti" type="xsd:string" minOccurs="0"/>
+                        <xsd:element minOccurs="0" name="Esito" type="tns:EsitoType"/>
+						<xsd:element minOccurs="0" name="CDM_IDFATTURAZIONE" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="CDM_VAS" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="CDM_CLIENTE" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="CDM_FATTURAZIONE" type="xsd:string"/>
+                        <xsd:element name="pod" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="FaseEsito" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="DataDisponibilitaMerce" type="xsd:date" minOccurs="0"/>
+                        <xsd:element name="NumeroDDT" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="DataConsegna" type="xsd:date" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="NotificaEsitiVasResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="Esito" type="tns:EsitoType"/>
+                        <xsd:element name="IdMuti" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>	  
+	  
+	  	 
+			 <xsd:element name="EsitazioneCRMRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                       <xsd:element minOccurs="0" name="Esito" type="tns:EsitoType"/>
+						<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+          	
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="EsitazioneCRMResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                         <xsd:element minOccurs="0" name="Esito" type="tns:EsitoType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+	  
+			
+ <xsd:element name="NotificaMMPRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="IdProcessoMMP" type="xsd:string"/>
+<xsd:element name="IdCliente" type="xsd:string"/>
+<xsd:element minOccurs="0" name="IdLavoriOrdini" type="xsd:string"/>
+<xsd:element name="TipoAttivita" type="xsd:string"/>
+<xsd:element name="StatoAttivita" type="xsd:string"/>
+<xsd:element name="CausaleContatto" type="xsd:string"/>
+<xsd:element name="Descrizione" type="xsd:string"/>
+<xsd:element name="Specifica" type="xsd:string"/>
+<xsd:element name="POD" type="xsd:string"/>
+<xsd:element name="NumUtente" type="xsd:string"/>
+<xsd:element minOccurs="0" name="Note" type="xsd:string"/>
+<xsd:element name="NoteScarto" type="xsd:string"/>
+<xsd:element name="Origine" type="xsd:string"/>
+<xsd:element name="CodOpMMP" type="xsd:string"/>
+<xsd:element name="MetPagDest" type="xsd:string"/>
+<xsd:element minOccurs="0" name="Abi" type="xsd:string"/>
+<xsd:element minOccurs="0" name="Cab" type="xsd:string"/>
+<xsd:element minOccurs="0" name="Cin" type="xsd:string"/>
+<xsd:element minOccurs="0" name="CinIban" type="xsd:string"/>
+<xsd:element minOccurs="0" name="CodicePaese" type="xsd:string"/>
+<xsd:element minOccurs="0" name="NumeroConto" type="xsd:string"/>
+<xsd:element minOccurs="0" name="TitConto" type="xsd:string"/>
+<xsd:element minOccurs="0" name="CFTitConto" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="NotificaMMPResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="Esito" type="tns:EsitoType">
+						</xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+			
+			
+      <xsd:complexType name="IdFatturazioneCrmType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="businessPartner" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="contoContrattuale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="contrattoSap" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="businessPartnerEsterno" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="descrizioneContoContrattuale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="caratteristicaDeterminazioneConti" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="contrattoCRM" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="contrattoSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="contoContrattualeSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="businessPartnerSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="numeroProgressivo" type="xsd:string"/>
+      		
+      		<xsd:element minOccurs="0" name="codiceSocieta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="tipoPratica" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+			
+	  
+	  
+      <xsd:complexType name="RichiestaType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="sistemaRichiedente" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="canale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="idRichiesta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="tipoOperazione" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="causale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="idProcessoBpm" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="commodity" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagDelibera40" type="xsd:boolean"/>
+      		<xsd:element minOccurs="0" name="Ip" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Profilo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Matricola" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="DataRichiesta" type="xsd:date"/>
+      		<xsd:element minOccurs="0" name="IdMuti" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDms" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDmsReclamo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2d" type="tns:IdentificativiR2dType">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="dataDecorrenza" type="xsd:date"/>
+      		<xsd:element minOccurs="0" name="tipoRichiesta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagComplesso" type="xsd:boolean"/>
+      		<xsd:element minOccurs="0" name="flagPreventivo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagDocumentazione" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="idCRM" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoServizio" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoOrdine" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoFiCa" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoISU" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoR2D" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoSempre" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoUDB" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2R" type="tns:IdentificativiR2rType">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="IdAttivitaCrm" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+
+		<xsd:complexType name="Esito_R2D">
+			<xsd:sequence>
+				<xsd:element name="IdDistr" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="IdDistr2" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="IdR2D" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="DataAttivazioneTrasp" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="DescEsitoDT" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="CodEsitoDT" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="TipoEsitoDT" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+			
+     <xsd:complexType name="EsitoUdbType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="TitolareConto" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="CFTitolare" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="NumConto" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="CodicePaese" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="CinIban" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Cin" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Cab" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Abi" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="MetodoPagamento" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+
+	  
+      <xsd:complexType name="IdentificativiR2dType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="IdDistr" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDistr2" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2d" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="IdentificativiR2rType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="IdR2R" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="EsitoType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="esito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="codiceEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="descrizione" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="tipoEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="1" name="sistemaSorgenteEsito" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+      
+            <xsd:element name="EsitiInterrogazioneLetturaRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="idCrm">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="15"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="idMuti">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="15"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="sistema">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="30"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="flagEspletamento" minOccurs="0">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="1"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="esito">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="15"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="codice">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="15"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="descrizione">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="255"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="tipoOperazione">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="50"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="causale">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:maxLength value="50"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="CDM_Lettura" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+			
+            <xsd:element name="EsitiInterrogazioneLetturaResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Esito" type="tns:EsitoType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+                  
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RicezioneEsitiAttivazioniRequest">
+    <wsdl:part element="tns:RicezioneEsitiAttivazioniRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="RicezioneEsitiAttivazioniResponse">
+    <wsdl:part element="tns:RicezioneEsitiAttivazioniResponse" name="response"/>
+  </wsdl:message>
+
+  
+    <wsdl:message name="OrdineAdeguamentoMercatoRequest">
+    <wsdl:part element="tns:OrdineAdeguamentoMercatoRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="OrdineAdeguamentoMercatoResponse">
+    <wsdl:part element="tns:OrdineAdeguamentoMercatoResponse" name="response"/>
+  </wsdl:message>
+  
+  <wsdl:message name="RicezioneEsitiDistributoreRequest">
+    <wsdl:part element="tns:RicezioneEsitiDistributoreRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="RicezioneEsitiDistributoreResponse">
+    <wsdl:part element="tns:RicezioneEsitiDistributoreResponse" name="response"/>
+  </wsdl:message>
+
+
+  <wsdl:message name="RicezioneEsitiPreventivoCommercialeRequest">
+    <wsdl:part element="tns:RicezioneEsitiPreventivoCommercialeRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="RicezioneEsitiPreventivoCommercialeResponse">
+    <wsdl:part element="tns:RicezioneEsitiPreventivoCommercialeResponse" name="response"/>
+  </wsdl:message>
+
+
+  <wsdl:message name="RicezioneEsitiSdRequest">
+    <wsdl:part element="tns:RicezioneEsitiSdRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="RicezioneEsitiSdResponse">
+    <wsdl:part element="tns:RicezioneEsitiSdResponse" name="response"/>
+  </wsdl:message>
+  
+  <wsdl:message name="RicezioneEsitiRvcCompletaRequest">
+    <wsdl:part element="tns:RicezioneEsitiRvcCompletaRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="RicezioneEsitiRvcCompletaResponse">
+    <wsdl:part element="tns:RicezioneEsitiRvcCompletaResponse" name="response"/>
+  </wsdl:message>
+  
+  <wsdl:message name="EsitoScontiBonusPSRequest">
+    <wsdl:part element="tns:EsitoScontiBonusPSRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="EsitoScontiBonusPSResponse">
+    <wsdl:part element="tns:EsitoScontiBonusPSResponse" name="response"/>
+  </wsdl:message>
+
+    <wsdl:message name="IscrizioneCrmRequest">
+        <wsdl:part element="tns:IscrizioneCRMRequest" name="request"/>
+    </wsdl:message>
+    <wsdl:message name="IscrizioneCrmResponse">
+        <wsdl:part element="tns:IscrizioneCRMResponse" name="response"/>
+    </wsdl:message>
+    
+  <wsdl:message name="NotificaMMPRequest">
+        <wsdl:part element="tns:NotificaMMPRequest" name="request"/>
+    </wsdl:message>
+    <wsdl:message name="NotificaMMPResponse">
+        <wsdl:part element="tns:NotificaMMPResponse" name="response"/>
+    </wsdl:message>
+	
+	<wsdl:message name="EsitazioneCertificazioneRequest">
+        <wsdl:part element="tns:EsitazioneCRMRequest" name="request"/>
+    </wsdl:message>
+    <wsdl:message name="EsitazioneCertificazioneResponse">
+        <wsdl:part element="tns:EsitazioneCRMResponse" name="response"/>
+    </wsdl:message>
+  
+    <wsdl:message name="NotificaEsitiVasRequest">
+        <wsdl:part  element="tns:NotificaEsitiVasRequest" name="request"/>
+    </wsdl:message>
+    <wsdl:message name="NotificaEsitiVasResponse">
+        <wsdl:part element="tns:NotificaEsitiVasResponse" name="response"/>
+    </wsdl:message>
+
+    <wsdl:message name="VariazioneUsoConsumoGasRequest">
+        <wsdl:part name="input" element="tns:EsitiInterrogazioneLetturaRequest"/>
+    </wsdl:message>
+    <wsdl:message name="VariazioneUsoConsumoGasResponse">
+        <wsdl:part name="output" element="tns:EsitiInterrogazioneLetturaResponse"/>
+    </wsdl:message>  
+ 
+  
+  <wsdl:portType name="MutiPresentationCrmGatewayAbstract">
+    <wsdl:operation name="RicezioneEsitiAttivazioni">
+      <wsdl:input message="tns:RicezioneEsitiAttivazioniRequest"/>
+      <wsdl:output message="tns:RicezioneEsitiAttivazioniResponse"/>
+    </wsdl:operation>
+	
+	
+	    <wsdl:operation name="OrdineAdeguamentoMercato">
+      <wsdl:input message="tns:OrdineAdeguamentoMercatoRequest"/>
+      <wsdl:output message="tns:OrdineAdeguamentoMercatoResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RicezioneEsitiDistributore">
+      <wsdl:input message="tns:RicezioneEsitiDistributoreRequest"/>
+      <wsdl:output message="tns:RicezioneEsitiDistributoreResponse"/>
+    </wsdl:operation>
+	
+    <wsdl:operation name="RicezioneEsitiPreventivoCommerciale">
+      <wsdl:input message="tns:RicezioneEsitiPreventivoCommercialeRequest"/>
+      <wsdl:output message="tns:RicezioneEsitiPreventivoCommercialeResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RicezioneEsitiSd">
+      <wsdl:input message="tns:RicezioneEsitiSdRequest"/>
+      <wsdl:output message="tns:RicezioneEsitiSdResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="RicezioneEsitiRvcCompleta">
+      <wsdl:input message="tns:RicezioneEsitiRvcCompletaRequest"/>
+      <wsdl:output message="tns:RicezioneEsitiRvcCompletaResponse"/>
+    </wsdl:operation>
+	
+	<wsdl:operation name="EsitoScontiBonusPS">
+      <wsdl:input message="tns:EsitoScontiBonusPSRequest"/>
+      <wsdl:output message="tns:EsitoScontiBonusPSResponse"/>
+    </wsdl:operation>
+	
+        <wsdl:operation name="IscrizioneCrm">
+            <wsdl:input message="tns:IscrizioneCrmRequest"/>
+            <wsdl:output message="tns:IscrizioneCrmResponse"/>
+        </wsdl:operation>
+	
+        <wsdl:operation name="VariazioneUsoConsumoGas">
+            <wsdl:input message="tns:VariazioneUsoConsumoGasRequest"/>
+            <wsdl:output message="tns:VariazioneUsoConsumoGasResponse"/>
+        </wsdl:operation>	
+	
+	<wsdl:operation name="NotificaMMP">
+            <wsdl:input message="tns:NotificaMMPRequest"/>
+            <wsdl:output message="tns:NotificaMMPResponse"/>
+        </wsdl:operation>
+		
+		<wsdl:operation name="EsitazioneCertificazione">
+            <wsdl:input message="tns:EsitazioneCertificazioneRequest"/>
+            <wsdl:output message="tns:EsitazioneCertificazioneResponse"/>
+        </wsdl:operation>
+		
+	    <wsdl:operation name="NotificaEsitiVas">
+            <wsdl:input message="tns:NotificaEsitiVasRequest"/>
+            <wsdl:output message="tns:NotificaEsitiVasResponse"/>
+        </wsdl:operation>
+	
+	
+	
+	</wsdl:portType>
+
+
+</wsdl:definitions>

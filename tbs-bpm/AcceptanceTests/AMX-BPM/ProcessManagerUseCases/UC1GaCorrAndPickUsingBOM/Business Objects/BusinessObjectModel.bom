@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_vMSg0GYpEeCPQ_7quZYuqg" name="com.example.bom">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vMSg0WYpEeCPQ_7quZYuqg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vMSg0mYpEeCPQ_7quZYuqg" key="author" value="alexp"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vMSg02YpEeCPQ_7quZYuqg" key="created" value="1302739026781"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vMSg1GYpEeCPQ_7quZYuqg" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ytbCIGpDEeC77f-sbcvMRg" name="Person">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5IaIkGpDEeC77f-sbcvMRg" name="name" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5ItDgmpDEeC77f-sbcvMRg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5ItDgWpDEeC77f-sbcvMRg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9y7W8GpDEeC77f-sbcvMRg" name="age" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9y7W82pDEeC77f-sbcvMRg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9y7W8mpDEeC77f-sbcvMRg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_CcvasGpEEeC77f-sbcvMRg" name="address" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ccvas2pEEeC77f-sbcvMRg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CcvasmpEEeC77f-sbcvMRg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_IhRI8GpEEeC77f-sbcvMRg" name="Employee">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L67MYGpEEeC77f-sbcvMRg" name="name" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L7E9YWpEEeC77f-sbcvMRg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L7E9YGpEEeC77f-sbcvMRg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OIwV4GpEEeC77f-sbcvMRg" name="age" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OI6G4WpEEeC77f-sbcvMRg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OI6G4GpEEeC77f-sbcvMRg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QaKX0GpEEeC77f-sbcvMRg" name="id" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QaKX02pEEeC77f-sbcvMRg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QaKX0mpEEeC77f-sbcvMRg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_wTAOIGpDEeC77f-sbcvMRg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wWRkkGpDEeC77f-sbcvMRg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_vMSg1WYpEeCPQ_7quZYuqg" type="Business Object Model" element="_vMSg0GYpEeCPQ_7quZYuqg?com.example.bom?" name="BusinessObjectModel.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_nyb7QGpDEeC77f-sbcvMRg" type="1007" element="_vMSg0GYpEeCPQ_7quZYuqg?com.example.bom?">
+      <children xmi:type="notation:Node" xmi:id="_nyb7RGpDEeC77f-sbcvMRg" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_nyb7RWpDEeC77f-sbcvMRg" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_nyb7RmpDEeC77f-sbcvMRg" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_nyb7R2pDEeC77f-sbcvMRg" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_nyb7SGpDEeC77f-sbcvMRg" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_nyb7SWpDEeC77f-sbcvMRg" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_nyb7SmpDEeC77f-sbcvMRg" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_nylsQGpDEeC77f-sbcvMRg" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_nylsQWpDEeC77f-sbcvMRg" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_nylsQmpDEeC77f-sbcvMRg" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_nylsQ2pDEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_nylsRGpDEeC77f-sbcvMRg" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_nylsRWpDEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_nylsRmpDEeC77f-sbcvMRg"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_nyb7QWpDEeC77f-sbcvMRg" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_nyb7QmpDEeC77f-sbcvMRg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nyb7Q2pDEeC77f-sbcvMRg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ytt9EGpDEeC77f-sbcvMRg" type="1002" element="_ytbCIGpDEeC77f-sbcvMRg?com.example.bom%3a%3aPerson?">
+      <children xmi:type="notation:Node" xmi:id="_ytt9FGpDEeC77f-sbcvMRg" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_ytt9FWpDEeC77f-sbcvMRg" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_ytt9FmpDEeC77f-sbcvMRg" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_yt3HAGpDEeC77f-sbcvMRg" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_yt3HAWpDEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_yt3HAmpDEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_yt3HA2pDEeC77f-sbcvMRg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_yt3HBGpDEeC77f-sbcvMRg" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_yt3HBWpDEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_yt3HBmpDEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_yt3HB2pDEeC77f-sbcvMRg"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_ytt9EWpDEeC77f-sbcvMRg" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_ytt9EmpDEeC77f-sbcvMRg" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ytt9E2pDEeC77f-sbcvMRg" x="399" y="82"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Iht04GpEEeC77f-sbcvMRg" type="1002" element="_IhRI8GpEEeC77f-sbcvMRg?com.example.bom%3a%3aEmployee?">
+      <children xmi:type="notation:Node" xmi:id="_Iht05GpEEeC77f-sbcvMRg" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_Iht05WpEEeC77f-sbcvMRg" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_Iht05mpEEeC77f-sbcvMRg" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_Iht052pEEeC77f-sbcvMRg" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_Iht06GpEEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Iht06WpEEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Iht06mpEEeC77f-sbcvMRg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Iht062pEEeC77f-sbcvMRg" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_Iht07GpEEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Iht07WpEEeC77f-sbcvMRg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Iht07mpEEeC77f-sbcvMRg"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_Iht04WpEEeC77f-sbcvMRg" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_Iht04mpEEeC77f-sbcvMRg" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Iht042pEEeC77f-sbcvMRg" x="588" y="82"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_vMSg1mYpEeCPQ_7quZYuqg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_vMSg12YpEeCPQ_7quZYuqg"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_wWbVkGpDEeC77f-sbcvMRg" displayLabel="com.example.bom" base_NamedElement="_vMSg0GYpEeCPQ_7quZYuqg?com.example.bom?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ytbCIWpDEeC77f-sbcvMRg" displayLabel="Person" base_NamedElement="_ytbCIGpDEeC77f-sbcvMRg?com.example.bom%3a%3aPerson?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_5ItDgGpDEeC77f-sbcvMRg" displayLabel="name" base_NamedElement="_5IaIkGpDEeC77f-sbcvMRg?com.example.bom%3a%3aPerson%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9y7W8WpDEeC77f-sbcvMRg" displayLabel="age" base_NamedElement="_9y7W8GpDEeC77f-sbcvMRg?com.example.bom%3a%3aPerson%3a%3aage?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CcvasWpEEeC77f-sbcvMRg" displayLabel="address" base_NamedElement="_CcvasGpEEeC77f-sbcvMRg?com.example.bom%3a%3aPerson%3a%3aaddress?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Iha58GpEEeC77f-sbcvMRg" displayLabel="Employee" base_NamedElement="_IhRI8GpEEeC77f-sbcvMRg?com.example.bom%3a%3aEmployee?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_L67MYWpEEeC77f-sbcvMRg" displayLabel="name" base_NamedElement="_L67MYGpEEeC77f-sbcvMRg?com.example.bom%3a%3aEmployee%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_OIwV4WpEEeC77f-sbcvMRg" displayLabel="age" base_NamedElement="_OIwV4GpEEeC77f-sbcvMRg?com.example.bom%3a%3aEmployee%3a%3aage?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QaKX0WpEEeC77f-sbcvMRg" displayLabel="id" base_NamedElement="_QaKX0GpEEeC77f-sbcvMRg?com.example.bom%3a%3aEmployee%3a%3aid?"/>
+</xmi:XMI>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/impOne" xmlns:tns="http://www.example.org/impOne" elementFormDefault="qualified" xmlns:t1="http://www.example.org/impTwo">
+
+<xsd:import namespace="http://www.example.org/impTwo" schemaLocation="XSDTwo/impTwo.xsd"> </xsd:import>
+
+<xsd:element name="impElm" type="t1:cType"></xsd:element>
+
+
+</xsd:schema>

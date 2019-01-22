@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName_notrans
+Bundle-SymbolicName: com.tibco.xpd.simulation.launch; singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Activator: com.tibco.xpd.simulation.launch.LaunchPlugin
+Bundle-Vendor: %providerName_notrans
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.debug.core,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ com.tibco.desmoj,
+ com.tibco.xpd.resources,
+ com.tibco.xpd.xpdl2,
+ com.tibco.xpd.xpdl2.edit,
+ com.tibco.xpd.destinations.ui,
+ com.tibco.xpd.simulation,
+ com.tibco.xpd.simulation.edit,
+ com.tibco.xpd.simulation.process,
+ com.tibco.simulation.report.model,
+ com.tibco.simulation.report.model.edit,
+ com.tibco.xpd.validation,
+ com.tibco.xpd.v2.xpdl1,
+ com.tibco.inteng,
+ com.tibco.inteng.services,
+ com.tibco.xpd.resources.ui
+Eclipse-LazyStart: true
+Export-Package: com.tibco.xpd.simulation.launch
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

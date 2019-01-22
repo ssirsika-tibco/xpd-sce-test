@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://mind.enel.com/ricercagruppo" xmlns:tns23="http://mind.enel.com/ricercagruppo"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mind.enel.com/ricercagruppo">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.presentation.resources/Business Objects/com.enel.mind.ricercagruppo.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="RicercaGruppo_Response" id="_KO7HMEhpEeOAbZA2R6U2NQ"
+      name="RicercaGruppo_Response">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="_B3KVkEhqEeOAbZA2R6U2NQ" maxOccurs="1" minOccurs="0"
+          name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codice" id="_B-8YkEhqEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="codice">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="descrizione" id="_CIG7oEhqEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="descrizione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="gruppo" id="_CP9QEEhqEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="gruppo" type="xsd:string"/>
+      <xsd:element ecore:name="nomeProcedura" id="_CWrjIEhqEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="nomeProcedura" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="RicercaGruppo_Request" id="_L6tTs0hpEeOAbZA2R6U2NQ"
+      name="RicercaGruppo_Request">
+    <xsd:sequence>
+      <xsd:element ecore:name="sistemaEmissione" id="_L6tTtEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="sistemaEmissione" type="xsd:string"/>
+      <xsd:element ecore:name="tipoDocumento" id="_L6tTt0hpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="tipoDocumento" type="xsd:string"/>
+      <xsd:element ecore:name="flagVocal" id="_L6tTukhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="flagVocal" type="xsd:string"/>
+      <xsd:element ecore:name="master" id="_L6tTvUhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="master" type="xsd:string"/>
+      <xsd:element ecore:name="IDCorrispondenza" id="_L6tTwEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="IDCorrispondenza" type="xsd:string"/>
+      <xsd:element ecore:name="idOrdineCRM" id="_L6tTw0hpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="idOrdineCRM" type="xsd:string"/>
+      <xsd:element ecore:name="dataPostalizzazione" id="_L6tTxkhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="dataPostalizzazione" type="xsd:date"/>
+      <xsd:element ecore:name="esitoPostalizzazione" id="_L6tTyUhpEeOAbZA2R6U2NQ"
+          maxOccurs="1" minOccurs="0" name="esitoPostalizzazione" type="xsd:string"/>
+      <xsd:element ecore:name="numeroUtente" id="_L6tTzEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="numeroUtente" type="xsd:string"/>
+      <xsd:element ecore:name="idFattura" id="_L6tTz0hpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="idFattura" type="xsd:string"/>
+      <xsd:element ecore:name="causaleMancatoRecapito" id="_L6tT0khpEeOAbZA2R6U2NQ"
+          maxOccurs="1" minOccurs="0" name="causaleMancatoRecapito" type="xsd:string"/>
+      <xsd:element ecore:name="idAttivita" id="_L6tT1UhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="idAttivita" type="xsd:string"/>
+      <xsd:element ecore:name="codiceDocumento" id="_ld72MEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="codiceDocumento" type="xsd:string"/>
+      <xsd:element ecore:name="codiceCliente" id="_lrqJIEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="codiceCliente" type="xsd:string"/>
+      <xsd:element ecore:name="contoContrattuale" id="_l3keMEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="contoContrattuale" type="xsd:string"/>
+      <xsd:element ecore:name="idPianodirientro" id="_mD7fMEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="idPianodirientro" type="xsd:string"/>
+      <xsd:element ecore:name="tipoPratica" id="_mOdUMEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="tipoPratica" type="xsd:string"/>
+      <xsd:element ecore:name="codicePlico" id="_mYmHoEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="codicePlico" type="xsd:string"/>
+      <xsd:element ecore:name="POD" id="_zuZrIEhpEeOAbZA2R6U2NQ" maxOccurs="1" minOccurs="0"
+          name="POD" type="xsd:string"/>
+      <xsd:element ecore:name="IDProtocollo" id="_z8-SoEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="IDProtocollo" type="xsd:string"/>
+      <xsd:element ecore:name="canale" id="_3IcJEEhpEeOAbZA2R6U2NQ" maxOccurs="1"
+          minOccurs="0" name="canale" type="xsd:string"/>
+      <xsd:element ecore:name="idbpm" id="_A_mW4E96EeOUEPyFM4YaHQ" maxOccurs="1" minOccurs="0"
+          name="idbpm">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="str1" id="_Vi4_UE97EeOUEPyFM4YaHQ" maxOccurs="1" minOccurs="0"
+          name="str1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="str2" id="_WvLzUE97EeOUEPyFM4YaHQ" maxOccurs="1" minOccurs="0"
+          name="str2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="str3" id="_Xb6WcE97EeOUEPyFM4YaHQ" maxOccurs="1" minOccurs="0"
+          name="str3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="flagFE" id="_yR4k4IBcEeS9DbQAt2iFcw" maxOccurs="1"
+          minOccurs="0" name="flagFE">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="RicercaGruppo_ResponseElement" type="RicercaGruppo_Response"/>
+  <xsd:element name="RicercaGruppo_RequestElement" type="RicercaGruppo_Request"/>
+</xsd:schema>

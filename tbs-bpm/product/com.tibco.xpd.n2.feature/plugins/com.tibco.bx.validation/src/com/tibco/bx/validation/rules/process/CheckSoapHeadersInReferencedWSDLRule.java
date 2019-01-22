@@ -1,0 +1,194 @@
+/**
+ * Copyright (c) TIBCO Software Inc 2004-2009. All rights reserved.
+ */
+
+package com.tibco.bx.validation.rules.process;
+
+import java.util.Iterator;
+import java.util.List;
+
+import javax.wsdl.Binding;
+import javax.wsdl.BindingInput;
+import javax.wsdl.BindingOperation;
+import javax.wsdl.BindingOutput;
+import javax.wsdl.extensions.soap.SOAPHeader;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.wst.wsdl.Definition;
+
+import com.tibco.xpd.implementer.script.ActivityMessageProvider;
+import com.tibco.xpd.implementer.script.ActivityMessageProviderFactory;
+import com.tibco.xpd.implementer.script.Xpdl2WsdlUtil;
+import com.tibco.xpd.resources.WorkingCopy;
+import com.tibco.xpd.resources.util.WorkingCopyUtil;
+import com.tibco.xpd.validation.xpdl2.rules.ProcessValidationRule;
+import com.tibco.xpd.xpdExtension.PortTypeOperation;
+import com.tibco.xpd.xpdl2.Activity;
+import com.tibco.xpd.xpdl2.Process;
+import com.tibco.xpd.xpdl2.Transition;
+import com.tibco.xpd.xpdl2.WebServiceOperation;
+import com.tibco.xpd.xpdl2.util.ReplyActivityUtil;
+
+/**
+ * BWServiceActivityRule
+ * <p>
+ * Check the WebServices of activities and ensures there are no soap headers in
+ * any of the referenced Operations.
+ * 
+ * @author glewis
+ */
+public class CheckSoapHeadersInReferencedWSDLRule extends ProcessValidationRule {
+
+    private static final String SOAP_HEADERS_NOT_SUPPORTED =
+            "bx.soapHeadersNotAllowed"; //$NON-NLS-1$
+
+    @Override
+    protected void validateFlowContainer(Process process,
+            EList<Activity> activities, EList<Transition> transitions) {
+        validateProcessActivities(activities);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.tibco.xpd.validation.xpdl2.rules.ProcessValidationRule#validate(com
+     * .tibco.xpd.xpdl2.Process)
+     */
+    private void validateProcessActivities(EList<Activity> activities) {
+
+        for (Activity activity : activities) {
+            /*
+             * Attempt to get the web-service message provider for activity - if
+             * it isn't a web-service related task/event then we get null.
+             */
+            ActivityMessageProvider messageProvider =
+                    ActivityMessageProviderFactory.INSTANCE
+                            .getMessageProvider(activity);
+            if (messageProvider != null
+                    && messageProvider.isActualWebServiceActivity()) {
+                /*
+                 * Don't bother with reply activity (as content is copied from
+                 * request activity, there is no point complaining about the
+                 * reply).
+                 */
+                if (!ReplyActivityUtil.isReplyActivity(activity)) {
+                    checkWSDLSoapMembers(activity, messageProvider);
+
+                }
+            }
+        } /* Next Activity */
+
+        return;
+    }
+
+    /**
+     * Checks the web service activity to see if it is a BW Service.
+     * 
+     * @param activity
+     * @param messageProvider
+     */
+    @SuppressWarnings("unchecked")
+    private void checkWSDLSoapMembers(Activity activity,
+            ActivityMessageProvider messageProvider) {
+
+        WebServiceOperation webServiceOperation =
+                messageProvider.getWebServiceOperation(activity);
+
+        PortTypeOperation portTypeOperation =
+                messageProvider.getPortTypeOperation(activity);
+
+        if (webServiceOperation != null
+                && isWebServiceOperationAssigned(webServiceOperation,
+                        portTypeOperation)) {
+
+            IProject project = WorkingCopyUtil.getProjectFor(activity);
+            if (project != null) {
+                IFile wsdlFile = Xpdl2WsdlUtil.getWsdlFile(activity);
+                if (wsdlFile != null && wsdlFile.exists()) {
+                    WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(wsdlFile);
+                    if (wc != null && wc.getRootElement() instanceof Definition) {
+                        Definition wsdlDefinition =
+                                (Definition) wc.getRootElement();
+                        Iterator<?> iterator =
+                                wsdlDefinition.getBindings().values()
+                                        .iterator();
+                        while (iterator.hasNext()) {
+                            Object binding = iterator.next();
+                            if (binding instanceof Binding) {
+                                List<BindingOperation> bindingOperations =
+                                        ((Binding) binding)
+                                                .getBindingOperations();
+                                for (BindingOperation oper : bindingOperations) {
+                                    BindingInput bindingInput =
+                                            oper.getBindingInput();
+                                    BindingOutput bindingOutput =
+                                            oper.getBindingOutput();
+                                    if (bindingInput != null) {
+                                        List<Object> extensibilityElements =
+                                                bindingInput
+                                                        .getExtensibilityElements();
+                                        if (extensibilityElements != null) {
+                                            for (Object elem : extensibilityElements) {
+                                                if (elem instanceof SOAPHeader) {
+                                                    addIssue(SOAP_HEADERS_NOT_SUPPORTED,
+                                                            activity);
+                                                    return;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (bindingOutput != null) {
+                                        List<Object> extensibilityElements =
+                                                bindingOutput
+                                                        .getExtensibilityElements();
+                                        if (extensibilityElements != null) {
+                                            for (Object elem : extensibilityElements) {
+                                                if (elem instanceof SOAPHeader) {
+                                                    addIssue(SOAP_HEADERS_NOT_SUPPORTED,
+                                                            activity);
+                                                    return;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return;
+    }
+
+    /**
+     * @param webServiceOperation
+     * @param portTypeOperation
+     * 
+     * @return true if the activity has a web service operation configured.
+     */
+    private boolean isWebServiceOperationAssigned(
+            WebServiceOperation webServiceOperation,
+            PortTypeOperation portTypeOperation) {
+        String operationName = null;
+
+        if (portTypeOperation != null) {
+            operationName = portTypeOperation.getOperationName();
+        }
+
+        if (operationName == null || operationName.length() == 0) {
+            if (webServiceOperation != null) {
+                operationName = webServiceOperation.getOperationName();
+            }
+        }
+
+        if (operationName != null && operationName.length() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+}

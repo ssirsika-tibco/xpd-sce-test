@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="xyzcorp.procureservice.UserProfile" name="xyzcorp.procureservice.UserProfile">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_djUSMk1mEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_djUSM01mEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_djUSNE1mEeSLJZkJre4IDg" key="created" value="1412609919315"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_djUSNU1mEeSLJZkJre4IDg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dlNvoE1mEeSLJZkJre4IDg" key="checksum" value="488548903"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="xyzcorp.procureservice.UserProfileHotelPreference" name="HotelPreference">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelPreferencehotelName" name="hotelName" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dinHk01mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dinHkk1mEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelPreferencenonSmoking" name="nonSmoking" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_diqx8k1mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_diqx8U1mEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelPreferencespecialRequest" name="specialRequest" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ditOM01mEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ditOMk1mEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_dijdMU1mEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dijdMk1mEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_dijdM01mEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dijdNE1mEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_dikEQE1mEeSLJZkJre4IDg" base_Package="xyzcorp.procureservice.UserProfile?xyzcorp.procureservice.UserProfile?" xsdTargetNamespace="http://www.xyzcorp/procureservice/UserProfile" xsdSchemaLocation="WSDL2.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.9.0.qualifier" bomWsdlSources="WSDL2.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_dilSYE1mEeSLJZkJre4IDg" base_Class="xyzcorp.procureservice.UserProfileHotelPreference?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference?" xsdName="HotelPreference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_diucUE1mEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_dinHkU1mEeSLJZkJre4IDg" base_Property="HotelPreferencehotelName?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3ahotelName?" xsdName="hotelName" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_diucUE1mEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_dinuoE1mEeSLJZkJre4IDg" textLength="-1" base_Property="HotelPreferencehotelName?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3ahotelName?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_diqx8E1mEeSLJZkJre4IDg" base_Property="HotelPreferencenonSmoking?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3anonSmoking?" xsdName="nonSmoking" xsdForm="unqualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_diucUE1mEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ditOMU1mEeSLJZkJre4IDg" base_Property="HotelPreferencespecialRequest?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3aspecialRequest?" xsdName="specialRequest" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_diucUE1mEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_dit1QE1mEeSLJZkJre4IDg" textLength="-1" base_Property="HotelPreferencespecialRequest?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3aspecialRequest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diwRgE1mEeSLJZkJre4IDg" base_Element="_dinHkk1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diwRgU1mEeSLJZkJre4IDg" base_Element="_diqx8U1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diw4kE1mEeSLJZkJre4IDg" base_Element="HotelPreferencehotelName?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3ahotelName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diw4kU1mEeSLJZkJre4IDg" base_Element="_dijdM01mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diw4kk1mEeSLJZkJre4IDg" base_Element="_dinHk01mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diw4k01mEeSLJZkJre4IDg" base_Element="_diqx8k1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diw4lE1mEeSLJZkJre4IDg" base_Element="_dijdMU1mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diw4lU1mEeSLJZkJre4IDg" base_Element="xyzcorp.procureservice.UserProfileHotelPreference?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diw4lk1mEeSLJZkJre4IDg" base_Element="HotelPreferencespecialRequest?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3aspecialRequest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_diw4l01mEeSLJZkJre4IDg" base_Element="HotelPreferencenonSmoking?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3anonSmoking?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dixfoE1mEeSLJZkJre4IDg" base_Element="_ditOM01mEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dixfoU1mEeSLJZkJre4IDg" base_Element="_ditOMk1mEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_djTrIE1mEeSLJZkJre4IDg" displayLabel="HotelPreference" base_NamedElement="xyzcorp.procureservice.UserProfileHotelPreference?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_djTrIU1mEeSLJZkJre4IDg" displayLabel="hotelName" base_NamedElement="HotelPreferencehotelName?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3ahotelName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_djUSME1mEeSLJZkJre4IDg" displayLabel="nonSmoking" base_NamedElement="HotelPreferencenonSmoking?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3anonSmoking?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_djUSMU1mEeSLJZkJre4IDg" displayLabel="specialRequest" base_NamedElement="HotelPreferencespecialRequest?xyzcorp.procureservice.UserProfile%3a%3aHotelPreference%3a%3aspecialRequest?"/>
+  <notation:Diagram xmi:id="_djUSNk1mEeSLJZkJre4IDg" type="Business Object Model" element="xyzcorp.procureservice.UserProfile?xyzcorp.procureservice.UserProfile?" name="xyzcorp.procureservice.UserProfile" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_djUSN01mEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_djUSOE1mEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

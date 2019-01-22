@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="xyzcorp.procureservice.Car" name="xyzcorp.procureservice.Car">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PWvNwgdUEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PWvNwwdUEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PWv00AdUEeSRjauCcgnMbg" key="created" value="1404905511709"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PWv00QdUEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PhFckAdUEeSRjauCcgnMbg" key="checksum" value="652750551"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="xyzcorp.procureservice.CarCarDetails" name="CarDetails">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarDetailscarMake" name="carMake" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PP93YwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PP93YgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarDetailscarModel" name="carModel" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PP_skAdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PP_FggdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarDetailsyear" name="year" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQBhwwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQBhwgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarDetailsmileage" name="mileage" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQDW8wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQDW8gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarDetailscarType" name="carType" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQFzMgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQFzMQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarDetailsnavigation" name="navigation" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQHoYwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQHoYgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarDetailsotherFeatures" name="otherFeatures" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQJdkwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQJdkgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarDetailsavgCostPerDay" name="avgCostPerDay" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQL50QdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQL50AdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xyzcorp.procureservice.CarRentalAgencyDetails" name="RentalAgencyDetails">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RentalAgencyDetailsname" name="name" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQQyUwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQQyUgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RentalAgencyDetailsaddress" name="address" type="xyzcorp.procureservice.CarAddress?xyzcorp.procureservice.Car%3a%3aAddress?" aggregation="composite" association="xyzcorp.procureservice.CarComposition0?xyzcorp.procureservice.Car%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQhRAwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQhRAgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RentalAgencyDetailscomment" name="comment" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQjGMwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQjGMgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RentalAgencyDetailscarOptionsType" name="carOptions" type="xyzcorp.procureservice.CarcarOptionsType?xyzcorp.procureservice.Car%3a%3acarOptionsType?" aggregation="composite" association="xyzcorp.procureservice.CarComposition2?xyzcorp.procureservice.Car%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQpM0wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQpM0gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xyzcorp.procureservice.CarAddress" name="Address">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Addressstreet" name="street" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQVDwwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQVDwgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Addresscity" name="city" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQW48wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQW48gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Addressstate" name="state" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQYuIwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQYuIgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Addresszip" name="zip" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQajUwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQajUgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Addresscountry" name="country" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQc_kQdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQc_kAdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AddressairportCode" name="airportCode" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQe0wwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQe0wgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="xyzcorp.procureservice.CarComposition0" name="Composition0" memberEnd="RentalAgencyDetailsaddress?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3aaddress? Composition0rentalagencydetails?xyzcorp.procureservice.Car%3a%3aComposition0%3a%3arentalagencydetails?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0rentalagencydetails" name="rentalagencydetails" type="xyzcorp.procureservice.CarRentalAgencyDetails?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails?" association="xyzcorp.procureservice.CarComposition0?xyzcorp.procureservice.Car%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQhRBgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQhRBQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xyzcorp.procureservice.CarcarOptionsType" name="carOptionsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="carOptionsTypecarDetails" name="carDetails" type="xyzcorp.procureservice.CarCarDetails?xyzcorp.procureservice.Car%3a%3aCarDetails?" aggregation="composite" association="xyzcorp.procureservice.CarComposition1?xyzcorp.procureservice.Car%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQmwkQdUEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQmwkAdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="xyzcorp.procureservice.CarComposition1" name="Composition1" memberEnd="carOptionsTypecarDetails?xyzcorp.procureservice.Car%3a%3acarOptionsType%3a%3acarDetails? Composition1caroptionstype?xyzcorp.procureservice.Car%3a%3aComposition1%3a%3acaroptionstype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1caroptionstype" name="caroptionstype" type="xyzcorp.procureservice.CarcarOptionsType?xyzcorp.procureservice.Car%3a%3acarOptionsType?" association="xyzcorp.procureservice.CarComposition1?xyzcorp.procureservice.Car%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQmwlAdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQmwkwdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="xyzcorp.procureservice.CarComposition2" name="Composition2" memberEnd="RentalAgencyDetailscarOptionsType?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3acarOptions? Composition2rentalagencydetails?xyzcorp.procureservice.Car%3a%3aComposition2%3a%3arentalagencydetails?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition2rentalagencydetails" name="rentalagencydetails" type="xyzcorp.procureservice.CarRentalAgencyDetails?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails?" association="xyzcorp.procureservice.CarComposition2?xyzcorp.procureservice.Car%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PQpz4AdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PQpM1QdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PPyRMQdUEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PPyRMgdUEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PPyRMwdUEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PPyRNAdUEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_PPy4QAdUEeSRjauCcgnMbg" base_Package="xyzcorp.procureservice.Car?xyzcorp.procureservice.Car?" xsdTargetNamespace="http://www.xyzcorp/procureservice/Car" xsdSchemaLocation="schemas/car/Car.xsd" xsdStudioVersion="3.8.0.005" bomWsdlSources="Query_wsdlEmbedSchema1_Schema1ImportXSD2.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PP7bIQdUEeSRjauCcgnMbg" base_Class="xyzcorp.procureservice.CarCarDetails?xyzcorp.procureservice.Car%3a%3aCarDetails?" xsdName="CarDetails" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PQMg4AdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PP93YQdUEeSRjauCcgnMbg" base_Property="CarDetailscarMake?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarMake?" xsdName="carMake" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQMg4AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PP_FgQdUEeSRjauCcgnMbg" base_Property="CarDetailscarModel?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarModel?" xsdName="carModel" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQMg4AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQBhwQdUEeSRjauCcgnMbg" base_Property="CarDetailsyear?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3ayear?" xsdName="year" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQMg4AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PQBhxAdUEeSRjauCcgnMbg" base_Property="CarDetailsyear?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3ayear?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PQBhxQdUEeSRjauCcgnMbg" base_Property="CarDetailsyear?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3ayear?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQDW8QdUEeSRjauCcgnMbg" base_Property="CarDetailsmileage?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3amileage?" xsdName="mileage" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQMg4AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PQD-AAdUEeSRjauCcgnMbg" base_Property="CarDetailsmileage?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3amileage?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PQD-AQdUEeSRjauCcgnMbg" base_Property="CarDetailsmileage?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3amileage?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQFzMAdUEeSRjauCcgnMbg" base_Property="CarDetailscarType?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarType?" xsdName="carType" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQMg4AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQHoYQdUEeSRjauCcgnMbg" base_Property="CarDetailsnavigation?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3anavigation?" xsdName="navigation" xsdForm="unqualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQMg4AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQJdkQdUEeSRjauCcgnMbg" base_Property="CarDetailsotherFeatures?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3aotherFeatures?" xsdName="otherFeatures" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQMg4AdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQLSwQdUEeSRjauCcgnMbg" base_Property="CarDetailsavgCostPerDay?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3aavgCostPerDay?" xsdName="avgCostPerDay" xsdForm="unqualified" xsdType="float" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQMg4AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PQL50gdUEeSRjauCcgnMbg" base_Property="CarDetailsavgCostPerDay?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3aavgCostPerDay?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="3.4028235E38" xsdMinExclusiveValue="" xsdMinInclusiveValue="-3.4028235E38"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PQL50wdUEeSRjauCcgnMbg" decimalUpper="3.4028235E38" decimalLower="-3.4028235E38" base_Property="CarDetailsavgCostPerDay?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3aavgCostPerDay?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PQO9IQdUEeSRjauCcgnMbg" base_Class="xyzcorp.procureservice.CarRentalAgencyDetails?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails?" xsdName="RentalAgencyDetails" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PQpz4gdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQQyUQdUEeSRjauCcgnMbg" base_Property="RentalAgencyDetailsname?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3aname?" xsdName="name" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQpz4gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PQSngQdUEeSRjauCcgnMbg" base_Class="xyzcorp.procureservice.CarAddress?xyzcorp.procureservice.Car%3a%3aAddress?" xsdName="Address" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PQfb0AdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQVDwQdUEeSRjauCcgnMbg" base_Property="Addressstreet?xyzcorp.procureservice.Car%3a%3aAddress%3a%3astreet?" xsdName="street" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQfb0AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQW48QdUEeSRjauCcgnMbg" base_Property="Addresscity?xyzcorp.procureservice.Car%3a%3aAddress%3a%3acity?" xsdName="city" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQfb0AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQYuIQdUEeSRjauCcgnMbg" base_Property="Addressstate?xyzcorp.procureservice.Car%3a%3aAddress%3a%3astate?" xsdName="state" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQfb0AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQajUQdUEeSRjauCcgnMbg" base_Property="Addresszip?xyzcorp.procureservice.Car%3a%3aAddress%3a%3azip?" xsdName="zip" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQfb0AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQcYgQdUEeSRjauCcgnMbg" base_Property="Addresscountry?xyzcorp.procureservice.Car%3a%3aAddress%3a%3acountry?" xsdName="country" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQfb0AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQe0wQdUEeSRjauCcgnMbg" base_Property="AddressairportCode?xyzcorp.procureservice.Car%3a%3aAddress%3a%3aairportCode?" xsdName="airportCode" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQfb0AdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQhRBwdUEeSRjauCcgnMbg" base_Property="RentalAgencyDetailsaddress?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3aaddress?" xsdName="address" xsdForm="unqualified" xsdType="Address" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQpz4gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQjGMQdUEeSRjauCcgnMbg" base_Property="RentalAgencyDetailscomment?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3acomment?" xsdName="comment" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQpz4gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PQkUUQdUEeSRjauCcgnMbg" base_Class="xyzcorp.procureservice.CarcarOptionsType?xyzcorp.procureservice.Car%3a%3acarOptionsType?" xsdName="carOptions" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PQmwlgdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQmwlQdUEeSRjauCcgnMbg" base_Property="carOptionsTypecarDetails?xyzcorp.procureservice.Car%3a%3acarOptionsType%3a%3acarDetails?" xsdName="carDetails" xsdForm="unqualified" xsdType="CarDetails" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQmwlgdUEeSRjauCcgnMbg" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PQpz4QdUEeSRjauCcgnMbg" base_Property="RentalAgencyDetailscarOptionsType?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3acarOptions?" xsdName="carOptions" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PQpz4gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJFwdUEeSRjauCcgnMbg" base_Element="_PQjGMgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJGAdUEeSRjauCcgnMbg" base_Element="xyzcorp.procureservice.CarComposition0?xyzcorp.procureservice.Car%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJGQdUEeSRjauCcgnMbg" base_Element="_PQVDwgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkJGgdUEeSRjauCcgnMbg" base_Element="Addresscity?xyzcorp.procureservice.Car%3a%3aAddress%3a%3acity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwIAdUEeSRjauCcgnMbg" base_Element="_PQjGMwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwIQdUEeSRjauCcgnMbg" base_Element="_PQVDwwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwIgdUEeSRjauCcgnMbg" base_Element="_PQajUwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwIwdUEeSRjauCcgnMbg" base_Element="_PPyRMwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwJAdUEeSRjauCcgnMbg" base_Element="_PQYuIgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwJQdUEeSRjauCcgnMbg" base_Element="CarDetailsyear?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3ayear?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwJgdUEeSRjauCcgnMbg" base_Element="_PPyRMQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwJwdUEeSRjauCcgnMbg" base_Element="Composition1caroptionstype?xyzcorp.procureservice.Car%3a%3aComposition1%3a%3acaroptionstype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwKAdUEeSRjauCcgnMbg" base_Element="_PQmwkQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwKQdUEeSRjauCcgnMbg" base_Element="RentalAgencyDetailscomment?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3acomment?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwKgdUEeSRjauCcgnMbg" base_Element="_PQJdkgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVkwKwdUEeSRjauCcgnMbg" base_Element="_PQL50AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXMAdUEeSRjauCcgnMbg" base_Element="_PQpM0gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXMQdUEeSRjauCcgnMbg" base_Element="Composition2rentalagencydetails?xyzcorp.procureservice.Car%3a%3aComposition2%3a%3arentalagencydetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXMgdUEeSRjauCcgnMbg" base_Element="xyzcorp.procureservice.CarCarDetails?xyzcorp.procureservice.Car%3a%3aCarDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXMwdUEeSRjauCcgnMbg" base_Element="_PQpz4AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXNAdUEeSRjauCcgnMbg" base_Element="_PQe0wwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXNQdUEeSRjauCcgnMbg" base_Element="_PQFzMgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXNgdUEeSRjauCcgnMbg" base_Element="_PQhRAgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXNwdUEeSRjauCcgnMbg" base_Element="xyzcorp.procureservice.CarComposition1?xyzcorp.procureservice.Car%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXOAdUEeSRjauCcgnMbg" base_Element="_PQHoYwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVlXOQdUEeSRjauCcgnMbg" base_Element="_PQJdkwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-QAdUEeSRjauCcgnMbg" base_Element="_PQDW8wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-QQdUEeSRjauCcgnMbg" base_Element="CarDetailsavgCostPerDay?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3aavgCostPerDay?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-QgdUEeSRjauCcgnMbg" base_Element="_PP93YgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-QwdUEeSRjauCcgnMbg" base_Element="_PQHoYgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-RAdUEeSRjauCcgnMbg" base_Element="_PQQyUgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-RQdUEeSRjauCcgnMbg" base_Element="_PQpM0wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-RgdUEeSRjauCcgnMbg" base_Element="_PQQyUwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-RwdUEeSRjauCcgnMbg" base_Element="_PQBhwwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-SAdUEeSRjauCcgnMbg" base_Element="_PQe0wgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-SQdUEeSRjauCcgnMbg" base_Element="_PQL50QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVl-SgdUEeSRjauCcgnMbg" base_Element="Addressstate?xyzcorp.procureservice.Car%3a%3aAddress%3a%3astate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlUAdUEeSRjauCcgnMbg" base_Element="Composition0rentalagencydetails?xyzcorp.procureservice.Car%3a%3aComposition0%3a%3arentalagencydetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlUQdUEeSRjauCcgnMbg" base_Element="_PP93YwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlUgdUEeSRjauCcgnMbg" base_Element="xyzcorp.procureservice.CarAddress?xyzcorp.procureservice.Car%3a%3aAddress?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlUwdUEeSRjauCcgnMbg" base_Element="CarDetailsnavigation?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3anavigation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlVAdUEeSRjauCcgnMbg" base_Element="CarDetailscarModel?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarModel?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlVQdUEeSRjauCcgnMbg" base_Element="_PQajUgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlVgdUEeSRjauCcgnMbg" base_Element="CarDetailsotherFeatures?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3aotherFeatures?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlVwdUEeSRjauCcgnMbg" base_Element="_PQpM1QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlWAdUEeSRjauCcgnMbg" base_Element="Addressstreet?xyzcorp.procureservice.Car%3a%3aAddress%3a%3astreet?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVmlWQdUEeSRjauCcgnMbg" base_Element="_PQhRBgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMYAdUEeSRjauCcgnMbg" base_Element="RentalAgencyDetailsaddress?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3aaddress?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMYQdUEeSRjauCcgnMbg" base_Element="_PQYuIwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMYgdUEeSRjauCcgnMbg" base_Element="CarDetailscarType?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMYwdUEeSRjauCcgnMbg" base_Element="RentalAgencyDetailscarOptionsType?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3acarOptions?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMZAdUEeSRjauCcgnMbg" base_Element="CarDetailsmileage?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3amileage?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMZQdUEeSRjauCcgnMbg" base_Element="Addresszip?xyzcorp.procureservice.Car%3a%3aAddress%3a%3azip?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMZgdUEeSRjauCcgnMbg" base_Element="carOptionsTypecarDetails?xyzcorp.procureservice.Car%3a%3acarOptionsType%3a%3acarDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMZwdUEeSRjauCcgnMbg" base_Element="xyzcorp.procureservice.CarcarOptionsType?xyzcorp.procureservice.Car%3a%3acarOptionsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMaAdUEeSRjauCcgnMbg" base_Element="_PQW48gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMaQdUEeSRjauCcgnMbg" base_Element="_PP_FggdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnMagdUEeSRjauCcgnMbg" base_Element="_PQmwlAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzcAdUEeSRjauCcgnMbg" base_Element="AddressairportCode?xyzcorp.procureservice.Car%3a%3aAddress%3a%3aairportCode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzcQdUEeSRjauCcgnMbg" base_Element="_PQhRAwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzcgdUEeSRjauCcgnMbg" base_Element="_PQDW8gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzcwdUEeSRjauCcgnMbg" base_Element="xyzcorp.procureservice.CarComposition2?xyzcorp.procureservice.Car%3a%3aComposition2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzdAdUEeSRjauCcgnMbg" base_Element="_PQmwkwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzdQdUEeSRjauCcgnMbg" base_Element="_PP_skAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzdgdUEeSRjauCcgnMbg" base_Element="_PQFzMQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzdwdUEeSRjauCcgnMbg" base_Element="_PQBhwgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzeAdUEeSRjauCcgnMbg" base_Element="RentalAgencyDetailsname?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzeQdUEeSRjauCcgnMbg" base_Element="_PQc_kAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVnzegdUEeSRjauCcgnMbg" base_Element="_PQmwkAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVoagAdUEeSRjauCcgnMbg" base_Element="CarDetailscarMake?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarMake?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVoagQdUEeSRjauCcgnMbg" base_Element="_PQc_kQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVoaggdUEeSRjauCcgnMbg" base_Element="_PQhRBQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVoagwdUEeSRjauCcgnMbg" base_Element="_PQW48wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVoahAdUEeSRjauCcgnMbg" base_Element="xyzcorp.procureservice.CarRentalAgencyDetails?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVoahQdUEeSRjauCcgnMbg" base_Element="Addresscountry?xyzcorp.procureservice.Car%3a%3aAddress%3a%3acountry?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWqVQAdUEeSRjauCcgnMbg" displayLabel="Address" base_NamedElement="xyzcorp.procureservice.CarAddress?xyzcorp.procureservice.Car%3a%3aAddress?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWqVQQdUEeSRjauCcgnMbg" displayLabel="CarDetails" base_NamedElement="xyzcorp.procureservice.CarCarDetails?xyzcorp.procureservice.Car%3a%3aCarDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWqVQgdUEeSRjauCcgnMbg" displayLabel="RentalAgencyDetails" base_NamedElement="xyzcorp.procureservice.CarRentalAgencyDetails?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWq8UAdUEeSRjauCcgnMbg" displayLabel="airportCode" base_NamedElement="AddressairportCode?xyzcorp.procureservice.Car%3a%3aAddress%3a%3aairportCode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWq8UQdUEeSRjauCcgnMbg" displayLabel="city" base_NamedElement="Addresscity?xyzcorp.procureservice.Car%3a%3aAddress%3a%3acity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWrjYAdUEeSRjauCcgnMbg" displayLabel="country" base_NamedElement="Addresscountry?xyzcorp.procureservice.Car%3a%3aAddress%3a%3acountry?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWrjYQdUEeSRjauCcgnMbg" displayLabel="state" base_NamedElement="Addressstate?xyzcorp.procureservice.Car%3a%3aAddress%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWrjYgdUEeSRjauCcgnMbg" displayLabel="street" base_NamedElement="Addressstreet?xyzcorp.procureservice.Car%3a%3aAddress%3a%3astreet?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWsKcAdUEeSRjauCcgnMbg" displayLabel="zip" base_NamedElement="Addresszip?xyzcorp.procureservice.Car%3a%3aAddress%3a%3azip?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWsKcQdUEeSRjauCcgnMbg" displayLabel="avgCostPerDay" base_NamedElement="CarDetailsavgCostPerDay?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3aavgCostPerDay?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWsxgAdUEeSRjauCcgnMbg" displayLabel="carMake" base_NamedElement="CarDetailscarMake?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarMake?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWsxgQdUEeSRjauCcgnMbg" displayLabel="carModel" base_NamedElement="CarDetailscarModel?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarModel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWsxggdUEeSRjauCcgnMbg" displayLabel="carType" base_NamedElement="CarDetailscarType?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3acarType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWtYkAdUEeSRjauCcgnMbg" displayLabel="mileage" base_NamedElement="CarDetailsmileage?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3amileage?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWtYkQdUEeSRjauCcgnMbg" displayLabel="navigation" base_NamedElement="CarDetailsnavigation?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3anavigation?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWt_oAdUEeSRjauCcgnMbg" displayLabel="otherFeatures" base_NamedElement="CarDetailsotherFeatures?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3aotherFeatures?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWt_oQdUEeSRjauCcgnMbg" displayLabel="year" base_NamedElement="CarDetailsyear?xyzcorp.procureservice.Car%3a%3aCarDetails%3a%3ayear?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWt_ogdUEeSRjauCcgnMbg" displayLabel="address" base_NamedElement="RentalAgencyDetailsaddress?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3aaddress?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWumsAdUEeSRjauCcgnMbg" displayLabel="carOptions" base_NamedElement="RentalAgencyDetailscarOptionsType?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3acarOptions?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWumsQdUEeSRjauCcgnMbg" displayLabel="comment" base_NamedElement="RentalAgencyDetailscomment?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3acomment?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWumsgdUEeSRjauCcgnMbg" displayLabel="name" base_NamedElement="RentalAgencyDetailsname?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWvNwAdUEeSRjauCcgnMbg" displayLabel="carOptionsType" base_NamedElement="xyzcorp.procureservice.CarcarOptionsType?xyzcorp.procureservice.Car%3a%3acarOptionsType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWvNwQdUEeSRjauCcgnMbg" displayLabel="carDetails" base_NamedElement="carOptionsTypecarDetails?xyzcorp.procureservice.Car%3a%3acarOptionsType%3a%3acarDetails?"/>
+  <notation:Diagram xmi:id="_PWv00gdUEeSRjauCcgnMbg" type="Business Object Model" element="xyzcorp.procureservice.Car?xyzcorp.procureservice.Car?" name="xyzcorp.procureservice.Car" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_PWv00wdUEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_PWv01AdUEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

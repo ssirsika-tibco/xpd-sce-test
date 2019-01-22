@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %plugin_name_notrans
+Bundle-SymbolicName: com.tibco.xpd.deploy.server.jms;singleton:=true
+Bundle-Version: 3.10.0.qualifier
+Bundle-Vendor: %plugin_vendor_notrans
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ com.tibco.xpd.deploy.core,
+ com.tibco.xpd.deploy.ui,
+ com.tibco.xpd.resources,
+ com.tibco.xpd.bwconnector
+Bundle-Activator: com.tibco.xpd.deploy.server.jms.Activator
+Eclipse-LazyStart: true

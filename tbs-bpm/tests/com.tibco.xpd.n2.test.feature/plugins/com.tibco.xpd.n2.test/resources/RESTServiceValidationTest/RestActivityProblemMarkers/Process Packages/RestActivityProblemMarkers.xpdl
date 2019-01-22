@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_UeG-wFl5EeKls7uMAhga-Q" xpdExt:DisplayName="RestActivityProblemMarkers" Name="RestActivityProblemMarkers">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2013-01-08</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>agondal</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_XzSK0Fl5EeKls7uMAhga-Q" xpdExt:DisplayName="MissingRestServiceProblemMarker-Process (API Activity EndPoint)" Name="MissingRestServiceProblemMarkerProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/RestActivityProblemMarkers/MissingRestServiceProblemMarkerProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_ilVYIFl5EeKls7uMAhga-Q" xpdExt:DisplayName="DuplicateRestServiceNameProblemMarker-Process (API Activity EndPoint)" Name="DuplicateRestServiceNameProblemMarkerProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/RestActivityProblemMarkers/DuplicateRestServiceNameProblemMarkerProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_t9lbEFl_EeKls7uMAhga-Q" xpdExt:DisplayName="DuplicateRestServiceParticipantNameProblemMarker-Process (API Activity EndPoint)" Name="DuplicateRestServiceParticipantNameProblemMarkerProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/RestActivityProblemMarkers/DuplicateRestServiceParticipantNameProblemMarkerProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_zrojAFl_EeKls7uMAhga-Q" xpdExt:DisplayName="Partic_vXWqYVl_EeKls7uMAhga-Q" Name="Partic_vXWqYVl_EeKls7uMAhga-Q">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_tJedlVl_EeKls7uMAhga-Q" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_tJdPcFl_EeKls7uMAhga-Q">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_tJedlll_EeKls7uMAhga-Q" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_920aEFl-EeKls7uMAhga-Q" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_92zL8Fl-EeKls7uMAhga-Q">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_920aEVl-EeKls7uMAhga-Q" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_iL914Fl5EeKls7uMAhga-Q" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_iL8nwFl5EeKls7uMAhga-Q">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_iL914Vl5EeKls7uMAhga-Q" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_XSiOMFl5EeKls7uMAhga-Q" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_UeG-wVl5EeKls7uMAhga-Q">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_XSiOMVl5EeKls7uMAhga-Q" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_UeG-wVl5EeKls7uMAhga-Q" xpdExt:ApiEndPointParticipant="_XzSK0Fl5EeKls7uMAhga-Q" xpdExt:DisplayName="MissingRestServiceProblemMarker-Process" Name="MissingRestServiceProblemMarkerProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_XSiOMll5EeKls7uMAhga-Q" Name="CatchMessageEvent1" xpdExt:DisplayName="Catch Message Event1" xpdExt:publishAsRestService="true">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_XzN5YFl5EeKls7uMAhga-Q"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_XzSK0Fl5EeKls7uMAhga-Q" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="MissingRestServiceProblemMarkerProcess" OperationName="CatchMessageEvent1">
+                  <xpdExt:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_XzSK0Fl5EeKls7uMAhga-Q</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_XSiOMVl5EeKls7uMAhga-Q" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_XSiOM1l5EeKls7uMAhga-Q" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_XSiOMVl5EeKls7uMAhga-Q" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_XSiONFl5EeKls7uMAhga-Q" xpdExt:DisplayName="" Name="" From="_XSiOMll5EeKls7uMAhga-Q" To="_XSiOM1l5EeKls7uMAhga-Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:RESTServices/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_iL8nwFl5EeKls7uMAhga-Q" iProcessExt:MaxStepIndex="5" xpdExt:ApiEndPointParticipant="_ilVYIFl5EeKls7uMAhga-Q" xpdExt:DisplayName="DuplicateRestServiceNameProblemMarker-Process" Name="DuplicateRestServiceNameProblemMarkerProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_iL914ll5EeKls7uMAhga-Q" Name="CatchMessageEvent2" iProcessExt:StepIndex="4" xpdExt:DisplayName="Catch Message Event2" xpdExt:publishAsRestService="true">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_ilRtwFl5EeKls7uMAhga-Q"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_ilVYIFl5EeKls7uMAhga-Q" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="DuplicateRestServiceNameProblemMarkerProcess" OperationName="CatchMessageEvent2">
+                  <xpdExt:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_ilVYIFl5EeKls7uMAhga-Q</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_iL914Vl5EeKls7uMAhga-Q" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iL9141l5EeKls7uMAhga-Q" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_iL914Vl5EeKls7uMAhga-Q" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_iL915Fl5EeKls7uMAhga-Q" xpdExt:DisplayName="" Name="" From="_iL914ll5EeKls7uMAhga-Q" To="_iL9141l5EeKls7uMAhga-Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:RESTServices>
+        <xpdExt:RESTService Id="_8NWh4Fl-EeKls7uMAhga-Q" xpdExt:DisplayName="DuplicateRestServiceNameProblemMarkerProcess_CatchMessageEvent2" xpdExt:restActivityId="_iL914ll5EeKls7uMAhga-Q" xpdExt:XpdModelType="PageFlow" Name="DuplicateRestServiceNameProblemMarkerProcess_CatchMessageEvent2">
+          <xpdl2:Participants>
+            <xpdl2:Participant Id="_8NWh4Vl-EeKls7uMAhga-Q" Name="Partic_8NWh4Vl-EeKls7uMAhga-Q">
+              <xpdl2:ParticipantType Type="SYSTEM"/>
+              <xpdExt:ParticipantSharedResource>
+                <xpdExt:WebService>
+                  <xpdExt:Outbound>
+                    <xpdExt:VirtualBinding Name="Virtualization"/>
+                  </xpdExt:Outbound>
+                </xpdExt:WebService>
+              </xpdExt:ParticipantSharedResource>
+            </xpdl2:Participant>
+          </xpdl2:Participants>
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_8NWh4ll-EeKls7uMAhga-Q" Name="Start">
+              <xpdl2:Event>
+                <xpdl2:StartEvent Trigger="None"/>
+              </xpdl2:Event>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_8NWh41l-EeKls7uMAhga-Q" Name="CallCatchMessageEvent2">
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskSend Implementation="WebService">
+                    <xpdl2:Message Id="_8NWh5Fl-EeKls7uMAhga-Q"/>
+                    <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_8NWh4Vl-EeKls7uMAhga-Q" OperationName="">
+                      <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                        <xpdl2:EndPoint EndPointType="WSDL">
+                          <xpdl2:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                        </xpdl2:EndPoint>
+                      </xpdl2:Service>
+                    </xpdl2:WebServiceOperation>
+                    <xpdExt:PortTypeOperation PortTypeName="DuplicateRestServiceNameProblemMarkerProcess" OperationName="CatchMessageEvent2">
+                      <xpdExt:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                    </xpdExt:PortTypeOperation>
+                  </xpdl2:TaskSend>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:Performer>_8NWh4Vl-EeKls7uMAhga-Q</xpdl2:Performer>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+          </xpdl2:ExtendedAttributes>
+        </xpdExt:RESTService>
+      </xpdExt:RESTServices>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_92zL8Fl-EeKls7uMAhga-Q" xpdExt:DisplayName="DuplicateRestServiceNameProblemMarkerProcess_CatchMessageEvent2" iProcessExt:MaxStepIndex="5" Name="DuplicateRestServiceNameProblemMarkerProcess_CatchMessageEvent2">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_920aEll-EeKls7uMAhga-Q" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_920aEVl-EeKls7uMAhga-Q" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_920aE1l-EeKls7uMAhga-Q" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_920aEVl-EeKls7uMAhga-Q" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_920aFFl-EeKls7uMAhga-Q" xpdExt:DisplayName="" Name="" From="_920aEll-EeKls7uMAhga-Q" To="_920aE1l-EeKls7uMAhga-Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_tJdPcFl_EeKls7uMAhga-Q" xpdExt:DisplayName="DuplicateRestServiceParticipantNameProblemMarker-Process" iProcessExt:MaxStepIndex="5" xpdExt:ApiEndPointParticipant="_t9lbEFl_EeKls7uMAhga-Q" Name="DuplicateRestServiceParticipantNameProblemMarkerProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_tJedl1l_EeKls7uMAhga-Q" Name="CatchMessageEvent3" iProcessExt:StepIndex="4" xpdExt:DisplayName="Catch Message Event3" xpdExt:publishAsRestService="true">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_t9hJoFl_EeKls7uMAhga-Q"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_t9lbEFl_EeKls7uMAhga-Q" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="DuplicateRestServiceParticipantNameProblemMarkerProcess" OperationName="CatchMessageEvent3">
+                  <xpdExt:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_t9lbEFl_EeKls7uMAhga-Q</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_tJedlll_EeKls7uMAhga-Q" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tJedmFl_EeKls7uMAhga-Q" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_tJedlll_EeKls7uMAhga-Q" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_tJedmVl_EeKls7uMAhga-Q" xpdExt:DisplayName="" Name="" From="_tJedl1l_EeKls7uMAhga-Q" To="_tJedmFl_EeKls7uMAhga-Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:RESTServices>
+        <xpdExt:RESTService Id="_vXWqYFl_EeKls7uMAhga-Q" xpdExt:DisplayName="DuplicateRestServiceParticipantNameProblemMarkerProcess_CatchMessageEvent3" xpdExt:restActivityId="_tJedl1l_EeKls7uMAhga-Q" xpdExt:XpdModelType="PageFlow" Name="DuplicateRestServiceParticipantNameProblemMarkerProcess_CatchMessageEvent3">
+          <xpdl2:Participants>
+            <xpdl2:Participant Id="_vXWqYVl_EeKls7uMAhga-Q" Name="Partic_vXWqYVl_EeKls7uMAhga-Q">
+              <xpdl2:ParticipantType Type="SYSTEM"/>
+              <xpdExt:ParticipantSharedResource>
+                <xpdExt:WebService>
+                  <xpdExt:Outbound>
+                    <xpdExt:VirtualBinding Name="Virtualization"/>
+                  </xpdExt:Outbound>
+                </xpdExt:WebService>
+              </xpdExt:ParticipantSharedResource>
+            </xpdl2:Participant>
+          </xpdl2:Participants>
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_vXWqYll_EeKls7uMAhga-Q" Name="Start">
+              <xpdl2:Event>
+                <xpdl2:StartEvent Trigger="None"/>
+              </xpdl2:Event>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_vXWqY1l_EeKls7uMAhga-Q" Name="CallCatchMessageEvent3">
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskSend Implementation="WebService">
+                    <xpdl2:Message Id="_vXWqZFl_EeKls7uMAhga-Q"/>
+                    <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_vXWqYVl_EeKls7uMAhga-Q" OperationName="">
+                      <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                        <xpdl2:EndPoint EndPointType="WSDL">
+                          <xpdl2:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                        </xpdl2:EndPoint>
+                      </xpdl2:Service>
+                    </xpdl2:WebServiceOperation>
+                    <xpdExt:PortTypeOperation PortTypeName="DuplicateRestServiceParticipantNameProblemMarkerProcess" OperationName="CatchMessageEvent3">
+                      <xpdExt:ExternalReference location="RestActivityProblemMarkers.wsdl"/>
+                    </xpdExt:PortTypeOperation>
+                  </xpdl2:TaskSend>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:Performer>_vXWqYVl_EeKls7uMAhga-Q</xpdl2:Performer>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+          </xpdl2:ExtendedAttributes>
+        </xpdExt:RESTService>
+      </xpdExt:RESTServices>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="14"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="14"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

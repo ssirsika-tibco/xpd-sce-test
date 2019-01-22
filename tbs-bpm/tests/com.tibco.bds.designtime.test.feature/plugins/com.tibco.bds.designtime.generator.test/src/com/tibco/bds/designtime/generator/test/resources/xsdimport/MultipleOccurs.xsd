@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://MultipleOccurs" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://MultipleOccurs">
+	<xs:group name="myGroup">
+		<xs:sequence>
+			<xs:element name="surname" type="xs:string"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="CompSeqContainGroup">
+		<xs:sequence>
+			<xs:group maxOccurs="2" minOccurs="0" ref="myGroup"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompChoiceContainGroup">
+		<xs:choice maxOccurs="6" minOccurs="2">
+			<xs:element name="age" type="xs:int"/>
+			<xs:group maxOccurs="unbounded" minOccurs="7" ref="myGroup"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="SequenceSimple">
+		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="freightDetails" type="xs:string"/>
+			<xs:element name="passengers" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SequenceSimpleElement" type="SequenceSimple"/>
+	<xs:complexType name="SequenceOptional">
+		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+			<xs:element minOccurs="0" name="freightDetails" type="xs:string"/>
+			<xs:element minOccurs="0" name="passengers" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SequenceOptionalElement" type="SequenceOptional"/>
+	<xs:complexType name="SequenceBound">
+		<xs:sequence maxOccurs="8" minOccurs="2">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="crew" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="freightDetails" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="passengers" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SequenceBoundElement" type="SequenceBound"/>
+	<xs:complexType name="ChoiceBound">
+		<xs:choice maxOccurs="3" minOccurs="2">
+			<xs:element name="freightDetails" type="xs:string"/>
+			<xs:element name="passengers" type="xs:int"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="ChoiceBoundElement" type="ChoiceBound"/>
+	<xs:complexType name="ChoiceUnbound">
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="freightDetails" type="xs:string"/>
+			<xs:element name="passengers" type="xs:int"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="ChoiceUnboundElement" type="ChoiceUnbound"/>
+	<xs:complexType name="ChoiceUpperbound">
+		<xs:choice maxOccurs="3" minOccurs="0">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="freightDetails" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="passengers" type="xs:int"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="ChoiceUpperboundElement" type="ChoiceUpperbound"/>
+</xs:schema>

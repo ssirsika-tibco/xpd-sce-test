@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension
+         point="com.tibco.xpd.resources.workingCopyIndexer">
+      <indexer
+            indexID="com.tibco.xpd.bomgen.wsdlBomIndexer"
+            indexerClass="com.tibco.xpd.wsdltobom.indexer.WsdlBomIndexerProvider"
+            resourceMatcher="com.tibco.xpd.wsdltobom.indexer.Wsdl2BomIndexResourceMatcher">
+         <additionalAttributes>
+            <attribute
+                  maxLength="4096"
+                  name="xsd_namespace">
+            </attribute>
+            <attribute
+                  maxLength="4096"
+                  name="wsd_file_name">
+            </attribute>
+            <attribute
+                  maxLength="4096"
+                  name="bom_element_id">
+            </attribute>
+            <attribute
+                  maxLength="4096"
+                  name="bom_file_name">
+            </attribute>
+            <attribute
+                  maxLength="4096"
+                  name="derived_from_type">
+            </attribute>
+            <attribute
+                  maxLength="4096"
+                  name="bom_namespace">
+            </attribute>
+            <attribute
+                  maxLength="4096"
+                  name="bom_element_name">
+            </attribute>
+            <attribute
+                  maxLength="4096"
+                  name="xsd_element_name">
+            </attribute>
+         </additionalAttributes>
+      </indexer>
+   </extension>
+</plugin>

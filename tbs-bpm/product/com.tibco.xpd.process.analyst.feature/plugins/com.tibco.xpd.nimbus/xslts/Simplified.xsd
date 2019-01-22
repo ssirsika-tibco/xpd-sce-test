@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+	<xsd:element name="XMI" type="xmiType"/>
+  
+	<xsd:complexType name="xmiType">
+		<xsd:sequence>
+			<xsd:element name="XMI.header" type="xmiHeaderType"/>
+			<xsd:element name="XMI.content" type="xmiContentType"/>
+		</xsd:sequence>  
+		<xsd:attribute name="xmi.version" type="xsd:string"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="timestamp" type="xsd:string"/>   <!--Should be dateTime type but uses localised date format-->
+		<xsd:attribute name="verified" type="xsd:boolean"/>  
+	</xsd:complexType>
+
+	<xsd:complexType name="xmiHeaderType">
+		<xsd:sequence>
+			<xsd:element name="XMI.documentation" type="xmiDocumentationType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="xmiDocumentationType">
+		<xsd:sequence>
+			<xsd:element name="XMI.exporter" type="xsd:string"/>
+			<xsd:element name="XMI.exporterVersion" type="xsd:decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+	<xsd:complexType name="xmiContentType">
+		<xsd:sequence>
+			<xsd:element name="Diagram" type="diagramType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+	<xsd:complexType name="diagramType">
+		<xsd:sequence>
+			<xsd:element name="GUID" type="xsd:string"/>
+			<xsd:element name="ParentGUID" type="xsd:string"/>
+			<xsd:element name="Level" type="xsd:string"/>
+			<xsd:element name="DiagramType" type="xsd:string"/>
+			<xsd:element name="Title" type="xsd:string"/>
+			<xsd:element name="Date" type="xsd:string"/>    <!--Should use date type but uses localised date format-->
+			<xsd:element name="Version" type="xsd:string"/>
+			<xsd:element name="Author" type="xsd:string"/>
+			<xsd:element name="Owner" type="xsd:string"/>
+			<xsd:element name="Authorization" type="xsd:string"/>
+			<xsd:element name="Type" type="xsd:string"/>
+			<xsd:element name="URL" type="xsd:anyURI"/>
+			<xsd:element name="Folder" type="xsd:string"/>
+			<xsd:element name="DefaultAccess" type="xsd:string"/>
+			<xsd:element name="AccessList" type="accessListType"/>
+			<xsd:element name="Keywords" type="xsd:string"/>
+			<xsd:element name="Activity" type="activityType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="xmi.id" type="xsd:string"/>
+	</xsd:complexType>
+  
+	<xsd:complexType name="accessListType">
+		<xsd:sequence>
+			<xsd:element name="AccessItem" type="accessItemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>	
+	</xsd:complexType>
+  
+	<xsd:complexType name="accessItemType">
+		<xsd:sequence>
+			<xsd:element name="User" type="xsd:string"/>
+			<xsd:element name="Access" type="xsd:string"/>
+		</xsd:sequence>	  
+	</xsd:complexType>
+  
+	<xsd:complexType name="activityType">
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:positiveInteger"/>
+			<xsd:element name="Text" type="xsd:string"/>
+			<xsd:element name="BPMNType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BPMNSymbol" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BPMNEvent" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Resource" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Notes" type="xsd:string"/>
+			<xsd:element name="Commentary" type="xsd:string"/>
+			<xsd:element name="Input" type="lineType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Output" type="lineType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="DrillDown" type="drilldownType" minOccurs="0"/>
+			<xsd:element name="Attachment" type="attachmentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="DataTable" type="dataTableType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="StatementLink" type="statementLinkType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>	  
+	</xsd:complexType>  
+  
+	<xsd:complexType name="lineType">
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:string"/>
+			<xsd:element name="Text" type="xsd:string"/>
+			<xsd:element name="Commentary" type="xsd:string"/>
+			<xsd:element name="Arrows" type="xsd:string"/>
+			<xsd:element name="Attachment" type="attachmentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LinkedToActivity" type="xsd:string"/>
+			<xsd:element name="LinkedToDiagram" type="xsd:string"/>      <!--Should use positiveInteger type, but needs to allow for empty values-->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="drilldownType">
+		<xsd:sequence>
+			<xsd:element name="DrillDownGUID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DrillDownLevel" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="attachmentType">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="type" type="xsd:string"/>
+		<xsd:attribute name="value" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="dataTableType">
+		<xsd:sequence>
+			<xsd:element name="DataRecord" type="dataRecordType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="DefID" type="xsd:positiveInteger"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="dataRecordType">
+		<xsd:sequence>
+			<xsd:element name="DataField" type="dataFieldType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="RecID" type="xsd:nonNegativeInteger"/>
+	</xsd:complexType>	
+
+	<xsd:complexType name="dataFieldType">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="value" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="statementLinkType">
+		<xsd:sequence>
+			<xsd:element name="Set" type="xsd:string"/>
+			<xsd:element name="Statement" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string"/>
+			<xsd:element name="Status" type="xsd:string"/>
+			<xsd:element name="StatementDataField" type="statementDataFieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="statementDataFieldType">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="value" type="xsd:string"/>	
+	</xsd:complexType>
+
+</xsd:schema>

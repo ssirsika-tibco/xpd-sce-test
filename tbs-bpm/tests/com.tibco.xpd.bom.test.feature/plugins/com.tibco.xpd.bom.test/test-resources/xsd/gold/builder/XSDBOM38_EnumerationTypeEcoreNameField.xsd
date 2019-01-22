@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM38_EnumerationTypeEcoreNameField" xmlns:tns1="http://www.example.org/XSDBOM38_EnumerationTypeEcoreNameField"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM38_EnumerationTypeEcoreNameField">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/kpail/Business Objects/org.example.XSDBOM38_EnumerationTypeEcoreNameField.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Class1" id="org.example.XSDBOM38_EnumerationTypeEcoreNameFieldClass1"
+      abstract="false" mixed="false" name="Class1">
+    <xsd:attribute ecore:name="attribute1" id="Class1attribute1" form="unqualified"
+        name="attribute1" use="optional">
+      <xsd:simpleType ecore:name="attribute1Type">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration ecore:name="LITERAL1" value="literal1"/>
+          <xsd:enumeration ecore:name="LITERAL2" value="literal2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+</xsd:schema>

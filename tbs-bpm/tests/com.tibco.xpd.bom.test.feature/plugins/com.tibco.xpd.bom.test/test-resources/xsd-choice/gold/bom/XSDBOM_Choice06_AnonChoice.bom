@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example.AnonChoice" name="com.example.AnonChoice">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ncOEQU1WEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ncOrUE1WEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ncOrUU1WEeSLJZkJre4IDg" key="created" value="1412603113733"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ncOrUk1WEeSLJZkJre4IDg" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.AnonChoiceBoeingType" name="BoeingType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BoeingTypefreightDetails" name="freightDetails" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nazH8k1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nazH8U1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BoeingTypeseatsType" name="seats" type="com.example.AnonChoiceseatsType?com.example.AnonChoice%3a%3aseatsType?" aggregation="composite" association="com.example.AnonChoiceComposition0?com.example.AnonChoice%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ncETQ01WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ncETQk1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.AnonChoiceseatsType" name="seatsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="seatsTypearmrest" name="armrest" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nb8-gk1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nb8-gU1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="seatsTypecolour" name="colour" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ncAB0U1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ncAB0E1WEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.AnonChoiceComposition0" name="Composition0" memberEnd="BoeingTypeseatsType?com.example.AnonChoice%3a%3aBoeingType%3a%3aseats? Composition0boeingtype?com.example.AnonChoice%3a%3aComposition0%3a%3aboeingtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0boeingtype" name="boeingtype" type="com.example.AnonChoiceBoeingType?com.example.AnonChoice%3a%3aBoeingType?" association="com.example.AnonChoiceComposition0?com.example.AnonChoice%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ncE6UU1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ncE6UE1WEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_natoYU1WEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_natoYk1WEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_natoY01WEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_natoZE1WEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_nauPcE1WEeSLJZkJre4IDg" base_Package="com.example.AnonChoice?com.example.AnonChoice?" xsdTargetNamespace="http://example.com/AnonChoice" xsdSchemaLocation="Temp/XSDBOM_Choice06_AnonChoice.xsd" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.9.0.qualifier"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_nawEoU1WEeSLJZkJre4IDg" base_Class="com.example.AnonChoiceBoeingType?com.example.AnonChoice%3a%3aBoeingType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ncFhYE1WEeSLJZkJre4IDg" name="MS1_1_1" isChoice="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nazH8E1WEeSLJZkJre4IDg" base_Property="BoeingTypefreightDetails?com.example.AnonChoice%3a%3aBoeingType%3a%3afreightDetails?" xsdName="freightDetails" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="C1" xsdParentSequence="_ncFhYE1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_nazH801WEeSLJZkJre4IDg" textLength="-1" base_Property="BoeingTypefreightDetails?com.example.AnonChoice%3a%3aBoeingType%3a%3afreightDetails?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_na09IU1WEeSLJZkJre4IDg" base_Class="com.example.AnonChoiceseatsType?com.example.AnonChoice%3a%3aseatsType?" xsdName="seats" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ncB3AE1WEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nb8-gE1WEeSLJZkJre4IDg" base_Property="seatsTypearmrest?com.example.AnonChoice%3a%3aseatsType%3a%3aarmrest?" xsdName="armrest" xsdForm="unqualified" xsdUse="optional" xsdType="boolean" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_nb_awU1WEeSLJZkJre4IDg" base_Property="seatsTypecolour?com.example.AnonChoice%3a%3aseatsType%3a%3acolour?" xsdName="colour" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ncB3AE1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ncAB0k1WEeSLJZkJre4IDg" textLength="-1" base_Property="seatsTypecolour?com.example.AnonChoice%3a%3aseatsType%3a%3acolour?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ncE6Uk1WEeSLJZkJre4IDg" base_Property="BoeingTypeseatsType?com.example.AnonChoice%3a%3aBoeingType%3a%3aseats?" xsdName="seats" xsdForm="unqualified" xsdExplicitGroupHierarchy="C1" xsdParentSequence="_ncFhYE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_ncGvgE1WEeSLJZkJre4IDg" base_Package="com.example.AnonChoice?com.example.AnonChoice?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ncGvgU1WEeSLJZkJre4IDg" name="Boeing" type="com.example.AnonChoiceBoeingType?com.example.AnonChoice%3a%3aBoeingType?" isAnonymous="true" targetNamespace="http://example.com/AnonChoice" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncHWkE1WEeSLJZkJre4IDg" base_Element="_natoYU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncHWkU1WEeSLJZkJre4IDg" base_Element="_ncE6UE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncHWkk1WEeSLJZkJre4IDg" base_Element="BoeingTypefreightDetails?com.example.AnonChoice%3a%3aBoeingType%3a%3afreightDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncHWk01WEeSLJZkJre4IDg" base_Element="_nazH8k1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncH9oE1WEeSLJZkJre4IDg" base_Element="BoeingTypeseatsType?com.example.AnonChoice%3a%3aBoeingType%3a%3aseats?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncH9oU1WEeSLJZkJre4IDg" base_Element="com.example.AnonChoiceBoeingType?com.example.AnonChoice%3a%3aBoeingType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncH9ok1WEeSLJZkJre4IDg" base_Element="_nazH8U1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncH9o01WEeSLJZkJre4IDg" base_Element="_nb8-gU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncH9pE1WEeSLJZkJre4IDg" base_Element="seatsTypearmrest?com.example.AnonChoice%3a%3aseatsType%3a%3aarmrest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncIksE1WEeSLJZkJre4IDg" base_Element="_nb8-gk1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncIksU1WEeSLJZkJre4IDg" base_Element="_ncE6UU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncIksk1WEeSLJZkJre4IDg" base_Element="_ncETQ01WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncIks01WEeSLJZkJre4IDg" base_Element="_ncAB0U1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncIktE1WEeSLJZkJre4IDg" base_Element="Composition0boeingtype?com.example.AnonChoice%3a%3aComposition0%3a%3aboeingtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncJLwE1WEeSLJZkJre4IDg" base_Element="com.example.AnonChoiceseatsType?com.example.AnonChoice%3a%3aseatsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncJLwU1WEeSLJZkJre4IDg" base_Element="_natoY01WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncJLwk1WEeSLJZkJre4IDg" base_Element="com.example.AnonChoiceComposition0?com.example.AnonChoice%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncJLw01WEeSLJZkJre4IDg" base_Element="seatsTypecolour?com.example.AnonChoice%3a%3aseatsType%3a%3acolour?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncJLxE1WEeSLJZkJre4IDg" base_Element="_ncAB0E1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ncJLxU1WEeSLJZkJre4IDg" base_Element="_ncETQk1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ncKZ4E1WEeSLJZkJre4IDg" displayLabel="BoeingType" base_NamedElement="com.example.AnonChoiceBoeingType?com.example.AnonChoice%3a%3aBoeingType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ncLA8E1WEeSLJZkJre4IDg" displayLabel="freightDetails" base_NamedElement="BoeingTypefreightDetails?com.example.AnonChoice%3a%3aBoeingType%3a%3afreightDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ncLoAE1WEeSLJZkJre4IDg" displayLabel="seats" base_NamedElement="BoeingTypeseatsType?com.example.AnonChoice%3a%3aBoeingType%3a%3aseats?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ncM2IE1WEeSLJZkJre4IDg" displayLabel="seatsType" base_NamedElement="com.example.AnonChoiceseatsType?com.example.AnonChoice%3a%3aseatsType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ncNdME1WEeSLJZkJre4IDg" displayLabel="colour" base_NamedElement="seatsTypecolour?com.example.AnonChoice%3a%3aseatsType%3a%3acolour?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ncOEQE1WEeSLJZkJre4IDg" displayLabel="armrest" base_NamedElement="seatsTypearmrest?com.example.AnonChoice%3a%3aseatsType%3a%3aarmrest?"/>
+  <notation:Diagram xmi:id="_ncOrU01WEeSLJZkJre4IDg" type="Business Object Model" element="com.example.AnonChoice?com.example.AnonChoice?" name="com.example.AnonChoice" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_ncOrVE1WEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_ncOrVU1WEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/ElmAndComplex"
+	targetNamespace="http://example.com/ElmAndComplex" xmlns:dp="http://example.com/ElmAndComplex2">
+	
+	<xs:import namespace="http://example.com/ElmAndComplex2" schemaLocation="XSDBOM_Duplicate_05_GroupVariationsImported.xsd"></xs:import>
+
+	<!-- Tests duplicate group and attribute -->
+	<xs:group name="apple">
+		<xs:sequence>
+			<xs:element name="elem1" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:attribute name="apple" type="xs:boolean"></xs:attribute>	
+	
+	<!-- Tests duplicate group and element -->
+	<xs:group name="banana">
+		<xs:sequence>
+			<xs:element name="elem1" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:element name="banana" type="xs:string"></xs:element>
+	
+	<!-- Tests duplicate group and simple type -->
+	<xs:group name="melon">
+		<xs:sequence>
+			<xs:element name="elem1" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:simpleType name="melon">
+		<xs:restriction base="xs:boolean"></xs:restriction>
+	</xs:simpleType>
+
+	<!-- Tests duplicate group and complex type -->
+	<xs:group name="orange">
+		<xs:sequence>
+			<xs:element name="elem1" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="orange">
+		<xs:sequence>
+			<xs:group ref="pear"></xs:group>
+		</xs:sequence>
+		<xs:attributeGroup ref="pear"></xs:attributeGroup>
+	</xs:complexType>
+
+	<!-- Tests duplicate group and group -->
+	<xs:group name="pear">
+		<xs:sequence>
+			<xs:element name="elem1" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:attributeGroup name="pear">
+		<xs:attribute name="attr1" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+
+	<!-- Check references are all in place -->
+	<xs:attribute name="tleAttrTypeMelon" type="dp:melon"></xs:attribute>
+
+	<xs:element name="tleElemTypeOrange" type="dp:orange"></xs:element>
+
+	<xs:simpleType name="tleSimpleTypeMelon">
+		<xs:restriction base="dp:melon"></xs:restriction>
+	</xs:simpleType>	
+
+	<xs:complexType name="tleComplexType">
+		<xs:sequence>
+			<xs:element name="elemTypeOrange" type="dp:orange"></xs:element>
+			<xs:element name="elemComplexContentOrange">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="dp:orange"></xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="elemTypeMelon" type="dp:melon"></xs:element>			
+			<xs:element name="elemSimpleTypeMelon">
+				<xs:simpleType>
+					<xs:restriction base="dp:melon"></xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element ref="dp:banana"></xs:element>
+		</xs:sequence>
+		<xs:attribute ref="dp:apple"></xs:attribute>
+	</xs:complexType>
+	
+</xs:schema>

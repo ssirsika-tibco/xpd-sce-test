@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.processeditor.xpdl2" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.processeditor.xpdl2" id="scriptGrammarDestinationBinding" name="script Grammar Destination Binding"/>
+      </appInfo>
+      <documentation>
+         [Enter description of this extension point.]
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="destination"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="destination">
+      <complexType>
+         <sequence>
+            <element ref="scriptGrammar"/>
+         </sequence>
+         <attribute name="destinationId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Id of the process destination environment as defined in the contribution to (contributed via the com.tibco.xpd.destinations.ui.processDestinationEnvironment extension point).
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="scriptGrammar">
+      <complexType>
+         <sequence>
+            <element ref="scriptTypeContext" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="scriptGrammarFilter" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="grammarId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="scriptTypeContext">
+      <complexType>
+         <attribute name="type" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="ScriptTask">
+                  </enumeration>
+                  <enumeration value="TimerEvent">
+                  </enumeration>
+                  <enumeration value="SequenceFlow">
+                  </enumeration>
+                  <enumeration value="OpenUserTask">
+                  </enumeration>
+                  <enumeration value="SubmitUserTask">
+                  </enumeration>
+                  <enumeration value="CloseUserTask">
+                  </enumeration>
+                  <enumeration value="WebServiceTask">
+                  </enumeration>
+                  <enumeration value="JavaServiceTask">
+                  </enumeration>
+                  <enumeration value="SubProcessTask">
+                  </enumeration>
+                  <enumeration value="StdLoopExpr">
+                  </enumeration>
+                  <enumeration value="MILoopExpr">
+                  </enumeration>
+                  <enumeration value="MIComplexExitExpr">
+                  </enumeration>
+                  <enumeration value="MIAdditionalInstancesExpr">
+                  </enumeration>
+                  <enumeration value="BWServiceTask">
+                  </enumeration>
+                  <enumeration value="CompletedScriptTask">
+                  </enumeration>
+                  <enumeration value="InitiatedScriptTask">
+                  </enumeration>
+                  <enumeration value="DeadlineExpiredScriptTask">
+                  </enumeration>
+                  <enumeration value="CancelledScriptTask">
+                  </enumeration>
+                  <enumeration value="TransformScriptTask">
+                  </enumeration>
+                  <enumeration value="PerformerDataField">
+                  </enumeration>
+                  <enumeration value="QueryParticipant">
+                  </enumeration>
+                  <enumeration value="OrgModelQueryEntity">
+                  </enumeration>
+                  <enumeration value="ScheduleUserTask">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="isDefault" type="boolean">
+            <annotation>
+               <documentation>
+                  When more than one grammar type binding is contributed for a single script context (type) this attribute specifies that this grammar should be used by default.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="scriptGrammarFilter">
+      <complexType>
+         <attribute name="filter" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.processeditor.xpdl2.properties.script.ScriptGrammarFilter"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

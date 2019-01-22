@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="GetAnyAttributeWS" targetNamespace="http://www.example.org/GetAnyAttributeWS/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/GetAnyAttributeWS/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/GetAnyAttributeWS/">
+			<xsd:element name="GetIdAttribute">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="email" type="xsd:string"/>
+					</xsd:sequence>					
+				</xsd:complexType>
+
+			</xsd:element>
+			<xsd:element name="GetIdAttributeResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="email" type="xsd:string"/>
+					</xsd:sequence>
+					<xsd:anyAttribute processContents="lax"/>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetIdAttributeRequest">
+    <wsdl:part name="parameters" element="tns:GetIdAttribute">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetIdAttributeResponse">
+    <wsdl:part name="parameters" element="tns:GetIdAttributeResponse">
+    </wsdl:part>
+
+  </wsdl:message>
+  <wsdl:portType name="GetAnyAttributeWS">
+    <wsdl:operation name="GetIdAttribute">
+      <wsdl:input message="tns:GetIdAttributeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GetIdAttributeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="GetAnyAttributeWSSOAP" type="tns:GetAnyAttributeWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetIdAttribute">
+      <soap:operation soapAction="http://www.example.org/GetAnyAttributeWS/GetIdAttribute"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetAnyAttributeWS">
+    <wsdl:port name="GetAnyAttributeWSSOAP" binding="tns:GetAnyAttributeWSSOAP">
+      <soap:address location="http://localhost:9090/AnyAttributeLookUp/services/GetAnyAttributeWS/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+

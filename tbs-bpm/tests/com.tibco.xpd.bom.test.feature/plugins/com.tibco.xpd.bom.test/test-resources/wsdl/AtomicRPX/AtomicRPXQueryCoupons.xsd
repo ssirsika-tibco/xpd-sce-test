@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:types="http://www.t-mobile.com/esp/atomic/rpx/types" xmlns:tns="http://www.t-mobile.com/esp/atomic/rpx/QueryCoupons" targetNamespace="http://www.t-mobile.com/esp/atomic/rpx/QueryCoupons" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.t-mobile.com/esp/atomic/rpx/types" schemaLocation="inner/inner2/AtomicRPXTypes.xsd"/>
+<!--	<xs:element name="queryCouponsRequest">
+		<xs:annotation>
+			<xs:documentation>This request is used to query the coupon(s) information from prepaid system.</xs:documentation>
+		</xs:annotation> -->
+		<xs:complexType name="queryCouponsRequest">
+			<xs:sequence>
+				<xs:element name="requestInfo" type="types:requestInfoType"/>
+				<xs:choice>
+					<xs:element name="prepaidSubscriberId" type="xs:positiveInteger"/>
+					<xs:element name="flexpaySubscriberId" type="types:flexpaySubscriberIdType"/>
+				</xs:choice>
+				<xs:choice>
+					<xs:element name="couponPin" type="types:couponPinType"/>
+					<xs:element name="serialNumber" type="xs:nonNegativeInteger"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+<!--	</xs:element> -->
+<!--	<xs:element name="queryCouponsResponse">
+		<xs:annotation>
+			<xs:documentation>
+				This is the success response for the query coupons request.  
+				The request may contain multiple coupon PINs: 
+				For each coupon PIN the coupon information element is returned if the PIN exists in prepaid system otherwise an non-existent coupon information element is returned.
+			</xs:documentation>
+		</xs:annotation> -->
+		<xs:complexType name="queryCouponsResponse">
+			<xs:sequence>
+				<xs:element name="correlationId" type="types:correlationIdType" minOccurs="0"/>
+				<xs:element name="couponInfo" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="msisdn" type="types:msisdnType" minOccurs="0"/>
+							<xs:element name="couponPin" type="types:couponPinType" minOccurs="0"/>
+							<xs:element name="serialNumber" type="xs:nonNegativeInteger" minOccurs="0"/>
+							<xs:element name="statusCode" type="xs:normalizedString" minOccurs="0"/>
+							<xs:element name="status">
+								<xs:simpleType>
+									<xs:restriction base="xs:normalizedString">
+										<xs:enumeration value="available"/>
+										<xs:enumeration value="used"/>
+										<xs:enumeration value="voided"/>
+										<xs:enumeration value="lostOrStolen"/>
+										<xs:enumeration value="invalid"/>
+										<xs:enumeration value="doesNotExist"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="couponDetails" type="types:couponDetailsType" minOccurs="0"/>
+							<xs:element name="validCouponTransitions" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="couponTransition" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="statusCode" type="xs:normalizedString"/>
+													<xs:element name="status">
+														<xs:simpleType>
+															<xs:restriction base="xs:normalizedString">
+																<xs:enumeration value="available"/>
+																<xs:enumeration value="used"/>
+																<xs:enumeration value="voided"/>
+																<xs:enumeration value="lostOrStolen"/>
+																<xs:enumeration value="invalid"/>
+																<xs:enumeration value="doesNotExist"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="lastUpdatedDate" type="xs:date" minOccurs="0"/>
+							<xs:element name="partnerName" type="xs:normalizedString" minOccurs="0"/>
+							<xs:element name="productDescription" type="xs:normalizedString" minOccurs="0"/>
+							<xs:element name="mediaDescription" type="xs:normalizedString" minOccurs="0"/>
+							<xs:element name="numberOfSlices" type="xs:integer" minOccurs="0"/>
+							<xs:element name="sliceValue" type="xs:integer" minOccurs="0"/>
+							<xs:element name="sku" type="xs:normalizedString" minOccurs="0"/>
+							<xs:element name="partnerId" type="xs:positiveInteger" minOccurs="0"/>
+							<xs:element name="skuId" type="xs:positiveInteger" minOccurs="0"/>
+							<xs:element name="mediaType" type="xs:normalizedString" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+<!--	</xs:element> -->
+</xs:schema>

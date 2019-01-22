@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_sBTJIIHbEeOli-pc3tFiBA" xpdExt:DisplayName="com.enel.mind_common.integration.credito.pi" Name="comenelmind_commonintegrationcreditopi">
+  <xpdl2:PackageHeader xpdExt:Language="it_IT">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-01-20</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>EUR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>Umberto</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_3siBMIHbEeOli-pc3tFiBA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_sBTJIYHbEeOli-pc3tFiBA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_3siBMYHbEeOli-pc3tFiBA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_sBTJIYHbEeOli-pc3tFiBA" xpdExt:DisplayName="comenelmind_commonintegrationcreditopi-Process" Name="comenelmind_commonintegrationcreditopiProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_3siBMoHbEeOli-pc3tFiBA" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_3siBMYHbEeOli-pc3tFiBA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_3siBM4HbEeOli-pc3tFiBA" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_3siBMYHbEeOli-pc3tFiBA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_3siBNIHbEeOli-pc3tFiBA" xpdExt:DisplayName="" Name="" From="_3siBMoHbEeOli-pc3tFiBA" To="_3siBM4HbEeOli-pc3tFiBA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="14"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_-2P14IHbEeOli-pc3tFiBA" xpdExt:DisplayName="StatoContiPDR-pi" Name="StatoContiPDRpi" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_GzwfAIHcEeOli-pc3tFiBA" Name="StatoContiPDR_Request" IsArray="false" Mode="IN" Required="false" xpdExt:DisplayName="StatoContiPDR_Request">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="StatoConti.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_Xr9noFQ8EeO-EvD3wf04sA"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_GzwfAYHcEeOli-pc3tFiBA" Name="StatoContiPDR_Response" Mode="OUT" Required="false" xpdExt:DisplayName="StatoContiPDR_Response">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="StatoConti.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_X-lBoFQ8EeO-EvD3wf04sA"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_Babp4IHcEeOli-pc3tFiBA" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_WM8vMIHfEeO0V_d5mYFc1g" xpdExt:DisplayName="StatoConti-Process" Name="StatoContiProcess" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_Y3wvooHfEeO0V_d5mYFc1g" Name="StatoContiRequest" IsArray="false" Mode="IN" Required="false" xpdExt:DisplayName="StatoContiRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="StatoConti.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_dDusQE8HEeOudeDv_044hw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Y3wvo4HfEeO0V_d5mYFc1g" Name="StatoContiResponse" Mode="OUT" Required="false" xpdExt:DisplayName="StatoContiResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="StatoConti.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_dYnXIE8HEeOudeDv_044hw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_W3DcIIHfEeO0V_d5mYFc1g" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_JWi6IKkTEeOewLDGzKUwWw" xpdExt:DisplayName="CreditoGestioneDunning" Name="CreditoGestioneDunning" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_2a9osK-bEeOB78PLi_te7Q" Name="GestioneDunningRequest" Mode="INOUT" Required="false" xpdExt:DisplayName="GestioneDunningRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="creditoaccelerazionedunning.integration.mind.enel.com.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="creditoaccelerazionedunning.integration.mind.enel.comAccelerazioneDunningRequestType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Kuz8YK-cEeOB78PLi_te7Q" Name="GestioneDunningResponse" Mode="INOUT" Required="false" xpdExt:DisplayName="GestioneDunningResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="creditoaccelerazionedunning.integration.mind.enel.com.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="creditoaccelerazionedunning.integration.mind.enel.comAccelerazioneDunningResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_PeAnoKkTEeOewLDGzKUwWw" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_TMQxUKkvEeOpxMVnXlbSig" xpdExt:DisplayName="CreditCheck" Name="CreditCheck" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_XOGPEKkvEeOpxMVnXlbSig" Name="CreditCheckRequest" Mode="INOUT" Required="false" xpdExt:DisplayName="CreditCheckRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpm.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmCreditCheckType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_aSSY0KkvEeOpxMVnXlbSig" Name="CreditCheckResponse" Mode="INOUT" Required="false" xpdExt:DisplayName="CreditCheckResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpm.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmCreditCheckResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_V3zKgKkvEeOpxMVnXlbSig" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_s4IyQKkyEeOpxMVnXlbSig" xpdExt:DisplayName="PostFirma" Name="PostFirma" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_yrjiYKkyEeOpxMVnXlbSig" Name="PostFirmaRequest" Mode="INOUT" Required="false" xpdExt:DisplayName="PostFirmaRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpm.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmPostFirmaType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_1gGGkKkyEeOpxMVnXlbSig" Name="PostFirmaResponse" Mode="INOUT" Required="false" xpdExt:DisplayName="PostFirmaResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpm.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmPostFirmaResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_uGh4AKkyEeOpxMVnXlbSig" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_67RRoL8yEeO0fa7_lzKVHg" xpdExt:DisplayName="AttivazioneCVP-Interface" Name="AttivazioneCVPInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_KqoRBL80EeO0fa7_lzKVHg" Name="I_NomeProcessoBPM" Mode="IN" Required="true" xpdExt:DisplayName="I_NomeProcessoBPM">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_KqoRBb80EeO0fa7_lzKVHg" Name="I_FLG_VBL" ReadOnly="false" Mode="IN" Required="false" xpdExt:DisplayName="I_FLG_VBL">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_KqoRBr80EeO0fa7_lzKVHg" Name="response" Mode="OUT" Required="true" xpdExt:DisplayName="response">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.attivazionecvp.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.mind.attivazionecvpAttivazioneCVPOutput"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_KqoRB780EeO0fa7_lzKVHg" Name="request" Mode="IN" Required="true" xpdExt:DisplayName="request">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.attivazionecvp.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.mind.attivazionecvpAttivazioneCVPInput"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_93xfAL8yEeO0fa7_lzKVHg" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_7N_0wMAAEeONyZRy5W3VMw" xpdExt:DisplayName="VerificaBlackList-Interface" Name="VerificaBlackListInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_BUFpQsABEeONyZRy5W3VMw" Name="request" Mode="IN" Required="true" xpdExt:DisplayName="request">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.verificablacklist.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.mind.verificablacklistVerificaBlackListInput"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_BUFpQ8ABEeONyZRy5W3VMw" Name="response" Mode="OUT" Required="true" xpdExt:DisplayName="response">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.verificablacklist.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.mind.verificablacklistVerificaBlackListOutput"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="__mrv8AgEEeSArdrJLixHFA" Name="I_NomeProcessoBPM" Mode="IN" Required="false" xpdExt:DisplayName="I_NomeProcessoBPM">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_8Vj5wMAAEeONyZRy5W3VMw" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_iTT1MGtcEeSjxrMWZKMPfQ" xpdExt:DisplayName="CreditoBpm-VerificaDimostratoPagamento" Name="CreditoBpmVerificaDimostratoPagamento" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_nZ2RMGtcEeSjxrMWZKMPfQ" Name="VerificaDiomostratoPagamentoResponse" Mode="INOUT" Required="false" xpdExt:DisplayName="VerificaDimostratoPagamentoResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CreditoBpmService.integration.mind.enel.com.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="CreditoBpmService.integration.mind.enel.comVerificaDimostratoPagamentoResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sshrwGtcEeSjxrMWZKMPfQ" Name="VerificaDimostratoPagamentoRequest" Mode="INOUT" Required="false" xpdExt:DisplayName="VerificaDimostratoPagamentoRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CreditoBpmService.integration.mind.enel.com.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="CreditoBpmService.integration.mind.enel.comVerificaDimostratoPagamentoRequestType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_momacGtcEeSjxrMWZKMPfQ" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_4wnrkHoJEeSR7NKRx8ULig" xpdExt:DisplayName="CreditoAllineamentoBanche" Name="CreditoAllineamentoBanche" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_CvIjIHoKEeSR7NKRx8ULig" Name="CreditoAllineamentoBancheRequest" Mode="IN" Required="false" xpdExt:DisplayName="CreditoAllineamentoBancheRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.schema.abstract_.integration.credito.allineamentoabicabservice.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.schema.abstract_.integration.credito.allineamentoabicabserviceCreazioneRequestType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_LvyEQHoKEeSR7NKRx8ULig" Name="CreditoAllineamentoBancheResponse" Mode="OUT" Required="false" xpdExt:DisplayName="CreditoAllineamentoBancheResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.schema.abstract_.integration.credito.allineamentoabicabservice.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.schema.abstract_.integration.credito.allineamentoabicabserviceCreazioneResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_6teZ0HoJEeSR7NKRx8ULig" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="__cYJMnoaEeSR7NKRx8ULig" xpdExt:DisplayName="ReceiveTaskFiCaRicezioneEsiti" Name="ReceiveTaskFiCaRicezioneEsiti" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_JXwQYHofEeSR7NKRx8ULig" Name="IdProcessoBpm" Mode="IN" Required="true" xpdExt:DisplayName="IdProcessoBpm">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Ba9HAHohEeSR7NKRx8ULig" Name="response" Mode="INOUT" Required="false" xpdExt:DisplayName="response">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.schema.bpm.receivetaskficaricezioneesiti.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.schema.bpm.receivetaskficaricezioneesitiFiCaRicezioneEsitiRequestType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="__cYJM3oaEeSR7NKRx8ULig" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.script.ui.scriptGrammarDestinationBinding">
+      <destination
+            destinationId="xPath1.x">
+         <scriptContribution
+               scriptContext="WebServiceTask">
+            <classContributor
+                  class="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader"
+                  grammarId="XPath"
+                  id="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader"
+                  name="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader">
+            </classContributor>
+         </scriptContribution>
+         <scriptContribution
+               scriptContext="BWServiceTask">
+            <classContributor
+                  class="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader"
+                  grammarId="XPath"
+                  id="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader"
+                  name="com.tibco.xpd.process.xpath.model.script.XPathDefinitionReader">
+            </classContributor>
+         </scriptContribution>
+      </destination>
+   </extension>
+</plugin>

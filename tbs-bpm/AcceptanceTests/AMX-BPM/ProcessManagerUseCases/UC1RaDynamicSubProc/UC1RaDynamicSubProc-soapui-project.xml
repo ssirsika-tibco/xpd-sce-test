@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="UC1RaDynamicSubProc" resourceRoot="" soapui-version="3.6" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="MainProcess_EP" type="wsdl" bindingName="{urn:amx:BPMEnvironment/UC1RaDynamicSubProc}MainProcess_EP" soapVersion="1_1" anonymous="optional" definition="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=505&amp;svc_binding_name=MainProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=505&amp;svc_binding_name=MainProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode"><con:part><con:url>http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=505&amp;svc_binding_name=MainProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="ProcessPackageProcessFlow_1.0.0.201011161232_service_ProcessPackage_MainProcess_ProcessPackage_MainProcess" targetNamespace="urn:amx:BPMEnvironment/UC1RaDynamicSubProc" xmlns:ns1="http://example.com/uc1radynamicsubproc" xmlns:tns="urn:amx:BPMEnvironment/UC1RaDynamicSubProc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://example.com/uc1radynamicsubproc"/>
+      <xs:simpleType name="string_50">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="50"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="MainProcess_id" type="ns0:string_50"/>
+      <xs:element name="MainProcess_name" type="ns0:string_50"/>
+      <xs:element name="MainProcess_type" type="ns0:string_50"/>
+      <xs:element name="ProcessPackageInterface_intfcId" type="ns0:string_50"/>
+      <xs:element name="ProcessPackageInterface_intfcName" type="ns0:string_50"/>
+      <xs:element name="ProcessPackageInterface_intfcStrElement" type="ns0:string_50"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://example.com/uc1radynamicsubproc" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA"/>
+      <xs:annotation>
+        <xs:documentation>
+          <ns1:DocumentationElement BOMORIGIN="/UC1RaDynamicSubProc/Business Objects/BusinessObjectModel.bom"/>
+        </xs:documentation>
+      </xs:annotation>
+      <xs:complexType name="NameArray">
+        <xs:sequence>
+          <xs:element name="names" form="unqualified" maxOccurs="unbounded">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="50"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NameArrayElement" type="ns1:NameArray"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="MainProcess_StartEvent_INPUT">
+    <wsdl:part name="id" element="ns0:MainProcess_id"/>
+    <wsdl:part name="name" element="ns0:MainProcess_name"/>
+    <wsdl:part name="strArray" element="ns1:NameArrayElement"/>
+    <wsdl:part name="type" element="ns0:MainProcess_type"/>
+  </wsdl:message>
+  <wsdl:message name="MainProcess_StartEvent_OUTPUT">
+    <wsdl:part name="id" element="ns0:MainProcess_id"/>
+    <wsdl:part name="name" element="ns0:MainProcess_name"/>
+    <wsdl:part name="strArray" element="ns1:NameArrayElement"/>
+  </wsdl:message>
+  <wsdl:portType name="MainProcess" ns2:FlowContainer="_vxLkEOy7Ed-L5ejFHBnIsA" xmlns:ns2="http://www.tibco.com/bs3.2/extensions">
+    <wsdl:operation name="StartEvent">
+      <wsdl:input message="tns:MainProcess_StartEvent_INPUT" ns2:Event="_5MlHguy7Ed-L5ejFHBnIsA"/>
+      <wsdl:output message="tns:MainProcess_StartEvent_OUTPUT" ns2:Event="_5MlHguy7Ed-L5ejFHBnIsA"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MainProcess_EP" type="tns:MainProcess">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="StartEvent">
+      <wsdl:documentation/>
+      <soap:operation style="document" soapAction="StartEvent"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="id name strArray type"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="id name strArray"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcessPackageProcessFlow_1.0.0.201011161232_service_ProcessPackage_MainProcess_ProcessPackage_MainProcess">
+    <wsdl:port name="MainProcess_EP" binding="tns:MainProcess_EP">
+      <soap:address location="https://0.0.0.0:8080/UC1RaDynamicSubProc/MainProcess"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://wolverine.na.tibco.com:8080/UC1RaDynamicSubProc/MainProcess</con:endpoint></con:endpoints><con:operation isOneWay="false" action="StartEvent" name="StartEvent" bindingOperationName="StartEvent" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Standard Static"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC1RaDynamicSubProc/MainProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:_vx="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:uc1="http://example.com/uc1radynamicsubproc">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">tOeIN+XtUrlBoupPyqw8EA==</wsse:Nonce>
+            <wsu:Created>2010-11-16T20:36:44.816Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <_vx:MainProcess_id>myId</_vx:MainProcess_id>
+      <_vx:MainProcess_name>myName</_vx:MainProcess_name>
+      <uc1:NameArrayElement>
+         <names>Standard Static A</names>
+         <names>Standard Static B</names>
+         <names>Standard Static C</names>
+      </uc1:NameArrayElement>
+      <_vx:MainProcess_type>Standard Static</_vx:MainProcess_type>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="StartEvent"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Standard Dynamic"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC1RaDynamicSubProc/MainProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:_vx="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:uc1="http://example.com/uc1radynamicsubproc">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">tOeIN+XtUrlBoupPyqw8EA==</wsse:Nonce>
+            <wsu:Created>2010-11-16T20:36:44.816Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <_vx:MainProcess_id>Standard Dynamic Id</_vx:MainProcess_id>
+      <_vx:MainProcess_name>Standard Dynamic Name</_vx:MainProcess_name>
+      <uc1:NameArrayElement>
+         <names>Standard Dynamic A</names>
+         <names>Standard Dynamic B</names>
+         <names>Standard Dynamic C</names>
+      </uc1:NameArrayElement>
+      <_vx:MainProcess_type>Standard Dynamic</_vx:MainProcess_type>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="StartEvent"/><con:wsrmConfig version="1.2"/></con:call><con:call name="MI Static"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC1RaDynamicSubProc/MainProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:_vx="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:uc1="http://example.com/uc1radynamicsubproc">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">tOeIN+XtUrlBoupPyqw8EA==</wsse:Nonce>
+            <wsu:Created>2010-11-16T20:36:44.816Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <_vx:MainProcess_id>MI Static Id</_vx:MainProcess_id>
+      <_vx:MainProcess_name>MI Static Name</_vx:MainProcess_name>
+      <uc1:NameArrayElement>
+         <names>MI Static A</names>
+         <names>MI Static B</names>
+         <names>MI Static C</names>
+      </uc1:NameArrayElement>
+      <_vx:MainProcess_type>MI Static</_vx:MainProcess_type>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="StartEvent"/><con:wsrmConfig version="1.2"/></con:call><con:call name="MI Dynamic"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC1RaDynamicSubProc/MainProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:_vx="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:uc1="http://example.com/uc1radynamicsubproc">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">tOeIN+XtUrlBoupPyqw8EA==</wsse:Nonce>
+            <wsu:Created>2010-11-16T20:36:44.816Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <_vx:MainProcess_id>MI Dynamic Id</_vx:MainProcess_id>
+      <_vx:MainProcess_name>MI Dynamic Name</_vx:MainProcess_name>
+      <uc1:NameArrayElement>
+         <names>MI Dynamic A</names>
+         <names>MI Dynamic B</names>
+         <names>MI Dynamic C</names>
+      </uc1:NameArrayElement>
+      <_vx:MainProcess_type>MI Dynamic</_vx:MainProcess_type>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="StartEvent"/><con:wsrmConfig version="1.2"/></con:call><con:call name="NoLoop Dynamic"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC1RaDynamicSubProc/MainProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:_vx="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:uc1="http://example.com/uc1radynamicsubproc">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">tOeIN+XtUrlBoupPyqw8EA==</wsse:Nonce>
+            <wsu:Created>2010-11-16T20:36:44.816Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <_vx:MainProcess_id>NoLoop Dynamic Id</_vx:MainProcess_id>
+      <_vx:MainProcess_name>NoLoop Dynamic Name</_vx:MainProcess_name>
+      <uc1:NameArrayElement>
+         <names>NoLoop Dynamic A</names>
+         <names>NoLoop Dynamic B</names>
+         <names>NoLoop Dynamic C</names>
+      </uc1:NameArrayElement>
+      <_vx:MainProcess_type>NoLoop Dynamic</_vx:MainProcess_type>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="StartEvent"/><con:wsrmConfig version="1.2"/></con:call><con:call name="NoLoop Static (default)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC1RaDynamicSubProc/MainProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:_vx="http://www.tibco.com/bs3.0/_vxBzEOy7Ed-L5ejFHBnIsA" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:uc1="http://example.com/uc1radynamicsubproc">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">tOeIN+XtUrlBoupPyqw8EA==</wsse:Nonce>
+            <wsu:Created>2010-11-16T20:36:44.816Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <_vx:MainProcess_id>NoLoop Static Id</_vx:MainProcess_id>
+      <_vx:MainProcess_name>NoLoop Static Name</_vx:MainProcess_name>
+      <uc1:NameArrayElement>
+         <names>NoLoop Static A</names>
+         <names>NoLoop Static B</names>
+         <names>NoLoop Static C</names>
+      </uc1:NameArrayElement>
+      <_vx:MainProcess_type>NoLoop Static (default)</_vx:MainProcess_type>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="StartEvent"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

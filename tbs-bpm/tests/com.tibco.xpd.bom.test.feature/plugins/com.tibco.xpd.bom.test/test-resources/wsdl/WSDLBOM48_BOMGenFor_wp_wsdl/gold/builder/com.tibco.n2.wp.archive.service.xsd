@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://service.archive.wp.n2.tibco.com" xmlns:tns9="http://service.archive.wp.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns11="http://channeltype.common.n2.tibco.com"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://service.archive.wp.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.wp.archive.service.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://channeltype.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.channeltype.xsd"/>
+  <xsd:complexType ecore:name="extendedPropertiesType" id="com.tibco.n2.wp.archive.serviceextendedPropertiesType"
+      abstract="false" mixed="false" name="extendedPropertiesType">
+    <xsd:annotation>
+      <xsd:documentation>Detailed information on extended properties </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="property" id="extendedPropertiesTypepropertyType" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="property">
+        <xsd:complexType ecore:name="propertyType" id="com.tibco.n2.wp.archive.servicepropertyType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="name" form="qualified" maxOccurs="1" minOccurs="1"
+                name="name" type="xsd:string"/>
+            <xsd:element ecore:name="value" form="qualified" maxOccurs="1" minOccurs="1"
+                name="value" type="xsd:string"/>
+            <xsd:element ecore:name="type" form="qualified" maxOccurs="1" minOccurs="1"
+                name="type" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="formType" id="com.tibco.n2.wp.archive.serviceformType"
+      abstract="false" mixed="false" name="formType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of a form artifact. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="formIdentifier" id="formTypeformIdentifier" form="qualified"
+          maxOccurs="1" minOccurs="0" name="formIdentifier" type="xsd:string"/>
+      <xsd:element ecore:name="relativepath" id="formTyperelative-path" form="qualified"
+          maxOccurs="1" minOccurs="1" name="relative-path" type="xsd:string"/>
+      <xsd:element ecore:name="basepath" id="formTypebase-path" form="qualified" maxOccurs="1"
+          minOccurs="0" name="base-path" type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="version" id="formTypeversion" form="unqualified" name="version"
+        type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Version number of the form artifact. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="guid" id="formTypeguid" form="unqualified" name="guid"
+        type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>GUID of the form artifact. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="name" id="formTypename" form="unqualified" name="name"
+        type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the form artifact. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="channelExtentionType" id="com.tibco.n2.wp.archive.servicechannelExtentionType"
+      abstract="false" mixed="false" name="channelExtentionType">
+    <xsd:annotation>
+      <xsd:documentation>Defines extended Channel Type deployment information such as Email Channel, or for a channel type not yet implemented </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="filename" id="channelExtentionTypefilename" form="unqualified"
+        name="filename" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>The requested filename </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="location" id="channelExtentionTypelocation" form="unqualified"
+        name="location" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>The requested location </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="pageFlowType" id="com.tibco.n2.wp.archive.servicepageFlowType"
+      abstract="false" mixed="false" name="pageFlowType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of a pageflow. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:element ecore:name="pageactivity" id="pageFlowTypepage-activityType" form="qualified"
+          maxOccurs="unbounded" minOccurs="1" name="page-activity">
+        <xsd:complexType ecore:name="pageactivityType" id="com.tibco.n2.wp.archive.servicepage-activityType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="pagereference" form="qualified" maxOccurs="1"
+                minOccurs="1" name="page-reference" type="formType"/>
+          </xsd:sequence>
+          <xsd:attribute ecore:name="id" id="page-activityTypeid" form="unqualified"
+              name="id" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation>ID of this page activity. </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute ecore:name="name" id="page-activityTypename" form="unqualified"
+              name="name" type="xsd:string" use="optional">
+            <xsd:annotation>
+              <xsd:documentation>Name of this page activity. </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="id" id="pageFlowTypeid" form="unqualified" name="id"
+        type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>ID of this pageflow. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="name" id="pageFlowTypename" form="unqualified" name="name"
+        type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Name of this pageflow. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="url" id="pageFlowTypeurl" form="unqualified" name="url"
+        type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>URL of this pageflow. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="moduleName" id="pageFlowTypemoduleName" form="unqualified"
+        name="moduleName" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Module name of this pageflow. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="moduleVersion" id="pageFlowTypemoduleVersion" form="unqualified"
+        name="moduleVersion" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Module version number of this pageflow. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="pageFlowRefType" id="com.tibco.n2.wp.archive.servicepageFlowRefType"
+      abstract="false" mixed="false" name="pageFlowRefType">
+    <xsd:annotation>
+      <xsd:documentation>This type represents the reference to the pageflow element. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="refId" id="pageFlowRefTyperefId" form="unqualified"
+        name="refId" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="businessServiceType" id="com.tibco.n2.wp.archive.servicebusinessServiceType"
+      abstract="false" mixed="false" name="businessServiceType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of a business service. 
+
+(A business service is a special type of pageflow). </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns9:pageFlowType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="Service-Archive-Descriptor" nillable="false">
+    <xsd:complexType ecore:name="ServiceArchiveDescriptorType" id="com.tibco.n2.wp.archive.serviceService-Archive-DescriptorType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="channels" form="qualified" maxOccurs="1" minOccurs="1"
+            name="channels">
+          <xsd:complexType ecore:name="channelsType" id="com.tibco.n2.wp.archive.servicechannelsType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="channel" form="qualified" maxOccurs="unbounded"
+                  minOccurs="1" name="channel">
+                <xsd:complexType ecore:name="channelType" id="com.tibco.n2.wp.archive.servicechannelType"
+                    mixed="false">
+                  <xsd:sequence>
+                    <xsd:element ecore:name="description" form="qualified" maxOccurs="1"
+                        minOccurs="0" name="description" nillable="true" type="xsd:string"/>
+                    <xsd:element ecore:name="targetchanneltype" form="qualified" maxOccurs="1"
+                        minOccurs="1" name="target-channel-type" type="tns11:ChannelType"/>
+                    <xsd:element ecore:name="presentationchanneltype" form="qualified"
+                        maxOccurs="1" minOccurs="1" name="presentation-channel-type"
+                        type="tns11:PresentationType"/>
+                    <xsd:element ecore:name="implementationtype" form="qualified"
+                        maxOccurs="1" minOccurs="1" name="implementation-type" type="tns11:ImplementationType"/>
+                    <xsd:element ecore:name="worktype" form="qualified" maxOccurs="unbounded"
+                        minOccurs="0" name="work-type">
+                      <xsd:complexType ecore:name="worktypeType" id="com.tibco.n2.wp.archive.servicework-typeType"
+                          mixed="false">
+                        <xsd:sequence>
+                          <xsd:element ecore:name="extendedproperties" form="qualified"
+                              maxOccurs="1" minOccurs="0" name="extended-properties"
+                              nillable="true" type="extendedPropertiesType"/>
+                          <xsd:choice>
+                            <xsd:element ecore:name="form" id="work-typeTypeform"
+                                form="qualified" maxOccurs="1" minOccurs="1" name="form"
+                                type="formType"/>
+                            <xsd:element ecore:name="pageflow" id="work-typeTypepage-flow"
+                                form="qualified" maxOccurs="1" minOccurs="1" name="page-flow"
+                                type="pageFlowType"/>
+                            <xsd:element ecore:name="extensionconfig" id="work-typeTypeextension-config"
+                                form="qualified" maxOccurs="1" minOccurs="1" name="extension-config"
+                                type="channelExtentionType"/>
+                            <xsd:element ecore:name="pageflowref" id="work-typeTypepage-flow-ref"
+                                form="qualified" maxOccurs="1" minOccurs="1" name="page-flow-ref"
+                                type="pageFlowRefType"/>
+                          </xsd:choice>
+                        </xsd:sequence>
+                        <xsd:attribute ecore:name="guid" id="work-typeTypeguid" form="unqualified"
+                            name="guid" type="xsd:string" use="required"/>
+                        <xsd:attribute ecore:name="name" id="work-typeTypename" form="unqualified"
+                            name="name" type="xsd:string" use="optional"/>
+                        <xsd:attribute ecore:name="version" id="work-typeTypeversion"
+                            form="unqualified" name="version" type="xsd:string" use="optional"/>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element ecore:name="domain" form="qualified" maxOccurs="1"
+                        minOccurs="0" name="domain" type="xsd:string"/>
+                    <xsd:element ecore:name="extendedproperties" form="qualified"
+                        maxOccurs="1" minOccurs="0" name="extended-properties" nillable="true"
+                        type="extendedPropertiesType"/>
+                    <xsd:element ecore:name="extensionconfig" form="qualified" maxOccurs="1"
+                        minOccurs="0" name="extension-config" nillable="true" type="channelExtentionType"/>
+                    <xsd:element ecore:name="businessservice" form="qualified" maxOccurs="unbounded"
+                        minOccurs="0" name="business-service" type="businessServiceType"/>
+                    <xsd:element ecore:name="pageflow" form="qualified" maxOccurs="unbounded"
+                        minOccurs="0" name="page-flow" type="pageFlowType"/>
+                  </xsd:sequence>
+                  <xsd:attribute ecore:name="version" id="channelTypeversion" form="unqualified"
+                      name="version" type="xsd:string" use="optional"/>
+                  <xsd:attribute ecore:name="channelId" id="channelTypechannelId"
+                      form="unqualified" name="channelId" type="xsd:string" use="required"/>
+                  <xsd:attribute ecore:name="name" id="channelTypename" form="unqualified"
+                      name="name" type="xsd:string" use="optional"/>
+                  <xsd:attribute ecore:name="defaultChannel" id="channelTypedefaultChannel"
+                      form="unqualified" name="defaultChannel" type="xsd:boolean"
+                      use="optional">
+                    <xsd:annotation>
+                      <xsd:documentation>Is this a default channel for the target channel type. Note there should be only one default channel per channel type. </xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="version" form="qualified" maxOccurs="1" minOccurs="0"
+            name="version" type="xsd:anyType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.XSDBOM_All02_TopLevelAnonComplexType2" name="org.example.XSDBOM_All02_TopLevelAnonComplexType">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KP4cIRUEEeGvy5vcBZd45A" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KP4cIhUEEeGvy5vcBZd45A" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KP4cIxUEEeGvy5vcBZd45A" key="created" value="1321967940962"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KP5DMBUEEeGvy5vcBZd45A" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.XSDBOM_All02_TopLevelAnonComplexTypetopLevelElementType" name="topLevelElementType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="topLevelElementTypeattr1" name="attr1">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KByVwxUEEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KByVwhUEEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KBlhcRUEEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KBlhchUEEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KBmIgBUEEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KBmIgRUEEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_KBmvkBUEEeGvy5vcBZd45A" base_Package="org.example.XSDBOM_All02_TopLevelAnonComplexType2?org.example.XSDBOM_All02_TopLevelAnonComplexType?" xsdTargetNamespace="http://www.example.org/XSDBOM_All02_TopLevelAnonComplexType" xsdSchemaLocation="XSDBOM_All02_TopLevelAnonComplexType.xsd" xsdAttributeForm="unqualified" xsdElementForm="qualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_KBroEBUEEeGvy5vcBZd45A" base_Class="org.example.XSDBOM_All02_TopLevelAnonComplexTypetopLevelElementType?org.example.XSDBOM_All02_TopLevelAnonComplexType%3a%3atopLevelElementType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true" xsdIsAllMultiplicitySet="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_KB1ZEBUEEeGvy5vcBZd45A" name="MS1_1_1" minOccurs="0" isAll="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_KByVwRUEEeGvy5vcBZd45A" base_Property="topLevelElementTypeattr1?org.example.XSDBOM_All02_TopLevelAnonComplexType%3a%3atopLevelElementType%3a%3aattr1?" xsdName="attr1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="A1" xsdParentSequence="_KB1ZEBUEEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_KBy80BUEEeGvy5vcBZd45A" textLength="-1" base_Property="topLevelElementTypeattr1?org.example.XSDBOM_All02_TopLevelAnonComplexType%3a%3atopLevelElementType%3a%3aattr1?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_KB31UBUEEeGvy5vcBZd45A" base_Package="org.example.XSDBOM_All02_TopLevelAnonComplexType2?org.example.XSDBOM_All02_TopLevelAnonComplexType?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_KB31URUEEeGvy5vcBZd45A" name="topLevelElement" type="org.example.XSDBOM_All02_TopLevelAnonComplexTypetopLevelElementType?org.example.XSDBOM_All02_TopLevelAnonComplexType%3a%3atopLevelElementType?" isAnonymous="true" targetNamespace="http://www.example.org/XSDBOM_All02_TopLevelAnonComplexType" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KB4cYBUEEeGvy5vcBZd45A" base_Element="topLevelElementTypeattr1?org.example.XSDBOM_All02_TopLevelAnonComplexType%3a%3atopLevelElementType%3a%3aattr1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KB4cYRUEEeGvy5vcBZd45A" base_Element="_KBlhcRUEEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KB4cYhUEEeGvy5vcBZd45A" base_Element="_KByVwxUEEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KB5DcBUEEeGvy5vcBZd45A" base_Element="_KByVwhUEEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KB5DcRUEEeGvy5vcBZd45A" base_Element="_KBmIgBUEEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KB5qgBUEEeGvy5vcBZd45A" base_Element="org.example.XSDBOM_All02_TopLevelAnonComplexTypetopLevelElementType?org.example.XSDBOM_All02_TopLevelAnonComplexType%3a%3atopLevelElementType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_KP3OABUEEeGvy5vcBZd45A" displayLabel="topLevelElementType" base_NamedElement="org.example.XSDBOM_All02_TopLevelAnonComplexTypetopLevelElementType?org.example.XSDBOM_All02_TopLevelAnonComplexType%3a%3atopLevelElementType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_KP4cIBUEEeGvy5vcBZd45A" displayLabel="attr1" base_NamedElement="topLevelElementTypeattr1?org.example.XSDBOM_All02_TopLevelAnonComplexType%3a%3atopLevelElementType%3a%3aattr1?"/>
+  <notation:Diagram xmi:id="_KP5DMRUEEeGvy5vcBZd45A" type="Business Object Model" element="org.example.XSDBOM_All02_TopLevelAnonComplexType2?org.example.XSDBOM_All02_TopLevelAnonComplexType?" name="org.example.XSDBOM_All02_TopLevelAnonComplexType" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_KP5DMhUEEeGvy5vcBZd45A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_KP5DMxUEEeGvy5vcBZd45A"/>
+  </notation:Diagram>
+</xmi:XMI>

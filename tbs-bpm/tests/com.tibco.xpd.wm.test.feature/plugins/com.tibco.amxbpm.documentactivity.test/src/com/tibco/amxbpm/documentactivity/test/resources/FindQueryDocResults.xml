@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ASCII"?>
+<model:DocumentActivityDataModelType xmlns:model="http://model.documentactivity.amxbpm.tibco.com">
+  <model:findDocuments>
+    <model:ownerReference>caseRefField</model:ownerReference>
+    <model:query>
+      <model:propertyName>cmis:name</model:propertyName>
+      <model:operator>EQUAL</model:operator>
+      <model:argumentField>s_string</model:argumentField>
+    </model:query>
+    <model:query closeBracketCount="1" joinType="AND" openBracketCount="1">
+      <model:propertyName>cmis:createdBy</model:propertyName>
+      <model:operator>NOT_EQUAL</model:operator>
+      <model:argumentField>s_string</model:argumentField>
+    </model:query>
+    <model:query joinType="OR">
+      <model:propertyName>cmis:creationDate</model:propertyName>
+      <model:operator>GREATER_THAN</model:operator>
+      <model:argumentField>s_dateTime</model:argumentField>
+    </model:query>
+    <model:query joinType="AND">
+      <model:propertyName>cmis:lastModificationDate</model:propertyName>
+      <model:operator>GREATER_THAN_EQUAL</model:operator>
+      <model:argumentField>s_dateTime</model:argumentField>
+    </model:query>
+    <model:query closeBracketCount="1" joinType="AND" openBracketCount="2">
+      <model:propertyName>cmis:lastModificationDate</model:propertyName>
+      <model:operator>LESS_THAN</model:operator>
+      <model:argumentField>s_dateTime</model:argumentField>
+    </model:query>
+    <model:query joinType="OR">
+      <model:propertyName>cmis:lastModificationDate</model:propertyName>
+      <model:operator>LESS_THAN_EQUAL</model:operator>
+      <model:argumentField>s_dateTime</model:argumentField>
+    </model:query>
+    <model:query joinType="AND" openBracketCount="1">
+      <model:propertyName>cmis:lastModifiedBy</model:propertyName>
+      <model:operator>NULL</model:operator>
+    </model:query>
+    <model:query joinType="AND">
+      <model:propertyName>cmis:lastModificationDate</model:propertyName>
+      <model:operator>NOT_NULL</model:operator>
+    </model:query>
+    <model:query closeBracketCount="2" joinType="OR">
+      <model:operator>CONTAINS</model:operator>
+      <model:argumentField>a_string</model:argumentField>
+    </model:query>
+    <model:query joinType="AND" openBracketCount="3">
+      <model:operator>NOT_CONTAINS</model:operator>
+      <model:argumentField>s_string</model:argumentField>
+    </model:query>
+    <model:query closeBracketCount="1" joinType="AND">
+      <model:propertyName>cmis:name</model:propertyName>
+      <model:operator>LIKE</model:operator>
+      <model:argumentField>s_string</model:argumentField>
+    </model:query>
+    <model:query joinType="AND">
+      <model:propertyName>cmis:createdBy</model:propertyName>
+      <model:operator>NOT_LIKE</model:operator>
+      <model:argumentField>s_integer</model:argumentField>
+    </model:query>
+    <model:query closeBracketCount="1" joinType="OR">
+      <model:propertyName>cmis:name</model:propertyName>
+      <model:operator>IN</model:operator>
+      <model:argumentField>a_string</model:argumentField>
+    </model:query>
+    <model:query closeBracketCount="1" joinType="AND">
+      <model:propertyName>cmis:name</model:propertyName>
+      <model:operator>NOT_IN</model:operator>
+      <model:argumentField>s_string</model:argumentField>
+    </model:query>
+    <model:searchResults>
+      <model:docReferences>resultsField</model:docReferences>
+    </model:searchResults>
+  </model:findDocuments>
+</model:DocumentActivityDataModelType>

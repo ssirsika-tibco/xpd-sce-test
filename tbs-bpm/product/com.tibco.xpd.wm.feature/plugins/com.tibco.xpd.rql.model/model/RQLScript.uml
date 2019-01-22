@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XbwAsdGBEdu4j_LxN5OLIw" name="RQL">
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_i8GbsJxYEd60TqCNDsSSWQ" name="Text"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_sDoxIaD8Ed6oL7pd3qD5cw" name="Number"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_kr6asNI7EduWapZ5a676CA" name="privilege">
+    <ownedAttribute xmi:id="_ZmHjwZxYEd60TqCNDsSSWQ" name="name" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_1Iy-0KD8Ed6oL7pd3qD5cw" name="qualifier" type="_sDoxIaD8Ed6oL7pd3qD5cw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_KN28IJxfEd60TqCNDsSSWQ" name="capability">
+    <ownedAttribute xmi:id="_KN28IZxfEd60TqCNDsSSWQ" name="name" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_4rGn8KD8Ed6oL7pd3qD5cw" name="qualifier" type="_sDoxIaD8Ed6oL7pd3qD5cw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_gXGrMJxfEd60TqCNDsSSWQ" name="organization">
+    <ownedAttribute xmi:id="_gXGrMZxfEd60TqCNDsSSWQ" name="name" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_gXGrMpxfEd60TqCNDsSSWQ" name="type" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_i5lTEKLCEd6fw-pMZQgmew" name="location" type="_1LanoJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_TtGP4KLEEd6fw-pMZQgmew" name="orgunit" type="_iMFP0JxfEd60TqCNDsSSWQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_iMFP0JxfEd60TqCNDsSSWQ" name="orgunit">
+    <ownedAttribute xmi:id="_iMFP0ZxfEd60TqCNDsSSWQ" name="name" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_iMFP0pxfEd60TqCNDsSSWQ" name="type" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_lAQZwKLEEd6fw-pMZQgmew" name="location" type="_1LanoJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_lAQZwaLEEd6fw-pMZQgmew" name="orgunit" type="_iMFP0JxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_lAQZwqLEEd6fw-pMZQgmew" name="position" type="_xpq_MJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_oV8jMKLEEd6fw-pMZQgmew" name="privilege" type="_kr6asNI7EduWapZ5a676CA"/>
+    <ownedOperation xmi:id="_FecUQOlOEd6fa9iOQ5eR0A" name="all"/>
+    <ownedOperation xmi:id="_FecUQelOEd6fa9iOQ5eR0A" name="children"/>
+    <ownedOperation xmi:id="_FecUQulOEd6fa9iOQ5eR0A" name="only"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xpq_MJxfEd60TqCNDsSSWQ" name="position">
+    <ownedAttribute xmi:id="_xpq_MZxfEd60TqCNDsSSWQ" name="name" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_xpq_MpxfEd60TqCNDsSSWQ" name="type" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_Ws7ooKLFEd6fw-pMZQgmew" name="location" type="_1LanoJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_Ws7ooqLFEd6fw-pMZQgmew" name="privilege" type="_kr6asNI7EduWapZ5a676CA"/>
+    <ownedAttribute xmi:id="_Ws7oo6LFEd6fw-pMZQgmew" name="capability" type="_KN28IJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_a55YUKLFEd6fw-pMZQgmew" name="orgunit" type="_iMFP0JxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_hi4egKLFEd6fw-pMZQgmew" name="resource" type="_yicaQJxfEd60TqCNDsSSWQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_yicaQJxfEd60TqCNDsSSWQ" name="resource">
+    <ownedAttribute xmi:id="_yicaQZxfEd60TqCNDsSSWQ" name="name" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_p2kwAbP9Ed6o9smDfWAizQ" name="attribute" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_1Xg8EKLEEd6fw-pMZQgmew" name="location" type="_1LanoJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_1Xg8EqLEEd6fw-pMZQgmew" name="position" type="_xpq_MJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_1Xg8E6LEEd6fw-pMZQgmew" name="privilege" type="_kr6asNI7EduWapZ5a676CA"/>
+    <ownedAttribute xmi:id="_3JXUMKLEEd6fw-pMZQgmew" name="capability" type="_KN28IJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_FUQFkKLFEd6fw-pMZQgmew" name="group" type="_zsM3oJxfEd60TqCNDsSSWQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zsM3oJxfEd60TqCNDsSSWQ" name="group">
+    <ownedAttribute xmi:id="_zsM3oZxfEd60TqCNDsSSWQ" name="name" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_LOmkIqLFEd6fw-pMZQgmew" name="privilege" type="_kr6asNI7EduWapZ5a676CA"/>
+    <ownedAttribute xmi:id="_LOmkI6LFEd6fw-pMZQgmew" name="capability" type="_KN28IJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_LOmkJKLFEd6fw-pMZQgmew" name="group" type="_zsM3oJxfEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_RYSfMKLFEd6fw-pMZQgmew" name="resource" type="_yicaQJxfEd60TqCNDsSSWQ"/>
+    <ownedOperation xmi:id="_GB6NsOlOEd6fa9iOQ5eR0A" name="all"/>
+    <ownedOperation xmi:id="_GB6NselOEd6fa9iOQ5eR0A" name="children"/>
+    <ownedOperation xmi:id="_GB6NsulOEd6fa9iOQ5eR0A" name="only"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_1LanoJxfEd60TqCNDsSSWQ" name="location">
+    <ownedAttribute xmi:id="_1LanoZxfEd60TqCNDsSSWQ" name="name" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+    <ownedAttribute xmi:id="_1LanopxfEd60TqCNDsSSWQ" name="type" type="_i8GbsJxYEd60TqCNDsSSWQ"/>
+  </packagedElement>
+</uml:Model>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.example.org/GenerateOrderLineID/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GenerateOrderLineID" targetNamespace="http://www.example.org/GenerateOrderLineID/" tibex:src="http://10.100.87.224:8080/axis2/services/GenerateOrderLineID?wsdl">
+  <wsdl:message name="GenerateOLIDRequest">
+    <wsdl:part name="ORDER_LINE_UNIQUE_REF" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenerateOLIDResponse">
+    <wsdl:part name="ORDER_LINE_UNIQUE_REF" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GenerateOrderLineID">
+    <wsdl:operation name="GenerateOLID">
+      <wsdl:input message="tns:GenerateOLIDRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:GenerateOLIDResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GenerateOrderLineIDSOAP" type="tns:GenerateOrderLineID">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GenerateOLID">
+      <soap:operation soapAction="GenerateOLID"/>
+      <wsdl:input>
+        <soap:body namespace="http://www.example.org/GenerateOrderLineID/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body namespace="http://www.example.org/GenerateOrderLineID/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GenerateOrderLineID">
+    <wsdl:port binding="tns:GenerateOrderLineIDSOAP" name="GenerateOrderLineIDSOAP">
+      <soap:address location="http://10.100.87.224:8080/axis2/services/GenerateOrderLineID"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

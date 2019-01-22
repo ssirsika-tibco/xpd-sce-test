@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.destinations.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.destinations.ui" id="processDestinationEnvironment" name="Definition Of A Process Destination Environment."/>
+      </appinfo>
+      <documentation>
+         &lt;p&gt;
+This Process Destination Environment extension point allows a new destination environment to be contributed to the Business Studio Process Editor. i.e. If user selectable it will appear in the Process Properties -&gt; Destinations tab control list.
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;How to create a new Process Destination and customise the facilities available through it - A Rough Guide&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+1) Contribute a Process Destination Environment via this extension point.&lt;br/&gt;
+&lt;br/&gt;
+2) To provide validation rules specific to your destination, contribute a Validation Destination Environment via the &lt;code&gt;com.tibco.xpd.validations.destinations&lt;/code&gt; extension point and specify its Id in this process destination environment contribution.&lt;br/&gt;
+(see validation destination environment extension point documentation for more detail on associating validation rules (via validation providers) with the validation destination environment.&lt;br/&gt;
+&lt;br/&gt;
+3) If you have Service/Send/Receive Task implementations other than the standard generic ones provided (such as Web Service, eMail, Database, BW Service, Java POJO)&lt;br/&gt;
+Contribute your own Process Destination Environment-specific task implementation types via the &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.taskImplementation&lt;/code&gt; extension point.&lt;br/&gt;
+&lt;br/&gt;
+4) The Service/Send/Receive Task implementation types (standard types and your own contributed types) that are supported by your Process Destination Environment must then be &apos;bound&apos; to your Process Destination environment (making them available for user selection when your destination is selected) via the &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.taskBinding&lt;/code&gt; extension point.&lt;br/&gt;
+&lt;br/&gt;
+5) If you have your own custom script grammar for Sequence Flow Conditions, Script Tasks, User Task Scripts, Timer Event Scripts etc then you can contribute a script grammar and associated script editor proeprty tab section via the &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.scriptGrammarEditor&lt;/code&gt; extension point.&lt;br/&gt;
+&lt;br/&gt;
+6) The standard script grammar types (Text, JavaScript, ConstantPeriod) &lt;b&gt;&lt;i&gt;and/or&lt;/i&gt;&lt;/b&gt; your own contributed script grammar(s) that your destination can support must now be &apos;bound&apos; to your Process Destination Environment (making them available for user selection when your destination is selected) via the &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.scriptGrammarDestinationEnvironment&lt;/code&gt; extension point.&lt;br/&gt;
+&lt;br/&gt;
+7) If you have your own Complex Data Types (that you wish to be made available for selection for Data Field / Formal Parameter / Type Declaration &apos;External Reference&apos; types) then you can contribute a new complex data type via the &lt;code&gt;com.tibco.xpd.resources.ui.complexDataType&lt;/code&gt; extension point.&lt;br/&gt;
+&lt;br/&gt;
+8) The standard complex data types (com.tibco.xpd.cm.complexDataType.concept) &lt;b&gt;&lt;i&gt;and/or&lt;/i&gt;&lt;/b&gt; your own contributed types that your destination can support must now be &apos;bound&apos; to your Process Destination Environment (making them available for user selection when your destination is selected) via the &lt;code&gt;com.tibco.xpd.destinations.ui.complexDataTypeBinding&lt;/code&gt; extrension point.&lt;br/&gt;
+&lt;br/&gt;
+----------------------------------------------------------------------------
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="processDestinationEnvironment"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="processDestinationEnvironment">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Unique Id for the process destination environment.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Descriptive text of this process destination environment.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="userSelectable" type="boolean" use="required">
+            <annotation>
+               <documentation>
+                  Specifies whether this process destination environment is user selectable.
+If true then the destination environment can be switch on/off via the Process Destinations property tab.
+If false then it will not appear in the Process Destinations property tab (and its various bindings will always be active).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="validationDestinationId" type="string">
+            <annotation>
+               <documentation>
+                  Binding to the validation destination id (contributed via the com.tibco.xpd.validation.destinations extension point).
+This effectively binds between this process destination environment and the set of validation rules associated with the given validation destination environment.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="version" type="string">
+            <annotation>
+               <documentation>
+                  Optional destination environment version.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="includeXPathErrors" type="boolean">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         Studio v2.1
+      </documentation>
+   </annotation>
+
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         TIBCO Software Inc (c) 2007 all rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

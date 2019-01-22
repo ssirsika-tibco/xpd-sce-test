@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example.org/UsingMidOrderedAny/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UsingMidOrderedAny"
+	targetNamespace="http://www.example.org/UsingMidOrderedAny/" xmlns:ma="http://example.com/MidOrderedAny">
+	<wsdl:types>
+		<xs:schema xmlns="http://example.com/MidOrderedAny"
+			targetNamespace="http://example.com/MidOrderedAny">
+			<xs:element name="train" type="TrainType" />
+			<xs:complexType name="TrainType">
+				<xs:sequence>
+					<xs:element name="line" type="xs:string" />
+					<xs:any processContents="skip" minOccurs="1" maxOccurs="1" />
+					<xs:element name="company" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="GetTrainLineDetailsRequest">
+		<wsdl:part element="ma:train" name="TrainLineCompany" />
+	</wsdl:message>
+	<wsdl:message name="GetTrainLineDetailsResponse">
+		<wsdl:part element="ma:train" name="TrainFullDetails" />
+	</wsdl:message>
+	<wsdl:portType name="UsingMidOrderedAny">
+		<wsdl:operation name="GetFullTrainDetails">
+			<wsdl:input message="tns:GetTrainLineDetailsRequest" />
+			<wsdl:output message="tns:GetTrainLineDetailsResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

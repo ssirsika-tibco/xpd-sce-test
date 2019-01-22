@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+Copyright (c) TIBCO Software Inc 2007. All rights reserved.
+-->
+<plugin>
+   <extension-point id="CustomProfiles" name="CustomProfiles" schema="schema/CustomProfiles.exsd"/>
+   
+   <extension point="org.eclipse.team.core.fileTypes">
+      <?gmfgen generated="true"?>
+      <fileTypes
+         type="text"
+         extension="bom">
+      </fileTypes>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <?gmfgen generated="true"?>
+      <parser
+         type="bom"
+         class="com.tibco.xpd.bom.modeler.diagram.BOMResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <?gmfgen generated="true"?>
+      <editor
+         id="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/wizard.png"
+         extensions="bom"
+         default="true"
+         class="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramEditor"
+         matchingStrategy="com.tibco.xpd.bom.modeler.diagram.part.UMLMatchingStrategy"
+         contributorClass="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="com.tibco.xpd.bom.modeler.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <?gmfgen generated="false"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/wizard.png"
+  	     category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.bom.modeler.diagram.categoryBOM"
+  	     class="com.tibco.xpd.bom.modeler.diagram.part.UMLCreationWizard"
+  	     id="com.tibco.xpd.bom.modeler.diagram.part.UMLCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+     <category
+           id="com.tibco.xpd.bom.modeler.diagram.categoryBOM"
+           name="%bom.category.name"
+           parentCategory="com.tibco.xpd.newWizard.modeling.category">
+     </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.tibco.modeling.perspective">
+         <newWizardShortcut
+               id="com.tibco.xpd.bom.modeler.diagram.part.UMLCreationWizardID">
+         </newWizardShortcut>
+      </perspectiveExtension>
+   </extension>
+
+<!--   <extension point="org.eclipse.ui.popupMenus">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            adaptable="false"
+            id="com.tibco.xpd.bom.modeler.diagram.LoadResource"
+            objectClass="com.tibco.xpd.bom.modeler.diagram.edit.parts.CanvasPackageEditPart">
+         <action
+               class="com.tibco.xpd.bom.modeler.diagram.part.UMLLoadResourceAction"
+               enablesFor="1"
+               id="com.tibco.xpd.bom.modeler.diagram.LoadResourceAction"
+               label="%loadResourceActionLabel"
+               menubarPath="additions">
+         </action>
+      </objectContribution>           
+   </extension>
+-->
+
+   <extension point="org.eclipse.ui.popupMenus">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="com.tibco.xpd.bom.modeler.diagram.InitDiagram"
+            nameFilter="*.uml"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="com.tibco.xpd.bom.modeler.diagram.part.UMLInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="com.tibco.xpd.bom.modeler.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders">
+      <?gmfgen generated="false"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="Business Object ModelPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
+         id="Business Object ModelPresentationPrint">
+         <Priority name="Lowest"/>
+         <ViewId id="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="print"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="Business Object ModelPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="com.tibco.xpd.bom.modeler.diagram.internal.clipboard.BOMGlobalActionHandlerProvider"
+            id="Business Object ModelRender">
+         <Priority name="Lowest"/>
+         <ViewId id="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+               <GlobalActionId
+                     actionId="delete">
+               </GlobalActionId>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
+      <?gmfgen generated="true"?>
+      <contributionItemProvider class="com.tibco.xpd.bom.modeler.diagram.providers.UMLContributionItemProvider">
+         <Priority name="Low"/>
+         <partContribution id="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramEditorID">
+            <partAction menubarPath="/file/print" id="printPreviewAction"/>
+         </partContribution>
+      </contributionItemProvider>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <?gmfgen generated="true"?>
+      <initializer class="com.tibco.xpd.bom.modeler.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <?gmfgen generated="false"?>
+      <page
+            category="com.tibco.xpd.resources.ui.DiagramGeneralPreferencePage"
+            class="com.tibco.xpd.bom.modeler.diagram.preferences.DiagramGeneralPreferencePage"
+            id="com.tibco.xpd.bom.modeler.diagram.general"
+            name="%preference.page.title.com.tibco.xpd.bom.modeler.diagram.general">
+      </page>
+      <page
+            id="com.tibco.xpd.bom.modeler.diagram.appearance"
+            name="%preference.page.title.com.tibco.xpd.bom.modeler.diagram.appearance"
+            category="com.tibco.xpd.bom.modeler.diagram.general"
+            class="com.tibco.xpd.bom.modeler.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="com.tibco.xpd.bom.modeler.diagram.connections"
+            name="%preference.page.title.com.tibco.xpd.bom.modeler.diagram.connections"
+            category="com.tibco.xpd.bom.modeler.diagram.general"
+            class="com.tibco.xpd.bom.modeler.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="com.tibco.xpd.bom.modeler.diagram.pathmaps"
+            name="%preference.page.title.com.tibco.xpd.bom.modeler.diagram.pathmaps"
+            category="com.tibco.xpd.bom.modeler.diagram.general"
+            class="org.eclipse.gmf.runtime.emf.ui.preferences.PathmapsPreferencePage">
+      </page>
+      <page
+            category="com.tibco.xpd.bom.modeler.diagram.general"
+            class="com.tibco.xpd.bom.modeler.diagram.preferences.DiagramRulersAndGridPreferencePage"
+            id="com.tibco.xpd.resources.ui.DiagramRulerAndGridPreferencePage"
+            name="%tab.rulergrid">
+      </page>
+      <page
+            category="com.tibco.xpd.bom.modeler.diagram.general"
+            class="com.tibco.xpd.bom.modeler.diagram.preferences.DiagramPrintingPreferencePage"
+            id="com.tibco.xpd.resources.ui.DiagramPrintingPreferencePage"
+            name="%tab.printing">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <?gmfgen generated="false"?>
+      <propertyContributor
+            contributorId="com.tibco.xpd.bom.modeler.diagram"
+            labelProvider="com.tibco.xpd.bom.modeler.diagram.sheet.BOMSheetLabelProvider">
+         <propertyCategory category="bom.category.general"/>
+         <propertyCategory category="bom.category.domain"/>
+         <propertyCategory category="bom.category.visual"/>
+         <propertyCategory category="bom.category.extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <?gmfgen generated="false"?>   
+      <propertyTabs contributorId="com.tibco.xpd.bom.modeler.diagram">
+         <propertyTab
+               afterTab="property.tab.operations"
+               category="bom.category.general"
+               id="property.tab.stereotypes"
+               label="%tab_stereotypes_label">
+         </propertyTab>
+         <propertyTab
+               category="bom.category.general"
+               id="property.tab.profiles"
+               label="%tab_profiles_label">
+         </propertyTab>
+         <propertyTab
+               category="bom.category.general"
+               id="property.tab.attributes"
+               label="%tab_attributes_label">
+         </propertyTab>
+          <propertyTab
+                afterTab="property.tab.summary"
+                category="bom.category.general"
+                id="property.tab.operations"
+                label="%tab_operations_label">
+          </propertyTab>
+          <propertyTab
+                category="bom.category.general"
+                id="property.tab.literals"
+                label="%tab_literals_label">
+          </propertyTab>
+         <propertyTab
+               category="bom.category.general"
+               id="property.tab.description"
+               label="%tab_description_label">
+         </propertyTab>
+         <propertyTab
+               category="bom.category.general"
+               id="property.tab.note"
+               label="%tab_description_label">
+         </propertyTab>
+         <propertyTab
+               category="bom.category.general"
+               id="property.tab.general"
+               label="%tab_general_label">
+         </propertyTab>
+         <propertyTab
+               afterTab="property.tab.attributes"
+               category="bom.category.general"
+               id="property.tab.summary"
+               label="%tab_summary_label">
+         </propertyTab>
+         <propertyTab
+             category="bom.category.visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="bom.category.visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="bom.category.extra"
+             id="property.tab.domain"
+             label="%tab.domain_1"/>
+          <propertyTab
+                afterTab="property.tab.description"
+                category="bom.category.general"
+                id="property.tab.diagrams"
+                label="%tab_diagrams_label">
+          </propertyTab>
+          <propertyTab
+                afterTab="property.tab.diagrams"
+                category="bom.category.general"
+                id="property.tab.export"
+                label="%tab_export_label">
+          </propertyTab>
+          <propertyTab
+                afterTab="property.tab.export"
+                category="bom.category.general"
+                id="property.tab.xsdNotation"
+                label="XSD">
+          </propertyTab>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="com.tibco.xpd.bom.modeler.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="com.tibco.xpd.bom.modeler.diagram.sheet.BOMPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders">
+      <?gmfgen generated="true"?>
+      <viewProvider class="com.tibco.xpd.bom.modeler.diagram.providers.UMLViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Business Object Model"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints=""/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="com.tibco.xpd.bom.modeler.diagram.providers.UMLEditPartProvider">
+         <Priority name="Lowest"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="com.tibco.xpd.bom.modeler.diagram.providers.UMLModelingAssistantProvider">
+         <Priority name="Lowest"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders">
+      <?gmfgen generated="true"?>
+      <IconProvider class="com.tibco.xpd.bom.modeler.diagram.providers.UMLIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="com.tibco.xpd.bom.modeler.diagram.providers.UMLParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.Package_79"
+               name="%metatype.name.Package_79"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Package"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.PackageEditHelper">
+            <param name="semanticHint" value="79"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <specializationType
+               id="com.tibco.xpd.bom.modeler.diagram.Package_1001"
+               name="%metatype.name.Package_1001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.tibco.xpd.bom.modeler.diagram.Package_79"/>
+            <param name="semanticHint" value="1001"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.Class_1002"
+               name="%metatype.name.Class_1002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Class"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.ClassEditHelper">
+            <param name="semanticHint" value="1002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.PrimitiveType_1003"
+               name="%metatype.name.PrimitiveType_1003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PrimitiveType"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.PrimitiveTypeEditHelper">
+            <param name="semanticHint" value="1003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.Enumeration_1004"
+               name="%metatype.name.Enumeration_1004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Enumeration"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.EnumerationEditHelper">
+            <param name="semanticHint" value="1004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.AssociationClass_1005"
+               name="%metatype.name.AssociationClass_1005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AssociationClass"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.AssociationClassEditHelper">
+            <param name="semanticHint" value="1005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <specializationType
+               id="com.tibco.xpd.bom.modeler.diagram.AssociationClass_1006"
+               name="%metatype.name.AssociationClass_1006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.tibco.xpd.bom.modeler.diagram.AssociationClass_1005"/>
+            <param name="semanticHint" value="1006"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <specializationType
+               id="com.tibco.xpd.bom.modeler.diagram.Package_1007"
+               name="%metatype.name.Package_1007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.tibco.xpd.bom.modeler.diagram.Package_79"/>
+            <param name="semanticHint" value="1007"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.Property_2001"
+               name="%metatype.name.Property_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Property"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.PropertyEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.Operation_2002"
+               name="%metatype.name.Operation_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Operation"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.OperationEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.EnumerationLiteral_2003"
+               name="%metatype.name.EnumerationLiteral_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EnumerationLiteral"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.EnumerationLiteralEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <specializationType
+               id="com.tibco.xpd.bom.modeler.diagram.Property_2004"
+               name="%metatype.name.Property_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.tibco.xpd.bom.modeler.diagram.Property_2001"/>
+            <param name="semanticHint" value="2004"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <specializationType
+               id="com.tibco.xpd.bom.modeler.diagram.Operation_2005"
+               name="%metatype.name.Operation_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.tibco.xpd.bom.modeler.diagram.Operation_2002"/>
+            <param name="semanticHint" value="2005"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.ProfileApplication_2006"
+               name="%metatype.name.ProfileApplication_2006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ProfileApplication"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.ProfileApplicationEditHelper">
+            <param name="semanticHint" value="2006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.Generalization_3001"
+               name="%metatype.name.Generalization_3001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Generalization"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.GeneralizationEditHelper">
+            <param name="semanticHint" value="3001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <metamodelType
+               id="com.tibco.xpd.bom.modeler.diagram.Association_3002"
+               name="%metatype.name.Association_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Association"
+               edithelper="com.tibco.xpd.bom.modeler.diagram.edit.helpers.AssociationEditHelper">
+            <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <specializationType
+               id="com.tibco.xpd.bom.modeler.diagram.Property_3003"
+               name="%metatype.name.Property_3003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.tibco.xpd.bom.modeler.diagram.Property_2001"/>
+            <param name="semanticHint" value="3003"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+         <specializationType
+               id="com.tibco.xpd.bom.modeler.diagram.AssociationClass_3004"
+               name="%metatype.name.AssociationClass_3004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="com.tibco.xpd.bom.modeler.diagram.AssociationClass_1005"/>
+            <param name="semanticHint" value="3004"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="Business Object ModelClientContext">
+         <matcher
+               class="com.tibco.xpd.bom.modeler.diagram.internal.BOMClientContextMatcher">
+         </matcher>
+      </clientContext> 
+      <binding context="Business Object ModelClientContext">
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Package_79"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Package_1001"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Class_1002"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.PrimitiveType_1003"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Enumeration_1004"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.AssociationClass_1005"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.AssociationClass_1006"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Package_1007"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Property_2001"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Operation_2002"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.EnumerationLiteral_2003"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Property_2004"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Operation_2005"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.ProfileApplication_2006"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Generalization_3001"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Association_3002"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.Property_3003"/>
+         <elementType ref="com.tibco.xpd.bom.modeler.diagram.AssociationClass_3004"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="com.tibco.xpd.bom.modeler.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="com.tibco.xpd.bom.modeler.diagram.updateDiagram"
+         contextId="com.tibco.xpd.bom.modeler.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonWizard
+            associatedExtensionId="com.tibco.xpd.projectExplorer.bomContent"
+            menuGroupId="group.bom"
+            type="new"
+            wizardId="com.tibco.xpd.bom.modeler.diagram.part.UMLCreationWizardID">
+         <enablement>
+            <or>
+               <and>
+                  <instanceof
+                        value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                  </instanceof>
+                  <test
+                        property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                        value="bom">
+                  </test>
+               </and>
+               <and>
+                  <instanceof
+                        value="org.eclipse.core.resources.IResource">
+                  </instanceof>
+                  <test
+                        property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                        value="bom">
+                  </test>
+               </and>
+            </or></enablement>
+      </commonWizard>
+   </extension>
+      <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.paletteProviders">
+   </extension>
+      <extension
+            point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
+         <contributionItemProvider
+               checkPluginLoaded="true"
+               class="com.tibco.xpd.bom.modeler.custom.diagram.DiagramContributionItemProvider">
+            <Priority
+                  name="Lowest">
+            </Priority>
+            <popupContribution
+                  class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+               <popupAction
+                     id="mutateClassToCaseAction"
+                     path="/navigateGroup">
+               </popupAction>
+               <popupStructuredContributionCriteria
+                     objectClass="com.tibco.xpd.bom.modeler.diagram.edit.parts.ClassEditPart"
+                     policyClass="com.tibco.xpd.bom.modeler.diagram.part.policies.CaseClassPopupMenuPolicy">
+               </popupStructuredContributionCriteria>
+            </popupContribution>
+            <popupContribution
+                  class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+               <popupAction
+                     id="mutateClassToGlobalAction"
+                     path="/navigateGroup">
+               </popupAction>
+               <popupStructuredContributionCriteria
+                     objectClass="com.tibco.xpd.bom.modeler.diagram.edit.parts.ClassEditPart"
+                     policyClass="com.tibco.xpd.bom.modeler.diagram.part.policies.GlobalClassPopupMenuPolicy">
+               </popupStructuredContributionCriteria>
+            </popupContribution>
+            <popupContribution
+                  class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+               <popupAction
+                     id="mutateClassToLocalAction"
+                     path="/navigateGroup">
+               </popupAction>
+               <popupStructuredContributionCriteria
+                     objectClass="com.tibco.xpd.bom.modeler.diagram.edit.parts.ClassEditPart"
+                     policyClass="com.tibco.xpd.bom.modeler.diagram.part.policies.LocalClassPopupMenuPolicy">
+               </popupStructuredContributionCriteria>
+            </popupContribution>
+            <popupContribution
+                  class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+               <popupAction
+                     id="mutatePropertyToAttributeAction"
+                     path="/navigateGroup">
+               </popupAction>
+               <popupStructuredContributionCriteria
+                     objectClass="com.tibco.xpd.bom.modeler.diagram.edit.parts.PropertyEditPart"
+                     policyClass="com.tibco.xpd.bom.modeler.diagram.part.policies.AttributePropertyPopupMenuPolicy">
+               </popupStructuredContributionCriteria>
+            </popupContribution>
+            <popupContribution
+                  class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+               <popupAction
+                     id="mutatePropertyToCaseIdentifierAction"
+                     path="/navigateGroup">
+               </popupAction>
+               <popupStructuredContributionCriteria
+                     objectClass="com.tibco.xpd.bom.modeler.diagram.edit.parts.PropertyEditPart"
+                     policyClass="com.tibco.xpd.bom.modeler.diagram.part.policies.CaseIdentifierPropertyPopupMenuPolicy">
+               </popupStructuredContributionCriteria>
+            </popupContribution>
+            <popupContribution
+                  class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+               <popupAction
+                     id="mutatePropertyToCaseStateAction"
+                     path="/navigateGroup">
+               </popupAction>
+               <popupStructuredContributionCriteria
+                     objectClass="com.tibco.xpd.bom.modeler.diagram.edit.parts.PropertyEditPart"
+                     policyClass="com.tibco.xpd.bom.modeler.diagram.part.policies.CaseStatePropertyPopupMenuPolicy">
+               </popupStructuredContributionCriteria>
+            </popupContribution>
+            <partContribution
+                  class="org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart">
+            </partContribution>
+         </contributionItemProvider>
+      </extension>
+</plugin>

@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl" name="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PXBhogdUEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PXBhowdUEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PXBhpAdUEeSRjauCcgnMbg" key="created" value="1404905511738"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PXBhpQdUEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PalL8AdUEeSRjauCcgnMbg" key="checksum" value="4136209961"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearch" name="AirlineSearch">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchroundTrip" name="roundTrip" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PRtj0wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PRtj0gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchorigin" name="origin" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PRwAEwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PRwAEgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchdestination" name="destination" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PRycUwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PRycUgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchdepartureDate" name="departureDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PR1fowdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PR1fogdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchreturnDate" name="returnDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PR374wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PR374gdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchnoOfPassengers" name="noOfPassengers" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PR6_MQdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PR6_MAdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchtimePreference" name="timePreference" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PR9bcwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PR9bcgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearchResults" name="AirlineSearchResults">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchResultsdepartingFlights" name="departingFlights" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlDepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights?" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition8?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition8?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSVO4wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSVO4gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlineSearchResultsreturningFlights" name="returningFlights" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlReturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights?" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition11?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition11?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSr0MAdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSrNIgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlDepartingFlights" name="DepartingFlights">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DepartingFlightsorigin" name="origin" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSFXQwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSFXQgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DepartingFlightsdestination" name="destination" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSHzgwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSHzggdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DepartingFlightsdate" name="date" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSKPwwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSKPwgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DepartingFlightsflightsType" name="flights" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType?" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition7?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSTZswdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSTZsgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType" name="flightsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="flightsTypeflight" name="flight" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition6?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition6?">
+        <type xmi:type="uml:Class" href="xyzcorp.procureservice.Airline.bom#xyzcorp.procureservice.AirlineFlightPlan?xyzcorp.procureservice.Airline%3a%3aFlightPlan?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSN6IwdUEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSN6IgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition6" name="Composition6" memberEnd="flightsTypeflight?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType%3a%3aflight? Composition6flightstype?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition6%3a%3aflightstype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition6flightstype" name="flightstype" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition6?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition6?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSN6JgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSN6JQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition7" name="Composition7" memberEnd="DepartingFlightsflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3aflights? Composition7departingflights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition7%3a%3adepartingflights?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition7departingflights" name="departingflights" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlDepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition7?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSTZtgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSTZtQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition8" name="Composition8" memberEnd="AirlineSearchResultsdepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults%3a%3adepartingFlights? Composition8airlinesearchresults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition8%3a%3aairlinesearchresults?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition8airlinesearchresults" name="airlinesearchresults" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition8?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition8?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSVO5gdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSVO5QdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlReturningFlights" name="ReturningFlights">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ReturningFlightsorigin" name="origin" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSbVgwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSbVggdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ReturningFlightsdestination" name="destination" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSeY0gdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSeY0QdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ReturningFlightsdate" name="date" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSg1EwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSg1EgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ReturningFlightsflightsType" name="flights" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1?" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition10?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition10?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSpX8wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSpX8gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType2" name="flightsType1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="flightsTypeflight2" name="flight" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition9?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition9?">
+        <type xmi:type="uml:Class" href="xyzcorp.procureservice.Airline.bom#xyzcorp.procureservice.AirlineFlightPlan?xyzcorp.procureservice.Airline%3a%3aFlightPlan?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSkfcgdUEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSkfcQdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition9" name="Composition9" memberEnd="flightsTypeflight2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1%3a%3aflight? Composition9flightstype?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition9%3a%3aflightstype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition9flightstype" name="flightstype" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition9?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition9?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSkfdQdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSkfdAdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition10" name="Composition10" memberEnd="ReturningFlightsflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3aflights? Composition10returningflights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition10%3a%3areturningflights?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition10returningflights" name="returningflights" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlReturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition10?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition10?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSp_AQdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSp_AAdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition11" name="Composition11" memberEnd="AirlineSearchResultsreturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults%3a%3areturningFlights? Composition11airlinesearchresults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition11%3a%3aairlinesearchresults?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition11airlinesearchresults" name="airlinesearchresults" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition11?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition11?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSr0MwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSr0MgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearch" name="HotelSearch">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchcountry" name="country" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSwsswdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSwssgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchcity" name="city" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PSzwAwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PSzwAgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchstate" name="state" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PS2zUwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PS2zUgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchnearAddress" name="nearAddress" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PS52owdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PS52ogdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchhotelName" name="hotelName" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PS9hAwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PS9hAgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchcheckInDate" name="checkInDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTBLYAdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTAkUgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchcheckOutDate" name="checkOutDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTEOswdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTEOsgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchrooms" name="rooms" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTHSAwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTHSAgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchnonSmoking" name="nonSmoking" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTK8YwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTK8YgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearchResults" name="HotelSearchResults">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchResultscity" name="city" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTSRIwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTSRIgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchResultscheckInDate" name="checkInDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTVUcwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTVUcgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchResultscheckOutDate" name="checkOutDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTY-0wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTY-0gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchResultsnoOfNights" name="noOfNights" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTcpMwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTcpMgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="HotelSearchResultshotelsType" name="hotels" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlhotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType?" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition13?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition13?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTnBQwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTnBQgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlhotelsType" name="hotelsType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="hotelsTypehotel" name="hotel" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition12?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition12?">
+        <type xmi:type="uml:Class" href="xyzcorp.procureservice.Hotel.bom#xyzcorp.procureservice.HotelHotelDetails?xyzcorp.procureservice.Hotel%3a%3aHotelDetails?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PThhswdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PThhsgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition12" name="Composition12" memberEnd="hotelsTypehotel?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType%3a%3ahotel? Composition12hotelstype?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition12%3a%3ahotelstype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition12hotelstype" name="hotelstype" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlhotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition12?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition12?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PThhtgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PThhtQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition13" name="Composition13" memberEnd="HotelSearchResultshotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3ahotels? Composition13hotelsearchresults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition13%3a%3ahotelsearchresults?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition13hotelsearchresults" name="hotelsearchresults" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition13?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition13?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTnoUgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTnoUQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearch" name="CarSearch">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchcountry" name="country" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTuWAAdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTtu8gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchstate" name="state" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PTyAYQdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PTyAYAdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchpickUpCity" name="pickUpCity" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PT1qwgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PT1qwQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchdropOffCity" name="dropOffCity" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PT5VIwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PT5VIgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchpickUpDate" name="pickUpDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PT9mkwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PT9mkgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchdropOffDate" name="dropOffDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUBQ8wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUBQ8gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchrentalAgency" name="rentalAgency" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUFiYgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUFiYQdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchcarType" name="carType" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUJMwwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUJMwgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchcarMake" name="carMake" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUM3IwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUM3IgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchnonSmoking" name="nonSmoking" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PURIkwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PURIkgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearchResults" name="CarSearchResults">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchResultspickUpCity" name="pickUpCity" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUZEYwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUZEYgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchResultspickUpDate" name="pickUpDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUdV0wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUdV0gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchResultsdropOffDate" name="dropOffDate" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUhAMwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUhAMgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchResultsnoOfDays" name="noOfDays" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUlRowdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUlRogdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarSearchResultsrentalAgenciesType" name="rentalAgencies" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType?" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition15?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition15?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUwQwwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUwQwgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlrentalAgenciesType" name="rentalAgenciesType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="rentalAgenciesTyperentalAgency" name="rentalAgency" aggregation="composite" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition14?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition14?">
+        <type xmi:type="uml:Class" href="xyzcorp.procureservice.Car.bom#xyzcorp.procureservice.CarRentalAgencyDetails?xyzcorp.procureservice.Car%3a%3aRentalAgencyDetails?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUqxMwdUEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUqxMgdUEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition14" name="Composition14" memberEnd="rentalAgenciesTyperentalAgency?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType%3a%3arentalAgency? Composition14rentalagenciestype?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition14%3a%3arentalagenciestype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition14rentalagenciestype" name="rentalagenciestype" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition14?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition14?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUqxNgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUqxNQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition15" name="Composition15" memberEnd="CarSearchResultsrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3arentalAgencies? Composition15carsearchresults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition15%3a%3acarsearchresults?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition15carsearchresults" name="carsearchresults" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults?" association="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition15?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition15?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUwQxgdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUwQxQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchAirline_faultType" name="searchAirline_faultType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="searchAirline_faultTypesearchAirline_fault" name="searchAirline_fault" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PVFA4wdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PVFA4gdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchHotel_faultType" name="searchHotel_faultType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="searchHotel_faultTypesearchHotel_fault" name="searchHotel_fault" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PVMVogdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PVMVoQdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchCar_faultType" name="searchCar_faultType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="searchCar_faultTypesearchCar_fault" name="searchCar_fault" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PVTDUwdUEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PVTDUgdUEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlQueryGDS" name="QueryGDS">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="QueryGDSsearchAirline" name="searchAirline">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="searchAirlineparameters" name="parameters" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="searchAirlineparameters2" name="parameters" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="QueryGDSsearchHotel" name="searchHotel">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="searchHotelparameters" name="parameters" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="searchHotelparameters2" name="parameters" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="QueryGDSsearchCar" name="searchCar">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="searchCarparameters" name="parameters" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="searchCarparameters2" name="parameters" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults?" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PPNCYQdUEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PPNCYgdUEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PPNCYwdUEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PPNCZAdUEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_PPNCZQdUEeSRjauCcgnMbg" base_Package="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl?" xsdTargetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" xsdSchemaLocation="Query_wsdlEmbedSchema1_Schema1ImportXSD2.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.8.0.005" bomWsdlSources="Query_wsdlEmbedSchema1_Schema1ImportXSD2.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PRqggQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch?" xsdName="AirlineSearch" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PR-CgAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PRtj0QdUEeSRjauCcgnMbg" base_Property="AirlineSearchroundTrip?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3aroundTrip?" xsdName="roundTrip" xsdForm="unqualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PR-CgAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PRwAEQdUEeSRjauCcgnMbg" base_Property="AirlineSearchorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3aorigin?" xsdName="origin" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PR-CgAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PRycUQdUEeSRjauCcgnMbg" base_Property="AirlineSearchdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3adestination?" xsdName="destination" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PR-CgAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PR1foQdUEeSRjauCcgnMbg" base_Property="AirlineSearchdepartureDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3adepartureDate?" xsdName="departureDate" xsdForm="unqualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PR-CgAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PR374QdUEeSRjauCcgnMbg" base_Property="AirlineSearchreturnDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3areturnDate?" xsdName="returnDate" xsdForm="unqualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PR-CgAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PR6YIQdUEeSRjauCcgnMbg" base_Property="AirlineSearchnoOfPassengers?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3anoOfPassengers?" xsdName="noOfPassengers" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PR-CgAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PR6_MgdUEeSRjauCcgnMbg" base_Property="AirlineSearchnoOfPassengers?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3anoOfPassengers?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PR6_MwdUEeSRjauCcgnMbg" base_Property="AirlineSearchnoOfPassengers?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3anoOfPassengers?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PR9bcQdUEeSRjauCcgnMbg" base_Property="AirlineSearchtimePreference?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3atimePreference?" xsdName="timePreference" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PR-CgAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PSAewAdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults?" xsdName="AirlineSearchResults" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PSr0NQdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PSC7AQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlDepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights?" xsdName="DepartingFlights" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PSUAwAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSFXQQdUEeSRjauCcgnMbg" base_Property="DepartingFlightsorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3aorigin?" xsdName="origin" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSUAwAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSHzgQdUEeSRjauCcgnMbg" base_Property="DepartingFlightsdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3adestination?" xsdName="destination" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSUAwAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSKPwQdUEeSRjauCcgnMbg" base_Property="DepartingFlightsdate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3adate?" xsdName="date" xsdForm="unqualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSUAwAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PSLd4QdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType?" xsdName="flights" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PSOhMAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSN6JwdUEeSRjauCcgnMbg" base_Property="flightsTypeflight?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType%3a%3aflight?" xsdName="flight" xsdForm="unqualified" xsdType="FlightPlan" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSOhMAdUEeSRjauCcgnMbg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSTZtwdUEeSRjauCcgnMbg" base_Property="DepartingFlightsflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3aflights?" xsdName="flights" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSUAwAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSVO5wdUEeSRjauCcgnMbg" base_Property="AirlineSearchResultsdepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults%3a%3adepartingFlights?" xsdName="departingFlights" xsdForm="unqualified" xsdType="DepartingFlights" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSr0NQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PSYSMQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlReturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights?" xsdName="ReturningFlights" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PSp_AwdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSbVgQdUEeSRjauCcgnMbg" base_Property="ReturningFlightsorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3aorigin?" xsdName="origin" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSp_AwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSeY0AdUEeSRjauCcgnMbg" base_Property="ReturningFlightsdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3adestination?" xsdName="destination" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSp_AwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSg1EQdUEeSRjauCcgnMbg" base_Property="ReturningFlightsdate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3adate?" xsdName="date" xsdForm="unqualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSp_AwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PSiDMQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1?" xsdName="flights" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PSlGgAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSkfdgdUEeSRjauCcgnMbg" base_Property="flightsTypeflight2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1%3a%3aflight?" xsdName="flight" xsdForm="unqualified" xsdType="FlightPlan" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSlGgAdUEeSRjauCcgnMbg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSp_AgdUEeSRjauCcgnMbg" base_Property="ReturningFlightsflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3aflights?" xsdName="flights" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSp_AwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSr0NAdUEeSRjauCcgnMbg" base_Property="AirlineSearchResultsreturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults%3a%3areturningFlights?" xsdName="returningFlights" xsdForm="unqualified" xsdType="ReturningFlights" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PSr0NQdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PStpYAdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch?" xsdName="HotelSearch" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PTLjcAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSwssQdUEeSRjauCcgnMbg" base_Property="HotelSearchcountry?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acountry?" xsdName="country" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PSzwAQdUEeSRjauCcgnMbg" base_Property="HotelSearchcity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acity?" xsdName="city" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PS2zUQdUEeSRjauCcgnMbg" base_Property="HotelSearchstate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3astate?" xsdName="state" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PS52oQdUEeSRjauCcgnMbg" base_Property="HotelSearchnearAddress?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3anearAddress?" xsdName="nearAddress" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PS9hAQdUEeSRjauCcgnMbg" base_Property="HotelSearchhotelName?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3ahotelName?" xsdName="hotelName" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTAkUQdUEeSRjauCcgnMbg" base_Property="HotelSearchcheckInDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acheckInDate?" xsdName="checkInDate" xsdForm="unqualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTEOsQdUEeSRjauCcgnMbg" base_Property="HotelSearchcheckOutDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acheckOutDate?" xsdName="checkOutDate" xsdForm="unqualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTHSAQdUEeSRjauCcgnMbg" base_Property="HotelSearchrooms?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3arooms?" xsdName="rooms" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PTH5EAdUEeSRjauCcgnMbg" base_Property="HotelSearchrooms?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3arooms?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PTH5EQdUEeSRjauCcgnMbg" base_Property="HotelSearchrooms?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3arooms?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTK8YQdUEeSRjauCcgnMbg" base_Property="HotelSearchnonSmoking?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3anonSmoking?" xsdName="nonSmoking" xsdForm="unqualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTLjcAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PTOmwQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults?" xsdName="HotelSearchResults" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PTnoVAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTSRIQdUEeSRjauCcgnMbg" base_Property="HotelSearchResultscity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acity?" xsdName="city" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTnoVAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTVUcQdUEeSRjauCcgnMbg" base_Property="HotelSearchResultscheckInDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acheckInDate?" xsdName="checkInDate" xsdForm="unqualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTnoVAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTY-0QdUEeSRjauCcgnMbg" base_Property="HotelSearchResultscheckOutDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acheckOutDate?" xsdName="checkOutDate" xsdForm="unqualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTnoVAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTcpMQdUEeSRjauCcgnMbg" base_Property="HotelSearchResultsnoOfNights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3anoOfNights?" xsdName="noOfNights" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTnoVAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PTcpNAdUEeSRjauCcgnMbg" base_Property="HotelSearchResultsnoOfNights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3anoOfNights?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PTdQQAdUEeSRjauCcgnMbg" base_Property="HotelSearchResultsnoOfNights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3anoOfNights?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PTeeYQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlhotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType?" xsdName="hotels" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PTiIwAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PThhtwdUEeSRjauCcgnMbg" base_Property="hotelsTypehotel?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType%3a%3ahotel?" xsdName="hotel" xsdForm="unqualified" xsdType="HotelDetails" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTiIwAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTnoUwdUEeSRjauCcgnMbg" base_Property="HotelSearchResultshotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3ahotels?" xsdName="hotels" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PTnoVAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PTqEkQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch?" xsdName="CarSearch" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PURvoAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTtu8QdUEeSRjauCcgnMbg" base_Property="CarSearchcountry?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acountry?" xsdName="country" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PTxZUQdUEeSRjauCcgnMbg" base_Property="CarSearchstate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3astate?" xsdName="state" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PT1qwAdUEeSRjauCcgnMbg" base_Property="CarSearchpickUpCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3apickUpCity?" xsdName="pickUpCity" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PT5VIQdUEeSRjauCcgnMbg" base_Property="CarSearchdropOffCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3adropOffCity?" xsdName="dropOffCity" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PT9mkQdUEeSRjauCcgnMbg" base_Property="CarSearchpickUpDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3apickUpDate?" xsdName="pickUpDate" xsdForm="unqualified" xsdType="dateTime" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUBQ8QdUEeSRjauCcgnMbg" base_Property="CarSearchdropOffDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3adropOffDate?" xsdName="dropOffDate" xsdForm="unqualified" xsdType="dateTime" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUFiYAdUEeSRjauCcgnMbg" base_Property="CarSearchrentalAgency?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3arentalAgency?" xsdName="rentalAgency" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUJMwQdUEeSRjauCcgnMbg" base_Property="CarSearchcarType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acarType?" xsdName="carType" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUM3IQdUEeSRjauCcgnMbg" base_Property="CarSearchcarMake?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acarMake?" xsdName="carMake" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PURIkQdUEeSRjauCcgnMbg" base_Property="CarSearchnonSmoking?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3anonSmoking?" xsdName="nonSmoking" xsdForm="unqualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PURvoAdUEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PUUy8QdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults?" xsdName="CarSearchResults" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PUw30QdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUZEYQdUEeSRjauCcgnMbg" base_Property="CarSearchResultspickUpCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3apickUpCity?" xsdName="pickUpCity" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PUw30QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUdV0QdUEeSRjauCcgnMbg" base_Property="CarSearchResultspickUpDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3apickUpDate?" xsdName="pickUpDate" xsdForm="unqualified" xsdType="dateTime" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PUw30QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUhAMQdUEeSRjauCcgnMbg" base_Property="CarSearchResultsdropOffDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3adropOffDate?" xsdName="dropOffDate" xsdForm="unqualified" xsdType="dateTime" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PUw30QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUlRoQdUEeSRjauCcgnMbg" base_Property="CarSearchResultsnoOfDays?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3anoOfDays?" xsdName="noOfDays" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PUw30QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_PUl4sAdUEeSRjauCcgnMbg" base_Property="CarSearchResultsnoOfDays?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3anoOfDays?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_PUl4sQdUEeSRjauCcgnMbg" base_Property="CarSearchResultsnoOfDays?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3anoOfDays?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PUnG0QdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType?" xsdName="rentalAgencies" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PUrYQAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUqxNwdUEeSRjauCcgnMbg" base_Property="rentalAgenciesTyperentalAgency?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType%3a%3arentalAgency?" xsdName="rentalAgency" xsdForm="unqualified" xsdType="RentalAgencyDetails" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PUrYQAdUEeSRjauCcgnMbg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PUw30AdUEeSRjauCcgnMbg" base_Property="CarSearchResultsrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3arentalAgencies?" xsdName="rentalAgencies" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PUw30QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_PU2XYAdUEeSRjauCcgnMbg" base_Package="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PU2-cAdUEeSRjauCcgnMbg" name="searchAirline" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch?" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PU4MkAdUEeSRjauCcgnMbg" name="searchAirlineResponse" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults?" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PU6BwAdUEeSRjauCcgnMbg" name="searchHotel" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch?" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PU728AdUEeSRjauCcgnMbg" name="searchHotelResponse" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults?" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PU9sIAdUEeSRjauCcgnMbg" name="searchCar" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch?" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PU_hUAdUEeSRjauCcgnMbg" name="searchCarResponse" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults?" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PVGPAAdUEeSRjauCcgnMbg" name="searchAirline_fault" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchAirline_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchAirline_faultType?" isAnonymous="true" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PVNjwAdUEeSRjauCcgnMbg" name="searchHotel_fault" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchHotel_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchHotel_faultType?" isAnonymous="true" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_PVURcAdUEeSRjauCcgnMbg" name="searchCar_fault" type="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchCar_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchCar_faultType?" isAnonymous="true" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PVAvcAdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchAirline_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchAirline_faultType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PVFn8AdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PVFA4QdUEeSRjauCcgnMbg" base_Property="searchAirline_faultTypesearchAirline_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchAirline_faultType%3a%3asearchAirline_fault?" xsdName="searchAirline_fault" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PVFn8AdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PVHdIQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchHotel_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchHotel_faultType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PVM8sAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PVMVoAdUEeSRjauCcgnMbg" base_Property="searchHotel_faultTypesearchHotel_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchHotel_faultType%3a%3asearchHotel_fault?" xsdName="searchHotel_fault" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PVM8sAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PVOK0QdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchCar_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchCar_faultType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_PVTqYAdUEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_PVTDUQdUEeSRjauCcgnMbg" base_Property="searchCar_faultTypesearchCar_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchCar_faultType%3a%3asearchCar_fault?" xsdName="searchCar_fault" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_PVTqYAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVVfkAdUEeSRjauCcgnMbg" base_Element="HotelSearchResultscity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVVfkQdUEeSRjauCcgnMbg" base_Element="_PSbVggdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVVfkgdUEeSRjauCcgnMbg" base_Element="_PSFXQwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVVfkwdUEeSRjauCcgnMbg" base_Element="_PUhAMwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVVflAdUEeSRjauCcgnMbg" base_Element="_PUwQxQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVVflQdUEeSRjauCcgnMbg" base_Element="_PSHzggdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVVflgdUEeSRjauCcgnMbg" base_Element="_PS52owdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGoAdUEeSRjauCcgnMbg" base_Element="_PTK8YwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGoQdUEeSRjauCcgnMbg" base_Element="_PSN6JgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGogdUEeSRjauCcgnMbg" base_Element="_PR9bcwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGowdUEeSRjauCcgnMbg" base_Element="_PSwssgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGpAdUEeSRjauCcgnMbg" base_Element="ReturningFlightsdate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3adate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGpQdUEeSRjauCcgnMbg" base_Element="_PUwQxgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGpgdUEeSRjauCcgnMbg" base_Element="_PSkfcQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGpwdUEeSRjauCcgnMbg" base_Element="_PSrNIgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGqAdUEeSRjauCcgnMbg" base_Element="_PSr0MwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWGqQdUEeSRjauCcgnMbg" base_Element="HotelSearchhotelName?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3ahotelName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWtsAdUEeSRjauCcgnMbg" base_Element="DepartingFlightsdate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3adate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWtsQdUEeSRjauCcgnMbg" base_Element="CarSearchnonSmoking?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3anonSmoking?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWtsgdUEeSRjauCcgnMbg" base_Element="_PSVO4gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWtswdUEeSRjauCcgnMbg" base_Element="_PVFA4gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWttAdUEeSRjauCcgnMbg" base_Element="HotelSearchcountry?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acountry?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWttQdUEeSRjauCcgnMbg" base_Element="_PTnoUgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWttgdUEeSRjauCcgnMbg" base_Element="_PSr0MgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWttwdUEeSRjauCcgnMbg" base_Element="_PVMVoQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWtuAdUEeSRjauCcgnMbg" base_Element="_PRtj0wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVWtuQdUEeSRjauCcgnMbg" base_Element="_PTyAYQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUwAdUEeSRjauCcgnMbg" base_Element="_PSzwAgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUwQdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition11?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition11?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUwgdUEeSRjauCcgnMbg" base_Element="_PSTZswdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUwwdUEeSRjauCcgnMbg" base_Element="_PTcpMwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUxAdUEeSRjauCcgnMbg" base_Element="CarSearchResultspickUpDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3apickUpDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUxQdUEeSRjauCcgnMbg" base_Element="_PTHSAwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUxgdUEeSRjauCcgnMbg" base_Element="AirlineSearchreturnDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3areturnDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUxwdUEeSRjauCcgnMbg" base_Element="_PTEOsgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUyAdUEeSRjauCcgnMbg" base_Element="Composition15carsearchresults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition15%3a%3acarsearchresults?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUyQdUEeSRjauCcgnMbg" base_Element="ReturningFlightsorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3aorigin?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVXUygdUEeSRjauCcgnMbg" base_Element="_PSeY0QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX70AdUEeSRjauCcgnMbg" base_Element="HotelSearchResultshotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3ahotels?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX70QdUEeSRjauCcgnMbg" base_Element="_PUhAMgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX70gdUEeSRjauCcgnMbg" base_Element="hotelsTypehotel?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType%3a%3ahotel?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX70wdUEeSRjauCcgnMbg" base_Element="_PTHSAgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX71AdUEeSRjauCcgnMbg" base_Element="CarSearchResultsrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3arentalAgencies?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX71QdUEeSRjauCcgnMbg" base_Element="_PUqxNgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX71gdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition13?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition13?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX71wdUEeSRjauCcgnMbg" base_Element="_PT5VIgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX72AdUEeSRjauCcgnMbg" base_Element="HotelSearchnonSmoking?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3anonSmoking?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX72QdUEeSRjauCcgnMbg" base_Element="AirlineSearchroundTrip?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3aroundTrip?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVX72gdUEeSRjauCcgnMbg" base_Element="_PTK8YgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi4AdUEeSRjauCcgnMbg" base_Element="CarSearchResultsdropOffDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3adropOffDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi4QdUEeSRjauCcgnMbg" base_Element="AirlineSearchResultsreturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults%3a%3areturningFlights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi4gdUEeSRjauCcgnMbg" base_Element="_PT5VIwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi4wdUEeSRjauCcgnMbg" base_Element="HotelSearchResultsnoOfNights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3anoOfNights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi5AdUEeSRjauCcgnMbg" base_Element="AirlineSearchnoOfPassengers?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3anoOfPassengers?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi5QdUEeSRjauCcgnMbg" base_Element="_PSHzgwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi5gdUEeSRjauCcgnMbg" base_Element="_PSKPwgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi5wdUEeSRjauCcgnMbg" base_Element="_PUFiYQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi6AdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVYi6QdUEeSRjauCcgnMbg" base_Element="DepartingFlightsflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3aflights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ8AdUEeSRjauCcgnMbg" base_Element="Composition12hotelstype?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition12%3a%3ahotelstype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ8QdUEeSRjauCcgnMbg" base_Element="Composition8airlinesearchresults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition8%3a%3aairlinesearchresults?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ8gdUEeSRjauCcgnMbg" base_Element="_PSzwAwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ8wdUEeSRjauCcgnMbg" base_Element="_PSN6JQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ9AdUEeSRjauCcgnMbg" base_Element="_PPNCYwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ9QdUEeSRjauCcgnMbg" base_Element="_PS9hAgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ9gdUEeSRjauCcgnMbg" base_Element="_PT9mkwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ9wdUEeSRjauCcgnMbg" base_Element="searchCar_faultTypesearchCar_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchCar_faultType%3a%3asearchCar_fault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ-AdUEeSRjauCcgnMbg" base_Element="Composition9flightstype?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition9%3a%3aflightstype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZJ-QdUEeSRjauCcgnMbg" base_Element="AirlineSearchdepartureDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3adepartureDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxAAdUEeSRjauCcgnMbg" base_Element="_PTAkUgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxAQdUEeSRjauCcgnMbg" base_Element="_PSwsswdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxAgdUEeSRjauCcgnMbg" base_Element="_PTSRIwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxAwdUEeSRjauCcgnMbg" base_Element="HotelSearchResultscheckOutDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acheckOutDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxBAdUEeSRjauCcgnMbg" base_Element="rentalAgenciesTyperentalAgency?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType%3a%3arentalAgency?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxBQdUEeSRjauCcgnMbg" base_Element="_PR374gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxBgdUEeSRjauCcgnMbg" base_Element="_PVTDUwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxBwdUEeSRjauCcgnMbg" base_Element="_PVFA4wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxCAdUEeSRjauCcgnMbg" base_Element="AirlineSearchtimePreference?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3atimePreference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxCQdUEeSRjauCcgnMbg" base_Element="ReturningFlightsdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3adestination?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVZxCgdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition8?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition8?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYEAdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYEQdUEeSRjauCcgnMbg" base_Element="_PTSRIgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYEgdUEeSRjauCcgnMbg" base_Element="_PTY-0wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYEwdUEeSRjauCcgnMbg" base_Element="_PUqxMgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYFAdUEeSRjauCcgnMbg" base_Element="_PThhsgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYFQdUEeSRjauCcgnMbg" base_Element="_PTY-0gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYFgdUEeSRjauCcgnMbg" base_Element="_PThhtQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYFwdUEeSRjauCcgnMbg" base_Element="_PUwQwgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYGAdUEeSRjauCcgnMbg" base_Element="_PUJMwgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVaYGQdUEeSRjauCcgnMbg" base_Element="HotelSearchResultscheckInDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acheckInDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_IAdUEeSRjauCcgnMbg" base_Element="_PUBQ8gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_IQdUEeSRjauCcgnMbg" base_Element="_PS2zUwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_IgdUEeSRjauCcgnMbg" base_Element="_PSKPwwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_IwdUEeSRjauCcgnMbg" base_Element="_PT1qwQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_JAdUEeSRjauCcgnMbg" base_Element="_PTtu8gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_JQdUEeSRjauCcgnMbg" base_Element="_PVTDUgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_JgdUEeSRjauCcgnMbg" base_Element="_PT9mkgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_JwdUEeSRjauCcgnMbg" base_Element="_PUZEYwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_KAdUEeSRjauCcgnMbg" base_Element="searchAirline_faultTypesearchAirline_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchAirline_faultType%3a%3asearchAirline_fault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_KQdUEeSRjauCcgnMbg" base_Element="CarSearchcountry?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acountry?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVa_KgdUEeSRjauCcgnMbg" base_Element="_PPNCYQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVbmMAdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition12?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition12?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVbmMQdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVbmMgdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlReturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVbmMwdUEeSRjauCcgnMbg" base_Element="_PR374wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVbmNAdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlDepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVbmNQdUEeSRjauCcgnMbg" base_Element="HotelSearchcheckOutDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acheckOutDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNQAdUEeSRjauCcgnMbg" base_Element="_PSkfdQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNQQdUEeSRjauCcgnMbg" base_Element="_PSN6IwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNQgdUEeSRjauCcgnMbg" base_Element="_PUM3IwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNQwdUEeSRjauCcgnMbg" base_Element="_PSbVgwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNRAdUEeSRjauCcgnMbg" base_Element="ReturningFlightsflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3aflights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNRQdUEeSRjauCcgnMbg" base_Element="HotelSearchcheckInDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acheckInDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNRgdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchHotel_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchHotel_faultType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNRwdUEeSRjauCcgnMbg" base_Element="_PS9hAwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNSAdUEeSRjauCcgnMbg" base_Element="CarSearchcarMake?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acarMake?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNSQdUEeSRjauCcgnMbg" base_Element="Composition10returningflights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition10%3a%3areturningflights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVcNSgdUEeSRjauCcgnMbg" base_Element="_PUZEYgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0UAdUEeSRjauCcgnMbg" base_Element="_PSTZsgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0UQdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0UgdUEeSRjauCcgnMbg" base_Element="AirlineSearchorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3aorigin?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0UwdUEeSRjauCcgnMbg" base_Element="_PSFXQgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0VAdUEeSRjauCcgnMbg" base_Element="_PURIkgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0VQdUEeSRjauCcgnMbg" base_Element="DepartingFlightsdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3adestination?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0VgdUEeSRjauCcgnMbg" base_Element="_PSg1EwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0VwdUEeSRjauCcgnMbg" base_Element="_PSpX8gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0WAdUEeSRjauCcgnMbg" base_Element="_PR9bcgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0WQdUEeSRjauCcgnMbg" base_Element="_PR6_MQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVc0WgdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbYAdUEeSRjauCcgnMbg" base_Element="_PUFiYgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbYQdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbYgdUEeSRjauCcgnMbg" base_Element="_PSg1EgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbYwdUEeSRjauCcgnMbg" base_Element="_PTnBQgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbZAdUEeSRjauCcgnMbg" base_Element="Composition13hotelsearchresults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition13%3a%3ahotelsearchresults?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbZQdUEeSRjauCcgnMbg" base_Element="CarSearchdropOffDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3adropOffDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbZgdUEeSRjauCcgnMbg" base_Element="_PSVO5gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbZwdUEeSRjauCcgnMbg" base_Element="CarSearchdropOffCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3adropOffCity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbaAdUEeSRjauCcgnMbg" base_Element="_PSTZtQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVdbaQdUEeSRjauCcgnMbg" base_Element="_PThhswdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCcAdUEeSRjauCcgnMbg" base_Element="_PS2zUgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCcQdUEeSRjauCcgnMbg" base_Element="_PURIkwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCcgdUEeSRjauCcgnMbg" base_Element="AirlineSearchdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3adestination?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCcwdUEeSRjauCcgnMbg" base_Element="_PUqxNQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCdAdUEeSRjauCcgnMbg" base_Element="_PS52ogdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCdQdUEeSRjauCcgnMbg" base_Element="CarSearchResultspickUpCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3apickUpCity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCdgdUEeSRjauCcgnMbg" base_Element="_PTEOswdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCdwdUEeSRjauCcgnMbg" base_Element="Composition11airlinesearchresults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition11%3a%3aairlinesearchresults?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCeAdUEeSRjauCcgnMbg" base_Element="_PT1qwgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCeQdUEeSRjauCcgnMbg" base_Element="CarSearchrentalAgency?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3arentalAgency?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVeCegdUEeSRjauCcgnMbg" base_Element="_PR1fowdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVepgAdUEeSRjauCcgnMbg" base_Element="_PSN6IgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVepgQdUEeSRjauCcgnMbg" base_Element="_PVMVogdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVepggdUEeSRjauCcgnMbg" base_Element="_PRycUwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVepgwdUEeSRjauCcgnMbg" base_Element="_PSp_AAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVephAdUEeSRjauCcgnMbg" base_Element="_PUwQwwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVephQdUEeSRjauCcgnMbg" base_Element="CarSearchResultsnoOfDays?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3anoOfDays?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVephgdUEeSRjauCcgnMbg" base_Element="_PRycUgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVephwdUEeSRjauCcgnMbg" base_Element="_PR6_MAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVepiAdUEeSRjauCcgnMbg" base_Element="CarSearchstate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3astate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVepiQdUEeSRjauCcgnMbg" base_Element="_PUdV0wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVepigdUEeSRjauCcgnMbg" base_Element="_PUlRogdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQkAdUEeSRjauCcgnMbg" base_Element="_PRtj0gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQkQdUEeSRjauCcgnMbg" base_Element="_PUM3IgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQkgdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition7?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition7?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQkwdUEeSRjauCcgnMbg" base_Element="_PUBQ8wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQlAdUEeSRjauCcgnMbg" base_Element="_PTyAYAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQlQdUEeSRjauCcgnMbg" base_Element="_PSeY0gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQlgdUEeSRjauCcgnMbg" base_Element="Composition6flightstype?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition6%3a%3aflightstype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQlwdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition15?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition15?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQmAdUEeSRjauCcgnMbg" base_Element="_PSVO4wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQmQdUEeSRjauCcgnMbg" base_Element="_PTuWAAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVfQmgdUEeSRjauCcgnMbg" base_Element="_PTcpMgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3oAdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchAirline_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchAirline_faultType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3oQdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchCar_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchCar_faultType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3ogdUEeSRjauCcgnMbg" base_Element="CarSearchpickUpDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3apickUpDate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3owdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition14?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition14?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3pAdUEeSRjauCcgnMbg" base_Element="_PSkfcgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3pQdUEeSRjauCcgnMbg" base_Element="Composition14rentalagenciestype?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition14%3a%3arentalagenciestype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3pgdUEeSRjauCcgnMbg" base_Element="_PSp_AQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3pwdUEeSRjauCcgnMbg" base_Element="_PSkfdAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3qAdUEeSRjauCcgnMbg" base_Element="Composition7departingflights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition7%3a%3adepartingflights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3qQdUEeSRjauCcgnMbg" base_Element="_PTVUcwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVf3qgdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition6?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition6?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgesAdUEeSRjauCcgnMbg" base_Element="HotelSearchstate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3astate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgesQdUEeSRjauCcgnMbg" base_Element="_PUdV0gdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgesgdUEeSRjauCcgnMbg" base_Element="searchHotel_faultTypesearchHotel_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchHotel_faultType%3a%3asearchHotel_fault?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgeswdUEeSRjauCcgnMbg" base_Element="_PTnBQwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgetAdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlhotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgetQdUEeSRjauCcgnMbg" base_Element="_PUqxMwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgetgdUEeSRjauCcgnMbg" base_Element="AirlineSearchResultsdepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults%3a%3adepartingFlights?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgetwdUEeSRjauCcgnMbg" base_Element="CarSearchcarType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acarType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgeuAdUEeSRjauCcgnMbg" base_Element="HotelSearchnearAddress?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3anearAddress?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgeuQdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVgeugdUEeSRjauCcgnMbg" base_Element="_PTVUcgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFwAdUEeSRjauCcgnMbg" base_Element="_PTBLYAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFwQdUEeSRjauCcgnMbg" base_Element="_PRwAEgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFwgdUEeSRjauCcgnMbg" base_Element="_PSVO5QdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFwwdUEeSRjauCcgnMbg" base_Element="CarSearchpickUpCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3apickUpCity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFxAdUEeSRjauCcgnMbg" base_Element="_PRwAEwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFxQdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition9?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition9?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFxgdUEeSRjauCcgnMbg" base_Element="flightsTypeflight2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1%3a%3aflight?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFxwdUEeSRjauCcgnMbg" base_Element="DepartingFlightsorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3aorigin?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFyAdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhFyQdUEeSRjauCcgnMbg" base_Element="HotelSearchrooms?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3arooms?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs0AdUEeSRjauCcgnMbg" base_Element="flightsTypeflight?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType%3a%3aflight?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs0QdUEeSRjauCcgnMbg" base_Element="_PTnoUQdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs0gdUEeSRjauCcgnMbg" base_Element="_PUJMwwdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs0wdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs1AdUEeSRjauCcgnMbg" base_Element="_PSpX8wdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs1QdUEeSRjauCcgnMbg" base_Element="_PR1fogdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs1gdUEeSRjauCcgnMbg" base_Element="_PUlRowdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs1wdUEeSRjauCcgnMbg" base_Element="_PSTZtgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs2AdUEeSRjauCcgnMbg" base_Element="HotelSearchcity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs2QdUEeSRjauCcgnMbg" base_Element="_PThhtgdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PVhs2gdUEeSRjauCcgnMbg" base_Element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlComposition10?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aComposition10?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_PViT4AdUEeSRjauCcgnMbg" base_Element="_PSr0MAdUEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_PVvvQQdUEeSRjauCcgnMbg" base_Class="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlQueryGDS?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aQueryGDS?" xsdName="QueryGDS" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWyREAdUEeSRjauCcgnMbg" displayLabel="AirlineSearch" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWy4IAdUEeSRjauCcgnMbg" displayLabel="AirlineSearchResults" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlAirlineSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWy4IQdUEeSRjauCcgnMbg" displayLabel="CarSearch" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWy4IgdUEeSRjauCcgnMbg" displayLabel="CarSearchResults" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlCarSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWzfMAdUEeSRjauCcgnMbg" displayLabel="DepartingFlights" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlDepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWzfMQdUEeSRjauCcgnMbg" displayLabel="HotelSearch" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearch?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PWzfMgdUEeSRjauCcgnMbg" displayLabel="HotelSearchResults" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlHotelSearchResults?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW0GQAdUEeSRjauCcgnMbg" displayLabel="QueryGDS" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlQueryGDS?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aQueryGDS?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW0GQQdUEeSRjauCcgnMbg" displayLabel="ReturningFlights" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlReturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW0GQgdUEeSRjauCcgnMbg" displayLabel="searchAirline_faultType" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchAirline_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchAirline_faultType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW0tUAdUEeSRjauCcgnMbg" displayLabel="searchCar_faultType" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchCar_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchCar_faultType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW0tUQdUEeSRjauCcgnMbg" displayLabel="searchHotel_faultType" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlsearchHotel_faultType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchHotel_faultType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW1UYAdUEeSRjauCcgnMbg" displayLabel="departureDate" base_NamedElement="AirlineSearchdepartureDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3adepartureDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW1UYQdUEeSRjauCcgnMbg" displayLabel="destination" base_NamedElement="AirlineSearchdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3adestination?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW1UYgdUEeSRjauCcgnMbg" displayLabel="noOfPassengers" base_NamedElement="AirlineSearchnoOfPassengers?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3anoOfPassengers?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW17cAdUEeSRjauCcgnMbg" displayLabel="origin" base_NamedElement="AirlineSearchorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3aorigin?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW17cQdUEeSRjauCcgnMbg" displayLabel="returnDate" base_NamedElement="AirlineSearchreturnDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3areturnDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW17cgdUEeSRjauCcgnMbg" displayLabel="roundTrip" base_NamedElement="AirlineSearchroundTrip?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3aroundTrip?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW2igAdUEeSRjauCcgnMbg" displayLabel="timePreference" base_NamedElement="AirlineSearchtimePreference?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearch%3a%3atimePreference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW2igQdUEeSRjauCcgnMbg" displayLabel="departingFlights" base_NamedElement="AirlineSearchResultsdepartingFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults%3a%3adepartingFlights?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW2iggdUEeSRjauCcgnMbg" displayLabel="returningFlights" base_NamedElement="AirlineSearchResultsreturningFlights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aAirlineSearchResults%3a%3areturningFlights?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW3JkAdUEeSRjauCcgnMbg" displayLabel="carMake" base_NamedElement="CarSearchcarMake?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acarMake?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW3JkQdUEeSRjauCcgnMbg" displayLabel="carType" base_NamedElement="CarSearchcarType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acarType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW3woAdUEeSRjauCcgnMbg" displayLabel="country" base_NamedElement="CarSearchcountry?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3acountry?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW3woQdUEeSRjauCcgnMbg" displayLabel="dropOffCity" base_NamedElement="CarSearchdropOffCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3adropOffCity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW3wogdUEeSRjauCcgnMbg" displayLabel="dropOffDate" base_NamedElement="CarSearchdropOffDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3adropOffDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW4XsAdUEeSRjauCcgnMbg" displayLabel="nonSmoking" base_NamedElement="CarSearchnonSmoking?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3anonSmoking?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW4XsQdUEeSRjauCcgnMbg" displayLabel="pickUpCity" base_NamedElement="CarSearchpickUpCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3apickUpCity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW4XsgdUEeSRjauCcgnMbg" displayLabel="pickUpDate" base_NamedElement="CarSearchpickUpDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3apickUpDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW4-wAdUEeSRjauCcgnMbg" displayLabel="rentalAgency" base_NamedElement="CarSearchrentalAgency?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3arentalAgency?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW4-wQdUEeSRjauCcgnMbg" displayLabel="state" base_NamedElement="CarSearchstate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearch%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW5l0AdUEeSRjauCcgnMbg" displayLabel="dropOffDate" base_NamedElement="CarSearchResultsdropOffDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3adropOffDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW5l0QdUEeSRjauCcgnMbg" displayLabel="noOfDays" base_NamedElement="CarSearchResultsnoOfDays?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3anoOfDays?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW5l0gdUEeSRjauCcgnMbg" displayLabel="pickUpCity" base_NamedElement="CarSearchResultspickUpCity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3apickUpCity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW6M4AdUEeSRjauCcgnMbg" displayLabel="pickUpDate" base_NamedElement="CarSearchResultspickUpDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3apickUpDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW6M4QdUEeSRjauCcgnMbg" displayLabel="rentalAgencies" base_NamedElement="CarSearchResultsrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aCarSearchResults%3a%3arentalAgencies?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW6M4gdUEeSRjauCcgnMbg" displayLabel="rentalAgenciesType" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlrentalAgenciesType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW6z8AdUEeSRjauCcgnMbg" displayLabel="rentalAgency" base_NamedElement="rentalAgenciesTyperentalAgency?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3arentalAgenciesType%3a%3arentalAgency?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW6z8QdUEeSRjauCcgnMbg" displayLabel="date" base_NamedElement="DepartingFlightsdate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3adate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW6z8gdUEeSRjauCcgnMbg" displayLabel="destination" base_NamedElement="DepartingFlightsdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3adestination?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW7bAAdUEeSRjauCcgnMbg" displayLabel="flights" base_NamedElement="DepartingFlightsflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3aflights?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW7bAQdUEeSRjauCcgnMbg" displayLabel="origin" base_NamedElement="DepartingFlightsorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aDepartingFlights%3a%3aorigin?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW8CEAdUEeSRjauCcgnMbg" displayLabel="flightsType" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW8CEQdUEeSRjauCcgnMbg" displayLabel="flight" base_NamedElement="flightsTypeflight?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType%3a%3aflight?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW8pIAdUEeSRjauCcgnMbg" displayLabel="checkInDate" base_NamedElement="HotelSearchcheckInDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acheckInDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW8pIQdUEeSRjauCcgnMbg" displayLabel="checkOutDate" base_NamedElement="HotelSearchcheckOutDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acheckOutDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW8pIgdUEeSRjauCcgnMbg" displayLabel="city" base_NamedElement="HotelSearchcity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW8pIwdUEeSRjauCcgnMbg" displayLabel="country" base_NamedElement="HotelSearchcountry?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3acountry?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW9QMAdUEeSRjauCcgnMbg" displayLabel="hotelName" base_NamedElement="HotelSearchhotelName?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3ahotelName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW9QMQdUEeSRjauCcgnMbg" displayLabel="nearAddress" base_NamedElement="HotelSearchnearAddress?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3anearAddress?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW9QMgdUEeSRjauCcgnMbg" displayLabel="nonSmoking" base_NamedElement="HotelSearchnonSmoking?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3anonSmoking?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW93QAdUEeSRjauCcgnMbg" displayLabel="rooms" base_NamedElement="HotelSearchrooms?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3arooms?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW93QQdUEeSRjauCcgnMbg" displayLabel="state" base_NamedElement="HotelSearchstate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearch%3a%3astate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW-eUAdUEeSRjauCcgnMbg" displayLabel="checkInDate" base_NamedElement="HotelSearchResultscheckInDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acheckInDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW-eUQdUEeSRjauCcgnMbg" displayLabel="checkOutDate" base_NamedElement="HotelSearchResultscheckOutDate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acheckOutDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW-eUgdUEeSRjauCcgnMbg" displayLabel="city" base_NamedElement="HotelSearchResultscity?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3acity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW_FYAdUEeSRjauCcgnMbg" displayLabel="hotels" base_NamedElement="HotelSearchResultshotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3ahotels?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW_FYQdUEeSRjauCcgnMbg" displayLabel="noOfNights" base_NamedElement="HotelSearchResultsnoOfNights?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aHotelSearchResults%3a%3anoOfNights?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW_FYgdUEeSRjauCcgnMbg" displayLabel="hotelsType" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlhotelsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW_scAdUEeSRjauCcgnMbg" displayLabel="hotel" base_NamedElement="hotelsTypehotel?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3ahotelsType%3a%3ahotel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PW_scQdUEeSRjauCcgnMbg" displayLabel="date" base_NamedElement="ReturningFlightsdate?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3adate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PXATgAdUEeSRjauCcgnMbg" displayLabel="destination" base_NamedElement="ReturningFlightsdestination?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3adestination?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PXATgQdUEeSRjauCcgnMbg" displayLabel="flights" base_NamedElement="ReturningFlightsflightsType?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3aflights?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PXATggdUEeSRjauCcgnMbg" displayLabel="origin" base_NamedElement="ReturningFlightsorigin?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aReturningFlights%3a%3aorigin?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PXA6kAdUEeSRjauCcgnMbg" displayLabel="flightsType1" base_NamedElement="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdlflightsType2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PXA6kQdUEeSRjauCcgnMbg" displayLabel="flight" base_NamedElement="flightsTypeflight2?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3aflightsType1%3a%3aflight?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PXA6kgdUEeSRjauCcgnMbg" displayLabel="searchAirline_fault" base_NamedElement="searchAirline_faultTypesearchAirline_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchAirline_faultType%3a%3asearchAirline_fault?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PXBhoAdUEeSRjauCcgnMbg" displayLabel="searchCar_fault" base_NamedElement="searchCar_faultTypesearchCar_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchCar_faultType%3a%3asearchCar_fault?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PXBhoQdUEeSRjauCcgnMbg" displayLabel="searchHotel_fault" base_NamedElement="searchHotel_faultTypesearchHotel_fault?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl%3a%3asearchHotel_faultType%3a%3asearchHotel_fault?"/>
+  <notation:Diagram xmi:id="_PXBhpgdUEeSRjauCcgnMbg" type="Business Object Model" element="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl?com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl?" name="com.amsbqa.Linda07.WSDLEmbedXSD1.XSD1importXSD2.Query.wsdl" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_PXCIsAdUEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_PXCIsQdUEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

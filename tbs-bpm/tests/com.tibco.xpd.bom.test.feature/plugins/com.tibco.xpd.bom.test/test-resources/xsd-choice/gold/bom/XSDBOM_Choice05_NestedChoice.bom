@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example.NestedChoice" name="com.example.NestedChoice">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_h1-0gU1WEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_h1-0gk1WEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_h1-0g01WEeSLJZkJre4IDg" key="created" value="1412603076168"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_h1-0hE1WEeSLJZkJre4IDg" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.NestedChoicePlane" name="Plane">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PlanefreightDetails" name="freightDetails" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h1oPMk1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h1oPMU1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Planepassengers" name="passengers" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h1rSg01WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h1rSgk1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PlaneengineType" name="engineType" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h1u84U1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h1u84E1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PlaneengineName" name="engineName" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h1yAMU1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h1yAME1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_h1iIkU1WEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_h1iIkk1WEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_h1iIk01WEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_h1iIlE1WEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_h1ivoE1WEeSLJZkJre4IDg" base_Package="com.example.NestedChoice?com.example.NestedChoice?" xsdTargetNamespace="http://example.com/NestedChoice" xsdSchemaLocation="Temp/XSDBOM_Choice05_NestedChoice.xsd" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.9.0.qualifier"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h1kk0U1WEeSLJZkJre4IDg" base_Class="com.example.NestedChoicePlane?com.example.NestedChoice%3a%3aPlane?" xsdName="Plane" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h1zOUE1WEeSLJZkJre4IDg" name="MS1_1_1" isChoice="true"/>
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h11DgE1WEeSLJZkJre4IDg" name="MS2_1_3" parent="_h1zOUE1WEeSLJZkJre4IDg" isChoice="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h1oPME1WEeSLJZkJre4IDg" base_Property="PlanefreightDetails?com.example.NestedChoice%3a%3aPlane%3a%3afreightDetails?" xsdName="freightDetails" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="C1" xsdParentSequence="_h1zOUE1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h1oPM01WEeSLJZkJre4IDg" textLength="-1" base_Property="PlanefreightDetails?com.example.NestedChoice%3a%3aPlane%3a%3afreightDetails?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h1rSgU1WEeSLJZkJre4IDg" base_Property="Planepassengers?com.example.NestedChoice%3a%3aPlane%3a%3apassengers?" xsdName="passengers" xsdForm="unqualified" xsdType="int" xsdExplicitGroupHierarchy="C1" xsdParentSequence="_h1zOUE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_h1r5kE1WEeSLJZkJre4IDg" base_Property="Planepassengers?com.example.NestedChoice%3a%3aPlane%3a%3apassengers?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h1r5kU1WEeSLJZkJre4IDg" base_Property="Planepassengers?com.example.NestedChoice%3a%3aPlane%3a%3apassengers?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h1uV0U1WEeSLJZkJre4IDg" base_Property="PlaneengineType?com.example.NestedChoice%3a%3aPlane%3a%3aengineType?" xsdName="engineType" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="C1:C2" xsdParentSequence="_h11DgE1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h1u84k1WEeSLJZkJre4IDg" textLength="-1" base_Property="PlaneengineType?com.example.NestedChoice%3a%3aPlane%3a%3aengineType?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h1xZIU1WEeSLJZkJre4IDg" base_Property="PlaneengineName?com.example.NestedChoice%3a%3aPlane%3a%3aengineName?" xsdName="engineName" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="C1:C2" xsdParentSequence="_h11DgE1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h1yAMk1WEeSLJZkJre4IDg" textLength="-1" base_Property="PlaneengineName?com.example.NestedChoice%3a%3aPlane%3a%3aengineName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h14t4E1WEeSLJZkJre4IDg" base_Element="Planepassengers?com.example.NestedChoice%3a%3aPlane%3a%3apassengers?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h14t4U1WEeSLJZkJre4IDg" base_Element="_h1u84U1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h15U8E1WEeSLJZkJre4IDg" base_Element="PlaneengineType?com.example.NestedChoice%3a%3aPlane%3a%3aengineType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h15U8U1WEeSLJZkJre4IDg" base_Element="PlanefreightDetails?com.example.NestedChoice%3a%3aPlane%3a%3afreightDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h15U8k1WEeSLJZkJre4IDg" base_Element="_h1oPMU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h15U801WEeSLJZkJre4IDg" base_Element="PlaneengineName?com.example.NestedChoice%3a%3aPlane%3a%3aengineName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h15U9E1WEeSLJZkJre4IDg" base_Element="_h1iIkU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h15U9U1WEeSLJZkJre4IDg" base_Element="_h1yAMU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h158AE1WEeSLJZkJre4IDg" base_Element="com.example.NestedChoicePlane?com.example.NestedChoice%3a%3aPlane?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h158AU1WEeSLJZkJre4IDg" base_Element="_h1rSgk1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h158Ak1WEeSLJZkJre4IDg" base_Element="_h1iIk01WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h158A01WEeSLJZkJre4IDg" base_Element="_h1rSg01WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h158BE1WEeSLJZkJre4IDg" base_Element="_h1u84E1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h16jEE1WEeSLJZkJre4IDg" base_Element="_h1yAME1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_h16jEU1WEeSLJZkJre4IDg" base_Element="_h1oPMk1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_h17KIE1WEeSLJZkJre4IDg" displayLabel="Plane" base_NamedElement="com.example.NestedChoicePlane?com.example.NestedChoice%3a%3aPlane?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_h18YQE1WEeSLJZkJre4IDg" displayLabel="engineName" base_NamedElement="PlaneengineName?com.example.NestedChoice%3a%3aPlane%3a%3aengineName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_h18_UE1WEeSLJZkJre4IDg" displayLabel="engineType" base_NamedElement="PlaneengineType?com.example.NestedChoice%3a%3aPlane%3a%3aengineType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_h19mYE1WEeSLJZkJre4IDg" displayLabel="freightDetails" base_NamedElement="PlanefreightDetails?com.example.NestedChoice%3a%3aPlane%3a%3afreightDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_h1-0gE1WEeSLJZkJre4IDg" displayLabel="passengers" base_NamedElement="Planepassengers?com.example.NestedChoice%3a%3aPlane%3a%3apassengers?"/>
+  <notation:Diagram xmi:id="_h1-0hU1WEeSLJZkJre4IDg" type="Business Object Model" element="com.example.NestedChoice?com.example.NestedChoice?" name="com.example.NestedChoice" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_h1-0hk1WEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_h1-0h01WEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

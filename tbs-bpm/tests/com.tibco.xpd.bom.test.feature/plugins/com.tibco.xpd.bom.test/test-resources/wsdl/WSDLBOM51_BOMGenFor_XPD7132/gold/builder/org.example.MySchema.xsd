@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/MySchema" xmlns:tns2="http://www.example.org/MySchema"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/MySchema">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD7132/Generated Business Objects/org.example.MySchema.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="Product" nillable="false">
+    <xsd:complexType ecore:name="ProductType" id="org.example.MySchemaProductType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="productCharacteristics" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ProductCharacteristics">
+          <xsd:complexType ecore:name="ProductCharacteristicsType" id="org.example.MySchemaProductCharacteristicsType"
+              mixed="false">
+            <xsd:sequence minOccurs="0">
+              <xsd:element ecore:name="productCharacteristic" form="qualified" maxOccurs="unbounded"
+                  minOccurs="1" name="ProductCharacteristic">
+                <xsd:complexType ecore:name="ProductCharacteristicType" id="org.example.MySchemaProductCharacteristicType"
+                    mixed="false">
+                  <xsd:sequence>
+                    <xsd:element ecore:name="productCharacteristicTypeId" form="qualified"
+                        maxOccurs="1" minOccurs="0" name="ProductCharacteristicTypeId"
+                        type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="productOptionType" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ProductOptionType">
+          <xsd:complexType ecore:name="ProductOptionTypeType" id="org.example.MySchemaProductOptionTypeType"
+              mixed="false">
+            <xsd:choice>
+              <xsd:element ecore:name="productBase" form="qualified" maxOccurs="1"
+                  minOccurs="1" name="ProductBase">
+                <xsd:complexType ecore:name="ProductBaseType" id="org.example.MySchemaProductBaseType"
+                    mixed="false">
+                  <xsd:sequence>
+                    <xsd:element ecore:name="legacyProductNr" form="qualified" maxOccurs="1"
+                        minOccurs="1" name="LegacyProductNr" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:choice>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

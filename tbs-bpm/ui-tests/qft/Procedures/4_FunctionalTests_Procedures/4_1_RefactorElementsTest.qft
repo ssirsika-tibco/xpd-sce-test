@@ -1,0 +1,1406 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <reference>../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</reference>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="1) Refactor BOM elements test">
+      <comment>Procedure that ensures that the BOM elements refactor works fine as mentioned http://confluence.tibco.com/display/BPM/4.1+Refactoring+of+BOM+and+Process+elements
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu15p"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_1_1_RefactorBomElementsTest.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu15v" name="Open BOM editor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject"
+                        event="MOUSE_MPRC" id="_uu15w" modifiers="16" x="-31"
+                        y="3"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Business Objects"
+                        event="MOUSE_MPRC" id="_uu15x" modifiers="16" x="-27"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Business Objects/BizDataProject.bom"
+                        event="MOUSE_MPRC" id="_uu15y" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-group.openWith" event="SELECTION"
+                            id="_uu15z"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemBOM_Diagram_Editing"
+                            event="SELECTION" id="_uu15+"/>
+      </BasicSequence>
+      <BasicSequence id="_uu167" name="Refactor Class name">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Class1/ClassName (Class1)"
+                        event="MOUSE_MPRC" id="_uu168" modifiers="4"
+                        popup="true" x="27" y="0"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-xpd.refactor" event="SELECTION"
+                            id="_uu169"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-xpd.refactor-com.tibco.xpd.bom.modeler.custom.actions.RefactorNameDiagramAction"
+                            event="SELECTION" id="_uu16A"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="RefactoringWizardDialog2" id="_uu16B"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="RefactoringWizardDialog2.textNew_Label:"
+                       id="_uu16C">
+          <text>hello</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk" event="MOUSE_MPRC" id="_uu16D"
+                        modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="RefactoringWizardDialog2" id="_uu16L"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1LX"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <BasicSequence id="_uu16E" name="Refactor case class name">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1/ClassName (Case1)"
+                        event="MOUSE_MPRC" id="_uu16F" modifiers="4"
+                        popup="true" x="4" y="7"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-xpd.refactor" event="SELECTION"
+                            id="_uu16G"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-xpd.refactor-com.tibco.xpd.bom.modeler.custom.actions.RefactorNameDiagramAction"
+                            event="SELECTION" id="_uu16H"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="RefactoringWizardDialog2" id="_uu16I"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="RefactoringWizardDialog2.textNew_Label:"
+                       id="_uu16J">
+          <text>abc</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk" event="MOUSE_MPRC" id="_uu16K"
+                        modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="RefactoringWizardDialog2" id="_uu16M"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1LY"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <BasicSequence id="_uu16N" name="Refactor Enumeration name">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Enumeration1/EnumerationName (Enumeration1)"
+                        event="MOUSE_MPRC" id="_uu16O" modifiers="4"
+                        popup="true" x="46" y="3"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-xpd.refactor" event="SELECTION"
+                            id="_uu16P"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-xpd.refactor-com.tibco.xpd.bom.modeler.custom.actions.RefactorNameDiagramAction"
+                            event="SELECTION" id="_uu16Q"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="RefactoringWizardDialog2" id="_uu16R"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="RefactoringWizardDialog2.textNew_Label:"
+                       id="_uu16S">
+          <text>xyz</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk" event="MOUSE_MPRC" id="_uu16T"
+                        modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="RefactoringWizardDialog2" id="_uu16U"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1LZ"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <ProcedureCall id="_uu1La"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Lb"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1Lc" name="2) Rename Data Field test">
+      <comment>Procedure that ensures that the refactor Data Field test works fine as mentioned http://confluence.tibco.com/display/BPM/4.1+Refactoring+of+BOM+and+Process+elements
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Ld"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_1_2_RenameDataFieldTest.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1Le"
+                     name="Expand Data Fields in Project explorer">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1Lf" modifiers="16" x="-34"
+                        y="1"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1Lg" modifiers="16" x="-36"
+                        y="3"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1Lh" modifiers="16" x="-32"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1Li" modifiers="16" x="-30"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes"
+                        event="MOUSE_MPRC" id="_uu1Lj" modifiers="16" x="-25"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1Lk" modifiers="16" x="-29"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Data Fields"
+                        event="MOUSE_MPRC" id="_uu1Ll" modifiers="16" x="-28"
+                        y="10"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Lq" name="Rename Data Fields">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Data Fields/Field (Field)"
+                        event="MOUSE_MPRC" id="_uu1Lr" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu1Ls"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="textnameElement_displayName_text"
+                        event="MOUSE_MPRC" id="_uu1Lt" modifiers="16" x="61"
+                        y="7"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_PRESSED" id="_uu1Lu" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_PTR" id="_uu1Lv" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="textnameElement_displayName_text"
+                       id="_uu1Lw">
+          <text>Onew</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer" event="MOUSE_MPRC"
+                        id="_uu1Lx" modifiers="16" x="80" y="80"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Data Fields/Field2 (Field2)"
+                        event="MOUSE_MPRC" id="_uu1Ly" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="textnameElement_displayName_text"
+                        event="MOUSE_MPRC" id="_uu1Lz" modifiers="16" x="98"
+                        y="9"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_PRESSED" id="_uu1L+" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_PTR" id="_uu1L-" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="textnameElement_displayName_text"
+                       id="_uu1M0">
+          <text>Two</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer" event="MOUSE_MPRC"
+                        id="_uu1M1" modifiers="16" x="80" y="80"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Data Fields/Field3 (Field3)"
+                        event="MOUSE_MPRC" id="_uu1M2" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="textnameElement_displayName_text"
+                        event="MOUSE_MPRC" id="_uu1M3" modifiers="16" x="68"
+                        y="10"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_PRESSED" id="_uu1M4" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_PTR" id="_uu1M5" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_RELEASED" id="_uu1M6" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="textnameElement_displayName_text"
+                       id="_uu1M7">
+          <text>Three</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer" event="MOUSE_MPRC"
+                        id="_uu1M8" modifiers="16" x="80" y="80"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Data Fields/Field4 (Field4)"
+                        event="MOUSE_MPRC" id="_uu1M9" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="textnameElement_displayName_text"
+                        event="MOUSE_MPRC" id="_uu1MA" modifiers="16" x="47"
+                        y="13"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_PRESSED" id="_uu1MB" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textnameElement_displayName_text"
+                      event="KEY_PTR" id="_uu1MC" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="textnameElement_displayName_text"
+                       id="_uu1MD">
+          <text>Four</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer" event="MOUSE_MPRC"
+                        id="_uu1ME" modifiers="16" x="80" y="80"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1LV"
+                     procedure="business_studio_operations.saveAll"/>
+      <ProcedureCall id="_uu1MG"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <ProcedureCall id="_uu1MF"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1MH"
+               name="3) Refactor Parameter to Data Field and Correlation Data test">
+      <comment>Procedure that ensures that the converion of DataField&lt;-&gt;Paramater&lt;-&gt;CorrelationField test works fine as mentioned http://confluence.tibco.com/display/BPM/4.1+Refactoring+of+BOM+and+Process+elements
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1MI"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_1_3_ConvertDataFieldParamsAndCorrelation.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1Mv"
+                     name="Expand DF, Correlation Data and Param in Project Explorer">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer" event="MOUSE_MPRC"
+                        id="_uu1Mw" modifiers="16" x="17" y="21"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1Mx" modifiers="16" x="-26"
+                        y="13"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1My" modifiers="16" x="-27"
+                        y="2"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1Mz" modifiers="16" x="-26"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes"
+                        event="MOUSE_MPRC" id="_uu1M+" modifiers="16" x="-31"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1M-" modifiers="16" x="-24"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Data Fields"
+                        event="MOUSE_MPRC" id="_uu1N0" modifiers="16" x="-29"
+                        y="11"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Parameters"
+                        event="MOUSE_MPRC" id="_uu1N1" modifiers="16" x="-28"
+                        y="11"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Correlation Data"
+                        event="MOUSE_MPRC" id="_uu1N2" modifiers="16" x="-28"
+                        y="11"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1NH" name="Convert Fields">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Data Fields/Field (Field)"
+                        event="MOUSE_MPRC" id="_uu1NI" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemConvert_To_Parameter"
+                            event="SELECTION" id="_uu1NJ"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Parameters/Parameter (Parameter)"
+                        event="MOUSE_MPRC" id="_uu1NK" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemConvert_to_Correlation_Data"
+                            event="SELECTION" id="_uu1NL"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)/Correlation Data/CorrelationField (CorrelationField)"
+                        event="MOUSE_MPRC" id="_uu1NP" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemConvert_to_Data_Field"
+                            event="SELECTION" id="_uu1NO"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1Ms"
+                     procedure="business_studio_operations.saveAll"/>
+      <TestStep id="_uu19O" name="inspectModel">
+        <ProcedureCall id="_uu19P"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess"].formalParameters[Name="Field",Mode="INOUT",Required="false"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1NQ"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess"].dataFields[Name="CorrelationField",ReadOnly="true",Correlation="false"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1NR"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess"].dataFields[Name="Parameter",IsArray="false",ReadOnly="false",Correlation="true"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu1Mu"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1NS" name="4) Refactor as Embedded/Event Sub Process">
+      <comment>Procedure that ensures that refactor as embedded/event sub process test works fine as mentioned http://confluence.tibco.com/display/BPM/4.1+Refactoring+of+BOM+and+Process+elements
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1NT"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_1_4_RefactorAsEmbeddedSubProcessTestProject.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1NU" name="Open Process in Editor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1NV" modifiers="16" x="-27"
+                        y="14"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1NW" modifiers="16" x="-31"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/TestProject01.xpdl"
+                        event="MOUSE_MPRC" id="_uu1NX" modifiers="16" x="-31"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/TestProject01.xpdl/TestProject01 (TestProject01)/Processes"
+                        event="MOUSE_MPRC" id="_uu1NY" modifiers="16" x="-26"
+                        y="7"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/TestProject01.xpdl/TestProject01 (TestProject01)/Processes/MonitorCustomerAndOrder (MonitorCustomerAndOrder)"
+                        event="MOUSE_MPRC" id="_uu1NZ" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/TestProject01.xpdl/TestProject01 (TestProject01)/Processes/MonitorCustomerAndOrder (MonitorCustomerAndOrder)"
+                        event="MOUSE_MPRC" id="_uu1Na" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Nb" name="Zoom out the editor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane"
+                        event="MOUSE_MPRC" id="_uu1Nc" modifiers="16" x="550"
+                        y="103"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PRESSED" id="_uu1Nd" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PTR" id="_uu1Ne" keychar="45" keycode="45"
+                      modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PTR" id="_uu1Nf" keychar="45" keycode="45"
+                      modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_RELEASED" id="_uu1Ng" keychar="65535"
+                      keycode="17" modifiers="2"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1P0" name="Refactor as Event Sub process">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/CatchCustomerCaseRefChanged"
+                        event="MOUSE_MPRC" id="_uu1P1" modifiers="16" x="27"
+                        y="6"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PRESSED" id="_uu1P2" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ScriptTask7"
+                        event="MOUSE_MPRC" id="_uu1P3" modifiers="18" x="30"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/Gateway"
+                        event="MOUSE_MPRC" id="_uu1P4" modifiers="18" x="15"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ThrowCustomerUpdated"
+                        event="MOUSE_MPRC" id="_uu1P5" modifiers="18" x="16"
+                        y="6"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/EndEvent2"
+                        event="MOUSE_MPRC" id="_uu1P6" modifiers="18" x="10"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/Gateway-1"
+                        event="MOUSE_MPRC" id="_uu1P7" modifiers="18" x="9"
+                        y="11"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ScriptTask8"
+                        event="MOUSE_MPRC" id="_uu1P8" modifiers="18" x="19"
+                        y="15"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ThrowCustomerLinkedUnlinked"
+                        event="MOUSE_MPRC" id="_uu1P9" modifiers="18" x="15"
+                        y="7"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/EndEvent3"
+                        event="MOUSE_MPRC" id="_uu1PA" modifiers="18" x="13"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/Gateway-2"
+                        event="MOUSE_MPRC" id="_uu1PB" modifiers="18" x="9"
+                        y="6"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ThrowCustomerDeleted"
+                        event="MOUSE_MPRC" id="_uu1PC" modifiers="18" x="14"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/EndEvent4"
+                        event="MOUSE_MPRC" id="_uu1PD" modifiers="18" x="19"
+                        y="6"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_RELEASED" id="_uu1PE" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ScriptTask7"
+                        event="MOUSE_MPRC" id="_uu1PF" modifiers="4"
+                        popup="true" x="22" y="20"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu"
+                            event="SELECTION" id="_uu1PG"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsEventSubProc"
+                            event="SELECTION" id="_uu1PH"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="RefactorAsEventSubProcWizard"
+                         id="_uu1PI"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="RefactorAsEventSubProcWizard.textName:"
+                       id="_uu1PJ">
+          <text>EventSub</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish9" event="MOUSE_MPRC"
+                        id="_uu1PK" modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1Ok"
+                     procedure="business_studio_operations.saveAll"/>
+      <ProcedureCall id="_uu1P-"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1PT" name="inspectModel">
+        <ProcedureCall id="_uu1Ol"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activities[Name="EventSub"].blockActivity[xpdExt:IsEventSubProcess="true"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1PL"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="ScriptTask7"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1PM"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="ThrowCustomerUpdated"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1PN"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="ScriptTask8"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1PO"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="ThrowCustomerLinkedUnlinked"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1PP"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="CatchCustomerCaseRefChanged"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1PQ"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="ThrowCustomerLinkedUnlinked"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1PR"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="ThrowCustomerDeleted"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1PS"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="EndEvent4"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <BasicSequence id="_uu1PX" name="Undo refactor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/TestProject01.xpdl/TestProject01 (TestProject01)/Processes/MonitorCustomerAndOrder (MonitorCustomerAndOrder)"
+                        event="MOUSE_MPRC" id="_uu1PY" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/TestProject01.xpdl/TestProject01 (TestProject01)/Processes/MonitorCustomerAndOrder (MonitorCustomerAndOrder)"
+                        event="MOUSE_MPRC" id="_uu1PZ" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane"
+                        event="MOUSE_MPRC" id="_uu1Pa" modifiers="16" x="272"
+                        y="108"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PRESSED" id="_uu1Pb" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PTR" id="_uu1Pc" keychar="26" keycode="90"
+                      modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_RELEASED" id="_uu1Pd" keychar="65535"
+                      keycode="17" modifiers="2"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Pe" name="Refactor as Enbedded Sub process">
+        <ComponentEventStep client="BusinessStudio"
+                            component="WorkbenchWindow"
+                            event="COMPONENT_MOVED" id="_uu1Pf" param1="-8"
+                            param2="-8"/>
+        <ComponentEventStep client="BusinessStudio"
+                            component="WorkbenchWindow"
+                            event="COMPONENT_RESIZED" id="_uu1Pg"
+                            param1="1936" param2="1056"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane"
+                        event="MOUSE_MPRC" id="_uu1Ph" modifiers="16" x="295"
+                        y="115"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ShowCustomer"
+                        event="MOUSE_MPRC" id="_uu1Pi" modifiers="16" x="45"
+                        y="14"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ShowCustomer"
+                        event="MOUSE_MPRC" id="_uu1Pj" modifiers="4"
+                        popup="true" x="45" y="14"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu"
+                            event="SELECTION" id="_uu1Pk"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsEmbeddedSubProc"
+                            event="SELECTION" id="_uu1Pl"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="RefactorAsEmbeddedSubProcWizard"
+                         id="_uu1Pm"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Configurations_And_Problems.treeThe_refactor_would_cause_an_implied_join_of_these_objects_on_sub-process_completion._This_constitutes_a_change_in_the_process_flow.______Check_the_box_only_if_you_wish_accept_this_change_and_continue.@/Multiple Entry \/ Exit Path issues (must be confirmed before you can continue)/Ok to imply join of multiple exit path objects? (see highlighted flows and objects in image below)"
+                        event="MOUSE_MPRC" id="_uu1Pn" modifiers="16" x="-25"
+                        y="15"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonNext7" event="MOUSE_MPRC" id="_uu1Po"
+                        modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish10" event="MOUSE_MPRC"
+                        id="_uu1Pp" modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1Pq"
+                     procedure="business_studio_operations.saveAll"/>
+      <ProcedureCall id="_uu1Q0"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1Pr" name="inspectModel">
+        <ProcedureCall id="_uu1Ps"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activities[Name="EmbeddedSubProcess"].blockActivity[xpdExt:IsEventSubProcess="false"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Q1"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="StartEvent"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Q2"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="ShowCustomer"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Q3"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="CatchCustomerUpdated"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Q4"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="CatchCustomerLinkedUnlinked"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Q5"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="CatchCustomerDeleted"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Q6"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/TestProject01.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MonitorCustomerAndOrder"].activitySets.activities[Name="EndEvent"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <BasicSequence id="_uu1Ob" name="Zoom in editor">
+        <ComponentEventStep client="BusinessStudio"
+                            component="WorkbenchWindow"
+                            event="COMPONENT_MOVED" id="_uu1Oc" param1="-8"
+                            param2="-8"/>
+        <ComponentEventStep client="BusinessStudio"
+                            component="WorkbenchWindow"
+                            event="COMPONENT_RESIZED" id="_uu1Od"
+                            param1="1936" param2="1056"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane"
+                        event="MOUSE_MPRC" id="_uu1Oe" modifiers="16" x="272"
+                        y="113"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PRESSED" id="_uu1Of" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PTR" id="_uu1Og" keychar="61" keycode="61"
+                      modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_PTR" id="_uu1Oh" keychar="61" keycode="61"
+                      modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas"
+                      event="KEY_RELEASED" id="_uu1Oi" keychar="65535"
+                      keycode="17" modifiers="2"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1Om"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1On"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1Q7" name="5) Refactor as Reusable Sub Process">
+      <comment>Procedure that ensures that refactor as embedded/event sub process test works fine as mentioned http://confluence.tibco.com/display/BPM/4.1+Refactoring+of+BOM+and+Process+elements
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_7"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_1_5_RefactorAsResuableSubProcTestProject.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_F" name="Open process in editor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_G" modifiers="16" x="-34"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_H" modifiers="16" x="-29"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_I" modifiers="16" x="-34"
+                        y="7"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes"
+                        event="MOUSE_MPRC" id="_J" modifiers="16" x="-30"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_K" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_L" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_g" name="Refactor Adhoc Activity MyRef1">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Pool/Lane/AdhocTask2"
+                        event="MOUSE_MPRC" id="_h" modifiers="16" x="80"
+                        y="47"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Pool/Lane/AdhocTask2"
+                        event="MOUSE_MPRC" id="_i" modifiers="4" popup="true"
+                        x="80" y="47"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuPopup_InvokerClass:_Canvas"
+                            detail="close" event="SELECTION" id="_j"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Pool/Lane/AdhocTask2"
+                        event="MOUSE_MPRC" id="_k" modifiers="4" popup="true"
+                        x="77" y="24"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.resourcePatternsMenu"
+                            event="SELECTION" id="_l"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.resourcePatternsMenu"
+                            detail="close" event="SELECTION" id="_m"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu"
+                            event="SELECTION" id="_n"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsIndependentSubProc"
+                            event="SELECTION" id="_o"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="RefactorAsIndiSubProcWizard" id="_p"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="RefactorAsIndiSubProcWizard.textName:"
+                       id="_q">
+          <text>MyRef1</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish11" event="MOUSE_MPRC" id="_r"
+                        modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="RefactorAsIndiSubProcWizard" id="_uu1RU"
+                         timeout="300000"/>
+      </BasicSequence>
+      <BasicSequence id="_12" name="Refactor Adhoc Activity MyRef2">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Pool/Lane/UT2"
+                        event="MOUSE_MPRC" id="_13" modifiers="16" x="53"
+                        y="47"/>
+        <KeyEventStep client="BusinessStudio" component="Editor.canvas"
+                      event="KEY_PRESSED" id="_14" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Pool/Lane/UT3"
+                        event="MOUSE_MPRC" id="_15" modifiers="18" x="75"
+                        y="25"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Pool/Lane/ScriptTask"
+                        event="MOUSE_MPRC" id="_16" modifiers="18" x="57"
+                        y="29"/>
+        <KeyEventStep client="BusinessStudio" component="Editor.canvas"
+                      event="KEY_RELEASED" id="_17" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Pool/Lane/ScriptTask"
+                        event="MOUSE_MPRC" id="_18" modifiers="4" popup="true"
+                        x="57" y="29"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu"
+                            event="SELECTION" id="_19"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsIndependentSubProc"
+                            event="SELECTION" id="_1A"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="RefactorAsIndiSubProcWizard" id="_1B"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="RefactorAsIndiSubProcWizard.textName:"
+                       id="_1C">
+          <text>MyRef2</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish11" event="MOUSE_MPRC" id="_1D"
+                        modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_1E" procedure="business_studio_operations.saveAll"/>
+      <ProcedureCall id="_1F"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1RV" name="inspectModel">
+        <ProcedureCall id="_uu1RW"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess"].activities[Name="MyRef1"].adHocTaskConfiguration[AdHocExecutionType="Automatic"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Rc"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess"].activities[Name="MyRef2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1RX"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef1"].activities[Name="AdhocTask2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1RY"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef1"].formalParameters[name="Field"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1RZ"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef1"].formalParameters[name="Field2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Rd"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef2"].activities[Name="UT2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Rg"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef2"].activities[Name="UT3"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Rh"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef2"].activities[Name="ScriptTask"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ri"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef2"].activities[Name="StartEvent"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Rj"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef2"].activities[Name="EndEvent"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Re"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef2"].formalParameters[name="Field"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Rf"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="MyRef2"].formalParameters[name="Field2"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu1Ra"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Rb"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - /ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject-Process (ProcessProjectProcess) - TIBCO Business Studio"
+                height="876" id="WorkbenchWindow3" name="WorkbenchWindow"
+                uid="_M" width="1616">
+      <ComponentStep class="MenuBar" feature="Popup InvokerClass: Canvas"
+                     height="429" id="menuPopup_InvokerClass:_Canvas" uid="_N"
+                     width="184">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="25" classindex="10"
+                       feature="Resource Patterns" height="19"
+                       id="menu-com.tibco.xpd.processwidget.resourcePatternsMenu"
+                       name="menu-com.tibco.xpd.processwidget.resourcePatternsMenu"
+                       uid="_O" width="180" x="2" y="182">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Resource Patterns</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="25" classindex="9"
+                       feature="Refactor" height="19"
+                       id="menu-com.tibco.xpd.processwidget.refactorMenu"
+                       name="menu-com.tibco.xpd.processwidget.refactorMenu"
+                       uid="_P" width="180" x="2" y="163">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Refactor</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem"
+                         feature="Extract Into New Sub-Process" height="22"
+                         id="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsIndependentSubProc"
+                         name="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsIndependentSubProc"
+                         uid="_Q" width="279" x="2" y="68">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">417193737</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Extract Into New Sub-Process</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt"
+                feature="Refactor As Call Sub-Process" height="433"
+                id="RefactorAsIndiSubProcWizard" modal="true"
+                name="RefactorAsIndiSubProcWizard" uid="_R" width="525">
+      <ComponentStep class="TextField" classcount="1" classindex="0"
+                     height="21" id="RefactorAsIndiSubProcWizard.textName:"
+                     uid="_S" width="420" x="87" y="108">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TextField</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Name:</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="2" classindex="0"
+                     feature="Finish" height="25" id="buttonFinish11"
+                     name="buttonFinish" uid="_T" width="92" x="316" y="387">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - TIBCO Business Studio" height="1056"
+                id="WorkbenchWindow" name="WorkbenchWindow" uid="_uu15q"
+                width="1936">
+      <ComponentStep class="Tree" classcount="2" classindex="1" height="598"
+                     id="Project_Explorer" name="Project Explorer"
+                     uid="_uu15r" width="244" x="15" y="133">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="MenuBar"
+                     feature="Popup InvokerName: Project Explorer"
+                     height="466" id="popup-Project_Explorer"
+                     name="popup-Project Explorer" uid="_uu15s" width="235">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="28" classindex="3"
+                       feature="Open With" height="19"
+                       id="menu-group.openWith" name="menu-group.openWith"
+                       uid="_uu15t" width="231" x="2" y="49">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Open With</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="BOM Diagram Editing"
+                         height="19" id="menuitemBOM_Diagram_Editing"
+                         uid="_uu15u" width="176" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">881031978</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">BOM Diagram Editing</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">MenuItem:RadioButtonMenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Show Properties View"
+                       height="19"
+                       id="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                       name="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                       uid="_uu1Lm" width="248" x="2" y="256">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">2146591693</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Show Properties View</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Convert to Correlation Data"
+                       height="19" id="menuitemConvert_to_Correlation_Data"
+                       uid="_uu1N3" width="248" x="2" y="237">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-1009030179</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Convert to Correlation Data</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Convert To Parameter"
+                       height="19" id="menuitemConvert_To_Parameter"
+                       uid="_uu1N4" width="219" x="2" y="218">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-2143247</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Convert To Parameter</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Convert To Data Field"
+                       height="19" id="menuitemConvert_To_Data_Field"
+                       uid="_uu1N5" width="248" x="2" y="218">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-1512496635</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Convert To Data Field</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Convert to Data Field"
+                       height="19" id="menuitemConvert_to_Data_Field"
+                       uid="_uu1NG" width="219" x="2" y="237">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-1512496635</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Convert to Data Field</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="23" classindex="20"
+                     height="414" id="Editor" name="Editor" uid="_uu15-"
+                     width="1653" x="268" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.gef.ui.palette.FlyoutPaletteComposite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="7" classindex="6"
+                       height="414" id="Editor.canvas" uid="_uu160"
+                       width="1525" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Popup InvokerClass: Canvas"
+                     height="409" id="menuPopup_InvokerClass:_Canvas"
+                     uid="_uu161" width="178">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="25" classindex="19"
+                       feature="Refactor" height="19" id="menu-xpd.refactor"
+                       name="menu-xpd.refactor" uid="_uu162" width="174" x="2"
+                       y="313">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Refactor</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="Rename" height="22"
+                         id="menu-xpd.refactor-com.tibco.xpd.bom.modeler.custom.actions.RefactorNameDiagramAction"
+                         name="menu-xpd.refactor-com.tibco.xpd.bom.modeler.custom.actions.RefactorNameDiagramAction"
+                         uid="_uu163" width="127" x="2" y="2">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Rename</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="19" classindex="2"
+                       feature="Refactor" height="19"
+                       id="menu-com.tibco.xpd.processwidget.refactorMenu"
+                       name="menu-com.tibco.xpd.processwidget.refactorMenu"
+                       uid="_uu1Nj" width="180" x="2" y="40">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Refactor</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem"
+                         feature="Convert Event Handler to Event Sub-Process"
+                         height="22"
+                         id="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsEventSubProc"
+                         name="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsEventSubProc"
+                         uid="_uu1Nk" width="303" x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-1567220827</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Convert Event Handler to Event Sub-Process</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem"
+                         feature="Move Into New Embedded Sub-Process"
+                         height="22"
+                         id="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsEmbeddedSubProc"
+                         name="menu-com.tibco.xpd.processwidget.refactorMenu-com.tibco.xpd.processwidget.RefactorAsEmbeddedSubProc"
+                         uid="_uu1O9" width="279" x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1205802905</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Move Into New Embedded Sub-Process</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="25" classindex="3"
+                       feature="Activity Markers" height="19"
+                       id="menu-com.tibco.xpd.processwidget.activityMarkersMenu"
+                       name="menu-com.tibco.xpd.processwidget.activityMarkersMenu"
+                       uid="_uu1O7" width="180" x="2" y="59">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Activity Markers</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="25" classindex="2"
+                       feature="Activity Type" height="19"
+                       id="menu-com.tibco.xpd.processwidget.taskTypeMenu"
+                       name="menu-com.tibco.xpd.processwidget.taskTypeMenu"
+                       uid="_uu1O8" width="180" x="2" y="40">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Activity Type</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="22" classindex="16"
+                     height="230" id="Properties" name="Properties"
+                     uid="_uu1Ln" width="1649" x="268" y="785">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.ui.part.PageBook</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="12" classindex="11"
+                       height="200" id="Properties.scroll" uid="_uu1Lo"
+                       width="1547" x="102" y="30">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">Panel:ScrollPanel</extrafeature>
+          <ComponentStep class="TextField" classcount="2" classindex="0"
+                         height="21" id="textnameElement_displayName_text"
+                         name="textnameElement_displayName_text" uid="_uu1Lp"
+                         width="1491" x="51" y="10">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Text</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">TextField</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Label:</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Text</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Rename Element"
+                height="258" id="RefactoringWizardDialog2" modal="true"
+                name="RefactoringWizardDialog2" uid="_uu164" width="496">
+      <ComponentStep class="TextField" classcount="4" classindex="1"
+                     height="21" id="RefactoringWizardDialog2.textNew_Label:"
+                     uid="_uu165" width="395" x="83" y="66">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TextField</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">New Label:</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="3" classindex="1" feature="OK"
+                     height="25" id="buttonOk" name="buttonOk" uid="_uu166"
+                     width="92" x="287" y="212">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">OK</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt"
+                feature="Refactor As Event Sub-Process" height="433"
+                id="RefactorAsEventSubProcWizard" modal="true"
+                name="RefactorAsEventSubProcWizard" uid="_uu1Nl" width="525">
+      <ComponentStep class="TextField" classcount="1" classindex="0"
+                     height="21" id="RefactorAsEventSubProcWizard.textName:"
+                     uid="_uu1Nm" width="420" x="87" y="108">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TextField</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Name:</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="2" classindex="0"
+                     feature="Finish" height="25" id="buttonFinish9"
+                     name="buttonFinish" uid="_uu1Nn" width="92" x="316"
+                     y="387">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt"
+                feature="Refactor As Embedded Sub-Process" height="689"
+                id="RefactorAsEmbeddedSubProcWizard" modal="true"
+                name="RefactorAsEmbeddedSubProcWizard" uid="_uu1OA"
+                width="650">
+      <ComponentStep class="Panel" classcount="8" classindex="4" height="471"
+                     id="Configurations_And_Problems"
+                     name="Configurations And Problems" uid="_uu1OB"
+                     width="624" x="13" y="103">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Tree" classcount="1" classindex="0" height="171"
+                       id="Configurations_And_Problems.treeThe_refactor_would_cause_an_implied_join_of_these_objects_on_sub-process_completion._This_constitutes_a_change_in_the_process_flow.______Check_the_box_only_if_you_wish_accept_this_change_and_continue."
+                       uid="_uu1OC" width="614" x="5" y="5">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Tree</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">The refactor would cause an implied join of these objects on sub-process completion. This constitutes a change in the process flow.
+
+    Check the box only if you wish accept this change and continue.</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="4" classindex="1"
+                     feature="Next &gt;" height="25" id="buttonNext7"
+                     name="buttonNext" uid="_uu1OD" width="92" x="343"
+                     y="643">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Next &gt;</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="TextField" classcount="1" classindex="0"
+                     height="21"
+                     id="RefactorAsEmbeddedSubProcWizard.textName:"
+                     uid="_uu1OE" width="545" x="87" y="108">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TextField</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Name:</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Text</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="4" classindex="2"
+                     feature="Finish" height="25" id="buttonFinish10"
+                     name="buttonFinish" uid="_uu1OF" width="92" x="441"
+                     y="643">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>

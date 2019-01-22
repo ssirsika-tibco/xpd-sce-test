@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://businessobjectmodel" xmlns:tns1="http://businessobjectmodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://businessobjectmodel">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfs/Business Objects/XSDBOM18_IncludedSchemaTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="businessobjectmodel_AccountType" abstract="false" mixed="false"
+      name="AccountType">
+    <xsd:attribute id="_--_XwPNsEd2xQIQfTfBKXw" form="unqualified" name="Customer"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType id="businessobjectmodel_Customer" abstract="false" mixed="false"
+      name="Customer"/>
+</xsd:schema>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/ArrayMapping/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ArrayMapping" targetNamespace="http://www.example.org/ArrayMapping/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/ArrayMapping/">
+      <xsd:element name="NewOperation">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="singleInstanceString"
+          		type="xsd:string" minOccurs="0"/>
+          	<xsd:element name="multiInstanceString"
+          		type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+          	</xsd:element>
+          	<xsd:element name="multiInstanceComplex" type="tns:AComplexType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse">
+       <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+            <xsd:element name="singleInstanceString"
+          		type="xsd:string" minOccurs="0"/>
+          	<xsd:element name="multiInstanceString"
+          		type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+          	</xsd:element>
+          	<xsd:element name="multiInstanceComplex" type="tns:AComplexType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+       <xsd:element name="StartNewOperationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+            <xsd:element name="singleInstanceString"
+          		type="xsd:string" minOccurs="0"/>
+          	<xsd:element name="multiInstanceString"
+          		type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+          	</xsd:element>
+          	<xsd:element name="multiInstanceComplex" type="tns:AComplexType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="AComplexType">
+      	<xsd:sequence>
+      		<xsd:element name="NewElement" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+      		<xsd:element name="NewElement2" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part element="tns:NewOperation" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part element="tns:NewOperationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="StartNewOperationResponse">
+    <wsdl:part element="tns:StartNewOperationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ArrayMapping">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:NewOperationResponse"/>
+    </wsdl:operation>
+      <wsdl:operation name="StartNewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:StartNewOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+    <wsdl:portType name="SecondArrayMapping">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:NewOperationResponse"/>
+    </wsdl:operation>
+      <wsdl:operation name="StartNewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:StartNewOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArrayMappingSOAP" type="tns:ArrayMapping">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="NewOperation">
+      <soap:operation soapAction="http://www.example.org/ArrayMapping/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+  </wsdl:binding>
+  <wsdl:service name="ArrayMapping">
+    <wsdl:port binding="tns:ArrayMappingSOAP" name="ArrayMappingSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+    
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://anonymousType" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://anonymousType">
+	<xs:complexType name="typeWithAnonymousSimpleType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="anonymousSimpleType">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="typeCode" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="typeWithAnonymousComplexType">
+		<xs:sequence>
+			<xs:element name="issuerId" type="xs:positiveInteger"/>
+			<xs:element name="serialNumber" type="xs:nonNegativeInteger"/>
+			<xs:element name="validForRefill" type="xs:boolean"/>
+			<xs:element name="validForActivation" type="xs:boolean"/>
+			<xs:element name="faceValue" type="xs:nonNegativeInteger"/>
+			<xs:element name="anonymousComplexTypeField">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="validForRefill" type="xs:boolean"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="typeCode" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="typeWithAnonymousEnumeration">
+		<xs:sequence>
+			<xs:element name="issuerId" type="xs:positiveInteger"/>
+			<xs:element name="serialNumber" type="xs:nonNegativeInteger"/>
+			<xs:element name="validForRefill" type="xs:boolean"/>
+			<xs:element name="validForActivation" type="xs:boolean"/>
+			<xs:element name="faceValue" type="xs:nonNegativeInteger"/>
+			<xs:element name="anonymousEnumeration">
+				<xs:simpleType>
+					<xs:restriction base="xs:normalizedString">
+						<xs:enumeration value="activation"/>
+						<xs:enumeration value="refill"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="typeCode" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="typeWithAnonymousRestrictionOfSimpleType">
+		<xs:sequence>
+			<xs:element name="anonymousRestrictionOfSimpleType1">
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:maxExclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="anonymousRestrictionOfSimpleType2">
+				<xs:simpleType>
+					<xs:restriction base="MySimpleType">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="typeCode" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="typeWithAnonymousExtensionOfComplexType">
+		<xs:sequence>
+			<xs:element name="anonymousExtensionOfComplexType">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="typeWithAnonymousComplexType">
+							<xs:sequence>
+								<xs:element name="address" type="xs:string"/>
+								<xs:element name="city" type="xs:string"/>
+								<xs:element name="country" type="xs:string"/>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="MySimpleType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="typeWithAnonymousTypeRecursion">
+		<xs:sequence>
+			<xs:element name="anonymousComplexTypeField">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="anotherFieldOfTypeAnonymous">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="validForRefill" type="xs:boolean"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Add Anonymous Complex type and Anonymous Simple Type with a name with a minus in (XPD-5257) -->
+	<xs:complexType name="verifica-KYC-response">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="stato-kyc">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

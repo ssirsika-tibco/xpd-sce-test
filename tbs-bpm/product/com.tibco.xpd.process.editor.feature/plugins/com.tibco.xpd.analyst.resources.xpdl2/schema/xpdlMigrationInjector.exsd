@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.analyst.resources.xpdl2" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.analyst.resources.xpdl2" id="xpdlMigrationInjector" name="XPDL Migration Injector"/>
+      </appInfo>
+      <documentation>
+         The XPDL Migration Injector allows a contributor to inject an extra xslt transformation into the sequence of migration xslts used to bring a TIBCO Business Studio XPDL process package file from its defined format version to the current format version of Business Studio.
+&lt;p&gt;
+Each Studio XPDL contains the Format Version extended attribute of the version of Studio it was created with/for. If the format version is less than that in current use by the version of Stuio in question it is migrated to the latest format version via a sequence of xslt transformations. Each transformation increases the the format version by 1 and performs the necessary transformations to convert the file from one format version to the next format version.
+&lt;/p&gt;
+&lt;p&gt;
+The contributor can decide upon a format version (which governs at what point in the migration sequence it is executed) and whether it should be executed before or after the built in Studio transformation between the 2 versions.
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;Great care should be taken to ensure that undesirable side effects are avoided and that unaffected XPDL elements are output from the transformation unchanged.
+&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;You should NOT use Java code extensions in your XSLT that attempt to access the process model being migrated - this may work for injections &quot;after &lt;i&gt;current&lt;/i&gt; latest version&quot;. However when the format version is incremented once more then the Java code may not be able to load the model when you injected xslt is executed (because the end of migration won&apos;t have been reached and therefore the Java code xpdl model representation for the xpdl still won&apos;t be loadable!).
+&lt;/b&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <choice>
+               <element ref="migrationInjector"/>
+               <element ref="endOfMigrationCommandInjector"/>
+            </choice>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="migrationInjector">
+      <annotation>
+         <documentation>
+            Each migration injector can inject one xslt transformation before or after migration to a given Studio XPDL format version.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="beforeOrAfter" use="default" value="Before">
+            <annotation>
+               <documentation>
+                  Whether the xslt should be injected and executed before or after the standard Studio migration to the given formatVersion.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="Before">
+                  </enumeration>
+                  <enumeration value="After">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="formatVersion" type="string" use="default" value="1">
+            <annotation>
+               <documentation>
+                  Format version - effectively the position in XPDL migration sequence where to inject the xslt.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="xsltFile" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Xslt transformation to perform just before or after standard migration conversion to given formatVersion from the previous formatVersion.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="endOfMigrationCommandInjector">
+      <annotation>
+         <documentation>
+            Allows contribution of a command provider that is executed at the end of the complete migration cycle.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Command provider that is executed at the end of the complete migration cycle.
+&lt;p&gt;
+If the provider returns a non-null command then it will be executed (outside of the command stack tehrefore cannot be undone by user accidentally).
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.analyst.resources.xpdl2.migrate.IMigrationCommandInjector"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string" use="default" value="50">
+            <annotation>
+               <documentation>
+                  Integer priority allows the order in which contributions are executed (lowest priority first)
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         Business Studio v3.4.2
+      </documentation>
+   </annotation>
+
+
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004-2010. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

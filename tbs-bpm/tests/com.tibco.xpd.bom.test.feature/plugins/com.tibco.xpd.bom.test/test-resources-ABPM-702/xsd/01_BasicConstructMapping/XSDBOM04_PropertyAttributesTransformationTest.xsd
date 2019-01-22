@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/schema1"
+	xmlns:tns="http://www.example.org/schema1" xmlns:schema2="http://www.example.org/schema2"
+	elementFormDefault="qualified">
+
+	<complexType name="Class1">
+		<sequence>
+			<element name="myClass2" block="#all" minOccurs="0"
+				maxOccurs="1" form="qualified" nillable="true" fixed="false" type="string" />
+			<element name="elemWithMinInc" type="positiveInteger"></element>
+			<element name="elemWithMinIncSimple">
+				<simpleType>
+					<restriction base="positiveInteger">
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="elemWithMinIncSimpleOveride">
+				<simpleType>
+					<restriction base="positiveInteger">
+						<minInclusive value="2"></minInclusive>
+						<maxInclusive value="10"></maxInclusive>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+		<attribute name="attr2" use="optional" default="defval"
+			form="unqualified" type="string"></attribute>
+	</complexType>
+
+	<simpleType name="myprim">
+		<restriction base="positiveInteger">
+		</restriction>
+	</simpleType>
+
+	<simpleType name="myprimWR">
+		<restriction base="positiveInteger">
+			<minInclusive value="5"></minInclusive>
+			<maxInclusive value="15"></maxInclusive>
+		</restriction>
+	</simpleType>
+
+</schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskficaricezioneesiti"
+    xmlns:tns9="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskficaricezioneesiti"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskficaricezioneesiti">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.integration.credito.resources/Generated Business Objects/com.enel.xmlns.mercato.libero.schema.bpm.receivetaskficaricezioneesiti.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="FiCaRicezioneEsitiRequest" nillable="false">
+    <xsd:complexType ecore:name="FiCaRicezioneEsitiRequestType" id="com.enel.xmlns.mercato.libero.schema.bpm.receivetaskficaricezioneesitiFiCaRicezioneEsitiRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idRichiesta" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IdRichiesta" type="xsd:string"/>
+        <xsd:element ecore:name="releaseId" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ReleaseId" type="xsd:string"/>
+        <xsd:element ecore:name="ABI_CAB" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ABI_CAB" type="xsd:string"/>
+        <xsd:element ecore:name="nomeBanca" form="qualified" maxOccurs="1" minOccurs="0"
+            name="NomeBanca" type="xsd:string"/>
+        <xsd:element ecore:name="indirizzo" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Indirizzo" type="xsd:string"/>
+        <xsd:element ecore:name="comune" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Comune" type="xsd:string"/>
+        <xsd:element ecore:name="provincia" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Provincia" type="xsd:string"/>
+        <xsd:element ecore:name="denominazione" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Denominazione" type="xsd:string"/>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Esito" type="xsd:string"/>
+        <xsd:element ecore:name="codice" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Codice" type="xsd:string"/>
+        <xsd:element ecore:name="descrizione" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Descrizione" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

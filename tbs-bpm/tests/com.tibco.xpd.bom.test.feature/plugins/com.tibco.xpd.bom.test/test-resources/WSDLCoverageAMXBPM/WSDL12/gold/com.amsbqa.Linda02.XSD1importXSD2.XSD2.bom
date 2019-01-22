@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2" name="com.amsbqa.Linda02.XSD1importXSD2.XSD2">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rbtl4ee2EeKLGLq6rH8VOg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rbtl4ue2EeKLGLq6rH8VOg" key="author" value="aallway"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rbtl4-e2EeKLGLq6rH8VOg" key="created" value="1373281855934"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rbtl5Oe2EeKLGLq6rH8VOg" key="version" value="2"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookType" name="BookType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypeTitle" name="title" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2Title?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aTitleType?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rapO4ue2EeKLGLq6rH8VOg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rapO4ee2EeKLGLq6rH8VOg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypeAuthor" name="author" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2Author?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aAuthorType?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rauucee2EeKLGLq6rH8VOg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rauucOe2EeKLGLq6rH8VOg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypeDate" name="date" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2Date?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aDateType?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_razm8-e2EeKLGLq6rH8VOg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_razm8ue2EeKLGLq6rH8VOg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypeISBN" name="ISBN" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2ISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aISBNType?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ra5Ggue2EeKLGLq6rH8VOg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ra5Ggee2EeKLGLq6rH8VOg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookTypePublisher" name="publisher" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2Publisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aPublisherType?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ra-mE-e2EeKLGLq6rH8VOg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ra-mEue2EeKLGLq6rH8VOg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2Title" name="TitleType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_ramyoee2EeKLGLq6rH8VOg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2Author" name="AuthorType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_rarrIee2EeKLGLq6rH8VOg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2Date" name="DateType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_raxKsee2EeKLGLq6rH8VOg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2ISBN" name="ISBNType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_ra2qQOe2EeKLGLq6rH8VOg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2Publisher" name="PublisherType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_ra8J0Oe2EeKLGLq6rH8VOg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookStoreType" name="BookStoreType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BookStoreTypeBook" name="book" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rbPEw-e2EeKLGLq6rH8VOg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rbPEwue2EeKLGLq6rH8VOg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda02.XSD1importXSD2.XSD2rootType" name="rootType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="rootTypeBook" name="book" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rbVLY-e2EeKLGLq6rH8VOg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rbVLYue2EeKLGLq6rH8VOg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_raRbcee2EeKLGLq6rH8VOg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_raRbcue2EeKLGLq6rH8VOg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_raRbc-e2EeKLGLq6rH8VOg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_raRbdOe2EeKLGLq6rH8VOg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_raRbdee2EeKLGLq6rH8VOg" base_Package="com.amsbqa.Linda02.XSD1importXSD2.XSD2?com.amsbqa.Linda02.XSD1importXSD2.XSD2?" xsdTargetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" xsdSchemaLocation="Book_importedSchema.xsd" xsdStudioVersion="3.6.0.qualifier"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_rajIQee2EeKLGLq6rH8VOg" base_Class="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ra_0MOe2EeKLGLq6rH8VOg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ranZsOe2EeKLGLq6rH8VOg" textLength="-1" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2Title?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aTitleType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ranZsee2EeKLGLq6rH8VOg" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2Title?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aTitleType?" xsdSimpleTypeName="Title" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_raon0Oe2EeKLGLq6rH8VOg" base_Package="com.amsbqa.Linda02.XSD1importXSD2.XSD2?com.amsbqa.Linda02.XSD1importXSD2.XSD2?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_raon0ee2EeKLGLq6rH8VOg" name="Title" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2Title?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aTitleType?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ratgUOe2EeKLGLq6rH8VOg" name="Author" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2Author?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aAuthorType?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ray_4Oe2EeKLGLq6rH8VOg" name="Date" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2Date?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aDateType?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ra4fcOe2EeKLGLq6rH8VOg" name="ISBN" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2ISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aISBNType?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ra9_AOe2EeKLGLq6rH8VOg" name="Publisher" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2Publisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aPublisherType?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_rbDekOe2EeKLGLq6rH8VOg" name="Book" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType?" isAnonymous="true" targetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_rbRhAOe2EeKLGLq6rH8VOg" name="BookStore" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookStoreType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookStoreType?" isAnonymous="true" targetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_rbXnoOe2EeKLGLq6rH8VOg" name="root" type="com.amsbqa.Linda02.XSD1importXSD2.XSD2rootType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3arootType?" isAnonymous="true" targetNamespace="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_rapO4Oe2EeKLGLq6rH8VOg" base_Property="BookTypeTitle?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3atitle?" xsdName="Title" xsdRef="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2:Title" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ra_0MOe2EeKLGLq6rH8VOg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_rasSMOe2EeKLGLq6rH8VOg" textLength="-1" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2Author?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aAuthorType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ras5QOe2EeKLGLq6rH8VOg" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2Author?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aAuthorType?" xsdSimpleTypeName="Author" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_rauHYee2EeKLGLq6rH8VOg" base_Property="BookTypeAuthor?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3aauthor?" xsdName="Author" xsdRef="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2:Author" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ra_0MOe2EeKLGLq6rH8VOg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_raxxwOe2EeKLGLq6rH8VOg" textLength="-1" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2Date?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aDateType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_raxxwee2EeKLGLq6rH8VOg" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2Date?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aDateType?" xsdSimpleTypeName="Date" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_razm8ee2EeKLGLq6rH8VOg" base_Property="BookTypeDate?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3adate?" xsdName="Date" xsdRef="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2:Date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ra_0MOe2EeKLGLq6rH8VOg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ra2qQee2EeKLGLq6rH8VOg" textLength="-1" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2ISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aISBNType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ra3RUOe2EeKLGLq6rH8VOg" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2ISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aISBNType?" xsdSimpleTypeName="ISBN" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ra5GgOe2EeKLGLq6rH8VOg" base_Property="BookTypeISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3aISBN?" xsdName="ISBN" xsdRef="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2:ISBN" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ra_0MOe2EeKLGLq6rH8VOg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ra8J0ee2EeKLGLq6rH8VOg" textLength="-1" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2Publisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aPublisherType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ra8w4Oe2EeKLGLq6rH8VOg" base_PrimitiveType="com.amsbqa.Linda02.XSD1importXSD2.XSD2Publisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aPublisherType?" xsdSimpleTypeName="Publisher" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ra-mEee2EeKLGLq6rH8VOg" base_Property="BookTypePublisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3apublisher?" xsdName="Publisher" xsdRef="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2:Publisher" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ra_0MOe2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_rbMBcee2EeKLGLq6rH8VOg" base_Class="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookStoreType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookStoreType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_rbPr0Oe2EeKLGLq6rH8VOg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_rbPEwee2EeKLGLq6rH8VOg" base_Property="BookStoreTypeBook?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookStoreType%3a%3abook?" xsdName="Book" xsdRef="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2:Book" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_rbPr0Oe2EeKLGLq6rH8VOg" xsdMaxOccurs="*"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_rbSvIOe2EeKLGLq6rH8VOg" base_Class="com.amsbqa.Linda02.XSD1importXSD2.XSD2rootType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3arootType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_rbVycOe2EeKLGLq6rH8VOg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_rbVLYee2EeKLGLq6rH8VOg" base_Property="rootTypeBook?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3arootType%3a%3abook?" xsdName="Book" xsdRef="http://www.amsbqa.com/Linda02/XSD1importXSD2/XSD2:Book" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_rbVycOe2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbY1wee2EeKLGLq6rH8VOg" base_Element="_rbVLYue2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbY1wue2EeKLGLq6rH8VOg" base_Element="_ra5Ggue2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbY1w-e2EeKLGLq6rH8VOg" base_Element="BookTypeAuthor?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3aauthor?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbY1xOe2EeKLGLq6rH8VOg" base_Element="BookTypeISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3aISBN?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbZc0Oe2EeKLGLq6rH8VOg" base_Element="_rarrIee2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbZc0ee2EeKLGLq6rH8VOg" base_Element="com.amsbqa.Linda02.XSD1importXSD2.XSD2ISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aISBNType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbZc0ue2EeKLGLq6rH8VOg" base_Element="_razm8-e2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbZc0-e2EeKLGLq6rH8VOg" base_Element="com.amsbqa.Linda02.XSD1importXSD2.XSD2Author?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aAuthorType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbZc1Oe2EeKLGLq6rH8VOg" base_Element="_ra5Ggee2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbZc1ee2EeKLGLq6rH8VOg" base_Element="_rbPEw-e2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaD4Oe2EeKLGLq6rH8VOg" base_Element="_ra-mEue2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaD4ee2EeKLGLq6rH8VOg" base_Element="_ra-mE-e2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaD4ue2EeKLGLq6rH8VOg" base_Element="_ra2qQOe2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaD4-e2EeKLGLq6rH8VOg" base_Element="BookStoreTypeBook?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookStoreType%3a%3abook?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaD5Oe2EeKLGLq6rH8VOg" base_Element="_ra8J0Oe2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaD5ee2EeKLGLq6rH8VOg" base_Element="BookTypePublisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3apublisher?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaq8Oe2EeKLGLq6rH8VOg" base_Element="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaq8ee2EeKLGLq6rH8VOg" base_Element="_razm8ue2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaq8ue2EeKLGLq6rH8VOg" base_Element="com.amsbqa.Linda02.XSD1importXSD2.XSD2Publisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aPublisherType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaq8-e2EeKLGLq6rH8VOg" base_Element="_raxKsee2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbaq9Oe2EeKLGLq6rH8VOg" base_Element="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookStoreType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookStoreType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbbSAOe2EeKLGLq6rH8VOg" base_Element="_raRbc-e2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbbSAee2EeKLGLq6rH8VOg" base_Element="_rapO4ue2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbbSAue2EeKLGLq6rH8VOg" base_Element="com.amsbqa.Linda02.XSD1importXSD2.XSD2rootType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3arootType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbbSA-e2EeKLGLq6rH8VOg" base_Element="_rapO4ee2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbbSBOe2EeKLGLq6rH8VOg" base_Element="_raRbcee2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbbSBee2EeKLGLq6rH8VOg" base_Element="_rauucee2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbb5EOe2EeKLGLq6rH8VOg" base_Element="BookTypeDate?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3adate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbb5Eee2EeKLGLq6rH8VOg" base_Element="_rauucOe2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbb5Eue2EeKLGLq6rH8VOg" base_Element="_ramyoee2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbb5E-e2EeKLGLq6rH8VOg" base_Element="rootTypeBook?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3arootType%3a%3abook?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbb5FOe2EeKLGLq6rH8VOg" base_Element="com.amsbqa.Linda02.XSD1importXSD2.XSD2Title?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aTitleType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbcgIOe2EeKLGLq6rH8VOg" base_Element="com.amsbqa.Linda02.XSD1importXSD2.XSD2Date?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aDateType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbcgIee2EeKLGLq6rH8VOg" base_Element="_rbVLY-e2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbcgIue2EeKLGLq6rH8VOg" base_Element="_rbPEwue2EeKLGLq6rH8VOg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_rbcgI-e2EeKLGLq6rH8VOg" base_Element="BookTypeTitle?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3atitle?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbnfQOe2EeKLGLq6rH8VOg" displayLabel="Author" base_NamedElement="com.amsbqa.Linda02.XSD1importXSD2.XSD2Author?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aAuthorType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rboGUOe2EeKLGLq6rH8VOg" displayLabel="BookType" base_NamedElement="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rboGUee2EeKLGLq6rH8VOg" displayLabel="BookStoreType" base_NamedElement="com.amsbqa.Linda02.XSD1importXSD2.XSD2BookStoreType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookStoreType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbotYOe2EeKLGLq6rH8VOg" displayLabel="Date" base_NamedElement="com.amsbqa.Linda02.XSD1importXSD2.XSD2Date?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aDateType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbpUcOe2EeKLGLq6rH8VOg" displayLabel="ISBN" base_NamedElement="com.amsbqa.Linda02.XSD1importXSD2.XSD2ISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aISBNType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbpUcee2EeKLGLq6rH8VOg" displayLabel="Publisher" base_NamedElement="com.amsbqa.Linda02.XSD1importXSD2.XSD2Publisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aPublisherType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbp7gOe2EeKLGLq6rH8VOg" displayLabel="Title" base_NamedElement="com.amsbqa.Linda02.XSD1importXSD2.XSD2Title?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aTitleType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbqikOe2EeKLGLq6rH8VOg" displayLabel="rootType" base_NamedElement="com.amsbqa.Linda02.XSD1importXSD2.XSD2rootType?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3arootType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbrJoOe2EeKLGLq6rH8VOg" displayLabel="Author" base_NamedElement="BookTypeAuthor?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3aauthor?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbrJoee2EeKLGLq6rH8VOg" displayLabel="Date" base_NamedElement="BookTypeDate?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3adate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbrwsOe2EeKLGLq6rH8VOg" displayLabel="ISBN" base_NamedElement="BookTypeISBN?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3aISBN?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbsXwOe2EeKLGLq6rH8VOg" displayLabel="Publisher" base_NamedElement="BookTypePublisher?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3apublisher?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbs-0Oe2EeKLGLq6rH8VOg" displayLabel="Title" base_NamedElement="BookTypeTitle?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookType%3a%3atitle?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbs-0ee2EeKLGLq6rH8VOg" displayLabel="Book" base_NamedElement="BookStoreTypeBook?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3aBookStoreType%3a%3abook?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rbtl4Oe2EeKLGLq6rH8VOg" displayLabel="Book" base_NamedElement="rootTypeBook?com.amsbqa.Linda02.XSD1importXSD2.XSD2%3a%3arootType%3a%3abook?"/>
+  <notation:Diagram xmi:id="_rbuM8Oe2EeKLGLq6rH8VOg" type="Business Object Model" element="com.amsbqa.Linda02.XSD1importXSD2.XSD2?com.amsbqa.Linda02.XSD1importXSD2.XSD2?" name="com.amsbqa.Linda02.XSD1importXSD2.XSD2" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_rbuM8ee2EeKLGLq6rH8VOg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_rbuM8ue2EeKLGLq6rH8VOg"/>
+  </notation:Diagram>
+</xmi:XMI>

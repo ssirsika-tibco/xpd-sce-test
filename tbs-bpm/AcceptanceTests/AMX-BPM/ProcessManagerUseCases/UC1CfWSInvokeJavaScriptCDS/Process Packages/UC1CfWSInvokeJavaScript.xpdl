@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_FtTZ0PocEd69G9KupBYfgg" xpdExt:DisplayName="UC1CfWSInvokeJavaScript" Name="UC1CfWSInvokeJavaScript">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2009-12-20</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>Administrator</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_u-MtoKSeEd-Ay4joUu-8FA" xpdExt:DisplayName="DummyWS EmployeeAccess" Name="DummyWSEmployeeAccess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_FtXEMPocEd69G9KupBYfgg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_FtiqY_ocEd69G9KupBYfgg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_FtY5YPocEd69G9KupBYfgg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="472.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Associations>
+    <xpdl2:Association Id="_FtiDUPocEd69G9KupBYfgg" Name="" AssociationDirection="None" Source="_FtlGoPocEd69G9KupBYfgg" Target="_FtiqYvocEd69G9KupBYfgg">
+      <xpdl2:Object Id="_FtiqYPocEd69G9KupBYfgg"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_ClIfUk7cEd-Vp_fhJqagpg" Name="" AssociationDirection="None" Source="_AaYz8E65Ed-Vp_fhJqagpg" Target="_BTaYwE7cEd-Vp_fhJqagpg">
+      <xpdl2:Object Id="_ClIfU07cEd-Vp_fhJqagpg"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_EW9pUE7cEd-Vp_fhJqagpg" Name="" AssociationDirection="None" Source="_JgkVUE65Ed-Vp_fhJqagpg" Target="_BTaYwE7cEd-Vp_fhJqagpg">
+      <xpdl2:Object Id="_EW9pUU7cEd-Vp_fhJqagpg"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+        <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+          <xpdl2:Coordinates XCoordinate="11.73469387755102" YCoordinate="0.0"/>
+        </xpdl2:ConnectorGraphicsInfo>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+  </xpdl2:Associations>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_FtiqYfocEd69G9KupBYfgg" ArtifactType="Annotation" TextAnnotation="UC1.C.f&#xD;&#xA;JavaScript mapping, complex data, concrete WSDL generated from mediation.soa">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="49.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="357.0">
+          <xpdl2:Coordinates XCoordinate="68.0" YCoordinate="32.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_FtiqYvocEd69G9KupBYfgg" ArtifactType="Annotation" TextAnnotation="References concrete WSDL. &#xD;&#xA;The WSDL was generated from adminUI">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="69.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="158.0">
+          <xpdl2:Coordinates XCoordinate="228.0" YCoordinate="318.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_BTaYwE7cEd-Vp_fhJqagpg" ArtifactType="Annotation" TextAnnotation="The same as previous activities but using datafields referencing derived BOM.">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="43.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="156.0">
+          <xpdl2:Coordinates XCoordinate="657.0" YCoordinate="318.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_mizG0MJnEd-OuYTOhiJWbA" ArtifactType="Annotation" TextAnnotation="Please see the README.txt">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="20.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="0.0">
+          <xpdl2:Coordinates XCoordinate="88.0" YCoordinate="69.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_FtiqY_ocEd69G9KupBYfgg" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="UC1CfWSInvokeJavaScript" iProcessExt:MaxStepIndex="13" Name="UC1CfWSInvokeJavaScript">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_as4wkKSeEd-Ay4joUu-8FA" xpdExt:DisplayName="normalisedEmpQuery" Name="normalisedEmpQuery">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_MFbX8KSeEd-Ay4joUu-8FA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7AlhcKSeEd-Ay4joUu-8FA" xpdExt:DisplayName="normalisedEmpResult" Name="normalisedEmpResult">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_MFbX8KSeEd-Ay4joUu-8FA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_-AUB8KSeEd-Ay4joUu-8FA" xpdExt:DisplayName="derivedEmpQuery" Name="derivedEmpQuery">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.example.newuserrequest.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.example.newuserrequestEmployee"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_BwPQUKSfEd-Ay4joUu-8FA" xpdExt:DisplayName="derivedEmpResult" Name="derivedEmpResult">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.example.newuserrequest.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.example.newuserrequestEmployee"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_Ftj4gPocEd69G9KupBYfgg" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="104.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Ftj4gfocEd69G9KupBYfgg" Name="Pass" xpdExt:DisplayName="Pass" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="878.0" YCoordinate="153.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Ftj4gvocEd69G9KupBYfgg" Name="Capturepostcodetonormalized" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Capture postcode to normalized" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">normalisedEmpQuery = com_example_product_Factory.createEmp();&#xD;
+normalisedEmpQuery.firstName = &quot;EmployeeFN&quot;;&#xD;
+normalisedEmpQuery.familyName = &quot;Cat&quot;;&#xD;
+normalisedEmpQuery.age = 32;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="100.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="212.0" YCoordinate="171.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_FtlGoPocEd69G9KupBYfgg" Name="LookupaddressusingnormalisedBOMdatafields" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Lookup address using normalised BOM data fields" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_u-MGkKSeEd-Ay4joUu-8FA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="EmployeeDetailsInput.lastName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">normalisedEmpQuery.familyName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="EmployeeDetailsInput.firstName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">normalisedEmpQuery.firstName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_u-MGkaSeEd-Ay4joUu-8FA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="EmployeeDetailsOutput.firstName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">normalisedEmpResult.firstName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="EmployeeDetailsOutput.lastName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">normalisedEmpResult.familyName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="EmployeeDetailsOutput.userId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">normalisedEmpResult.empId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_u-MtoKSeEd-Ay4joUu-8FA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="DummyWS.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="EmployeeAccess" OperationName="GetUserInformation">
+                  <xpdExt:ExternalReference location="DummyWS.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_u-MtoKSeEd-Ay4joUu-8FA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="95.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="102.0">
+              <xpdl2:Coordinates XCoordinate="345.0" YCoordinate="167.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_gIOZoPpBEd69G9KupBYfgg" iProcessExt:StepIndex="8">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_hRg88_pBEd69G9KupBYfgg"/>
+                  <xpdl2:TransitionRef Id="_Jgqb8E65Ed-Vp_fhJqagpg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="459.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hRg88vpBEd69G9KupBYfgg" Name="Fail1" xpdExt:Visibility="Private" xpdExt:DisplayName="Fail 1" iProcessExt:StepIndex="9">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="641.0" YCoordinate="62.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_AaYz8E65Ed-Vp_fhJqagpg" Name="LookupaddressusingderivedBOMdatafields" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Lookup address using derived BOM data fields" iProcessExt:StepIndex="10">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_afpwYqSfEd-Ay4joUu-8FA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="EmployeeDetailsInput">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">derivedEmpQuery</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_afpwY6SfEd-Ay4joUu-8FA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="EmployeeDetailsOutput">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">derivedEmpResult</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_u-MtoKSeEd-Ay4joUu-8FA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="DummyWS.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="EmployeeAccess" OperationName="GetUserInformation">
+                  <xpdExt:ExternalReference location="DummyWS.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_u-MtoKSeEd-Ay4joUu-8FA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="93.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="108.0">
+              <xpdl2:Coordinates XCoordinate="691.0" YCoordinate="170.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_JgkVUE65Ed-Vp_fhJqagpg" Name="Capturepostcodetoderived" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Capture postcode to derived." iProcessExt:StepIndex="11">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">derivedEmpQuery = com_example_newuserrequest_Factory.createEmployee();&#xD;
+derivedEmpQuery.firstName = &quot;Jerry&quot;;&#xD;
+derivedEmpQuery.lastName = &quot;EmployeeLN&quot;;&#xD;
+derivedEmpQuery.email = &quot;Jerry.Mouse@tibco.com&quot;;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="100.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="562.0" YCoordinate="165.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ThpYsE65Ed-Vp_fhJqagpg" iProcessExt:StepIndex="12">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_FtltsvocEd69G9KupBYfgg"/>
+                  <xpdl2:TransitionRef Id="_ZHBs0E65Ed-Vp_fhJqagpg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="791.0" YCoordinate="153.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UtSscE65Ed-Vp_fhJqagpg" Name="Fail2" xpdExt:Visibility="Private" xpdExt:DisplayName="Fail 2" iProcessExt:StepIndex="13">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_FtY5YPocEd69G9KupBYfgg" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="878.0" YCoordinate="62.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_FtltsvocEd69G9KupBYfgg" Name="" From="_ThpYsE65Ed-Vp_fhJqagpg" To="_Ftj4gfocEd69G9KupBYfgg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">// mediation flow returns hardcoded family name &#xD;
+// as 'EmployeeLN' which has been set to Capture postcode Script task&#xD;
+derivedEmpResult != null &#xD;
+  &amp;&amp; derivedEmpResult.lastName == derivedEmpQuery.lastName; &#xD;
+</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Ftlts_ocEd69G9KupBYfgg" xpdExt:DisplayName="" Name="" From="_Ftj4gPocEd69G9KupBYfgg" To="_Ftj4gvocEd69G9KupBYfgg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_FtmUwPocEd69G9KupBYfgg" xpdExt:DisplayName="" Name="" From="_Ftj4gvocEd69G9KupBYfgg" To="_FtlGoPocEd69G9KupBYfgg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_gIRc8PpBEd69G9KupBYfgg" xpdExt:DisplayName="" Name="" From="_FtlGoPocEd69G9KupBYfgg" To="_gIOZoPpBEd69G9KupBYfgg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hRg88_pBEd69G9KupBYfgg" Name="" From="_gIOZoPpBEd69G9KupBYfgg" To="_hRg88vpBEd69G9KupBYfgg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="1.0" YCoordinate="-92.0"/>
+              <xpdl2:Coordinates XCoordinate="-116.0" YCoordinate="1.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_AbZgkE65Ed-Vp_fhJqagpg" Name="" From="_JgkVUE65Ed-Vp_fhJqagpg" To="_AaYz8E65Ed-Vp_fhJqagpg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Jgqb8E65Ed-Vp_fhJqagpg" xpdExt:DisplayName="" Name="" From="_gIOZoPpBEd69G9KupBYfgg" To="_JgkVUE65Ed-Vp_fhJqagpg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">// mediation flow returns hardcoded first name 
+// as 'EmployeeFN' which has been set to Capture postcode Script task
+normalisedEmpResult != null 
+  &amp;&amp; normalisedEmpResult.firstName == normalisedEmpQuery.firstName; 
+</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ThscAE65Ed-Vp_fhJqagpg" xpdExt:DisplayName="" Name="" From="_AaYz8E65Ed-Vp_fhJqagpg" To="_ThpYsE65Ed-Vp_fhJqagpg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZHBs0E65Ed-Vp_fhJqagpg" xpdExt:DisplayName="" Name="" From="_ThpYsE65Ed-Vp_fhJqagpg" To="_UtSscE65Ed-Vp_fhJqagpg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

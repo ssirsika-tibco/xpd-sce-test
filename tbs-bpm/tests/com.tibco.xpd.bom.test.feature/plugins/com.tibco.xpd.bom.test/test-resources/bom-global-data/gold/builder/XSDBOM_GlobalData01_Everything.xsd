@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/ordermodel" xmlns:tns1="http://example.com/ordermodel"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/ordermodel">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gdfg/Business Objects/XSDBOM_GlobalData01_Everything.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType id="_PEaMbPyUEd-ikOp1ETNtpQ" name="OrderId">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType id="_PEazcPyUEd-ikOp1ETNtpQ" name="PersonId">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType id="_PEaMZ_yUEd-ikOp1ETNtpQ" name="Event">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RECEIVED"/>
+      <xsd:enumeration value="SHIPPED"/>
+      <xsd:enumeration value="RETURNED"/>
+      <xsd:enumeration value="SCRAPPED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType id="_PEUFwPyUEd-ikOp1ETNtpQ" name="Order">
+    <xsd:sequence>
+      <xsd:element ecore:opposite="order" id="_PEUFwfyUEd-ikOp1ETNtpQ" maxOccurs="unbounded"
+          minOccurs="0" name="orderLines" type="OrderLine"/>
+      <xsd:element ecore:reference="Employee" id="_PEUFxPyUEd-ikOp1ETNtpQ" maxOccurs="1"
+          minOccurs="0" name="dispatcher" type="xsd:anyURI"/>
+      <xsd:element ecore:opposite="ordersTaken" ecore:reference="Employee" id="_PEUFx_yUEd-ikOp1ETNtpQ"
+          maxOccurs="unbounded" minOccurs="0" name="orderTakers" type="xsd:anyURI"/>
+      <xsd:element id="_PEUFyvyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="orderId">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:OrderId">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEUFzfyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="orderDate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime">
+            <xsd:pattern value=".+T.+(Z|[+-].+)"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEUF0PyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="comments">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:reference="Customer" ecore:opposite="orders" id="_PEcBkfyUEd-ikOp1ETNtpQ"
+          maxOccurs="1" minOccurs="1" name="customer" type="xsd:anyURI"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_PEV68PyUEd-ikOp1ETNtpQ" name="ProductLine">
+    <xsd:sequence>
+      <xsd:element id="_PEV68fyUEd-ikOp1ETNtpQ" maxOccurs="unbounded" minOccurs="0"
+          name="stockItems" type="StockItem"/>
+      <xsd:element id="_PEV69PyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="partNum">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_PEWiAPyUEd-ikOp1ETNtpQ" name="OrderLine">
+    <xsd:sequence>
+      <xsd:element ecore:reference="Order" ecore:opposite="orderLines" id="_PEazc_yUEd-ikOp1ETNtpQ"
+          maxOccurs="1" minOccurs="1" name="order" type="xsd:anyURI"/>
+      <xsd:element ecore:opposite="orderLine" id="_PEWiAfyUEd-ikOp1ETNtpQ" maxOccurs="1"
+          minOccurs="1" name="orderItem" type="OrderItem"/>
+      <xsd:element id="_PEWiBPyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="1" name="partNum">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEWiB_yUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="1" name="quantity">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_PEWiCvyUEd-ikOp1ETNtpQ" name="OrderItem">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:Item">
+        <xsd:sequence>
+          <xsd:element ecore:reference="OrderLine" ecore:opposite="orderItem" id="_PEbaj_yUEd-ikOp1ETNtpQ"
+              maxOccurs="1" minOccurs="1" name="orderLine" type="xsd:anyURI"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="_PEXJEPyUEd-ikOp1ETNtpQ" name="Customer">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:Person">
+        <xsd:sequence>
+          <xsd:element ecore:opposite="customer" ecore:reference="Order" id="_PEXJEvyUEd-ikOp1ETNtpQ"
+              maxOccurs="unbounded" minOccurs="0" name="orders" type="xsd:anyURI"/>
+          <xsd:element id="_PEXJFfyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="address">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="_PEXJGPyUEd-ikOp1ETNtpQ" name="Person">
+    <xsd:sequence>
+      <xsd:element id="_PEXJGfyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="id">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:PersonId">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEXJHPyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_PEXwIPyUEd-ikOp1ETNtpQ" name="StockItem">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:Item"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="_PEXwIvyUEd-ikOp1ETNtpQ" name="Item">
+    <xsd:sequence>
+      <xsd:element id="_PEXwI_yUEd-ikOp1ETNtpQ" maxOccurs="unbounded" minOccurs="0"
+          name="itemEvents" type="ItemEvent"/>
+      <xsd:element id="_PEXwJvyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="partNum">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEXwKfyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="serialNum">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEXwLPyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="description">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_PEYXMPyUEd-ikOp1ETNtpQ" name="Employee">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:Person">
+        <xsd:sequence>
+          <xsd:element ecore:reference="Order" ecore:opposite="orderTakers" id="_PEdPsfyUEd-ikOp1ETNtpQ"
+              maxOccurs="unbounded" minOccurs="0" name="ordersTaken" type="xsd:anyURI"/>
+          <xsd:element id="_PEYXMvyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="payrollNumber">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_PEYXNfyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="department">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="_PEY-QPyUEd-ikOp1ETNtpQ" name="ItemEvent">
+    <xsd:sequence>
+      <xsd:element id="_PEY-QfyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="timestamp">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime">
+            <xsd:pattern value=".+T.+(Z|[+-].+)"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEY-RPyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="event">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:Event"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEY-R_yUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="description">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_PEY-SvyUEd-ikOp1ETNtpQ" name="NewOrder">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:CustomerRequest">
+        <xsd:sequence>
+          <xsd:element id="_PEY-TPyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="order"
+              type="tns1:Order"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="_PEZlUPyUEd-ikOp1ETNtpQ" name="CustomerRequest">
+    <xsd:sequence>
+      <xsd:element id="_PEZlUfyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="1" name="customerId">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:PersonId">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEZlVPyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="1" name="orderTaker">
+        <xsd:simpleType>
+          <xsd:restriction base="tns1:PersonId">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_PEZlV_yUEd-ikOp1ETNtpQ" name="OrderUpdate">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:CustomerRequest">
+        <xsd:sequence>
+          <xsd:element id="_PEZlWfyUEd-ikOp1ETNtpQ" maxOccurs="unbounded" minOccurs="0"
+              name="orderDeltas" type="OrderDelta"/>
+          <xsd:element id="_PEZlXPyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="orderId">
+            <xsd:simpleType>
+              <xsd:restriction base="tns1:OrderId">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="_PEaMYPyUEd-ikOp1ETNtpQ" name="OrderDelta">
+    <xsd:sequence>
+      <xsd:element id="_PEaMYfyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="add">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_PEaMZPyUEd-ikOp1ETNtpQ" maxOccurs="1" minOccurs="0" name="orderLine"
+          type="tns1:OrderLine"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="OrderIdElement">
+    <xsd:simpleType>
+      <xsd:restriction base="OrderId"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="PersonIdElement">
+    <xsd:simpleType>
+      <xsd:restriction base="PersonId"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="EventElement">
+    <xsd:simpleType>
+      <xsd:restriction base="Event"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="OrderElement" type="Order"/>
+  <xsd:element name="ProductLineElement" type="ProductLine"/>
+  <xsd:element name="OrderLineElement" type="OrderLine"/>
+  <xsd:element name="OrderItemElement" type="OrderItem"/>
+  <xsd:element name="CustomerElement" type="Customer"/>
+  <xsd:element name="PersonElement" type="Person"/>
+  <xsd:element name="StockItemElement" type="StockItem"/>
+  <xsd:element name="ItemElement" type="Item"/>
+  <xsd:element name="EmployeeElement" type="Employee"/>
+  <xsd:element name="ItemEventElement" type="ItemEvent"/>
+  <xsd:element name="NewOrderElement" type="NewOrder"/>
+  <xsd:element name="CustomerRequestElement" type="CustomerRequest"/>
+  <xsd:element name="OrderUpdateElement" type="OrderUpdate"/>
+  <xsd:element name="OrderDeltaElement" type="OrderDelta"/>
+</xsd:schema>

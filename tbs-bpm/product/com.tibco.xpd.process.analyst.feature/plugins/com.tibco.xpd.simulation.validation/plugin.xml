@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.validation.destinations">
+      <destination
+            id="simulation1.2"
+            name="%destination.name.0"
+            selectable="true"
+            version="">
+         <validationProvider
+               id="com.tibco.xpd.simulation.js.validation.provider">
+         </validationProvider>
+         <validationProvider id="com.tibco.xpd.simulation.validation.simulation1.2"/>
+         <validationProvider id="com.tibco.xpd.v2.xpdl1.downgrade"/>
+         <filter class="com.tibco.xpd.validation.xpdl2.provider.Xpdl2FileFilter"/>
+      </destination>
+   </extension>
+   <extension
+         point="com.tibco.xpd.processeditor.xpdl2.taskBinding">
+      <destination destinationId="simulation1.2">
+         <taskImplementation taskImplementationId="BW Service">
+            <taskTypeContext type="Service"/>
+         </taskImplementation>
+         <taskImplementation taskImplementationId="E-Mail">
+            <taskTypeContext type="Service"/>
+         </taskImplementation>
+         <taskImplementation taskImplementationId="Database">
+            <taskTypeContext type="Service"/>
+         </taskImplementation>
+         <taskImplementation taskImplementationId="Java">
+            <taskTypeContext type="Service"/>
+         </taskImplementation>
+         <taskImplementation taskImplementationId="WebService">
+            <taskTypeContext type="Service"/>
+            <taskTypeContext type="Send"/>
+            <taskTypeContext type="Receive"/>
+         </taskImplementation>
+      </destination>
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.xpd.simulation.validation.simulation1.2"
+            markerType="com.tibco.xpd.simulation.validation.simValidationMarkers"
+            name="Simulation v1.2"
+            scopeProvider="com.tibco.xpd.validation.xpdl2.provider.Xpdl2ScopeProvider">
+         <rule class="com.tibco.xpd.simulation.validation.ActivityNoNameRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.ActivityParameterRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.AndGatewayRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.DataFieldToActivityRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.ExitStrategyWithoutLoopRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.GatewaySplitParameterRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.GatewayTypeRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.IncompleteLoopControlStrategyRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.LoopActivityRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.LoopExitStrategyRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.LoopGroupExitStrategy"/>
+         <rule class="com.tibco.xpd.simulation.validation.ParameterDistributionValueRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.ParticipantSimDataRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.ParticipantToManualActivityRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.ProcessWithUserActivitiesRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.SingleTransitionRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.StartEventWithSimDataRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.TransitionSplitParameterValueRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.XorGatewayRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.IntermediateEventRule"/>
+         <rule class="com.tibco.xpd.simulation.validation.DataFieldTypeRule"/>
+         <rule
+               class="com.tibco.xpd.simulation.validation.OutgoingTransitionRule">
+         </rule>
+         <rule
+               class="com.tibco.xpd.simulation.validation.InvalidDistributionDataRule">
+         </rule>
+         <rule class="com.tibco.xpd.simulation.validation.SimulationBindingValidationRule"/>
+         <rule
+               class="com.tibco.xpd.simulation.validation.EmbeddedSubProcessRule">
+         </rule>
+         <rule
+               class="com.tibco.xpd.simulation.validation.ExternalSubProcessRule">
+         </rule>
+         <rule
+               class="com.tibco.xpd.simulation.validation.FormalParameterNameRule">
+         </rule>
+      </provider>
+      <issue
+            id="sim.activityNoName"
+            message="%sim.activityNoName"
+            preferenceDescription="%prefs_desc.sim.activityNoName"
+            preferenceGroupId="com.tibco.xpd.simulation.validation.process"
+            severity="WARNING"/>
+      <issue
+            id="sim.activityParameterMissing"
+            message="%sim.activityParameterMissing"
+            preferenceDescription="%prefs_desc.sim.activityParameterMissing"
+            severity="ERROR"/>
+      <issue
+            id="sim.invalidParameterBasedDistribution"
+            message="%sim.invalidParameterBasedDistribution"
+            preferenceDescription="%prefs_desc.sim.invalidParameterBasedDistribution"
+            preferenceGroupId="com.tibco.xpd.simulation.validation.data"
+            severity="WARNING"/>
+      <issue
+            id="sim.conditionalAndGateway"
+            message="%sim.conditionalAndGateway"
+            preferenceDescription="%prefs_desc.sim.conditionalAndGateway"
+            severity="ERROR"/>
+      <issue
+            id="sim.andGatewayLoopInput"
+            message="%sim.andGatewayLoopInput"
+            preferenceDescription="%prefs_desc.sim.andGatewayLoopInput"
+            severity="ERROR"/>
+      <issue
+            id="sim.userActivityWithoutParameter"
+            message="%sim.userActivityWithoutParameter"
+            preferenceDescription="%prefs_desc.sim.userActivityWithoutParameter"
+            preferenceGroupId="com.tibco.xpd.simulation.validation.data"
+            severity="WARNING"/>
+      <issue
+            id="sim.exitStrategyWithoutLoop"
+            message="%sim.exitStrategyWithoutLoop"
+            preferenceDescription="%prefs_desc.sim.exitStrategyWithoutLoop"
+            severity="ERROR"/>
+      <issue
+            id="sim.invalidSplitParameterSpecified"
+            message="%sim.invalidSplitParameterSpecified"
+            preferenceDescription="%prefs_desc.sim.invalidSplitParameterSpecified"
+            severity="ERROR"/>
+      <issue
+            id="sim.invalidGatewayType"
+            message="%sim.invalidGatewayType"
+            preferenceDescription="%prefs_desc.sim.invalidGatewayType"
+            severity="ERROR"/>
+      <issue
+            id="sim.parallelGatewayTransition"
+            message="%sim.parallelGatewayTransition"
+            preferenceDescription="%prefs_desc.sim.parallelGatewayTransition"
+            severity="ERROR"/>
+      <issue
+            id="sim.decisionActivityDoesNotExist"
+            message="%sim.decisionActivityDoesNotExist"
+            preferenceDescription="%prefs_desc.sim.decisionActivityDoesNotExist"
+            severity="ERROR"/>
+      <issue
+            id="sim.toActivityDoesNotExist"
+            message="%sim.toActivityDoesNotExist"
+            preferenceDescription="%prefs_desc.sim.toActivityDoesNotExist"
+            severity="ERROR"/>
+      <issue
+            id="sim.outGoingTransitionCountLessThanTwo"
+            message="%sim.outGoingTransitionCountLessThanTwo"
+            preferenceDescription="%prefs_desc.sim.outGoingTransitionCountLessThanTwo"
+            severity="ERROR"/>
+      <issue
+            id="sim.toActivityNotOnOutGoingTransition"
+            message="%sim.toActivityNotOnOutGoingTransition"
+            preferenceDescription="%prefs_desc.sim.toActivityNotOnOutGoingTransition"
+            severity="ERROR"/>
+      <issue
+            id="sim.negativeLoopCount"
+            message="%sim.negativeLoopCount"
+            preferenceDescription="%prefs_desc.sim.negativeLoopCount"
+            severity="ERROR"/>
+      <issue
+            id="sim.negativeElapseTime"
+            message="%sim.negativeElapseTime"
+            preferenceDescription="%prefs_desc.sim.negativeElapseTime"
+            severity="ERROR"/>
+      <issue
+            id="sim.negativeMeanOrStdDeviation"
+            message="%sim.negativeMeanOrStdDeviation"
+            preferenceDescription="%prefs_desc.sim.negativeMeanOrStdDeviation"
+            severity="ERROR"/>
+      <issue
+            id="sim.loopActivityCount"
+            message="%sim.loopActivityCount"
+            preferenceDescription="%prefs_desc.sim.loopActivityCount"
+            severity="ERROR"/>
+      <issue
+            id="sim.noLoopExitStrategy"
+            message="%sim.noLoopExitStrategy"
+            preferenceDescription="%prefs_desc.sim.noLoopExitStrategy"
+            severity="ERROR"/>
+      <issue
+            id="sim.noLoopGroupExitStrategy"
+            message="%sim.noLoopGroupExitStrategy"
+            preferenceDescription="%prefs_desc.sim.noLoopGroupExitStrategy"
+            severity="ERROR"/>
+      <issue
+            id="sim.parameterDistributionMissingValue"
+            message="%sim.parameterDistributionMissingValue"
+            preferenceDescription="%prefs_desc.sim.parameterDistributionMissingValue"
+            preferenceGroupId="com.tibco.xpd.simulation.validation.data"
+            severity="WARNING"/>
+      <issue
+            id="sim.noSimDataForParticipant"
+            message="%sim.noSimDataForParticipant"
+            preferenceDescription="%prefs_desc.sim.noSimDataForParticipant"
+            severity="ERROR"/>
+      <issue
+            id="sim.participantNotAssignedToManualActivity"
+            message="%sim.participantNotAssignedToManualActivity"
+            preferenceDescription="%prefs_desc.sim.participantNotAssignedToManualActivity"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.selectTaskParticipant">
+         </resolution>
+      </issue>
+      <issue
+            id="sim.noSimDataForActivity"
+            message="%sim.noSimDataForActivity"
+            preferenceDescription="%prefs_desc.sim.noSimDataForActivity"
+            severity="ERROR"/>
+      <issue
+            id="sim.invalidActivityPresent"
+            message="%sim.invalidActivityPresent2"
+            preferenceDescription="%prefs_desc.sim.invalidActivityPresent"
+            severity="ERROR"/>
+      <issue
+            id="sim.startEventInMiddleOfProcess"
+            message="%sim.startEventInMiddleOfProcess"
+            preferenceDescription="%prefs_desc.sim.startEventInMiddleOfProcess"
+            severity="ERROR"/>
+      <issue
+            id="sim.invalidSingleTranstion"
+            message="%sim.invalidSingleTranstion"
+            preferenceDescription="%prefs_desc.sim.invalidSingleTranstion"
+            severity="ERROR"/>
+      <issue
+            id="sim.moreThanOneStartActivity"
+            message="%sim.moreThanOneStartActivity"
+            preferenceDescription="%prefs_desc.sim.moreThanOneStartActivity"
+            severity="ERROR"/>
+      <issue
+            id="sim.startActivityNotStartEvent"
+            message="%sim.startActivityNotStartEvent"
+            preferenceDescription="%prefs_desc.sim.startActivityNotStartEvent"
+            severity="ERROR"/>
+      <issue
+            id="sim.startEventWithOutSimulationData"
+            message="%sim.startEventWithOutSimulationData"
+            preferenceDescription="%prefs_desc.sim.startEventWithOutSimulationData"
+            severity="ERROR"/>
+      <issue
+            id="sim.startActivityNotLinkedToStartEvent"
+            message="%sim.startActivityNotLinkedToStartEvent"
+            preferenceDescription="%prefs_desc.sim.startActivityNotLinkedToStartEvent"
+            severity="ERROR"/>
+      <issue
+            id="sim.noTransitionParameterValueSpecified"
+            message="%sim.noTransitionParameterValueSpecified"
+            preferenceDescription="%prefs_desc.sim.noTransitionParameterValueSpecified"
+            severity="ERROR"/>
+      <issue
+            id="sim.invalidTransitionParameterValueSpecified"
+            message="%sim.invalidTransitionParameterValueSpecified"
+            preferenceDescription="%prefs_desc.sim.invalidTransitionParameterValueSpecified"
+            severity="ERROR"/>
+      <issue
+            id="sim.xorGatewayError"
+            message="%sim.xorGatewayError"
+            preferenceDescription="%prefs_desc.sim.xorGatewayError"
+            severity="ERROR"/>
+      <issue
+            id="sim.intermediateEvent"
+            message="%sim.intermediateEvent"
+            preferenceDescription="%prefs_desc.sim.intermediateEvent"
+            severity="ERROR"/>
+      <issue
+            id="sim.MultipleParticipantsOnManualActivity"
+            message="%sim.MultipleParticipantsOnManualActivity"
+            preferenceDescription="%prefs_desc.sim.MultipleParticipantsOnManualActivity"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.selectTaskParticipant">
+         </resolution>
+      </issue>
+      <issue
+            id="sim.multipleOutgoingTransitions"
+            message="%sim.multipleOutgoingTransitions"
+            preferenceDescription="%prefs_desc.sim.multipleOutgoingTransitions"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="sim.distributionMinGreaterThenMax"
+            message="%sim.distributionMinGreaterThenMax"
+            preferenceDescription="%prefs_desc.sim.distributionMinGreaterThenMax"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="sim.invalidDecisionActivity"
+            message="%sim.invalidDecisionActivity"
+            preferenceDescription="%prefs_desc.sim.invalidDecisionActivity"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="sim.referenceTypesNotAllowed"
+            message="%sim.referenceTypesNotAllowed"
+            preferenceDescription="%prefs_desc.sim.referenceTypesNotAllowed"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="sim.loopInDeclaredTypes"
+            message="%sim.loopInDeclaredTypes"
+            preferenceDescription="%prefs_desc.sim.loopInDeclaredTypes"
+            severity="ERROR">
+      </issue>
+      <preferenceGroup
+            id="com.tibco.xpd.simulation.validation.general"
+            name="%prefs_group_desc.sim.general"
+            preferenceId="simulation1.2"/>
+      <preferenceGroup
+            id="com.tibco.xpd.simulation.validation.data"
+            name="%prefs_group_desc.sim.data"
+            preferenceId="simulation1.2"/>
+      <preferenceGroup
+            id="com.tibco.xpd.simulation.validation.process"
+            name="%prefs_group_desc.sim.process"
+            preferenceId="simulation1.2"/>
+      <issue
+            id="sim.invalidTaskBound"
+            message="%sim.invalidTaskBound"
+            preferenceDescription="%prefs_desc.sim.invalidTaskBound"
+            severity="ERROR"/>
+      <issue
+            id="sim.embeddedSubProcess"
+            message="%sim.embeddedSubProcess"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="sim.externalSubProcess"
+            message="%sim.externalSubProcess"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="sim.invalidJavscriptIdentifier"
+            message="%sim.invalidJavscriptIdentifier"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="sim.performerFieldParticipantNotSupported"
+            message="%sim.performerFieldParticipantNotSupported"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.selectTaskParticipant">
+         </resolution>
+      </issue>
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.resolution">
+      <resolution
+            class="com.tibco.xpd.validation.xpdl2.resolutions.ChangeTransitionToUncontrolled"
+            description="%resolution.description.sim.parallelGatewayTransition"
+            id="sim.parallelGatewayTransition"
+            label="%resolution.title.sim.parallelGatewayTransition">
+      </resolution>
+      <resolution
+            class="com.tibco.xpd.simulation.resolutions.AddTaskSimulationData"
+            description="%resolution.description.sim.noSimDataForActivity"
+            id="sim.noSimDataForActivity"
+            label="%resolution.title.sim.noSimDataForActivity">
+      </resolution>
+      <resolution
+            class="com.tibco.xpd.simulation.resolutions.AddParticipantSimulationData"
+            description="%resolution.description.sim.noSimDataForParticipant"
+            id="sim.noSimDataForParticipant"
+            label="%resolution.title.sim.noSimDataForParticipant">
+      </resolution>
+      <resolution
+            class="com.tibco.xpd.simulation.resolutions.AddEventSimulationData"
+            description="%resolution.description.sim.noSimDataForStartEvent"
+            id="sim.startEventWithOutSimulationData"
+            label="%resolution.title.sim.noSimDataForStartEvent">
+      </resolution>
+   </extension>
+   <extension
+         point="com.tibco.xpd.destinations.ui.complexDataTypeBinding">
+      <destination destinationId="simulation1.2">
+         <complexDataTypeBinding complexDataTypeId="com.tibco.xpd.cm.complexDataType.concept"/>
+      </destination>
+   </extension>
+   <extension
+         point="com.tibco.xpd.destinations.ui.processDestinationEnvironments">
+      <processDestinationEnvironment
+            id="simulation1.2"
+            name="%sim.ProcessDestinationEnvironmentSimulationName_notrans"
+            userSelectable="true"
+            validationDestinationId="simulation1.2"
+            version=""/>
+   </extension>
+   <extension
+         point="com.tibco.xpd.destinations.globalDestinationEnvironment">
+      <globalDestination
+            id="com.tibco.xpd.simulation.globalDestination"
+            name="%sim.ProcessDestinationEnvironmentSimulationName_notrans">
+      </globalDestination>
+      <globalDestinationComponent
+            globalDestinationId="com.tibco.xpd.simulation.globalDestination"
+            id="com.tibco.xpd.simulation.globalDestination.simulation"
+            name="%sim.ProcessDestinationEnvironmentSimulationName_notrans">
+      </globalDestinationComponent>
+      <globalDestinationComponentVersion
+            globalDestinationComponentId="com.tibco.xpd.simulation.globalDestination.simulation"
+            validationDestinationId="simulation1.2">
+      </globalDestinationComponentVersion>
+      <defaultGlobalDestination
+            globalDestinationId="com.tibco.xpd.simulation.globalDestination"
+            name="%com.tibco.xpd.simulation.globalDestination.default.name_notrans">
+      </defaultGlobalDestination>
+      <defaultGlobalDestinationComponent
+            enabled="true"
+            globalDestinationComponentId="com.tibco.xpd.simulation.globalDestination.simulation"
+            name="%com.tibco.xpd.simulation.globalDestination.default.name_notrans"
+            validationDestinationId="simulation1.2">
+      </defaultGlobalDestinationComponent>      
+   </extension>
+   <extension
+         id="com.tibco.xpd.simulation.validation.simValidationMarkers"
+         name="%sim.simValidationMarker"
+         point="org.eclipse.core.resources.markers">
+      <persistent
+            value="true">
+      </persistent>
+      <super
+            type="com.tibco.xpd.validation.ValidationMarker">
+      </super>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+            class="com.tibco.xpd.validation.resolutions.GenericResolutionGenerator"
+            markerType="com.tibco.xpd.simulation.validation.simValidationMarkers">
+      </markerResolutionGenerator>
+   </extension>
+
+</plugin>

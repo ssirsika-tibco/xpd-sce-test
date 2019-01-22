@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://www.example.org/userDefined/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="userDefined" targetNamespace="http://www.example.org/userDefined/">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/userDefined/">
+	<xsd:element name="NewOperation">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="NewOperationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="enumElem" type="tns:attribClass"></xsd:element>
+	<xsd:complexType name="attribClass">
+        <xsd:sequence>
+                   <xsd:element maxOccurs="1" minOccurs="0" name="intAttrib" type="tns:ELEM1"/>
+                   
+                   </xsd:sequence>
+                   </xsd:complexType>
+	
+	      <xsd:simpleType name="ELEM1">
+	      <xsd:restriction base="tns:intType">
+          <xsd:enumeration value="10"/>
+          <xsd:enumeration value="20"/>
+          <xsd:enumeration value="30"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      
+       
+      
+          <xsd:simpleType name="intType">
+        <xsd:restriction base="xsd:int"/>
+      </xsd:simpleType>
+
+
+
+	
+	
+	
+	</xsd:schema></wsdl:types>
+    <wsdl:message name="NewOperationRequest">
+		<wsdl:part name="parameters" element="tns:enumElem"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="NewOperationResponse">
+    	<wsdl:part name="parameters" element="tns:enumElem"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="op1Test">
+    	<wsdl:operation name="NewOperation">
+    		<wsdl:input message="tns:NewOperationRequest"></wsdl:input>
+    		<wsdl:output message="tns:NewOperationResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example4.interface_.books.GetBooksImpl" name="com.example4.interface_.books.GetBooksImpl">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qXZNIQdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qXZNIgdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qXZNIwdTEeSRjauCcgnMbg" key="created" value="1404905263474"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qXZNJAdTEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qYO6oAdTEeSRjauCcgnMbg" key="checksum" value="3730929622"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example4.interface_.books.GetBooksImplGetBooksByAuthor" name="GetBooksByAuthor">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="GetBooksByAuthorGetBooks" name="GetBooks">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetBooksauthor" name="author">
+          <type xmi:type="uml:PrimitiveType" href="com.example4.xsd.books.bom#com.example4.xsd.booksAuthor?com.example4.xsd.books%3a%3aAuthorType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="GetBooksmessage" name="message" direction="return">
+          <type xmi:type="uml:Class" href="com.example4.xsd.books.bom#com.example4.xsd.booksBookStoreType?com.example4.xsd.books%3a%3aBookStoreType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_qXTtlgdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qXTtlwdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_qXTtmAdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qXTtmQdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_qXTtmgdTEeSRjauCcgnMbg" base_Package="com.example4.interface_.books.GetBooksImpl?com.example4.interface_.books.GetBooksImpl?" xsdTargetNamespace="http://www.example4.com/interface/books/GetBooksImpl" xsdSchemaLocation="bw_soapoverjms.wsdl" xsdStudioVersion="3.8.0.005" bomWsdlSources="bw_soapoverjms.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_qXU7sQdTEeSRjauCcgnMbg" base_Class="com.example4.interface_.books.GetBooksImplGetBooksByAuthor?com.example4.interface_.books.GetBooksImpl%3a%3aGetBooksByAuthor?" xsdName="GetBooksByAuthor" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_qXZNIAdTEeSRjauCcgnMbg" displayLabel="GetBooksByAuthor" base_NamedElement="com.example4.interface_.books.GetBooksImplGetBooksByAuthor?com.example4.interface_.books.GetBooksImpl%3a%3aGetBooksByAuthor?"/>
+  <notation:Diagram xmi:id="_qXZNJQdTEeSRjauCcgnMbg" type="Business Object Model" element="com.example4.interface_.books.GetBooksImpl?com.example4.interface_.books.GetBooksImpl?" name="com.example4.interface_.books.GetBooksImpl" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_qXZNJgdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_qXZNJwdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

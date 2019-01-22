@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="XMI" type="xmiType"/>
+  
+	<xsd:complexType name="xmiType">
+		<xsd:sequence>
+			<xsd:element name="XMI.header" type="xmiHeaderType"/>
+			<xsd:element name="XMI.content" type="xmiContentType"/>
+		</xsd:sequence>  
+		<xsd:attribute name="xmi.version" type="xsd:string"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="timestamp" type="xsd:string"/>	<!--Should be dateTime type but uses localised date format-->
+		<xsd:attribute name="verified" type="xsd:boolean"/>  
+	</xsd:complexType>
+
+	<xsd:complexType name="xmiHeaderType">
+		<xsd:sequence>
+			<xsd:element name="XMI.documentation" type="xmiDocumentationType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="xmiDocumentationType">
+		<xsd:sequence>
+			<xsd:element name="XMI.exporter" type="xsd:string"/>
+			<xsd:element name="XMI.exporterVersion" type="xsd:decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+	<xsd:complexType name="xmiContentType">
+		<xsd:sequence>
+			<xsd:element name="Diagram" type="diagramType"/>
+			<xsd:element name="Person" type="personType" maxOccurs="2"/>
+			<xsd:element name="Authorizer" type="authorizerType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="HistoryAuditLog" type="historyAuditLogType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Reviewer" type="reviewerType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="MandatoryUser" type="mandatoryUserType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Subscription" type="subscriptionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AcknowledgeLog" type="acknowledgeLogType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="MemoTopic" type="memoTopicType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ChangeRequest" type="changeRequestType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="diagramType">
+		<xsd:sequence>
+			<xsd:element name="DiagInfo" type="diagInfoType"/>
+			<xsd:element name="DiagramElement" type="diagramElementType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ChangeLogItem" type="changeLogItemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="xmi.id" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="diagInfoType">
+		<xsd:sequence>
+			<xsd:element name="GUID" type="xsd:string"/>
+			<xsd:element name="ParentGUID" type="xsd:string"/>
+			<xsd:element name="DiagramType" type="xsd:string"/>
+			<xsd:element name="Title" type="xsd:string"/>
+			<xsd:element name="Date" type="xsd:string"/>	<!--Should be date type but uses localised date format-->
+			<xsd:element name="Version" type="xsd:string"/>
+			<xsd:element name="Author" type="xsd:string"/>
+			<xsd:element name="Owner" type="xsd:string"/>
+			<xsd:element name="Authorization" type="xsd:string"/>
+			<xsd:element name="Status" type="xsd:string"/>
+			<xsd:element name="PercentDone" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="Modified" type="xsd:string"/>
+			<xsd:element name="ModifiedBy" type="xsd:string"/>	<!--Should be dateTime type but uses localised date format-->
+			<xsd:element name="Template" type="xsd:string"/>
+			<xsd:element name="LeftMargin" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="TopMargin" type="xsd:nonNegativeInteger"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	<xsd:complexType name="diagramElementType">
+		<xsd:choice>
+			<xsd:element name="Activity" type="activityType"/>
+			<xsd:element name="Input_Output" type="inputOutputType"/>
+			<xsd:element name="Line" type="lineType"/>
+			<xsd:element name="FreeText" type="freeTextType"/>
+			<xsd:element name="Resource" type="resourceType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:complexType name="activityType">
+		<xsd:sequence>
+			<xsd:element name="BPMNSymbol" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BPMNEvent" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ObjectID" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="x1" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="y1" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="x2" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="y2" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="FillType" type="xsd:string"/>
+			<xsd:element name="FillColor" type="xsd:string"/>
+			<xsd:element name="FillStyle" type="xsd:string"/>
+			<xsd:element name="HatchColor" type="xsd:string"/>
+			<xsd:element name="FillGradient" type="xsd:string"/>
+			<xsd:element name="LineColor" type="xsd:string"/>
+			<xsd:element name="LineStyle" type="xsd:string"/>
+			<xsd:element name="LineWidth" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="BorderOn" type="xsd:string"/>
+			<xsd:element name="ShadowOn" type="xsd:string"/>
+			<xsd:element name="RequiredResource" type="requiredResourceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="UsedInputs" type="usedInputsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ProducedOutput" type="producedOutputType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="DrillDown" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Attachment" type="attachmentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="DataTable" type="dataTableType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Costing" type="costingType" minOccurs="0"/>
+			<xsd:element name="Commentary" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="xmi.id" type="xsd:string"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="shape" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="requiredResourceType">
+		<xsd:sequence>
+			<xsd:element name="ResName" type="xsd:string"/>
+			<xsd:element name="ResCost" type="xsd:string"/>
+			<xsd:element name="ResCostUnit" type="xsd:string"/>
+			<xsd:element name="ResCurrency" type="xsd:string"/>
+			<xsd:element name="ResInfo1" type="xsd:string"/>
+			<xsd:element name="ResInfo2" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attribute name="Resource_id" type="xsd:string"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="usedInputsType">
+		<xsd:attribute name="Input_id" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="producedOutputType">
+		<xsd:attribute name="Output_id" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="inputOutputType">
+		<xsd:attribute name="xmi.id" type="xsd:string"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="attachmentType">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="type" type="xsd:string"/>
+		<xsd:attribute name="value" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="dataTableType">
+		<xsd:sequence>
+			<xsd:element name="DataRecord" type="dataRecordType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="DefID" type="xsd:positiveInteger"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="dataRecordType">
+		<xsd:sequence>
+			<xsd:element name="DataField" type="dataFieldType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="RecID" type="xsd:nonNegativeInteger"/>
+	</xsd:complexType>	
+
+	<xsd:complexType name="dataFieldType">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="value" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="costingType">
+		<xsd:sequence>
+			<xsd:element name="TotalCost" type="xsd:decimal"/>
+			<xsd:element name="Duration" type="xsd:decimal"/>
+			<xsd:element name="DurationUnit" type="xsd:string"/>
+			<xsd:element name="Late" type="xsd:decimal"/>
+			<xsd:element name="LateUnit" type="xsd:string"/>
+			<xsd:element name="Delay" type="xsd:decimal"/>
+			<xsd:element name="DelayUnit" type="xsd:string"/>
+			<xsd:element name="EarlyStart" type="xsd:decimal"/>
+			<xsd:element name="LateStart" type="xsd:decimal"/>
+			<xsd:element name="EarlyFinish" type="xsd:decimal"/>
+			<xsd:element name="LateFinish" type="xsd:decimal"/>
+			<xsd:element name="Float" type="xsd:decimal"/>
+			<xsd:element name="Probability" type="xsd:decimal"/>
+			<xsd:element name="FeedbackFactor" type="xsd:decimal"/>
+			<xsd:element name="Completion" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+			<xsd:element name="StartTime" type="xsd:string"/>	<!--Should be dateTime type but uses localised date format-->
+			<xsd:element name="StartBox" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+			<xsd:element name="Volume" type="xsd:decimal"/>
+			<xsd:element name="VolumeUnit" type="xsd:string"/>
+			<xsd:element name="CustomVolumeCost" type="xsd:decimal"/>
+			<xsd:element name="OverrideVolume" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+			<xsd:element name="OverrideVolCost" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+			<xsd:element name="VolumeCost" type="xsd:decimal"/>
+			<xsd:element name="OverrideVolDuration" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+			<xsd:element name="VolumeDuration" type="xsd:decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="lineType">
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="x1" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="y1" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="x2" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="y2" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="SourceEdge" type="xsd:string"/>
+			<xsd:element name="DestEdge" type="xsd:string"/>
+			<xsd:element name="VectorDist1" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="VectorDist2" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="VectorDist3" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="LineColor" type="xsd:string"/>
+			<xsd:element name="LineStyle" type="xsd:string"/>
+			<xsd:element name="LineWidth" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="Straight" type="xsd:string"/>
+			<xsd:element name="Probability" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="Arrows" type="xsd:string"/>
+			<xsd:element name="BPMConnType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Commentary" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="xmi.id" type="xsd:string"/>
+		<xsd:attribute name="sourceName" type="xsd:string"/>
+		<xsd:attribute name="sinkName" type="xsd:string"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="lineStyle" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="freeTextType">
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="Text" type="xsd:string"/>
+			<xsd:element name="DrillDownIDNum" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="ChildGUID" type="xsd:string"/>
+			<xsd:element name="x1" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="y1" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="x2" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="y2" type="xsd:nonNegativeInteger"/>
+			<xsd:element name="FillType" type="xsd:string"/>
+			<xsd:element name="FillColor" type="xsd:string"/>
+			<xsd:element name="FillStyle" type="xsd:string"/>
+			<xsd:element name="HatchColor" type="xsd:string"/>
+			<xsd:element name="FillGradient" type="xsd:string"/>
+			<xsd:element name="LineColor" type="xsd:string"/>
+			<xsd:element name="LineStyle" type="xsd:string"/>
+			<xsd:element name="LineWidth" type="xsd:positiveInteger"/>
+			<xsd:element name="BorderOn" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+			<xsd:element name="ShadowOn" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="resourceType">
+		<xsd:attribute name="xmi.id" type="xsd:string"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="changeLogItemType">
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:positiveInteger"/>
+			<xsd:element name="Date" type="xsd:string"/>	<!--Should be date type but uses localised date format-->
+			<xsd:element name="Version" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string"/>
+			<xsd:element name="User" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="personType">
+		<xsd:attribute name="xmi.id" type="xsd:string"/>
+		<xsd:attribute name="name" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="authorizerType">
+		<xsd:sequence>
+			<xsd:element name="User" type="xsd:string"/>
+			<xsd:element name="Group" type="xsd:string"/>
+			<xsd:element name="Authorized" type="xsd:string"/>
+			<xsd:element name="Data" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="historyAuditLogType">
+		<xsd:sequence>
+			<xsd:element name="Date" type="xsd:date"/>	<!--Uses the correct format -->
+			<xsd:element name="Time" type="xsd:time"/>	<!--Uses the correct format -->
+			<xsd:element name="Version" type="xsd:string"/>
+			<xsd:element name="User" type="xsd:string"/>
+			<xsd:element name="Status" type="xsd:string"/>
+			<xsd:element name="Action" type="xsd:string"/>
+			<xsd:element name="Type" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="reviewerType">
+		<xsd:choice>
+			<xsd:element name="User" type="xsd:string"/>
+			<xsd:element name="Group" type="xsd:string"/>
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:complexType name="mandatoryUserType">
+		<xsd:choice>
+			<xsd:element name="User" type="xsd:string"/>
+			<xsd:element name="Group" type="xsd:string"/>
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:complexType name="subscriptionType">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="User" type="xsd:string"/>
+				<xsd:element name="Group" type="xsd:string"/>
+			</xsd:choice>
+			<xsd:element name="AddedBy" type="xsd:string"/>
+			<xsd:element name="Started" type="xsd:string"/>	<!--Should be dateTime type but uses localised date format-->
+			<xsd:element name="Count" type="xsd:nonNegativeInteger"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="acknowledgeLogType">
+		<xsd:sequence>
+			<xsd:element name="User" type="xsd:string"/>
+			<xsd:element name="Date" type="xsd:date"/>	<!--Uses the correct format -->
+			<xsd:element name="Time" type="xsd:time"/>	<!--Uses the correct format -->
+			<xsd:element name="Version" type="xsd:string"/>
+			<xsd:element name="Status" type="xsd:string"/>
+			<xsd:element name="Type" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="memoTopicType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="xsd:string"/>
+			<xsd:element name="Date" type="xsd:date"/>	<!--Uses the correct format -->
+			<xsd:element name="Time" type="xsd:time"/>	<!--Uses the correct format -->
+			<xsd:element name="Ref" type="xsd:string"/>
+			<xsd:element name="User" type="xsd:string"/>
+			<xsd:element name="MemoBody" type="xsd:string"/>
+			<xsd:element name="CRTopic" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+			<xsd:element name="MemoReply" type="memoReplyType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="memoReplyType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="xsd:string"/>
+			<xsd:element name="Date" type="xsd:date"/>	<!--Uses the correct format -->
+			<xsd:element name="Time" type="xsd:time"/>	<!--Uses the correct format -->
+			<xsd:element name="Ref" type="xsd:string"/>
+			<xsd:element name="User" type="xsd:string"/>
+			<xsd:element name="MemoBody" type="xsd:string"/>
+			<xsd:element name="CRTopic" type="xsd:string"/>	<!--Should be Boolean, but incorrect format prevents validation-->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="changeRequestType">
+		<xsd:sequence>
+			<xsd:element name="Status" type="xsd:string"/>
+			<xsd:element name="ControlRef" type="xsd:string"/>
+			<xsd:element name="UserRef" type="xsd:string"/>
+			<xsd:element name="AuditRef" type="xsd:string"/>
+			<xsd:element name="Originator" type="xsd:string"/>
+			<xsd:element name="OrigDate" type="xsd:string"/>	<!--Should be dateTime type but uses incorrect date format-->
+			<xsd:element name="ReviewDate" type="xsd:string"/>	<!--Should be dateTime type but uses incorrect date format-->
+			<xsd:element name="ImplDate" type="xsd:string"/>	<!--Should be dateTime type but uses incorrect date format-->
+			<xsd:element name="Reviewer" type="xsd:string"/>
+			<xsd:element name="Implementor" type="xsd:string"/>
+			<xsd:element name="ReqDate" type="xsd:string"/>	<!--Should be dateTime type but uses incorrect date format-->
+			<xsd:element name="ReqVersion" type="xsd:string"/>
+			<xsd:element name="Notes" type="xsd:string"/>
+			<xsd:element name="InitialNote" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

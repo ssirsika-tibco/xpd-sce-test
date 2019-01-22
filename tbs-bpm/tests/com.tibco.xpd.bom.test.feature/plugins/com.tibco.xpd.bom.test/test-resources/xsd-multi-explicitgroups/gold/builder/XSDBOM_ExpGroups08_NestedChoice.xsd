@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/SimpleSequence" xmlns:tns1="http://www.example.org/SimpleSequence"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/SimpleSequence">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_ExpGroups08_NestedChoice/Business Objects/org.example.SimpleSequence.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="complexWithChoice" id="org.example.SimpleSequencecomplexWithChoice"
+      abstract="false" mixed="false" name="complexWithChoice">
+    <xsd:choice maxOccurs="unbounded">
+      <xsd:element ecore:name="testElem2" id="complexWithChoicetestElem2" form="qualified"
+          maxOccurs="1" minOccurs="1" name="testElem2" type="xsd:string"/>
+      <xsd:choice maxOccurs="6" minOccurs="3">
+        <xsd:element ecore:name="innerElem3" id="complexWithChoiceinnerElem3" form="qualified"
+            maxOccurs="1" minOccurs="1" name="innerElem3" type="xsd:string"/>
+        <xsd:choice maxOccurs="10" minOccurs="2">
+          <xsd:element ecore:name="innerInnerElem2" id="complexWithChoiceinnerInnerElem2"
+              form="qualified" maxOccurs="1" minOccurs="1" name="innerInnerElem2"
+              type="xsd:string"/>
+        </xsd:choice>
+        <xsd:element ecore:name="innerElem4" id="complexWithChoiceinnerElem4" form="qualified"
+            maxOccurs="1" minOccurs="1" name="innerElem4" type="xsd:string"/>
+      </xsd:choice>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="elemWithAnonComplex" nillable="false">
+    <xsd:complexType ecore:name="elemWithAnonComplexType" id="org.example.SimpleSequenceelemWithAnonComplexType"
+        mixed="false">
+      <xsd:choice maxOccurs="unbounded">
+        <xsd:element ecore:name="testElem1" form="qualified" maxOccurs="1" minOccurs="1"
+            name="testElem1" type="xsd:string"/>
+        <xsd:choice maxOccurs="6" minOccurs="3">
+          <xsd:element ecore:name="innerElem1" id="elemWithAnonComplexTypeinnerElem1"
+              form="qualified" maxOccurs="1" minOccurs="1" name="innerElem1" type="xsd:string"/>
+          <xsd:choice maxOccurs="10" minOccurs="2">
+            <xsd:element ecore:name="innerInnerElem1" id="elemWithAnonComplexTypeinnerInnerElem1"
+                form="qualified" maxOccurs="1" minOccurs="1" name="innerInnerElem1"
+                type="xsd:string"/>
+          </xsd:choice>
+          <xsd:element ecore:name="innerElem2" id="elemWithAnonComplexTypeinnerElem2"
+              form="qualified" maxOccurs="1" minOccurs="1" name="innerElem2" type="xsd:string"/>
+        </xsd:choice>
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

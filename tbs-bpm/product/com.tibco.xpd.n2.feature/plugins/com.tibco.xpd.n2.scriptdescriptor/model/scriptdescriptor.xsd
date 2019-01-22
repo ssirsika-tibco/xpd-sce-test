@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by Joshy (Tibco Software Limited) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/XPD/ScriptDescriptor/" targetNamespace="http://www.tibco.com/XPD/ScriptDescriptor/">
+	<element name="scriptdescriptor" type="tns:ScriptDescriptorType"/>
+	<complexType name="ScriptDescriptorType">
+		<sequence>
+			<element name="script" type="tns:ScriptType" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="version" type="string" use="required"/>
+	</complexType>
+	<complexType name="ScriptType">
+		<annotation>
+			<documentation>Definition of a ScriptType.</documentation>
+		</annotation>
+		<sequence>
+			<choice>
+				<element name="process">
+					<complexType>
+						<sequence>
+							<element name="processId" type="NMTOKEN"/>
+							<element name="packageId" type="NMTOKEN"/>
+						</sequence>
+					</complexType>
+				</element>
+				<element name="taskLibraryId" type="NMTOKEN"/>
+			</choice>
+			<element name="factory" type="tns:FactoryType" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Details of factory types used by this script.</documentation>
+				</annotation>
+			</element>
+			<element name="enum" type="tns:EnumType" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Details of enum types used by this script.</documentation>
+				</annotation>
+			</element>
+			<element name="cac" type="tns:CacType" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Details of Case Access Class(es) used by these script(s).</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="FactoryType">
+		<annotation>
+			<documentation>Definition of a FactoryType.</documentation>
+		</annotation>
+		<sequence>
+			<element name="scriptingName" type="string">
+				<annotation>
+					<documentation>Name that will be used to refer to the EMF factory class from within the script.
+
+For example: com_example_customer_CustomerFactory. </documentation>
+				</annotation>
+			</element>
+			<element name="canonicalClassName" type="string">
+				<annotation>
+					<documentation>Fully qualified class name.
+
+For example: com.example.customer.CustomerFactory. </documentation>
+				</annotation>
+			</element>
+			<element name="namespace" type="string">
+				<annotation>
+					<documentation>Namespace of the XSD representation of the BOM. 
+
+For example, for a BOM whose model package is com.example.customer the namespace will be http://example.com/customer/. </documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="EnumType">
+		<annotation>
+			<documentation>Definition of an EnumType.</documentation>
+		</annotation>
+		<sequence>
+			<element name="scriptingName" type="string" minOccurs="0">
+				<annotation>
+					<documentation>Name that will be used to refer to the EMF factory class from within the script.
+
+For example: com_example_customer_CustomerFactory. </documentation>
+				</annotation>
+			</element>
+			<element name="canonicalClassName" type="string">
+				<annotation>
+					<documentation>Fully qualified class name of the class derived from a BOM enumeration. 
+
+For example, an enum named Title in a BOM whose name is com.example.customer would be: com.example.customer.TitleType. </documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="CacType">
+		<annotation>
+			<documentation>Definition of a CAC Type (Case Access Class).</documentation>
+		</annotation>
+		<sequence>
+			<element name="scriptingName" type="string">
+				<annotation>
+					<documentation>Name that will be used to refer to the Case Access Class from within the script. For example: cac_com_example_claimmodel_Claim. </documentation>
+				</annotation>
+			</element>
+			<element name="canonicalClassName" type="string">
+				<annotation>
+					<documentation>Fully qualified class name. For example: com.example.claimmodel.si.cac.ClaimCAC.</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+</schema>

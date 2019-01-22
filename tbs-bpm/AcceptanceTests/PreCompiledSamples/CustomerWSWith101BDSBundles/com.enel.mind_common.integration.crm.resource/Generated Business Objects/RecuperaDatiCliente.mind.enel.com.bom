@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="RecuperaDatiCliente.mind.enel.com" name="RecuperaDatiCliente.mind.enel.com">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__iL20Q92EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__iL20g92EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__iL20w92EeW3MruGqUCC5Q" key="created" value="1433947544893"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__iL21A92EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__n-80A92EeW3MruGqUCC5Q" key="checksum" value="1660641367"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="RecuperaDatiCliente.mind.enel.comRecuperoDatiDelCrmProcess" name="RecuperoDatiDelCrmProcess">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="RecuperoDatiDelCrmProcessRecuperaDatiCliente" name="RecuperaDatiCliente">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RecuperaDatiClienterequest" name="request">
+          <type xmi:type="uml:Class" href="com.enel.mind.recuperadaticliente.bom#com.enel.mind.recuperadaticlienteRecuperaDatiClienteInput?com.enel.mind.recuperadaticliente%3a%3aRecuperaDatiClienteInput?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RecuperaDatiClienteresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.mind.recuperadaticliente.bom#com.enel.mind.recuperadaticlienteRecuperaDatiClienteOutput?com.enel.mind.recuperadaticliente%3a%3aRecuperaDatiClienteOutput?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="RecuperoDatiDelCrmProcessRecuperoDatiContattoCliente" name="RecuperoDatiContattoCliente">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RecuperoDatiContattoClienteRecuperoDatiContattoClienteRequest" name="RecuperoDatiContattoClienteRequest">
+          <type xmi:type="uml:Class" href="com.enel.mind.recuperadaticliente.bom#com.enel.mind.recuperadaticlienteRecuperoDatiContattoCliente_Request?com.enel.mind.recuperadaticliente%3a%3aRecuperoDatiContattoCliente_Request?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RecuperoDatiContattoClienteRecuperoDatiContattoClienteResponse" name="RecuperoDatiContattoClienteResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.mind.recuperadaticliente.bom#com.enel.mind.recuperadaticlienteRecuperoDatiContattoCliente_Response?com.enel.mind.recuperadaticliente%3a%3aRecuperoDatiContattoCliente_Response?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_-650YQ92EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-650Yg92EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_-650Yw92EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-650ZA92EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_-7DlYA92EeW3MruGqUCC5Q" base_Package="RecuperaDatiCliente.mind.enel.com?RecuperaDatiCliente.mind.enel.com?" xsdTargetNamespace="http://com.enel.mind.RecuperaDatiCliente" xsdSchemaLocation="RecuperaDatiClienteServiceAbstract.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="RecuperaDatiClienteServiceAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_-7DlYQ92EeW3MruGqUCC5Q" base_Element="_-650Yw92EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_-7DlYg92EeW3MruGqUCC5Q" base_Element="_-650YQ92EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="__ed0qA92EeW3MruGqUCC5Q" base_Class="RecuperaDatiCliente.mind.enel.comRecuperoDatiDelCrmProcess?RecuperaDatiCliente.mind.enel.com%3a%3aRecuperoDatiDelCrmProcess?" xsdName="RecuperoDatiDelCrmProcess" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="__iL20A92EeW3MruGqUCC5Q" displayLabel="RecuperoDatiDelCrmProcess" base_NamedElement="RecuperaDatiCliente.mind.enel.comRecuperoDatiDelCrmProcess?RecuperaDatiCliente.mind.enel.com%3a%3aRecuperoDatiDelCrmProcess?"/>
+  <notation:Diagram xmi:id="__iL21Q92EeW3MruGqUCC5Q" type="Business Object Model" element="RecuperaDatiCliente.mind.enel.com?RecuperaDatiCliente.mind.enel.com?" name="RecuperaDatiCliente.mind.enel.com" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="__iL21g92EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="__iL21w92EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

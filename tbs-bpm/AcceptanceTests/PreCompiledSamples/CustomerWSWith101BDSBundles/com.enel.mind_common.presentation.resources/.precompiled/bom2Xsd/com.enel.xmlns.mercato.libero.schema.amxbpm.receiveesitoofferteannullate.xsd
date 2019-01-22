@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/libero/schema/amxbpm/receiveesitoofferteannullate.xsd"
+    xmlns:tns18="http://xmlns.enel.com/mercato/libero/schema/amxbpm/receiveesitoofferteannullate.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.com/mercato/libero/schema/amxbpm/receiveesitoofferteannullate.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.presentation.resources/Generated Business Objects/com.enel.xmlns.mercato.libero.schema.amxbpm.receiveesitoofferteannullate.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="RicezioneEsitoCaricamentoOfferteAnnullate" nillable="false">
+    <xsd:complexType ecore:name="RicezioneEsitoCaricamentoOfferteAnnullateType" id="com.enel.xmlns.mercato.libero.schema.amxbpm.receiveesitoofferteannullateRicezioneEsitoCaricamentoOfferteAnnullateType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idProcessoBpm" form="qualified" maxOccurs="1" minOccurs="1"
+            name="IdProcessoBpm" type="xsd:string"/>
+        <xsd:element ecore:name="codiceScarto" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CodiceScarto" type="xsd:string"/>
+        <xsd:element ecore:name="idTransazioneCanale" form="qualified" maxOccurs="1"
+            minOccurs="0" name="IdTransazioneCanale" type="xsd:string"/>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Esito" type="xsd:string"/>
+        <xsd:element ecore:name="descrizioneScarto" form="qualified" maxOccurs="1"
+            minOccurs="0" name="DescrizioneScarto" type="xsd:string"/>
+        <xsd:element ecore:name="idLineaFirst" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IdLineaFirst" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.MyPortTypeWSDL" name="org.example.MyPortTypeWSDL">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gLy70QdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gLy70gdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gLy70wdTEeSRjauCcgnMbg" key="created" value="1404905195149"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gLy71AdTEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gMkX4AdTEeSRjauCcgnMbg" key="checksum" value="1462063903"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.MyPortTypeWSDLMyPortTypeWSDL" name="MyPortTypeWSDL">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="MyPortTypeWSDLPurchaseOrderOperation" name="PurchaseOrderOperation">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="PurchaseOrderOperationreqParams" name="reqParams">
+          <type xmi:type="uml:Class" href="org.example.MyTypesSchema.bom#org.example.MyTypesSchemaPurchaseOrderRequestElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderRequestElemType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="PurchaseOrderOperationrespParams" name="respParams" direction="return">
+          <type xmi:type="uml:Class" href="org.example.MyTypesSchema.bom#org.example.MyTypesSchemaPurchaseOrderResponseElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderResponseElemType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="MyPortTypeWSDLPurchaseOrderOperation2" name="PurchaseOrderOperation2">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="PurchaseOrderOperation2reqParams" name="reqParams">
+          <type xmi:type="uml:Class" href="org.example.MyTypesSchema.bom#org.example.MyTypesSchemaCTRequest?org.example.MyTypesSchema%3a%3aCTRequest?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="PurchaseOrderOperation2respParams" name="respParams" direction="return">
+          <type xmi:type="uml:Class" href="org.example.MyTypesSchema.bom#org.example.MyTypesSchemaCTResponse?org.example.MyTypesSchema%3a%3aCTResponse?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gLojwQdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gLojwgdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gLojwwdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gLojxAdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_gLojxQdTEeSRjauCcgnMbg" base_Package="org.example.MyPortTypeWSDL?org.example.MyPortTypeWSDL?" xsdTargetNamespace="http://www.example.org/MyPortTypeWSDL/" xsdSchemaLocation="MyPortTypeWSDL.wsdl" xsdStudioVersion="3.8.0.005" bomWsdlSources="MyPortTypeWSDL.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_gLqY8AdTEeSRjauCcgnMbg" base_Class="org.example.MyPortTypeWSDLMyPortTypeWSDL?org.example.MyPortTypeWSDL%3a%3aMyPortTypeWSDL?" xsdName="MyPortTypeWSDL" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gLy70AdTEeSRjauCcgnMbg" displayLabel="MyPortTypeWSDL" base_NamedElement="org.example.MyPortTypeWSDLMyPortTypeWSDL?org.example.MyPortTypeWSDL%3a%3aMyPortTypeWSDL?"/>
+  <notation:Diagram xmi:id="_gLy71QdTEeSRjauCcgnMbg" type="Business Object Model" element="org.example.MyPortTypeWSDL?org.example.MyPortTypeWSDL?" name="org.example.MyPortTypeWSDL" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_gLy71gdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_gLy71wdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_KubGQAeaEeCddLRpRfUO7Q" name="com.example.boeingfreightdetails">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KubGQQeaEeCddLRpRfUO7Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KubGQgeaEeCddLRpRfUO7Q" key="author" value="rsomayaj"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KubGQweaEeCddLRpRfUO7Q" key="created" value="1292345554724"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xhN7MDLAEeC2u73BgAN_UA" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_M9CS4AeaEeCddLRpRfUO7Q" name="Boeing">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_NpJK8AeaEeCddLRpRfUO7Q" name="armrest" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NqoYsgeaEeCddLRpRfUO7Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NqoYsQeaEeCddLRpRfUO7Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OROeoAeaEeCddLRpRfUO7Q" name="freightDetails" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OROeoweaEeCddLRpRfUO7Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OROeogeaEeCddLRpRfUO7Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_POBeEAeaEeCddLRpRfUO7Q" name="seatcolor" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_POBeEweaEeCddLRpRfUO7Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_POBeEgeaEeCddLRpRfUO7Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QdcekAeaEeCddLRpRfUO7Q" name="FreightDetails">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RpcXoAeaEeCddLRpRfUO7Q" name="armrest" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RpcXoweaEeCddLRpRfUO7Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RpcXogeaEeCddLRpRfUO7Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_SNNMAAeaEeCddLRpRfUO7Q" name="freightDetails" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SNNMAweaEeCddLRpRfUO7Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SNNMAgeaEeCddLRpRfUO7Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_TkOpUAeaEeCddLRpRfUO7Q" name="seatColor" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TkOpUweaEeCddLRpRfUO7Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TkOpUgeaEeCddLRpRfUO7Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_M9VN0AeaEeCddLRpRfUO7Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_M9VN0QeaEeCddLRpRfUO7Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_KubGRAeaEeCddLRpRfUO7Q" type="Business Object Model" element="_KubGQAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails?" name="BoeingFreightDetails.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_LLVrwAeaEeCddLRpRfUO7Q" type="1007" element="_KubGQAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails?">
+      <children xmi:type="notation:Node" xmi:id="_LLVrxAeaEeCddLRpRfUO7Q" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_LLVrxQeaEeCddLRpRfUO7Q" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_LLVrxgeaEeCddLRpRfUO7Q" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_LLVrxweaEeCddLRpRfUO7Q" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_LLVryAeaEeCddLRpRfUO7Q" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_LLVryQeaEeCddLRpRfUO7Q" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_LLVrygeaEeCddLRpRfUO7Q" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_LLVryweaEeCddLRpRfUO7Q" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_LLVrzAeaEeCddLRpRfUO7Q" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_LLVrzQeaEeCddLRpRfUO7Q" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_LLVrzgeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_LLVrzweaEeCddLRpRfUO7Q" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_LLVr0AeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_LLVr0QeaEeCddLRpRfUO7Q"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_LLVrwQeaEeCddLRpRfUO7Q" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_LLVrwgeaEeCddLRpRfUO7Q"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LLVrwweaEeCddLRpRfUO7Q"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_M-hgoAeaEeCddLRpRfUO7Q" type="1002" element="_M9CS4AeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing?">
+      <children xmi:type="notation:Node" xmi:id="_M-hgpAeaEeCddLRpRfUO7Q" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_M-hgpQeaEeCddLRpRfUO7Q" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_M-hgpgeaEeCddLRpRfUO7Q" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_M-hgpweaEeCddLRpRfUO7Q" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_NqoYsweaEeCddLRpRfUO7Q" type="2001" element="_NpJK8AeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing%3a%3aarmrest?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_NqoYtAeaEeCddLRpRfUO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_OROepAeaEeCddLRpRfUO7Q" type="2001" element="_OROeoAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing%3a%3afreightDetails?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_OROepQeaEeCddLRpRfUO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_POBeFAeaEeCddLRpRfUO7Q" type="2001" element="_POBeEAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing%3a%3aseatcolor?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_POBeFQeaEeCddLRpRfUO7Q"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_M-hgqAeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_M-hgqQeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_M-hgqgeaEeCddLRpRfUO7Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_M-hgqweaEeCddLRpRfUO7Q" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_M-hgrAeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_M-hgrQeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_M-hgrgeaEeCddLRpRfUO7Q"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_M-hgoQeaEeCddLRpRfUO7Q" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_M-hgogeaEeCddLRpRfUO7Q" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M-hgoweaEeCddLRpRfUO7Q" x="367" y="148"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_QeyiYAeaEeCddLRpRfUO7Q" type="1002" element="_QdcekAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails?">
+      <children xmi:type="notation:Node" xmi:id="_QeyiZAeaEeCddLRpRfUO7Q" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_QeyiZQeaEeCddLRpRfUO7Q" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_QeyiZgeaEeCddLRpRfUO7Q" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_QeyiZweaEeCddLRpRfUO7Q" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_RpcXpAeaEeCddLRpRfUO7Q" type="2001" element="_RpcXoAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails%3a%3aarmrest?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_RpcXpQeaEeCddLRpRfUO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SNNMBAeaEeCddLRpRfUO7Q" type="2001" element="_SNNMAAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails%3a%3afreightDetails?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_SNNMBQeaEeCddLRpRfUO7Q"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_TkOpVAeaEeCddLRpRfUO7Q" type="2001" element="_TkOpUAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails%3a%3aseatColor?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_TkOpVQeaEeCddLRpRfUO7Q"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_QeyiaAeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_QeyiaQeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_QeyiageaEeCddLRpRfUO7Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_QeyiaweaEeCddLRpRfUO7Q" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_QeyibAeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_QeyibQeaEeCddLRpRfUO7Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_QeyibgeaEeCddLRpRfUO7Q"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_QeyiYQeaEeCddLRpRfUO7Q" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_QeyiYgeaEeCddLRpRfUO7Q" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QeyiYweaEeCddLRpRfUO7Q" x="645" y="148"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_KubGRQeaEeCddLRpRfUO7Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_KubGRgeaEeCddLRpRfUO7Q"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_M9VN0geaEeCddLRpRfUO7Q" displayLabel="Boeing" base_NamedElement="_M9CS4AeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NqoYsAeaEeCddLRpRfUO7Q" displayLabel="armrest" base_NamedElement="_NpJK8AeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing%3a%3aarmrest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_OROeoQeaEeCddLRpRfUO7Q" displayLabel="freightDetails" base_NamedElement="_OROeoAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing%3a%3afreightDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_POBeEQeaEeCddLRpRfUO7Q" displayLabel="seatcolor" base_NamedElement="_POBeEAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing%3a%3aseatcolor?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QdcekQeaEeCddLRpRfUO7Q" displayLabel="FreightDetails" base_NamedElement="_QdcekAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RpcXoQeaEeCddLRpRfUO7Q" displayLabel="armrest" base_NamedElement="_RpcXoAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails%3a%3aarmrest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_SNNMAQeaEeCddLRpRfUO7Q" displayLabel="freightDetails" base_NamedElement="_SNNMAAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails%3a%3afreightDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_TkOpUQeaEeCddLRpRfUO7Q" displayLabel="seatColor" base_NamedElement="_TkOpUAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails%3a%3aseatColor?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_xgx2UDLAEeC2u73BgAN_UA" base_Property="_NpJK8AeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aBoeing%3a%3aarmrest?" booleanDefaultValue="false"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_xgzEcDLAEeC2u73BgAN_UA" base_Property="_RpcXoAeaEeCddLRpRfUO7Q?com.example.boeingfreightdetails%3a%3aFreightDetails%3a%3aarmrest?" booleanDefaultValue="false"/>
+</xmi:XMI>

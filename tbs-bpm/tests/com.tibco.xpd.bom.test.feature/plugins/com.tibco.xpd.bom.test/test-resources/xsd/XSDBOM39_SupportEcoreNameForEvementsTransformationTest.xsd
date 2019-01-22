@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://XSDBOM39_SupportEcoreNameForEvementsTransformationTest" xmlns:tns="http://XSDBOM39_SupportEcoreNameForEvementsTransformationTest" targetNamespace="http://XSDBOM39_SupportEcoreNameForEvementsTransformationTest" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:attribute name="TLAttr">
+		<xs:simpleType>
+			<xs:restriction base="xs:date">
+				<xs:minInclusive value="2001-02-03"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:element name="TLESimpleInt">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minExclusive value="999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IntDuSimpaleLevelTop" substitutionGroup="tns:TLESimpleInt"/>
+	<xs:element name="TLEComplex">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:TLESimpleInt"/>
+				<xs:group ref="tns:cakeGroup"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="tns:beverageGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TLEEnum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="37.2"/>
+				<xs:enumeration value="99.999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:simpleType name="TopLevelNonEnumSimple">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="123"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TopLevelSimpleEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TASTY"/>
+			<xs:enumeration value="BLAND"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TopLevelSimpleIntEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="64"/>
+			<xs:enumeration value="4096"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TopLevelSimpleTime">
+		<xs:restriction base="xs:time">
+			<xs:minExclusive value="01:02:03"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TopLevelComplexType">
+		<xs:sequence>
+			<xs:element name="demoUnion">
+				<xs:simpleType>
+					<xs:union memberTypes="tns:TopLevelSimpleEnum xs:date tns:TopLevelSimpleTime"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="attributeZero" type="xs:string"/>
+			<xs:element name="tlSimpleAttr" type="tns:TopLevelNonEnumSimple"/>
+			<xs:element name="ElementInCTWithAnonSimple">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ElementInCTWithAnonEnum">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="COAT"/>
+						<xs:enumeration value="SHOES"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ElementInCTWithAnonCT">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="attributeOne" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute ref="tns:TLAttr"/>
+	</xs:complexType>
+	<xs:group name="cakeGroup">
+		<xs:sequence>
+			<xs:element name="belgianBun" type="xs:string"/>
+			<xs:element name="maplePecanDanish" type="xs:string"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:attributeGroup name="beverageGroup">
+		<xs:attribute name="tea" type="xs:int"/>
+		<xs:attribute name="coffee" type="xs:long"/>
+	</xs:attributeGroup>
+</xs:schema>

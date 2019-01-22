@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/TopLevelAnonymousMinMax" xmlns:tns1="http://example.com/TopLevelAnonymousMinMax"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/TopLevelAnonymousMinMax">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_TLE21_TopLevelWithAnonymousMinMaxAttributes/Business Objects/com.example.TopLevelAnonymousMinMax.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Price" id="com.example.TopLevelAnonymousMinMaxPrice"
+      abstract="false" mixed="false" name="Price"/>
+  <xsd:element abstract="false" name="Buckets" nillable="false">
+    <xsd:complexType ecore:name="BucketsType" id="com.example.TopLevelAnonymousMinMaxBucketsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="bucket" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="Bucket">
+          <xsd:complexType ecore:name="BucketType" id="com.example.TopLevelAnonymousMinMaxBucketType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="averages" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="Averages" type="Price"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="elem2" form="unqualified" maxOccurs="6" minOccurs="1"
+            name="elem2" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

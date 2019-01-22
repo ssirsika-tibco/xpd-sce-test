@@ -1,0 +1,632 @@
+// author glewis
+
+import xmlSchema;
+import type;
+import uml;
+import com::tibco::xpd::bom::xsdtransform::imports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension org::openarchitectureware::xsd::lib::map;
+extension com::tibco::xpd::bom::xsdtransform::imports::template::Extensions reexport;
+extension com::tibco::xpd::bom::xsdtransform::imports::template::Xsd2Bom reexport;
+extension org::openarchitectureware::xsd::lib::xmlreader;
+
+// creates a Primitive Type from a top level attribute. Stores all 
+// details of this attribute in a stereotype including whether it
+// is an anonymous, a base xsd type or of another user defined simple type.
+cached uml::Type createRootAttributePrimitiveType(ImportTransformationData data, Attribute attribute, Boolean isAnonymous, Boolean isBaseXSDType, SchemaType schemaType, uml::Model model, uml::Package package):    	
+	traceMe("=> createRootAttributePrimitiveType " + getAttributeName(data, attribute)) ->
+	data.getTopLevelConstruct(attribute) != null ? data.getTopLevelConstruct(attribute) : (
+		traceMe("=> isBaseXSDType " + isBaseXSDType) ->
+		isBaseXSDType == true ?
+		(
+			let newPrim = (
+				let existingPrim = package.eAllContents.typeSelect(uml::PrimitiveType).select(e|e.name == getAttributeName(data, attribute) && Property.isInstance(e) == false && !Class.isInstance(e.eContainer)).first() :
+				traceMe("=> existingPrim " + existingPrim) ->
+				existingPrim != null ? existingPrim : (
+					let tmpPrim = createPrimitiveType() :
+					let generalisation = (
+						let tmpGeneralization = new uml::Generalization :	
+						let type = getBOMPrimitiveType(data, getAttributeLocalPart(data, attribute)) :
+						tmpGeneralization.setGeneral(type) //->								
+					) :
+					tmpPrim.setPackage(package) ->		
+					tmpPrim.setName(getAttributeName(data, attribute)) ->
+					setUniqueId(data, tmpPrim) ->		
+					generalisation.general != null ? tmpPrim.generalization.add(generalisation) : null ->
+					
+					// XPD-6842: defaults the primitive type length to -1 if the primitive type is text/string.	
+					setUndefinedRestrictions(tmpPrim) ->
+					
+					applyPrimitiveStereotypeValues(tmpPrim, attribute.name, attribute.id, {}, "", attribute.type.prefix + ":" + attribute.type.localPart) ->				
+					setOtherStereotypeValues(null, getAttributeLocalPart(data, attribute), null, tmpPrim, isSimpleType(data, attribute.simpleType.restriction)) ->
+					
+					traceMe("new Prim created in package " + package.name) ->
+					traceMe("new Prim created in schema " + schemaType.targetNamespace) ->
+					
+					addAnyTypeDetails(data, tmpPrim, attribute.type.localPart) ->
+								
+					parseAnnotations(model, schemaType, attribute.annotation, tmpPrim, package) ->
+									
+					addTopLevelAttribute(data, tmpPrim, attribute.name, isAnonymous, isBaseXSDType, attribute.id, attribute.fixed, attribute.^default, schemaType.targetNamespace, package) ->
+					
+					tmpPrim
+				)
+			) :								
+			
+			traceMe("<= createRootAttributePrimitiveType " +newPrim) ->
+			
+			data.addNewTopLevelConstruct(attribute, newPrim) ->
+			newPrim
+		) : (
+			let newPrim = getPrimitiveTypeByName(data, model, getNamespacePackageFromURI(data, schemaType, package, attribute.type.namespaceURI), getAttributeLocalPart(data, attribute), true) :
+			let newEnum = getEnumTypeByName(data, getNamespacePackageFromURI(data, schemaType, package, attribute.type.namespaceURI), getAttributeLocalPart(data, attribute), true) :
+			let tmpDataType = (
+				newPrim == null ? newEnum : newPrim
+			) :	
+			traceMe("looking at attribute in schema "+schemaType.targetNamespace) ->
+			traceMe("found prim or enum " + tmpDataType + " for attribute with local part " + getAttributeLocalPart(data, attribute)) ->
+			traceMe("found in parent "+tmpDataType.eContainer) ->
+			tmpDataType == null ? null : (
+				addAnyTypeDetails(data, tmpDataType, attribute.type.localPart) ->
+				
+				addTopLevelAttribute(data, tmpDataType, attribute.name, isAnonymous, isBaseXSDType, attribute.id, attribute.fixed, attribute.^default, schemaType.targetNamespace, package) ->
+				
+				traceMe("<= createRootAttributePrimitiveType") ->
+				data.addNewTopLevelConstruct(attribute, tmpDataType) ->
+				tmpDataType
+			)
+		)
+	);
+	
+// creates a Primitive Type from a top level element. Stores all details of this attribute in a stereotype including whether it is an anonymous, a base xsd type or of another user defined simple type.		
+cached uml::Type createRootElementPrimitiveType(ImportTransformationData data, Element element, Boolean isAnonymous, Boolean isBaseXSDType, SchemaType schemaType, uml::Model model, uml::Package package):    	
+	traceMe("=> createRootElementPrimitiveType " +  getElementName(data, element) + " is known xsd type = "+isBaseXSDType) ->	 
+	data.getTopLevelConstruct(element) != null ? data.getTopLevelConstruct(element) : (
+		isBaseXSDType == true ?
+		(	
+			let newPrim = (
+				// XPD-4938: in case of name clash it was returning the incorrect primitive type from the model. 
+				// Need to create a new primitive type in any case but need to assign a unique name 
+				//let existingPrim = package.eAllContents.typeSelect(uml::PrimitiveType).select(e|e.name == getElementName(data, element) && Property.isInstance(e) == false && !Class.isInstance(e.eContainer)).first() :
+				let newName = _getUniquePrimitiveTypeName(getElementName(data, element), package.eAllContents.typeSelect(uml::PrimitiveType)) :
+				//existingPrim != null ? existingPrim : (
+					let tmpPrim = createPrimitiveType() :
+					let generalisation = (
+						let tmpGeneralization = new uml::Generalization :	
+						let type = getBOMPrimitiveType(data, getElementLocalPart(data, element)) :
+						tmpGeneralization.setGeneral(type) //->								
+					) :
+					tmpPrim.setPackage(package) ->		
+					// XPD-4938: assigning the new unique name
+					tmpPrim.setName(newName)-> //(getElementName(data, element)) ->
+					setUniqueId(data, tmpPrim) ->		
+					generalisation.general != null ? tmpPrim.generalization.add(generalisation) : null ->
+						
+					// XPD-6842: defaults the primitive type length to -1 if the primitive type is text/string.					
+					setUndefinedRestrictions(tmpPrim) ->
+					
+					applyPrimitiveStereotypeValues(tmpPrim, element.name, element.id, getFinalListValue(element.final), "", element.type.prefix + ":" + element.type.localPart) ->				
+					setOtherStereotypeValues(null, getElementLocalPart(data, element), null, tmpPrim, isSimpleType(data, element.simpleType.restriction)) ->
+					
+					addAnyTypeDetails(data, tmpPrim, element.type.localPart) ->
+									
+					parseAnnotations(model, schemaType, element.annotation, tmpPrim, package) ->
+					
+					addTopLevelElement(data, tmpPrim, element.name, isAnonymous, isBaseXSDType, element.id, element.fixed, getFinalListValue(element.final), getBlockListValue(element.block), element.nillable, element.abstract, getSubstitutionGroupString(element), element.^default, schemaType.targetNamespace, package) ->
+					
+					data.addNewTopLevelConstruct(element, tmpPrim) ->
+					tmpPrim
+				//)
+			) :								
+			
+			traceMe("<= createRootElementPrimitiveType " +newPrim) ->		
+				
+			newPrim
+		) : (
+			let newPrim = getPrimitiveTypeByName(data, model, getNamespacePackageFromURI(data, schemaType, package, element.type.namespaceURI), getElementLocalPart(data, element), true) :
+			let newEnum = getEnumTypeByName(data, getNamespacePackageFromURI(data, schemaType, package, element.type.namespaceURI), getElementLocalPart(data, element), true) :
+			let tmpDataType = (
+				newPrim == null ? newEnum : newPrim
+			) :
+			traceMe("tmpDataType" + tmpDataType + " elem localPart is " + getElementLocalPart(data, element)) ->
+			tmpDataType == null ? null : (
+				addAnyTypeDetails(data, tmpDataType, element.type.localPart) ->
+				
+				addTopLevelElement(data, tmpDataType, element.name, isAnonymous, isBaseXSDType, element.id, element.fixed, getFinalListValue(element.final), getBlockListValue(element.block), element.nillable, element.abstract, getSubstitutionGroupString(element), element.^default, schemaType.targetNamespace, package) ->
+				
+				traceMe("<= createRootElementPrimitiveType") ->
+				data.addNewTopLevelConstruct(element, tmpDataType) ->
+				tmpDataType
+			)
+		)
+	);
+
+// creates an Enumeration from a top level attribute that has an anonymous simple type containing at least one enumeration	
+cached uml::Enumeration toAnonymousRootAttributeEnumeration(ImportTransformationData data, Attribute attribute, LocalSimpleType simpleType, SchemaType schemaType, uml::Model model, uml::Package package, List enumIDList, List enumValueList, Boolean isBaseXSDType): 
+    traceMe("=> toAnonymousRootAttributeEnumeration") ->
+    data.getTopLevelConstruct(attribute) != null ? data.getTopLevelConstruct(attribute) : (
+	    (
+	    	let primitiveType = getPrimitiveTypeByName(data, model, getNamespacePackage(data, schemaType, package, null), getSimpleTypeBasePart(data, attribute, simpleType), false) :
+	    	let enumType = getEnumTypeByName(data, getNamespacePackage(data, schemaType, package, null), getSimpleTypeBasePart(data, attribute, simpleType), false) : 
+			
+			let enumType = (
+		    	primitiveType != null ? primitiveType : (
+		    		enumType != null ? enumType : (
+		    			let tmpEnum = createEnumeration(data, attribute.name, enumType, simpleType, schemaType, model, package, enumIDList, enumValueList) :
+		    			tmpEnum
+		    		) 	
+		    	)	    	
+		    ) :		    
+			let isXSDType = (
+				isBaseXSDType ? isKnownNamespace(simpleType.^restriction.base.namespaceURI) : isBaseXSDType
+			) :			
+			
+			addTopLevelAttribute(data, enumType, attribute.name, true, isXSDType, attribute.id, attribute.fixed, attribute.^default, schemaType.targetNamespace, package) ->
+			
+			traceMe("<= toAnonymousRootAttributeEnumeration") ->
+			data.addNewTopLevelConstruct(attribute, enumType) ->
+			enumType
+		)
+	);
+
+// creates an Enumeration from a top level element that has an anonymous simple type containing at least one enumeration
+cached uml::Enumeration toAnonymousRootElementEnumeration(ImportTransformationData data, Element element, LocalSimpleType simpleType, SchemaType schemaType, uml::Model model, uml::Package package, List enumIDList, List enumValueList, Boolean isBaseXSDType): 
+    traceMe("=>toAnonymousRootElementEnumeration(): element name=" + element.name) ->
+    traceMe("toAnonymousRootElementEnumeration: LocalSimpleType restriction type = " + element.simpleType.restriction.base) ->
+    
+    data.getTopLevelConstruct(element) != null ? data.getTopLevelConstruct(element) : (
+	    (
+	    	// XPD-3877
+	    	let isAnon = _isSimpleTypeReallyRepresentingAnonymousTLE(simpleType):
+	    	
+	    	let primitiveType = getPrimitiveTypeByName(data, model, 
+	    							getNamespacePackage(data, schemaType, package, null), 
+	    							getSimpleTypeBasePart(data, element, simpleType), false) :
+	    							
+	    							
+	    	let enumType = getEnumTypeByName(data, getNamespacePackage(data, schemaType, package, null), 
+	    										getSimpleTypeBasePart(data, element, simpleType), false) : 
+			
+			let enumType = (
+		    	primitiveType != null ? 
+		    	(
+		    		primitiveType
+		    	)
+		    	:
+		    	(
+		    		enumType != null ? 
+		    		(
+			    		let tempEnum = _createEnumerationForAnonSimpleType(data, element.name, 
+		    								enumType, simpleType, schemaType, model, 
+		    								package, enumIDList, enumValueList):
+		    								
+		    			traceMe("toAnonymousRootElementEnumeration: Created an anonymous type enumeration. isAnon=" + isAnon) -> 
+		    			parseAnnotations(model, schemaType, simpleType.annotation, tempEnum, package) ->
+		    			tempEnum					
+		    		)
+		    		:
+		    		(
+		    			let tmpEnum = createEnumeration(data, element.name, 
+		    								enumType, simpleType, schemaType, model, 
+		    								package, enumIDList, enumValueList) :
+		    			tmpEnum
+		    		) 	
+		    	)	    	
+		    ) :
+		    
+		    let isXSDType = (
+				isBaseXSDType ?
+				(
+					isKnownNamespace(simpleType.^restriction.base.namespaceURI)
+				) :
+				( 
+					isBaseXSDType
+				)
+			) :
+			
+			addTopLevelElement(data, enumType, element.name, isAnon, isXSDType, element.id, element.fixed, getFinalListValue(element.final), getBlockListValue(element.block), element.nillable, element.abstract, getSubstitutionGroupString(element), element.^default, schemaType.targetNamespace, package) ->
+			
+			traceMe("<=toAnonymousRootElementEnumeration():") ->
+			data.addNewTopLevelConstruct(element, enumType) ->
+			enumType
+		)
+	);
+
+// creates a Primitive Type from a top level attribute that has an anonymous simple type
+cached uml::PrimitiveType toAnonymousRootAttributePrimitiveType(ImportTransformationData data, Attribute attribute, LocalSimpleType simpleType, SchemaType schemaType, uml::Model model, uml::Package package, Boolean isBaseXSDType): 
+    traceMe("=> toAnonymousRootAttributePrimitiveType") ->
+    data.getTopLevelConstruct(attribute) != null ? data.getTopLevelConstruct(attribute) : (
+	    (	
+			let enumType = getEnumTypeByName(data, getNamespacePackage(data, schemaType, package, null), getSimpleTypeBasePart(data, attribute, simpleType), false) :
+		    let primitiveType = getPrimitiveTypeByName(data, model, getNamespacePackage(data, schemaType, package, null), getSimpleTypeBasePart(data, attribute, simpleType), true) :	     
+		    
+		    let primitiveType = (
+		    	enumType != null ? enumType : (
+		    		primitiveType != null ? primitiveType : (
+		    			let prim = createPrimitiveType(data, attribute.name, primitiveType, simpleType, schemaType, model, package) :
+		    			prim
+		    		) 	
+		    	)	    	
+		    ) :
+		    let isXSDType = (
+				isBaseXSDType ? (
+					simpleType.union != null ? isXSDType : isKnownNamespace(simpleType.^restriction.base.namespaceURI)
+				) : isBaseXSDType
+			) :
+			simpleType.union == null ? null : (		
+				let anonSimpleTypeNames = {} :	
+				simpleType.union.memberTypes.collect(e | parseUnion(data, schemaType, model, primitiveType, e, package)) ->
+				simpleType.union.simpleType.collect(e | parseUnionSimples(data, schemaType, model, primitiveType, e, anonSimpleTypeNames)) ->
+				applyXSDUnionMembers(data, primitiveType, simpleType.union.memberTypes.toString(), anonSimpleTypeNames, schemaType.targetNamespace)
+			) ->
+			
+			addTopLevelAttribute(data, primitiveType, attribute.name, true, isXSDType, attribute.id, attribute.fixed, attribute.^default, schemaType.targetNamespace, package) ->
+			
+			traceMe("<= toAnonymousRootAttributePrimitiveType") ->
+			data.addNewTopLevelConstruct(attribute, primitiveType) ->
+			primitiveType
+		)
+	);
+		
+// creates a Primitive Type from a top level element that has an anonymous simple type
+cached uml::PrimitiveType toAnonymousRootElementPrimitiveType(ImportTransformationData data, Element element, LocalSimpleType simpleType, SchemaType schemaType, uml::Model model, uml::Package package, Boolean isBaseXSDType): 
+    traceMe("=>toAnonymousRootElementPrimitiveType(): TLE name " + element.name ) ->
+    traceMe("toAnonymousRootElementPrimitiveType: LocalSimpleType restriction type = " + element.simpleType.restriction.base) ->
+    // Why do we call data.getTopLevelConstruct() again if not null?
+    // In most cases though, we would expect null        
+    data.getTopLevelConstruct(element) != null ? data.getTopLevelConstruct(element) : (
+	    (
+	    	
+	    	let enumType = getEnumTypeByName(data, 
+	    						getNamespacePackage(data, schemaType, package, null), 
+	    						getSimpleTypeBasePart(data, element, simpleType), false):   					
+	    	
+	    						
+		    let primitiveType = getPrimitiveTypeByName(data, 
+		    						model, getNamespacePackage(data, schemaType, package, null), 
+		    						getSimpleTypeBasePart(data, element, simpleType), false) :	     
+		    
+		    let primitiveType = (
+		    	enumType != null ? enumType : (
+		    		primitiveType != null ? primitiveType : (
+		    			let prim = createPrimitiveType(data, element.name, primitiveType, simpleType, schemaType, model, package) :
+		    			traceMe("toAnonymousRootElementPrimitiveType: Created new PrimType because ???") ->
+		    			prim
+		    		) 	
+		    	)	    	
+		    ) :		    
+		    let isXSDType = (
+				isBaseXSDType ? (
+					simpleType.union != null ? isXSDType : isKnownNamespace(simpleType.^restriction.base.namespaceURI)
+				) : isBaseXSDType
+			) :
+			traceMe("prim = "+primitiveType) ->
+			simpleType.union == null ? null : (		
+				let anonSimpleTypeNames = {} :					
+				simpleType.union.memberTypes.collect(e | parseUnion(data, schemaType, model, primitiveType, e, package)) ->
+				simpleType.union.simpleType.collect(e | parseUnionSimples(data, schemaType, model, primitiveType, e, anonSimpleTypeNames)) ->
+				applyXSDUnionMembers(data, primitiveType, simpleType.union.memberTypes.toString(), anonSimpleTypeNames, schemaType.targetNamespace)
+			) ->
+									
+			// XPD-3197: We may not always want to treat the SimpleType as "anonymous" in terms of the BOM
+			// PrimitiveType that it represents. If the type is a base XSD type then yes, there will be 
+			// no equivalent BOM PrimitiveType, so we create one and name it "AnonName"+"Type".
+			// However, we DON'T want to do this if the anon ST is a base restriction of another
+			// schema type. In this case the PrimitiveType will already exist and it WON'T have been
+			// derived from an anon type. Therefore, in this case, we should pass FALSE as the fourth
+			// parameter to addTopLevelElement.
+			traceMe("toAnonymousRootElementPrimitiveType: namespaceURI= " + element.simpleType.restriction.base.namespaceURI) ->
+			traceMe("toAnonymousRootElementPrimitiveType: localPart= " + element.simpleType.restriction.base.localPart) ->
+			(
+				// XPD-3877: If a new PrimitiveType is created in call to _isTypeReallyAnonymous()
+				// then this will be the TLE, NOT the PT currently assigned to primitiveType
+				let newlyCreatedPrimitiveType = (
+					(element.simpleType.restriction != null) ?
+						_isSimpleTypeARestrictionWithFacetsOfAnExistingPrimitiveType(data, 
+															model, package, primitiveType, 
+															simpleType, element.name,
+															element.simpleType.restriction.base.namespaceURI,
+												 			element.simpleType.restriction.base.localPart, 
+												 			element.simpleType.restriction.facets)
+						:
+						null
+				):
+
+				// XPD-3197: So add this new java method call to make the checks
+				let isAnon = (element.simpleType.restriction != null ?
+								_isTypeReallyAnonymous(data, model, package, primitiveType, simpleType, element.name, element.simpleType.restriction.base.namespaceURI,
+												 element.simpleType.restriction.base.localPart, element.simpleType.restriction.facets)
+								: true
+				):
+
+						
+				let primitiveType = (
+					newlyCreatedPrimitiveType != null ?
+						(
+							traceMe("toAnonymousRootElementPrimitiveType():newlyCreatedPrimitiveType") ->
+							//XPD-3877
+							// For the newly create primitiveType, perform the extra things the new Xsd2BomFactory can't do yet
+							parseAnnotations(model, schemaType, element.simpleType.annotation, newlyCreatedPrimitiveType, package) ->
+							parseAnnotations(model, schemaType, element.simpleType.restriction.annotation, newlyCreatedPrimitiveType, package) ->
+							newlyCreatedPrimitiveType
+						)
+						:
+						(
+							traceMe("toAnonymousRootElementPrimitiveType():primitiveType") ->
+							primitiveType
+						)				
+				):
+				data.ctx.inspectObject("toAnonymousRootElementPrimitiveType:", primitiveType)->
+				traceMe("toAnonymousRootElementPrimitiveType: is this really an anonymous type? = " + isAnon) ->
+			
+				addTopLevelElement(data, primitiveType, element.name,
+						 isAnon, 
+						 isXSDType, element.id, element.fixed, getFinalListValue(element.final), 
+						 getBlockListValue(element.block), element.nillable, 
+						 element.abstract, getSubstitutionGroupString(element), 
+						 element.^default, schemaType.targetNamespace, package) ->
+			
+				data.addNewTopLevelConstruct(element, primitiveType) ->
+				traceMe("<= toAnonymousRootElementPrimitiveType") ->
+				primitiveType
+			)
+		)		
+	);
+
+	
+cached uml::Class toRootElementClass(ImportTransformationData data, Element element, SchemaType schemaType, String namespaceURI, String localPart, uml::Model model, uml::Package package) :
+	traceMe("=> toRootElementClass "+element.name) ->	
+	data.getTopLevelConstruct(element) != null ? data.getTopLevelConstruct(element) : (
+		(
+			let childSchema = getSchemaTypeForNamespaceURI(data, schemaType, namespaceURI) :
+			let complexType = (
+				let tmpComplex = childSchema.eAllContents.typeSelect(ComplexType).select(c | getComplexName(data, c) == localPart).first() :
+				tmpComplex != null ? tmpComplex : (
+					let tmpComplex2 = childSchema.eAllContents.typeSelect(ComplexType).select(c| c.name == localPart).first() :
+					tmpComplex2 != null ? tmpComplex2 : (
+						let tmpComplex3 = data.schemaTypes.eAllContents.typeSelect(ComplexType).select(c | getComplexName(data, c) == localPart).first() :
+						tmpComplex3 != null ? tmpComplex3 : data.schemaTypes.eAllContents.typeSelect(ComplexType).select(c| c.name == localPart).first()
+					)
+				)
+			) :
+			//
+			// Bharti / Sid XPD-3768
+			// It seems that when this method is called it is always called with the parameter "model" being equal to the "model that is being transformed" and
+			// the parameter "package" and namespaceURI as the actual schema/package that we SHOULD be dealing with.
+			// It also 'appears' that data.otherResultModels always contains the models for previous schemas AND the passed "model" by the time we get here.
+			//
+			// Therefore we should NEVER really get a case where existingModel is null and we should be using that as the place to look for existing class or
+			// to create a new one if necessary *formerly, the default was "model" which is current-model-being-output. That caused problems if doing this method
+			// for a schema that was not the model being transformed and the model being transformed had a same-named-complex-type in. Then the top-level element would
+			// be set to the type in the model-being-output NOT the model in which the TopLevelElement exists.
+			//
+			let packageName = data.getResolvedPackageNamespace(namespaceURI) :
+			let existingModel = data.otherResultModels.selectFirst(e|e.name==packageName) :
+			
+			let tmpPackage = (				
+				existingModel != null ? existingModel : findPackage(data, model, packageName)
+			) :		
+			// XPD-7553: pass the namespace of the target class to be found	
+			let tmpClass = findTargetClass(data, getComplexName(data, complexType), existingModel, tmpPackage, namespaceURI) :			
+			let tmpClass = (				
+				tmpClass != null ? tmpClass : (				
+					createClass(data, null, complexType, childSchema, existingModel, null, tmpPackage)
+				)
+			) :			
+			
+			addTopLevelElement(data, tmpClass, element.name, false, false, element.id, element.fixed, getFinalListValue(element.final), getBlockListValue(element.block), element.nillable, element.abstract, getSubstitutionGroupString(element), element.^default, schemaType.targetNamespace, package) ->
+			
+			data.addNewTopLevelConstruct(element, tmpClass) ->
+			tmpClass
+		)
+	);
+	
+// creates a Class from a top level element that has a complex type
+cached uml::Class toAnonymousRootElementClass(ImportTransformationData data, Element parentElement, ComplexType complexType, SchemaType schemaType, uml::Model model, uml::Package package): 
+	traceMe("=> toAnonymousRootElementClass "+parentElement.name) ->	
+	data.getTopLevelConstruct(complexType) != null ? data.getTopLevelConstruct(complexType) : (
+		(
+			complexType.complexContent == null && complexType.simpleContent == null ? (
+				
+				// XPD-5079: Removed fixes for XPD-4907 which were causing other regressions.
+				// Those fixes were attempting to get the BOM Class created for the a complex-anon type that
+				// may have been previously generated for this anon-type top-level element.
+				// This is because if you have anon-type TLE with same name as anon-type inner elements there
+				// will be MULTIPLE BOM Classes __WITH THE SAME NAME__ (elmentName+"Type"). The class names are made unique
+				// by suffixing only after Xsd2Bom.ext transform has finished. Therefore trying to get class by
+				// looking for tleName+"Type" can return any class that matches that name.
+				// 
+				// It should never have been necessary to lookup the class by name because we are caching the
+				// complex type in   data.addNewTopLevelConstruct so we won't come in here UNLESS WE REALLY DO NEED
+				// to create the BOM class for anon type.
+				// So have changed this to simply create the anonymous class directly.
+				
+				// By passing in null for existing class then we should guarantee class creation.
+				let className = getElementName(data, parentElement) + "Type" :
+				
+				let umlClass = createClass(data, null, complexType, schemaType, model, className, package) :
+
+				setAnonStereotypeValue(umlClass, false) ->	
+
+				traceMe("Created class '"+umlClass.name+"' for anon-type top level element in package " + package.name) ->
+				
+				addTopLevelElement(data, umlClass, parentElement.name, true, false, parentElement.id, parentElement.fixed, getFinalListValue(parentElement.final), getBlockListValue(parentElement.block), parentElement.nillable, parentElement.abstract, getSubstitutionGroupString(parentElement), parentElement.^default, schemaType.targetNamespace, package) ->
+
+				data.addNewTopLevelConstruct(complexType, umlClass) ->
+			
+				traceMe("<= toAnonymousRootElementClass") ->
+				umlClass
+				
+			) : (
+			
+				// XPD-5079: Removed fixes for XPD-4907 which were causing other regressions.
+				// Those fixes were attempting to get the BOM Class created for the a complex-anon type that
+				// may have been previously generated for this anon-type top-level element.
+				// This is because if you have anon-type TLE with same name as anon-type inner elements there
+				// will be MULTIPLE BOM Classes __WITH THE SAME NAME__ (elmentName+"Type"). The class names are made unique
+				// by suffixing only after Xsd2Bom.ext transform has finished. Therefore trying to get class by
+				// looking for tleName+"Type" can return any class that matches that name.
+				// 
+				// It should never have been necessary to lookup the class by name because we are caching the
+				// complex type in   data.addNewTopLevelConstruct so we won't come in here UNLESS WE REALLY DO NEED
+				// to create the BOM class for anon type.
+				// So have changed this to simply create the anonymous class directly.
+				
+				// By passing in null for existing class then we should guarantee class creation.
+				let className = getElementName(data, parentElement) + "Type" :
+				
+				// XPD-6038: When a class for TLE (workResponse + "Type") clashes with a Complex Type (workResponseType) and both extend a base class; 
+				// then because createClass method was called which was cached it was returning the first parsed class.
+				// so decided to call the createAnonymousClass() method instead, which does the same as createClass() and it is not cached.
+				// (Please note that the first solution taken was to remove caching from createClass() method but that raised XPD-6080 even though all the junits passed!)
+				 
+				let newCls = createAnonymousClass(className, package) :	
+							
+				traceMe("Created class '"+newCls.name+"' for complex/simple-content anon-type top level element in package " + package.name) ->
+
+				setAnonStereotypeValue(newCls, false) ->				
+				setUniqueId(data, newCls) ->	
+
+				// XPD-4386: modified this method in TransformHelper to support mixed construct						
+				applyClassStereotypeValues(newCls, complexType, complexType.complexContent, parentElement.name, parentElement.id, complexType.mixed.toString(), complexType.complexContent.mixed.toString(), null, null, null, true, false, false) ->																
+
+				complexType == null ? null : (
+				    parseAttributeOrAttributeGroups(data, model, schemaType, complexType, newCls, package) ->
+					parseAll(data, model, schemaType, complexType.all, newCls, package, 1, 1) ->
+					parseAll(data, model, schemaType, complexType.complexContent.^extension.all, newCls, package, 1, 1) ->		
+					parseAll(data, model, schemaType, complexType.complexContent.^restriction.all, newCls, package, 1, 1) ->
+					parseSequence(data, model, schemaType, complexType.sequence, newCls, package, 1, 1) ->		
+					parseSequence(data, model, schemaType, complexType.complexContent.^extension.sequence, newCls, package, 1, 1) ->
+					parseSequence(data, model, schemaType, complexType.complexContent.^restriction.sequence, newCls, package, 1, 1) ->
+					parseChoice(data, model, schemaType, complexType.choice, newCls, package, 1, 1) ->		
+					parseChoice(data, model, schemaType, complexType.complexContent.^extension.choice, newCls, package, 1, 1) ->
+					parseChoice(data, model, schemaType, complexType.complexContent.^restriction.choice, newCls, package, 1, 1) ->
+					
+					// XPD-3647: if a complex type restriction was having groups, it was not getting parsed from any of the calls above
+					// ideally i would imagine to have the above method(s) refactored to accomodate all cases including
+					// complex type restriction to be parsed for groups. but to avoid any regression at this point i have added this new method 
+					parseComplexTypeRestForGroups(data, model, schemaType, complexType.complexContent.^restriction, newCls, package, 1, 1)->
+					
+					calculateExplicitGroupTrees(data, newCls, complexType, schemaType, model, package) ->
+					
+					parseAnnotations(model, schemaType, complexType.annotation, newCls, package) ->
+					
+					complexType.attributeGroup.collect(e | parseAttributeGroup(data, model, schemaType, e, newCls, package)) ->
+					
+					complexType.complexContent.^extension.base.localPart != null || complexType.complexContent.^restriction.base.localPart != null ? (
+						let tmpExtensionOrRestriction = (
+							complexType.complexContent.^extension != null ? complexType.complexContent.^extension : (
+								setClassRestriction(newCls) ->
+								complexType.complexContent.^restriction
+							)
+						) :
+						let complexContentPart = getElementComplexContentPart(data, complexType) :			
+						let tmpCls = (
+							complexType.name != null ? ( 
+								let tmpyCls = getCreateClassByName(data, schemaType, model, tmpExtensionOrRestriction.base.prefix, tmpExtensionOrRestriction.base.namespaceURI, complexContentPart, package) :
+								tmpyCls != null ? tmpyCls : getCreateClassByName(data, schemaType, model, tmpExtensionOrRestriction.base.prefix,tmpExtensionOrRestriction.base.namespaceURI, tmpExtensionOrRestriction.base.localPart, package)
+							) : (
+								let schemaTypeWithComplex = getSchemaTypeForNamespaceURI(data, schemaType, tmpExtensionOrRestriction.base.namespaceURI) :
+								let targetComplex = schemaTypeWithComplex.complexType.select(e|e.name == tmpExtensionOrRestriction.base.localPart).first()  :
+								let tmpPackage = (			
+									let packageName = data.getResolvedPackageNamespace(tmpExtensionOrRestriction.base.namespaceURI) :
+									let existingModel = data.otherResultModels.selectFirst(e|e.name==packageName) :
+									existingModel != null ? existingModel : (
+										let existingPackage = findPackage(data, model, packageName) :		
+										existingPackage != null ? existingPackage : package
+									)
+								) : 			
+								createClass(data, null, targetComplex, schemaTypeWithComplex, model, null, tmpPackage)
+							)
+						) :			
+						createGeneralization(model,newCls,tmpCls)
+					) : null ->
+					
+					complexType.group.ref.localPart != null ? createGeneralization(model,newCls,getCreateClassByName(data, schemaType, model, complexType.group.ref.prefix,complexType.group.ref.namespaceURI, complexType.group.ref.localPart, package)) : null ->
+							
+					complexType.simpleContent.^extension.base.localPart != null ? (
+						getBOMPrimitiveType(data, getElementSimpleContentPart(data,complexType)) != null ? (let temp = toProperty(data, model, newCls, null, "_contents_ext_", toType(data, model, complexType.simpleContent.^extension.base.prefix, getElementSimpleContentPart(data,complexType), schemaType, package), null, null, null, null, null, null, complexType.simpleContent.^extension.base.prefix + ":" + getElementSimpleContentPart(data,complexType), getSimpleMinSize(schemaType,complexType.simpleContent), getSimpleMaxSize(schemaType,complexType.simpleContent), schemaType, complexType.simpleContent.annotation, null, null, null, null) : temp != null ? (newCls.ownedAttribute.add(temp)) : null ) : null ->
+						getReferencedSimpleType(schemaType,complexType.simpleContent.^extension.base.prefix, getElementSimpleContentPart(data,complexType)) != null ? (let temp = toProperty(data, model, newCls, null, "_contents_ext_", toType(data, model, complexType.simpleContent.^extension.base.prefix, getElementSimpleContentPart(data,complexType), schemaType, package), null, null, null, null, null, null, complexType.simpleContent.^extension.base.prefix + ":" + getElementSimpleContentPart(data,complexType), getSimpleMinSize(schemaType,complexType.simpleContent), getSimpleMaxSize(schemaType,complexType.simpleContent), schemaType, complexType.simpleContent.annotation, null, null, null, null) : temp != null ? (newCls.ownedAttribute.add(temp)) : null ) : null ->
+						getReferencedComplexTypeContainingSimpleType(data, schemaType,complexType.simpleContent.^extension.base.prefix, getElementSimpleContentPart(data,complexType)) != null ? (let temp = toClass(data, getReferencedComplexTypeContainingSimpleType(data, schemaType,complexType.simpleContent.^extension.base.prefix, getElementSimpleContentPart(data,complexType)),schemaType, model, null, package) : (temp != null && temp.name != null) ? (let tempProperty = toProperty(data, model, newCls, null, "_contents_ext_", temp, null, null, null, null, null, null, complexType.simpleContent.^extension.base.prefix + ":" + getElementSimpleContentPart(data,complexType), getSimpleMinSize(schemaType,complexType.simpleContent), getSimpleMaxSize(schemaType,complexType.simpleContent), schemaType, complexType.simpleContent.annotation, null, null, null, null) : newCls.ownedAttribute.add(tempProperty)) : null ) : null
+					) : null ->	
+					
+					complexType.simpleContent.^restriction.base.localPart != null ? (							
+						getBOMPrimitiveType(data, complexType.simpleContent.^restriction.base.localPart) != null ? (let temp = toProperty(data, model, newCls, null, "_contents_res_", complexType.simpleContent.^restriction.enumeration.value.toString(), toType(data, model, complexType.simpleContent.^restriction.base.prefix, complexType.simpleContent.^restriction.base.localPart, schemaType, package), null, null, null, null, null, null, complexType.simpleContent.^restriction.base.prefix + ":" + complexType.simpleContent.^restriction.base.localPart, getSimpleMinSize(schemaType,complexType.simpleContent), getSimpleMaxSize(schemaType,complexType.simpleContent), schemaType, complexType.simpleContent.annotation, null, null, null, null) : temp != null ? (newCls.ownedAttribute.add(temp)) : null ) : null ->
+						getReferencedSimpleType(schemaType,complexType.simpleContent.^restriction.base.prefix, getElementSimpleContentPart(data,complexType)) != null ? (let temp = toProperty(data, model, newCls, null, "_contents_res_", complexType.simpleContent.^restriction.enumeration.value.toString(), toType(data, model, complexType.simpleContent.^restriction.base.prefix, complexType.simpleContent.^restriction.base.localPart, schemaType, package), null, null, null, null, null, null, complexType.simpleContent.^restriction.base.prefix + ":" + complexType.simpleContent.^restriction.base.localPart, getSimpleMinSize(schemaType,complexType.simpleContent), getSimpleMaxSize(schemaType,complexType.simpleContent), schemaType, complexType.simpleContent.annotation, null, null, null, null) : temp != null ? (newCls.ownedAttribute.add(temp)) : null ) : null ->
+						(	let complexTypeClsName = (
+								let tmpReferenceComplex = schemaType.eAllContents.typeSelect(xmlSchema::ComplexType).selectFirst(e|e.name == complexType.simpleContent.^restriction.base.localPart) :
+								tmpReferenceComplex != null ? getComplexName(data, tmpReferenceComplex) : (
+									  let schemaTypeList = (			
+											let tempList = {} :			
+											data.schemaTypes == null ? null : tempList.addAll(data.schemaTypes) ->			
+											data.wsdlSchemaTypes == null ? null : tempList.addAll(data.wsdlSchemaTypes) ->			
+											tempList
+									  ) :
+									  let tmpReferenceComplex = schemaTypeList.eAllContents.typeSelect(xmlSchema::ComplexType).selectFirst(e|e.name == complexType.simpleContent.^restriction.base.localPart) :
+									  tmpReferenceComplex != null ? getComplexName(data, tmpReferenceComplex) : null	
+								)
+							) :
+							complexTypeClsName == null ? null : (
+								getReferencedComplexTypeContainingSimpleType(data, schemaType,complexType.simpleContent.^restriction.base.prefix, complexTypeClsName) != null ? (
+									let temp = toClass(data, getReferencedComplexTypeContainingSimpleType(data, schemaType,complexType.simpleContent.^restriction.base.prefix, complexTypeClsName),schemaType, model, null, package) :
+									(temp != null && temp.name != null) ? (
+										let tempProperty = toProperty(data, model, newCls, null, "_contents_res_", complexType.simpleContent.^restriction.enumeration.value.toString(), temp, null, null, null, null, null, null, complexType.simpleContent.^restriction.base.localPart, getSimpleMinSize(schemaType,complexType.simpleContent), getSimpleMaxSize(schemaType,complexType.simpleContent), schemaType, complexType.simpleContent.annotation, null, null, null, null) :										
+										newCls.ownedAttribute.add(tempProperty)
+									) : null 
+								) : null
+							)
+						)
+					) : null
+				) ->
+				
+				addTopLevelElement(data, newCls, parentElement.name, true, false, parentElement.id, parentElement.fixed, getFinalListValue(parentElement.final), getBlockListValue(parentElement.block), parentElement.nillable, parentElement.abstract, getSubstitutionGroupString(parentElement), parentElement.^default, schemaType.targetNamespace, package) ->
+				
+				traceMe("<= toAnonymousRootElementClass") ->
+				data.addNewTopLevelConstruct(complexType, newCls) ->
+				newCls
+			)
+		)
+	);
+	
+	cached Boolean parseComplexTypeRestForGroups(ImportTransformationData data, uml::Model model, SchemaType schemaType, ComplexRestrictionType comResType, uml::Class createClass, uml::Package package, Integer depth, Integer explicitGroupPosition) :
+	
+	traceMe("inside parseComplexTypeRestForGroups grp = " + comResType)->
+	(
+		let tmpSeqDepth = depth + 1 :
+		let tmpSeqPos = {} :
+		let tmpChoiceDepth = depth + 1 :
+		let tmpChoicePos = {} :
+		
+		comResType != null ? (
+			comResType.eContents.collect(e |
+				(GroupRef.isInstance(e) == true) ? (
+						let typeList = {} :
+						let tmpExplicitGroup  = extractGroupExplicitGroup(data, e, typeList) :
+						traceMe("parse Complex Type Rest For Groups tmpExplicitGroup = "+ tmpExplicitGroup) ->						
+						typeList.contains("S") ? (
+							traceMe("parse Complex Type Rest For Groups about to parse sequence = "+ typeList.contains("S")) ->	
+							tmpSeqPos.add("") ->
+							parseSequence(data, model, schemaType, tmpExplicitGroup, createClass, package, tmpSeqDepth, tmpSeqPos.size)
+						) : (
+							typeList.contains("C") ? (
+								traceMe("parse Complex Type Rest For Groups about to parse choice = "+ typeList.contains("C")) ->	
+								tmpChoicePos.add("") ->
+								parseChoice(data, model, schemaType, tmpExplicitGroup, createClass, package, tmpChoiceDepth, tmpChoicePos.size)
+							) : null
+						)
+					) : (
+						traceMe("parse Complex Type Rest For Groups " + e  + " is instanceof ExplicitGroup") ->	
+						ExplicitGroup.isInstance(e) ? (
+									tmpChoicePos.add("") ->
+									parseChoice(data, model, schemaType, e, createClass, package, tmpChoiceDepth, tmpChoicePos.size)
+								) : (
+									ExplicitGroup.isInstance(e) && choice.sequence.contains(e) ? (
+										tmpSeqPos.add("") ->
+										parseSequence(data, model, schemaType, e, createClass, package, tmpSeqDepth, tmpSeqPos.size)								
+									) : null
+								)
+					)
+			)
+		) : null
+	);

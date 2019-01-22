@@ -1,0 +1,239 @@
+Boolean _isSimpleTypeReallyRepresentingAnonymousTLE (Object simpleTypeDeo):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._isSimpleTypeReallyRepresentingAnonymousTLE(java.lang.Object);
+
+cached _setGeneralizationForSimpleTypeRestrictionOfEnumeration (com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Enumeration enumSpecific, Object simpleTypeWithRestriction, uml::Type superType):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._setGeneralizationForSimpleTypeRestrictionOfEnumeration(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Enumeration, java.lang.Object, org.eclipse.uml2.uml.Type);
+	
+cached uml::Enumeration _createEnumerationForAnonSimpleType(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, String name, uml::Type enumType, Object simpleType, Object schemaType, uml::Model model, uml::Package pkg,List enumIDList, List enumValueList):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._createEnumerationForAnonSimpleType(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.String, org.eclipse.uml2.uml.Type, java.lang.Object, java.lang.Object, org.eclipse.uml2.uml.Model, org.eclipse.uml2.uml.Package, java.util.List, java.util.List);
+
+String _getUniquePrimitiveTypeName(String origName, List primTypesList) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._getUniquePrimitiveTypeName(java.lang.String, java.util.List);
+
+String _getSchemaTypeNamespace(Object schemaType):
+ 	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._getSchemaTypeNamespace(java.lang.Object);
+
+Object _FindSchemaTypeForNamespaceContainingThisType(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, Object SchemaType, String prefix, String namespaceURI, String localPart, Object schemaTypeList):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._FindSchemaTypeForNamespaceContainingThisType(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.Object, java.lang.String, java.lang.String, java.lang.String, java.lang.Object);
+
+//String _collectWsdlPartElementOrTypeDetailsForURI(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, Object parentMessage, Object part):
+	//JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._collectWsdlPartElementOrTypeDetailsForURI(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.Object, java.lang.Object);
+
+cached _setDetailsForProxy(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::TypedElement element, String details):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._setDetailsForProxy(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.TypedElement, java.lang.String);
+
+//List[String] _collectWsdlMessagePartElementTypeUriInfo(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, Object message):
+	//JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._collectWsdlMessagePartElementTypeUriInfo(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.Object);
+
+Object _getXMLModelForWSDL (com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, String location, String namepace):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._getXMLModelForWSDL(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.String, java.lang.String);
+
+String traceMe(String className):	
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.traceMe(java.lang.String);
+
+String traceMeDebug(String className):	
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.traceMeDebug(java.lang.String);
+
+String _debug_transformSchemaTypesToBom (com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, List schemaTypes, String rootTargetNamespace, Object schemaTypeToLocationMap):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._debug_transformSchemaTypesToBom (com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.util.List, java.lang.String, java.lang.Object);
+
+String applyProfile(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Package package) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.applyProfile(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Package);
+	
+String addPackageToResource(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Package package) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.addPackageToResource(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Package);
+	
+String addOtherResultModel(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Model model) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.addOtherResultModel(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Model);
+
+cached String _createURIForSchemaLocation(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, String schemaLocation) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._createURIForSchemaLocation(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.String);
+	
+cached Boolean createEnumerationLiteral(uml::Enumeration enumType, List enumIDList, List enumValueList) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.createEnumerationLiteral(org.eclipse.uml2.uml.Enumeration, java.util.List, java.util.List);
+
+cached uml::Type getBOMObjectPrimitiveType(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.getObjectPrimitiveType(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData);
+	
+cached uml::Type getBOMPrimitiveType(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, String localPart):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.getPrimitiveType(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.String);
+	
+String createRestriction(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Package package, Object type, Object primitiveType, String id, List enumeration, List whiteSpace, List length, List maxExclusive, List maxInclusive, List maxLength, List minExclusive, List minInclusive, List minLength, List pattern, String xsdType, Boolean isSimpleType):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.createRestriction(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Package, java.lang.Object, java.lang.Object, java.lang.String, java.util.List, java.util.List, java.util.List, java.util.List, java.util.List, java.util.List, java.util.List, java.util.List, java.util.List, java.util.List, java.lang.String, java.lang.Boolean);
+
+cached uml::Property createComposition(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Package package, uml::Classifier parentClass, uml::Classifier childClass, String parentAssocName, String childAssocName, String childMinOccurs, String childMaxOccurs, String parentOriginalAssocName, String form, String ^default, String id, String fixed, String nillable, List block):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.createCompositionProperty(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Package, org.eclipse.uml2.uml.Classifier, org.eclipse.uml2.uml.Classifier, java.lang.String, java.lang.String, java.lang.String, java.lang.Object, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.List);
+	
+uml::PrimitiveType createPrimitiveType() :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.createPrimitiveType();
+	
+uml::Property toProperty(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Model model, uml::Class class, String name, uml::Type type, String form, String ^default, String id, String fixed, String ref, String use, String xsdType, String minOccurs, Object maxOccurs, String enumLiterals, String nillable, List namespaces, String processContents, List block, Boolean isSimpleType):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.createProperty(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Model, org.eclipse.uml2.uml.Class, java.lang.String, org.eclipse.uml2.uml.Type, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Object, java.lang.String, java.lang.String, java.util.List, java.lang.String, java.util.List, java.lang.Boolean);
+	
+Boolean setExplicitGroupTree(String name, uml::Class class, String explicitGroupTree, String objectPosition, Object parentSequence) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setExplicitGroupTree(java.lang.String, org.eclipse.uml2.uml.Class, java.lang.String, java.lang.String, java.lang.Object);
+	
+cached Boolean applyPrimitiveStereotypeValues(uml::Element primitiveType, String simpleTypeName, String simpleTypeId, List simpleTypeFinal, String simpleTypeRestrictionId, String simpleTypeRestrictionBase):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.applyPrimitiveStereotypeValues(org.eclipse.uml2.uml.Element, java.lang.String, java.lang.String, java.util.List, java.lang.String, java.lang.String);
+	
+cached Boolean applyClassStereotypeValues(uml::Element tempClass, Object complexType, Object complexContent, String name, String id, String mixed, String complexContentMixed, List block, List tempFinal, String tempAbstract, Boolean isComplexType, Boolean isGroup, Boolean isAttributeGroup) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.applyClassStereotypeValues(org.eclipse.uml2.uml.Element, java.lang.Object, java.lang.Object, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.List, java.util.List, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.Boolean);
+	
+uml::Property createRefCompositionProperty(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Package package, uml::Classifier sourceClass, uml::Classifier targetClass, String origName, String name, String type, String minOccurs, Object maxOccurs):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.createRefCompositionProperty(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Package, org.eclipse.uml2.uml.Classifier, org.eclipse.uml2.uml.Classifier, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Object);
+
+cached Boolean applyElementStereotype(uml::Element element, uml::Package package) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.applyElementStereotype(org.eclipse.uml2.uml.Element, org.eclipse.uml2.uml.Package);
+	
+Boolean applyDocumentRoot(uml::Classifier classifier) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.applyDocumentRoot(org.eclipse.uml2.uml.Classifier);
+
+Boolean setOriginalTargetNamespace(uml::Model model, uml::Package package, String targetNamespace) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOriginalTargetNamespace(org.eclipse.uml2.uml.Model, org.eclipse.uml2.uml.Package, java.lang.String);
+
+Boolean setOriginalSchemaLocation(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Model model, uml::Package package, Object schemaType, String schemaLocation) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOriginalSchemaLocation(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Model, org.eclipse.uml2.uml.Package, java.lang.Object, java.lang.String);
+
+Boolean	setOtherMaxLengthValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherMaxLengthValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+
+Boolean	setOtherDefaultValues(uml::Element element, Object value):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherDefaultValues(org.eclipse.uml2.uml.Element, java.lang.Object);	
+
+Boolean	setOtherFractionDigitsValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type):		
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherFractionDigitsValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+	
+Boolean	setOtherLengthValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type): 		
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherLengthValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+	
+Boolean	setOtherMaxExclusiveValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type): 
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherMaxExclusiveValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+	
+Boolean	setOtherMaxInclusiveValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type): 	 
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherMaxInclusiveValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+	
+Boolean	setOtherMinExclusiveValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type): 	 
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherMinExclusiveValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+	
+Boolean	setOtherMinInclusiveValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type): 	 
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherMinInclusiveValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+
+Boolean	setOtherMinLengthValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type): 	 
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherMinLengthValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+	
+Boolean	setOtherPatternValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherPatternValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type); 	 
+
+Boolean	setOtherTotalDigitsValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherTotalDigitsValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type); 	 
+	
+Boolean	setOtherWhitespaceValues(uml::Element element, String id, Boolean fixed, Object value, uml::Type type):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherWhitespaceValues(org.eclipse.uml2.uml.Element,java.lang.String, java.lang.Boolean, java.lang.Object, org.eclipse.uml2.uml.Type);
+	
+String resolveFileName(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.resolveFileName(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData);
+	
+Boolean setAnonStereotypeValue(uml::Classifier tmpCls, Boolean isContainer) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setAnonStereotypeValue(org.eclipse.uml2.uml.Classifier, java.lang.Boolean);
+
+Boolean removeLast(List list):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.removeLast(java.util.List);
+	
+cached String setUniqueId(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, Object object) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setUniqueId(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.Object);
+
+cached setOtherStereotypeValues(uml::Property property, String type, uml::Stereotype appliedStereotype, uml::Element tmpType, Boolean isSimpleType) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setOtherStereotypeValues(org.eclipse.uml2.uml.Property, java.lang.String, org.eclipse.uml2.uml.Stereotype, org.eclipse.uml2.uml.Element, java.lang.Boolean);
+	    
+setUndefinedRestrictions(uml::NamedElement namedElement) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setUndefinedRestrictions(org.eclipse.uml2.uml.NamedElement);	
+	
+Boolean hasValue(uml::Element umlElement, uml::Stereotype stereotype, String propertyName) :
+	JAVA com.tibco.xpd.bom.xsdtransform.exports.template.TransformHelper.hasValue(org.eclipse.uml2.uml.Element, org.eclipse.uml2.uml.Stereotype, java.lang.String);
+
+Object getValue(uml::Element umlElement, uml::Stereotype stereotype, String propertyName) :
+	JAVA com.tibco.xpd.bom.xsdtransform.exports.template.TransformHelper.getValue(org.eclipse.uml2.uml.Element, org.eclipse.uml2.uml.Stereotype, java.lang.String);   
+	
+Stereotype getXSDNotationStereotype(Object object, String stereotypeName) :
+	JAVA com.tibco.xpd.bom.xsdtransform.exports.template.TransformHelper.getXSDNotationStereotype(java.lang.Object, java.lang.String);
+	
+Object getXSDNotationProperty(Object object, uml::Stereotype stereotype, String propertyName) :
+	JAVA com.tibco.xpd.bom.xsdtransform.exports.template.TransformHelper.getXSDNotationProperty(java.lang.Object, org.eclipse.uml2.uml.Stereotype, java.lang.String);
+	
+cached String ReplaceLast(String sourceText, String findText, String replaceText) :
+	JAVA com.tibco.xpd.bom.xsdtransform.exports.template.TransformHelper.ReplaceLast(java.lang.String,java.lang.String,java.lang.String);   
+	
+cached setAttributeStereotype(uml::Property property) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setAttributeStereotype(org.eclipse.uml2.uml.Property);
+
+cached setFormDefaults(uml::Model model, String elementFormDefault, String attributeFormDefault) :	
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setFormDefaults(org.eclipse.uml2.uml.Model, java.lang.String, java.lang.String);
+	
+Object readXML(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, Object schemaType, String schemaLocation) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.readXML(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.Object, java.lang.String);
+
+Object getCachedReadXMLExt(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, Object definitions, String schemaLocation) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.getCachedReadXMLExt(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.Object, java.lang.String);
+	
+Object readXMLFromURL(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, String namespace) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.readXMLFromURL(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.String);
+	
+List[Object] getTopLevelElements(uml::Model model) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.getTopLevelElements(org.eclipse.uml2.uml.Model);
+	
+String getElementName(Object xsdElement) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.getElementName(java.lang.Object);
+	
+uml::Classifier getElementType(Object xsdElement) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.getElementType(java.lang.Object);
+
+uml::PrimitiveType _isSimpleTypeARestrictionWithFacetsOfAnExistingPrimitiveType(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Model model, uml::Package package, uml::DataType dataType, Object simpleType, String elementName, String simpleTypeNamspaceURI, String simpleTypeLocalPart, Object restrictionContents):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._isSimpleTypeARestrictionWithFacetsOfAnExistingPrimitiveType(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Model, org.eclipse.uml2.uml.Package, org.eclipse.uml2.uml.DataType, java.lang.Object, java.lang.String, java.lang.String, java.lang.String, java.lang.Object);
+
+Boolean _isTypeReallyAnonymous(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Model model, uml::Package package, uml::DataType primitiveType, Object simpleType, String elementName, String simpleTypeNamspaceURI, String simpleTypeLocalPart, Object restrictionContents):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._isTypeReallyAnonymous(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Model, org.eclipse.uml2.uml.Package, org.eclipse.uml2.uml.DataType, java.lang.Object, java.lang.String, java.lang.String, java.lang.String, java.lang.Object);
+	
+cached addTopLevelElement(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Classifier classifier, String name, Boolean isAnonymous, Boolean isBaseXSDType, String id, String fixed, List tmpFinal, List block, Boolean nillable, Boolean tmpAbstract, String substitutionGroup, String tmpDefault, String targetNamespace, uml::Package package) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.addTopLevelElement(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Classifier, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.util.List, java.util.List, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.String, org.eclipse.uml2.uml.Package);
+	
+cached addTopLevelAttribute(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Classifier classifier, String name, Boolean isAnonymous, Boolean isBaseXSDType, String id, String fixed, String tmpDefault, String targetNamespace, uml::Package package) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.addTopLevelAttribute(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Classifier, java.lang.String, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.eclipse.uml2.uml.Package);
+	
+cached setIsAllMultiplicity(uml::Class tmpClass, String minOccurs, String maxOccurs) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setIsAllMultiplicity(org.eclipse.uml2.uml.Class, java.lang.String, java.lang.String);
+
+cached addAnyTypeDetails(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Classifier classifier, String xsdType) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.addAnyTypeDetails(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Classifier, java.lang.String);
+	
+cached setClassRestriction(uml::Class tmpClass) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setClassRestriction(org.eclipse.uml2.uml.Class);
+	
+cached applyXSDUnionMembers(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Type newPrim, String memberTypes, List anonSimpleTypeNames, String namespace) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.applyXSDUnionMembers(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Type, java.lang.String, java.util.List, java.lang.String);
+	
+updateTopLevelElementType(uml::Classifier tmpRefClass, uml::Classifier baseClass, String refLocalPart) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.updateTopLevelElementType(org.eclipse.uml2.uml.Classifier, org.eclipse.uml2.uml.Classifier, java.lang.String);
+	
+cached applyIsAnonUnionSimpleType(uml::Type dataType) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.applyIsAnonUnionSimpleType(org.eclipse.uml2.uml.Type);
+	
+cached applyIsStandardUnionSimpleType(uml::Type dataType) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.applyIsStandardUnionSimpleType(org.eclipse.uml2.uml.Type);
+
+cached isAnonClass(uml::Classifier classifier) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.isAnonClass(org.eclipse.uml2.uml.Classifier);	
+		
+cached addSequenceDetails(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, Object rootExplicitGroup, String name, uml::Class umlClass, Boolean isChoice, Boolean isAll, String minOccurs, String maxOccurs, Object parentSequence, String explicitGroupTree) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.addSequenceDetails(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.Object, java.lang.String, org.eclipse.uml2.uml.Class, java.lang.Boolean, java.lang.Boolean, java.lang.String, java.lang.String, java.lang.Object, java.lang.String);
+	
+Object getSequenceForExplicitGroup(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, Object explicitGroup, uml::Class cls) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.getSequenceForExplicitGroup(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.Object, org.eclipse.uml2.uml.Class);
+	
+cached setStudioVersion(uml::Model model) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper.setStudioVersion(org.eclipse.uml2.uml.Model);
+	
+uml::Classifier _getClassByNameExt(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, uml::Package pkg, String classNameToSearch, Boolean lookInOtherPackages):
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._getClassByNameExt(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, org.eclipse.uml2.uml.Package, java.lang.String, java.lang.Boolean);
+	
+Object _getActualLengthFromRestrictionForSimpleType(com::tibco::xpd::bom::xsdtransform::imports::template::ImportTransformationData data, String baseType, Object maxValue) :
+	JAVA com.tibco.xpd.bom.xsdtransform.imports.template.TransformHelper._getActualLengthFromRestrictionForSimpleType(com.tibco.xpd.bom.xsdtransform.imports.template.ImportTransformationData, java.lang.String, java.lang.Object);

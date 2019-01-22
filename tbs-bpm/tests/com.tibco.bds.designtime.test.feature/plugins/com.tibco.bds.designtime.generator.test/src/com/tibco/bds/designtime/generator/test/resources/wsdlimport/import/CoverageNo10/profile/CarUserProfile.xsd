@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:tns="http://www.amsbqa.com/Linda10/Schema1importSchema2/Schema2"
+	 targetNamespace="http://www.amsbqa.com/Linda10/Schema1importSchema2/Schema2"
+	 elementFormDefault="unqualified"
+	 attributeFormDefault="unqualified">
+	<xsd:element name="CarInfo" type="tns:CarPreference"/>
+	<xsd:complexType name="CarPreference">
+		<xsd:sequence>
+			<xsd:element name="carType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="carMake" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="rentalAgency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="nonSmoking" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="specialRequest" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

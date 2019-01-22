@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) TIBCO Software Inc 2007. All rights reserved.
+ */
+package com.tibco.xpd.bom.modeler.diagram.edit.policies;
+
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
+
+/**
+ * @generated
+ */
+public class AssociationClassOperationItemSemanticEditPolicy extends
+        UMLBaseItemSemanticEditPolicy {
+
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        CompoundCommand cc = getDestroyEdgesCommand();
+        addDestroyShortcutsCommand(cc);
+        cc.add(getGEFWrapper(new DestroyElementCommand(req)));
+        return cc.unwrap();
+    }
+
+    @Override
+    protected Command getCreateCommand(CreateElementRequest req) {
+        // TODO Auto-generated method stub
+        return super.getCreateCommand(req);
+    }
+}

@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by Nick Haines (Tibco Software Limited) -->
+<wsdl:definitions xmlns:base="http://api.ec.n2.tibco.com" xmlns:ex="http://exception.api.ec.n2.tibco.com" xmlns:impl="http://services.ec.n2.tibco.com" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://datamodel.common.n2.tibco.com" xmlns:ns2="http://base.api.ec.n2.tibco.com" xmlns:ns3="http://exception.api.common.n2.tibco.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EventCollectorQueryService" targetNamespace="http://services.ec.n2.tibco.com" tibex:src="file:/C:/temp/XPD6080/Public_WSDL_Library/Service%20Descriptors/ec.wsdl">
+	<wsdl:types>
+		<!-- Exceptions -->
+		<xs:schema targetNamespace="http://exception.api.ec.n2.tibco.com">
+			<xs:include schemaLocation="ecexception.xsd"/>
+		</xs:schema>
+		<!-- Types -->
+		<xs:schema targetNamespace="http://api.ec.n2.tibco.com">
+			<xs:include schemaLocation="ec.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="executeGenericQueryRequest">
+		<wsdl:part element="base:executeGenericQueryRequest" name="executeGenericQueryDoc"/>
+	</wsdl:message>
+	<wsdl:message name="executeGenericQueryResponse">
+		<wsdl:part element="base:executeGenericQueryResponse" name="executeGenericQueryResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="executeRegisteredGenericQueryRequest">
+		<wsdl:part element="base:executeRegisteredGenericQueryRequest" name="executeRegisteredGenericQueryDoc"/>
+	</wsdl:message>
+	<wsdl:message name="executeRegisteredGenericQueryResponse">
+		<wsdl:part element="base:executeRegisteredGenericQueryResponse" name="executeRegisteredGenericQueryResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="getComponentsRequest">
+		<wsdl:part element="base:getComponentsRequest" name="getComponentsDoc"/>
+	</wsdl:message>
+	<wsdl:message name="getComponentsResponse">
+		<wsdl:part element="base:getComponentsResponse" name="getComponentsResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="getAllAttributesRequest">
+		<wsdl:part element="base:getAllAttributesRequest" name="getAllAttributesDoc"/>
+	</wsdl:message>
+	<wsdl:message name="getAttributesRequest">
+		<wsdl:part element="base:getAttributesRequest" name="getAttributesDoc"/>
+	</wsdl:message>
+	<wsdl:message name="getAttributesResponse">
+		<wsdl:part element="base:getAttributesResponse" name="getAttributesResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="isQueryRegisteredRequest">
+		<wsdl:part element="base:isQueryRegisteredRequest" name="isQueryRegisteredDoc"/>
+	</wsdl:message>
+	<wsdl:message name="isQueryRegisteredResponse">
+		<wsdl:part element="base:isQueryRegisteredResponse" name="isQueryRegisteredResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="getAllAttributesResponse">
+		<wsdl:part element="base:getAllAttributesResponse" name="getAllAttributesResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="registerQueryRequest">
+		<wsdl:part element="base:registerQueryRequest" name="registerQueryDoc"/>
+	</wsdl:message>
+	<wsdl:message name="registerQueryResponse">
+		<wsdl:part element="base:registerQueryResponse" name="registerQueryResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="unRegisterQueryRequest">
+		<wsdl:part element="base:unRegisterQueryRequest" name="unRegisterQueryDoc"/>
+	</wsdl:message>
+	<wsdl:message name="unRegisterQueryResponse">
+		<wsdl:part element="base:unRegisterQueryResponse" name="unRegisterQueryResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="eventRequest">
+		<wsdl:part element="base:eventRequest" name="eventDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestMeasureRequest">
+		<wsdl:part element="base:requestMeasureRequest" name="requestMeasureDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestMeasureResponse">
+		<wsdl:part element="base:requestMeasureResponse" name="requestMeasureResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestGenericMeasureRequest">
+		<wsdl:part element="base:requestGenericMeasureRequest" name="requestGenericMeasureDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestGenericMeasureResponse">
+		<wsdl:part element="base:requestGenericMeasureResponse" name="requestGenericMeasureResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestProcessDurationMeasureRequest">
+		<wsdl:part element="base:requestProcessDurationMeasureRequest" name="requestProcessDurationMeasureDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestProcessDurationMeasureResponse">
+		<wsdl:part element="base:requestProcessDurationMeasureResponse" name="requestProcessDurationMeasureResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestProcessTemplateMeasureRequest">
+		<wsdl:part element="base:requestProcessTemplateMeasureRequest" name="requestProcessTemplateMeasureDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestProcessTemplateMeasureResponse">
+		<wsdl:part element="base:requestProcessTemplateMeasureResponse" name="requestProcessTemplateMeasureResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestWorkItemPerformanceForTemplateRequest">
+		<wsdl:part element="base:requestWorkItemPerformanceForTemplateRequest" name="requestWorkItemPerformanceForTemplateDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestWorkItemPerformanceForTemplateResponse">
+		<wsdl:part element="base:requestWorkItemPerformanceForTemplateResponse" name="requestWorkItemPerformanceForTemplateResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestWorkItemPerformanceForResourceRequest">
+		<wsdl:part element="base:requestWorkItemPerformanceForResourceRequest" name="requestWorkItemPerformanceForResourceDoc"/>
+	</wsdl:message>
+	<wsdl:message name="requestWorkItemPerformanceForResourceResponse">
+		<wsdl:part element="base:requestWorkItemPerformanceForResourceResponse" name="requestWorkItemPerformanceForResourceResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="internalServiceFault">
+		<wsdl:part element="ex:InternalServiceFault" name="internalServiceFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidQueryFault">
+		<wsdl:part element="ex:InvalidQueryFault" name="invalidQueryFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidQueryIdentifierFault">
+		<wsdl:part element="ex:InvalidQueryIdentifierFault" name="invalidQueryIdentifierFault"/>
+	</wsdl:message>
+	<wsdl:message name="queryExecutionFault">
+		<wsdl:part element="ex:QueryExecutionFault" name="queryExecutionFault"/>
+	</wsdl:message>
+	<wsdl:message name="queryNotFoundFault">
+		<wsdl:part element="ex:QueryNotFoundFault" name="queryNotFoundFault"/>
+	</wsdl:message>
+	<wsdl:message name="noSuchComponentFault">
+		<wsdl:part element="ex:NoSuchComponentFault" name="noSuchComponentFault"/>
+	</wsdl:message>
+	<wsdl:message name="registerComponentRequest">
+		<wsdl:part element="base:registerComponentRequest" name="registerComponentDoc"/>
+	</wsdl:message>
+	<wsdl:message name="registerComponentResponse">
+		<wsdl:part element="base:registerComponentResponse" name="registerComponentResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="registerAttributesRequest">
+		<wsdl:part element="base:registerAttributesRequest" name="registerAttributesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="registerAttributesResponse">
+		<wsdl:part element="base:registerAttributesResponse" name="registerAttributesResponse"/>
+	</wsdl:message>
+	<wsdl:message name="duplicateRegistrationFault">
+		<wsdl:part element="ex:DuplicateRegistrationFault" name="duplicateRegistrationFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidRequestFault">
+		<wsdl:part element="ex:InvalidRequestFault" name="invalidRequestFault"/>
+	</wsdl:message>
+	<wsdl:message name="lookupQueryByTagRequest">
+		<wsdl:part element="base:lookupQueryByTagRequest" name="lookupQueryByTagDoc"/>
+	</wsdl:message>
+	<wsdl:message name="lookupQueryByTagResponse">
+		<wsdl:part element="base:lookupQueryByTagResponse" name="lookupQueryByTagResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="doPurgeAuditRequest">
+		<wsdl:part element="base:doPurgeAuditRequest" name="doPurgeAuditDoc"/>
+	</wsdl:message>
+	<wsdl:message name="doPurgeAuditResponse">
+		<wsdl:part element="base:doPurgeAuditResponse" name="doPurgeAuditResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="stopPurgeAuditRequest">
+		<wsdl:part element="base:stopPurgeAuditRequest" name="stopPurgeAuditDoc"/>
+	</wsdl:message>
+	<wsdl:message name="stopPurgeAuditResponse">
+		<wsdl:part element="base:stopPurgeAuditResponse" name="stopPurgeAuditResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="getConfigurationRequest">
+		<wsdl:part element="base:getConfigurationRequest" name="getConfigurationDoc"/>
+	</wsdl:message>
+	<wsdl:message name="getConfigurationResponse">
+		<wsdl:part element="base:getConfigurationResponse" name="getConfigurationResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="setConfigurationRequest">
+		<wsdl:part element="base:setConfigurationRequest" name="setConfigurationDoc"/>
+	</wsdl:message>
+	<wsdl:message name="setConfigurationResponse">
+		<wsdl:part element="base:setConfigurationResponse" name="setConfigurationResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="checkPurgeAuditRequest">
+		<wsdl:part element="base:checkPurgeAuditRequest" name="checkPurgeAuditDoc"/>
+	</wsdl:message>
+	<wsdl:message name="checkPurgeAuditResponse">
+		<wsdl:part element="base:checkPurgeAuditResponse" name="checkPurgeAuditResponseDoc"/>
+	</wsdl:message>
+	<wsdl:message name="batchEventRequest">
+		<wsdl:part element="base:batchEventRequest" name="batchEventDoc"/>
+	</wsdl:message>
+	<wsdl:portType name="EventCollectorQueryService">
+		<wsdl:documentation>Get information from the Event Collector database tables about events, attributes and components.</wsdl:documentation>
+		<wsdl:operation name="executeGenericQuery">
+			<wsdl:documentation>Execute the specified query against the Event Collector database tables. (If a query needs to be executed multiple times, using the executeRegisteredQuery operation will show improved performance.)</wsdl:documentation>
+			<wsdl:input message="impl:executeGenericQueryRequest" name="executeGenericQueryRequest">
+				<wsdl:documentation>Request message (uses base:executeGenericQueryRequest element): Specifies the details of the query that is to be executed, along with any options for the query.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:executeGenericQueryResponse" name="executeGenericQueryResponse">
+				<wsdl:documentation>Response message (uses base:executeGenericQueryResponse element): Lists details of the events that match the specified query, along with summary information about the executed query. </wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidQueryFault" name="InvalidQueryFault">
+				<wsdl:documentation>Error message (uses ex:InvalidQueryFault element): The specified query was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:queryExecutionFault" name="QueryExecutionFault">
+				<wsdl:documentation>Error message (uses ex:QueryExecutionFault element): The specified query could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="executeRegisteredGenericQuery">
+			<wsdl:documentation>Execute a query that has been previously registered using the registerQuery operation.</wsdl:documentation>
+			<wsdl:input message="impl:executeRegisteredGenericQueryRequest" name="executeRegisteredGenericQueryRequest">
+				<wsdl:documentation>Request message (uses base:executeRegisteredGenericQueryRequest element): Identifies the previously registered query that is to be executed, along with any options to be used on this particular execution of the query.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:executeRegisteredGenericQueryResponse" name="executeRegisteredGenericQueryResponse">
+				<wsdl:documentation>Response message (uses base:executeRegisteredGenericQueryResponse element): Lists details of the events that match the specified query, along with summary information about the executed query.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidQueryIdentifierFault" name="InvalidQueryIdentifierFault">
+				<wsdl:documentation>Error message (uses ex:InvalidQueryIdentifierFault element): The query identifier used (guid or tag) is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:queryExecutionFault" name="QueryExecutionFault">
+				<wsdl:documentation>Error message (uses ex:QueryExecutionFault element): The specified query could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:queryNotFoundFault" name="QueryNotFoundFault">
+				<wsdl:documentation>Error message (uses ex:QueryNotFoundFault element): No registered query was found matching the specified tag or guid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllAttributes">
+			<wsdl:documentation>List all attributes registered in the Event Collector database tables. </wsdl:documentation>
+			<wsdl:input message="impl:getAllAttributesRequest" name="getAllAttributesRequest">
+				<wsdl:documentation>Request message (uses base:getAllAttributesRequest element): This message has no parameters.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getAllAttributesResponse" name="getAllAttributesResponse">
+				<wsdl:documentation>Response message (uses base:getAllAttributesResponse element): Lists the details of all attributes registered in the Event Collector database.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAttributes">
+			<wsdl:documentation>List all attributes in the Event Collector database tables that are registered for a specific component.</wsdl:documentation>
+			<wsdl:input message="impl:getAttributesRequest" name="getAttributesRequest">
+				<wsdl:documentation>Request message (uses base:getAttributesRequest element): Specifies the identifier of the component for which attributes should be listed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getAttributesResponse" name="getAttributesResponse">
+				<wsdl:documentation>Response message (uses base:getAttributesResponse element): Lists the details of all attributes registered in the Event Collector database for the specified component.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:noSuchComponentFault" name="NoSuchComponentFault">
+				<wsdl:documentation>Error message (uses ex:NoSuchComponentFault element): The identifier used to specify the component is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="isQueryRegistered">
+			<wsdl:documentation>Test whether a query is registered with Event Collector. (This can be useful for determining whether a frequently used query tag is already present on the system.)</wsdl:documentation>
+			<wsdl:input message="impl:isQueryRegisteredRequest" name="isQueryRegisteredRequest">
+				<wsdl:documentation>Request message (uses base:isQueryRegisteredRequest element): Identifies the query that is to be tested.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:isQueryRegisteredResponse" name="isQueryRegisteredResponse">
+				<wsdl:documentation>Response message (uses base:isQueryRegisteredResponse element): Returns whether the query is registered with Event Collector.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidQueryIdentifierFault" name="InvalidQueryIdentifierFault">
+				<wsdl:documentation>Error message (uses ex:invalidQueryidentifierFault element): The specified query identifier is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="registerQuery">
+			<wsdl:documentation>Register a query with Event Collector, so that it can be subsequently executed using the executeRegisteredGenericQuery operation.</wsdl:documentation>
+			<wsdl:input message="impl:registerQueryRequest" name="registerQueryRequest">
+				<wsdl:documentation>Request message (uses base:registerQueryRequest element): Specifies the query to be registered and a tag with which to identify it.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:registerQueryResponse" name="registerQueryResponse">
+				<wsdl:documentation>Response message (uses base:registerQueryResponse element): Lists the guid and tag for the newly registered query.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidQueryFault" name="InvalidQueryFault">
+				<wsdl:documentation>Error message (uses ex:invalidQueryFault element): The query could not be registered because the query specification is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:duplicateRegistrationFault" name="DuplicateRegistrationFault">
+				<wsdl:documentation>Error message (uses ex:DuplicateRegistrationFault element): The tag specified for the query is already used by another registered query.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="unRegisterQuery">
+			<wsdl:documentation>Unregister a previously registered query.</wsdl:documentation>
+			<wsdl:input message="impl:unRegisterQueryRequest" name="unRegisterQueryRequest">
+				<wsdl:documentation>Request message (uses base:unRegisteryQueryRequest element): Identifies the query that is to be unregistered (using either a guid or tag).</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:unRegisterQueryResponse" name="unRegisterQueryResponse">
+				<wsdl:documentation>Response message (uses base:unRegisteryQueryResponse element): This message has no parameters.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidQueryIdentifierFault" name="InvalidQueryIdentifierFault">
+				<wsdl:documentation>Error message (uses ex:InvalidQueryIdentifier element): The tag or guid used to identify the query is invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:queryNotFoundFault" name="QueryNotFoundFault">
+				<wsdl:documentation>Error message (uses ex:QueryNotFoundFault element): No registered query was found matching the specified tag or guid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getComponents">
+			<wsdl:documentation>List the components that are registered on the system.</wsdl:documentation>
+			<wsdl:input message="impl:getComponentsRequest" name="getComponentsRequest">
+				<wsdl:documentation>Request message (uses base:getComponentsRequest element): This message has no parameters.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:getComponentsResponse" name="getComponentsResponse">
+				<wsdl:documentation>Response message (uses base:getComponentsResponse element): Lists the details of each component that is registered on the system.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="lookupQueryByTag">
+			<wsdl:documentation>List the details for a particular query (identified by its tag). This operation can be used to obtain the guid for a registered query. The executeRegisteredGenericQuery operation executes faster if the query is identified using its guid rather than its tag.</wsdl:documentation>
+			<wsdl:input message="impl:lookupQueryByTagRequest" name="lookupQueryByTagRequest">
+				<wsdl:documentation>Request message (uses base:lookupQueryByTagRequest element): Specifies the tag to be used to look up the query.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:lookupQueryByTagResponse" name="lookupQueryByTagResponse">
+				<wsdl:documentation>Response message (uses base:lookupQueryByTagResponse element): Lists the details of the specified query, including its identifier.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:queryNotFoundFault" name="QueryNotFoundFault">
+				<wsdl:documentation>Error message (uses ex:QueryNotFoundFault element): No registered query was found matching the specified tag.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:invalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="EventCollectorUpdateService">
+		<wsdl:documentation>Provide information for EventCollector such as registering components and attributes</wsdl:documentation>
+		<wsdl:operation name="registerComponent">
+			<wsdl:documentation>Register a component with the Event Collector database.</wsdl:documentation>
+			<wsdl:input message="impl:registerComponentRequest" name="registerComponentRequest">
+				<wsdl:documentation>Request message (uses base:registerComponentRequest element): Specifies the component to register</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:registerComponentResponse" name="registerComponentResponse">
+				<wsdl:documentation>Response message (uses base:registerComponentResponse element): Gives details on the component which was registered, including the id it was registered as</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:duplicateRegistrationFault" name="DuplicateRegistrationFault">
+				<wsdl:documentation>Error message (uses ex:DuplicateRegistrationFault element): The component has already been registered but with incompatible details, so this registration could not continue.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="registerAttributes">
+			<wsdl:documentation>Register attributes with the Event Collector database.</wsdl:documentation>
+			<wsdl:input message="impl:registerAttributesRequest" name="registerAttributesRequest">
+				<wsdl:documentation>Request message (uses base:registerAttributesRequest element): Specifies attributes to register</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:registerAttributesResponse" name="registerAttributesResponse">
+				<wsdl:documentation>Response message (uses base:registerAttributesResponse element): Gives details on the attributes registered, including the ids each attribute was given</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:noSuchComponentFault" name="NoSuchComponentFault">
+				<wsdl:documentation>Error message (uses ex:NoSuchComponentFault element): The component specified for these attributes does not exist.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:duplicateRegistrationFault" name="DuplicateRegistrationFault">
+				<wsdl:documentation>Error message (uses ex:DuplicateRegistrationFault element): The attributes have already been registered but with incompatible details, so this registration could not continue.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="errorEvent">
+			<wsdl:documentation>Submit an error event to the Event Collector database. (The event requires the attributes used to have been previously registered with Event Collector.)</wsdl:documentation>
+			<wsdl:input message="impl:eventRequest" name="errorEventRequest">
+				<wsdl:documentation>Request message (uses base:eventRequest element): Specifies the event to audit</wsdl:documentation>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="EventCollectorAuditService">
+		<wsdl:documentation>Audit an event using Event Collector</wsdl:documentation>
+		<wsdl:operation name="event">
+			<wsdl:documentation>Submit an event to the Event Collector database. (The event requires the attributes used to have been previously registered with Event Collector.)</wsdl:documentation>
+			<wsdl:input message="impl:eventRequest" name="eventRequest">
+				<wsdl:documentation>Request message (uses base:eventRequest element): Specifies the event to audit</wsdl:documentation>
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="batchEvent">
+			<wsdl:documentation>Submit an batch of Events to the Event Collector database. (The event requires the attributes used to have been previously registered with Event Collector.)</wsdl:documentation>
+			<wsdl:input message="impl:batchEventRequest" name="batchEventRequest">
+				<wsdl:documentation>Request message (uses base:batchEventRequest element): Specifies the events to audit</wsdl:documentation>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="EventCollectorMeasuresService">
+		<wsdl:documentation>Get measures information stored by the Event Collector database tables about process templates or work items.</wsdl:documentation>
+		<wsdl:operation name="requestMeasure">
+			<wsdl:documentation>Request the specified measure from the Event Collector database tables.</wsdl:documentation>
+			<wsdl:input message="impl:requestMeasureRequest" name="requestMeasureRequest">
+				<wsdl:documentation>Request message (uses base:requestMeasureRequest element): Specifies the measure types and ID(s) for which a measure is to be returned, the duration to be measured and whether data consolidation is required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:requestMeasureResponse" name="requestMeasureResponse">
+				<wsdl:documentation>Response message (uses base:requestMeasureResponse element): Returns the requested measure(s).</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestGenericMeasure">
+			<wsdl:documentation>Request the specified generic measure from the Event Collector database tables.</wsdl:documentation>
+			<wsdl:input message="impl:requestGenericMeasureRequest" name="requestGenericMeasureRequest">
+				<wsdl:documentation>Request message (uses base:requestGenericMeasureRequest element): Request message (uses base:requestMeasureRequest element): Specifies the measure types and ID(s) for which a measure is to be returned, the duration to be measured and whether data consolidation is required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:requestGenericMeasureResponse" name="requestGenericMeasureResponse">
+				<wsdl:documentation>Response message (uses base:requestGenericMeasureResponse element): Returns the requested measure(s).</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestProcessDurationMeasure">
+			<wsdl:documentation>Request a process duration measure from the Event Collector database tables.</wsdl:documentation>
+			<wsdl:input message="impl:requestProcessDurationMeasureRequest" name="requestProcessDurationMeasureRequest">
+				<wsdl:documentation>Request message (uses base:requestProcessDurationMeasureRequest element): Specifies the process template ID(s) for which a process duration measure is to be returned, the duration to be measured and whether data consolidation is required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:requestProcessDurationMeasureResponse" name="requestProcessDurationMeasureResponse">
+				<wsdl:documentation>Response message (uses base:requestProcessDurationMeasureResponse element): Returns the requested measure(s).</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestProcessTemplateMeasure">
+			<wsdl:documentation>Request a process template  measure from the Event Collector database tables.</wsdl:documentation>
+			<wsdl:input message="impl:requestProcessTemplateMeasureRequest" name="requestProcessTemplateMeasureRequest">
+				<wsdl:documentation>Request message (uses base:requestProcessTemplateMeasureRequest element): Specifies the process template ID(s) for which a process template measure is to be returned, the duration to be measured and whether data consolidation is required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:requestProcessTemplateMeasureResponse" name="requestProcessTemplateMeasureResponse">
+				<wsdl:documentation>Response message (uses base:requestProcessTemplateMeasureResponse element): Returns the requested measure(s).</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestWorkItemPerformanceForTemplate">
+			<wsdl:documentation>Request a work item performance measure for a process template from the Event Collector database tables.</wsdl:documentation>
+			<wsdl:input message="impl:requestWorkItemPerformanceForTemplateRequest" name="requestWorkItemPerformanceForTemplateRequest">
+				<wsdl:documentation>Request message (uses base:requestWorkItemPerformanceForTemplateRequest element): Specifies the process template ID(s) for which a work item performance measure is to be returned, the duration to be measured and whether data consolidation is required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:requestWorkItemPerformanceForTemplateResponse" name="requestWorkItemPerformanceForTemplateResponse">
+				<wsdl:documentation>Response message (uses base:requestWorkItemPerformanceForTemplateResponse element): Returns the requested measure(s).</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestWorkItemPerformanceForResource">
+			<wsdl:documentation>Request a work item performance measure for a resource from the Event Collector database tables.</wsdl:documentation>
+			<wsdl:input message="impl:requestWorkItemPerformanceForResourceRequest" name="requestWorkItemPerformanceForResourceRequest">
+				<wsdl:documentation>Request message (uses base:requestWorkItemPerformanceForResourceRequest element): Specifies the resource ID(s) for which a work item performance measure is to be returned, the duration to be measured and whether data consolidation is required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:requestWorkItemPerformanceForResourceResponse" name="requestWorkItemPerformanceForResourceResponse">
+				<wsdl:documentation>Response message (uses base:requestWorkItemPerformanceForResourceResponse element): Returns the requested measure(s).</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="EventCollectorManagementService">
+		<wsdl:documentation>Carry out management activities on Event Collector such as purging data</wsdl:documentation>
+		<wsdl:operation name="doPurgeAudit">
+			<wsdl:input message="impl:doPurgeAuditRequest" name="doPurgeAuditRequest">
+				<wsdl:documentation>Request message (uses base:doPurgeAuditRequest element): Perform a purge of audit data in the Event Collecxtor database.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:doPurgeAuditResponse" name="doPurgeAuditResponse">
+				<wsdl:documentation>Response message (uses base:doPurgeAuditResponse element): Returns the results of the purge.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="stopPurgeAudit">
+			<wsdl:input message="impl:stopPurgeAuditRequest" name="stopPurgeAuditRequest">
+				<wsdl:documentation>Request message (uses base:stopPurgeAuditRequest element): Stop the current purge of audit data.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:stopPurgeAuditResponse" name="stopPurgeAuditResponse">
+				<wsdl:documentation>Response message (uses base:stopPurgeAuditResponse element): Returns the status of the purge.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="checkPurgeAudit">
+			<wsdl:input message="impl:checkPurgeAuditRequest" name="checkPurgeAuditRequest">
+				<wsdl:documentation>Request message (uses base:checkPurgeAuditRequest element): Check the status of  the current purge of audit data.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:checkPurgeAuditResponse" name="checkPurgeAuditResponse">
+				<wsdl:documentation>Response message (uses base:checkPurgeAuditResponse element): Returns the status of the purge.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault has occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidRequestFault element): The request was invalid and so could not be executed.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getConfiguration">
+			<wsdl:documentation>** PRIVATE API - Reserved for Internal Use **</wsdl:documentation>
+			<wsdl:input message="impl:getConfigurationRequest" name="getConfigurationRequest"/>
+			<wsdl:output message="impl:getConfigurationResponse" name="getConfigurationResponse"/>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault"/>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="setConfiguration">
+			<wsdl:documentation>** PRIVATE API - Reserved for Internal Use **</wsdl:documentation>
+			<wsdl:input message="impl:setConfigurationRequest" name="setConfigurationRequest"/>
+			<wsdl:output message="impl:setConfigurationResponse" name="setConfigurationResponse"/>
+			<wsdl:fault message="impl:internalServiceFault" name="InternalServiceFault"/>
+			<wsdl:fault message="impl:invalidRequestFault" name="InvalidRequestFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="EventCollectorQueryService_EP" type="impl:EventCollectorQueryService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="executeGenericQuery">
+			<soap:operation soapAction="executeGenericQuery" style="document"/>
+			<wsdl:input name="executeGenericQueryRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="executeGenericQueryResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidQueryFault">
+				<soap:fault name="InvalidQueryFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="QueryExecutionFault">
+				<soap:fault name="QueryExecutionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="executeRegisteredGenericQuery">
+			<soap:operation soapAction="executeRegisteredGenericQuery" style="document"/>
+			<wsdl:input name="executeRegisteredGenericQueryRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="executeRegisteredGenericQueryResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="QueryNotFoundFault">
+				<soap:fault name="QueryNotFoundFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidQueryIdentifierFault">
+				<soap:fault name="InvalidQueryIdentifierFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="QueryExecutionFault">
+				<soap:fault name="QueryExecutionFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllAttributes">
+			<soap:operation soapAction="getAllAttributes" style="document"/>
+			<wsdl:input name="getAllAttributesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getAllAttributesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAttributes">
+			<soap:operation soapAction="getAttributes" style="document"/>
+			<wsdl:input name="getAttributesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getAttributesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="NoSuchComponentFault">
+				<soap:fault name="NoSuchComponentFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="isQueryRegistered">
+			<soap:operation soapAction="isQueryRegistered" style="document"/>
+			<wsdl:input name="isQueryRegisteredRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="isQueryRegisteredResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidQueryIdentifierFault">
+				<soap:fault name="InvalidQueryIdentifierFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="registerQuery">
+			<soap:operation soapAction="registerQuery" style="document"/>
+			<wsdl:input name="registerQueryRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="registerQueryResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidQueryFault">
+				<soap:fault name="InvalidQueryFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DuplicateRegistrationFault">
+				<soap:fault name="DuplicateRegistrationFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="unRegisterQuery">
+			<soap:operation soapAction="unRegisterQuery" style="document"/>
+			<wsdl:input name="unRegisterQueryRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="unRegisterQueryResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="QueryNotFoundFault">
+				<soap:fault name="QueryNotFoundFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidQueryIdentifierFault">
+				<soap:fault name="InvalidQueryIdentifierFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getComponents">
+			<soap:operation soapAction="getComponents" style="document"/>
+			<wsdl:input name="getComponentsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getComponentsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="lookupQueryByTag">
+			<soap:operation soapAction="lookupQueryByTag" style="document"/>
+			<wsdl:input name="lookupQueryByTagRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="lookupQueryByTagResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="QueryNotFoundFault">
+				<soap:fault name="QueryNotFoundFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="EventCollectorUpdateService_EP" type="impl:EventCollectorUpdateService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="registerComponent">
+			<soap:operation soapAction="registerComponent"/>
+			<wsdl:input name="registerComponentRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="registerComponentResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DuplicateRegistrationFault">
+				<soap:fault name="DuplicateRegistrationFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="registerAttributes">
+			<soap:operation soapAction="registerAttributes"/>
+			<wsdl:input name="registerAttributesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="registerAttributesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="NoSuchComponentFault">
+				<soap:fault name="NoSuchComponentFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DuplicateRegistrationFault">
+				<soap:fault name="DuplicateRegistrationFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="errorEvent">
+			<soap:operation soapAction="errorEvent"/>
+			<wsdl:input name="errorEventRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="EventCollectorAuditService_EP" type="impl:EventCollectorAuditService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="event">
+			<soap:operation soapAction="event"/>
+			<wsdl:input name="eventRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="batchEvent">
+			<soap:operation soapAction="batchEvent"/>
+			<wsdl:input name="batchEventRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="EventCollectorMeasuresService_EP" type="impl:EventCollectorMeasuresService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="requestMeasure">
+			<soap:operation soapAction="requestMeasure"/>
+			<wsdl:input name="requestMeasureRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="requestMeasureResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestGenericMeasure">
+			<soap:operation soapAction="requestGenericMeasure"/>
+			<wsdl:input name="requestGenericMeasureRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="requestGenericMeasureResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestProcessDurationMeasure">
+			<soap:operation soapAction="requestProcessDurationMeasure"/>
+			<wsdl:input name="requestProcessDurationMeasureRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="requestProcessDurationMeasureResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestProcessTemplateMeasure">
+			<soap:operation soapAction="requestProcessTemplateMeasure"/>
+			<wsdl:input name="requestProcessTemplateMeasureRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="requestProcessTemplateMeasureResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestWorkItemPerformanceForTemplate">
+			<soap:operation soapAction="requestWorkItemPerformanceForTemplate"/>
+			<wsdl:input name="requestWorkItemPerformanceForTemplateRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="requestWorkItemPerformanceForTemplateResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="requestWorkItemPerformanceForResource">
+			<soap:operation soapAction="requestWorkItemPerformanceForResource"/>
+			<wsdl:input name="requestWorkItemPerformanceForResourceRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="requestWorkItemPerformanceForResourceResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="EventCollectorManagementService_EP" type="impl:EventCollectorManagementService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="doPurgeAudit">
+			<soap:operation soapAction="doPurgeAudit"/>
+			<wsdl:input name="doPurgeAuditRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="doPurgeAuditResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="stopPurgeAudit">
+			<soap:operation soapAction="stopPurgeAudit"/>
+			<wsdl:input name="stopPurgeAuditRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="stopPurgeAuditResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="checkPurgeAudit">
+			<soap:operation soapAction="checkPurgeAudit"/>
+			<wsdl:input name="checkPurgeAuditRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="checkPurgeAuditResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getConfiguration">
+			<soap:operation soapAction="getConfiguration"/>
+			<wsdl:input name="getConfigurationRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getConfigurationResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="setConfiguration">
+			<soap:operation soapAction="setConfiguration"/>
+			<wsdl:input name="setConfigurationRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="setConfigurationResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidRequestFault">
+				<soap:fault name="InvalidRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EventCollectorQueryService">
+		<wsdl:port binding="impl:EventCollectorQueryService_EP" name="EventCollectorQueryService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/EventCollectorQueryService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="EventCollectorMeasuresService">
+		<wsdl:port binding="impl:EventCollectorMeasuresService_EP" name="EventCollectorMeasuresService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/EventCollectorMeasuresService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="EventCollectorUpdateService">
+		<wsdl:port binding="impl:EventCollectorUpdateService_EP" name="EventCollectorUpdateService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/EventCollectorUpdateService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="EventCollectorAuditService">
+		<wsdl:port binding="impl:EventCollectorAuditService_EP" name="EventCollectorAuditService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/EventCollectorAuditService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="EventCollectorManagementService">
+		<wsdl:port binding="impl:EventCollectorManagementService_EP" name="EventCollectorManagementService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/EventCollectorManagementService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

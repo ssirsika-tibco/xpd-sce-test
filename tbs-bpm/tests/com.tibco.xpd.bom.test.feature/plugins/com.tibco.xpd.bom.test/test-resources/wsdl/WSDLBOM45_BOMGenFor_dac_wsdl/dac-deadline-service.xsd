@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by Duncan Head (Tibco Software Limited) -->
+<xs:schema xmlns="http://deadline.api.dac.n2.tibco.com" xmlns:dac="http://basic.api.dac.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://deadline.api.dac.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://basic.api.dac.n2.tibco.com" schemaLocation="dac-basic.xsd"/>
+	<xs:element name="calcBusinessDeadline">
+		<xs:annotation>
+			<xs:documentation>Request element for calcBusinessDeadline operation.
+
+This operation is deprecated and should no longer be used. It is only available for backward compatibility and may be removed in future releases.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="guid" type="dac:XmlGuidType" use="required">
+				<xs:annotation>
+					<xs:documentation>ID of the Calendar to be used when calculating the deadline.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="start-date-time" type="xs:dateTime" use="required">
+				<xs:annotation>
+					<xs:documentation>Start date and time for the task.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="duration" type="xs:duration" use="required">
+				<xs:annotation>
+					<xs:documentation>Duration of the task.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="calcBusinessDeadlineResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for calcBusinessDeadline operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="end-date-time" type="xs:dateTime" use="required">
+				<xs:annotation>
+					<xs:documentation>End date and time of the taks based on working time as defined in the associated calendar.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="XmlCalcDeadlineRequest">
+		<xs:annotation>
+			<xs:documentation>Request element for calcDeadline operation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+Calculates the earliest date and time a deadline can be completed, given a start date/time and duration. The start date/time must be specified as  UTC, and the response will also be specified as UTC.
+     
+The calculation request also includes an optional, ordered collection of identifiers from which a calendar can be resolved. Those identifiers will consist of calendar references and organizational entities, as set out in the following list, and will be applied in the given order until a calendar can be resolved.
+
+       + Time Event Calendar Reference (can be defined dynamically using a variable assignment)
+       + Single, org model entity Participant
+       + Process Calendar Reference
+     
+For the deadline calculation of a user activity, the organizational entities will be derived from the participant. If a user activity, or a timer event, declares more than one participant, those participants should not be used to perform deadline calculation (that is, the participant should only be passed if it identifies a single organizational entity).
+     
+The organizational entity identifiers are used to determine what base and overlay calendars are to be used for the calculation. If no calendar can be resolved from the given identifiers, the default base calendar will apply.
+     
+Once the calendar(s) are resolved, the available working hours are determined. Based on those available hours, the calculation returns the earliest date and time at which the given duration of work can be completed.
+     
+When calculating a deadline a start date-time and duration must be given. If the duration does not include hours, minutes or seconds, then the duration is assumed to be ‘working days’. For example; the duration “P3D” is assumed to be 3 Working Days and not 72 hours. If the duration is “PT72H” then it is taken to be 72 hours, and not 3 Working Days.
+     
+When calculating a deadline using units of ‘Working Days’, if the number of available hours in the day being considered is less than this defined minimum value, that day is not included. The calculation moves on to the next available day, where again the number of available hours is compared.
+If the duration specifies months, then the start-date-time is used to determine how many days are in the month(s).
+          </xs:documentation>
+			</xs:annotation>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="calendar-lookup" type="dac:XmlCalendarLookup"/>
+		</xs:sequence>
+		<xs:attribute name="start-date-time" type="xs:dateTime" use="required">
+			<xs:annotation>
+				<xs:documentation>Start date and time for the task. This value is assumed to be expressed as UTC.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="duration" type="xs:duration" use="required">
+			<xs:annotation>
+				<xs:documentation>Duration of the task in man-hours.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="calcDeadline" type="XmlCalcDeadlineRequest"/>
+
+	<xs:complexType name="XmlCalcDeadlineResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for calcDeadline operation.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="end-date-time" type="xs:dateTime" use="required">
+			<xs:annotation>
+				<xs:documentation>End date and time of the tasks based on the available working time as defined in the associated calendar. This result is expressed in UTC time-zone.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="calcDeadlineResponse" type="XmlCalcDeadlineResponse"/>
+	
+</xs:schema>

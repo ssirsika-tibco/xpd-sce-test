@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.example.org/pocommon"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/pocommon">
+
+	<include schemaLocation="WSDLBOM17_MixedImportsAndIncludes2.xsd"></include>
+
+
+
+    <!-- element name="purchaseOrder" type="tns:PurchaseOrderType"></element -->
+
+    <complexType name="PurchaseOrderType">
+    	<sequence>
+    		<element name="poNumber" type="int"></element>
+    		<element name="poDate" type="date"></element>
+    		<element name="billtoParty" type="tns:PartyType"></element>
+    		<element name="shipToType" type="tns:PartyType"></element>
+    		<element name="lineItemType" type="tns:LineItemsType"></element>
+    	</sequence>
+    	<attribute name="version" type="decimal"></attribute>
+    </complexType>
+</schema>

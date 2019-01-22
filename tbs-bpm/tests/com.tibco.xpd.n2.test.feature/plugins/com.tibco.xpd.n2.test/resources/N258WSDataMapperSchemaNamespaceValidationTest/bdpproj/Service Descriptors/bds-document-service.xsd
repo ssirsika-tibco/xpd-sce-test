@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by smorgan (Tibco Software Limited) --><xs:schema xmlns="http://document.api.bds.tibco.com" xmlns:tns="http://document.api.bds.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://document.api.bds.tibco.com" version="1.0">
+	<xs:complexType name="OwnerReference">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>A reference to something that can 'own' documents. At the time of writing this always means a case object.</xs:documentation>
+			</xs:annotation>
+			<xs:element name="caseReference" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>e.g. bds-1-com.example.ordemodel.Order-1-2</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="FolderReference">
+		<xs:annotation>
+			<xs:documentation>A reference to a folder in the document store</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="DocumentReferenceAndOptionalMetadata">
+		<xs:annotation>
+			<xs:documentation>A document reference and, optionally, metadata</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>Document reference and (if returnMetadata flag true in request) the document metadata as well.</xs:documentation>
+			</xs:annotation>
+			<xs:element name="reference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>A reference to a document in the document store</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="metadata" type="DocumentMetadata"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DocumentReference">
+		<xs:annotation>
+			<xs:documentation>A reference to a document in the document store</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="DocumentSpecifier">
+		<xs:annotation>
+			<xs:documentation>The constituent variable parts of a document reference presented separately.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DocumentMetadata">
+		<xs:annotation>
+			<xs:documentation>Metadata describing a document</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="specifier" type="DocumentSpecifier"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element minOccurs="0" name="version" type="xs:string"/>
+			<xs:element name="mimeType" type="xs:string"/>
+			<xs:element name="createdDateTime" type="xs:dateTime"/>
+			<xs:element name="createdBy" type="xs:string"/>
+			<xs:element name="lastModifiedDateTime" type="xs:dateTime"/>
+			<xs:element name="lastModifiedBy" type="xs:string"/>
+			<xs:element name="byteSize" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FolderMetadata">
+		<xs:annotation>
+			<xs:documentation>Metadata describing a folder</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FolderReferenceAndOptionalMetadata">
+		<xs:annotation>
+			<xs:documentation>A folder reference and, optionally, metadata</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>Folder reference and (if returnMetadata flag true in request) the folder metadata as well.</xs:documentation>
+			</xs:annotation>
+			<xs:element name="reference" type="FolderReference">
+				<xs:annotation>
+					<xs:documentation>A reference to a folder in the document store</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="metadata" type="FolderMetadata"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DocumentContent">
+		<xs:annotation>
+			<xs:documentation>The actual content of a document to be passed to or from the document repository</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="content" type="xs:base64Binary">
+				<xs:annotation>
+					<xs:documentation>base64Binary</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mime-type" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>MIME type of 'content'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="RepositoryItem">
+		<xs:annotation>
+			<xs:documentation>Abstract base type for items returned by GetFolderContent</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="FolderItem">
+		<xs:annotation>
+			<xs:documentation>(extends RepositoryItem)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="RepositoryItem">
+				<xs:sequence>
+					<xs:element name="folder" type="FolderReferenceAndOptionalMetadata"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="content" type="RepositoryItem">
+						<xs:annotation>
+							<xs:documentation>Zero or more RepositoryItems, which may be DocumentItems and/or nested FolderItems. These are the items contained within this folder.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DocumentItem">
+		<xs:annotation>
+			<xs:documentation>(extends RepositoryItem)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="RepositoryItem">
+				<xs:choice>
+					<xs:element name="document" type="DocumentReferenceAndOptionalMetadata"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="VersioningStateEnum">
+		<xs:annotation>
+			<xs:documentation>Enum reflecting CMIS 'versioning states'</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MAJOR"/>
+			<xs:enumeration value="MINOR"/>
+			<xs:enumeration value="NONE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="QueryAndDocumentType">
+		<xs:annotation>
+			<xs:documentation>Structure combining a CMISQL query string and optional document type</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="string" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>A CMISQL 'WHERE' clause</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="documentType" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>e.g. claim:ClaimDocument    Will default to cmis:document if not specified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreateDocumentRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for CreateDocument</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="owner" type="OwnerReference"/>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name for the document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="versioningState" type="VersioningStateEnum">
+				<xs:annotation>
+					<xs:documentation>Determines initial version number of document. MAJOR, MINOR or NONE. e.g. may map to 1.0, 0.1 or a non-versioned document, as per repository capabilities. If omitted, the repository will decide the appropriate default.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="mimeType" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>mime-type of content. If omitted, the repository will assume a default.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Choice of document content or URL from which document content can be fetched</xs:documentation>
+				</xs:annotation>
+				<xs:element name="content" type="xs:base64Binary">
+					<xs:annotation>
+						<xs:documentation>base64Binary encoding of document content</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="contentURL" type="xs:anyURI">
+					<xs:annotation>
+						<xs:documentation>URL from which the document content can be fetched (i.e. This URL must be resolvable from the AMX-BPM server)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="returnMetadata" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The response will contain a document reference.  If this boolean attribute is set true, it will also include document metadata. (Assumed false if omitted)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="CreateDocumentRequest" type="CreateDocumentRequestType"/>
+	<xs:complexType name="CreateDocumentResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for CreateDocument</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>Document reference and (if returnMetadata flag true in request) the document metadata as well.</xs:documentation>
+			</xs:annotation>
+			<xs:element name="reference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>A reference to a document in the document store</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="metadata" type="DocumentMetadata"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CreateDocumentResponse" type="CreateDocumentResponseType"/>
+	<xs:complexType name="GetDocumentMetadataRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for GetDocumentMetadata</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="reference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>A reference to a document in the document store</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetDocumentMetadataRequest" type="GetDocumentMetadataRequestType"/>
+	<xs:complexType name="GetDocumentMetadataResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for GetDocumentMetadata</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="metadata" type="DocumentMetadata"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetDocumentMetadataResponse" type="GetDocumentMetadataResponseType"/>
+	<xs:complexType name="GetDocumentContentRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for GetDocumentContent</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="reference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>A reference to a document in the document store</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetDocumentContentRequest" type="GetDocumentContentRequestType"/>
+	<xs:complexType name="GetDocumentContentResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for ReadDocumentContent</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="content" type="xs:base64Binary">
+				<xs:annotation>
+					<xs:documentation>base64Binary</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mime-type" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>MIME type of 'content'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetDocumentContentResponse" type="GetDocumentContentResponseType"/>
+	<xs:complexType name="DeleteDocumentRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for DeleteDocument API</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="reference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>Document reference for the document to delete.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DeleteDocumentRequest" type="DeleteDocumentRequestType"/>
+	<xs:complexType name="DeleteDocumentResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for DeleteDocumentI.  No content.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:element name="DeleteDocumentResponse" type="DeleteDocumentResponseType"/>
+	<xs:complexType name="MoveDocumentRequestType">
+		<xs:annotation>
+			<xs:documentation>Request type for MoveDocument</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="sourceOwner" type="OwnerReference">
+				<xs:annotation>
+					<xs:documentation>Existing owner for the document. Once the operation is complete, the document will no longer reside in this owner's folder.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetOwner" type="OwnerReference">
+				<xs:annotation>
+					<xs:documentation>New owner for the document (it will no longer be owned by the specified source owner once this operation completes). If the document also resides in folders belonging to owners other than the specified sourceOwner, then it will continue to do so.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentReference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>Document reference of existing document to be moved</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MoveDocumentRequest" type="MoveDocumentRequestType"/>
+	<xs:complexType name="MoveDocumentResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for MoveDocument </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="reference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>Returns a reference, despite the request containing a reference, as the act of moving the document may cause its reference to change.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MoveDocumentResponse" type="MoveDocumentResponseType"/>
+	<xs:complexType name="LinkDocumentRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for LinkDocument </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetOwner" type="OwnerReference">
+				<xs:annotation>
+					<xs:documentation>Owner to which the document should be linked. The document will also remain in its current location(s) and keep its current owner(s).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="documentReference" type="DocumentReference">
+					<xs:annotation>
+						<xs:documentation>Document reference of a document that already resides in the repository within the folder of one or more other owners.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="documentSpecifier" type="DocumentSpecifier">
+					<xs:annotation>
+						<xs:documentation>The constituent variable parts of a document reference presented separately.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="LinkDocumentRequest" type="LinkDocumentRequestType"/>
+	<xs:complexType name="LinkDocumentResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for LinkDocument</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="reference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>If the request contained a document specifier (as opposed to a document reference) then this element will contain an equivalent document reference.  On the other hand, if the request contained a document reference, then this element will be omitted as it's not necessary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="LinkDocumentResponse" type="LinkDocumentResponseType"/>
+	<xs:complexType name="UnlinkDocumentRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for UnlinkDocument</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="sourceOwner" type="OwnerReference">
+				<xs:annotation>
+					<xs:documentation>Owner from which the document should be unlinked.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentReference" type="DocumentReference">
+				<xs:annotation>
+					<xs:documentation>Document reference for a document that is currently within the folder of the specified source owner.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="UnlinkDocumentRequest" type="UnlinkDocumentRequestType"/>
+	<xs:complexType name="UnlinkDocumentResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for UnlinkDocument</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:element name="UnlinkDocumentResponse" type="UnlinkDocumentResponseType"/>
+	<xs:complexType name="FindDocumentsRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for FindDocuments </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="owner" type="OwnerReference"/>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Specify either a document name to search for documents by name, or a query string for a more sophisticated search</xs:documentation>
+				</xs:annotation>
+				<xs:element name="name" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Specify the name of the document to match</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="query" type="QueryAndDocumentType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="returnMetadata" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The response will contain zero or more document references.  If this boolean attribute is set true, it will also include document metadata. (Assumed false if omitted)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="FindDocumentsRequest" type="FindDocumentsRequestType"/>
+	<xs:complexType name="FindDocumentsResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for FindDocuments</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="DocumentReferenceAndOptionalMetadata"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FindDocumentsResponse" type="FindDocumentsResponseType"/>
+	<xs:complexType name="GetFolderContentRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for GetFolderContent</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Specify either an owner (case object) to start from its case folder, or any other folder (i.e. a sub-folder) to start from that point.</xs:documentation>
+				</xs:annotation>
+				<xs:element name="owner" type="OwnerReference"/>
+				<xs:element name="folderReference" type="FolderReference">
+					<xs:annotation>
+						<xs:documentation>A reference to a folder. Obtained via a prior call to this API.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="depth" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>How many layers of folder to read. 1 = top level items only. 2 = top level and one level below that (etc). -1 = unlimited. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="returnMetadata" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>The response will contain document/folder references.  If this boolean attribute is set true, it will also include corresponding metadata. (Assumed false if omitted)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="GetFolderContentRequest" type="GetFolderContentRequestType"/>
+	<xs:complexType name="GetFolderContentResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for GetFolderContent</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="RepositoryItem">
+				<xs:annotation>
+					<xs:documentation>Returns sub-types of abstract RepositoryItem type, which could be DocumentItem or FolderItem, the latter containing further RepositoryItems.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetFolderContentResponse" type="GetFolderContentResponseType"/>
+	<xs:complexType name="DeleteOrphanedFoldersRequestType">
+		<xs:annotation>
+			<xs:documentation>Request for DeleteOrphanedFolders.  </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="orphanedDateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Folders relating to owners deleted at or before the specified date/time (i.e the time in which the folder became orphaned) will be deleted.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute default="true" name="returnFailures" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>If set true, then the response will include details of folders for which deletion failed. (default: true)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="DeleteOrphanedFoldersRequest" type="DeleteOrphanedFoldersRequestType"/>
+	<xs:complexType name="DeleteOrphanedFoldersResponseType">
+		<xs:annotation>
+			<xs:documentation>Response for DeleteOrphanedFolders</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="successCount" type="xs:int"/>
+			<xs:element name="failureCount" type="xs:int"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="failurePath" type="FolderReference">
+				<xs:annotation>
+					<xs:documentation>Folder paths (relative to root) for which deletion was attempted, but failed. (A subsequent call to this same API may succeed at deleting these folders)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DeleteOrphanedFoldersResponse" type="DeleteOrphanedFoldersResponseType"/>
+</xs:schema>

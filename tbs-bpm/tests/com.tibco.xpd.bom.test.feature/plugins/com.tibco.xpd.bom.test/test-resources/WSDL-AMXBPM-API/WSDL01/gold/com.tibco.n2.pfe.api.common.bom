@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.pfe.api.common2" name="com.tibco.n2.pfe.api.common">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iytKURUHEeGvy5vcBZd45A" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iytKUhUHEeGvy5vcBZd45A" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iytKUxUHEeGvy5vcBZd45A" key="created" value="1321969394165"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iytKVBUHEeGvy5vcBZd45A" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="com.tibco.n2.pfe.api.commonExecutionState" name="ExecutionState">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hkE0ABUHEeGvy5vcBZd45A" body="Enumerated value defining the current status of the pageflow or business service. One of of:&#xA;NOT_STARTED: Unable to start.&#xA;STARTED: Started successfully.&#xA;IN_PROGRESS: In progress.&#xA;COMPLETED: Successfully conpleted.&#xA;UNKNOWN: Unknown status. "/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hkE0ARUHEeGvy5vcBZd45A" name="NOTSTARTED"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hkFbEBUHEeGvy5vcBZd45A" name="STARTED"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hkFbEhUHEeGvy5vcBZd45A" name="INPROGRESS"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hkFbFBUHEeGvy5vcBZd45A" name="COMPLETED"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hkGCIRUHEeGvy5vcBZd45A" name="UNKNOWN"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="com.tibco.n2.pfe.api.commonFormType" name="FormType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hlTjEBUHEeGvy5vcBZd45A" body="Enumerated value defining the type of a form. "/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hlUKIBUHEeGvy5vcBZd45A" name="GIFORM"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hlUKIhUHEeGvy5vcBZd45A" name="GWTFORM"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hlUxMBUHEeGvy5vcBZd45A" name="CUSTOMFORM"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hlUxMhUHEeGvy5vcBZd45A" name="PAGEFLOW"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonActivityReference" name="ActivityReference">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hnpscBUHEeGvy5vcBZd45A" body="Reference details of a page activity. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hoFxUBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonBaseActivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ActivityReferenceactivityName" name="activityName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hmkHUBUHEeGvy5vcBZd45A" body="Name of the page activity. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hmiSIhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hmiSIRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ActivityReferenceactivityModelId" name="activityModelId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hm1NEBUHEeGvy5vcBZd45A" body="Identity of the model associated with the page activity. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hmyw0RUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hmyw0BUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ActivityReferencemoduleName" name="moduleName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hnGS0BUHEeGvy5vcBZd45A" body="Name of the module associated with the page activity. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hnEdoRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hnEdoBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ActivityReferencemoduleVersion" name="moduleVersion">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hnWxgBUHEeGvy5vcBZd45A" body="Version number of the module associated with the page activity. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hnU8UhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hnU8URUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ActivityReferenceprocessName" name="processName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hnn3QBUHEeGvy5vcBZd45A" body="Name of the pageflow process associated with the page activity. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hnlbAhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hnlbARUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBaseActivityReference" name="BaseActivityReference">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hoDVEBUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress page activity. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hrqpwBUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress activity instance. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BaseActivityReferenceactivityId" name="activityId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hoBf4BUHEeGvy5vcBZd45A" body="ID of the page activity. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hn91ghUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hn91gRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBaseBusinessServiceTemplate" name="BaseBusinessServiceTemplate">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hoKp0BUHEeGvy5vcBZd45A" body="Unique identifier for a business service. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iJCiQBUHEeGvy5vcBZd45A" body="Unique identifier for the business service to be started. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpUgYBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonPFETemplate?com.tibco.n2.pfe.api.common%3a%3aPFETemplate?"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonPFETemplate" name="PFETemplate">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hojEUBUHEeGvy5vcBZd45A" body="Unique definition of a pageflow or business service. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h58WUBUHEeGvy5vcBZd45A" body="Description of the pageflow or business service. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hpSEIBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonBaseTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PFETemplateversion" name="version">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hohPIBUHEeGvy5vcBZd45A" body="Version of the process. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hofZ8RUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hofZ8BUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBaseTemplate" name="BaseTemplate">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hpPn4BUHEeGvy5vcBZd45A" body="General definition of a pageflow process or business service. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BaseTemplatemoduleName" name="moduleName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_ho63wBUHEeGvy5vcBZd45A" body="Module name that contains the pageflow process or business service. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ho5CkBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ho4bghUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BaseTemplateprocessName" name="processName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hpNLoBUHEeGvy5vcBZd45A" body="Name of the pageflow process or business service. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpLWcBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpKvYhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBaseFeedType" name="BaseFeedType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BaseFeedTypefeedMode" name="feedMode">
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.common.presentationmodel.bom#com.tibco.n2.common.presentationmodelFeedMode?com.tibco.n2.common.presentationmodel%3a%3aFeedMode?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hpgtohUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hpgtoRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BaseFeedTypefeedFormat" name="feedFormat">
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.common.presentationmodel.bom#com.tibco.n2.common.presentationmodelFeedFormat?com.tibco.n2.common.presentationmodel%3a%3aFeedFormat?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hprswhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hprswRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBasePageData" name="BasePageData">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BasePageDatapageReference" name="pageReference" type="com.tibco.n2.pfe.api.commonBasePageReference?com.tibco.n2.pfe.api.common%3a%3aBasePageReference?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition12?com.tibco.n2.pfe.api.common%3a%3aComposition12?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hqN4QxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hqN4QhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BasePageDatapayloadModel" name="payloadModel" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition13?com.tibco.n2.pfe.api.common%3a%3aComposition13?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeeddataPayload?com.tibco.n2.common.datafeed%3a%3adataPayload?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hqb6sxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hqb6shUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBasePageReference" name="BasePageReference">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hqC5IBUHEeGvy5vcBZd45A" body="Unique identifier for a page reference. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hqEHQBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonBaseActivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference?"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition12" name="Composition12" memberEnd="BasePageDatapageReference?com.tibco.n2.pfe.api.common%3a%3aBasePageData%3a%3apageReference? Composition12basepagedata?com.tibco.n2.pfe.api.common%3a%3aComposition12%3a%3abasepagedata?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition12basepagedata" name="basepagedata" type="com.tibco.n2.pfe.api.commonBasePageData?com.tibco.n2.pfe.api.common%3a%3aBasePageData?" association="com.tibco.n2.pfe.api.commonComposition12?com.tibco.n2.pfe.api.common%3a%3aComposition12?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hqOfUhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hqOfURUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition13" name="Composition13" memberEnd="BasePageDatapayloadModel?com.tibco.n2.pfe.api.common%3a%3aBasePageData%3a%3apayloadModel? Composition13basepagedata?com.tibco.n2.pfe.api.common%3a%3aComposition13%3a%3abasepagedata?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition13basepagedata" name="basepagedata" type="com.tibco.n2.pfe.api.commonBasePageData?com.tibco.n2.pfe.api.common%3a%3aBasePageData?" association="com.tibco.n2.pfe.api.commonComposition13?com.tibco.n2.pfe.api.common%3a%3aComposition13?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hqchwRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hqchwBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBaseProcessReference" name="BaseProcessReference">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hq9fIBUHEeGvy5vcBZd45A" body="Unique identifier for an instance of a pageflow or business process. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hrUEcBUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress process instance. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BaseProcessReferenceid" name="id">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hq7C4BUHEeGvy5vcBZd45A" body="Unique ID of the process instance. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hq5NshUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hq5NsRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBaseSessionContext" name="BaseSessionContext">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hrwwYBUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress process and page activity. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BaseSessionContextprocessReference" name="processReference" type="com.tibco.n2.pfe.api.commonBaseProcessReference?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition14?com.tibco.n2.pfe.api.common%3a%3aComposition14?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hrcAQhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hrcAQRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BaseSessionContextactivityReference" name="activityReference" type="com.tibco.n2.pfe.api.commonBaseActivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition15?com.tibco.n2.pfe.api.common%3a%3aComposition15?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hrr34BUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hrrQ0hUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition14" name="Composition14" memberEnd="BaseSessionContextprocessReference?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext%3a%3aprocessReference? Composition14basesessioncontext?com.tibco.n2.pfe.api.common%3a%3aComposition14%3a%3abasesessioncontext?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition14basesessioncontext" name="basesessioncontext" type="com.tibco.n2.pfe.api.commonBaseSessionContext?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext?" association="com.tibco.n2.pfe.api.commonComposition14?com.tibco.n2.pfe.api.common%3a%3aComposition14?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hrcnURUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hrcnUBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition15" name="Composition15" memberEnd="BaseSessionContextactivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext%3a%3aactivityReference? Composition15basesessioncontext?com.tibco.n2.pfe.api.common%3a%3aComposition15%3a%3abasesessioncontext?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition15basesessioncontext" name="basesessioncontext" type="com.tibco.n2.pfe.api.commonBaseSessionContext?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext?" association="com.tibco.n2.pfe.api.commonComposition15?com.tibco.n2.pfe.api.common%3a%3aComposition15?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hrr34xUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hrr34hUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBusinessCategory" name="BusinessCategory">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ht-W4BUHEeGvy5vcBZd45A" body="Array of child business categories. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_huD2cBUHEeGvy5vcBZd45A" body="Collection of business categories and associated business services. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h_eWkBUHEeGvy5vcBZd45A" body="Array describing deployed business services that match the criteria specified  in the request. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iIIjUBUHEeGvy5vcBZd45A" body="Details of categories for business services that match the specified query. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BusinessCategoryname" name="name">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hsJx8BUHEeGvy5vcBZd45A" body="Name of the category. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hsH8wRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hsH8wBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BusinessCategoryBusinessServiceTemplate" name="businessServiceTemplate" type="com.tibco.n2.pfe.api.commonBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition16?com.tibco.n2.pfe.api.common%3a%3aComposition16?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_htoYoxUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_htoYohUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BusinessCategoryChildBusinessCategory" name="childBusinessCategory" type="com.tibco.n2.pfe.api.commonBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition17?com.tibco.n2.pfe.api.common%3a%3aComposition17?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ht_lARUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ht_lABUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBusinessServiceTemplate" name="BusinessServiceTemplate">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hs0gUBUHEeGvy5vcBZd45A" body="Definition of a business service or pageflow process. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hs8cIBUHEeGvy5vcBZd45A" body="Array of business service definitions. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iFTRwBUHEeGvy5vcBZd45A" body="Details of business services that match the specified query. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hs5Y0BUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonBaseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseBusinessServiceTemplate?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BusinessServiceTemplatehasFormalParameters" name="hasFormalParameters">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hsyrIBUHEeGvy5vcBZd45A" body="Boolean value defining whether the business service or pageflow process has formal parameters. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hsxdAhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hsxdARUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition16" name="Composition16" memberEnd="BusinessCategoryBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3abusinessServiceTemplate? Composition16businesscategory?com.tibco.n2.pfe.api.common%3a%3aComposition16%3a%3abusinesscategory?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition16businesscategory" name="businesscategory" type="com.tibco.n2.pfe.api.commonBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory?" association="com.tibco.n2.pfe.api.commonComposition16?com.tibco.n2.pfe.api.common%3a%3aComposition16?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hto_shUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hto_sRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition17" name="Composition17" memberEnd="BusinessCategoryChildBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3achildBusinessCategory? Composition17businesscategory?com.tibco.n2.pfe.api.common%3a%3aComposition17%3a%3abusinesscategory?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition17businesscategory" name="businesscategory" type="com.tibco.n2.pfe.api.commonBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory?" association="com.tibco.n2.pfe.api.commonComposition17?com.tibco.n2.pfe.api.common%3a%3aComposition17?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ht_lBBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ht_lAxUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonBusinessCategoryResponse" name="BusinessCategoryResponse">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hvEjEBUHEeGvy5vcBZd45A" body="Array of child business categories. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hvKpsBUHEeGvy5vcBZd45A" body="Collection of business categories and associated business services. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BusinessCategoryResponsename" name="name">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hueGIBUHEeGvy5vcBZd45A" body="Name of the category. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hucQ8BUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hubp4hUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BusinessCategoryResponseBusinessServiceTemplate" name="businessServiceTemplate" type="com.tibco.n2.pfe.api.commonBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition18?com.tibco.n2.pfe.api.common%3a%3aComposition18?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hutWsxUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hutWshUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="BusinessCategoryResponseChildBusinessCategory" name="childBusinessCategory" type="com.tibco.n2.pfe.api.commonBusinessCategoryResponse?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition19?com.tibco.n2.pfe.api.common%3a%3aComposition19?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hvFxMxUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hvFxMhUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition18" name="Composition18" memberEnd="BusinessCategoryResponseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3abusinessServiceTemplate? Composition18businesscategoryresponse?com.tibco.n2.pfe.api.common%3a%3aComposition18%3a%3abusinesscategoryresponse?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition18businesscategoryresponse" name="businesscategoryresponse" type="com.tibco.n2.pfe.api.commonBusinessCategoryResponse?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse?" association="com.tibco.n2.pfe.api.commonComposition18?com.tibco.n2.pfe.api.common%3a%3aComposition18?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hut9wRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hut9wBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition19" name="Composition19" memberEnd="BusinessCategoryResponseChildBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3achildBusinessCategory? Composition19businesscategoryresponse?com.tibco.n2.pfe.api.common%3a%3aComposition19%3a%3abusinesscategoryresponse?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition19businesscategoryresponse" name="businesscategoryresponse" type="com.tibco.n2.pfe.api.commonBusinessCategoryResponse?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse?" association="com.tibco.n2.pfe.api.commonComposition19?com.tibco.n2.pfe.api.common%3a%3aComposition19?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hvGYQBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hvFxNRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonCategory" name="Category">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hv_wIBUHEeGvy5vcBZd45A" body="Array of child business categories. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hwLWUBUHEeGvy5vcBZd45A" body="Definition of a business category. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Categoryname" name="name">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hvn8sBUHEeGvy5vcBZd45A" body="Name of business category. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hvlgchUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hvlgcRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CategoryChildCategory" name="childCategory" type="com.tibco.n2.pfe.api.commonCategory?com.tibco.n2.pfe.api.common%3a%3aCategory?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition20?com.tibco.n2.pfe.api.common%3a%3aComposition20?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hwHr8RUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hwHr8BUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition20" name="Composition20" memberEnd="CategoryChildCategory?com.tibco.n2.pfe.api.common%3a%3aCategory%3a%3achildCategory? Composition20category?com.tibco.n2.pfe.api.common%3a%3aComposition20%3a%3acategory?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition20category" name="category" type="com.tibco.n2.pfe.api.commonCategory?com.tibco.n2.pfe.api.common%3a%3aCategory?" association="com.tibco.n2.pfe.api.commonComposition20?com.tibco.n2.pfe.api.common%3a%3aComposition20?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hwHr9BUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hwHr8xUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonEventDefinitionType" name="EventDefinitionType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hxDgEBUHEeGvy5vcBZd45A" body="Definition of a business event. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iOPLUBUHEeGvy5vcBZd45A" body="Definition of the event to be injected and the business service instance into which it should be injected. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hxEHIBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonBaseTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EventDefinitionTypeeventName" name="eventName">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hwoCQBUHEeGvy5vcBZd45A" body="Name of the catch intermediate event in the pageflow process that handles the business event (for example, UpdateExchangeRates).&#xA;&#xA;Note: You cannot obtain this name programmatically. You must obtain it by examining the process in TIBCO Business Studio. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hwmNEhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hwmNERUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EventDefinitionTypeprocessInstanceId" name="processInstanceId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hxBD0BUHEeGvy5vcBZd45A" body="Unique ID of the process instance into which the event should be injected. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hw_OohUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hw_OoRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonPageData" name="PageData">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hyGB4BUHEeGvy5vcBZd45A" body="Complete data for the page. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h76FMBUHEeGvy5vcBZd45A" body="Data for each page of the pageflow or business service. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageDatapageReference" name="pageReference" type="com.tibco.n2.pfe.api.commonPageReference?com.tibco.n2.pfe.api.common%3a%3aPageReference?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition21?com.tibco.n2.pfe.api.common%3a%3aComposition21?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hxwqsxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hxwqshUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageDatapayload" name="payload" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition22?com.tibco.n2.pfe.api.common%3a%3aComposition22?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeeddataPayload?com.tibco.n2.common.datafeed%3a%3adataPayload?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hyBwchUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hyBwcRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonPageReference" name="PageReference">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hxgzEBUHEeGvy5vcBZd45A" body="Definition of an in-progress page reference. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hxpV8BUHEeGvy5vcBZd45A" body="Reference details for the page. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hxmSoBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonActivityReference?com.tibco.n2.pfe.api.common%3a%3aActivityReference?"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition21" name="Composition21" memberEnd="PageDatapageReference?com.tibco.n2.pfe.api.common%3a%3aPageData%3a%3apageReference? Composition21pagedata?com.tibco.n2.pfe.api.common%3a%3aComposition21%3a%3apagedata?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition21pagedata" name="pagedata" type="com.tibco.n2.pfe.api.commonPageData?com.tibco.n2.pfe.api.common%3a%3aPageData?" association="com.tibco.n2.pfe.api.commonComposition21?com.tibco.n2.pfe.api.common%3a%3aComposition21?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hxxRwhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hxxRwRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition22" name="Composition22" memberEnd="PageDatapayload?com.tibco.n2.pfe.api.common%3a%3aPageData%3a%3apayload? Composition22pagedata?com.tibco.n2.pfe.api.common%3a%3aComposition22%3a%3apagedata?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition22pagedata" name="pagedata" type="com.tibco.n2.pfe.api.commonPageData?com.tibco.n2.pfe.api.common%3a%3aPageData?" association="com.tibco.n2.pfe.api.commonComposition22?com.tibco.n2.pfe.api.common%3a%3aComposition22?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hyCXgBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hyBwdBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonListingRequest" name="ListingRequest">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hyrQsBUHEeGvy5vcBZd45A" body="Generic request description. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_h1pFIBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonPagingAndSorting?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ListingRequestincludeFormalParameters" name="includeFormalParameters">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hyo0cBUHEeGvy5vcBZd45A" body="Boolean value defining whether the response should include items that have formal parameters.&#xA;&#xA;If not specified the default value is FALSE. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hynmURUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hynmUBUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonPagingAndSorting" name="PagingAndSorting">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h1mo4BUHEeGvy5vcBZd45A" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Paging and sorting parameters to enable clients to manipulate the size of a response into manageable chunks of data. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PagingAndSortingstartPosition" name="startPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hzODQBUHEeGvy5vcBZd45A" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Position in the list from which to start this page. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hzK_8hUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hzK_8RUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PagingAndSortingnumberOfItems" name="numberOfItems">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hzphEBUHEeGvy5vcBZd45A" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Number of items (in the list) to include in this page. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hzl2sxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hzl2shUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PagingAndSortinggetTotalCount" name="getTotalCount">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h0EX0BUHEeGvy5vcBZd45A" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Boolean value defining whether the Page Flow Engine builds a count of the total number of items in the  list. (If 'false' the total is set to -1.) "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h0B7khUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h0B7kRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PagingAndSortingorderFilterCriteria" name="orderFilterCriteria" type="com.tibco.n2.pfe.api.commonOrderFilterCriteria?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition23?com.tibco.n2.pfe.api.common%3a%3aComposition23?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h1i-gRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h1i-gBUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonOrderFilterCriteria" name="OrderFilterCriteria">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h1X_YBUHEeGvy5vcBZd45A" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Specification of sort/filter criteria to be applied to a list. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h1bCsBUHEeGvy5vcBZd45A" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Specification of sort/filter criteria to be applied to the list. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="OrderFilterCriteriaorder" name="order">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h04QIBUHEeGvy5vcBZd45A" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Expression defining the sort criteria to be applied to the list.  "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h02a8hUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h02a8RUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="OrderFilterCriteriafilter" name="filter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h1UVABUHEeGvy5vcBZd45A" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Expression defining the filter criteria to be applied to the list.  "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h1Sf0RUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h1Sf0BUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition23" name="Composition23" memberEnd="PagingAndSortingorderFilterCriteria?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3aorderFilterCriteria? Composition23pagingandsorting?com.tibco.n2.pfe.api.common%3a%3aComposition23%3a%3apagingandsorting?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition23pagingandsorting" name="pagingandsorting" type="com.tibco.n2.pfe.api.commonPagingAndSorting?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting?" association="com.tibco.n2.pfe.api.commonComposition23?com.tibco.n2.pfe.api.common%3a%3aComposition23?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h1jlkBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h1i-gxUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonPageFlowParameters" name="PageFlowParameters">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageFlowParametersparameter" name="parameter" type="com.tibco.n2.pfe.api.commonParameter?com.tibco.n2.pfe.api.common%3a%3aParameter?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition24?com.tibco.n2.pfe.api.common%3a%3aComposition24?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h3Rc0xUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h3Rc0hUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonParameter" name="Parameter">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Parametername" name="name">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h2kSMBUHEeGvy5vcBZd45A" body="Name of the paramerter. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h2idABUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h2h18hUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Parametervalue" name="value">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h3EBcBUHEeGvy5vcBZd45A" body="Value of the parameter. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_w5Q_kB_WEeC4u6LGdGphwA?BomPrimitiveTypes%3a%3aObject?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h3BlMhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h3BlMRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition24" name="Composition24" memberEnd="PageFlowParametersparameter?com.tibco.n2.pfe.api.common%3a%3aPageFlowParameters%3a%3aparameter? Composition24pageflowparameters?com.tibco.n2.pfe.api.common%3a%3aComposition24%3a%3apageflowparameters?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition24pageflowparameters" name="pageflowparameters" type="com.tibco.n2.pfe.api.commonPageFlowParameters?com.tibco.n2.pfe.api.common%3a%3aPageFlowParameters?" association="com.tibco.n2.pfe.api.commonComposition24?com.tibco.n2.pfe.api.common%3a%3aComposition24?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h3SD4RUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h3SD4BUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonPageFlowProcessReference" name="PageFlowProcessReference">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h4XB8BUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress pageflow. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageFlowProcessReferenceinstanceId" name="instanceId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h33SsBUHEeGvy5vcBZd45A" body="Unique ID of the process instance. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h31dgRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h31dgBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageFlowProcessReferencename" name="name">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h4VMwBUHEeGvy5vcBZd45A" body="Name of the pageflow process. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h4SwghUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h4SwgRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonPageFlowTemplate" name="PageFlowTemplate">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h47psBUHEeGvy5vcBZd45A" body="Definition of a pageflow. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_h48QwBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonPFETemplate?com.tibco.n2.pfe.api.common%3a%3aPFETemplate?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageFlowTemplatehasFormalParameters" name="hasFormalParameters">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h45NcBUHEeGvy5vcBZd45A" body="Boolean value defining whether the pageflow contains formal parameters. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h43_UhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h43_URUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonPageResponse" name="PageResponse">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h8AL0BUHEeGvy5vcBZd45A" body="Generic container for a business service or pageflow operation response. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iLIM8BUHEeGvy5vcBZd45A" body="Business service execution state, context and page data. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iNXooBUHEeGvy5vcBZd45A" body="Business service execution state, context and page data. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iPrVwBUHEeGvy5vcBZd45A" body="Business service execution state, context and page data. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageResponseexecutionState" name="executionState" type="com.tibco.n2.pfe.api.commonExecutionState?com.tibco.n2.pfe.api.common%3a%3aExecutionState?">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h5MIYBUHEeGvy5vcBZd45A" body="Enumerated value defining the current status of the pageflow or business service. One of the following values:&#xA;&#xA;- NOT_STARTED: Unable to start.&#xA;- STARTED: Started successfully.&#xA;- IN_PROGRESS: In progress.&#xA;- COMPLETED: Successfully conpleted.&#xA;- UNKNOWN: Unknown status. "/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h5K6QhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h5K6QRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageResponsecontext" name="context" type="com.tibco.n2.pfe.api.commonResponseContext?com.tibco.n2.pfe.api.common%3a%3aResponseContext?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition27?com.tibco.n2.pfe.api.common%3a%3aComposition27?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h7dZQxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h7dZQhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PageResponsepageData" name="pageData" type="com.tibco.n2.pfe.api.commonPageData?com.tibco.n2.pfe.api.common%3a%3aPageData?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition28?com.tibco.n2.pfe.api.common%3a%3aComposition28?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h76sQxUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h76sQhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonResponseContext" name="ResponseContext">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h7SaIBUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress pageflow or business service. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h7U2YBUHEeGvy5vcBZd45A" body="Reference to a pageflow or business service. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ResponseContextpageFlowTemplate" name="pageFlowTemplate" type="com.tibco.n2.pfe.api.commonPFETemplate?com.tibco.n2.pfe.api.common%3a%3aPFETemplate?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition25?com.tibco.n2.pfe.api.common%3a%3aComposition25?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h6E5MhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h6E5MRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ResponseContextprocessReference" name="processReference" type="com.tibco.n2.pfe.api.commonProcessReference?com.tibco.n2.pfe.api.common%3a%3aProcessReference?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition26?com.tibco.n2.pfe.api.common%3a%3aComposition26?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h7NhoxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h7NhohUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition25" name="Composition25" memberEnd="ResponseContextpageFlowTemplate?com.tibco.n2.pfe.api.common%3a%3aResponseContext%3a%3apageFlowTemplate? Composition25responsecontext?com.tibco.n2.pfe.api.common%3a%3aComposition25%3a%3aresponsecontext?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition25responsecontext" name="responsecontext" type="com.tibco.n2.pfe.api.commonResponseContext?com.tibco.n2.pfe.api.common%3a%3aResponseContext?" association="com.tibco.n2.pfe.api.commonComposition25?com.tibco.n2.pfe.api.common%3a%3aComposition25?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h6FgQBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h6E5NBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonProcessReference" name="ProcessReference">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h7IpIBUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress process. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h7M6kBUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress pageflow or business service. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_h7J3QBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonBaseProcessReference?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProcessReferencename" name="name">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_h7Fl0BUHEeGvy5vcBZd45A" body="Name of the process. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h7DJkBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h7CigRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition26" name="Composition26" memberEnd="ResponseContextprocessReference?com.tibco.n2.pfe.api.common%3a%3aResponseContext%3a%3aprocessReference? Composition26responsecontext?com.tibco.n2.pfe.api.common%3a%3aComposition26%3a%3aresponsecontext?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition26responsecontext" name="responsecontext" type="com.tibco.n2.pfe.api.commonResponseContext?com.tibco.n2.pfe.api.common%3a%3aResponseContext?" association="com.tibco.n2.pfe.api.commonComposition26?com.tibco.n2.pfe.api.common%3a%3aComposition26?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h7OIshUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h7OIsRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition27" name="Composition27" memberEnd="PageResponsecontext?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3acontext? Composition27pageresponse?com.tibco.n2.pfe.api.common%3a%3aComposition27%3a%3apageresponse?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition27pageresponse" name="pageresponse" type="com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?" association="com.tibco.n2.pfe.api.commonComposition27?com.tibco.n2.pfe.api.common%3a%3aComposition27?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h7eAUhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h7eAURUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition28" name="Composition28" memberEnd="PageResponsepageData?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3apageData? Composition28pageresponse?com.tibco.n2.pfe.api.common%3a%3aComposition28%3a%3apageresponse?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition28pageresponse" name="pageresponse" type="com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?" association="com.tibco.n2.pfe.api.commonComposition28?com.tibco.n2.pfe.api.common%3a%3aComposition28?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h77TUhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h77TURUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonRequestContext" name="RequestContext">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_h8IusBUHEeGvy5vcBZd45A" body="Unique identifier for an in-progress pageflow or business service. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iL96cBUHEeGvy5vcBZd45A" body="Unique identifier for the business service to be updated. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_h8NnMBUHEeGvy5vcBZd45A" general="com.tibco.n2.pfe.api.commonBaseSessionContext?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext?"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.commonResponseFeedType" name="ResponseFeedType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ResponseFeedTypefeedTypes" name="feedTypes" type="com.tibco.n2.pfe.api.commonBaseFeedType?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType?" aggregation="composite" association="com.tibco.n2.pfe.api.commonComposition29?com.tibco.n2.pfe.api.common%3a%3aComposition29?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h82gYBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h815UhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.commonComposition29" name="Composition29" memberEnd="ResponseFeedTypefeedTypes?com.tibco.n2.pfe.api.common%3a%3aResponseFeedType%3a%3afeedTypes? Composition29responsefeedtype?com.tibco.n2.pfe.api.common%3a%3aComposition29%3a%3aresponsefeedtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition29responsefeedtype" name="responsefeedtype" type="com.tibco.n2.pfe.api.commonResponseFeedType?com.tibco.n2.pfe.api.common%3a%3aResponseFeedType?" association="com.tibco.n2.pfe.api.commonComposition29?com.tibco.n2.pfe.api.common%3a%3aComposition29?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h82gYxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h82gYhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hQIkURUHEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hQIkUhUHEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hQIkUxUHEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hQIkVBUHEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_hQIkVRUHEeGvy5vcBZd45A" base_Package="com.tibco.n2.pfe.api.common2?com.tibco.n2.pfe.api.common?" xsdTargetNamespace="http://common.api.pfe.n2.tibco.com" xsdSchemaLocation="pfe-common.xsd"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hkC-0BUHEeGvy5vcBZd45A" base_Enumeration="com.tibco.n2.pfe.api.commonExecutionState?com.tibco.n2.pfe.api.common%3a%3aExecutionState?" xsdSimpleTypeName="ExecutionState" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hkE0AhUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hkE0ARUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aNOTSTARTED?" xsdValue="NOT_STARTED"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hkFbERUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hkFbEBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aSTARTED?" xsdValue="STARTED"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hkFbExUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hkFbEhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aINPROGRESS?" xsdValue="IN_PROGRESS"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hkGCIBUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hkFbFBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aCOMPLETED?" xsdValue="COMPLETED"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hkGCIhUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hkGCIRUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aUNKNOWN?" xsdValue="UNKNOWN"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hlRt4BUHEeGvy5vcBZd45A" base_Enumeration="com.tibco.n2.pfe.api.commonFormType?com.tibco.n2.pfe.api.common%3a%3aFormType?" xsdSimpleTypeName="FormType" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hlUKIRUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hlUKIBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aGIFORM?" xsdValue="GI_FORM"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hlUKIxUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hlUKIhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aGWTFORM?" xsdValue="GWT_FORM"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hlUxMRUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hlUxMBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aCUSTOMFORM?" xsdValue="CUSTOM_FORM"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hlUxMxUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hlUxMhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aPAGEFLOW?" xsdValue="PAGEFLOW"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hmTBkBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonActivityReference?com.tibco.n2.pfe.api.common%3a%3aActivityReference?" xsdName="ActivityReference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hmiSIBUHEeGvy5vcBZd45A" base_Property="ActivityReferenceactivityName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aactivityName?" xsdName="activityName" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hmi5MBUHEeGvy5vcBZd45A" textLength="-1" base_Property="ActivityReferenceactivityName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aactivityName?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hmyJwRUHEeGvy5vcBZd45A" base_Property="ActivityReferenceactivityModelId?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aactivityModelId?" xsdName="activityModelId" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hmzX4BUHEeGvy5vcBZd45A" textLength="-1" base_Property="ActivityReferenceactivityModelId?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aactivityModelId?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hnD2kRUHEeGvy5vcBZd45A" base_Property="ActivityReferencemoduleName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3amoduleName?" xsdName="moduleName" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hnFEsBUHEeGvy5vcBZd45A" textLength="-1" base_Property="ActivityReferencemoduleName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3amoduleName?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hnU8UBUHEeGvy5vcBZd45A" base_Property="ActivityReferencemoduleVersion?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3amoduleVersion?" xsdName="moduleVersion" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hnVjYBUHEeGvy5vcBZd45A" textLength="-1" base_Property="ActivityReferencemoduleVersion?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3amoduleVersion?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hnlbABUHEeGvy5vcBZd45A" base_Property="ActivityReferenceprocessName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aprocessName?" xsdName="processName" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hnmCEBUHEeGvy5vcBZd45A" textLength="-1" base_Property="ActivityReferenceprocessName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aprocessName?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hnuk8BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBaseActivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference?" xsdName="BaseActivityReference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hn91gBUHEeGvy5vcBZd45A" base_Property="BaseActivityReferenceactivityId?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference%3a%3aactivityId?" xsdName="activityId" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hn-ckBUHEeGvy5vcBZd45A" textLength="-1" base_Property="BaseActivityReferenceactivityId?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference%3a%3aactivityId?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hoINkBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBaseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseBusinessServiceTemplate?" xsdName="BaseBusinessServiceTemplate" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hoPiUBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonPFETemplate?com.tibco.n2.pfe.api.common%3a%3aPFETemplate?" xsdName="PFETemplate" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hoey4RUHEeGvy5vcBZd45A" base_Property="PFETemplateversion?com.tibco.n2.pfe.api.common%3a%3aPFETemplate%3a%3aversion?" xsdName="version" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hofZ8hUHEeGvy5vcBZd45A" textLength="-1" base_Property="PFETemplateversion?com.tibco.n2.pfe.api.common%3a%3aPFETemplate%3a%3aversion?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hooj4BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBaseTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate?" xsdName="BaseTemplate" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ho4bgRUHEeGvy5vcBZd45A" base_Property="BaseTemplatemoduleName?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate%3a%3amoduleName?" xsdName="moduleName" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ho5CkRUHEeGvy5vcBZd45A" textLength="-1" base_Property="BaseTemplatemoduleName?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate%3a%3amoduleName?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpKvYRUHEeGvy5vcBZd45A" base_Property="BaseTemplateprocessName?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate%3a%3aprocessName?" xsdName="processName" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hpLWcRUHEeGvy5vcBZd45A" textLength="-1" base_Property="BaseTemplateprocessName?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate%3a%3aprocessName?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hpW8oBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBaseFeedType?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType?" xsdName="BaseFeedType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hpgtoBUHEeGvy5vcBZd45A" base_Property="BaseFeedTypefeedMode?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType%3a%3afeedMode?" xsdName="feedMode" xsdForm="unqualified" xsdUse="required" xsdType="pm:FeedMode" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hprswBUHEeGvy5vcBZd45A" base_Property="BaseFeedTypefeedFormat?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType%3a%3afeedFormat?" xsdName="feedFormat" xsdForm="unqualified" xsdUse="optional" xsdType="pm:FeedFormat" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hpwlQBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBasePageData?com.tibco.n2.pfe.api.common%3a%3aBasePageData?" xsdName="BasePageData" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hqdv4BUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hqBD8BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBasePageReference?com.tibco.n2.pfe.api.common%3a%3aBasePageReference?" xsdName="BasePageReference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hqPGYBUHEeGvy5vcBZd45A" base_Property="BasePageDatapageReference?com.tibco.n2.pfe.api.common%3a%3aBasePageData%3a%3apageReference?" xsdName="pageReference" xsdForm="unqualified" xsdType="BasePageReference" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hqdv4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hqchwhUHEeGvy5vcBZd45A" base_Property="BasePageDatapayloadModel?com.tibco.n2.pfe.api.common%3a%3aBasePageData%3a%3apayloadModel?" xsdName="payloadModel" xsdForm="unqualified" xsdType="dataPayload" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hqdv4BUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hqjPcBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBaseProcessReference?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference?" xsdName="BaseProcessReference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hq8RABUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hq5NsBUHEeGvy5vcBZd45A" base_Property="BaseProcessReferenceid?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference%3a%3aid?" xsdName="id" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hq8RABUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hq50wBUHEeGvy5vcBZd45A" textLength="-1" base_Property="BaseProcessReferenceid?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference%3a%3aid?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hrAicBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBaseSessionContext?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext?" xsdName="BaseSessionContext" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hruUIBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hrcnUhUHEeGvy5vcBZd45A" base_Property="BaseSessionContextprocessReference?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext%3a%3aprocessReference?" xsdName="processReference" xsdForm="unqualified" xsdType="BaseProcessReference" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hruUIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hrse8BUHEeGvy5vcBZd45A" base_Property="BaseSessionContextactivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext%3a%3aactivityReference?" xsdName="activityReference" xsdForm="unqualified" xsdType="BaseActivityReference" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hruUIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hr0awBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory?" xsdName="BusinessCategory" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_huBaMBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hsHVsRUHEeGvy5vcBZd45A" base_Property="BusinessCategoryname?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3aname?" xsdName="name" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hsIj0BUHEeGvy5vcBZd45A" textLength="-1" base_Property="BusinessCategoryname?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hsdT8BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate?" xsdName="BusinessServiceTemplate" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hsxdABUHEeGvy5vcBZd45A" base_Property="BusinessServiceTemplatehasFormalParameters?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate%3a%3ahasFormalParameters?" xsdName="hasFormalParameters" xsdForm="unqualified" xsdUse="required" xsdType="boolean" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hto_sxUHEeGvy5vcBZd45A" base_Property="BusinessCategoryBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3abusinessServiceTemplate?" xsdName="BusinessServiceTemplate" xsdForm="unqualified" xsdType="BusinessServiceTemplate" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_huBaMBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_huAMEBUHEeGvy5vcBZd45A" base_Property="BusinessCategoryChildBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3achildBusinessCategory?" xsdName="ChildBusinessCategory" xsdForm="unqualified" xsdType="BusinessCategory" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_huBaMBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_huHg0BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonBusinessCategoryResponse?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse?" xsdName="BusinessCategoryResponse" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hvHmYBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hubp4RUHEeGvy5vcBZd45A" base_Property="BusinessCategoryResponsename?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3aname?" xsdName="name" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hucQ8RUHEeGvy5vcBZd45A" textLength="-1" base_Property="BusinessCategoryResponsename?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hut9whUHEeGvy5vcBZd45A" base_Property="BusinessCategoryResponseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3abusinessServiceTemplate?" xsdName="BusinessServiceTemplate" xsdForm="unqualified" xsdType="BusinessServiceTemplate" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hvHmYBUHEeGvy5vcBZd45A" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hvGYQRUHEeGvy5vcBZd45A" base_Property="BusinessCategoryResponseChildBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3achildBusinessCategory?" xsdName="ChildBusinessCategory" xsdForm="unqualified" xsdType="BusinessCategoryResponse" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hvHmYBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hvO7IBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonCategory?com.tibco.n2.pfe.api.common%3a%3aCategory?" xsdName="Category" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hwJhIBUHEeGvy5vcBZd45A" name="MS1_1_1" minOccurs="0" maxOccurs="-1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hvlgcBUHEeGvy5vcBZd45A" base_Property="Categoryname?com.tibco.n2.pfe.api.common%3a%3aCategory%3a%3aname?" xsdName="name" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hvmHgBUHEeGvy5vcBZd45A" textLength="-1" base_Property="Categoryname?com.tibco.n2.pfe.api.common%3a%3aCategory%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hwITABUHEeGvy5vcBZd45A" base_Property="CategoryChildCategory?com.tibco.n2.pfe.api.common%3a%3aCategory%3a%3achildCategory?" xsdName="ChildCategory" xsdForm="unqualified" xsdType="Category" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hwJhIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hwPnwBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonEventDefinitionType?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType?" xsdName="EventDefinitionType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hwmNEBUHEeGvy5vcBZd45A" base_Property="EventDefinitionTypeeventName?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType%3a%3aeventName?" xsdName="eventName" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hwm0IBUHEeGvy5vcBZd45A" textLength="-1" base_Property="EventDefinitionTypeeventName?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType%3a%3aeventName?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hw_OoBUHEeGvy5vcBZd45A" base_Property="EventDefinitionTypeprocessInstanceId?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType%3a%3aprocessInstanceId?" xsdName="processInstanceId" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hw_1sBUHEeGvy5vcBZd45A" textLength="-1" base_Property="EventDefinitionTypeprocessInstanceId?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType%3a%3aprocessInstanceId?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hxIYkBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonPageData?com.tibco.n2.pfe.api.common%3a%3aPageData?" xsdName="PageData" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hyDloBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hxeW0BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonPageReference?com.tibco.n2.pfe.api.common%3a%3aPageReference?" xsdName="PageReference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hxxRwxUHEeGvy5vcBZd45A" base_Property="PageDatapageReference?com.tibco.n2.pfe.api.common%3a%3aPageData%3a%3apageReference?" xsdName="pageReference" xsdForm="unqualified" xsdType="PageReference" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hyDloBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hyCXgRUHEeGvy5vcBZd45A" base_Property="PageDatapayload?com.tibco.n2.pfe.api.common%3a%3aPageData%3a%3apayload?" xsdName="payload" xsdForm="unqualified" xsdType="dataPayload" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hyDloBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hyKTURUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonListingRequest?com.tibco.n2.pfe.api.common%3a%3aListingRequest?" xsdName="ListingRequest" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hypbgBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hym_QRUHEeGvy5vcBZd45A" base_Property="ListingRequestincludeFormalParameters?com.tibco.n2.pfe.api.common%3a%3aListingRequest%3a%3aincludeFormalParameters?" xsdName="includeFormalParameters" xsdForm="unqualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hypbgBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hyx-YBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonPagingAndSorting?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting?" xsdName="PagingAndSorting" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h1kzsBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hzK_8BUHEeGvy5vcBZd45A" base_Property="PagingAndSortingstartPosition?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3astartPosition?" xsdName="startPosition" xsdForm="unqualified" xsdUse="optional" xsdType="long" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hzLnABUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="PagingAndSortingstartPosition?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3astartPosition?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_hzMOEBUHEeGvy5vcBZd45A" base_Property="PagingAndSortingstartPosition?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3astartPosition?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hzl2sRUHEeGvy5vcBZd45A" base_Property="PagingAndSortingnumberOfItems?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3anumberOfItems?" xsdName="numberOfItems" xsdForm="unqualified" xsdUse="optional" xsdType="long" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hzmdwBUHEeGvy5vcBZd45A" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="PagingAndSortingnumberOfItems?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3anumberOfItems?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_hznr4BUHEeGvy5vcBZd45A" base_Property="PagingAndSortingnumberOfItems?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3anumberOfItems?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h0B7kBUHEeGvy5vcBZd45A" base_Property="PagingAndSortinggetTotalCount?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3agetTotalCount?" xsdName="getTotalCount" xsdForm="unqualified" xsdDefault="true" xsdUse="optional" xsdType="boolean" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h0CioBUHEeGvy5vcBZd45A" base_Property="PagingAndSortinggetTotalCount?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3agetTotalCount?" booleanDefaultValue="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h0cLQBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonOrderFilterCriteria?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria?" xsdName="OrderFilterCriteria" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h1VjIBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h02a8BUHEeGvy5vcBZd45A" base_Property="OrderFilterCriteriaorder?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria%3a%3aorder?" xsdName="order" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h1VjIBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h03CABUHEeGvy5vcBZd45A" textLength="-1" base_Property="OrderFilterCriteriaorder?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria%3a%3aorder?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h1R4wRUHEeGvy5vcBZd45A" base_Property="OrderFilterCriteriafilter?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria%3a%3afilter?" xsdName="filter" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h1VjIBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h1TG4BUHEeGvy5vcBZd45A" textLength="-1" base_Property="OrderFilterCriteriafilter?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria%3a%3afilter?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h1jlkRUHEeGvy5vcBZd45A" base_Property="PagingAndSortingorderFilterCriteria?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3aorderFilterCriteria?" xsdName="orderFilterCriteria" xsdForm="unqualified" xsdType="OrderFilterCriteria" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h1kzsBUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h1t9oBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonPageFlowParameters?com.tibco.n2.pfe.api.common%3a%3aPageFlowParameters?" xsdName="PageFlowParameters" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h3T5EBUHEeGvy5vcBZd45A" name="MS1_1_1" minOccurs="0" maxOccurs="-1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h2G_MBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonParameter?com.tibco.n2.pfe.api.common%3a%3aParameter?" xsdName="Parameter" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h3FPkBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h2h18RUHEeGvy5vcBZd45A" base_Property="Parametername?com.tibco.n2.pfe.api.common%3a%3aParameter%3a%3aname?" xsdName="name" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h3FPkBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h2idARUHEeGvy5vcBZd45A" textLength="-1" base_Property="Parametername?com.tibco.n2.pfe.api.common%3a%3aParameter%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h3BlMBUHEeGvy5vcBZd45A" base_Property="Parametervalue?com.tibco.n2.pfe.api.common%3a%3aParameter%3a%3avalue?" xsdName="value" xsdForm="unqualified" xsdType="anyType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h3FPkBUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h3CMQBUHEeGvy5vcBZd45A" base_Property="Parametervalue?com.tibco.n2.pfe.api.common%3a%3aParameter%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h3SD4hUHEeGvy5vcBZd45A" base_Property="PageFlowParametersparameter?com.tibco.n2.pfe.api.common%3a%3aPageFlowParameters%3a%3aparameter?" xsdName="parameter" xsdForm="unqualified" xsdType="Parameter" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h3T5EBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h3Z_sBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonPageFlowProcessReference?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference?" xsdName="PageFlowProcessReference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h302cRUHEeGvy5vcBZd45A" base_Property="PageFlowProcessReferenceinstanceId?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference%3a%3ainstanceId?" xsdName="instanceId" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h31dghUHEeGvy5vcBZd45A" textLength="-1" base_Property="PageFlowProcessReferenceinstanceId?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference%3a%3ainstanceId?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h4SwgBUHEeGvy5vcBZd45A" base_Property="PageFlowProcessReferencename?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference%3a%3aname?" xsdName="name" xsdForm="unqualified" xsdUse="optional" xsdType="string" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h4TXkBUHEeGvy5vcBZd45A" textLength="-1" base_Property="PageFlowProcessReferencename?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h4b6cBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonPageFlowTemplate?com.tibco.n2.pfe.api.common%3a%3aPageFlowTemplate?" xsdName="PageFlowTemplate" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h43_UBUHEeGvy5vcBZd45A" base_Property="PageFlowTemplatehasFormalParameters?com.tibco.n2.pfe.api.common%3a%3aPageFlowTemplate%3a%3ahasFormalParameters?" xsdName="hasFormalParameters" xsdForm="unqualified" xsdUse="required" xsdType="boolean" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h5C-cBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?" xsdName="PageResponse" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h79vkBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h5K6QBUHEeGvy5vcBZd45A" base_Property="PageResponseexecutionState?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3aexecutionState?" xsdName="executionState" xsdForm="unqualified" xsdUse="optional" xsdType="ExecutionState" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h5m_IBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonResponseContext?com.tibco.n2.pfe.api.common%3a%3aResponseContext?" xsdName="ResponseContext" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h7P94BUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h6FgQRUHEeGvy5vcBZd45A" base_Property="ResponseContextpageFlowTemplate?com.tibco.n2.pfe.api.common%3a%3aResponseContext%3a%3apageFlowTemplate?" xsdName="pageFlowTemplate" xsdForm="unqualified" xsdType="PFETemplate" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h7P94BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h6izQBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonProcessReference?com.tibco.n2.pfe.api.common%3a%3aProcessReference?" xsdName="ProcessReference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h7Gz8BUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h7CigBUHEeGvy5vcBZd45A" base_Property="ProcessReferencename?com.tibco.n2.pfe.api.common%3a%3aProcessReference%3a%3aname?" xsdName="name" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h7Gz8BUHEeGvy5vcBZd45A" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_h7DwoBUHEeGvy5vcBZd45A" textLength="-1" base_Property="ProcessReferencename?com.tibco.n2.pfe.api.common%3a%3aProcessReference%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h7OvwBUHEeGvy5vcBZd45A" base_Property="ResponseContextprocessReference?com.tibco.n2.pfe.api.common%3a%3aResponseContext%3a%3aprocessReference?" xsdName="processReference" xsdForm="unqualified" xsdType="ProcessReference" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h7P94BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h7eAUxUHEeGvy5vcBZd45A" base_Property="PageResponsecontext?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3acontext?" xsdName="context" xsdForm="unqualified" xsdType="ResponseContext" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h79vkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h78hcBUHEeGvy5vcBZd45A" base_Property="PageResponsepageData?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3apageData?" xsdName="pageData" xsdForm="unqualified" xsdType="PageData" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h79vkBUHEeGvy5vcBZd45A" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h8G5gBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonRequestContext?com.tibco.n2.pfe.api.common%3a%3aRequestContext?" xsdName="RequestContext" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_h8Tt0BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.pfe.api.commonResponseFeedType?com.tibco.n2.pfe.api.common%3a%3aResponseFeedType?" xsdName="ResponseFeedType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_h84VkBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_h83HcBUHEeGvy5vcBZd45A" base_Property="ResponseFeedTypefeedTypes?com.tibco.n2.pfe.api.common%3a%3aResponseFeedType%3a%3afeedTypes?" xsdName="feedTypes" xsdForm="unqualified" xsdType="BaseFeedType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_h84VkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSpxQhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition28?com.tibco.n2.pfe.api.common%3a%3aComposition28?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSqYUBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition23?com.tibco.n2.pfe.api.common%3a%3aComposition23?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSqYURUHEeGvy5vcBZd45A" base_Element="_hrcAQRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSqYUhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition27?com.tibco.n2.pfe.api.common%3a%3aComposition27?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSqYUxUHEeGvy5vcBZd45A" base_Element="_hrr34BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSq_YBUHEeGvy5vcBZd45A" base_Element="PageFlowTemplatehasFormalParameters?com.tibco.n2.pfe.api.common%3a%3aPageFlowTemplate%3a%3ahasFormalParameters?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSq_YRUHEeGvy5vcBZd45A" base_Element="ActivityReferenceprocessName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aprocessName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSq_YhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSrmcBUHEeGvy5vcBZd45A" base_Element="_h43_UhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSrmcRUHEeGvy5vcBZd45A" base_Element="_iIIjUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSrmchUHEeGvy5vcBZd45A" base_Element="_hnn3QBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSsNgBUHEeGvy5vcBZd45A" base_Element="_hprswhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSsNgRUHEeGvy5vcBZd45A" base_Element="_hxBD0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSsNghUHEeGvy5vcBZd45A" base_Element="_hpgtohUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSs0kBUHEeGvy5vcBZd45A" base_Element="_h76sQxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSs0kRUHEeGvy5vcBZd45A" base_Element="_htoYoxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSs0khUHEeGvy5vcBZd45A" base_Element="EventDefinitionTypeeventName?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType%3a%3aeventName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iStboBUHEeGvy5vcBZd45A" base_Element="_hnU8URUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iStboRUHEeGvy5vcBZd45A" base_Element="_h0B7khUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iStbohUHEeGvy5vcBZd45A" base_Element="PageDatapageReference?com.tibco.n2.pfe.api.common%3a%3aPageData%3a%3apageReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSuCsBUHEeGvy5vcBZd45A" base_Element="_hoFxUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSuCsRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition21?com.tibco.n2.pfe.api.common%3a%3aComposition21?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSuCshUHEeGvy5vcBZd45A" base_Element="_h31dgBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSupwBUHEeGvy5vcBZd45A" base_Element="_hueGIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSupwRUHEeGvy5vcBZd45A" base_Element="_hynmURUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSupwhUHEeGvy5vcBZd45A" base_Element="_hsxdAhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSupwxUHEeGvy5vcBZd45A" base_Element="_hkFbEhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aINPROGRESS?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSvQ0BUHEeGvy5vcBZd45A" base_Element="_hoBf4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSvQ0RUHEeGvy5vcBZd45A" base_Element="_h7CigRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSvQ0hUHEeGvy5vcBZd45A" base_Element="_h48QwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSv34BUHEeGvy5vcBZd45A" base_Element="_h_eWkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSv34RUHEeGvy5vcBZd45A" base_Element="_h6E5MRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSv34hUHEeGvy5vcBZd45A" base_Element="_h1bCsBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSwe8BUHEeGvy5vcBZd45A" base_Element="_hpUgYBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSwe8RUHEeGvy5vcBZd45A" base_Element="_hxEHIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSwe8hUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonPagingAndSorting?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSwe8xUHEeGvy5vcBZd45A" base_Element="_hmyw0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSxGABUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonProcessReference?com.tibco.n2.pfe.api.common%3a%3aProcessReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSxGARUHEeGvy5vcBZd45A" base_Element="ActivityReferencemoduleName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3amoduleName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSxGAhUHEeGvy5vcBZd45A" base_Element="PageResponsepageData?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3apageData?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSxtEBUHEeGvy5vcBZd45A" base_Element="_hqchwRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSxtERUHEeGvy5vcBZd45A" base_Element="_hrwwYBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSxtEhUHEeGvy5vcBZd45A" base_Element="_h3EBcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSyUIBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition26?com.tibco.n2.pfe.api.common%3a%3aComposition26?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSyUIRUHEeGvy5vcBZd45A" base_Element="_h1i-gxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSyUIhUHEeGvy5vcBZd45A" base_Element="BaseFeedTypefeedFormat?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType%3a%3afeedFormat?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSyUIxUHEeGvy5vcBZd45A" base_Element="Composition16businesscategory?com.tibco.n2.pfe.api.common%3a%3aComposition16%3a%3abusinesscategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSy7MBUHEeGvy5vcBZd45A" base_Element="_ht_lARUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSy7MRUHEeGvy5vcBZd45A" base_Element="_hqN4QxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSy7MhUHEeGvy5vcBZd45A" base_Element="_hlTjEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSziQBUHEeGvy5vcBZd45A" base_Element="_hlUxMBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aCUSTOMFORM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSziQRUHEeGvy5vcBZd45A" base_Element="BaseProcessReferenceid?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference%3a%3aid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iSziQhUHEeGvy5vcBZd45A" base_Element="_hpKvYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS0JUBUHEeGvy5vcBZd45A" base_Element="_hto_sRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS0JURUHEeGvy5vcBZd45A" base_Element="_ht_lAxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS0JUhUHEeGvy5vcBZd45A" base_Element="_iL96cBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS0JUxUHEeGvy5vcBZd45A" base_Element="_hyBwdBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS0wYBUHEeGvy5vcBZd45A" base_Element="Composition26responsecontext?com.tibco.n2.pfe.api.common%3a%3aComposition26%3a%3aresponsecontext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS0wYRUHEeGvy5vcBZd45A" base_Element="_h5K6QhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS0wYhUHEeGvy5vcBZd45A" base_Element="_hqb6sxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS1XcBUHEeGvy5vcBZd45A" base_Element="_h82gYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS1XcRUHEeGvy5vcBZd45A" base_Element="_h3SD4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS1XchUHEeGvy5vcBZd45A" base_Element="BasePageDatapayloadModel?com.tibco.n2.pfe.api.common%3a%3aBasePageData%3a%3apayloadModel?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS1-gBUHEeGvy5vcBZd45A" base_Element="_h6E5NBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS1-gRUHEeGvy5vcBZd45A" base_Element="_hyCXgBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS1-ghUHEeGvy5vcBZd45A" base_Element="_hkGCIRUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aUNKNOWN?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS2lkBUHEeGvy5vcBZd45A" base_Element="_hvKpsBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS2lkRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition22?com.tibco.n2.pfe.api.common%3a%3aComposition22?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS2lkhUHEeGvy5vcBZd45A" base_Element="BusinessCategoryResponsename?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS3MoBUHEeGvy5vcBZd45A" base_Element="Parametername?com.tibco.n2.pfe.api.common%3a%3aParameter%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS3MoRUHEeGvy5vcBZd45A" base_Element="Composition21pagedata?com.tibco.n2.pfe.api.common%3a%3aComposition21%3a%3apagedata?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS3MohUHEeGvy5vcBZd45A" base_Element="_hpPn4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS3zsBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition17?com.tibco.n2.pfe.api.common%3a%3aComposition17?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS3zsRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition16?com.tibco.n2.pfe.api.common%3a%3aComposition16?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS3zshUHEeGvy5vcBZd45A" base_Element="_hto_shUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS3zsxUHEeGvy5vcBZd45A" base_Element="_hm1NEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS4awBUHEeGvy5vcBZd45A" base_Element="_ht_lABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS4awRUHEeGvy5vcBZd45A" base_Element="_hutWshUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS4awhUHEeGvy5vcBZd45A" base_Element="_hqb6shUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS5B0BUHEeGvy5vcBZd45A" base_Element="_hnEdoBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS5B0RUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBaseTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS5B0hUHEeGvy5vcBZd45A" base_Element="_hsxdARUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS5o4BUHEeGvy5vcBZd45A" base_Element="BaseTemplatemoduleName?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate%3a%3amoduleName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS5o4RUHEeGvy5vcBZd45A" base_Element="_h7NhoxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS5o4hUHEeGvy5vcBZd45A" base_Element="_hpSEIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS6P8BUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition14?com.tibco.n2.pfe.api.common%3a%3aComposition14?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS6P8RUHEeGvy5vcBZd45A" base_Element="_h1i-gBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS6P8hUHEeGvy5vcBZd45A" base_Element="PFETemplateversion?com.tibco.n2.pfe.api.common%3a%3aPFETemplate%3a%3aversion?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS6P8xUHEeGvy5vcBZd45A" base_Element="_h8IusBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS63ABUHEeGvy5vcBZd45A" base_Element="_hq9fIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS63ARUHEeGvy5vcBZd45A" base_Element="PagingAndSortinggetTotalCount?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3agetTotalCount?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS63AhUHEeGvy5vcBZd45A" base_Element="_hwLWUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS7eEBUHEeGvy5vcBZd45A" base_Element="_ho5CkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS7eERUHEeGvy5vcBZd45A" base_Element="_hubp4hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS7eEhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonResponseContext?com.tibco.n2.pfe.api.common%3a%3aResponseContext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS8FIBUHEeGvy5vcBZd45A" base_Element="_hprswRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS8FIRUHEeGvy5vcBZd45A" base_Element="_hzl2shUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS8FIhUHEeGvy5vcBZd45A" base_Element="_h1jlkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS8sMBUHEeGvy5vcBZd45A" base_Element="_h04QIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS8sMRUHEeGvy5vcBZd45A" base_Element="_hofZ8BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS8sMhUHEeGvy5vcBZd45A" base_Element="_h7NhohUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS9TQBUHEeGvy5vcBZd45A" base_Element="_hkFbEBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aSTARTED?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS9TQRUHEeGvy5vcBZd45A" base_Element="_hoKp0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS9TQhUHEeGvy5vcBZd45A" base_Element="_h47psBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS9TQxUHEeGvy5vcBZd45A" base_Element="_ht_lBBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS96UBUHEeGvy5vcBZd45A" base_Element="Composition19businesscategoryresponse?com.tibco.n2.pfe.api.common%3a%3aComposition19%3a%3abusinesscategoryresponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS96URUHEeGvy5vcBZd45A" base_Element="_h7IpIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS96UhUHEeGvy5vcBZd45A" base_Element="_h7U2YBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS-hYBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonExecutionState?com.tibco.n2.pfe.api.common%3a%3aExecutionState?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS-hYRUHEeGvy5vcBZd45A" base_Element="ListingRequestincludeFormalParameters?com.tibco.n2.pfe.api.common%3a%3aListingRequest%3a%3aincludeFormalParameters?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS-hYhUHEeGvy5vcBZd45A" base_Element="_hsyrIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iS_vgBUHEeGvy5vcBZd45A" base_Element="_h4XB8BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTAWkBUHEeGvy5vcBZd45A" base_Element="Composition13basepagedata?com.tibco.n2.pfe.api.common%3a%3aComposition13%3a%3abasepagedata?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTAWkRUHEeGvy5vcBZd45A" base_Element="_hnEdoRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTAWkhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBasePageReference?com.tibco.n2.pfe.api.common%3a%3aBasePageReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTA9oBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition12?com.tibco.n2.pfe.api.common%3a%3aComposition12?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTA9oRUHEeGvy5vcBZd45A" base_Element="_h4SwgRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTA9ohUHEeGvy5vcBZd45A" base_Element="_hlUKIhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aGWTFORM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTBksBUHEeGvy5vcBZd45A" base_Element="_hzl2sxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTBksRUHEeGvy5vcBZd45A" base_Element="_hmyw0RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTBkshUHEeGvy5vcBZd45A" base_Element="_h43_URUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTCLwBUHEeGvy5vcBZd45A" base_Element="BusinessCategoryResponseChildBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3achildBusinessCategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTCLwRUHEeGvy5vcBZd45A" base_Element="OrderFilterCriteriaorder?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria%3a%3aorder?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTCLwhUHEeGvy5vcBZd45A" base_Element="_h7J3QBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTCLwxUHEeGvy5vcBZd45A" base_Element="_ht-W4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTCy0BUHEeGvy5vcBZd45A" base_Element="_hvn8sBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTCy0RUHEeGvy5vcBZd45A" base_Element="_hsH8wBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTCy0hUHEeGvy5vcBZd45A" base_Element="_hvlgchUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTDZ4BUHEeGvy5vcBZd45A" base_Element="_hvlgcRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTDZ4RUHEeGvy5vcBZd45A" base_Element="Composition27pageresponse?com.tibco.n2.pfe.api.common%3a%3aComposition27%3a%3apageresponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTDZ4hUHEeGvy5vcBZd45A" base_Element="_h1UVABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTEA8BUHEeGvy5vcBZd45A" base_Element="_hxwqsxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTEA8RUHEeGvy5vcBZd45A" base_Element="_hwmNERUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTEA8hUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonPageFlowParameters?com.tibco.n2.pfe.api.common%3a%3aPageFlowParameters?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTEoABUHEeGvy5vcBZd45A" base_Element="_hxwqshUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTEoARUHEeGvy5vcBZd45A" base_Element="_hsJx8BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTEoAhUHEeGvy5vcBZd45A" base_Element="_h77TURUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTFPEBUHEeGvy5vcBZd45A" base_Element="_h7DJkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTFPERUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonFormType?com.tibco.n2.pfe.api.common%3a%3aFormType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTFPEhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonOrderFilterCriteria?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTFPExUHEeGvy5vcBZd45A" base_Element="_h0EX0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTF2IBUHEeGvy5vcBZd45A" base_Element="_hQIkURUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTF2IRUHEeGvy5vcBZd45A" base_Element="_h02a8RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTF2IhUHEeGvy5vcBZd45A" base_Element="_hutWsxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTGdMBUHEeGvy5vcBZd45A" base_Element="PagingAndSortingnumberOfItems?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3anumberOfItems?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTGdMRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBasePageData?com.tibco.n2.pfe.api.common%3a%3aBasePageData?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTGdMhUHEeGvy5vcBZd45A" base_Element="_hsH8wRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTHEQBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonPageFlowProcessReference?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTHEQRUHEeGvy5vcBZd45A" base_Element="Composition18businesscategoryresponse?com.tibco.n2.pfe.api.common%3a%3aComposition18%3a%3abusinesscategoryresponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTHEQhUHEeGvy5vcBZd45A" base_Element="OrderFilterCriteriafilter?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria%3a%3afilter?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTHEQxUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonPageData?com.tibco.n2.pfe.api.common%3a%3aPageData?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTHrUBUHEeGvy5vcBZd45A" base_Element="_hq5NsRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTHrURUHEeGvy5vcBZd45A" base_Element="_h82gYBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTHrUhUHEeGvy5vcBZd45A" base_Element="Composition14basesessioncontext?com.tibco.n2.pfe.api.common%3a%3aComposition14%3a%3abasesessioncontext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTISYBUHEeGvy5vcBZd45A" base_Element="Parametervalue?com.tibco.n2.pfe.api.common%3a%3aParameter%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTISYRUHEeGvy5vcBZd45A" base_Element="_h6FgQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTISYhUHEeGvy5vcBZd45A" base_Element="Composition24pageflowparameters?com.tibco.n2.pfe.api.common%3a%3aComposition24%3a%3apageflowparameters?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTI5cBUHEeGvy5vcBZd45A" base_Element="_hrcnURUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTI5cRUHEeGvy5vcBZd45A" base_Element="_h2h18hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTI5chUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBaseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseBusinessServiceTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTI5cxUHEeGvy5vcBZd45A" base_Element="_h33SsBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTJggBUHEeGvy5vcBZd45A" base_Element="_hnWxgBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTJggRUHEeGvy5vcBZd45A" base_Element="_hyBwcRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTJgghUHEeGvy5vcBZd45A" base_Element="_hwHr8xUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTKHkBUHEeGvy5vcBZd45A" base_Element="_hyo0cBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTKHkRUHEeGvy5vcBZd45A" base_Element="_hvFxMhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTKHkhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTKuoBUHEeGvy5vcBZd45A" base_Element="PageDatapayload?com.tibco.n2.pfe.api.common%3a%3aPageData%3a%3apayload?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTKuoRUHEeGvy5vcBZd45A" base_Element="BaseTemplateprocessName?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate%3a%3aprocessName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTKuohUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonCategory?com.tibco.n2.pfe.api.common%3a%3aCategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTKuoxUHEeGvy5vcBZd45A" base_Element="_h7M6kBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTLVsBUHEeGvy5vcBZd45A" base_Element="_h3Rc0xUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTLVsRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBaseFeedType?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTLVshUHEeGvy5vcBZd45A" base_Element="_h815UhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTL8wBUHEeGvy5vcBZd45A" base_Element="_h5K6QRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTL8wRUHEeGvy5vcBZd45A" base_Element="_h58WUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTL8whUHEeGvy5vcBZd45A" base_Element="_h45NcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTMj0BUHEeGvy5vcBZd45A" base_Element="_hv_wIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTMj0RUHEeGvy5vcBZd45A" base_Element="_hohPIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTMj0hUHEeGvy5vcBZd45A" base_Element="EventDefinitionTypeprocessInstanceId?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType%3a%3aprocessInstanceId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTMj0xUHEeGvy5vcBZd45A" base_Element="_huD2cBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTNK4BUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition15?com.tibco.n2.pfe.api.common%3a%3aComposition15?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTNK4RUHEeGvy5vcBZd45A" base_Element="_hwmNEhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTNK4hUHEeGvy5vcBZd45A" base_Element="_h7eAURUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTNx8BUHEeGvy5vcBZd45A" base_Element="_hn91gRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTNx8RUHEeGvy5vcBZd45A" base_Element="_hwoCQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTNx8hUHEeGvy5vcBZd45A" base_Element="_h76FMBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTOZABUHEeGvy5vcBZd45A" base_Element="_hnU8UhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTOZARUHEeGvy5vcBZd45A" base_Element="_h1Sf0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTOZAhUHEeGvy5vcBZd45A" base_Element="_hqN4QhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTPAEBUHEeGvy5vcBZd45A" base_Element="_hq7C4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTPAERUHEeGvy5vcBZd45A" base_Element="Composition28pageresponse?com.tibco.n2.pfe.api.common%3a%3aComposition28%3a%3apageresponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTPAEhUHEeGvy5vcBZd45A" base_Element="_iLIM8BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTPAExUHEeGvy5vcBZd45A" base_Element="Composition23pagingandsorting?com.tibco.n2.pfe.api.common%3a%3aComposition23%3a%3apagingandsorting?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTPnIBUHEeGvy5vcBZd45A" base_Element="_hyGB4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTPnIRUHEeGvy5vcBZd45A" base_Element="_hs8cIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTPnIhUHEeGvy5vcBZd45A" base_Element="_hynmUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTQOMBUHEeGvy5vcBZd45A" base_Element="_hQIkUxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTQOMRUHEeGvy5vcBZd45A" base_Element="_h7OIsRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTQOMhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonResponseFeedType?com.tibco.n2.pfe.api.common%3a%3aResponseFeedType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTQ1QBUHEeGvy5vcBZd45A" base_Element="_hxmSoBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTQ1QRUHEeGvy5vcBZd45A" base_Element="_hkE0ARUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aNOTSTARTED?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTQ1QhUHEeGvy5vcBZd45A" base_Element="_hojEUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTQ1QxUHEeGvy5vcBZd45A" base_Element="_hwHr9BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTRcUBUHEeGvy5vcBZd45A" base_Element="_iJCiQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTRcURUHEeGvy5vcBZd45A" base_Element="_h1X_YBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTRcUhUHEeGvy5vcBZd45A" base_Element="PageResponsecontext?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3acontext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTSDYBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTSDYRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonActivityReference?com.tibco.n2.pfe.api.common%3a%3aActivityReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTSDYhUHEeGvy5vcBZd45A" base_Element="_hrcnUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTSqcBUHEeGvy5vcBZd45A" base_Element="Composition22pagedata?com.tibco.n2.pfe.api.common%3a%3aComposition22%3a%3apagedata?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTSqcRUHEeGvy5vcBZd45A" base_Element="_h5MIYBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTSqchUHEeGvy5vcBZd45A" base_Element="PageFlowProcessReferenceinstanceId?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference%3a%3ainstanceId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTTRgBUHEeGvy5vcBZd45A" base_Element="_hs0gUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTTRgRUHEeGvy5vcBZd45A" base_Element="_hqEHQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTTRghUHEeGvy5vcBZd45A" base_Element="_h1pFIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTTRgxUHEeGvy5vcBZd45A" base_Element="_hkE0ABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTT4kBUHEeGvy5vcBZd45A" base_Element="_h82gYxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTT4kRUHEeGvy5vcBZd45A" base_Element="_hzK_8hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTT4khUHEeGvy5vcBZd45A" base_Element="_htoYohUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTUfoBUHEeGvy5vcBZd45A" base_Element="_h76sQhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTUfoRUHEeGvy5vcBZd45A" base_Element="_hzODQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTUfohUHEeGvy5vcBZd45A" base_Element="CategoryChildCategory?com.tibco.n2.pfe.api.common%3a%3aCategory%3a%3achildCategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTVGsBUHEeGvy5vcBZd45A" base_Element="Composition17businesscategory?com.tibco.n2.pfe.api.common%3a%3aComposition17%3a%3abusinesscategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTVGsRUHEeGvy5vcBZd45A" base_Element="_hs5Y0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTVGshUHEeGvy5vcBZd45A" base_Element="_h7dZQxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTVtwBUHEeGvy5vcBZd45A" base_Element="_h4SwghUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTVtwRUHEeGvy5vcBZd45A" base_Element="_h3BlMhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTVtwhUHEeGvy5vcBZd45A" base_Element="_hwHr8RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTWU0BUHEeGvy5vcBZd45A" base_Element="_h0B7kRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTWU0RUHEeGvy5vcBZd45A" base_Element="PagingAndSortingstartPosition?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3astartPosition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTWU0hUHEeGvy5vcBZd45A" base_Element="_hucQ8BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTWU0xUHEeGvy5vcBZd45A" base_Element="_h1Sf0RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTW74BUHEeGvy5vcBZd45A" base_Element="Composition15basesessioncontext?com.tibco.n2.pfe.api.common%3a%3aComposition15%3a%3abasesessioncontext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTW74RUHEeGvy5vcBZd45A" base_Element="_iOPLUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTW74hUHEeGvy5vcBZd45A" base_Element="ProcessReferencename?com.tibco.n2.pfe.api.common%3a%3aProcessReference%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTXi8BUHEeGvy5vcBZd45A" base_Element="_hvEjEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTXi8RUHEeGvy5vcBZd45A" base_Element="_hmiSIhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTXi8hUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition13?com.tibco.n2.pfe.api.common%3a%3aComposition13?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTYKABUHEeGvy5vcBZd45A" base_Element="_h7Fl0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTYKARUHEeGvy5vcBZd45A" base_Element="_iNXooBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTYKAhUHEeGvy5vcBZd45A" base_Element="_hlUxMhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aPAGEFLOW?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTYxEBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBaseActivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTYxERUHEeGvy5vcBZd45A" base_Element="BusinessCategoryResponseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3abusinessServiceTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTYxEhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBaseProcessReference?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTZYIBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonRequestContext?com.tibco.n2.pfe.api.common%3a%3aRequestContext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTZYIRUHEeGvy5vcBZd45A" base_Element="_hvGYQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTZYIhUHEeGvy5vcBZd45A" base_Element="Composition29responsefeedtype?com.tibco.n2.pfe.api.common%3a%3aComposition29%3a%3aresponsefeedtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTZYIxUHEeGvy5vcBZd45A" base_Element="_hrqpwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTZ_MBUHEeGvy5vcBZd45A" base_Element="PageResponseexecutionState?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3aexecutionState?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTZ_MRUHEeGvy5vcBZd45A" base_Element="ResponseFeedTypefeedTypes?com.tibco.n2.pfe.api.common%3a%3aResponseFeedType%3a%3afeedTypes?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTZ_MhUHEeGvy5vcBZd45A" base_Element="BaseFeedTypefeedMode?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType%3a%3afeedMode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTamQBUHEeGvy5vcBZd45A" base_Element="_h2kSMBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTamQRUHEeGvy5vcBZd45A" base_Element="_hnlbAhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTamQhUHEeGvy5vcBZd45A" base_Element="_hkFbFBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aCOMPLETED?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTbNUBUHEeGvy5vcBZd45A" base_Element="_h6E5MhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTbNURUHEeGvy5vcBZd45A" base_Element="_hnlbARUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTbNUhUHEeGvy5vcBZd45A" base_Element="Categoryname?com.tibco.n2.pfe.api.common%3a%3aCategory%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTbNUxUHEeGvy5vcBZd45A" base_Element="_hpNLoBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTb0YBUHEeGvy5vcBZd45A" base_Element="Composition12basepagedata?com.tibco.n2.pfe.api.common%3a%3aComposition12%3a%3abasepagedata?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTb0YRUHEeGvy5vcBZd45A" base_Element="BusinessServiceTemplatehasFormalParameters?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate%3a%3ahasFormalParameters?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTcbcBUHEeGvy5vcBZd45A" base_Element="ActivityReferencemoduleVersion?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3amoduleVersion?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTcbcRUHEeGvy5vcBZd45A" base_Element="BusinessCategoryBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3abusinessServiceTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTcbchUHEeGvy5vcBZd45A" base_Element="ActivityReferenceactivityName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aactivityName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTdCgBUHEeGvy5vcBZd45A" base_Element="BaseActivityReferenceactivityId?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference%3a%3aactivityId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTdCgRUHEeGvy5vcBZd45A" base_Element="_hwHr8BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTdCghUHEeGvy5vcBZd45A" base_Element="_h77TUhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTdpkBUHEeGvy5vcBZd45A" base_Element="_hw_OoRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTdpkRUHEeGvy5vcBZd45A" base_Element="_hzK_8RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTdpkhUHEeGvy5vcBZd45A" base_Element="_h02a8hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTeQoBUHEeGvy5vcBZd45A" base_Element="_h7OIshUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTeQoRUHEeGvy5vcBZd45A" base_Element="_h7SaIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTeQohUHEeGvy5vcBZd45A" base_Element="_iPrVwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTeQoxUHEeGvy5vcBZd45A" base_Element="_hrUEcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTe3sBUHEeGvy5vcBZd45A" base_Element="BusinessCategoryChildBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3achildBusinessCategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTe3sRUHEeGvy5vcBZd45A" base_Element="_h7eAUhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTe3shUHEeGvy5vcBZd45A" base_Element="_hxgzEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTfewBUHEeGvy5vcBZd45A" base_Element="_ho4bghUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTfewRUHEeGvy5vcBZd45A" base_Element="_h7dZQhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTfewhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition19?com.tibco.n2.pfe.api.common%3a%3aComposition19?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTgF0BUHEeGvy5vcBZd45A" base_Element="_hmiSIRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTgF0RUHEeGvy5vcBZd45A" base_Element="_hw_OohUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTgF0hUHEeGvy5vcBZd45A" base_Element="_h1i-gRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTgF0xUHEeGvy5vcBZd45A" base_Element="_hvFxMxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTgs4BUHEeGvy5vcBZd45A" base_Element="ResponseContextpageFlowTemplate?com.tibco.n2.pfe.api.common%3a%3aResponseContext%3a%3apageFlowTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTgs4RUHEeGvy5vcBZd45A" base_Element="_h8AL0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTgs4hUHEeGvy5vcBZd45A" base_Element="BusinessCategoryname?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iThT8BUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonPageFlowTemplate?com.tibco.n2.pfe.api.common%3a%3aPageFlowTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iThT8RUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition18?com.tibco.n2.pfe.api.common%3a%3aComposition18?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iThT8hUHEeGvy5vcBZd45A" base_Element="_hnpscBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTh7ABUHEeGvy5vcBZd45A" base_Element="_h3Rc0hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTh7ARUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBaseSessionContext?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTh7AhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonListingRequest?com.tibco.n2.pfe.api.common%3a%3aListingRequest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTiiEBUHEeGvy5vcBZd45A" base_Element="_hlUKIBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aGIFORM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTiiERUHEeGvy5vcBZd45A" base_Element="_hyBwchUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTiiEhUHEeGvy5vcBZd45A" base_Element="_hofZ8RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTiiExUHEeGvy5vcBZd45A" base_Element="_h8NnMBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTjJIBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition24?com.tibco.n2.pfe.api.common%3a%3aComposition24?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTjJIRUHEeGvy5vcBZd45A" base_Element="BasePageDatapageReference?com.tibco.n2.pfe.api.common%3a%3aBasePageData%3a%3apageReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTjJIhUHEeGvy5vcBZd45A" base_Element="_h2idABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTjwMBUHEeGvy5vcBZd45A" base_Element="_hpLWcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTjwMRUHEeGvy5vcBZd45A" base_Element="_hqC5IBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTjwMhUHEeGvy5vcBZd45A" base_Element="_hzphEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTkXQBUHEeGvy5vcBZd45A" base_Element="_hnGS0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTkXQRUHEeGvy5vcBZd45A" base_Element="_iFTRwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTkXQhUHEeGvy5vcBZd45A" base_Element="PageFlowProcessReferencename?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTkXQxUHEeGvy5vcBZd45A" base_Element="_hvFxNRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTk-UBUHEeGvy5vcBZd45A" base_Element="_hut9wBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTk-URUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition25?com.tibco.n2.pfe.api.common%3a%3aComposition25?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTk-UhUHEeGvy5vcBZd45A" base_Element="_hxDgEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTllYBUHEeGvy5vcBZd45A" base_Element="ResponseContextprocessReference?com.tibco.n2.pfe.api.common%3a%3aResponseContext%3a%3aprocessReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTllYRUHEeGvy5vcBZd45A" base_Element="_h3SD4RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTllYhUHEeGvy5vcBZd45A" base_Element="PageFlowParametersparameter?com.tibco.n2.pfe.api.common%3a%3aPageFlowParameters%3a%3aparameter?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTmMcBUHEeGvy5vcBZd45A" base_Element="BaseSessionContextprocessReference?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext%3a%3aprocessReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTmMcRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonBusinessCategoryResponse?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTmMchUHEeGvy5vcBZd45A" base_Element="_hpgtoRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTmMcxUHEeGvy5vcBZd45A" base_Element="_hrrQ0hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTmzgBUHEeGvy5vcBZd45A" base_Element="_h4VMwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTmzgRUHEeGvy5vcBZd45A" base_Element="_hq5NshUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTnakBUHEeGvy5vcBZd45A" base_Element="ActivityReferenceactivityModelId?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aactivityModelId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTnakRUHEeGvy5vcBZd45A" base_Element="_hqOfURUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTnakhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonPageReference?com.tibco.n2.pfe.api.common%3a%3aPageReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iToBoBUHEeGvy5vcBZd45A" base_Element="_hrr34hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iToBoRUHEeGvy5vcBZd45A" base_Element="_hmkHUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iToBohUHEeGvy5vcBZd45A" base_Element="BaseSessionContextactivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext%3a%3aactivityReference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iToBoxUHEeGvy5vcBZd45A" base_Element="_hyrQsBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iToosBUHEeGvy5vcBZd45A" base_Element="_hxxRwhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iToosRUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonParameter?com.tibco.n2.pfe.api.common%3a%3aParameter?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTooshUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonPFETemplate?com.tibco.n2.pfe.api.common%3a%3aPFETemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTpPwBUHEeGvy5vcBZd45A" base_Element="_hrcAQhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTpPwRUHEeGvy5vcBZd45A" base_Element="Composition20category?com.tibco.n2.pfe.api.common%3a%3aComposition20%3a%3acategory?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTpPwhUHEeGvy5vcBZd45A" base_Element="_hxxRwRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTp20BUHEeGvy5vcBZd45A" base_Element="PagingAndSortingorderFilterCriteria?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3aorderFilterCriteria?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTp20RUHEeGvy5vcBZd45A" base_Element="_hqchwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTp20hUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition29?com.tibco.n2.pfe.api.common%3a%3aComposition29?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTqd4BUHEeGvy5vcBZd45A" base_Element="_hn91ghUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTqd4RUHEeGvy5vcBZd45A" base_Element="_hqOfUhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTqd4hUHEeGvy5vcBZd45A" base_Element="Composition25responsecontext?com.tibco.n2.pfe.api.common%3a%3aComposition25%3a%3aresponsecontext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTrE8BUHEeGvy5vcBZd45A" base_Element="_h3BlMRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTrE8RUHEeGvy5vcBZd45A" base_Element="_h1mo4BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTrE8hUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonEventDefinitionType?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTrE8xUHEeGvy5vcBZd45A" base_Element="_ho63wBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTrsABUHEeGvy5vcBZd45A" base_Element="_hrr34xUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTrsARUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.pfe.api.commonComposition20?com.tibco.n2.pfe.api.common%3a%3aComposition20?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTrsAhUHEeGvy5vcBZd45A" base_Element="_h31dgRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTsTEBUHEeGvy5vcBZd45A" base_Element="_hut9wRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTsTERUHEeGvy5vcBZd45A" base_Element="_hoDVEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_iTsTEhUHEeGvy5vcBZd45A" base_Element="_hxpV8BUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixHO4BUHEeGvy5vcBZd45A" displayLabel="ActivityReference" base_NamedElement="com.tibco.n2.pfe.api.commonActivityReference?com.tibco.n2.pfe.api.common%3a%3aActivityReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixIdABUHEeGvy5vcBZd45A" displayLabel="BaseActivityReference" base_NamedElement="com.tibco.n2.pfe.api.commonBaseActivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixJEEBUHEeGvy5vcBZd45A" displayLabel="BaseBusinessServiceTemplate" base_NamedElement="com.tibco.n2.pfe.api.commonBaseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseBusinessServiceTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixKSMBUHEeGvy5vcBZd45A" displayLabel="BaseFeedType" base_NamedElement="com.tibco.n2.pfe.api.commonBaseFeedType?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixLgUBUHEeGvy5vcBZd45A" displayLabel="BasePageData" base_NamedElement="com.tibco.n2.pfe.api.commonBasePageData?com.tibco.n2.pfe.api.common%3a%3aBasePageData?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixMucBUHEeGvy5vcBZd45A" displayLabel="BasePageReference" base_NamedElement="com.tibco.n2.pfe.api.commonBasePageReference?com.tibco.n2.pfe.api.common%3a%3aBasePageReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixOjoBUHEeGvy5vcBZd45A" displayLabel="BaseProcessReference" base_NamedElement="com.tibco.n2.pfe.api.commonBaseProcessReference?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixPKsBUHEeGvy5vcBZd45A" displayLabel="BaseSessionContext" base_NamedElement="com.tibco.n2.pfe.api.commonBaseSessionContext?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixQY0BUHEeGvy5vcBZd45A" displayLabel="BaseTemplate" base_NamedElement="com.tibco.n2.pfe.api.commonBaseTemplate?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixRm8BUHEeGvy5vcBZd45A" displayLabel="BusinessCategory" base_NamedElement="com.tibco.n2.pfe.api.commonBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixTcIBUHEeGvy5vcBZd45A" displayLabel="BusinessCategoryResponse" base_NamedElement="com.tibco.n2.pfe.api.commonBusinessCategoryResponse?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixUqQBUHEeGvy5vcBZd45A" displayLabel="BusinessServiceTemplate" base_NamedElement="com.tibco.n2.pfe.api.commonBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixV4YBUHEeGvy5vcBZd45A" displayLabel="Category" base_NamedElement="com.tibco.n2.pfe.api.commonCategory?com.tibco.n2.pfe.api.common%3a%3aCategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixXGgBUHEeGvy5vcBZd45A" displayLabel="EventDefinitionType" base_NamedElement="com.tibco.n2.pfe.api.commonEventDefinitionType?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixYUoBUHEeGvy5vcBZd45A" displayLabel="ExecutionState" base_NamedElement="com.tibco.n2.pfe.api.commonExecutionState?com.tibco.n2.pfe.api.common%3a%3aExecutionState?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixY7sBUHEeGvy5vcBZd45A" displayLabel="FormType" base_NamedElement="com.tibco.n2.pfe.api.commonFormType?com.tibco.n2.pfe.api.common%3a%3aFormType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixaJ0BUHEeGvy5vcBZd45A" displayLabel="ListingRequest" base_NamedElement="com.tibco.n2.pfe.api.commonListingRequest?com.tibco.n2.pfe.api.common%3a%3aListingRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixbX8BUHEeGvy5vcBZd45A" displayLabel="OrderFilterCriteria" base_NamedElement="com.tibco.n2.pfe.api.commonOrderFilterCriteria?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixcmEBUHEeGvy5vcBZd45A" displayLabel="PFETemplate" base_NamedElement="com.tibco.n2.pfe.api.commonPFETemplate?com.tibco.n2.pfe.api.common%3a%3aPFETemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixd0MBUHEeGvy5vcBZd45A" displayLabel="PageData" base_NamedElement="com.tibco.n2.pfe.api.commonPageData?com.tibco.n2.pfe.api.common%3a%3aPageData?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixebQBUHEeGvy5vcBZd45A" displayLabel="PageFlowParameters" base_NamedElement="com.tibco.n2.pfe.api.commonPageFlowParameters?com.tibco.n2.pfe.api.common%3a%3aPageFlowParameters?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixfpYBUHEeGvy5vcBZd45A" displayLabel="PageFlowProcessReference" base_NamedElement="com.tibco.n2.pfe.api.commonPageFlowProcessReference?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixg3gBUHEeGvy5vcBZd45A" displayLabel="PageFlowTemplate" base_NamedElement="com.tibco.n2.pfe.api.commonPageFlowTemplate?com.tibco.n2.pfe.api.common%3a%3aPageFlowTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixiFoBUHEeGvy5vcBZd45A" displayLabel="PageReference" base_NamedElement="com.tibco.n2.pfe.api.commonPageReference?com.tibco.n2.pfe.api.common%3a%3aPageReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixjTwBUHEeGvy5vcBZd45A" displayLabel="PageResponse" base_NamedElement="com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixkh4BUHEeGvy5vcBZd45A" displayLabel="PagingAndSorting" base_NamedElement="com.tibco.n2.pfe.api.commonPagingAndSorting?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixlwABUHEeGvy5vcBZd45A" displayLabel="Parameter" base_NamedElement="com.tibco.n2.pfe.api.commonParameter?com.tibco.n2.pfe.api.common%3a%3aParameter?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixmXEBUHEeGvy5vcBZd45A" displayLabel="ProcessReference" base_NamedElement="com.tibco.n2.pfe.api.commonProcessReference?com.tibco.n2.pfe.api.common%3a%3aProcessReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixnlMBUHEeGvy5vcBZd45A" displayLabel="RequestContext" base_NamedElement="com.tibco.n2.pfe.api.commonRequestContext?com.tibco.n2.pfe.api.common%3a%3aRequestContext?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixozUBUHEeGvy5vcBZd45A" displayLabel="ResponseContext" base_NamedElement="com.tibco.n2.pfe.api.commonResponseContext?com.tibco.n2.pfe.api.common%3a%3aResponseContext?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixqBcBUHEeGvy5vcBZd45A" displayLabel="ResponseFeedType" base_NamedElement="com.tibco.n2.pfe.api.commonResponseFeedType?com.tibco.n2.pfe.api.common%3a%3aResponseFeedType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixrPkBUHEeGvy5vcBZd45A" displayLabel="activityModelId" base_NamedElement="ActivityReferenceactivityModelId?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aactivityModelId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixsdsBUHEeGvy5vcBZd45A" displayLabel="activityName" base_NamedElement="ActivityReferenceactivityName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aactivityName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixtr0BUHEeGvy5vcBZd45A" displayLabel="moduleName" base_NamedElement="ActivityReferencemoduleName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3amoduleName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixu58BUHEeGvy5vcBZd45A" displayLabel="moduleVersion" base_NamedElement="ActivityReferencemoduleVersion?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3amoduleVersion?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixvhABUHEeGvy5vcBZd45A" displayLabel="processName" base_NamedElement="ActivityReferenceprocessName?com.tibco.n2.pfe.api.common%3a%3aActivityReference%3a%3aprocessName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixwvIBUHEeGvy5vcBZd45A" displayLabel="activityId" base_NamedElement="BaseActivityReferenceactivityId?com.tibco.n2.pfe.api.common%3a%3aBaseActivityReference%3a%3aactivityId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixykUBUHEeGvy5vcBZd45A" displayLabel="feedFormat" base_NamedElement="BaseFeedTypefeedFormat?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType%3a%3afeedFormat?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ixzycBUHEeGvy5vcBZd45A" displayLabel="feedMode" base_NamedElement="BaseFeedTypefeedMode?com.tibco.n2.pfe.api.common%3a%3aBaseFeedType%3a%3afeedMode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix1AkBUHEeGvy5vcBZd45A" displayLabel="pageReference" base_NamedElement="BasePageDatapageReference?com.tibco.n2.pfe.api.common%3a%3aBasePageData%3a%3apageReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix2OsBUHEeGvy5vcBZd45A" displayLabel="payloadModel" base_NamedElement="BasePageDatapayloadModel?com.tibco.n2.pfe.api.common%3a%3aBasePageData%3a%3apayloadModel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix3c0BUHEeGvy5vcBZd45A" displayLabel="id" base_NamedElement="BaseProcessReferenceid?com.tibco.n2.pfe.api.common%3a%3aBaseProcessReference%3a%3aid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix4q8BUHEeGvy5vcBZd45A" displayLabel="activityReference" base_NamedElement="BaseSessionContextactivityReference?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext%3a%3aactivityReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix55EBUHEeGvy5vcBZd45A" displayLabel="processReference" base_NamedElement="BaseSessionContextprocessReference?com.tibco.n2.pfe.api.common%3a%3aBaseSessionContext%3a%3aprocessReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix6gIBUHEeGvy5vcBZd45A" displayLabel="moduleName" base_NamedElement="BaseTemplatemoduleName?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate%3a%3amoduleName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix7uQBUHEeGvy5vcBZd45A" displayLabel="processName" base_NamedElement="BaseTemplateprocessName?com.tibco.n2.pfe.api.common%3a%3aBaseTemplate%3a%3aprocessName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix88YBUHEeGvy5vcBZd45A" displayLabel="BusinessServiceTemplate" base_NamedElement="BusinessCategoryBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3abusinessServiceTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix-KgBUHEeGvy5vcBZd45A" displayLabel="ChildBusinessCategory" base_NamedElement="BusinessCategoryChildBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3achildBusinessCategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ix_YoBUHEeGvy5vcBZd45A" displayLabel="name" base_NamedElement="BusinessCategoryname?com.tibco.n2.pfe.api.common%3a%3aBusinessCategory%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyAmwBUHEeGvy5vcBZd45A" displayLabel="BusinessServiceTemplate" base_NamedElement="BusinessCategoryResponseBusinessServiceTemplate?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3abusinessServiceTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyBN0BUHEeGvy5vcBZd45A" displayLabel="ChildBusinessCategory" base_NamedElement="BusinessCategoryResponseChildBusinessCategory?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3achildBusinessCategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyCb8BUHEeGvy5vcBZd45A" displayLabel="name" base_NamedElement="BusinessCategoryResponsename?com.tibco.n2.pfe.api.common%3a%3aBusinessCategoryResponse%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyDqEBUHEeGvy5vcBZd45A" displayLabel="hasFormalParameters" base_NamedElement="BusinessServiceTemplatehasFormalParameters?com.tibco.n2.pfe.api.common%3a%3aBusinessServiceTemplate%3a%3ahasFormalParameters?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyFfQBUHEeGvy5vcBZd45A" displayLabel="ChildCategory" base_NamedElement="CategoryChildCategory?com.tibco.n2.pfe.api.common%3a%3aCategory%3a%3achildCategory?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyGtYBUHEeGvy5vcBZd45A" displayLabel="name" base_NamedElement="Categoryname?com.tibco.n2.pfe.api.common%3a%3aCategory%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyH7gBUHEeGvy5vcBZd45A" displayLabel="eventName" base_NamedElement="EventDefinitionTypeeventName?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType%3a%3aeventName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyJJoBUHEeGvy5vcBZd45A" displayLabel="processInstanceId" base_NamedElement="EventDefinitionTypeprocessInstanceId?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType%3a%3aprocessInstanceId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyKXwBUHEeGvy5vcBZd45A" displayLabel="COMPLETED" base_NamedElement="_hkFbFBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aCOMPLETED?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyLl4BUHEeGvy5vcBZd45A" displayLabel="IN_PROGRESS" base_NamedElement="_hkFbEhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aINPROGRESS?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyM0ABUHEeGvy5vcBZd45A" displayLabel="NOT_STARTED" base_NamedElement="_hkE0ARUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aNOTSTARTED?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyOCIBUHEeGvy5vcBZd45A" displayLabel="STARTED" base_NamedElement="_hkFbEBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aSTARTED?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyPQQBUHEeGvy5vcBZd45A" displayLabel="UNKNOWN" base_NamedElement="_hkGCIRUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aExecutionState%3a%3aUNKNOWN?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyP3UBUHEeGvy5vcBZd45A" displayLabel="CUSTOM_FORM" base_NamedElement="_hlUxMBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aCUSTOMFORM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyRFcBUHEeGvy5vcBZd45A" displayLabel="GI_FORM" base_NamedElement="_hlUKIBUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aGIFORM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iySTkBUHEeGvy5vcBZd45A" displayLabel="GWT_FORM" base_NamedElement="_hlUKIhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aGWTFORM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyS6oBUHEeGvy5vcBZd45A" displayLabel="PAGEFLOW" base_NamedElement="_hlUxMhUHEeGvy5vcBZd45A?com.tibco.n2.pfe.api.common%3a%3aFormType%3a%3aPAGEFLOW?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyUIwBUHEeGvy5vcBZd45A" displayLabel="includeFormalParameters" base_NamedElement="ListingRequestincludeFormalParameters?com.tibco.n2.pfe.api.common%3a%3aListingRequest%3a%3aincludeFormalParameters?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyVW4BUHEeGvy5vcBZd45A" displayLabel="filter" base_NamedElement="OrderFilterCriteriafilter?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria%3a%3afilter?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyWlABUHEeGvy5vcBZd45A" displayLabel="order" base_NamedElement="OrderFilterCriteriaorder?com.tibco.n2.pfe.api.common%3a%3aOrderFilterCriteria%3a%3aorder?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyXzIBUHEeGvy5vcBZd45A" displayLabel="version" base_NamedElement="PFETemplateversion?com.tibco.n2.pfe.api.common%3a%3aPFETemplate%3a%3aversion?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyZBQBUHEeGvy5vcBZd45A" displayLabel="pageReference" base_NamedElement="PageDatapageReference?com.tibco.n2.pfe.api.common%3a%3aPageData%3a%3apageReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyZoUBUHEeGvy5vcBZd45A" displayLabel="payload" base_NamedElement="PageDatapayload?com.tibco.n2.pfe.api.common%3a%3aPageData%3a%3apayload?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iya2cBUHEeGvy5vcBZd45A" displayLabel="parameter" base_NamedElement="PageFlowParametersparameter?com.tibco.n2.pfe.api.common%3a%3aPageFlowParameters%3a%3aparameter?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iycEkBUHEeGvy5vcBZd45A" displayLabel="instanceId" base_NamedElement="PageFlowProcessReferenceinstanceId?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference%3a%3ainstanceId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iydSsBUHEeGvy5vcBZd45A" displayLabel="name" base_NamedElement="PageFlowProcessReferencename?com.tibco.n2.pfe.api.common%3a%3aPageFlowProcessReference%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyd5wBUHEeGvy5vcBZd45A" displayLabel="hasFormalParameters" base_NamedElement="PageFlowTemplatehasFormalParameters?com.tibco.n2.pfe.api.common%3a%3aPageFlowTemplate%3a%3ahasFormalParameters?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyfH4BUHEeGvy5vcBZd45A" displayLabel="context" base_NamedElement="PageResponsecontext?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3acontext?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iygWABUHEeGvy5vcBZd45A" displayLabel="pageData" base_NamedElement="PageResponsepageData?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3apageData?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyhkIBUHEeGvy5vcBZd45A" displayLabel="executionState" base_NamedElement="PageResponseexecutionState?com.tibco.n2.pfe.api.common%3a%3aPageResponse%3a%3aexecutionState?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyiyQBUHEeGvy5vcBZd45A" displayLabel="orderFilterCriteria" base_NamedElement="PagingAndSortingorderFilterCriteria?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3aorderFilterCriteria?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iykAYBUHEeGvy5vcBZd45A" displayLabel="getTotalCount" base_NamedElement="PagingAndSortinggetTotalCount?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3agetTotalCount?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iylOgBUHEeGvy5vcBZd45A" displayLabel="numberOfItems" base_NamedElement="PagingAndSortingnumberOfItems?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3anumberOfItems?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyl1kBUHEeGvy5vcBZd45A" displayLabel="startPosition" base_NamedElement="PagingAndSortingstartPosition?com.tibco.n2.pfe.api.common%3a%3aPagingAndSorting%3a%3astartPosition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iynDsBUHEeGvy5vcBZd45A" displayLabel="name" base_NamedElement="Parametername?com.tibco.n2.pfe.api.common%3a%3aParameter%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyoR0BUHEeGvy5vcBZd45A" displayLabel="value" base_NamedElement="Parametervalue?com.tibco.n2.pfe.api.common%3a%3aParameter%3a%3avalue?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iypf8BUHEeGvy5vcBZd45A" displayLabel="name" base_NamedElement="ProcessReferencename?com.tibco.n2.pfe.api.common%3a%3aProcessReference%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyquEBUHEeGvy5vcBZd45A" displayLabel="pageFlowTemplate" base_NamedElement="ResponseContextpageFlowTemplate?com.tibco.n2.pfe.api.common%3a%3aResponseContext%3a%3apageFlowTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iyr8MBUHEeGvy5vcBZd45A" displayLabel="processReference" base_NamedElement="ResponseContextprocessReference?com.tibco.n2.pfe.api.common%3a%3aResponseContext%3a%3aprocessReference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_iytKUBUHEeGvy5vcBZd45A" displayLabel="feedTypes" base_NamedElement="ResponseFeedTypefeedTypes?com.tibco.n2.pfe.api.common%3a%3aResponseFeedType%3a%3afeedTypes?"/>
+  <notation:Diagram xmi:id="_iytxYBUHEeGvy5vcBZd45A" type="Business Object Model" element="com.tibco.n2.pfe.api.common2?com.tibco.n2.pfe.api.common?" name="com.tibco.n2.pfe.api.common" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_iytxYRUHEeGvy5vcBZd45A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_iytxYhUHEeGvy5vcBZd45A"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_0esh8JiOEd-7RfIZ2ElALA_ServiceTask__rgxvQJiPEd-7RfIZ2ElALA" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns1="http://example.com/businessobjectmodel" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProcessPackage" targetNamespace="http://www.tibco.com/bs3.0/_0esh8JiOEd-7RfIZ2ElALA_ServiceTask__rgxvQJiPEd-7RfIZ2ElALA" tibex:ServiceTask="_rgxvQJiPEd-7RfIZ2ElALA" tibex:XPDL="ProcessPackage.xpdl" tibex:process="_0f40wJiOEd-7RfIZ2ElALA" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_0esh8JiOEd-7RfIZ2ElALA_ServiceTask__rgxvQJiPEd-7RfIZ2ElALA" targetNamespace="http://www.tibco.com/bs3.0/_0esh8JiOEd-7RfIZ2ElALA_ServiceTask__rgxvQJiPEd-7RfIZ2ElALA">
+      <xsd:simpleType name="boolean">
+        <xsd:restriction base="xsd:boolean"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="float__">
+        <xsd:restriction base="xsd:float"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="time">
+        <xsd:restriction base="xsd:time"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="dateTime">
+        <xsd:restriction base="xsd:dateTime"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="date">
+        <xsd:restriction base="xsd:date"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="integer_10">
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://example.com/businessobjectmodel" targetNamespace="http://example.com/businessobjectmodel">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/XPD950/Business Objects/BusinessObjectModel.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="MyClass1">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="t1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="t2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessPackageProcess_ServiceTask_INPUT">
+    <wsdl:part name="booleanParam" type="ns:boolean"/>
+    <wsdl:part name="datetimeField" type="ns:dateTime"/>
+    <wsdl:part name="decimalPar" type="ns:float__"/>
+    <wsdl:part name="dtField" type="ns:date"/>
+    <wsdl:part name="extRef1" type="tns1:MyClass1"/>
+    <wsdl:part name="intField" type="ns:integer_10"/>
+    <wsdl:part name="timeParam" type="ns:time"/>
+  </wsdl:message>
+  <wsdl:message name="ProcessPackageProcess_ServiceTask_OUTPUT">
+    <wsdl:part name="booleanParam" type="ns:boolean"/>
+    <wsdl:part name="datetimeField" type="ns:dateTime"/>
+    <wsdl:part name="decimalPar" type="ns:float__"/>
+    <wsdl:part name="dtField" type="ns:date"/>
+    <wsdl:part name="extRef1" type="tns1:MyClass1"/>
+    <wsdl:part name="intField" type="ns:integer_10"/>
+    <wsdl:part name="timeParam" type="ns:time"/>
+  </wsdl:message>
+  <wsdl:portType name="ProcessPackageProcess" tibex:FlowContainer="_0f40wJiOEd-7RfIZ2ElALA">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="ServiceTask">
+      <wsdl:input message="ns:ProcessPackageProcess_ServiceTask_INPUT" tibex:Event="_rgxvQJiPEd-7RfIZ2ElALA"/>
+      <wsdl:output message="ns:ProcessPackageProcess_ServiceTask_OUTPUT" tibex:Event="_rgxvQJiPEd-7RfIZ2ElALA"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NewBinding" type="ns:ProcessPackageProcess">
+  	<soap:binding style="rpc"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="ServiceTask">
+  		<soap:operation
+  			soapAction="http://www.tibco.com/bs3.0/_0esh8JiOEd-7RfIZ2ElALA_ServiceTask__rgxvQJiPEd-7RfIZ2ElALA/ServiceTask" />
+  		<wsdl:input>
+  			<soap:body use="literal"
+  				namespace="http://www.tibco.com/bs3.0/_0esh8JiOEd-7RfIZ2ElALA_ServiceTask__rgxvQJiPEd-7RfIZ2ElALA" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"
+  				namespace="http://www.tibco.com/bs3.0/_0esh8JiOEd-7RfIZ2ElALA_ServiceTask__rgxvQJiPEd-7RfIZ2ElALA" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewService">
+  	<wsdl:port name="NewPort" binding="ns:NewBinding">
+  		<soap:address location="http://www.unum.com/" />
+  	</wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/XPD-3821-SubImportedSchema" 
+     xmlns:subimpns="http://www.example.org/XPD-3821-SubImportedSchema" elementFormDefault="qualified">
+    <complexType name="SubImportComplexType">
+    	<sequence>
+    		<element name="subImpText" type="string"></element>
+    		<element name="subImpText2" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="SubImportTopLevelElement"
+    	type="subimpns:SubImportComplexType">
+    </element>
+    
+</schema>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://security.api.de.n2.tibco.com" xmlns:tns15="http://security.api.de.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://api.organisation.common.n2.tibco.com"
+    xmlns:tns3="http://api.de.n2.tibco.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://security.api.de.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.de.api.security.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://api.de.n2.tibco.com" schemaLocation="com.tibco.n2.de.api.xsd"/>
+  <xsd:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.organisation.api.xsd"/>
+  <xsd:complexType ecore:name="XmlSystemAction" id="com.tibco.n2.de.api.securityXmlSystemAction"
+      abstract="false" mixed="false" name="XmlSystemAction">
+    <xsd:annotation>
+      <xsd:documentation>Identifies a system action by its name and the application component to which it belongs.
+         </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="component" id="XmlSystemActioncomponent" form="unqualified"
+        name="component" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Identifier of the application component to which the named system action belongs.
+
+See &quot;System Actions&quot; in the BPM Developer's Guide for a list of system actions and their parent component identifiers. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="name" id="XmlSystemActionname" form="unqualified" name="name"
+        type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the system action.
+
+See &quot;System Actions&quot; in the BPM Developer's Guide for a list of system actions and their parent component identifiers. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:simpleType name="base64binary_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?)*(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/])|([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[AEIMQUYcgkosw048] ?=)|([A-Za-z0-9+/] ?[AQgw] ?= ?=)))?"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="authenticateUser" nillable="false">
+    <xsd:complexType ecore:name="authenticateUserType" id="com.tibco.n2.de.api.securityauthenticateUserType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="password" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="password" type="tns15:base64binary_StudioGeneratedTemplate"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="login" id="authenticateUserTypelogin" form="unqualified"
+          name="login" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Login name to be authenticated. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="authenticateUserResponse" nillable="false">
+    <xsd:complexType ecore:name="authenticateUserResponseType" id="com.tibco.n2.de.api.securityauthenticateUserResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="failure" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="failure" type="xsd:string"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="userguid" id="authenticateUserResponseTypeuser-guid"
+          form="unqualified" name="user-guid" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Unique ID providing the security context for a successfully authenticated user.
+
+If authentication fails, the user-guid is not set. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="authenticateUserResponseTypename" form="unqualified"
+          name="name" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>The name by which the authenticated user is known (the login name). </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="displayname" id="authenticateUserResponseTypedisplay-name"
+          form="unqualified" name="display-name" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>The name of the authenticated user, as it can be displayed. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="domain" id="authenticateUserResponseTypedomain" form="unqualified"
+          name="domain" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>The domain in which the user was authenticated. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getUserPrivileges" nillable="false">
+    <xsd:complexType ecore:name="getUserPrivilegesType" id="com.tibco.n2.de.api.securitygetUserPrivilegesType"
+        mixed="false">
+      <xsd:attribute ecore:name="userguid" id="getUserPrivilegesTypeuser-guid" form="unqualified"
+          name="user-guid" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Unique ID of the user for whom privilege assignments should be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getUserPrivilegesResponse" nillable="false">
+    <xsd:complexType ecore:name="getUserPrivilegesResponseType" id="com.tibco.n2.de.api.securitygetUserPrivilegesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="privilege" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="Privilege" type="tns3:XmlModelEntity"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="userguid" id="getUserPrivilegesResponseTypeuser-guid"
+          form="unqualified" name="user-guid" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Unique ID of the user for whom privilege assignments are being returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="isActionAuthorised" nillable="false">
+    <xsd:complexType ecore:name="isActionAuthorisedType" id="com.tibco.n2.de.api.securityisActionAuthorisedType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="performer" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="performer" type="tns2:XmlModelEntityId"/>
+        <xsd:element ecore:name="scope" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="scope" type="tns2:XmlModelEntityId"/>
+        <xsd:element ecore:name="action" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="action" type="XmlSystemAction"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="faultonunauthorised" id="isActionAuthorisedTypefault-on-unauthorised"
+          default="false" form="unqualified" name="fault-on-unauthorised" type="xsd:boolean"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Boolean value indicating whether a service fault should be raised if any of the queried system actions are not authorised. If &quot;false&quot; (the default), an un-authorised system action will be reported in the response. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="isActionAuthorisedResponse" nillable="false">
+    <xsd:complexType ecore:name="isActionAuthorisedResponseType" id="com.tibco.n2.de.api.securityisActionAuthorisedResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="scope" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="scope" type="tns2:XmlModelEntityId"/>
+        <xsd:element ecore:name="action" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="action">
+          <xsd:complexType ecore:name="actionType" id="com.tibco.n2.de.api.securityactionType"
+              mixed="false">
+            <xsd:complexContent mixed="false">
+              <xsd:extension base="tns15:XmlSystemAction">
+                <xsd:attribute ecore:name="authorised" id="actionTypeauthorised" form="unqualified"
+                    name="authorised" type="xsd:boolean" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation>Boolean value indicating whether the user specified in the request:
+
+- has the necessary privileges to perform the named system action (TRUE).
+
+- does not have the necessary privileges to perform the named system action (FALSE). </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="overall" id="isActionAuthorisedResponseTypeoverall"
+          form="unqualified" name="overall" type="xsd:boolean" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Boolean value indicating whether the user specified in the request is:
+                   
+- authorized to perform all of the requested system actions (TRUE).
+
+- authorized to perform only some, or none, of the requested system actions (FALSE). </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listActionAuthorisedEntities" nillable="false">
+    <xsd:complexType ecore:name="listActionAuthorisedEntitiesType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="XmlSystemAction"/>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listActionAuthorisedEntitiesResponse" nillable="false">
+    <xsd:complexType ecore:name="listActionAuthorisedEntitiesResponseType" id="com.tibco.n2.de.api.securitylistActionAuthorisedEntitiesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="guid" form="unqualified" maxOccurs="unbounded" minOccurs="0"
+            name="guid" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listAuthorisedOrgs" nillable="false">
+    <xsd:complexType ecore:name="listAuthorisedOrgsType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="XmlSystemAction"/>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listAuthorisedOrgsResponse" nillable="false">
+    <xsd:complexType ecore:name="listAuthorisedOrgsResponseType" id="com.tibco.n2.de.api.securitylistAuthorisedOrgsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="guid" form="unqualified" maxOccurs="unbounded" minOccurs="0"
+            name="guid" type="xsd:string"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="allorganizations" id="listAuthorisedOrgsResponseTypeall-organizations"
+          default="false" form="unqualified" name="all-organizations" type="xsd:boolean"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Boolean value defining whether the user is permitted to perform the system action on all available organizations.
+
+The organizations' GUIDs will still be listed in the response. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

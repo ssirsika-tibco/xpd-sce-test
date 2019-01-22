@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskr2dricezioneesiti"
+    xmlns:tns5="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskr2dricezioneesiti"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskr2dricezioneesiti">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_integration.utiliy.resource/Generated Business Objects/com.enel.xmlns.mercato.libero.schema.bpm.receivetaskr2dricezioneesiti.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="R2dRicezioneEsitiRequest" nillable="false">
+    <xsd:complexType ecore:name="R2dRicezioneEsitiRequestType" id="com.enel.xmlns.mercato.libero.schema.bpm.receivetaskr2dricezioneesitiR2dRicezioneEsitiRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="correlationID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="correlationID" type="xsd:string"/>
+        <xsd:element ecore:name="appuntMemo" form="qualified" maxOccurs="1" minOccurs="0"
+            name="appuntMemo" type="xsd:string"/>
+        <xsd:element ecore:name="clienteMemo" form="qualified" maxOccurs="1" minOccurs="0"
+            name="clienteMemo" type="xsd:string"/>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="esito" type="xsd:string"/>
+        <xsd:element ecore:name="codiceEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="codiceEsito" type="xsd:string"/>
+        <xsd:element ecore:name="descrizioneEsito" form="qualified" maxOccurs="1"
+            minOccurs="0" name="descrizioneEsito" type="xsd:string"/>
+        <xsd:element ecore:name="tipoEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="tipoEsito" type="xsd:string"/>
+        <xsd:element ecore:name="datiOutCDMMemo" form="qualified" maxOccurs="1" minOccurs="0"
+            name="datiOutCDMMemo" type="xsd:string"/>
+        <xsd:element ecore:name="flgEsecuzioneLavori" form="qualified" maxOccurs="1"
+            minOccurs="0" name="FlgEsecuzioneLavori" type="xsd:string"/>
+        <xsd:element ecore:name="fornituraMemo" form="qualified" maxOccurs="1" minOccurs="0"
+            name="fornituraMemo" type="xsd:string"/>
+        <xsd:element ecore:name="indDistributoreMemo" form="qualified" maxOccurs="1"
+            minOccurs="0" name="indDistributoreMemo" type="xsd:string"/>
+        <xsd:element ecore:name="letturaMemo" form="qualified" maxOccurs="1" minOccurs="0"
+            name="letturaMemo" type="xsd:string"/>
+        <xsd:element ecore:name="preventivoCommercialeMemo" form="qualified" maxOccurs="1"
+            minOccurs="0" name="preventivoCommercialeMemo" type="xsd:string"/>
+        <xsd:element ecore:name="preventivoTecnicoMemo" form="qualified" maxOccurs="1"
+            minOccurs="0" name="preventivoTecnicoMemo" type="xsd:string"/>
+        <xsd:element ecore:name="richiestaMemo" form="qualified" maxOccurs="1" minOccurs="0"
+            name="richiestaMemo" type="xsd:string"/>
+        <xsd:element ecore:name="note" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Note" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

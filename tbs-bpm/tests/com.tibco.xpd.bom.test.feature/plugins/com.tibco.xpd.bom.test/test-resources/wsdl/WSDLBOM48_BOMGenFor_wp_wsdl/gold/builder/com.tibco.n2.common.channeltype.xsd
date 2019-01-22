@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://channeltype.common.n2.tibco.com" xmlns:tns11="http://channeltype.common.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://channeltype.common.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.common.channeltype.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="ChannelType" id="com.tibco.n2.common.channeltypeChannelType"
+      name="ChannelType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="JSP_CHANNEL" value="JSPChannel"/>
+      <xsd:enumeration ecore:name="GI_CHANNEL" value="GIChannel"/>
+      <xsd:enumeration ecore:name="PAGEFLOW_CHANNEL" value="PageflowChannel"/>
+      <xsd:enumeration ecore:name="EMAIL_CHANNEL" value="EmailChannel"/>
+      <xsd:enumeration ecore:name="RSS_CHANNEL" value="RssChannel"/>
+      <xsd:enumeration ecore:name="OPENSPACE_CHANNEL" value="openspaceChannel"/>
+      <xsd:enumeration ecore:name="MOBILE_CHANNEL" value="MobileChannel"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="PresentationType" id="com.tibco.n2.common.channeltypePresentationType"
+      name="PresentationType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="JSP" value="JSP"/>
+      <xsd:enumeration ecore:name="GI" value="GI"/>
+      <xsd:enumeration ecore:name="PAGEFLOW" value="Pageflow"/>
+      <xsd:enumeration ecore:name="EMAIL" value="Email"/>
+      <xsd:enumeration ecore:name="RSS" value="Rss"/>
+      <xsd:enumeration ecore:name="GWT" value="GWT"/>
+      <xsd:enumeration ecore:name="IPHONE" value="iPhone"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="ImplementationType" id="com.tibco.n2.common.channeltypeImplementationType"
+      name="ImplementationType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="PULL" value="Pull"/>
+      <xsd:enumeration ecore:name="PUSH" value="Push"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

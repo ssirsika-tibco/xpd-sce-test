@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/b1" xmlns:tns1="http://example.com/b1" xmlns:tns2="http://example.com/cc1"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/b1">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/B/Business Objects/B1.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://example.com/cc1" schemaLocation="com.example.cc1.xsd"/>
+  <xsd:complexType id="_4EVjYK69Ed-npZiqlhmLeQ" name="FFFF">
+    <xsd:complexContent>
+      <xsd:extension base="tns2:TT4">
+        <xsd:sequence>
+          <xsd:element id="_4xouQK69Ed-npZiqlhmLeQ" maxOccurs="1" minOccurs="0" name="f1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_5OPxwK69Ed-npZiqlhmLeQ" maxOccurs="1" minOccurs="0" name="f2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_5c2OcK69Ed-npZiqlhmLeQ" maxOccurs="1" minOccurs="0" name="f3">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

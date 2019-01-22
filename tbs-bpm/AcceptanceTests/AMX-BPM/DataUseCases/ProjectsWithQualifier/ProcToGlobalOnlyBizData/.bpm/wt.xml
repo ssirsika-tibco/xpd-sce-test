@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worktype:WorkTypes xmlns:worktype="http://worktype.common.n2.tibco.com" version="1.0.0.201311291223">
+  <worktype:WorkType>
+    <workTypeUID>WT__grZlsFNpEeOUC7phQChPyQ</workTypeUID>
+    <workTypeDescription>EnterData</workTypeDescription>
+    <dataModel>
+      <inouts name="global" optional="true" type="Complex">
+        <complexSpec className="com.example.globalonlybizdata.GlobalClassInGlobalOnlyBom"/>
+      </inouts>
+      <inouts name="local" optional="true" type="Complex">
+        <complexSpec className="com.example.proctoglobalonlybizdata.Local1"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__hlsDsFNpEeOUC7phQChPyQ</workTypeUID>
+    <workTypeDescription>DisplayData</workTypeDescription>
+    <dataModel>
+      <inouts name="global" optional="true" type="Complex">
+        <complexSpec className="com.example.globalonlybizdata.GlobalClassInGlobalOnlyBom"/>
+      </inouts>
+      <inouts name="local" optional="true" type="Complex">
+        <complexSpec className="com.example.proctoglobalonlybizdata.Local1"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+</worktype:WorkTypes>

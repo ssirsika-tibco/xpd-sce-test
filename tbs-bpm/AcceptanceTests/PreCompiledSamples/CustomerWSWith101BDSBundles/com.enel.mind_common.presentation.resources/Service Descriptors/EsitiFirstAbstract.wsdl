@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_INwe8BSbEeONnbteG2Ijvw_EsitiFirst__Kp5ghSXOEeO2_fUWEu99bg" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/esitisaleforce" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MIND_SaleForce" targetNamespace="http://www.tibco.com/bs3.0/_INwe8BSbEeONnbteG2Ijvw_EsitiFirst__Kp5ghSXOEeO2_fUWEu99bg" tibex:ServiceTask="_Kp5ghSXOEeO2_fUWEu99bg" tibex:XPDL="MIND_SaleForce.xpdl" tibex:process="_Kp5ghCXOEeO2_fUWEu99bg">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_INwe8BSbEeONnbteG2Ijvw_EsitiFirst__Kp5ghSXOEeO2_fUWEu99bg" targetNamespace="http://www.tibco.com/bs3.0/_INwe8BSbEeONnbteG2Ijvw_EsitiFirst__Kp5ghSXOEeO2_fUWEu99bg"/>
+    <xsd:schema xmlns="http://mind.enel.com/esitisaleforce" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/esitisaleforce" targetNamespace="http://mind.enel.com/esitisaleforce">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/MIND_SaleForce/Business Objects/EsitiSaleForce.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="EsitiSF_Input">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="canale_Di_Vendita">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="causale_Operazione" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice_Scarto">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione_Scarto" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito_Caricamento">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="id_Attivita_Scarto">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="id_BPM">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="id_Transazione_Canale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EsitiSF_Output">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice_Scarto">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione_Scarto">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EsitiSF_InputElement" type="EsitiSF_Input"/>
+      <xsd:element name="EsitiSF_OutputElement" type="EsitiSF_Output"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Esiti_EsitiFirst_INPUT">
+    <wsdl:part element="ttns:EsitiSF_InputElement" name="Request"/>
+  </wsdl:message>
+  <wsdl:message name="Esiti_EsitiFirst_OUTPUT">
+    <wsdl:part element="ttns:EsitiSF_OutputElement" name="Response"/>
+  </wsdl:message>
+  <wsdl:portType name="Esiti" tibex:FlowContainer="_Kp5ghCXOEeO2_fUWEu99bg">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="EsitiFirst">
+      <wsdl:input message="ns:Esiti_EsitiFirst_INPUT" tibex:Event="_Kp5ghSXOEeO2_fUWEu99bg"/>
+      <wsdl:output message="ns:Esiti_EsitiFirst_OUTPUT" tibex:Event="_Kp5ghSXOEeO2_fUWEu99bg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

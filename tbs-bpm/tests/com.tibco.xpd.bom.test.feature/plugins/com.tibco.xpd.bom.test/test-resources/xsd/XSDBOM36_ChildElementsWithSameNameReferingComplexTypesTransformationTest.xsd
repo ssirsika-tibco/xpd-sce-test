@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/XSDBOM36_ChildElementsWithSameNameReferingComplexTypesTransformationTest" xmlns:tns="http://www.example.org/XSDBOM36_ChildElementsWithSameNameReferingComplexTypesTransformationTest" elementFormDefault="qualified">
+
+	<xsd:complexType name="MyComplex">
+		<xsd:sequence>
+			<xsd:element name="position" type="tns:position"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="position">
+		<xsd:attribute name="myAttrib"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:element name="positionElement" type="tns:position"/>
+	
+	<!--  ////////////////////////////////////////////////////// -->
+	
+	<xsd:element name="MyElement">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Position" type="tns:someType"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="someType">
+		<xsd:sequence>
+			<xsd:element name="elemName" type="xsd:string"></xsd:element>
+		</xsd:sequence>	
+	</xsd:complexType>
+</xsd:schema>

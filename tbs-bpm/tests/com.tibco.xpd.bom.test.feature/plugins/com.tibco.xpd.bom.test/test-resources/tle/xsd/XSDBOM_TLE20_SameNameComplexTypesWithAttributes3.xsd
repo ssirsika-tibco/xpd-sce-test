@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="XSDBOM_TLE20_SameNameComplexTypesWithAttributes3"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="XSDBOM_TLE20_SameNameComplexTypesWithAttributes3">
+
+	<xsd:element name="topAddress">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="street" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="CarDetails">
+		<xsd:sequence>
+			<xsd:element name="carMake" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="RentalAgencyDetails">
+		<xsd:sequence>
+			<xsd:element name="address" type="tns:Address"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Address">
+		<xsd:sequence>
+			<xsd:element name="street" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

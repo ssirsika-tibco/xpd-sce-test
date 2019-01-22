@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_ARILMPMFEd-yqMgIn-luCA" name="com.example.businessobjectmodel">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ARILMfMFEd-yqMgIn-luCA" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ARILMvMFEd-yqMgIn-luCA" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ARILM_MFEd-yqMgIn-luCA" key="created" value="1290082466275"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HqkaUCUBEeK7H5uYFWLBnA" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_EDd0YPMFEd-yqMgIn-luCA" name="AirlinePreference">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KmuGAPMFEd-yqMgIn-luCA" name="seating" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KnKx8fMFEd-yqMgIn-luCA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KnKx8PMFEd-yqMgIn-luCA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KrClUPMFEd-yqMgIn-luCA" name="mealType" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KrClUvMFEd-yqMgIn-luCA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KrClUfMFEd-yqMgIn-luCA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KvNToPMFEd-yqMgIn-luCA" name="specialRequest" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KvNTovMFEd-yqMgIn-luCA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KvNTofMFEd-yqMgIn-luCA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_H7nxsPMFEd-yqMgIn-luCA" name="FrequentFilter">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OZzWEPMFEd-yqMgIn-luCA" name="airline" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OZzWEvMFEd-yqMgIn-luCA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OZzWEfMFEd-yqMgIn-luCA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Oe3cQPMFEd-yqMgIn-luCA" name="freqFlierNumber" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Oe3cQvMFEd-yqMgIn-luCA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Oe3cQfMFEd-yqMgIn-luCA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HbuJoPMFEd-yqMgIn-luCA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HbuJofMFEd-yqMgIn-luCA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_ARILNPMFEd-yqMgIn-luCA" type="Business Object Model" element="_ARILMPMFEd-yqMgIn-luCA?com.example.businessobjectmodel?" name="BusinessObjectModel.bom" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_ARILNfMFEd-yqMgIn-luCA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_ARILNvMFEd-yqMgIn-luCA"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HbuJovMFEd-yqMgIn-luCA" displayLabel="AirlinePreference" base_NamedElement="_EDd0YPMFEd-yqMgIn-luCA?com.example.businessobjectmodel%3a%3aAirlinePreference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_JcfukPMFEd-yqMgIn-luCA" displayLabel="FrequentFilter" base_NamedElement="_H7nxsPMFEd-yqMgIn-luCA?com.example.businessobjectmodel%3a%3aFrequentFilter?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_LR8NQPMFEd-yqMgIn-luCA" displayLabel="specialRequest" base_NamedElement="_KvNToPMFEd-yqMgIn-luCA?com.example.businessobjectmodel%3a%3aAirlinePreference%3a%3aspecialRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_LzUcAPMFEd-yqMgIn-luCA" displayLabel="seating" base_NamedElement="_KmuGAPMFEd-yqMgIn-luCA?com.example.businessobjectmodel%3a%3aAirlinePreference%3a%3aseating?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Muo0wPMFEd-yqMgIn-luCA" displayLabel="mealType" base_NamedElement="_KrClUPMFEd-yqMgIn-luCA?com.example.businessobjectmodel%3a%3aAirlinePreference%3a%3amealType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Omd5EPMFEd-yqMgIn-luCA" displayLabel="freqFlierNumber" base_NamedElement="_Oe3cQPMFEd-yqMgIn-luCA?com.example.businessobjectmodel%3a%3aFrequentFilter%3a%3afreqFlierNumber?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PTCEIPMFEd-yqMgIn-luCA" displayLabel="airline" base_NamedElement="_OZzWEPMFEd-yqMgIn-luCA?com.example.businessobjectmodel%3a%3aFrequentFilter%3a%3aairline?"/>
+</xmi:XMI>

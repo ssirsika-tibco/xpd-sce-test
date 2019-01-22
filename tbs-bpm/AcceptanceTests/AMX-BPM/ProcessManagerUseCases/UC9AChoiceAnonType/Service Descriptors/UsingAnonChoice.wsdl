@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.tibco.com/UsingAnonChoice/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UsingAnonChoice"
+	targetNamespace="http://www.tibco.com/UsingAnonChoice/" xmlns:tns1="http://example.com/AnonChoice">
+	<wsdl:types>
+		<xs:schema xmlns="http://example.com/AnonChoice"
+			targetNamespace="http://example.com/AnonChoice">
+			<xs:element name="Boeing">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="freightDetails" type="xs:string" />
+						<xs:element name="seats">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="colour" type="xs:string" />
+								</xs:sequence>
+								<xs:attribute name="armrest" type="xs:boolean" />
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="FreightDetails">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="freightDetails" type="xsd:string"
+							minOccurs="0" />
+						<xsd:element name="seatColor" minOccurs="0" type="xsd:string" />
+						<xsd:element name="searArmRest" minOccurs="0"
+							type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xs:element>
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="InMessage">
+		<wsdl:part name="boeing" element="tns1:Boeing" />
+	</wsdl:message>
+	<wsdl:message name="OutMessage">
+		<wsdl:part name="freightDetails" element="tns1:FreightDetails"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="UsingAnonChoice">
+		<wsdl:operation name="GetFreightDetails">
+			<wsdl:input message="tns:InMessage" />
+			<wsdl:output message="tns:OutMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

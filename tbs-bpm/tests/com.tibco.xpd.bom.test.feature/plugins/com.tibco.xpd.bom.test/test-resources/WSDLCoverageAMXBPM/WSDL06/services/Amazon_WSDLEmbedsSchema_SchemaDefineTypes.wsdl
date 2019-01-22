@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.amsbqa.com/linda06/WSDLEmbedsSchema/SchemaDefineTypes/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.amsbqa.com/linda06/WSDLEmbedsSchema/SchemaDefineTypes/wsdl">
+    <types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://www.amsbqa.com/linda06/WSDLEmbedsSchema/SchemaDefineTypes/wsdl">
+            <xs:element name="Help">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SubscriptionId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AWSAccessKeyId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Timestamp" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Signature" type="xs:base64Binary"/>
+                        <xs:element minOccurs="0" name="Validate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="XMLEscaping" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Shared" type="tns:HelpRequest"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Request" type="tns:HelpRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="HelpRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="About" type="xs:string"/>
+                    <xs:element minOccurs="0" name="HelpType">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="Operation"/>
+                                <xs:enumeration value="ResponseGroup"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ResponseGroup" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="HelpResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:OperationRequest"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:Information"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ItemPriceSearch">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SubscriptionId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AWSAccessKeyId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Timestamp" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Signature" type="xs:base64Binary"/>
+                        <xs:element minOccurs="0" name="XMLEscaping" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Validate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Shared" type="tns:ItemPriceSearchRequest"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Request" type="tns:ItemPriceSearchRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="ItemPriceSearchRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Actor" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Artist" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:AudienceRating"/>
+                    <xs:element minOccurs="0" name="Author" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Composer" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Conductor" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Director" type="xs:string"/>
+                    <xs:element minOccurs="0" name="MusicLabel" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Orchestra" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Publisher" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Title" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Keywords" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BrowseNode" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SearchIndex" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ItemPage" type="xs:nonNegativeInteger"/>
+                    <xs:element minOccurs="0" name="Sort" type="xs:string"/>
+                    <xs:element minOccurs="0" ref="tns:Condition"/>
+                    <xs:element minOccurs="0" ref="tns:SubCondition"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Date" type="xs:date"/>
+                    <xs:element minOccurs="0" ref="tns:Period"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ResponseGroup" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ItemPriceSearchResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:OperationRequest"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:Items"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ItemPriceLookup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SubscriptionId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AWSAccessKeyId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Timestamp" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Signature" type="xs:base64Binary"/>
+                        <xs:element minOccurs="0" name="XMLEscaping" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Validate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Shared" type="tns:ItemPriceLookupRequest"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Request" type="tns:ItemPriceLookupRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="ItemPriceLookupRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ItemId" type="xs:string"/>
+                    <xs:element minOccurs="0" ref="tns:IdType"/>
+                    <xs:element minOccurs="0" ref="tns:Condition"/>
+                    <xs:element minOccurs="0" ref="tns:SubCondition"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Date" type="xs:date"/>
+                    <xs:element minOccurs="0" ref="tns:Period"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ResponseGroup" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ItemPriceLookupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:OperationRequest"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:Items"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DateFinder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SubscriptionId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AWSAccessKeyId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Timestamp" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Signature" type="xs:base64Binary"/>
+                        <xs:element minOccurs="0" name="XMLEscaping" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Validate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Shared" type="tns:DateFinderRequest"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Request" type="tns:DateFinderRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="DateFinderRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ItemId" type="xs:string"/>
+                    <xs:element minOccurs="0" ref="tns:IdType"/>
+                    <xs:element minOccurs="0" ref="tns:Condition"/>
+                    <xs:element minOccurs="0" ref="tns:SubCondition"/>
+                    <xs:element minOccurs="0" name="Year" type="xs:positiveInteger"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ResponseGroup" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DateFinderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:OperationRequest"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:Items"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="IsValid" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ItemPriceSearchRequest" type="tns:ItemPriceSearchRequest"/>
+                        <xs:element minOccurs="0" name="ItemPriceLookupRequest" type="tns:ItemPriceLookupRequest"/>
+                        <xs:element minOccurs="0" name="DateFinderRequest" type="tns:DateFinderRequest"/>
+                        <xs:element minOccurs="0" name="HelpRequest" type="tns:HelpRequest"/>
+                        <xs:element minOccurs="0" ref="tns:Errors"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Items">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:Request"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:Item"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ASIN" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ProductGroup" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Title" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CurrentRetailPrice" type="tns:Price"/>
+                        <xs:element minOccurs="0" name="CurrentSalesRank" type="xs:string"/>
+                        <xs:element minOccurs="0" ref="tns:Results"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Results">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:ItemPriceResult"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:DateFinderResult"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ItemPriceResult">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:Condition"/>
+                        <xs:element minOccurs="0" ref="tns:SubCondition"/>
+                        <xs:element minOccurs="0" name="Date" type="xs:date"/>
+                        <xs:element minOccurs="0" name="MarketplaceDemandLevel" type="xs:positiveInteger"/>
+                        <xs:element minOccurs="0" name="MinimumPrice" type="tns:Price"/>
+                        <xs:element minOccurs="0" name="MaximumPrice" type="tns:Price"/>
+                        <xs:element minOccurs="0" name="AveragePrice" type="tns:Price"/>
+                        <xs:element minOccurs="0" name="MedianPrice" type="tns:Price"/>
+                        <xs:element minOccurs="0" ref="tns:Buckets"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DateFinderResult">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:Condition"/>
+                        <xs:element minOccurs="0" ref="tns:SubCondition"/>
+                        <xs:element minOccurs="0" name="Weeks">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Week" type="xs:date"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Months">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Month" type="xs:date"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Quarters">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Quarter" type="xs:date"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Buckets">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Bucket">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="MinimumPrice" type="tns:Price"/>
+                                    <xs:element minOccurs="0" name="MaximumPrice" type="tns:Price"/>
+                                    <xs:element minOccurs="0" name="AveragePrice" type="tns:Price"/>
+                                    <xs:element minOccurs="0" name="SalesPercent" type="xs:decimal"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="IdType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="ASIN"/>
+                        <xs:enumeration value="UPC"/>
+                        <xs:enumeration value="SKU"/>
+                        <xs:enumeration value="EAN"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Condition">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="All"/>
+                        <xs:enumeration value="New"/>
+                        <xs:enumeration value="Used"/>
+                        <xs:enumeration value="Collectible"/>
+                        <xs:enumeration value="Refurbished"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="SubCondition">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="All"/>
+                        <xs:enumeration value="New"/>
+                        <xs:enumeration value="LikeNew"/>
+                        <xs:enumeration value="VeryGood"/>
+                        <xs:enumeration value="Good"/>
+                        <xs:enumeration value="Acceptable"/>
+                        <xs:enumeration value="Poor"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Period">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Week"/>
+                        <xs:enumeration value="Month"/>
+                        <xs:enumeration value="Quarter"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:complexType name="Price">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Amount" type="xs:integer"/>
+                    <xs:element minOccurs="0" name="CurrencyCode" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FormattedPrice" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="AudienceRating">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="G"/>
+                        <xs:enumeration value="PG"/>
+                        <xs:enumeration value="PG-13"/>
+                        <xs:enumeration value="R"/>
+                        <xs:enumeration value="NC-17"/>
+                        <xs:enumeration value="NR"/>
+                        <xs:enumeration value="Unrated"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="OperationRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:HTTPHeaders"/>
+                        <xs:element minOccurs="0" name="RequestId" type="xs:string"/>
+                        <xs:element minOccurs="0" ref="tns:Arguments"/>
+                        <xs:element minOccurs="0" ref="tns:Errors"/>
+                        <xs:element maxOccurs="1" minOccurs="0" name="RequestProcessingTime" type="xs:float"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Arguments">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="Argument">
+                            <xs:complexType>
+                                <xs:attribute name="Name" type="xs:string" use="required"/>
+                                <xs:attribute name="Value" type="xs:string" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="HTTPHeaders">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Header">
+                            <xs:complexType>
+                                <xs:attribute name="Name" type="xs:string" use="required"/>
+                                <xs:attribute name="Value" type="xs:string" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Errors">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="Error">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element name="Message" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Information">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" ref="tns:Request"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:OperationInformation"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:ResponseGroupInformation"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="OperationInformation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Name" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Description" type="xs:string"/>
+                        <xs:element minOccurs="0" name="RequiredParameters">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="Parameter" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="AvailableParameters">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="Parameter" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="DefaultResponseGroups">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="ResponseGroup" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="AvailableResponseGroups">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="ResponseGroup" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ResponseGroupInformation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Name" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CreationDate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ValidOperations">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="Operation" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Elements">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="Element" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </types>
+    <message name="HelpRequestMsg">
+        <part element="tns:Help" name="body"/>
+    </message>
+    <message name="HelpResponseMsg">
+        <part element="tns:HelpResponse" name="body"/>
+    </message>
+    <message name="ItemPriceSearchRequestMsg">
+        <part element="tns:ItemPriceSearch" name="body"/>
+    </message>
+    <message name="ItemPriceSearchResponseMsg">
+        <part element="tns:ItemPriceSearchResponse" name="body"/>
+    </message>
+    <message name="ItemPriceLookupRequestMsg">
+        <part element="tns:ItemPriceLookup" name="body"/>
+    </message>
+    <message name="ItemPriceLookupResponseMsg">
+        <part element="tns:ItemPriceLookupResponse" name="body"/>
+    </message>
+    <message name="DateFinderRequestMsg">
+        <part element="tns:DateFinder" name="body"/>
+    </message>
+    <message name="DateFinderResponseMsg">
+        <part element="tns:DateFinderResponse" name="body"/>
+    </message>
+    <portType name="AmazonHistoricalPricingPortType">
+        <operation name="Help">
+            <input message="tns:HelpRequestMsg"/>
+            <output message="tns:HelpResponseMsg"/>
+        </operation>
+        <operation name="ItemPriceSearch">
+            <input message="tns:ItemPriceSearchRequestMsg"/>
+            <output message="tns:ItemPriceSearchResponseMsg"/>
+        </operation>
+        <operation name="ItemPriceLookup">
+            <input message="tns:ItemPriceLookupRequestMsg"/>
+            <output message="tns:ItemPriceLookupResponseMsg"/>
+        </operation>
+        <operation name="DateFinder">
+            <input message="tns:DateFinderRequestMsg"/>
+            <output message="tns:DateFinderResponseMsg"/>
+        </operation>
+    </portType>
+</definitions>
