@@ -1,19 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:ns2="http://example.com/MultipleElmDiffComplex" xmlns:tns="http://www.example.org/UsingMultElemDiffCompXsd/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UsingMultElemDiffCompXsd" targetNamespace="http://www.example.org/UsingMultElemDiffCompXsd/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
-	<wsdl:import location="MultipleElmDiffComplex.xsd" namespace="http://example.com/MultipleElmDiffComplex"/>	<wsdl:types>
-		<xsd:schema targetNamespace="http://www.example.org/UsingMultElemDiffCompXsd/">
-		<xsd:import namespace="http://example.com/MultipleElmDiffComplex" schemaLocation="MultipleElmDiffComplex.xsd"/>
-			<xsd:complexType name="OutputElement">
-				<xsd:sequence>
-					<xsd:element name="CustomerElement" type="ns2:Customer"/>
-					<xsd:element name="AnotherCustomerElement" type="ns2:Customer"/>
-					<xsd:element name="PersonElement" type="ns2:Person"/>
-					<xsd:element name="AnotherPersonElement" type="ns2:Person"/>					
-				</xsd:sequence>
-			</xsd:complexType>
-		</xsd:schema>
-	</wsdl:types>
-	<wsdl:message name="UsingXsdOperationRequest">		<wsdl:part name="customerElement" type="ns2:Customer" />		<wsdl:part name="personElement" type="ns2:Person" />		<wsdl:part name="anotherCustomerElement" type="ns2:Customer" />		<wsdl:part name="anotherPersonElement" type="ns2:Person" />	</wsdl:message>	<wsdl:message name="UsingXsdOperationResponse">		<wsdl:part name="outputElement" type="tns:OutputElement"></wsdl:part>	</wsdl:message>	<wsdl:portType name="UsingXsdPortType">		<wsdl:operation name="UsingXsdOperation">			<wsdl:input message="tns:UsingXsdOperationRequest"></wsdl:input>			<wsdl:output message="tns:UsingXsdOperationResponse"></wsdl:output>		</wsdl:operation>
-	</wsdl:portType></wsdl:definitions>
-
-	
