@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.amsbqa.Linda09.Schema1importSchema2.Schema1" name="com.amsbqa.Linda09.Schema1importSchema2.Schema1">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dc0eEU1lEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dc0eEk1lEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dc0eE01lEeSLJZkJre4IDg" key="created" value="1412609489137"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dc0eFE1lEeSLJZkJre4IDg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dei8YE1lEeSLJZkJre4IDg" key="checksum" value="3861806279"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType" name="CarTypeType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_dccqoU1lEeSLJZkJre4IDg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType2" name="CarType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarTypecarinfo" name="carinfo" aggregation="composite">
+        <type xmi:type="uml:Class" href="com.amsbqa.Linda09.Schema1importSchema2.Schema2.bom#com.amsbqa.Linda09.Schema1importSchema2.Schema2CarPreference?com.amsbqa.Linda09.Schema1importSchema2.Schema2%3a%3aCarPreference?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dcgVA01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dcgVAk1lEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CarTypeCarType" name="carType" type="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarTypeType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dchjIU1lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dchjIE1lEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_dcOoMU1lEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dcOoMk1lEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_dcOoM01lEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dcOoNE1lEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_dcOoNU1lEeSLJZkJre4IDg" base_Package="com.amsbqa.Linda09.Schema1importSchema2.Schema1?com.amsbqa.Linda09.Schema1importSchema2.Schema1?" xsdTargetNamespace="http://www.amsbqa.com/Linda09/Schema1importSchema2/Schema1" xsdSchemaLocation="Profile_WSLEmbedSchma12_Schema1ImprotSchema2.wsdl" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.9.0.qualifier" bomWsdlSources="Profile_WSLEmbedSchma12_Schema1ImprotSchema2.wsdl"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_dcdRsE1lEeSLJZkJre4IDg" textLength="-1" base_PrimitiveType="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarTypeType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_dcdRsU1lEeSLJZkJre4IDg" base_PrimitiveType="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarTypeType?" xsdSimpleTypeName="CarType" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_dcd4wE1lEeSLJZkJre4IDg" base_Package="com.amsbqa.Linda09.Schema1importSchema2.Schema1?com.amsbqa.Linda09.Schema1importSchema2.Schema1?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_dcd4wU1lEeSLJZkJre4IDg" name="CarType" type="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarTypeType?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/Linda09/Schema1importSchema2/Schema1" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_dcef0E1lEeSLJZkJre4IDg" name="carinfo" targetNamespace="http://www.amsbqa.com/Linda09/Schema1importSchema2/Schema1" substitutionGroup="">
+      <type xmi:type="uml:Class" href="com.amsbqa.Linda09.Schema1importSchema2.Schema2.bom#com.amsbqa.Linda09.Schema1importSchema2.Schema2CarPreference?com.amsbqa.Linda09.Schema1importSchema2.Schema2%3a%3aCarPreference?"/>
+    </elements>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_dciKME1lEeSLJZkJre4IDg" name="Car" type="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType2?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType?" isAnonymous="true" targetNamespace="http://www.amsbqa.com/Linda09/Schema1importSchema2/Schema1" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_dcfG4U1lEeSLJZkJre4IDg" base_Class="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType2?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_dchjIk1lEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_dcgVAU1lEeSLJZkJre4IDg" base_Property="CarTypecarinfo?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType%3a%3acarinfo?" xsdName="carinfo" xsdRef="http://www.amsbqa.com/Linda09/Schema1importSchema2/Schema1:carinfo" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_dchjIk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_dcg8EU1lEeSLJZkJre4IDg" base_Property="CarTypeCarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType%3a%3acarType?" xsdName="CarType" xsdRef="http://www.amsbqa.com/Linda09/Schema1importSchema2/Schema1:CarType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_dchjIk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dcj_YU1lEeSLJZkJre4IDg" base_Element="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType2?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dcj_Yk1lEeSLJZkJre4IDg" base_Element="CarTypeCarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType%3a%3acarType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dcj_Y01lEeSLJZkJre4IDg" base_Element="_dcgVA01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dcj_ZE1lEeSLJZkJre4IDg" base_Element="_dcgVAk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dcj_ZU1lEeSLJZkJre4IDg" base_Element="_dcOoMU1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dcj_Zk1lEeSLJZkJre4IDg" base_Element="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarTypeType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dcj_Z01lEeSLJZkJre4IDg" base_Element="_dccqoU1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dckmcE1lEeSLJZkJre4IDg" base_Element="_dchjIE1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dckmcU1lEeSLJZkJre4IDg" base_Element="_dcOoM01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dckmck1lEeSLJZkJre4IDg" base_Element="CarTypecarinfo?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType%3a%3acarinfo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_dckmc01lEeSLJZkJre4IDg" base_Element="_dchjIU1lEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dcz3AE1lEeSLJZkJre4IDg" displayLabel="CarType" base_NamedElement="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType2?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dcz3AU1lEeSLJZkJre4IDg" displayLabel="CarType" base_NamedElement="com.amsbqa.Linda09.Schema1importSchema2.Schema1CarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarTypeType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dcz3Ak1lEeSLJZkJre4IDg" displayLabel="CarType" base_NamedElement="CarTypeCarType?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType%3a%3acarType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_dc0eEE1lEeSLJZkJre4IDg" displayLabel="carinfo" base_NamedElement="CarTypecarinfo?com.amsbqa.Linda09.Schema1importSchema2.Schema1%3a%3aCarType%3a%3acarinfo?"/>
+  <notation:Diagram xmi:id="_dc0eFU1lEeSLJZkJre4IDg" type="Business Object Model" element="com.amsbqa.Linda09.Schema1importSchema2.Schema1?com.amsbqa.Linda09.Schema1importSchema2.Schema1?" name="com.amsbqa.Linda09.Schema1importSchema2.Schema1" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_dc0eFk1lEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_dc0eF01lEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

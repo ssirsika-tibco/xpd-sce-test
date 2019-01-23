@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.tibco.com/models/SimulationReport.xsd" 
+       class = "com.tibco.simulation.report.SimRepPackage"
+       genModel = "model/com.tibco.simulation.report.model.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+    <parser 
+       type="simrep" 
+       class="com.tibco.simulation.report.util.SimRepResourceFactoryImpl" />
+  </extension>
+
+</plugin>
+

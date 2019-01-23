@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/XSDBOM_TLE12_ComplexTypeExtension"
+	xmlns:tns="http://www.example.org/XSDBOM_TLE12_ComplexTypeExtension"
+	elementFormDefault="qualified">
+	
+	<!--
+		Tests 3.13 as described in 'BDS Support for Handling - Studio BOM
+		Import'.
+	-->
+	
+	<element name="Child">
+		<complexType>
+			<complexContent>
+				<extension base="tns:Person">
+					<sequence>
+						<element name="school" type="string"/>
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	
+	<element name="AnonymousNested">
+		<complexType>
+			<complexContent>
+				<extension base="tns:Person">
+					<sequence>
+						<element name="address">
+							<complexType>
+								<sequence>
+									<element name="firstline" type="string" />
+								</sequence>
+							</complexType>
+						</element>
+						<element name="city" type="string" />
+						<element name="country" type="string" />
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	
+	<complexType name="Person">
+		<sequence>
+			<element name="surname" type="string"/>
+		</sequence>
+	</complexType>
+	
+</schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://www.tibco.com/studio_junits_configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.tibco.com/studio_junits_configuration studio_junits.xsd">	
+	<!--  Set location of the previous test workspace to copy the daa from Exports/daa to Goldfiles-->
+	<projects genDaaLocation="C:\src\ws\junit-workspace" goldDaaLocation = "C:\src\repo\tbs-trunk\tbs-bpm\AcceptanceTests\AMX-BPM\WorkManagerUseCases">		
+		<!-- Modify this list to contain projects only , which require update of GoldFile-->
+		
+		<include name="UC2OrgModel"/>
+		<include name="UC2ANoneStartEventWithUserTasks"/>		
+		<include name="UC2BTwoUserTasksChained"/>
+		<include name="UC2CSeparationOfDuties"/>		
+		<include name="UC2DPiling"/>
+		<include name="UC2EWorkItemDeadline"/>
+		<include name="UC2FWorkItemScripts"/>
+		<include name="UC2GParticipantExpressions"/>
+		<include name="UC2HVersioning"/>
+		<include name="UC2ISubprocess"/>	
+		
+	</projects>
+	
+	
+
+</Configuration>

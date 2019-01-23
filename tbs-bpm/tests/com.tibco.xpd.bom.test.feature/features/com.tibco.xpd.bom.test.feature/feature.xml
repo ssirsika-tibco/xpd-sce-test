@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.bom.test.feature"
+      label="%featureName"
+      version="4.0.0.qualifier"
+      provider-name="%providerName">
+
+   <description url="">
+      JUnit test Release Unit
+   </description>
+
+   <copyright url="">
+      Copyright 2007 TIBCO Software Inc.
+   </copyright>
+
+   <license url="">
+      For internal use only.
+   </license>
+
+   <requires>
+      <import feature="com.tibco.xpd.core.test.feature" version="5.0.0" match="compatible"/>
+      <import feature="com.tibco.xpd.bom.feature" version="4.0.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.xpd.bom.modeler.tests"
+         download-size="0"
+         install-size="0"
+         version="4.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.test"
+         download-size="0"
+         install-size="0"
+         version="4.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.validator.test"
+         download-size="0"
+         install-size="0"
+         version="4.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.bom.test.util"
+         download-size="0"
+         install-size="0"
+         version="4.0.0.qualifier"
+         unpack="false"/>
+
+</feature>

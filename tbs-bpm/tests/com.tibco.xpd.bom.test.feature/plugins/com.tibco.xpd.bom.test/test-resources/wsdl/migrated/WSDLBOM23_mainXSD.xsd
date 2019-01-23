@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/WSDLBOM23_mainXSD" xmlns:tns="http://www.example.org/WSDLBOM23_mainXSD" xmlns:tns1="http://www.example.org/WSDLBOM23_referenceXSD" elementFormDefault="qualified">
+<xsd:import namespace="http://www.example.org/WSDLBOM23_referenceXSD" schemaLocation="WSDLBOM23_referenceXSD.xsd"> </xsd:import>
+<xsd:element name="Note">
+	<xsd:complexType>
+    	<xsd:sequence>
+            <xsd:element name="ele1" type="tns1:Note"/>
+     	</xsd:sequence>
+    </xsd:complexType>
+</xsd:element>
+
+    
+</xsd:schema>

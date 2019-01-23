@@ -1,0 +1,29 @@
+// Overwrite list: TopArrayField
+// Overwrite list: TopArrayField
+TopArrayField.clear();
+for(var i1 = 0; i1 < PatientArray.size(); i1++) { 
+    var sVi1 = PatientArray.get(i1);
+    var tVi1 = com_example_bdp_Factory.createTop();
+
+    // Map from 'PatientArray.id' to 'TopArrayField.topAttr'
+    tVi1.topAttr = sVi1.id;
+
+    // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
+    if (tVi1.middleSingleInst == null) {
+        tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+    }
+
+    // Map from 'PatientArray.name' to 'TopArrayField.middleSingleInst.middleAttr'
+    tVi1.middleSingleInst.middleAttr = sVi1.name;
+
+    // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
+    if (tVi1.middleSingleInst.bottomSingleInst == null) {
+        tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+    }
+
+    // Map from 'PatientArray.address.line1' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
+    tVi1.middleSingleInst.bottomSingleInst.bottomAttr = sVi1.address.line1;
+    
+    TopArrayField.add(tVi1);
+}
+

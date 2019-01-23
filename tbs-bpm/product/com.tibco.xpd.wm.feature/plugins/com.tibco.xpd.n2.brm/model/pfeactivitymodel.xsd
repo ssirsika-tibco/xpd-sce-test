@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (x64) (http://www.altova.com) by GVS (Tibco Software Limited) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:pa="http://pageactivitymodel.common.n2.tibco.com" targetNamespace="http://pageactivitymodel.common.n2.tibco.com" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:element name="PageActivities" type="pa:PageActivities">
+		<xs:annotation>
+			<xs:documentation>The root WorkType element.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="PageActivities">
+		<xs:annotation>
+			<xs:documentation>Array of page activities.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PageActivity" type="pa:PageActivity" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="version" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="PageActivity">
+		<xs:annotation>
+			<xs:documentation>Work type definition. (This should be considered as the API specification of any work item created for this work type.)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityModelID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unique ID of the activity model.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityDescription" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Textual description of the activity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="moduleName" type="xs:string"/>
+			<xs:element name="moduleVersion" type="xs:string"/>
+			<xs:element name="processName" type="xs:string"/>
+			<xs:element name="dataModel" type="dm:DataModel">
+				<xs:annotation>
+					<xs:documentation>Specification of INPUT, OUTPUT and INOUT parameters, which comprise the data model for the work type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

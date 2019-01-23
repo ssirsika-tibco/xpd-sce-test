@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.XSDBOM_All04_ComplexContent2" name="org.example.XSDBOM_All04_ComplexContent">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XyDnsBUEEeGvy5vcBZd45A" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XyDnsRUEEeGvy5vcBZd45A" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XyDnshUEEeGvy5vcBZd45A" key="created" value="1321968031787"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XyDnsxUEEeGvy5vcBZd45A" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.XSDBOM_All04_ComplexContenttopLevelComplex" name="topLevelComplex"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.XSDBOM_All04_ComplexContenttopLevelElemType" name="topLevelElemType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_XiIVUBUEEeGvy5vcBZd45A" general="org.example.XSDBOM_All04_ComplexContenttopLevelComplex?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelComplex?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="topLevelElemTypeattr2" name="attr2">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XiAZgBUEEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xh_ycRUEEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Xhmw4RUEEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Xhmw4hUEEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_XhnX8BUEEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XhnX8RUEEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_Xhn_ABUEEeGvy5vcBZd45A" base_Package="org.example.XSDBOM_All04_ComplexContent2?org.example.XSDBOM_All04_ComplexContent?" xsdTargetNamespace="http://www.example.org/XSDBOM_All04_ComplexContent" xsdSchemaLocation="XSDBOM_All04_ComplexContent.xsd" xsdAttributeForm="unqualified" xsdElementForm="qualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_XhsQcBUEEeGvy5vcBZd45A" base_Class="org.example.XSDBOM_All04_ComplexContenttopLevelComplex?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelComplex?" xsdName="topLevelComplex" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_XhvTwBUEEeGvy5vcBZd45A" name="MS1_1_1" isAll="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Xh0zUBUEEeGvy5vcBZd45A" base_Class="org.example.XSDBOM_All04_ComplexContenttopLevelElemType?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelElemType?" xsdName="topLevelElem" xsdIsComplexType="true" xsdIsAnonType="true" xsdIsAllMultiplicitySet="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_XiEq8BUEEeGvy5vcBZd45A" name="MS1_1_1" minOccurs="0" isAll="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Xh_ycBUEEeGvy5vcBZd45A" base_Property="topLevelElemTypeattr2?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelElemType%3a%3aattr2?" xsdName="attr2" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="A1" xsdParentSequence="_XiEq8BUEEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_XiBAkBUEEeGvy5vcBZd45A" textLength="-1" base_Property="topLevelElemTypeattr2?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelElemType%3a%3aattr2?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_XiI8YBUEEeGvy5vcBZd45A" base_Package="org.example.XSDBOM_All04_ComplexContent2?org.example.XSDBOM_All04_ComplexContent?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_XiJjcBUEEeGvy5vcBZd45A" name="topLevelElem" type="org.example.XSDBOM_All04_ComplexContenttopLevelElemType?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelElemType?" isAnonymous="true" targetNamespace="http://www.example.org/XSDBOM_All04_ComplexContent" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_XiKKgBUEEeGvy5vcBZd45A" base_Element="topLevelElemTypeattr2?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelElemType%3a%3aattr2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_XiKKgRUEEeGvy5vcBZd45A" base_Element="org.example.XSDBOM_All04_ComplexContenttopLevelElemType?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelElemType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_XiKKghUEEeGvy5vcBZd45A" base_Element="org.example.XSDBOM_All04_ComplexContenttopLevelComplex?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelComplex?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_XiKxkBUEEeGvy5vcBZd45A" base_Element="_Xhmw4RUEEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_XiKxkRUEEeGvy5vcBZd45A" base_Element="_XiAZgBUEEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_XiKxkhUEEeGvy5vcBZd45A" base_Element="_XiIVUBUEEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_XiLYoBUEEeGvy5vcBZd45A" base_Element="_Xh_ycRUEEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_XiLYoRUEEeGvy5vcBZd45A" base_Element="_XhnX8BUEEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Xx-vMBUEEeGvy5vcBZd45A" displayLabel="topLevelComplex" base_NamedElement="org.example.XSDBOM_All04_ComplexContenttopLevelComplex?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelComplex?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_XyBLcBUEEeGvy5vcBZd45A" displayLabel="topLevelElemType" base_NamedElement="org.example.XSDBOM_All04_ComplexContenttopLevelElemType?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelElemType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_XyDAoBUEEeGvy5vcBZd45A" displayLabel="attr2" base_NamedElement="topLevelElemTypeattr2?org.example.XSDBOM_All04_ComplexContent%3a%3atopLevelElemType%3a%3aattr2?"/>
+  <notation:Diagram xmi:id="_XyDntBUEEeGvy5vcBZd45A" type="Business Object Model" element="org.example.XSDBOM_All04_ComplexContent2?org.example.XSDBOM_All04_ComplexContent?" name="org.example.XSDBOM_All04_ComplexContent" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XyDntRUEEeGvy5vcBZd45A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_XyDnthUEEeGvy5vcBZd45A"/>
+  </notation:Diagram>
+</xmi:XMI>

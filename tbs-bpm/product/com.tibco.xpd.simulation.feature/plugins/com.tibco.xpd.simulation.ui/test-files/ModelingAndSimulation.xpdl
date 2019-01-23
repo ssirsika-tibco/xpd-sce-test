@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xpdl:Package xmlns:eng="http://www.tibco.com/IntEng" xmlns:extensions="http://www.tibco.com/xpd/XpdlExtensions" xmlns:xpdl="http://www.wfmc.org/2002/XPDL1.0" Id="ModelingAndSimulation" Name="ModelingAndSimulation.xpdl">
+  <xpdl:PackageHeader>
+    <xpdl:XPDLVersion>1.0</xpdl:XPDLVersion>
+    <xpdl:Vendor>TIBCO</xpdl:Vendor>
+    <xpdl:Created>Wed Aug 10 11:54:15 BST 2005</xpdl:Created>
+    <xpdl:Description></xpdl:Description>
+    <xpdl:Documentation></xpdl:Documentation>
+  </xpdl:PackageHeader>
+  <xpdl:RedefinableHeader PublicationStatus="UNDER_TEST">
+    <xpdl:Author>tstephen</xpdl:Author>
+    <xpdl:Version>1.0</xpdl:Version>
+  </xpdl:RedefinableHeader>
+  <xpdl:WorkflowProcesses>
+    <xpdl:WorkflowProcess Id="ClaimsProcess" Name="">
+      <xpdl:ProcessHeader>
+        <xpdl:Created></xpdl:Created>
+        <xpdl:Description></xpdl:Description>
+        <xpdl:Priority></xpdl:Priority>
+        <xpdl:Limit></xpdl:Limit>
+        <xpdl:ValidFrom></xpdl:ValidFrom>
+        <xpdl:ValidTo></xpdl:ValidTo>
+      </xpdl:ProcessHeader>
+      <xpdl:RedefinableHeader/>
+      <xpdl:DataFields>
+        <xpdl:DataField Id="navigation">
+          <xpdl:DataType>
+            <xpdl:BasicType Type="STRING"/>
+          </xpdl:DataType>
+        </xpdl:DataField>
+      </xpdl:DataFields>
+      <xpdl:Applications>
+        <xpdl:Application Id="form" Name="DefaultFormApplication">
+          <xpdl:FormalParameters>
+            <xpdl:FormalParameter Id="claim" Mode="OUT">
+              <xpdl:DataType>
+                <xpdl:BasicType Type="STRING"/>
+              </xpdl:DataType>
+              <xpdl:Description></xpdl:Description>
+            </xpdl:FormalParameter>
+          </xpdl:FormalParameters>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="DefaultFormApplication"><eng:DefaultFormApplication/></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Application>
+      </xpdl:Applications>
+      <xpdl:Activities>
+        <xpdl:Activity Id="1">
+          <xpdl:Route/>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>310</extensions:XOffset>
+                  <extensions:YOffset>72</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="310"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="72"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="2">
+          <xpdl:Description>First Notification of Loss</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Tool Id="form" Type="APPLICATION">
+              <xpdl:ActualParameters>
+                <xpdl:ActualParameter>claim</xpdl:ActualParameter>
+              </xpdl:ActualParameters>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>310</extensions:XOffset>
+                  <extensions:YOffset>176</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>FULL</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="310"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="176"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="4">
+          <xpdl:Description>Verify / Identify Policy</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Tool Id="applicationId" Type="APPLICATION">
+              <xpdl:ActualParameters/>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>310</extensions:XOffset>
+                  <extensions:YOffset>280</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="310"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="280"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="5">
+          <xpdl:Description>Search for Policy</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Tool Id="applicationId" Type="APPLICATION">
+              <xpdl:ActualParameters/>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>160</extensions:XOffset>
+                  <extensions:YOffset>488</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="160"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="488"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="6">
+          <xpdl:Description>Check Claim is Covered</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Tool Id="applicationId" Type="APPLICATION">
+              <xpdl:ActualParameters/>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>460</extensions:XOffset>
+                  <extensions:YOffset>488</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="460"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="488"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="7">
+          <xpdl:Description>Negotiate Liability</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Tool Id="applicationId" Type="APPLICATION">
+              <xpdl:ActualParameters/>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>310</extensions:XOffset>
+                  <extensions:YOffset>592</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="310"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="592"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="8">
+          <xpdl:Description>Process Claimant</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Tool Id="applicationId" Type="APPLICATION">
+              <xpdl:ActualParameters/>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>510</extensions:XOffset>
+                  <extensions:YOffset>592</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="510"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="592"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="9">
+          <xpdl:Description>Post Claim Activities</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Tool Id="applicationId" Type="APPLICATION">
+              <xpdl:ActualParameters/>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>310</extensions:XOffset>
+                  <extensions:YOffset>696</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="310"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="696"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="10">
+          <xpdl:Route/>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>310</extensions:XOffset>
+                  <extensions:YOffset>800</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="310"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="800"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="11">
+          <xpdl:Route/>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>310</extensions:XOffset>
+                  <extensions:YOffset>384</extensions:YOffset>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="310"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="384"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="12">
+          <xpdl:Description>Reject Claim</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Tool Id="applicationId" Type="APPLICATION">
+              <xpdl:ActualParameters/>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>110</extensions:XOffset>
+                  <extensions:YOffset>592</extensions:YOffset>
+                </extensions:Location>
+                <extensions:VisualSize>ICON</extensions:VisualSize>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="110"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="592"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="13">
+          <xpdl:Route/>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity>
+                <extensions:Location>
+                  <extensions:XOffset>405</extensions:XOffset>
+                  <extensions:YOffset>544</extensions:YOffset>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="XOffset" Value="405"/>
+            <xpdl:ExtendedAttribute Name="YOffset" Value="544"/>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+      </xpdl:Activities>
+      <xpdl:Transitions>
+        <xpdl:Transition From="1" Id="tran1" To="2"/>
+        <xpdl:Transition From="7" Id="trans1" To="9"/>
+        <xpdl:Transition From="8" Id="trans2" To="9"/>
+        <xpdl:Transition From="13" Id="trans3" To="7"/>
+        <xpdl:Transition From="13" Id="trans4" To="8"/>
+        <xpdl:Transition From="9" Id="trans5" To="10"/>
+        <xpdl:Transition From="2" Id="trans6" To="4"/>
+        <xpdl:Transition From="4" Id="trans7" To="11"/>
+        <xpdl:Transition From="11" Id="trans8" To="6">
+          <xpdl:Condition Type="OTHERWISE"/>
+        </xpdl:Transition>
+        <xpdl:Transition From="11" Id="trans9" To="5">
+          <xpdl:Condition Type="CONDITION">policy is missing</xpdl:Condition>
+        </xpdl:Transition>
+        <xpdl:Transition From="5" Id="trans10" To="6">
+          <xpdl:Condition Type="OTHERWISE"/>
+        </xpdl:Transition>
+        <xpdl:Transition From="5" Id="trans11" To="12">
+          <xpdl:Condition Type="CONDITION"/>
+        </xpdl:Transition>
+        <xpdl:Transition From="12" Id="trans12" To="9"/>
+        <xpdl:Transition From="6" Id="trans13" To="13"/>
+      </xpdl:Transitions>
+    </xpdl:WorkflowProcess>
+  </xpdl:WorkflowProcesses>
+  <xpdl:ExtendedAttributes>
+    <xpdl:ExtendedAttribute Name="CreatedBy" Value="Interaction Process Definer"/>
+  </xpdl:ExtendedAttributes>
+</xpdl:Package>

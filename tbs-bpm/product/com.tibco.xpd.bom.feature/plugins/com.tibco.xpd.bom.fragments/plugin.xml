@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="bomFragment" name="BOM Fragments" schema="schema/bomFragment.exsd"/>
+   <extension
+         point="com.tibco.xpd.fragments.fragmentsProvider">
+      <provider
+            class="com.tibco.xpd.bom.fragments.BOMFragmentsContributor"
+            description="%bomFragments.provider.shortdesc"
+            id="com.tibco.xpd.bom.fragments"
+            name="%bomFragments.provider.title">
+      </provider>
+   </extension>
+   <extension
+         point="com.tibco.xpd.fragments.fragmentsBinding">
+      <binding
+            editorId="com.tibco.xpd.bom.modeler.diagram.part.UMLDiagramEditorID"
+            fragmentId="com.tibco.xpd.bom.fragments">
+         <filter
+               filter="com.tibco.xpd.bom.fragments.internal.BOMFragmentsFilter">
+         </filter>
+      </binding>
+   </extension>
+<!--
+TEMPORARY DISABLED FOR 3.2 ALPHA1 BUILD   
+   <extension
+         point="com.tibco.xpd.bom.fragments.bomFragment">
+      <category
+            description="%crossIndustry_category_shortdesc"
+            id="com.tibco.xpd.bom.fragments.category.crossIndustry"
+            location="fragments/CrossIndustry/"
+            name="%crossIndustry_category_label">
+      </category>
+   </extension>
+-->
+</plugin>

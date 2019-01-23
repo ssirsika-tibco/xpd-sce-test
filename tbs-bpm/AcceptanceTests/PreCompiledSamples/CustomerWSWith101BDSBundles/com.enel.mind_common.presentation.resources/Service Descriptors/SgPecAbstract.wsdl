@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:tns="http://xmlns.enel.com/muti/mercato/service/presentation/inviamailoutboundstandard" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://xmlns.enel.com/mercato/schema/presentation/SgPec.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.enel.com/muti/mercato/service/presentation/inviamailoutboundstandard">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/schema/presentation/SgPec.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.enel.com/mercato/schema/presentation/SgPec.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="SendMailStandardRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="identificativoMessaggioChiamante" type="xs:string"/>
+                        <xs:element name="casellaMailMittente" type="xs:string"/>
+                        <xs:element name="casellaMailToDestinatario" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="email" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="casellaMailCCDestinatario" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="email" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="canale" type="xs:string"/>
+                        <xs:element name="descrizioneCanale" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="100"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="sistemaRichiedente" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="15"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="oggettoMail">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="100"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="bodyMail" type="xs:string"/>
+                        <xs:element name="dataInvioMail" type="xs:dateTime"/>
+                        <xs:element name="tempoConservazioneMail" type="xs:date" minOccurs="0"/>
+                        <xs:element name="datiBam" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="servizio" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="tipoPratica" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="datiIstanze" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="idRichiesta" minOccurs="0">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="15"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SendMailStandardResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Esito">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:length value="2"/>
+                                    <xs:enumeration value="OK"/>
+                                    <xs:enumeration value="KO"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Codice" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Descrizione" type="xs:string" minOccurs="0"/>
+                        <xs:element name="SorgenteEsito" type="xs:string" minOccurs="0"/>
+                        <xs:element name="identificativoSgPec" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    
+    <wsdl:portType name="SgPecPortType">
+        <wsdl:operation name="SendMailStandard">
+            <wsdl:input message="tns:SendMailStandardRequest"/>
+            <wsdl:output message="tns:SendMailStandardResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <wsdl:message name="SendMailStandardRequest">
+        <wsdl:part name="input" element="ns0:SendMailStandardRequest"/>
+    </wsdl:message>
+    <wsdl:message name="SendMailStandardResponse">
+        <wsdl:part name="output" element="ns0:SendMailStandardResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

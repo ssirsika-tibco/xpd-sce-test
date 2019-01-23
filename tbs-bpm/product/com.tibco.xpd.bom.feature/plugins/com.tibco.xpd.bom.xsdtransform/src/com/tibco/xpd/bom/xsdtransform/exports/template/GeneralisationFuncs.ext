@@ -1,0 +1,296 @@
+import xmlSchema;
+import type;
+import uml;
+import xsd;
+import com::tibco::xpd::bom::xsdtransform::exports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension org::openarchitectureware::xsd::lib::map;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::Extensions reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::HelperFuncs reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::RestrictionFuncs reexport;
+
+parseGeneralisations(ExportTransformationData data, Collection[SchemaType] schemaTypeList, Collection[Package] filteredPackageList, Collection[Package] packageList) :
+	filteredPackageList.eAllContents.typeSelect(Generalization).select(e|e.general != null && e.general.name != null && isDefaultPrimitiveType(e.general.name, _getNearestPackageName(e.general))).collect(e|parseGeneralisationDefaultPrimitives(data, schemaTypeList, e)) ->
+	filteredPackageList.eAllContents.typeSelect(Generalization).select(e|e.general != null && e.general.name != null && !isDefaultPrimitiveType(e.general.name, _getNearestPackageName(e.general))).collect(e|parseGeneralisation(data, schemaTypeList, e));
+		
+	
+parseGeneralisationDefaultPrimitives(ExportTransformationData data, Collection[SchemaType] schemaTypeList, Generalization generalization) :
+	let baseElement = (PackageableElement)generalization.eContainer :
+	DataType.isInstance(baseElement) == true && data.baseTypeTopLevelElements.contains(baseElement) == false && data.baseTypeTopLevelAttributes.contains(baseElement) == false && data.anonymousTopLevelElements.contains(baseElement) == false && data.anonymousTopLevelAttributes.contains(baseElement) == false ? (	
+		let appliedPrimitiveStereotype = baseElement.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() :
+		let simpleTypeName = (
+			appliedPrimitiveStereotype == null ? baseElement.name : getStereotypeValue(baseElement, appliedPrimitiveStereotype, "xsdSimpleTypeName") 
+		) :		
+		let baseElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(baseElement.package,true)).first() :
+		let baseSimpleType = (
+			let tmpSimpleType = baseElementSchema.simpleType.select(e|e.name == simpleTypeName).first() :
+			tmpSimpleType != null ? tmpSimpleType : baseElementSchema.simpleType.select(e|e.name == baseElement.name).first()
+		):
+		baseSimpleType.restriction != null ? (				
+			isDefaultPrimitiveType(generalization.general.name, _getNearestPackageName(generalization.general)) != null ? (
+				let type = getPackagableElementTypeName(data, baseElement, generalization.general.name).trim() :
+				type != null ? (
+					let qName = (	
+						isKnownXSDType(ReplaceFirst(type,":","xsd:")) == false ? (		
+							createQName(type)
+						) : (
+							getQName(baseElementSchema,type,getPrefix(data, baseElement.package)) 
+						)
+					) :				
+					baseSimpleType.restriction.setBase(qName) ->
+					setRestrictionAttrs(data, baseElement, baseSimpleType.restriction) ->
+					removeClashingRestrictions(baseElement, baseSimpleType.restriction)
+				) : null ->
+				isObjectAnyType(baseElement, "xsdAnySimpleType") ? (				
+					baseSimpleType.restriction.setBase(createQName("xsd:anySimpleType"))		
+				) : null ->
+				isObjectAnyType(baseElement, "xsdAnyType") ? (				
+					baseSimpleType.restriction.setBase(createQName("xsd:anyType"))
+				) : null		
+			) : (				
+				baseSimpleType.restriction.setBase(createQName(baseElementSchema.targetNamespace,getPackagableElementTypeName(data, baseElement, generalization.general.name))) ->
+				setRestrictionAttrs(data, baseElement, baseSimpleType.restriction) ->
+				removeClashingRestrictions(baseElement, baseSimpleType.restriction)
+			)
+		) : null
+	) : null;	
+	
+parseGeneralisation(ExportTransformationData data, Collection[SchemaType] schemaTypeList, Generalization generalization) :	
+	let baseElement = generalization.general.package.packagedElement.select(e|e.name == generalization.general.name).first() :
+	let superElement = (PackageableElement)generalization.eContainer :	
+	parseGeneralisation(data, schemaTypeList, baseElement, superElement);
+	
+parseGeneralisation(ExportTransformationData data, Collection[SchemaType] schemaTypeList, Class baseElement, Class superElement) :
+	let superElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(superElement.package,true)).first() :	
+	let baseElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(baseElement.package,true)).first() :
+	let superComplexType = (
+		let tmpSuperComplexType = superElementSchema.complexType.select(e|e.name == superElement.name).first() :
+		let tmpElemWithAnonComplextType = superElementSchema.element.select(e|e.name +"Type" == superElement.name).first() :
+		tmpSuperComplexType == null ? tmpElemWithAnonComplextType.complexType : tmpSuperComplexType
+	) :
+	let baseComplexType = baseElementSchema.complexType.select(e|e.name == baseElement.name).first() :
+	let baseGroup = baseElementSchema.group2.select(e|e.name == baseElement.name).first() :	
+	let isBaseComplexType = isComplexType(baseElement) :
+	let isBaseGroup = isGroup(baseElement) :
+	let isBaseAttributeGroup = isAttributeGroup(baseElement) :
+	let extensionType = new ExtensionType :
+	let complexRestrictionType = new ComplexRestrictionType :
+	let complexContent = new ComplexContentType :
+	let extQName = getQName(baseElementSchema, getOriginalName(baseElement), getPrefix(data, baseElement.package)) :
+	let appliedRestrictionStereotype = superElement.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :
+	let isAnonContainer = getStereotypeValue(superElement, appliedRestrictionStereotype, "xsdIsAnonContainer") :	
+	superElementSchema != baseElementSchema ? addImportType(data, baseElementSchema, superElementSchema, baseElement.package, getPrefix(data, baseElement.package), baseElementSchema.targetNamespace) : null ->
+	superComplexType.name == null && baseComplexType.name == null ? null : (	
+		isAnonContainer == true ? (
+			let element = (
+				let tempElem = new TopLevelElement :
+				let elem = superElementSchema.element.select(e|e.name == superElement.name).first() :			
+				elem == null ? (superElementSchema.element.add(tempElem) -> tempElem) : (elem.setType(null) -> elem)
+			) :
+			let compCont = new LocalComplexType :
+			compCont.setComplexContent(baseComplexType.complexContent) ->
+			element.setComplexType(compCont) ->
+			element.setName(superElement.name) ->	
+			data.addOriginalName(element, getOriginalName(superElement)) ->		
+			superElementSchema.complexType.remove(superComplexType) ->
+			baseElementSchema.complexType.remove(baseComplexType)
+		) : (			
+			isBaseComplexType == true ? (				
+				let isXSDRestriction = getStereotypeValue(superElement, appliedRestrictionStereotype, "xsdIsRestriction") :
+				extensionType.setBase(extQName) ->
+				complexRestrictionType.setBase(extQName) ->		
+				isXSDRestriction != null && isXSDRestriction == true ? complexContent.setRestriction(complexRestrictionType) : complexContent.setExtension(extensionType) ->
+				// XPD-4386: support mixed construct on complex content
+				complexContent.setMixed(baseComplexType.mixed)->
+				superComplexType.setComplexContent(complexContent)								
+			) : (
+				isBaseGroup == true ? (
+					let groupRef = new GroupRef :
+					groupRef.setRef(extQName) ->
+					superComplexType.setGroup(groupRef)
+				) : (
+					isBaseAttributeGroup == true ? (
+						let attributeGroupRef = new AttributeGroupRef :
+						attributeGroupRef.setRef(extQName) ->
+						superComplexType.setAttributeGroup({attributeGroupRef})
+					) : null
+				)
+			)
+		)
+	);	
+
+parseGeneralisation(ExportTransformationData data, Collection[SchemaType] schemaTypeList, Enumeration baseElement, Class superElement) :
+	let superElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(superElement.package,true)).first() :	
+	let baseElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(baseElement.package,true)).first() :
+	let superComplexType = (
+		let tmpSuperComplexType = superElementSchema.complexType.select(e|e.name == superElement.name).first() :
+		let tmpElemWithAnonComplextType = superElementSchema.element.select(e|e.name +"Type" == superElement.name).first() :
+		tmpSuperComplexType == null ? tmpElemWithAnonComplextType.complexType : tmpSuperComplexType
+	) :
+	let baseSimpleType = baseElementSchema.simpleType.select(e|e.name == baseElement.name).first() :	
+	let extQName = getQName(baseElementSchema, getOriginalName(baseElement), getPrefix(data, baseElement.package)) :
+	let appliedRestrictionStereotype = superElement.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :
+	let isAnonContainer = getStereotypeValue(superElement, appliedRestrictionStereotype, "xsdIsAnonContainer") :
+	let extensionType = new ExtensionType :
+	let complexContent = new ComplexContentType :
+	superElementSchema != baseElementSchema ? addImportType(data, baseElementSchema, superElementSchema, baseElement.package, getPrefix(data, baseElement.package), baseElementSchema.targetNamespace) : null ->					
+	extensionType.setBase(extQName) ->				
+	complexContent.setExtension(extensionType) ->				
+	superComplexType.setComplexContent(complexContent);
+		
+parseGeneralisation(ExportTransformationData data, Collection[SchemaType] schemaTypeList, Enumeration baseElement, PrimitiveType superElement) :
+	let superElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(superElement.package,true)).first() :	
+	let baseElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(baseElement.package,true)).first() :
+	let superSimpleType = superElementSchema.simpleType.select(e|e.name == superElement.name).first() :
+	let baseSimpleType = baseElementSchema.simpleType.select(e|e.name == baseElement.name).first() :	
+	let isInMemberType = isInMemberType(data, baseElement, superElement, superElementSchema) :
+	let extQName = (		
+		isInMemberType == true ? (
+			let type = (				
+				getPackagableElementTypeName(data, superElement, null).trim()
+			) :	
+			type != null ? (		
+				let qName = (					
+					isKnownXSDType(ReplaceFirst(type,":","xsd:")) == false ? (		
+						createQName(type)
+					) : (
+						getQName(superElement,type,getPrefix(data, superElement.package)) 
+					)
+				) :
+				qName
+			) : null
+		) : (
+			getQName(baseElementSchema, getOriginalName(baseElement), getPrefix(data, baseElement.package))
+		) 
+	) :	
+	superElementSchema != baseElementSchema ? (
+		let appliedUnionTypeStereotype = superElement.getAppliedStereotypes().select(e|e.name == "XsdBasedUnion").first() :	
+		appliedUnionTypeStereotype != null ? null : (
+			addImportType(data, baseElementSchema, superElementSchema, baseElement.package, getPrefix(data, baseElement.package), baseElementSchema.targetNamespace)
+		) 
+	) : null ->
+	superSimpleType.restriction != null ? ( 
+		superSimpleType.restriction.setBase(extQName) ->
+		setRestrictionAttrs(data, baseElement, superSimpleType.restriction) ->
+		removeClashingRestrictions(superElement, superSimpleType.restriction)
+	) : null;	
+	
+parseGeneralisation(ExportTransformationData data, Collection[SchemaType] schemaTypeList, PrimitiveType baseElement, Enumeration superElement) :
+	let superElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(superElement.package,true)).first() :	
+	let baseElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(baseElement.package,true)).first() :
+	let superSimpleType = superElementSchema.simpleType.select(e|e.name == superElement.name).first() :
+	let baseSimpleType = baseElementSchema.simpleType.select(e|e.name == baseElement.name).first() :	
+	let isInMemberType = isInMemberType(data, baseElement, superElement, superElementSchema) :
+	let extQName = (		
+		isInMemberType == true ? (
+			let type = (				
+				getPackagableElementTypeName(data, superElement, null).trim()
+			) :			
+			type != null ? (		
+				let qName = (					
+					isKnownXSDType(ReplaceFirst(type,":","xsd:")) == false ? (		
+						createQName(type)
+					) : (
+						getQName(superElement,type,getPrefix(data, superElement.package)) 
+					)
+				) :
+				qName
+			) : null
+		) : (
+			getQName(baseElementSchema, getOriginalName(baseElement), getPrefix(data, baseElement.package))
+		) 
+	) :	
+	superElementSchema != baseElementSchema ? (
+		let appliedUnionTypeStereotype = superElement.getAppliedStereotypes().select(e|e.name == "XsdBasedUnion").first() :	
+		appliedUnionTypeStereotype != null ? null : (
+			addImportType(data, baseElementSchema, superElementSchema, baseElement.package, getPrefix(data, baseElement.package), baseElementSchema.targetNamespace)
+		)
+	) : null ->
+	superSimpleType.restriction != null ? (
+		superSimpleType.restriction.setBase(extQName) ->	
+		setRestrictionAttrs(data, superElement, superSimpleType.restriction) ->
+		removeClashingRestrictions(superElement, superSimpleType.restriction) ->
+		superSimpleType.restriction.enumeration.size == 0 ? toNoFixedFacet(superSimpleType.restriction.enumeration, "", null, superElement) : null
+	) : null;
+	
+parseGeneralisation(ExportTransformationData data, Collection[SchemaType] schemaTypeList, Enumeration baseElement, Enumeration superElement) :
+	let superElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(superElement.package,true)).first() :	
+	let baseElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(baseElement.package,true)).first() :
+	let superSimpleType = superElementSchema.simpleType.select(e|e.name == superElement.name).first() :
+	let baseSimpleType = baseElementSchema.simpleType.select(e|e.name == baseElement.name).first() :
+	let isInMemberType = isInMemberType(data, baseElement, superElement, superElementSchema) :
+	let extQName = (		
+		isInMemberType == true ? (
+			let type = (				
+				getPackagableElementTypeName(data, superElement, null).trim()
+			) :			
+			type != null ? (		
+				let qName = (					
+					isKnownXSDType(ReplaceFirst(type,":","xsd:")) == false ? (		
+						createQName(type)
+					) : (
+						getQName(superElement,type,getPrefix(data, superElement.package)) 
+					)
+				) :
+				qName
+			) : null
+		) : (
+			getQName(baseElementSchema, getOriginalName(baseElement), getPrefix(data, baseElement.package))
+		) 
+	) :	
+	superElementSchema != baseElementSchema ? (
+		let appliedUnionTypeStereotype = superElement.getAppliedStereotypes().select(e|e.name == "XsdBasedUnion").first() :	
+		appliedUnionTypeStereotype != null ? null : (
+			addImportType(data, baseElementSchema, superElementSchema, baseElement.package, getPrefix(data, baseElement.package), baseElementSchema.targetNamespace)
+		) 
+	) : null ->
+	superSimpleType.restriction != null ? (
+		superSimpleType.restriction.setBase(extQName) ->
+		setRestrictionAttrs(data, superElement, superSimpleType.restriction) ->	
+		removeClashingRestrictions(superElement, superSimpleType.restriction) ->
+		superSimpleType.restriction.enumeration.size == 0 ? toNoFixedFacet(superSimpleType.restriction.enumeration, "", null, superElement) : null
+	) : null;
+	
+parseGeneralisation(ExportTransformationData data, Collection[SchemaType] schemaTypeList, PrimitiveType baseElement, PrimitiveType superElement) :
+	let superElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(superElement.package,true)).first() :	
+	let baseElementSchema = schemaTypeList.typeSelect(SchemaType).select(e|e.targetNamespace == getNamespace(baseElement.package,true)).first() :
+	let superSimpleType = superElementSchema.simpleType.select(e|e.name == superElement.name).first() :
+	let baseSimpleType = baseElementSchema.simpleType.select(e|e.name == baseElement.name).first() :	
+	let isInMemberType = isInMemberType(data, baseElement, superElement, superElementSchema) :
+	let extQName = (		
+		isInMemberType == true ? (
+			let type = (				
+				getPackagableElementTypeName(data, superElement, null).trim()
+			) :			
+			type != null ? (		
+				let qName = (					
+					isKnownXSDType(ReplaceFirst(type,":","xsd:")) == false ? (		
+						createQName(type)
+					) : (
+						getQName(superElement,type,getPrefix(data, superElement.package)) 
+					)
+				) :
+				qName
+			) : null
+		) : (
+			getQName(baseElementSchema, getOriginalName(baseElement), getPrefix(data, baseElement.package))
+		) 
+	) :
+	superElementSchema != baseElementSchema ? (
+		let appliedUnionTypeStereotype = superElement.getAppliedStereotypes().select(e|e.name == "XsdBasedUnion").first() :	
+		appliedUnionTypeStereotype != null ? null : (
+			addImportType(data, baseElementSchema, superElementSchema, baseElement.package, getPrefix(data, baseElement.package), baseElementSchema.targetNamespace)
+		) 
+	) : null ->	
+	superSimpleType.restriction != null && extQName != null ? (
+		superSimpleType.restriction.setBase(extQName) ->
+		setRestrictionAttrs(data, superElement, superSimpleType.restriction) ->
+		removeClashingRestrictions(superElement, superSimpleType.restriction)
+	) : null;
+	
+setRestrictionAttrs(ExportTransformationData data, Object object, RestrictionType1 restrictionType) :
+	let stereoType = getStereotypedProperty(object) :
+	stereoType == null ? null : setRestrictions(object, stereoType, restrictionType) ->
+	removeUnwantedRestrictions(data, restrictionType);				
+	

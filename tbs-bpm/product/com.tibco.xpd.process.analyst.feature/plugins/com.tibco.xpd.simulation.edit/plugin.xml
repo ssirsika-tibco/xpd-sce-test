@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+    
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://www.tibco.com/xpd/Simulation1.0.1" 
+       class = "com.tibco.xpd.simulation.provider.SimulationItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+  <extension
+        point="com.tibco.xpd.xpdl2.edit.addContribution">
+     <addContribution
+           addCommandWrapper="com.tibco.xpd.simulation.edit.SimulationAddActivityContribution"
+           ownerClass="com.tibco.xpd.xpdl2.FlowContainer"/>
+     <addContribution
+           addCommandWrapper="com.tibco.xpd.simulation.edit.SimulationAddParticipantContribution"
+           ownerClass="com.tibco.xpd.xpdl2.ParticipantsContainer"/>
+     <addContribution
+           addCommandWrapper="com.tibco.xpd.simulation.edit.SimulationDestEnvAddContribution"
+           ownerClass="com.tibco.xpd.xpdl2.ExtendedAttributesContainer"/>
+     <addContribution
+           addCommandWrapper="com.tibco.xpd.simulation.edit.AddFormalParameterCommand"
+           ownerClass="com.tibco.xpd.xpdl2.Process"/>
+  </extension>
+  <extension
+        point="com.tibco.xpd.xpdl2.edit.setContribution">
+   <setContribution
+     ownerClass="com.tibco.xpd.xpdl2.FormalParameter"
+           setCommandWrapper="com.tibco.xpd.simulation.edit.RenameFormalParameterContribution"/>
+   <setContribution
+         ownerClass="com.tibco.xpd.xpdl2.Transition"
+         setCommandWrapper="com.tibco.xpd.simulation.edit.AddSimTranDataCommand"/>
+  </extension>
+  <extension
+        point="com.tibco.xpd.xpdl2.edit.deleteContribution">
+     <deleteContribution
+           deleteCommandWrapper="com.tibco.xpd.simulation.edit.DeleteFormalParameterContribution"
+           ownerClass="com.tibco.xpd.xpdl2.FlowContainer"/>
+  </extension>
+
+</plugin>
+

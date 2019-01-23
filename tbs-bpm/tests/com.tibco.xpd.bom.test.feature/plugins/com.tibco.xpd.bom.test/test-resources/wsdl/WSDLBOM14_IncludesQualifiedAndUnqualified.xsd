@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:tns="http://www.amsbqa.com/linda08/WSDLEmbedSchema1/Schema1IncludeSchema2"
+	 targetNamespace="http://www.amsbqa.com/linda08/WSDLEmbedSchema1/Schema1IncludeSchema2"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="qualified">
+	<xsd:complexType name="FrequentFlier">
+		<xsd:sequence>
+			<xsd:element name="airline" type="xsd:string"/>
+			<xsd:element name="freqFlierNumber" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="requestName">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="requestName" type="xsd:normalizedString"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="userName">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="userName" type="xsd:normalizedString"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="password">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="password" type="xsd:normalizedString"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="correlationIdType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="correlationId" type="xsd:long"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="requestInfoType">
+		<xsd:sequence>
+			<xsd:element name="requestName" type="tns:requestName"/>
+			<xsd:element name="userName" type="tns:userName" form="qualified"/>
+			<xsd:element name="password" type="tns:password" form="unqualified"/>
+			<xsd:element minOccurs="0" name="correlationId" type="tns:correlationIdType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

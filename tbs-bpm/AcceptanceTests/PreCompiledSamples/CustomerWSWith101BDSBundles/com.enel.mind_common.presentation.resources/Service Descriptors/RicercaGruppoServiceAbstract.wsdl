@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_jS5NYEJHEeOds_Fs5Kx-NA_RicercaGruppo__AF1scEhrEeOAbZA2R6U2NQ" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/ricercagruppo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Presentation_GetDatiInesitoPostaNonRecapitata" targetNamespace="http://www.tibco.com/bs3.0/_jS5NYEJHEeOds_Fs5Kx-NA_RicercaGruppo__AF1scEhrEeOAbZA2R6U2NQ" tibex:ServiceTask="_AF1scEhrEeOAbZA2R6U2NQ" tibex:XPDL="Presentation_GetDatiInesitoPostaNonRecapitata.xpdl" tibex:process="_5mtF0EhqEeOAbZA2R6U2NQ">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_jS5NYEJHEeOds_Fs5Kx-NA_RicercaGruppo__AF1scEhrEeOAbZA2R6U2NQ" targetNamespace="http://www.tibco.com/bs3.0/_jS5NYEJHEeOds_Fs5Kx-NA_RicercaGruppo__AF1scEhrEeOAbZA2R6U2NQ"/>
+    <xsd:schema xmlns="http://mind.enel.com/ricercagruppo" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://mind.enel.com/ricercagruppo" targetNamespace="http://mind.enel.com/ricercagruppo">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/MIND_Presentation/Business Objects/com.enel.mind.ricercagruppo.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="RicercaGruppo_Response">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="gruppo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="nomeProcedura" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RicercaGruppo_Request">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaEmissione" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoDocumento" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagVocal" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="master" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IDCorrispondenza" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idOrdineCRM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dataPostalizzazione" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esitoPostalizzazione" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numeroUtente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idFattura" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="causaleMancatoRecapito" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idAttivita" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceDocumento" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceCliente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="contoContrattuale" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idPianodirientro" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoPratica" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codicePlico" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="POD" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="IDProtocollo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="canale" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idbpm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str2">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="str3">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagFE" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RicercaGruppo_ResponseElement" type="RicercaGruppo_Response"/>
+      <xsd:element name="RicercaGruppo_RequestElement" type="RicercaGruppo_Request"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RicercaGruppo_Matrice_RicercaGruppo_INPUT">
+    <wsdl:part element="ttns:RicercaGruppo_RequestElement" name="RicercaGruppo_Request"/>
+  </wsdl:message>
+  <wsdl:message name="RicercaGruppo_Matrice_RicercaGruppo_OUTPUT">
+    <wsdl:part element="ttns:RicercaGruppo_ResponseElement" name="RicercaGruppo_Response"/>
+  </wsdl:message>
+  <wsdl:portType name="RicercaGruppo_Matrice" tibex:FlowContainer="_5mtF0EhqEeOAbZA2R6U2NQ">
+    <wsdl:operation name="RicercaGruppo">
+      <wsdl:input message="ns:RicercaGruppo_Matrice_RicercaGruppo_INPUT" tibex:Event="_AF1scEhrEeOAbZA2R6U2NQ"/>
+      <wsdl:output message="ns:RicercaGruppo_Matrice_RicercaGruppo_OUTPUT" tibex:Event="_AF1scEhrEeOAbZA2R6U2NQ"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,181 @@
+import xmlSchema;
+import type;
+import uml;
+import xsd;
+import com::tibco::xpd::bom::xsdtransform::exports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension org::openarchitectureware::xsd::lib::map;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::Extensions reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::HelperFuncs reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::RestrictionFuncs reexport;
+	
+parseIncrementalBiDirectionalComposition(ExportTransformationData data, SchemaType schemaType, Association association) :
+	let property1 = association.member.first() :
+	let property2 = association.member.last() :	
+	let lowerBound1 = getPropertyMinOccurs(property1) :
+	let ub1 = getPropertyMaxOccurs(property1) :	
+	let lowerBound2 = getPropertyMinOccurs(property2) :
+	let ub2 = getPropertyMaxOccurs(property2) :	
+	// XPD-5906: get the integer equivalent for max occurs value (max occurs value can be AllNniMember::unbounded xml schema enum type)
+	// and parseIncrementalComposition method below expects Integer argument.
+	let upperBound1 = _getIntegerUpperBound(data, ub1) :
+	let upperBound2 = _getIntegerUpperBound(data, ub2) :
+	parseIncrementalComposition(data, schemaType, lowerBound2, upperBound2, property1, property2) ->
+	parseIncrementalComposition(data, schemaType, lowerBound1, upperBound1, property2, property1);		
+
+// use this for separate associations in bidirectional compositions
+parseIncrementalComposition(ExportTransformationData data, SchemaType schemaType, Integer lowerBound, Integer upperBound, Property containerElement, Property containedElement) :
+	let containerComplexType = getComplexOrGroup(schemaType, containerElement.type.name) : //containerElementSchema.complexType.select(e|e.name == containerElement.type.name).first() :
+	let containedComplexType = getComplexOrGroup(schemaType, containedElement.type.name) : //containedElementSchema.complexType.select(e|e.name == containedElement.type.name).first() :
+	let containerClass = (Class)containerElement.eContainer :
+	let localElement = new LocalElement :	
+	parseComplexWithAnonymous(containerElement, containedElement, schemaType, containerComplexType, containedComplexType) ? null : 
+	(
+		//let isAnonymousContained = containedElement.type.eAnnotations.source.first().contains("*COMPLEXTYPE:") :
+		let appliedRestrictionStereotype = ((Class)containedElement.eContainer).getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :
+		let isAnonymousContained = getStereotypeValue(((Class)containedElement.eContainer), appliedRestrictionStereotype, "xsdIsAnonType") :
+		//isAnonymousContained == true ? (				
+		//	localElement.setRef(createQName(schemaType.targetNamespace,containedElement.type.name))
+		//)
+		//:(
+			let xrefId = getXRefID(containedElement) :		
+			localElement.setMinOccurs(lowerBound) ->
+			upperBound.toString() == "-1" ? localElement.setMaxOccurs(AllNniMember1::unbounded) : localElement.setMaxOccurs(upperBound) ->						
+			localElement.setName(containedElement.name) ->
+			data.addOriginalName(localElement, getOriginalName(containedElement)) ->	
+			xrefId == null || xrefId.trim().length == 0 ? null : (
+				localElement.setId(xrefId)
+				//localElement.setAnnotation(createAnnotationType("xsdID="+xrefId))
+			) ->		
+			containedComplexType == null ? (
+				localElement.setName(null) ->
+				localElement.setType(null) ->
+				localElement.setRef(createQName(schemaType.targetNamespace,containedElement.type.name)) ->
+				setElementStereotypedValues(data, containedElement, localElement)
+			) : (					
+				localElement.setType(createQName(schemaType.targetNamespace,containedElement.type.name)) ->
+				setElementStereotypedValues(data, containedElement, localElement)
+			) ->
+		//) ->		
+		containerComplexType != null ? (
+			(containerComplexType.metaType.name == "xmlSchema::ComplexType" || containerComplexType.metaType.name == "xmlSchema::LocalComplexType" || containerComplexType.metaType.name == "xmlSchema::TopLevelComplexType") ? (
+				let explicitGroup = getElementSequence(data, containerComplexType, containedElement) :				
+				addElementToSequence(explicitGroup,localElement, (Class)containedElement.eContainer)				
+			) : (
+				containerComplexType.metaType.name == "xmlSchema::NamedGroup" ? (
+					let explicitGroup = getElementSequence(data, containerComplexType, containedElement) :				
+					addElementToSequence(explicitGroup,localElement, (Class)containedElement.eContainer)					
+				) : (
+					containerComplexType.metaType.name == "xmlSchema::NamedAttributeGroup" ? (
+						null
+					) : null				
+				)
+			)		
+		) : (
+			let containerComplexType = getComplexWithAnonymousContainer(schemaType, (Class)containedElement.eContainer, {containerClass.getModel()}) :
+			let explicitGroup = getElementSequence(data, containerComplexType, containedElement) :				
+			addElementToSequence(explicitGroup,localElement, (Class)containedElement.eContainer)					
+		)			
+	);	
+	
+cached parseIncrementalComposition(ExportTransformationData data, SchemaType schemaType, Association association, Property containerElement, Property containedElement) :	
+	let lowerBound = getPropertyMinOccurs(containedElement) :
+	let upperBound = getPropertyMaxOccurs(containedElement) :	
+	let containerComplexType = schemaType.complexType.select(e|e.name == containerElement.type.name).first() :
+	let containedComplexType = schemaType.complexType.select(e|e.name == containedElement.type.name).first() :
+	let localElement = new LocalElement :
+	let containerClass = (Class)containerElement.eContainer :
+	parseComplexWithAnonymous(containerElement, containedElement, schemaType, containerComplexType, containedComplexType) ? null : 
+	(
+		let appliedRestrictionStereotype = ((Class)containedElement.eContainer).getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :
+		let isAnonymousContained = getStereotypeValue(((Class)containedElement.eContainer), appliedRestrictionStereotype, "xsdIsAnonType") :
+		//let isAnonymousContained = containedElement.type.eAnnotations.source.first().contains("*COMPLEXTYPE:") :
+		//isAnonymousContained == true ? (				
+		//	localElement.setRef(createQName(schemaType.targetNamespace,containedElement.type.name))
+		//)
+		//:(	
+			let xrefId = getXRefID(containedElement) :				
+			localElement.setMinOccurs(lowerBound) ->
+			//localElement.setMaxOccurs(upperBound) ->			
+			//localElement.setMaxOccurs(upperBound.toString() == "-1" ? AllNNIMember1::unbounded : upperBound) ->
+			upperBound.toString() == "-1" ? localElement.setMaxOccurs(AllNniMember1::unbounded) : localElement.setMaxOccurs(upperBound) ->	
+			localElement.setName(containedElement.name) ->
+			data.addOriginalName(localElement, getOriginalName(containedElement)) ->		
+			xrefId == null || xrefId.trim().length == 0 ? null : (
+				localElement.setId(xrefId)
+				//localElement.setAnnotation(createAnnotationType("xsdID="+xrefId))
+			) ->
+						
+			containerComplexType == null && containedComplexType == null ? (
+				let containerComplexType = schemaType.complexType.select(e|e.name == containerElement.type.name).first() :
+				let containedComplexType = schemaType.complexType.select(e|e.name == containedElement.type.name).first() :
+				containedComplexType == null ? (
+					localElement.setName(null) ->
+					localElement.setType(null) ->
+					localElement.setRef(createQName(schemaType.targetNamespace,containedElement.type.name)) ->
+					setElementStereotypedValues(data, containedElement, localElement)
+				) : (				
+					localElement.setType(createQName(schemaType.targetNamespace,containedElement.type.name)) ->
+					setElementStereotypedValues(data, containedElement, localElement)
+				)
+			) :
+			(	
+				containedComplexType == null ? (
+					localElement.setName(null) ->
+					localElement.setType(null) ->
+					localElement.setRef(createQName(schemaType.targetNamespace,containedElement.type.name)) ->
+					setElementStereotypedValues(data, containedElement, localElement)
+				) : (				
+					localElement.setType(createQName(schemaType.targetNamespace,containedElement.type.name)) ->
+					setElementStereotypedValues(data, containedElement, localElement)
+				)				
+			) ->
+		//) ->
+		
+		containerComplexType == null && containedComplexType == null ? (
+			let containerComplexType = (
+				let tmpComplexType = schemaType.complexType.select(e|e.name == containerElement.type.name).first() :
+				let tmpElemWithAnonComplexType = schemaType.element.select(e|e.name +"Type" == containerElement.type.name).first() :
+				tmpComplexType == null ? tmpElemWithAnonComplexType.complexType : tmpComplexType
+			) :
+			
+			let containedComplexType = (
+				let tmpComplexType = schemaType.complexType.select(e|e.name == containedComplexType.name).first() :
+				let tmpElemWithAnonComplexType = schemaType.element.select(e|e.name +"Type" == containedComplexType.name).first() :
+				tmpComplexType == null ? tmpElemWithAnonComplexType.complexType : tmpComplexType
+			) :
+			//let containerComplexType = schemaType.complexType.select(e|e.name == containerElement.type.name).first() :
+			//let containedComplexType = schemaType.complexType.select(e|e.name == containedElement.type.name).first() :				
+			containerComplexType != null ? (
+				let explicitGroup = getElementSequence(data, containerComplexType, containedElement) :				
+				addElementToSequence(explicitGroup,localElement,(Class)containedElement.eContainer)									
+			) : (
+				let containerComplexType = getComplexWithAnonymousContainer(schemaType, (Class)containedElement.eContainer, {containerClass.getModel()}) :
+				let explicitGroup = getElementSequence(data, containerComplexType, containedElement) :				
+				addElementToSequence(explicitGroup,localElement,(Class)containedElement.eContainer)			
+				//sequence.element.add(localElement)					
+			)
+		) : (
+			containerComplexType != null ? (
+				let explicitGroup = getElementSequence(data, containerComplexType, containedElement) :				
+				addElementToSequence(explicitGroup,localElement,(Class)containedElement.eContainer)		
+				//sequence.element.add(localElement)					
+			) : (
+				let containerComplexType = getComplexWithAnonymousContainer(schemaType, (Class)containedElement.eContainer, {containerClass.getModel()}) :
+				let explicitGroup = getElementSequence(data, containerComplexType, containedElement) :				
+				addElementToSequence(explicitGroup,localElement,(Class)containedElement.eContainer)	 
+				//sequence.element.add(localElement)					
+			)			
+		)
+	);	
+	
+cached parseIncrementalComposition(ExportTransformationData data, SchemaType schemaType, Association association) :
+	let containerElement = association.member.first() :
+	let property1 = association.memberEnd.first() :
+	let property2 = association.memberEnd.last() :	
+	(containerElement == property1) ? (
+		parseIncrementalComposition(data, schemaType, association, property1, property2)
+	) : (
+		parseIncrementalComposition(data, schemaType, association, property2, property1)
+	);	

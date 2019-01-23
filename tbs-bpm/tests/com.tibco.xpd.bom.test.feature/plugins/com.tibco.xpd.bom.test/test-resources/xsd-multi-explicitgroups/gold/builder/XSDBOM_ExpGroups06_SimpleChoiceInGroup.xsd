@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/SimpleSequence" xmlns:tns1="http://www.example.org/SimpleSequence"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/SimpleSequence">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_ExpGroups06_SimpleChoiceInGroup/Business Objects/org.example.SimpleSequence.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="complexWithGroupRefInChoice" id="org.example.SimpleSequencecomplexWithGroupRefInChoice"
+      abstract="false" mixed="false" name="complexWithGroupRefInChoice">
+    <xsd:choice maxOccurs="unbounded">
+      <xsd:choice maxOccurs="6" minOccurs="2">
+        <xsd:element ecore:name="testElem1" id="complexWithGroupRefInChoicetestElem1"
+            form="qualified" maxOccurs="1" minOccurs="1" name="testElem1" type="xsd:string"/>
+      </xsd:choice>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/Unions" xmlns:tns1="http://example.com/Unions" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/Unions">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_Union02_SimpleWithAnon/Business Objects/com.example.Unions.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="gday_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\-\-\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="mySimple" id="com.example.UnionsmySimple" name="mySimple">
+    <xsd:union memberTypes="xsd:decimal xsd:string xsd:int tns1:BooleanMember tns1:TextMember tns1:TextMember1"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="BooleanMember" id="com.example.UnionsUnionSimpleType12"
+      name="BooleanMember">
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="TextMember" id="com.example.UnionsUnionSimpleType22"
+      name="TextMember">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="TextMember1" id="com.example.UnionsUnionSimpleType32"
+      name="TextMember1">
+    <xsd:restriction base="tns1:gday_StudioGeneratedTemplate"/>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="com.enel.mind.InvioAttivazioneVas" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/attivazionevasinviofile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FatturazioneService" targetNamespace="com.enel.mind.InvioAttivazioneVas" tibex:ServiceTask="_KvEyQqniEeOXUJAp7SDdvw" tibex:XPDL="FatturazioneService.xpdl" tibex:process="_E38m0KniEeOXUJAp7SDdvw">
+  <wsdl:types>
+    <xsd:schema xmlns="com.enel.mind.InvioAttivazioneVas" targetNamespace="com.enel.mind.InvioAttivazioneVas"/>
+    <xsd:schema xmlns="http://mind.enel.com/attivazionevasinviofile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/attivazionevasinviofile" targetNamespace="http://mind.enel.com/attivazionevasinviofile">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/com.enel.mind_integration.fatturazione.resource/Business Objects/com.enel.mind.AttivazioneVasInvioFile.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="AttivazioneVasInvioFileRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBpm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="VAS_memo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idFatturazione" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoOperazione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="causale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="fatturaCDM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="totaleImport">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AttivazioneVasInvioFileResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaSorgenteEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AttivazioneVasInvioFileRequestElement" type="AttivazioneVasInvioFileRequest"/>
+      <xsd:element name="AttivazioneVasInvioFileResponseElement" type="AttivazioneVasInvioFileResponse"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SFATAVAS_InvioAttivazioneVas_INPUT">
+    <wsdl:part element="ttns:AttivazioneVasInvioFileRequestElement" name="Request"/>
+  </wsdl:message>
+  <wsdl:message name="SFATAVAS_InvioAttivazioneVas_OUTPUT">
+    <wsdl:part element="ttns:AttivazioneVasInvioFileResponseElement" name="Response"/>
+  </wsdl:message>
+  <wsdl:portType name="SFATAVAS" tibex:FlowContainer="_E38m0KniEeOXUJAp7SDdvw">
+    <wsdl:operation name="InvioAttivazioneVas">
+      <wsdl:input message="ns:SFATAVAS_InvioAttivazioneVas_INPUT" tibex:Event="_KvEyQqniEeOXUJAp7SDdvw"/>
+      <wsdl:output message="ns:SFATAVAS_InvioAttivazioneVas_OUTPUT" tibex:Event="_KvEyQqniEeOXUJAp7SDdvw"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

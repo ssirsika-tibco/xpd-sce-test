@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="OMPalette"
+      description="Organisation Modeler Palette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Nodes"
+        description=""
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Organization"
+          description="Create Organization"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Organization Unit"
+          description="Create Organization Unit"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Position"
+          description="Create Position"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Dynamic Organization"
+          description="Create Dynamic Organization"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Dynamic Organization Unit"
+          description="Create Dynamic Organization Unit"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Links"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Hierarchy"
+          description="Create Hierarchical Relationship"/>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

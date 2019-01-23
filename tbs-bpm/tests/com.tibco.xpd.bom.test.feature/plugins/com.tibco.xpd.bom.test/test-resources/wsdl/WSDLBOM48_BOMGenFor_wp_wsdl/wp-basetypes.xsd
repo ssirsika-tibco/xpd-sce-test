@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2013 (x64) (http://www.altova.com) by Joe Humphries (Tibco Software Limited) -->
+<xs:schema xmlns="http://base.api.wp.n2.tibco.com" xmlns:brm="http://api.brm.n2.tibco.com" xmlns:ct="http://channeltype.common.n2.tibco.com" xmlns:df="http://datafeed.common.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:wp="http://service.archive.wp.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://base.api.wp.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://channeltype.common.n2.tibco.com" schemaLocation="channeltype.xsd"/>
+	<xs:import namespace="http://service.archive.wp.n2.tibco.com" schemaLocation="wpModel.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:import namespace="http://datafeed.common.n2.tibco.com" schemaLocation="df-payload.xsd"/>
+	<xs:simpleType name="ArtifactType">
+		<xs:annotation>
+			<xs:documentation>Enumerated value defining available artifact types.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FORM"/>
+			<xs:enumeration value="PAGEFLOW"/>
+			<xs:enumeration value="EXT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ActionType">
+		<xs:annotation>
+			<xs:documentation>Enumerated value defining available Rest activites.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OPEN_NEXT"/>
+			<xs:enumeration value="INITIATE"/>
+			<xs:enumeration value="OPEN"/>
+			<xs:enumeration value="COMPLETE"/>
+			<xs:enumeration value="CANCEL"/>
+			<xs:enumeration value="CLOSE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="WorkType">
+		<xs:annotation>
+			<xs:documentation>Work type details.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="uid" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Unique ID of the work type.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="version" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Version number of the work type.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="WorkItem">
+		<xs:annotation>
+			<xs:documentation>Work item details.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="id" type="xs:long" use="required">
+					<xs:annotation>
+						<xs:documentation>Unique ID of the work item.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute default="-1" name="version" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Version number of the work item.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PresentationChannel">
+		<xs:annotation>
+			<xs:documentation>Presentation channel artifact details.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:sequence maxOccurs="unbounded" minOccurs="0">
+				<xs:element name="WorkTypeArtifact" type="WorkTypeArtifact">
+					<xs:annotation>
+						<xs:documentation>A single instance of the work type information, and associated artifacts</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:sequence maxOccurs="unbounded" minOccurs="0">
+				<xs:element name="BusinessServiceArtifact" type="wp:businessServiceType">
+					<xs:annotation>
+						<xs:documentation>A single instance of a business service artifact, and associated details.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:sequence>
+		<xs:attribute name="version" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional version</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="channelId" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The Channel ID</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="description" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>The optional description</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="presentationChannelType" type="ct:PresentationType" use="required">
+			<xs:annotation>
+				<xs:documentation>The presentation channel type information</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="channelType" type="ct:ChannelType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The channel type</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="implementationType" type="ct:ImplementationType" use="optional">
+			<xs:annotation>
+				<xs:documentation>The implmentation type</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="createdOn" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional created on information</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="modifiedOn" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional modified on information</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute default="false" name="defaultChannel" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Indicates if this is a default channel</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="BaseArtifact">
+		<xs:annotation>
+			<xs:documentation>Base artifact details.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="workTypeUid" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The work type uid</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="artifactName" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The specfic artifact name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="version" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional version</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="createdOn" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional created on</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="modifiedOn" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>Optional modified on</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="artifactType" type="ArtifactType" use="required">
+			<xs:annotation>
+				<xs:documentation>Artifact type information</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="BaseRequest">
+		<xs:annotation>
+			<xs:documentation>Base request to retrieve details of a work item.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="resourceId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>ID of the resource that wants to perform an operation on the work item.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="channelId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Identifier of the channel to which the requesting client application is bound.
+
+See "Identifying the Client Channel in a Service Call" in the BPM Developer Guide for more information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="channelType" type="ct:ChannelType">
+				<xs:annotation>
+					<xs:documentation>Enumerated value defining the channel type (technology) associated with the specified channelId. One of:
+
+- openspaceChannel
+- MobileChannel
+- GIChannel
+- EmailChannel
+
+See "Identifying the Client Channel in a Service Call" in the BPM Developer Guide for more information.
+
+Note: JSPChannel, PageflowChannel and RssChannel are currently not supported.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element default="JSON" minOccurs="0" name="responsePayloadMode" type="df:payloadModeType">
+				<xs:annotation>
+					<xs:documentation>Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). If none is specified , it defaults to JSON
+
+If not specified, the default value is JSON.
+
+(RSS is currently not supported.)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="workListViewId" type="xs:long">
+				<xs:annotation>
+					<xs:documentation>The ID of the work list view associated with this work item, used when calling Open Next to determine which item to retrieve</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="getGlobalValues" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>If you require the values or just the goref itsself.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="action" type="ActionType">
+			<xs:annotation>
+				<xs:documentation>** PRIVATE API - Reserved for internal use**
+
+Defines the action for this request. (This is only required when calling WP Extender Servlet Chaning mechanism.)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="BaseWorkRequest">
+		<xs:annotation>
+			<xs:documentation>Base work request to retrieve details of a work item.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseRequest">
+				<xs:sequence>
+					<xs:element name="workItem" type="WorkItem">
+						<xs:annotation>
+							<xs:documentation>Identifier of the work item on which the operation is to be performed.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="workTypeDetail">
+						<xs:annotation>
+							<xs:documentation>Details of the work type associated with the specified work item. 
+
+Note: workTypeDetail information is not mandatory for openWorkItem or cancelWorkItem operations.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="WorkType">
+									<xs:attribute default="true" name="openNextPiled" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation>Boolean value specifying whether (if the current work item is piled) the next piled work item should be opened.
+
+This parameter is not applicable to openWorkItem, cancelWorkItem or closeWorkItem operations. It is currently only applicable to completeWorkItem.</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="WorkRequest">
+		<xs:annotation>
+			<xs:documentation>Base work request to retrieve details of a work item, supplying payload information.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseWorkRequest">
+				<xs:sequence>
+					<xs:element name="payloadDetails" type="df:dataPayload">
+						<xs:annotation>
+							<xs:documentation>Data payload for the specified work item.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Status">
+		<xs:annotation>
+			<xs:documentation>Status information from a server call</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="message" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The returning message from the server call</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="exceptionTrace" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The exception information, if the server call failed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="successful" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Was the request sucessfull</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Properties">
+		<xs:annotation>
+			<xs:documentation>Properties for an item. Contains zero or more properties			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="property">
+				<xs:annotation>
+					<xs:documentation>Holds attributes (name/value pairs)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="key" type="xs:string" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChannelTypeDetail">
+		<xs:annotation>
+			<xs:documentation>Channel type details</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="description" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Optional description</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Optional Name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="channelType" type="ct:ChannelType" use="required">
+			<xs:annotation>
+				<xs:documentation>The channel Type information</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PresentationChannelRequest">
+		<xs:annotation>
+			<xs:documentation>Channel identifier.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="channelId" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Channel ID for which the response should include information.
+
+NOTE: The response only contains information for the default channel unless both channelId and channelType are specified.
+</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="channelType" type="ct:ChannelType">
+			<xs:annotation>
+				<xs:documentation>Channel type of the specified channelId.
+
+NOTE: The response only contains information for the default channel unless both channelId and channelType are specified.
+</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ChannelTypeRequest">
+		<xs:annotation>
+			<xs:documentation>Channel type to be used in requests.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="channelImplementationType" type="ct:ImplementationType">
+			<xs:annotation>
+				<xs:documentation>The requested channel implementation type, if not specfied all are returned</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PresentationArtifactRequest">
+		<xs:annotation>
+			<xs:documentation>Presentation artifact to be used in requests.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="workTypeUid" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The requested worktype UID</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="version" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Optional version, if no version is supplied all version information is returned</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="WorkTypeArtifact">
+		<xs:annotation>
+			<xs:documentation>Work type artifact details.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseArtifact">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="form" type="wp:formType">
+							<xs:annotation>
+								<xs:documentation>Form Artifact information</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="pageFlow" type="wp:pageFlowType">
+							<xs:annotation>
+								<xs:documentation>Page flow artifact details</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="extension" type="wp:channelExtentionType">
+							<xs:annotation>
+								<xs:documentation>Channel Extension information</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Success">
+		<xs:annotation>
+			<xs:documentation>Indicates whether the call to WorkPresentationService was successful. </xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="isSuccessful" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Boolean value indicating whether the call to WorkPresentationService was successful. </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PresentationArtifact">
+		<xs:annotation>
+			<xs:documentation>If the work item displays:
+
+- a form: presentation contains details of the form artifact associated with this work item.
+
+- a pageflow: presentation is not used. (In this case, the form artifact details for the pageflow are contained in thePageFlowDetail element.)</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="type" use="required">
+			<xs:annotation>
+				<xs:documentation>Type of form artifact. One of:
+
+- GWT_FORM
+- GI_FORM
+- PAGEFLOW
+- CUSTOM_FORM
+- FORM
+										</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="GWT_FORM"/>
+					<xs:enumeration value="GI_FORM"/>
+					<xs:enumeration value="PAGEFLOW"/>
+					<xs:enumeration value="CUSTOM_FORM"/>
+					<xs:enumeration value="FORM"/>
+					<xs:enumeration value=""/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="formIdenitifier" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifier for the JSON form artifact to be used to display the data for the work item.
+										</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="activityName" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Name of the process activity from which the work item was generated.
+										</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="version" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Version number of the form artifact.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.MyTypesSchema" name="org.example.MyTypesSchema">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gI71EQdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gI71EgdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gI71EwdTEeSRjauCcgnMbg" key="created" value="1404905194849"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gI71FAdTEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_gJ1M8AdTEeSRjauCcgnMbg" key="checksum" value="1963679680"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.MyTypesSchemaCTRequest" name="CTRequest">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CTRequestel1" name="el1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gIkoswdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gIkosgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.MyTypesSchemaCTResponse" name="CTResponse">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CTResponseel1" name="el1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gIo6IwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gIo6IgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.MyTypesSchemaPurchaseOrderRequestElemType" name="PurchaseOrderRequestElemType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PurchaseOrderRequestElemTypeorderInfo" name="orderInfo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gIuZswdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gIuZsgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.MyTypesSchemaPurchaseOrderResponseElemType" name="PurchaseOrderResponseElemType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PurchaseOrderResponseElemTypeconfirmationMessage" name="confirmationMessage" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gIzSMQdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gIzSMAdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gIRGsQdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gIRGsgdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gIRGswdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gIRGtAdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_gIRGtQdTEeSRjauCcgnMbg" base_Package="org.example.MyTypesSchema?org.example.MyTypesSchema?" xsdTargetNamespace="http://www.example.org/MyTypesSchema" xsdSchemaLocation="MyTypesSchema.xsd" xsdStudioVersion="3.8.0.005" bomWsdlSources="MyMessageWSDL.wsdl,MyPortTypeWSDL.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_gIiMcAdTEeSRjauCcgnMbg" base_Class="org.example.MyTypesSchemaCTRequest?org.example.MyTypesSchema%3a%3aCTRequest?" xsdName="CTRequest" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_gIl20AdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_gIkosQdTEeSRjauCcgnMbg" base_Property="CTRequestel1?org.example.MyTypesSchema%3a%3aCTRequest%3a%3ael1?" xsdName="el1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_gIl20AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_gInE8AdTEeSRjauCcgnMbg" base_Class="org.example.MyTypesSchemaCTResponse?org.example.MyTypesSchema%3a%3aCTResponse?" xsdName="CTResponse" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_gIphMAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_gIo6IQdTEeSRjauCcgnMbg" base_Property="CTResponseel1?org.example.MyTypesSchema%3a%3aCTResponse%3a%3ael1?" xsdName="el1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_gIphMAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_gIr9cQdTEeSRjauCcgnMbg" base_Class="org.example.MyTypesSchemaPurchaseOrderRequestElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderRequestElemType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_gIvAwAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_gIuZsQdTEeSRjauCcgnMbg" base_Property="PurchaseOrderRequestElemTypeorderInfo?org.example.MyTypesSchema%3a%3aPurchaseOrderRequestElemType%3a%3aorderInfo?" xsdName="orderInfo" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_gIvAwAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_gIwO4AdTEeSRjauCcgnMbg" base_Package="org.example.MyTypesSchema?org.example.MyTypesSchema?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_gIwO4QdTEeSRjauCcgnMbg" name="PurchaseOrderRequestElem" type="org.example.MyTypesSchemaPurchaseOrderRequestElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderRequestElemType?" isAnonymous="true" targetNamespace="http://www.example.org/MyTypesSchema" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_gI0gUAdTEeSRjauCcgnMbg" name="PurchaseOrderResponseElem" type="org.example.MyTypesSchemaPurchaseOrderResponseElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderResponseElemType?" isAnonymous="true" targetNamespace="http://www.example.org/MyTypesSchema" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_gIw18QdTEeSRjauCcgnMbg" base_Class="org.example.MyTypesSchemaPurchaseOrderResponseElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderResponseElemType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_gIz5QAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_gIyrIQdTEeSRjauCcgnMbg" base_Property="PurchaseOrderResponseElemTypeconfirmationMessage?org.example.MyTypesSchema%3a%3aPurchaseOrderResponseElemType%3a%3aconfirmationMessage?" xsdName="confirmationMessage" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_gIz5QAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI1HYgdTEeSRjauCcgnMbg" base_Element="org.example.MyTypesSchemaCTRequest?org.example.MyTypesSchema%3a%3aCTRequest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI1HYwdTEeSRjauCcgnMbg" base_Element="PurchaseOrderRequestElemTypeorderInfo?org.example.MyTypesSchema%3a%3aPurchaseOrderRequestElemType%3a%3aorderInfo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI1ucAdTEeSRjauCcgnMbg" base_Element="_gIo6IwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI1ucQdTEeSRjauCcgnMbg" base_Element="_gIuZsgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI1ucgdTEeSRjauCcgnMbg" base_Element="_gIzSMQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI1ucwdTEeSRjauCcgnMbg" base_Element="org.example.MyTypesSchemaPurchaseOrderResponseElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderResponseElemType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI1udAdTEeSRjauCcgnMbg" base_Element="_gIuZswdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI1udQdTEeSRjauCcgnMbg" base_Element="PurchaseOrderResponseElemTypeconfirmationMessage?org.example.MyTypesSchema%3a%3aPurchaseOrderResponseElemType%3a%3aconfirmationMessage?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI2VgAdTEeSRjauCcgnMbg" base_Element="_gIo6IgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI2VgQdTEeSRjauCcgnMbg" base_Element="_gIkosgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI2VggdTEeSRjauCcgnMbg" base_Element="CTResponseel1?org.example.MyTypesSchema%3a%3aCTResponse%3a%3ael1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI2VgwdTEeSRjauCcgnMbg" base_Element="_gIRGswdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI2VhAdTEeSRjauCcgnMbg" base_Element="_gIzSMAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI2VhQdTEeSRjauCcgnMbg" base_Element="_gIkoswdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI28kAdTEeSRjauCcgnMbg" base_Element="CTRequestel1?org.example.MyTypesSchema%3a%3aCTRequest%3a%3ael1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI28kQdTEeSRjauCcgnMbg" base_Element="org.example.MyTypesSchemaCTResponse?org.example.MyTypesSchema%3a%3aCTResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI28kgdTEeSRjauCcgnMbg" base_Element="_gIRGsQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_gI28kwdTEeSRjauCcgnMbg" base_Element="org.example.MyTypesSchemaPurchaseOrderRequestElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderRequestElemType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gI4KsAdTEeSRjauCcgnMbg" displayLabel="CTRequest" base_NamedElement="org.example.MyTypesSchemaCTRequest?org.example.MyTypesSchema%3a%3aCTRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gI4xwAdTEeSRjauCcgnMbg" displayLabel="CTResponse" base_NamedElement="org.example.MyTypesSchemaCTResponse?org.example.MyTypesSchema%3a%3aCTResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gI4xwQdTEeSRjauCcgnMbg" displayLabel="PurchaseOrderRequestElemType" base_NamedElement="org.example.MyTypesSchemaPurchaseOrderRequestElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderRequestElemType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gI5Y0AdTEeSRjauCcgnMbg" displayLabel="PurchaseOrderResponseElemType" base_NamedElement="org.example.MyTypesSchemaPurchaseOrderResponseElemType?org.example.MyTypesSchema%3a%3aPurchaseOrderResponseElemType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gI5_4AdTEeSRjauCcgnMbg" displayLabel="el1" base_NamedElement="CTRequestel1?org.example.MyTypesSchema%3a%3aCTRequest%3a%3ael1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gI6m8AdTEeSRjauCcgnMbg" displayLabel="el1" base_NamedElement="CTResponseel1?org.example.MyTypesSchema%3a%3aCTResponse%3a%3ael1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gI7OAAdTEeSRjauCcgnMbg" displayLabel="orderInfo" base_NamedElement="PurchaseOrderRequestElemTypeorderInfo?org.example.MyTypesSchema%3a%3aPurchaseOrderRequestElemType%3a%3aorderInfo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_gI71EAdTEeSRjauCcgnMbg" displayLabel="confirmationMessage" base_NamedElement="PurchaseOrderResponseElemTypeconfirmationMessage?org.example.MyTypesSchema%3a%3aPurchaseOrderResponseElemType%3a%3aconfirmationMessage?"/>
+  <notation:Diagram xmi:id="_gI71FQdTEeSRjauCcgnMbg" type="Business Object Model" element="org.example.MyTypesSchema?org.example.MyTypesSchema?" name="org.example.MyTypesSchema" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_gI71FgdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_gI71FwdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

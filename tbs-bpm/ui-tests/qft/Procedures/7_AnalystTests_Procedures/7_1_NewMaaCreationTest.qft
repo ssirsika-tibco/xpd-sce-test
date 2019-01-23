@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../../UtilProcedures/AnalystUtil.qft</include>
+  <PackageRoot id="_3">
+    <Procedure id="_U" name="1) Create New Maa File">
+      <comment>Procedure that creates new projets in studio for analyst
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <BasicSequence id="_V" name="Create new Maa...">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="WorkbenchWindow.panel2" event="MOUSE_MOVED"
+                        id="_1X" modifiers="0" x="61" y="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="WorkbenchWindow.panel2"
+                        event="MOUSE_PRESSED" id="_1Y" modifiers="16" x="61"
+                        y="16"/>
+        <SelectionEventStep client="BusinessStudio" component="menuitemNew..."
+                            disabled="true" event="SELECTION" id="_Y"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="linkCreate_new_MAA..." event="MOUSE_MPRC"
+                        id="_Z" modifiers="16" x="61" y="13"/>
+        <ComponentWaiter client="BusinessStudio" component="NewProjectWizard"
+                         id="_a"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="projectName.textName:" id="_b">
+          <text>NewTestMaaFile</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC" id="_c"
+                        modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="NewProjectWizard" id="_d"
+                         timeout="60000"/>
+      </BasicSequence>
+      <BasicSequence id="_v" name="Create new Project">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tool-newProject" event="SELECTION"
+                            id="_w"/>
+        <ComponentWaiter client="BusinessStudio" component="NewProjectWizard"
+                         id="_x"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="projectName.textName:" id="_y">
+          <text>Project1</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC" id="_z"
+                        modifiers="16"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-Editor@Overview"
+                            event="SELECTION" id="_+"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="sectionProjects.tableProjects&amp;0&amp;1"
+                        event="MOUSE_MPRC" id="_-" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="sectionProjects.tableProjects&amp;0&amp;0"
+                        event="MOUSE_MPRC" id="_10" modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_1Z"
+                     procedure="analyst_operations.temporarySaveMaaFile"/>
+    </Procedure>
+    <Procedure id="_1a" name="2) Import Maa File Test">
+      <comment>Procedure that imports existing MAA file in analyst
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <TestStep id="_1x" name="Import Maa File">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="WorkbenchWindow.panel3" event="MOUSE_MOVED"
+                        id="_3T" modifiers="0" x="87" y="18"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="WorkbenchWindow.panel3"
+                        event="MOUSE_PRESSED" id="_3U" modifiers="16" x="87"
+                        y="18"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="dialogSelect_File_to_Open" id="_3V"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="dialogSelect_File_to_Open" id="_1-"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="dialogSelect_File_to_Open"
+                            detail="${Prop:QFTProjectsLocation}/${ArchivedFileLocation:7_AnalystTestArchivedFileLocation}/ImportMaaTestResource.maa"
+                            event="SELECTION" id="_20"/>
+        <ProcedureCall id="_21" procedure="analyst_operations.insertDelay">
+          <variable name="delayTime">10000</variable>
+        </ProcedureCall>
+      </TestStep>
+      <TestStep id="_2j" name="Open all Assets in imported MAA">
+        <BasicSequence id="_2q" name="Open all Assets in imported MAA">
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProjects.tableProjects&amp;0&amp;0"
+                          event="MOUSE_MPRC" id="_2r" modifiers="16"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionProjects.tableProjects&amp;0&amp;0"
+                          event="MOUSE_MPRC" id="_2s" modifiers="16"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_1 (Project_1)"
+                          event="MOUSE_MPRC" id="_2t" modifiers="16" x="-30"
+                          y="10"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_1 (Project_1)/Project_1-Process (Project_1Process)"
+                          event="MOUSE_MPRC" id="_2u" modifiers="16"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_1 (Project_1)/Project_1-Process (Project_1Process)"
+                          event="MOUSE_MPRC" id="_2v" modifiers="16"/>
+          <SelectionEventStep client="BusinessStudio"
+                              component="tabfolder-Editor@Overview"
+                              event="SELECTION" id="_2w"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionBusiness_Object_Models.treeBusiness_Object_Models@/com.example.project_1 (com.example.project_1)"
+                          event="MOUSE_MPRC" id="_2x" modifiers="16" x="-7"
+                          y="10"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionBusiness_Object_Models.treeBusiness_Object_Models@/com.example.project_1 (com.example.project_1)"
+                          event="MOUSE_MPRC" id="_2y" modifiers="16" x="-7"
+                          y="10"/>
+          <SelectionEventStep client="BusinessStudio"
+                              component="tabfolder-Editor@Overview"
+                              event="SELECTION" id="_2z"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionOrganization_Models.treeOrganization_Models@/Organization Model (OrganizationModel)"
+                          event="MOUSE_MPRC" id="_2+" modifiers="16"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionOrganization_Models.treeOrganization_Models@/Organization Model (OrganizationModel)"
+                          event="MOUSE_MPRC" id="_2-" modifiers="16"/>
+          <SelectionEventStep client="BusinessStudio"
+                              component="tabfolder-Editor@Overview"
+                              event="SELECTION" id="_30"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProjects.tableProjects&amp;0&amp;1"
+                          event="MOUSE_MPRC" id="_31" modifiers="16"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionProjects.tableProjects&amp;0&amp;1"
+                          event="MOUSE_MPRC" id="_32" modifiers="16"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_2 (Project_2)"
+                          event="MOUSE_MPRC" id="_33" modifiers="16" x="-31"
+                          y="10"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_2 (Project_2)/Project_2-Process (Project_2Process)"
+                          event="MOUSE_MPRC" id="_34" modifiers="16"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_2 (Project_2)/Project_2-Process (Project_2Process)"
+                          event="MOUSE_MPRC" id="_35" modifiers="16"/>
+          <SelectionEventStep client="BusinessStudio"
+                              component="tabfolder-Editor@Overview"
+                              event="SELECTION" id="_36"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionBusiness_Object_Models.treeBusiness_Object_Models@/com.example.project_2 (com.example.project_2)"
+                          event="MOUSE_MPRC" id="_37" modifiers="16" x="-8"
+                          y="9"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionBusiness_Object_Models.treeBusiness_Object_Models@/com.example.project_2 (com.example.project_2)"
+                          event="MOUSE_MPRC" id="_38" modifiers="16" x="-8"
+                          y="9"/>
+          <SelectionEventStep client="BusinessStudio"
+                              component="tabfolder-Editor@Overview"
+                              event="SELECTION" id="_39"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionOrganization_Models.treeOrganization_Models@/Organization Model (OrganizationModel)"
+                          event="MOUSE_MPRC" id="_3A" modifiers="16"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionOrganization_Models.treeOrganization_Models@/Organization Model (OrganizationModel)"
+                          event="MOUSE_MPRC" id="_3B" modifiers="16"/>
+          <SelectionEventStep client="BusinessStudio"
+                              component="tabfolder-Editor@Overview"
+                              event="SELECTION" id="_3C"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProjects.tableProjects&amp;0&amp;2"
+                          event="MOUSE_MPRC" id="_3D" modifiers="16"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_3 (Project_3)"
+                          event="MOUSE_MPRC" id="_3E" modifiers="16" x="-30"
+                          y="9"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_3 (Project_3)/Project_3-Process (Project_3Process)"
+                          event="MOUSE_MPRC" id="_3F" modifiers="16"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionProcesses.treeProcesses@/Project_3 (Project_3)/Project_3-Process (Project_3Process)"
+                          event="MOUSE_MPRC" id="_3G" modifiers="16"/>
+          <SelectionEventStep client="BusinessStudio"
+                              component="tabfolder-Editor@Overview"
+                              event="SELECTION" id="_3H"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionBusiness_Object_Models.treeBusiness_Object_Models@/com.example.project_3 (com.example.project_3)"
+                          event="MOUSE_MPRC" id="_3I" modifiers="16" x="-11"
+                          y="3"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionBusiness_Object_Models.treeBusiness_Object_Models@/com.example.project_3 (com.example.project_3)"
+                          event="MOUSE_MPRC" id="_3J" modifiers="16" x="-11"
+                          y="3"/>
+          <ComponentEventStep client="BusinessStudio"
+                              component="WorkbenchWindow"
+                              event="COMPONENT_MOVED" id="_3K" param1="-2"
+                              param2="-8"/>
+          <SelectionEventStep client="BusinessStudio"
+                              component="tabfolder-Editor@Overview"
+                              event="SELECTION" id="_3L"/>
+          <MouseEventStep clicks="1" client="BusinessStudio"
+                          component="sectionOrganization_Models.treeOrganization_Models@/Organization Model (OrganizationModel)"
+                          event="MOUSE_MPRC" id="_3M" modifiers="16"/>
+          <MouseEventStep clicks="2" client="BusinessStudio"
+                          component="sectionOrganization_Models.treeOrganization_Models@/Organization Model (OrganizationModel)"
+                          event="MOUSE_MPRC" id="_3N" modifiers="16"/>
+        </BasicSequence>
+      </TestStep>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4">
+    <BasicSequence id="_3P" name="Recorded 1/11/16 5:15 PM">
+      <MouseEventStep clicks="1" client="BusinessStudio"
+                      component="WorkbenchWindow.panel3" event="MOUSE_MOVED"
+                      id="_3Q" modifiers="0" x="87" y="18"/>
+      <MouseEventStep clicks="1" client="BusinessStudio"
+                      component="WorkbenchWindow.panel3" event="MOUSE_PRESSED"
+                      id="_3R" modifiers="16" x="87" y="18"/>
+      <ComponentWaiter client="BusinessStudio"
+                       component="dialogSelect_File_to_Open" id="_3S"/>
+    </BasicSequence>
+  </ExtraSequence>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt" feature="TIBCO Business Studio"
+                height="1056" id="WorkbenchWindow" name="WorkbenchWindow"
+                uid="_6" width="1936">
+      <ComponentStep class="Panel" classcount="1" classindex="0" height="1018"
+                     id="WorkbenchWindow.scroll" uid="_7" width="1920" x="8"
+                     y="30">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Panel:ScrollPanel</extrafeature>
+        <ComponentStep class="Panel" classcount="22" classindex="2"
+                       height="147" id="WorkbenchWindow.panel" uid="_8"
+                       width="1920" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">com.hexapixel.widgets.ribbon.RibbonTabFolder</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="TabPanel" classcount="3" classindex="0"
+                       height="571" id="tabbed-Editor" name="tabbed-Editor"
+                       uid="_e" width="1914" x="3" y="178">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">TabPanel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+          <ComponentStep class="Panel" classcount="1" classindex="0"
+                         height="551" id="tabbed-Editor.scroll" uid="_f"
+                         width="1914" x="0" y="0">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.ui.forms.widgets.ScrolledForm</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">Panel:ScrollPanel</extrafeature>
+            <ComponentStep class="Panel" classcount="1" classindex="0"
+                           height="551" id="tabbed-Editor.form" uid="_g"
+                           width="1914" x="0" y="0">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.ui.forms.widgets.Form</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+              <ComponentStep class="SplitPanel" classcount="1" classindex="0"
+                             height="551" id="tabbed-Editor.sash" uid="_h"
+                             width="1914" x="0" y="0">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">org.eclipse.swt.custom.SashForm</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">SplitPanel</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.custom.SashForm</extrafeature>
+                <ComponentStep class="Panel" classcount="4" classindex="2"
+                               feature="Projects" height="541"
+                               id="sectionProjects" uid="_i" width="372" x="5"
+                               y="5">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.ui.forms.widgets.Section</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">Panel</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">Projects</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+                  <ComponentStep class="ToolBar" classcount="1" classindex="0"
+                                 height="22" id="sectionProjects.toolbar"
+                                 uid="_j" width="46" x="320" y="3">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">ToolBar</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+                    <ComponentStep class="ToolBarItem" classcount="2"
+                                   classindex="1"
+                                   feature="ToolTip: Create a new project."
+                                   height="22" id="tool-newProject"
+                                   name="tool-newProject" uid="_k" width="23"
+                                   x="23" y="0">
+                      <extrafeature name="imagehash" negate="false"
+                                    regexp="false" state="1">826660637</extrafeature>
+                      <extrafeature name="qfs:class" negate="false"
+                                    regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+                      <extrafeature name="qfs:genericclass" negate="false"
+                                    regexp="false" state="0">ToolBarItem</extrafeature>
+                      <extrafeature name="qfs:label" negate="false"
+                                    regexp="false" state="1">Create a new project.</extrafeature>
+                      <extrafeature name="qfs:systemclass" negate="false"
+                                    regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+                    </ComponentStep>
+                  </ComponentStep>
+                  <ComponentStep class="Table" classcount="1" classindex="0"
+                                 height="510"
+                                 id="sectionProjects.tableProjects" uid="_m"
+                                 width="360" x="6" y="31">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Table</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">Table</extrafeature>
+                    <extrafeature name="qfs:label" negate="false"
+                                  regexp="false" state="1">Projects</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Table</extrafeature>
+                  </ComponentStep>
+                </ComponentStep>
+                <ComponentStep class="Panel" classcount="4" classindex="3"
+                               height="551" id="tabbed-Editor.book" uid="_22"
+                               width="1526" x="384" y="0">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.ui.part.PageBook</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">Panel</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+                  <ComponentStep class="Panel" classcount="5" classindex="1"
+                                 feature="Processes" height="541"
+                                 id="sectionProcesses" uid="_23" width="755"
+                                 x="5" y="5">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.ui.forms.widgets.Section</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">Panel</extrafeature>
+                    <extrafeature name="qfs:label" negate="false"
+                                  regexp="false" state="1">Processes</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+                    <ComponentStep class="Tree" classcount="1" classindex="0"
+                                   height="510"
+                                   id="sectionProcesses.treeProcesses"
+                                   uid="_24" width="743" x="6" y="31">
+                      <extrafeature name="qfs:class" negate="false"
+                                    regexp="false" state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                      <extrafeature name="qfs:genericclass" negate="false"
+                                    regexp="false" state="0">Tree</extrafeature>
+                      <extrafeature name="qfs:label" negate="false"
+                                    regexp="false" state="1">Processes</extrafeature>
+                      <extrafeature name="qfs:systemclass" negate="false"
+                                    regexp="false" state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                    </ComponentStep>
+                  </ComponentStep>
+                  <ComponentStep class="Panel" classcount="5" classindex="3"
+                                 feature="Business Object Models" height="268"
+                                 id="sectionBusiness_Object_Models" uid="_25"
+                                 width="755" x="765" y="5">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.ui.forms.widgets.Section</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">Panel</extrafeature>
+                    <extrafeature name="qfs:label" negate="false"
+                                  regexp="false" state="1">Business Object Models</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+                    <ComponentStep class="Tree" classcount="1" classindex="0"
+                                   height="237"
+                                   id="sectionBusiness_Object_Models.treeBusiness_Object_Models"
+                                   uid="_26" width="743" x="6" y="31">
+                      <extrafeature name="qfs:class" negate="false"
+                                    regexp="false" state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                      <extrafeature name="qfs:genericclass" negate="false"
+                                    regexp="false" state="0">Tree</extrafeature>
+                      <extrafeature name="qfs:label" negate="false"
+                                    regexp="false" state="1">Business Object Models</extrafeature>
+                      <extrafeature name="qfs:systemclass" negate="false"
+                                    regexp="false" state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                    </ComponentStep>
+                  </ComponentStep>
+                  <ComponentStep class="Panel" classcount="5" classindex="4"
+                                 feature="Organization Models" height="268"
+                                 id="sectionOrganization_Models" uid="_27"
+                                 width="755" x="765" y="278">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.ui.forms.widgets.Section</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">Panel</extrafeature>
+                    <extrafeature name="qfs:label" negate="false"
+                                  regexp="false" state="1">Organization Models</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+                    <ComponentStep class="Tree" classcount="1" classindex="0"
+                                   height="237"
+                                   id="sectionOrganization_Models.treeOrganization_Models"
+                                   uid="_28" width="743" x="6" y="31">
+                      <extrafeature name="qfs:class" negate="false"
+                                    regexp="false" state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                      <extrafeature name="qfs:genericclass" negate="false"
+                                    regexp="false" state="0">Tree</extrafeature>
+                      <extrafeature name="qfs:label" negate="false"
+                                    regexp="false" state="1">Organization Models</extrafeature>
+                      <extrafeature name="qfs:systemclass" negate="false"
+                                    regexp="false" state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                    </ComponentStep>
+                  </ComponentStep>
+                </ComponentStep>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="TabPanel" classcount="2" classindex="0"
+                       height="600" id="tabfolder-Editor"
+                       name="tabfolder-Editor" uid="_l" width="1920" x="0"
+                       y="152">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">TabPanel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="22" classindex="5"
+                       height="85" id="WorkbenchWindow.canvas" uid="_11"
+                       width="174" x="163" y="57">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">com.hexapixel.widgets.ribbon.RibbonGroup</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="21" classindex="2"
+                       height="147" id="WorkbenchWindow.panel2" uid="_1T"
+                       width="1596" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">com.hexapixel.widgets.ribbon.RibbonTabFolder</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="27" classindex="2"
+                       height="147" id="WorkbenchWindow.panel3" uid="_3O"
+                       width="1904" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">com.hexapixel.widgets.ribbon.RibbonTabFolder</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Popup" height="249"
+                     id="menuPopup" uid="_9" width="269">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" feature="New..." height="19"
+                       id="menuitemNew..." uid="_A" width="265" x="2" y="2">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">2052008654</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">New...</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Open File..." height="19"
+                       id="menuitemOpen_File..." uid="_1b" width="265" x="2"
+                       y="21">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">643264480</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Open File...	Ctrl+O</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" height="181" id="SplashDialog"
+                modal="true" name="SplashDialog" uid="_B" width="362">
+      <ComponentStep class="Link" classcount="5" classindex="0"
+                     feature="Create new MAA..." height="20"
+                     id="linkCreate_new_MAA..." uid="_C" width="266" x="85"
+                     y="19">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.ui.forms.widgets.ImageHyperlink</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Link</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Create new MAA...</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="New Project" height="338"
+                id="NewProjectWizard" modal="true" name="NewProjectWizard"
+                uid="_D" width="525">
+      <ComponentStep class="Panel" classcount="7" classindex="4" height="120"
+                     id="projectName" name="projectName" uid="_E" width="499"
+                     x="13" y="103">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="TextField" classcount="1" classindex="0"
+                       height="21" id="projectName.textName:" uid="_F"
+                       width="449" x="45" y="5">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Text</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">TextField</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Name:</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Text</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="2" classindex="0"
+                     feature="Finish" height="25" id="buttonFinish"
+                     name="buttonFinish" uid="_G" width="92" x="316" y="292">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Save" height="142"
+                id="SaveChangesDialog" modal="true" name="SaveChangesDialog"
+                uid="_H" width="522">
+      <ComponentStep class="Button" classcount="3" classindex="1" feature="No"
+                     height="25" id="buttonCancel" name="buttonCancel"
+                     uid="_I" width="92" x="318" y="101">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">No</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Delete Project"
+                height="242" id="RefactoringWizardDialog2" modal="true"
+                name="RefactoringWizardDialog2" uid="_12" width="496">
+      <ComponentStep class="Button" classcount="3" classindex="1" feature="OK"
+                     height="25" id="buttonOk" name="buttonOk" uid="_13"
+                     width="92" x="287" y="196">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">OK</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Select File to Open"
+                id="dialogSelect_File_to_Open" modal="true" uid="_1c"/>
+  </WindowList>
+</RootStep>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.it/schema/libero/2011/10/01/BAMAllarme.xsd" xmlns:tns14="http://xmlns.enel.it/schema/libero/2011/10/01/BAMAllarme.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.it/schema/libero/2011/10/01/BAMAllarme.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_integration.utiliy.resource/Generated Business Objects/it.enel.xmlns.schema.libero._2011._10._01.BAMAllarme.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="BAMCreaAllarmeRequest" nillable="false">
+    <xsd:complexType ecore:name="BAMCreaAllarmeRequestType" id="it.enel.xmlns.schema.libero._2011._10._01.BAMAllarmeBAMCreaAllarmeRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idProcessoBpm" form="qualified" maxOccurs="1" minOccurs="1"
+            name="IdProcessoBpm" type="xsd:string"/>
+        <xsd:element ecore:name="idAllarme" form="qualified" maxOccurs="1" minOccurs="1"
+            name="IdAllarme" type="xsd:string"/>
+        <xsd:element ecore:name="tipoPratica" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TipoPratica" type="xsd:string"/>
+        <xsd:element ecore:name="servizio" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Servizio" type="xsd:string"/>
+        <xsd:element ecore:name="idcrm" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Idcrm" type="xsd:string"/>
+        <xsd:element ecore:name="pod" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Pod" type="xsd:string"/>
+        <xsd:element ecore:name="stato" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Stato" type="xsd:string"/>
+        <xsd:element ecore:name="tipoAllarme" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TipoAllarme" type="xsd:string"/>
+        <xsd:element ecore:name="flagUtente" form="qualified" maxOccurs="1" minOccurs="0"
+            name="FlagUtente" type="xsd:string"/>
+        <xsd:element ecore:name="sla_HH" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Sla_HH" type="xsd:integer"/>
+        <xsd:element ecore:name="operazione" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Operazione" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="BAMChiudiAllarmeRequest" nillable="false">
+    <xsd:complexType ecore:name="BAMChiudiAllarmeRequestType" id="it.enel.xmlns.schema.libero._2011._10._01.BAMAllarmeBAMChiudiAllarmeRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idProcessoBpm" form="qualified" maxOccurs="1" minOccurs="1"
+            name="IdProcessoBpm" type="xsd:string"/>
+        <xsd:element ecore:name="idAllarme" form="qualified" maxOccurs="1" minOccurs="1"
+            name="IdAllarme" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

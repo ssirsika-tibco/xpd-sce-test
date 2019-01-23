@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.w3schools.com" xmlns:tns1="http://www.w3schools.com" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.w3schools.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_Any03_Choice/Business Objects/com.w3schools.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="person" id="com.w3schoolsperson" abstract="false" mixed="false"
+      name="person">
+    <xsd:choice>
+      <xsd:any ecore:name="any" id="personany" namespace="##any" processContents="strict"
+          maxOccurs="1" minOccurs="1"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:schema>

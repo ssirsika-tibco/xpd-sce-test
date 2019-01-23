@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/Schema1" xmlns:tns="http://www.example.org/Schema1"
+	elementFormDefault="qualified" xmlns:tns2="http://www.example.org/Schema2">
+	
+	<xs:element name="TopElem1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="e1Type" type="xs:string"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="e1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="abc" type="xs:string"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

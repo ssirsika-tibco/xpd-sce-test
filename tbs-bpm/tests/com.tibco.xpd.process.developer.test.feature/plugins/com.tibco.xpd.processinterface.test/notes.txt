@@ -1,0 +1,25 @@
+Notes from meetings on 11th and 16th of Feb 2010
+================================================================
+
+1. NCName value errors on WSDLs. 
+	NCNames cannot start with numbers. This may need to be a validation rule.
+2. Message name for procifc error (faults) aren't set correctly. See "SimpleTypesProcIfcTest.wsdl"
+	dStartMsgEventWithError_dStartMsgEventWithError_Error2_fault
+3. Unexpected problem markers - Process Manager 1.x : There is no corresponding 
+	service defined in the selected WSDL for <> (aProcesswithnoparams:Intmsgwithnoresponse)
+	for all the request response activities
+4. iProcess - rule for iProcess - message events.
+5. NCName - validation for named elements, WSDL creation 
+6. Reduce to WARNING Process interface containing events of trigger types Message
+	Process interface change wording should "should -- probably--"
+	
+- Move WSDLComparator to core test util from n2 test
+- Move process interface tests incliding their studio projects to process developer test feature.
+	Once done, remove the studio projects from extra-stuff.
+- New validation rule "If there is a fault for an operation ti must also have OUT parameter".
+	Applies to None and Message start events.
+- Enhance tests to cover XPD-36 (gold wsdl should have enumeration)
+- XPD-38 covered. Will implement the rule then assertions.
+- Need test that turns on iProcess destination and checks the validation rules(no WSDL assertions needed). 
+	Needs to go in ipm test feature.
+- Distribute the WSDL generation changes document.

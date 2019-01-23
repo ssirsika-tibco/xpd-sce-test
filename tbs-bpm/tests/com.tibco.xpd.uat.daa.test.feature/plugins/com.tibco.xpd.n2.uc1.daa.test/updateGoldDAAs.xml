@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="testsuite" default="run" basedir=".">
+	<xmlproperty file="updateGoldDAAsList.xml" prefix="myFileContent" collapseAttributes="true"/> 
+
+	<!-- This target runs the test suite. Any actions that need to happen -->
+	<!-- after all the tests have been run should go here. -->
+	<target name="run" >
+
+		<echo>Updating gold DAA's</echo>		
+			 <echo message=" Projects = ${myFileContent.Configuration.projects.include.name}"/>   
+			<property name="projects" value="${myFileContent.Configuration.projects.include.name}"/>
+			<property name="genDaaLocation" value="${myFileContent.Configuration.projects.genDaaLocation}"/>
+			<property name="goldDaaLocation" value="${myFileContent.Configuration.projects.goldDaaLocation}"/>
+			<property name="fs.includes" value="*.daa"/>
+			<script language="javascript"> <![CDATA[
+			          // Split String to get the projects name
+				importPackage(java.io); 
+				importPackage(java.lang);
+				importPackage(org.apache.tools.ant.taskdefs);
+				var str= projects;
+				var n = str.split(",");
+				genDaaProjectsLocation = genDaaLocation + "\\";
+				goldDaaProjectsLocation = goldDaaLocation + "\\";
+				echo = project.createTask("echo");
+				echo.setMessage("Projects Workspace Location " + genDaaProjectsLocation);
+				echo.setMessage("Projects Import Source Location " + genDaaProjectsLocation);
+				echo.execute();			
+				for (i in n)
+				 { 
+					var projectName = n[i];
+				System.out.println("Project name" +  projectName);
+					var genDaaProjectPath = genDaaProjectsLocation + projectName;
+					var goldDaaProjectPath = goldDaaProjectsLocation + projectName;
+					var fromFileLocation =  genDaaProjectPath + "\\.bpm\\";
+					var toFileLocation = goldDaaProjectPath + "\\GoldFiles\\";
+					targetDir = new File(toFileLocation);
+				System.out.println("targetDir name  " + targetDir);
+	                if (!targetDir.exists()) {
+	                    targetDir.mkdirs();
+	                }
+				 sourceDir = new File( fromFileLocation ) ;
+				System.out.println("sourceDir name  " + sourceDir);
+				if(sourceDir.exists()){
+				 fs = testsuite.createDataType("fileset");
+			    fs.setDir(sourceDir);
+			    fs.setIncludes("*.daa");
+				
+				srcFiles = fs.getDirectoryScanner( testsuite ).getIncludedFiles( );	
+				System.out.println("---->Empty:  " +  srcFiles.toString());
+				if(srcFiles.length > 0) {
+					
+					copy = testsuite.createDataType("copy");
+					copy.setOverwrite(true);
+					System.out.println("Source File " + srcFiles[0]);
+					copy.setFile(new File(sourceDir + "/" +srcFiles[0]));
+					copy.setTofile(new File(targetDir.getAbsolutePath() + "/"
+					+  srcFiles[0]));
+					copy.execute();
+					}
+				}
+					
+			}		          
+			]]></script>
+		</target>
+		
+		
+	</project>

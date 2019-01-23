@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.tibco.xpd.rsd.model/src" creationIcons="false"
+    editDirectory="/com.tibco.xpd.rsd.ui/src" editorDirectory="/com.tibco.xpd.rsd.ui/src"
+    modelPluginID="com.tibco.xpd.rsd.model" modelName="Rsd" editPluginClass="com.tibco.xpd.rsd.ui.RsdUIPlugin"
+    editorPluginClass="com.tibco.xpd.rsd.ui.RsdUIPlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    providerRootExtendsClass="" editPluginID="com.tibco.xpd.rsd.ui" editorPluginID="com.tibco.xpd.rsd.ui"
+    runtimeVersion="2.7" language="" interfaceNamePattern="" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>rsd.ecore</foreignModel>
+  <genPackages prefix="Rsd" basePackage="com.tibco.xpd" resource="XMI" disposableProviderFactory="true"
+      childCreationExtenders="true" ecorePackage="rsd.ecore#/" publicationLocation="">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rsd.ecore#//HttpMethod">
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//HttpMethod/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//HttpMethod/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//HttpMethod/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//HttpMethod/DELETE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rsd.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//DataType/TEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//DataType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//DataType/DECIMAL"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//DataType/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//DataType/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//DataType/TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//DataType/DATE_TIME"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rsd.ecore#//ParameterStyle">
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//ParameterStyle/PATH"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//ParameterStyle/QUERY"/>
+      <genEnumLiterals ecoreEnumLiteral="rsd.ecore#//ParameterStyle/HEADER"/>
+    </genEnums>
+    <genClasses ecoreClass="rsd.ecore#//Service">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rsd.ecore#//Service/resources"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Service/contextPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Service/mediaType"/>
+    </genClasses>
+    <genClasses ecoreClass="rsd.ecore#//Resource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rsd.ecore#//Resource/methods"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Resource/pathTemplate"/>
+    </genClasses>
+    <genClasses ecoreClass="rsd.ecore#//Method">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rsd.ecore#//Method/request"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Method/httpMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rsd.ecore#//Method/faults"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rsd.ecore#//Method/response"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rsd.ecore#//ModelElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//ModelElement/id"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rsd.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="rsd.ecore#//Request"/>
+    <genClasses image="false" ecoreClass="rsd.ecore#//AbstractResponse"/>
+    <genClasses ecoreClass="rsd.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Parameter/style"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Parameter/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Parameter/mandatory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Parameter/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Parameter/fixed"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rsd.ecore#//ParameterContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rsd.ecore#//ParameterContainer/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="rsd.ecore#//PayloadReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//PayloadReference/namespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//PayloadReference/ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//PayloadReference/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//PayloadReference/mediaType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rsd.ecore#//PayloadRefContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rsd.ecore#//PayloadRefContainer/payloadReference"/>
+    </genClasses>
+    <genClasses ecoreClass="rsd.ecore#//Fault">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rsd.ecore#//Fault/statusCode"/>
+    </genClasses>
+    <genClasses ecoreClass="rsd.ecore#//Response"/>
+  </genPackages>
+</genmodel:GenModel>

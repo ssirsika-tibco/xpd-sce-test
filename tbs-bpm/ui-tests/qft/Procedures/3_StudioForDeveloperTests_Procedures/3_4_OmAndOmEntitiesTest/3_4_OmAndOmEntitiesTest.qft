@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="1) OM General Tests">
+      <comment>Procedure that ensures that the OM tests works fine as mentioned under http://confluence.tibco.com/display/BPM/3.4+OM+and+OM+entities+test
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu15p"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:3_4_OmAndOmEntitiesTestArchivedFileLocation}/OrganizationProject.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu0jo" name="Create OM entities.">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/OrganizationProject"
+                        event="MOUSE_MPRC" id="_uu10r" modifiers="16" x="-29"
+                        y="13"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/OrganizationProject/Organization"
+                        event="MOUSE_MPRC" id="_uu10s" modifiers="16" x="-29"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/OrganizationProject/Organization/OrganizationProject.om"
+                        event="MOUSE_MPRC" id="_uu10t" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-group.openWith" event="SELECTION"
+                            id="_uu10u"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemOrganization_Model_Diagram_Editing"
+                            event="SELECTION" id="_uu10v"/>
+        <BasicSequence id="_uu14G" name="DND OM elements">
+          <BasicSequence id="_uu14H" name="Create Dynamic Org">
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas2@/Palette Root/Palette Container (Nodes)/Palette Entry (Dynamic Organization)"
+                            event="MOUSE_MPRC" id="_uu14I" modifiers="16"
+                            x="41" y="27"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas" event="MOUSE_MPRC"
+                            id="_uu14J" modifiers="16" x="222" y="183"/>
+          </BasicSequence>
+          <BasicSequence id="_uu14K"
+                         name="Create Org unit, position and dynamic org unit in normal org">
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/Organization1"
+                            event="MOUSE_MPRC" id="_uu14L" modifiers="16"
+                            x="13" y="11"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas2@/Palette Root/Palette Container (Nodes)/Palette Entry (Organization Unit)"
+                            event="MOUSE_MPRC" id="_uu14M" modifiers="16"
+                            x="56" y="12"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas" event="MOUSE_MPRC"
+                            id="_uu14N" modifiers="16" x="229" y="37"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas2@/Palette Root/Palette Container (Nodes)/Palette Entry (Position)"
+                            event="MOUSE_MPRC" id="_uu14O" modifiers="16"
+                            x="32" y="14"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/OrgUnit1/OrgUnitPositionSubCompartment"
+                            event="MOUSE_MPRC" id="_uu14P" modifiers="16"
+                            x="26" y="16"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas2@/Palette Root/Palette Container (Nodes)/Palette Entry (Dynamic Organization Unit)"
+                            event="MOUSE_MPRC" id="_uu14Q" modifiers="16"
+                            x="60" y="25"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas" event="MOUSE_MPRC"
+                            id="_uu14R" modifiers="16" x="162" y="122"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas2@/Palette Root/Palette Container (Links)/Palette Entry (Hierarchy)"
+                            event="MOUSE_MPRC" id="_uu14S" modifiers="16"
+                            x="69" y="15"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/OrgUnit1/OrgUnitSubDisplayName (OrgUnit1)"
+                            event="MOUSE_MOVED" id="_uu14T" modifiers="0"
+                            x="1" y="9"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/OrgUnit1/OrgUnitSubDisplayName (OrgUnit1)"
+                            event="MOUSE_PRESSED" id="_uu14U" modifiers="16"
+                            x="1" y="9"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/DynamicOrgUnit ( - not set -)"
+                            event="MOUSE_DRAGGED" id="_uu14V" modifiers="16"
+                            x="47" y="30"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/DynamicOrgUnit ( - not set -)"
+                            event="MOUSE_RELEASED" id="_uu14W" modifiers="16"
+                            x="47" y="30"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/DynamicOrgUnit ( - not set -)"
+                            event="MOUSE_MPRC" id="_uu14X" modifiers="4"
+                            popup="true" x="19" y="13"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menu-showPropertiesViewAction"
+                                event="SELECTION" id="_uu14Y"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="buttonbrowse-button" event="MOUSE_MPRC"
+                            id="_uu14Z" modifiers="16"/>
+            <ComponentWaiter client="BusinessStudio"
+                             component="CommonPickerDialog" id="_uu14a"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="CommonPickerDialog2.tableMatching_items:&amp;0&amp;0"
+                            event="MOUSE_MPRC" id="_uu14b" modifiers="16"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="buttonOk5" event="MOUSE_MPRC"
+                            id="_uu14c" modifiers="16"/>
+          </BasicSequence>
+          <BasicSequence id="_uu14d"
+                         name="Create Org Identifiers in dynamic org">
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/OrganizationSubBadge (Organization1  Organization Model   )"
+                            event="MOUSE_MPRC" id="_uu14e" modifiers="16"
+                            x="148" y="41"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/DynamicOrganization1"
+                            event="MOUSE_MPRC" id="_uu14f" modifiers="16"
+                            x="12" y="79"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/DynamicOrganization1"
+                            event="MOUSE_MPRC" id="_uu14g" modifiers="16"
+                            x="10" y="16"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas" event="MOUSE_MPRC"
+                            id="_uu14h" modifiers="4" popup="true" x="235"
+                            y="199"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menu-showPropertiesViewAction"
+                                event="SELECTION" id="_uu14i"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Properties2.canvasDynamic_Organization"
+                            event="MOUSE_MPRC" id="_uu14j" modifiers="16"
+                            x="87" y="8"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="toolItemTipAdd_a_Dynamic_Organization_Identifier_(INS)"
+                                event="SELECTION" id="_uu14k"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="toolItemTipAdd_a_Dynamic_Organization_Identifier_(INS)"
+                                event="SELECTION" id="_uu14l"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="toolItemTipAdd_a_Dynamic_Organization_Identifier_(INS)"
+                                event="SELECTION" id="_uu14m"/>
+          </BasicSequence>
+          <BasicSequence id="_uu15S" name="Create Org unit in dynamic org">
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas2@/Palette Root/Palette Container (Nodes)/Palette Entry (Organization Unit)"
+                            event="MOUSE_MPRC" id="_uu15T" modifiers="16"
+                            x="49" y="21"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas" event="MOUSE_MPRC"
+                            id="_uu15U" modifiers="16" x="432" y="153"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas2@/Palette Root/Palette Container (Nodes)/Palette Entry (Position)"
+                            event="MOUSE_MPRC" id="_uu15V" modifiers="16"
+                            x="46" y="9"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Editor3.canvas@/Diagram/OrgUnit1/OrgUnitPositionSubCompartment"
+                            event="MOUSE_MPRC" id="_uu15W" modifiers="16"
+                            x="47" y="4"/>
+          </BasicSequence>
+          <BasicSequence id="_uu14n"
+                         name="Create Privilege, Capability, Query, Group , Location...">
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om"
+                            event="MOUSE_MPRC" id="_uu14o" modifiers="16"
+                            x="-29" y="10"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)"
+                            event="MOUSE_MPRC" id="_uu14p" modifiers="16"
+                            x="-29" y="10"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Capabilities"
+                            event="MOUSE_MPRC" id="_uu14q" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu14r"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemCapability"
+                                event="SELECTION" id="_uu14s"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Capabilities"
+                            event="MOUSE_MPRC" id="_uu14t" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu14u"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemCapability_Category"
+                                event="SELECTION" id="_uu14v"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Capabilities/Category1 (Category1)"
+                            event="MOUSE_MPRC" id="_uu14w" modifiers="16"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Capabilities/Category1 (Category1)"
+                            event="MOUSE_MPRC" id="_uu14x" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child3"
+                                event="SELECTION" id="_uu14y"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemCapability2"
+                                event="SELECTION" id="_uu14z"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Groups"
+                            event="MOUSE_MPRC" id="_uu14+" modifiers="4"
+                            popup="true" x="-3" y="8"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu14-"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemGroup" event="SELECTION"
+                                id="_uu150"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Locations"
+                            event="MOUSE_MPRC" id="_uu151" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu152"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemStandard_Location_Type"
+                                event="SELECTION" id="_uu153"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Locations"
+                            event="MOUSE_MPRC" id="_uu154" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu155"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemLocation" event="SELECTION"
+                                id="_uu156"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Privileges"
+                            event="MOUSE_MPRC" id="_uu157" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu158"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemPrivilege"
+                                event="SELECTION" id="_uu159"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Privileges"
+                            event="MOUSE_MPRC" id="_uu15A" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu15B"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemPrivilege_Category"
+                                event="SELECTION" id="_uu15C"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Privileges/Category1 (Category1)"
+                            event="MOUSE_MPRC" id="_uu15D" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child3"
+                                event="SELECTION" id="_uu15E"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemPrivilege2"
+                                event="SELECTION" id="_uu15F"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Queries"
+                            event="MOUSE_MPRC" id="_uu15G" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu15H"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemOrganization_Query"
+                                event="SELECTION" id="_uu15I"/>
+            <MouseEventStep clicks="1" client="BusinessStudio"
+                            component="Project_Explorer@/OrganizationProject/Organization/* OrganizationProject.om/Organization Model (OrganizationModel)/Resources"
+                            event="MOUSE_MPRC" id="_uu15J" modifiers="4"
+                            popup="true"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemAdd_Child"
+                                event="SELECTION" id="_uu15K"/>
+            <SelectionEventStep client="BusinessStudio"
+                                component="menuitemHuman_Resource_Type"
+                                event="SELECTION" id="_uu15L"/>
+          </BasicSequence>
+        </BasicSequence>
+      </BasicSequence>
+      <ProcedureCall id="_uu0lC"
+                     procedure="business_studio_operations.saveAll"/>
+      <TestStep id="_uu0+Q" name="inspectModel">
+        <ProcedureCall id="_uu0+U"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].groups[name="Group1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15X"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].capabilityCategories[name="Category1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15Y"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].capabilities[name="Capability1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15a"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].capabilities[name="Capability2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15b"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].organizations[name="Organization1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15c"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].organizations[name="Organization1"].units[name="OrgUnit1",Impl="OrgUnitImpl"].positions[name="Position1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15d"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].organizations[name="Organization1"].units[Impl="DynamicOrgUnit"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15e"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].organizations[name="DynamicOrganization1"].units[name="OrgUnit1",Impl="OrgUnitImpl"].positions[name="Position1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15f"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].organizations[name="DynamicOrganization1"].dynamicOrgIdentifiers[name="Identifier1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15g"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].organizations[name="DynamicOrganization1"].dynamicOrgIdentifiers[name="Identifier2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15h"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].organizations[name="DynamicOrganization1"].dynamicOrgIdentifiers[name="Identifier3"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15i"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].locations[name="Location1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15j"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].locations[name="Location2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15k"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].privileges[name="Privilege1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15m"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].privileges[name="Privilege2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15n"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].privilegeCategories[name="Category1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu15o"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">OrganizationProject/Organization/OrganizationProject.om</variable>
+          <variable name="elementToFind">OrgModel[name="OrganizationModel"].resources[name="Resource1"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu15M"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">OrganizationProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu0v3"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">OrganizationProject</variable>
+      </ProcedureCall>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - TIBCO Business Studio" height="1040"
+                id="WorkbenchWindow3" name="WorkbenchWindow" uid="_uu10f"
+                width="1932">
+      <ComponentStep class="MenuBar"
+                     feature="Popup InvokerName: Project Explorer"
+                     height="485" id="popup-Project_Explorer2"
+                     name="popup-Project Explorer" uid="_uu10g" width="235">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="29" classindex="3"
+                       feature="Open With" height="19"
+                       id="menu-group.openWith" name="menu-group.openWith"
+                       uid="_uu10h" width="231" x="2" y="49">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Open With</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem"
+                         feature="Organization Model Diagram Editing"
+                         height="19"
+                         id="menuitemOrganization_Model_Diagram_Editing"
+                         uid="_uu10i" width="254" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">923314334</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Organization Model Diagram Editing</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">MenuItem:RadioButtonMenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="10" classindex="0"
+                       feature="Add Child" height="19" id="menuitemAdd_Child"
+                       uid="_uu12u" width="193" x="2" y="2">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Add Child</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Add Child" height="19"
+                       id="menuitemAdd_Child2" uid="_uu12v" width="193" x="2"
+                       y="2">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Add Child</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="Capability" height="22"
+                         id="menuitemCapability" uid="_uu12w" width="174"
+                         x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1905076912</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Capability</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Capability Category"
+                         height="22" id="menuitemCapability_Category"
+                         uid="_uu12x" width="174" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1182182164</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Capability Category</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Capability" height="22"
+                         id="menuitemCapability2" uid="_uu12z" width="174"
+                         x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-993816983</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Capability</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Group" height="22"
+                         id="menuitemGroup" uid="_uu12+" width="103" x="2"
+                         y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-935053167</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Group</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Standard Location Type"
+                         height="22" id="menuitemStandard_Location_Type"
+                         uid="_uu12-" width="195" x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-699729288</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Standard Location Type</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Location" height="22"
+                         id="menuitemLocation" uid="_uu130" width="195" x="2"
+                         y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-1566757005</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Location</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Privilege" height="22"
+                         id="menuitemPrivilege" uid="_uu131" width="166" x="2"
+                         y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1905076912</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Privilege</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Privilege Category"
+                         height="22" id="menuitemPrivilege_Category"
+                         uid="_uu132" width="166" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1182182164</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Privilege Category</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Privilege" height="22"
+                         id="menuitemPrivilege2" uid="_uu133" width="166"
+                         x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-993816983</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Privilege</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Organization Query"
+                         height="22" id="menuitemOrganization_Query"
+                         uid="_uu134" width="173" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-1244765773</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Organization Query</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Human Resource Type"
+                         height="22" id="menuitemHuman_Resource_Type"
+                         uid="_uu135" width="217" x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-1819046513</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Human Resource Type</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="16" classindex="1"
+                       feature="Add Child" height="19" id="menuitemAdd_Child3"
+                       uid="_uu12y" width="193" x="2" y="21">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Add Child</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="org.eclipse.gef.ui.palette.FlyoutPaletteComposite"
+                     classcount="26" classindex="23" height="513" id="Editor3"
+                     name="Editor" uid="_uu10w" width="1422" x="495" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.gef.ui.palette.FlyoutPaletteComposite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="7" classindex="6"
+                       height="513" id="Editor3.canvas" uid="_uu10x"
+                       width="1294" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="7" classindex="4"
+                       height="505" id="Editor3.canvas2" uid="_uu11i"
+                       width="125" x="1301" y="24">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Popup InvokerClass: Canvas"
+                     height="220" id="menuPopup_InvokerClass:_Canvas"
+                     uid="_uu11p" width="178">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" feature="Show Properties View"
+                       height="19" id="menu-showPropertiesViewAction"
+                       name="menu-showPropertiesViewAction" uid="_uu11q"
+                       width="174" x="2" y="152">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-551924166</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Show Properties View</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="26" classindex="14"
+                     height="345" id="Properties2" name="Properties"
+                     uid="_uu11r" width="1426" x="495" y="670">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.ui.part.PageBook</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="12" classindex="11"
+                       height="315" id="Properties2.scroll" uid="_uu11s"
+                       width="1342" x="84" y="30">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">Panel:ScrollPanel</extrafeature>
+          <ComponentStep class="Button" classcount="2" classindex="0"
+                         feature="..." height="25" id="buttonbrowse-button"
+                         name="buttonbrowse-button" uid="_uu11t" width="21"
+                         x="210" y="57">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Button</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Button</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">...</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Button</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="15" classindex="9"
+                       height="22" id="Properties2.canvasDynamic_Organization"
+                       uid="_uu12W" width="151" x="0" y="84">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Dynamic Organization</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="15" classindex="14"
+                       height="315" id="Properties2.scroll2" uid="_uu12X"
+                       width="1275" x="151" y="30">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">Panel:ScrollPanel</extrafeature>
+          <ComponentStep class="ToolBar" classcount="1" classindex="0"
+                         height="284" id="Properties2.toolbar" uid="_uu12Y"
+                         width="23" x="1247" y="26">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBar</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+            <ComponentStep class="ToolBarItem" classcount="5" classindex="0"
+                           feature="ToolTip: Add a Dynamic Organization Identifier (INS)"
+                           height="22"
+                           id="toolItemTipAdd_a_Dynamic_Organization_Identifier_(INS)"
+                           uid="_uu12Z" width="23" x="0" y="0">
+              <extrafeature name="imagehash" negate="false" regexp="false"
+                            state="1">-2084319295</extrafeature>
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">ToolBarItem</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Add a Dynamic Organization Identifier (INS)</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Select Type" height="500"
+                id="CommonPickerDialog2" modal="true"
+                name="CommonPickerDialog" uid="_uu11u" width="600">
+      <ComponentStep class="Table" classcount="1" classindex="0" height="284"
+                     id="CommonPickerDialog2.tableMatching_items:"
+                     uid="_uu11v" width="562" x="19" y="116">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Table</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Table</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Matching items:</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Table</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>

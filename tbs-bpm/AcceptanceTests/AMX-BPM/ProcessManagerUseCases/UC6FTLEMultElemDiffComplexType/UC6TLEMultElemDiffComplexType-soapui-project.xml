@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="UC6TLEMultElemDiffComplexType" resourceRoot="" soapui-version="3.6" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="UsingXsdPortType_EP" type="wsdl" bindingName="{urn:amx:BPMEnvironment/com.example.uc6tlemultelemdiffcomplextype_1.0.0.201010131031.daa}UsingXsdPortType_EP" soapVersion="1_1" anonymous="optional" definition="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=514&amp;svc_binding_name=UsingXsdPortType_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=514&amp;svc_binding_name=UsingXsdPortType_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode"><con:part><con:url>http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=514&amp;svc_binding_name=UsingXsdPortType_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="ProviderProcessFlow_1.0.0.201010131031_service_Provider_ProviderProcess_Provider_ProviderProcess" targetNamespace="urn:amx:BPMEnvironment/com.example.uc6tlemultelemdiffcomplextype_1.0.0.201010131031.daa" xmlns:ns1="http://www.example.org/UsingMultElemDiffCompXsd/" xmlns:tns="urn:amx:BPMEnvironment/com.example.uc6tlemultelemdiffcomplextype_1.0.0.201010131031.daa" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://example.com/MultipleElmDiffComplex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.example.org/UsingMultElemDiffCompXsd/" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://example.com/MultipleElmDiffComplex"/>
+      <xs:element name="OutputElement">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CustomerElement" form="unqualified" type="ns0:Customer"/>
+            <xs:element name="AnotherCustomerElement" form="unqualified" type="ns0:Customer"/>
+            <xs:element name="PersonElement" form="unqualified" type="ns0:Person"/>
+            <xs:element name="AnotherPersonElement" form="unqualified" type="ns0:Person"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xsd:schema targetNamespace="http://example.com/MultipleElmDiffComplex" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns="http://example.com/MultipleElmDiffComplex" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="Customer">
+        <xsd:complexContent>
+          <xsd:extension base="ns0:Person">
+            <xsd:sequence>
+              <xsd:element name="customerId">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="50"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Person">
+        <xsd:sequence>
+          <xsd:element name="name">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AnotherCustomerElement" type="ns0:Customer"/>
+      <xsd:element name="AnotherPersonElement" type="ns0:Person"/>
+      <xsd:element name="CustomerElement" type="ns0:Customer"/>
+      <xsd:element name="PersonElement" type="ns0:Person"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UsingXsdOperationRequest">
+    <wsdl:part name="customerElement" element="ns0:CustomerElement"/>
+    <wsdl:part name="personElement" element="ns0:PersonElement"/>
+    <wsdl:part name="anotherCustomerElement" element="ns0:AnotherCustomerElement"/>
+    <wsdl:part name="anotherPersonElement" element="ns0:AnotherPersonElement"/>
+  </wsdl:message>
+  <wsdl:message name="UsingXsdOperationResponse">
+    <wsdl:part name="outputElement" element="ns1:OutputElement"/>
+  </wsdl:message>
+  <wsdl:portType name="UsingXsdPortType">
+    <wsdl:operation name="UsingXsdOperation">
+      <wsdl:input message="tns:UsingXsdOperationRequest"/>
+      <wsdl:output message="tns:UsingXsdOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UsingXsdPortType_EP" type="tns:UsingXsdPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UsingXsdOperation">
+      <wsdl:documentation/>
+      <soap:operation style="document" soapAction="UsingXsdOperation"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="customerElement personElement anotherCustomerElement anotherPersonElement"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="outputElement"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProviderProcessFlow_1.0.0.201010131031_service_Provider_ProviderProcess_Provider_ProviderProcess">
+    <wsdl:port name="UsingXsdPortType_EP" binding="tns:UsingXsdPortType_EP">
+      <soap:address location="http://0.0.0.0:8080/Provider/ProviderProcess/201010131031"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEMultElemDiffComplexType/ServiceProviderProcess</con:endpoint></con:endpoints><con:operation isOneWay="false" action="UsingXsdOperation" name="UsingXsdOperation" bindingOperationName="UsingXsdOperation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEMultElemDiffComplexType/ServiceProviderProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:mul="http://example.com/MultipleElmDiffComplex" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-1" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">uY9zPu/jfJbj+Vpw9F54mQ==</wsse:Nonce>
+            <wsu:Created>2010-10-13T17:42:57.288Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <mul:CustomerElement>
+         <name>John C.</name>
+         <customerId>cust123</customerId>
+      </mul:CustomerElement>
+      <mul:PersonElement>
+         <name>John P.</name>
+      </mul:PersonElement>
+      <mul:AnotherCustomerElement>
+         <name>Jane C.</name>
+         <customerId>cust321</customerId>
+      </mul:AnotherCustomerElement>
+      <mul:AnotherPersonElement>
+         <name>Jane P.</name>
+      </mul:AnotherPersonElement>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="UsingXsdOperation"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ConsumerProcess_EP" type="wsdl" bindingName="{urn:amx:BPMEnvironment/com.example.uc6tlemultelemdiffcomplextype_1.0.0.201010131031.daa}ConsumerProcess_EP" soapVersion="1_1" anonymous="optional" definition="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=516&amp;svc_binding_name=ConsumerProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=516&amp;svc_binding_name=ConsumerProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode"><con:part><con:url>http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=516&amp;svc_binding_name=ConsumerProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="ConsumerProcessFlow_1.0.0.201010131031_service_Consumer_ConsumerProcess_Consumer_ConsumerProcess" targetNamespace="urn:amx:BPMEnvironment/com.example.uc6tlemultelemdiffcomplextype_1.0.0.201010131031.daa" xmlns:tns="urn:amx:BPMEnvironment/com.example.uc6tlemultelemdiffcomplextype_1.0.0.201010131031.daa" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types/>
+  <wsdl:message name="ConsumerProcess_StartEvent_INPUT"/>
+  <wsdl:portType name="ConsumerProcess" ns0:FlowContainer="_ptXYAdFSEd-LOuXqkyQj-w" xmlns:ns0="http://www.tibco.com/bs3.2/extensions">
+    <wsdl:operation name="StartEvent">
+      <wsdl:input message="tns:ConsumerProcess_StartEvent_INPUT" ns0:Event="_qtvP6dFSEd-LOuXqkyQj-w"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsumerProcess_EP" type="tns:ConsumerProcess">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="StartEvent">
+      <wsdl:documentation/>
+      <soap:operation style="document" soapAction="StartEvent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsumerProcessFlow_1.0.0.201010131031_service_Consumer_ConsumerProcess_Consumer_ConsumerProcess">
+    <wsdl:port name="ConsumerProcess_EP" binding="tns:ConsumerProcess_EP">
+      <soap:address location="http://0.0.0.0:8080/Consumer/ConsumerProcess/201010131031"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEMultElemDiffComplexType/ServiceConsumerProcess</con:endpoint></con:endpoints><con:operation isOneWay="false" action="StartEvent" name="StartEvent" bindingOperationName="StartEvent" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEMultElemDiffComplexType/ServiceConsumerProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">H0SrkKdgPtBm3dQ7JeaU2g==</wsse:Nonce>
+            <wsu:Created>2010-10-13T17:48:46.132Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body/>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="StartEvent"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

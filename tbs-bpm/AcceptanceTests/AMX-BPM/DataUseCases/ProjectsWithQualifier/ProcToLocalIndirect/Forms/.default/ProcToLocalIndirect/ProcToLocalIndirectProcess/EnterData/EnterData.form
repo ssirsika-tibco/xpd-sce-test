@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="ProcToLocalIndirect.xpdl#_35ygcFOAEeOydMVTHmI6_w?p=ProcToLocalIndirect%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=ProcToLocalIndirect%3a%3aProcToLocalIndirectProcess%26n=EnterData?" formatVersion="3.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri=".default/ProcToLocalIndirect/ProcToLocalIndirectProcess/EnterData/EnterData.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="ProcToLocalIndirect.xpdl#_vCMIEFW5EeOiVowRDmBLvw?p=ProcToLocalIndirect%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcToLocalIndirect%3a%3aProcToLocalIndirectProcess%26n=localClass?" name="data.localClass" label="localClass" dataType="uml:Class ProcToLocalIndirect.bom#_4h30IFOAEeOydMVTHmI6_w?p=ProcToLocalIndirect%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.proctolocalindirect%26n=ProcLocal?" type="com.example.proctolocalindirect::ProcLocal" inout="INOUT"/>
+  </form:dataModel>
+  <form:services/>
+  <form:actions/>
+  <form:conditions/>
+  <form:rules>
+    <form:rule name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule name="rule.close" label="Close">
+      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
+    </form:rule>
+    <form:rule name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_0BTZcFkGEeOujN6NvEd9_A">
+      <form:source target="data.localClass" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.localClass.value"/>
+      <form:destination target="pane.localClass" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.localClass.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0BTZcVkGEeOujN6NvEd9_A">
+      <form:source target="pane.localClass" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ProcToLocalIndirect.bom#_55nDIFOAEeOydMVTHmI6_w?p=ProcToLocalIndirect%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.proctolocalindirect%3a%3aProcLocal%26n=attribute1?" data="form.pane.localClass.value.attribute1"/>
+      <form:destination target="control.localClass_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.localClass_attribute1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0BTZclkGEeOujN6NvEd9_A">
+      <form:source target="pane.localClass" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ProcToLocalIndirect.bom#_6H4IoFOAEeOydMVTHmI6_w?p=ProcToLocalIndirect%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.proctolocalindirect%3a%3aProcLocal%26n=attribute2?" data="form.pane.localClass.value.attribute2"/>
+      <form:destination target="pane.localClass_attribute2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.localClass_attribute2.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0BUAgFkGEeOujN6NvEd9_A">
+      <form:source target="pane.localClass_attribute2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ProcToLocal.bom#_RfwOAFOBEeOydMVTHmI6_w?p=ProcToLocal%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.proctolocal%3a%3aClass1%26n=attribute1?" data="form.pane.localClass_attribute2.value.attribute1"/>
+      <form:destination target="control.localClass_attribute2_attribute1" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.localClass_attribute2_attribute1.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0BUAgVkGEeOujN6NvEd9_A">
+      <form:source target="pane.localClass_attribute2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ProcToLocal.bom#_W65oEFOBEeOydMVTHmI6_w?p=ProcToLocal%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.proctolocal%3a%3aClass1%26n=attribute2?" data="form.pane.localClass_attribute2.value.attribute2"/>
+      <form:destination target="pane.localClass_attribute2_attribute2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.localClass_attribute2_attribute2.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0BUnkFkGEeOujN6NvEd9_A">
+      <form:source target="pane.localClass_attribute2_attribute2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value LocalBOMProj.bom#_CQJnYFNtEeOUC7phQChPyQ?p=LocalBOMProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.localbomproj%3a%3aPerson%26n=id?" data="form.pane.localClass_attribute2_attribute2.value.id"/>
+      <form:destination target="control.localClass_attribute2_attribute2_id" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.localClass_attribute2_attribute2_id.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0BUnkVkGEeOujN6NvEd9_A">
+      <form:source target="pane.localClass_attribute2_attribute2" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value LocalBOMProj.bom#_Ec06UFNtEeOUC7phQChPyQ?p=LocalBOMProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.localbomproj%3a%3aPerson%26n=name?" data="form.pane.localClass_attribute2_attribute2.value.name"/>
+      <form:destination target="control.localClass_attribute2_attribute2_name" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.localClass_attribute2_attribute2_name.value"/>
+    </form:binding>
+  </form:bindings>
+  <form:targets>
+    <form:target ref="iProcessWorkspace_10.7"/>
+  </form:targets>
+  <form:defaults>
+    <form:labelProperties position="top">
+      <form:font fontColor="#000000" fontName="verdana" fontSize="12"/>
+    </form:labelProperties>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.root" paneType="com.tibco.forms.panes.vertical">
+    <form:label>Enter Data</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="top"/>
+    </form:defaults>
+    <form:pane generated="true" generatorSource="ProcToLocalIndirect.xpdl#_vCMIEFW5EeOiVowRDmBLvw?p=ProcToLocalIndirect%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ProcToLocalIndirect%3a%3aProcToLocalIndirectProcess%26n=localClass?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class ProcToLocalIndirect.bom#_4h30IFOAEeOydMVTHmI6_w?p=ProcToLocalIndirect%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.proctolocalindirect%26n=ProcLocal?" name="pane.localClass" paneType="com.tibco.forms.panes.vertical">
+      <form:label>localClass</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="ProcToLocalIndirect.bom#_55nDIFOAEeOydMVTHmI6_w?p=ProcToLocalIndirect%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.proctolocalindirect%3a%3aProcLocal%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.localClass_attribute1">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>attribute1</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:pane generated="true" generatorSource="ProcToLocalIndirect.bom#_6H4IoFOAEeOydMVTHmI6_w?p=ProcToLocalIndirect%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.proctolocalindirect%3a%3aProcLocal%26n=attribute2?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class ProcToLocal.bom#_Q3O1cFOBEeOydMVTHmI6_w?p=ProcToLocal%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.proctolocal%26n=Class1?" name="pane.localClass_attribute2" paneType="com.tibco.forms.panes.vertical">
+        <form:label>attribute2</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:defaults>
+          <form:labelProperties position="left"/>
+        </form:defaults>
+        <form:control generated="true" generatorSource="ProcToLocal.bom#_RfwOAFOBEeOydMVTHmI6_w?p=ProcToLocal%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.proctolocal%3a%3aClass1%26n=attribute1?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.localClass_attribute2_attribute1">
+          <form:propertySet xsi:type="et:TextPropertySet">
+            <et:displayLength>40</et:displayLength>
+            <et:maxLength>50</et:maxLength>
+          </form:propertySet>
+          <form:label>attribute1</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:required>false</form:required>
+        </form:control>
+        <form:pane generated="true" generatorSource="ProcToLocal.bom#_W65oEFOBEeOydMVTHmI6_w?p=ProcToLocal%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.proctolocal%3a%3aClass1%26n=attribute2?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class LocalBOMProj.bom#_BfQV8FNtEeOUC7phQChPyQ?p=LocalBOMProj%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.localbomproj%26n=Person?" name="pane.localClass_attribute2_attribute2" paneType="com.tibco.forms.panes.vertical">
+          <form:label>attribute2</form:label>
+          <form:hint/>
+          <form:visible>true</form:visible>
+          <form:enabled>true</form:enabled>
+          <form:defaults>
+            <form:labelProperties position="top"/>
+          </form:defaults>
+          <form:control generated="true" generatorSource="LocalBOMProj.bom#_CQJnYFNtEeOUC7phQChPyQ?p=LocalBOMProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.localbomproj%3a%3aPerson%26n=id?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.localClass_attribute2_attribute2_id">
+            <form:propertySet xsi:type="et:TextPropertySet">
+              <et:displayLength>40</et:displayLength>
+              <et:maxLength>50</et:maxLength>
+            </form:propertySet>
+            <form:label>id</form:label>
+            <form:hint/>
+            <form:visible>true</form:visible>
+            <form:enabled>true</form:enabled>
+            <form:required>false</form:required>
+          </form:control>
+          <form:control generated="true" generatorSource="LocalBOMProj.bom#_Ec06UFNtEeOUC7phQChPyQ?p=LocalBOMProj%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.localbomproj%3a%3aPerson%26n=name?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.localClass_attribute2_attribute2_name">
+            <form:propertySet xsi:type="et:TextPropertySet">
+              <et:displayLength>40</et:displayLength>
+              <et:maxLength>50</et:maxLength>
+            </form:propertySet>
+            <form:label>name</form:label>
+            <form:hint/>
+            <form:visible>true</form:visible>
+            <form:enabled>true</form:enabled>
+            <form:required>false</form:required>
+          </form:control>
+        </form:pane>
+      </form:pane>
+    </form:pane>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Close</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no" name="ProcToLocalIndirectProcess"
+    suppressJoinFailure="yes" tibex:bxVersion="1.9.0"
+    tibex:explicitCompensation="yes"
+    tibex:xpdlId="_1ISCIVOAEeOydMVTHmI6_w"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="PersistentBatching">
+        <task name="EnterData">
+            <startingVariables>
+                <variable>localClass</variable>
+            </startingVariables>
+        </task>
+        <task name="DisplayData">
+            <startingVariables>
+                <variable>localClass</variable>
+            </startingVariables>
+        </task>
+    </tibex:VariableDescriptor>
+    <bpws:documentation/>
+    <bpws:variables>
+        <bpws:variable name="localClass"
+            tibex:class="com.example.proctolocalindirect.ProcLocal" tibex:xpdlId="_vCMIEFW5EeOiVowRDmBLvw"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="yes" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:eventHandlers/>
+    <bpws:flow name="_BX_flow">
+        <bpws:links>
+            <bpws:link name="DisplayData to EndEvent" tibex:xpdlId="_3EGOlFOAEeOydMVTHmI6_w"/>
+            <bpws:link name="EnterData to DisplayData" tibex:xpdlId="_-o9HIFOAEeOydMVTHmI6_w"/>
+            <bpws:link name="StartEvent to EnterData" tibex:xpdlId="_35ygc1OAEeOydMVTHmI6_w"/>
+        </bpws:links>
+        <bpws:extensionActivity>
+            <tibex:receiveEvent createInstance="yes" eventTimeout="0"
+                name="StartEvent" tibex:type="startEvent"
+                tibex:xpdlId="_3EGOklOAEeOydMVTHmI6_w" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:sources>
+                    <bpws:source linkName="StartEvent to EnterData"/>
+                </bpws:sources>
+                <tibex:eventSource>
+                    <tibex:startEvent eventType="Default"/>
+                </tibex:eventSource>
+            </tibex:receiveEvent>
+        </bpws:extensionActivity>
+        <bpws:empty name="EndEvent" tibex:migrationAllowed="yes"
+            tibex:type="endEvent" tibex:xpdlId="_3EGOk1OAEeOydMVTHmI6_w">
+            <bpws:targets>
+                <bpws:target linkName="DisplayData to EndEvent"/>
+            </bpws:targets>
+        </bpws:empty>
+        <bpws:extensionActivity>
+            <tibex:extActivity name="EnterData"
+                tibex:migrationAllowed="yes" tibex:type="userTask"
+                tibex:xpdlId="_35ygcFOAEeOydMVTHmI6_w" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:targets>
+                    <bpws:target linkName="StartEvent to EnterData"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="EnterData to DisplayData"/>
+                </bpws:sources>
+                <model:UserTaskDataModelType
+                    distributionStrategy="OFFER" userTaskPriority="50"
+                    workModelID="WM__35ygcFOAEeOydMVTHmI6_w"
+                    workModelVersionRange="[1.0.0.201311291559,1.0.0.201311291559]"
+                    xmi:version="2.0"
+                    xmlns:model="http://model.ut.n2.tibco.com" xmlns:xmi="http://www.omg.org/XMI">
+                    <userTaskParticipants>
+                        <userTaskParticipant entity="ROLE"
+                            modelVersion="1" uniqueId="_e1GjQFcOEd6ECemE0GiJmQ"/>
+                    </userTaskParticipants>
+                    <userTaskParameters>
+                        <userTaskParameter mandatory="false"
+                            mode="INOUT" name="localClass"/>
+                    </userTaskParameters>
+                    <userTaskGroupMemberships/>
+                </model:UserTaskDataModelType>
+            </tibex:extActivity>
+        </bpws:extensionActivity>
+        <bpws:extensionActivity>
+            <tibex:extActivity name="DisplayData"
+                tibex:migrationAllowed="yes" tibex:type="userTask"
+                tibex:xpdlId="_-o8gEFOAEeOydMVTHmI6_w" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:targets>
+                    <bpws:target linkName="EnterData to DisplayData"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="DisplayData to EndEvent"/>
+                </bpws:sources>
+                <model:UserTaskDataModelType
+                    distributionStrategy="OFFER" userTaskPriority="50"
+                    workModelID="WM__-o8gEFOAEeOydMVTHmI6_w"
+                    workModelVersionRange="[1.0.0.201311291559,1.0.0.201311291559]"
+                    xmi:version="2.0"
+                    xmlns:model="http://model.ut.n2.tibco.com" xmlns:xmi="http://www.omg.org/XMI">
+                    <userTaskParticipants>
+                        <userTaskParticipant entity="ROLE"
+                            modelVersion="1" uniqueId="_e1GjQFcOEd6ECemE0GiJmQ"/>
+                    </userTaskParticipants>
+                    <userTaskParameters>
+                        <userTaskParameter mandatory="false"
+                            mode="INOUT" name="localClass"/>
+                    </userTaskParameters>
+                    <userTaskGroupMemberships/>
+                </model:UserTaskDataModelType>
+            </tibex:extActivity>
+        </bpws:extensionActivity>
+    </bpws:flow>
+</bpws:process>

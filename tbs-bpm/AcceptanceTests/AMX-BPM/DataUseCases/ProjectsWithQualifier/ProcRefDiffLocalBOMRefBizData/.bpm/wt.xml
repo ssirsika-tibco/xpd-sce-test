@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worktype:WorkTypes xmlns:worktype="http://worktype.common.n2.tibco.com" version="1.0.0.201311291218">
+  <worktype:WorkType>
+    <workTypeUID>WT__DQZuAFNuEeOUC7phQChPyQ</workTypeUID>
+    <workTypeDescription>DisplayData</workTypeDescription>
+    <dataModel>
+      <inouts name="person" optional="true" type="Complex">
+        <complexSpec className="com.example.localbomprojrefbdproj.Person"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__A7aMkFNuEeOUC7phQChPyQ</workTypeUID>
+    <workTypeDescription>EnterPersonInfo</workTypeDescription>
+    <dataModel>
+      <inouts name="person" optional="true" type="Complex">
+        <complexSpec className="com.example.localbomprojrefbdproj.Person"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+</worktype:WorkTypes>

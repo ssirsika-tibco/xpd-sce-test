@@ -1,0 +1,210 @@
+<%// ** Make sure we do not check abstract or DocumentRoot cases ** %>
+<%if (!genClass.isAbstract() && !genClass.isDocumentRoot()) {%>
+ <%// ** Check each of the features in the class ** %>
+ <%for (GenFeature genFeature : genClass.getGenFeatures()) {%>
+  <%// ** Get only the features that are stored as feature maps ** %>
+  <%if (genFeature.isFeatureMapType()) {%>
+   <% // ** If we are not using a wrapped FeatureMap - we can not support the new interfaces ** %>
+   <%if (genFeature.isWrappedFeatureMapType()) {%>
+    <%if (isInterface) {%>
+	/**
+	 * Method that allows for an "any" type to be set to another "any" type
+	 * or an EObject (ComplexType).
+	 * It will overwrite the existing data
+	 *
+	 * @param value		The "any" type or EObject to copy from
+	 * @see #<%=genFeature.getGetAccessor()%>()
+	 * @generated
+	 */
+	void set<%=genFeature.getAccessorName()%>(Object value);
+
+    <%} else if (isImplementation) {%>
+    
+    /**
+	 * @generated
+	 */
+	public void set<%=genFeature.getAccessorName()%>(Object value)
+	{
+		// Get the FeatureMap we will be setting
+		<%=genFeature.getImportedEffectiveFeatureMapWrapperInternalInterface()%> bdsFeatureMap = <%=genFeature.getGetAccessor()%>();
+
+		// Default behaviour is to overwrite existing data
+		// So clear the existing map
+		bdsFeatureMap.clear();
+		
+		if( value != null )
+		{
+			if( value instanceof <%=genModel.getImportedName("org.eclipse.emf.ecore.util.FeatureMap")%> )
+			{
+				bdsFeatureMap.add((<%=genModel.getImportedName("org.eclipse.emf.ecore.util.FeatureMap")%>)value);		
+			}
+			else if( value instanceof <%=genModel.getImportedName("org.eclipse.emf.ecore.EObject")%>)
+			{
+				bdsFeatureMap.add((<%=genModel.getImportedName("org.eclipse.emf.ecore.EObject")%>)value);
+			}
+			else if( value instanceof <%=genModel.getImportedName("org.eclipse.emf.ecore.util.FeatureMap.Entry")%> )
+			{
+				bdsFeatureMap.add((<%=genModel.getImportedName("org.eclipse.emf.ecore.util.FeatureMap.Entry")%>)value);
+			}
+		}
+	}
+    <%}%>
+   <%}%>
+  <%}%>
+  <%// ** Check for arguments of EObject this is support for xsd:anyType ** %>
+  <%if ("org.eclipse.emf.ecore.EObject".equals(genFeature.getType(genClass))) {%>
+   <%if (isInterface) {%>
+	/**
+	 * Method that allows for an "anyType" to be set to any value
+	 * or an EObject (ComplexType).
+	 * It will overwrite the existing data
+	 *
+	 * @param value		The "anyType" or EObject to copy from
+	 * @see #<%=genFeature.getGetAccessor()%>()
+	 * @generated
+	 */
+	void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value);
+
+   <%} else if (isImplementation) {%>
+	/**
+	 * @generated
+	 */
+	public void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value)
+	{
+	  <%=genModel.getImportedName("org.eclipse.emf.ecore.EObject")%> eObjectValue = null;
+
+      <%// ** Check if we are dealing with something that is actually an EObject ** %>
+	  if( value != null ) {
+	    if (value instanceof <%=genModel.getImportedName("org.eclipse.emf.ecore.EObject")%>) {
+	      // Already extends EObject so casting is enough
+	      eObjectValue = (EObject)value;
+	    } else {
+	      // Check if dealing with an XMLGregorianCalendar, if so need to clone it
+	      if(value instanceof <%=genModel.getImportedName("javax.xml.datatype.XMLGregorianCalendar")%>) {
+	        value = <%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSCopyUtil"))%>.copyIfMutable(value);
+	      }
+
+	      // A primitive type needs to be wrapped in an AnyType
+	      <%=genModel.getImportedName("org.eclipse.emf.ecore.xml.type.AnyType")%> anyTypeValue = <%=genModel.getImportedName("org.eclipse.emf.ecore.xml.type.XMLTypeFactory")%>.eINSTANCE.createAnyType();
+	      <%=genModel.getImportedName("org.eclipse.emf.ecore.util.FeatureMapUtil")%>.addText(anyTypeValue.getMixed(),
+	                        <%=genModel.getImportedName("org.eclipse.emf.ecore.xml.type.XMLTypeFactory")%>.eINSTANCE.convertAnySimpleType(value));
+	      eObjectValue = anyTypeValue;
+	    }
+	  }
+	  // Call the default set that takes an EObject
+	  set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(eObjectValue);
+	}
+   <%}%>
+  <% // ** Add methods for auto conversion to Integer ** %>
+  <%} else if ("java.lang.Integer".equals(genFeature.getType(genClass))) {%>
+   <%if (isInterface) {%>
+	/**
+	 * Automatic type conversion method
+	 *
+	 * @param value		The value to set
+	 * @see #<%=genFeature.getGetAccessor()%>()
+	 * @generated
+	 */
+	void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value);
+
+   <%} else if (isImplementation) {%>
+	/**
+	 * @generated
+	 */
+	public void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value)
+	{
+	  // Call the default set, passing in the converted value
+	  set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSTypeConversions"))%>.convertToInteger(value));
+	}
+   <%}%>
+  <% // ** Add methods for auto conversion to Double ** %>
+  <%} else if ("java.lang.Double".equals(genFeature.getType(genClass))) {%>
+   <%if (isInterface) {%>
+	/**
+	 * Automatic type conversion method
+	 *
+	 * @param value		The value to set
+	 * @see #<%=genFeature.getGetAccessor()%>()
+	 * @generated
+	 */
+	void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value);
+
+   <%} else if (isImplementation) {%>
+	/**
+	 * @generated
+	 */
+	public void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value)
+	{
+	  // Call the default set, passing in the converted value
+	  set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSTypeConversions"))%>.convertToDouble(value));
+	}
+   <%}%>
+  <% // ** Add methods for auto conversion to String ** %>
+  <%} else if ("java.lang.String".equals(genFeature.getType(genClass))) {%>
+   <%if (isInterface) {%>
+	/**
+	 * Automatic type conversion method
+	 *
+	 * @param value		The value to set
+	 * @see #<%=genFeature.getGetAccessor()%>()
+	 * @generated
+	 */
+	void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value);
+
+   <%} else if (isImplementation) {%>
+	/**
+	 * @generated
+	 */
+	public void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value)
+	{
+	  // Call the default set, passing in the converted value
+	  set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSTypeConversions"))%>.convertToString(value));
+	}
+   <%}%>
+  <% // ** Add methods for auto conversion to BigInteger ** %>
+  <%} else if ("java.math.BigInteger".equals(genFeature.getType(genClass))) {%>
+   <%if (isInterface) {%>
+	/**
+	 * Automatic type conversion method
+	 *
+	 * @param value		The value to set
+	 * @see #<%=genFeature.getGetAccessor()%>()
+	 * @generated
+	 */
+	void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value);
+
+   <%} else if (isImplementation) {%>
+	/**
+	 * @generated
+	 */
+	public void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value)
+	{
+	  // Call the default set, passing in the converted value
+	  set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSTypeConversions"))%>.convertToBigInteger(value));
+	}
+   <%}%>
+  <% // ** Add methods for auto conversion to BigDecimal ** %>
+  <%} else if ("java.math.BigDecimal".equals(genFeature.getType(genClass))) {%>
+   <%if (isInterface) {%>
+	/**
+	 * Automatic type conversion method
+	 *
+	 * @param value		The value to set
+	 * @see #<%=genFeature.getGetAccessor()%>()
+	 * @generated
+	 */
+	void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value);
+
+   <%} else if (isImplementation) {%>
+	/**
+	 * @generated
+	 */
+	public void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(Object value)
+	{
+	  // Call the default set, passing in the converted value
+	  set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSTypeConversions"))%>.convertToBigDecimal(value));
+	}
+   <%}%>
+  <%}%>
+ <%}%>
+<%}%>

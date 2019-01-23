@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example.org/MyAccountInq/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ns1="http://www.vietinbank.com/tama/1.0"
+	xmlns:ns4="http://www.vietinbank.com/casa/1.0"
+	name="MyWSDLFile" targetNamespace="http://www.example.org/MyAccountInq/">
+	
+	
+	<wsdl:types>
+
+		<xs:schema
+			xmlns="http://www.vietinbank.com/tama/1.0"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+			elementFormDefault="qualified"
+			targetNamespace="http://www.vietinbank.com/tama/1.0">
+
+			<xs:complexType name="AccountBalanceInqReqType">
+				<xs:sequence>
+					<xs:element ref="ns1:RequestPayLoadAccountInq" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="RequestPayLoadAccountInqType">
+				<xs:sequence>
+					<xs:element name="BankAccount" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:element name="RequestPayLoadAccountInq" type="ns1:RequestPayLoadAccountInqType" />
+		</xs:schema>
+
+		<xs:schema
+			xmlns="http://www.vietinbank.com/casa/1.0"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+			elementFormDefault="qualified"
+			targetNamespace="http://www.vietinbank.com/casa/1.0">
+
+			<xs:complexType name="AccountBalanceInqReqType">
+				<xs:sequence>
+					<xs:element ref="ns4:RequestPayLoadAccountInq" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="RequestPayLoadAccountInqType">
+				<xs:sequence>
+					<xs:element ref="ns4:BankAccount" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="BankAccountType">
+				<xs:sequence>
+					<xs:element name="AccountId" type="xs:string" />
+					<xs:element minOccurs="0" name="AccountType" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:element name="BankAccount" type="ns4:BankAccountType" />
+			<xs:element name="RequestPayLoadAccountInq" type="ns4:RequestPayLoadAccountInqType" />
+		</xs:schema>
+
+
+		<xsd:schema targetNamespace="http://www.example.org/MyAccountInq/">
+			<xsd:element name="NewOperation">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="in" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NewOperationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="NewOperationRequest">
+		<wsdl:part element="tns:NewOperation" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="NewOperationResponse">
+		<wsdl:part element="tns:NewOperationResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="MyAccountInq">
+		<wsdl:operation name="NewOperation">
+			<wsdl:input message="tns:NewOperationRequest" />
+			<wsdl:output message="tns:NewOperationResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="MyAccountInqSOAP" type="tns:MyAccountInq">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="NewOperation">
+			<soap:operation soapAction="http://www.example.org/MyAccountInq/NewOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="MyAccountInq">
+		<wsdl:port binding="tns:MyAccountInqSOAP" name="MyAccountInqSOAP">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

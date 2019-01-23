@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://www.tibco.com/AFF/PC/services" xmlns:ns1="http://www.tibco.com/AFF/classes/resultstatus" xmlns:ns2="http://www.tibco.com/AFF/classes/product" xmlns:ns3="http://www.tibco.com/AFF/classes/segment" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.tibco.com/FOS/Clients/ProductService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://www.tibco.com/FOS/Clients/ProductService" tibex:src="file:/E:/FOSWSDLs/Proxy/WSDLS/Client_ProductService.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/AFF/classes/resultstatus">
+            <xs:element name="ResultStatus">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Component" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Role" type="xs:string"/>
+                        <xs:element name="Operation" type="xs:string"/>
+                        <xs:element name="Severity" type="xs:string"/>
+                        <xs:element name="Code" type="xs:string"/>
+                        <xs:element name="Message" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/AFF/classes/product">
+            <xs:element name="Characteristic">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Name" type="xs:string"/>
+                        <xs:element name="Description" type="xs:string"/>
+                        <xs:element name="Values">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Value">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="ValueName" type="xs:string"/>
+                                                <xs:element name="ValueType" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="ValueFrom" type="xs:string"/>
+                                                <xs:element minOccurs="0" name="ValueTo" type="xs:string"/>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Product">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ProductID" type="xs:string"/>
+                        <xs:element name="ProductName" type="xs:string"/>
+                        <xs:element name="ProductType" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ProductSubType" type="xs:string"/>
+                        <xs:element name="Description" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/AFF/classes/segment">
+            <xs:element name="Segment">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Name" type="xs:string"/>
+                        <xs:element name="Type" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/AFF/PC/services">
+            <xs:import namespace="http://www.tibco.com/AFF/classes/product"/>
+            <xs:import namespace="http://www.tibco.com/AFF/classes/resultstatus"/>
+            <xs:import namespace="http://www.tibco.com/AFF/classes/segment"/>
+            <xs:import namespace="http://www.tibco.com/AFF/classes/resultstatus"/>
+            <xs:element name="GetEligibleProductsReply">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:ResultStatus"/>
+                        <xs:element minOccurs="0" name="Products">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns2:Product"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Pagination">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="StartRecord" type="xs:long"/>
+                                    <xs:element name="EndRecord" type="xs:long"/>
+                                    <xs:element name="TotalRecords" type="xs:long"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="BusinessTransactionID" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetEligibleProductsRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:choice minOccurs="0">
+                            <xs:element name="CustomerID" type="xs:string"/>
+                            <xs:element name="SubscriberID" type="xs:string"/>
+                            <xs:sequence>
+                                <xs:element name="ParentCustomerID" type="xs:string"/>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="RoleID" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:choice>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Segment">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Name" type="xs:string"/>
+                                    <xs:element name="Type" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="ParentProductID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ProductName" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ProductType" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ProductSubType" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ProductDescription" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="ProductCharacteristic">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Name" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="OrderDate" type="xs:dateTime"/>
+                        <xs:element minOccurs="0" name="Status" type="xs:string"/>
+                        <xs:choice minOccurs="0">
+                            <xs:element name="Count" type="xs:long"/>
+                            <xs:element name="Pagination">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="StartRecord" type="xs:string"/>
+                                        <xs:element name="EndRecord" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:sequence>
+                    <xs:attribute name="BusinessTransactionID" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetIneligibleSubscribersReply">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:ResultStatus"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="IneligibleSubscriberID" type="xs:string"/>
+                    </xs:sequence>
+                    <xs:attribute name="BusinessTransactionID" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetIneligibleSubscribersRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ParentCustomerID" type="xs:string"/>
+                        <xs:element name="ProductID" type="xs:string"/>
+                    </xs:sequence>
+                    <xs:attribute name="BusinessTransactionID" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetProductInformationReply">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:ResultStatus"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="ProductInformation">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element ref="ns2:Product"/>
+                                    <xs:element name="Characteristics">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns2:Characteristic"/>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="BusinessTransactionID" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetProductInformationRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="ProductID" type="xs:string"/>
+                    </xs:sequence>
+                    <xs:attribute name="BusinessTransactionID" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetSegmentsReply">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:ResultStatus"/>
+                        <xs:element minOccurs="0" name="Segments">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns3:Segment"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="BusinessTransactionID" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetSegmentsRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SegmentType" type="xs:string"/>
+                    </xs:sequence>
+                    <xs:attribute name="BusinessTransactionID" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ProductService">
+        <wsdl:port binding="tns:portTypeEndpoint1Binding" name="portTypeEndpoint1">
+            <soap:address location="http://localhost:9875/Services/ProductService.serviceagent/portTypeEndpoint1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="portType">
+        <wsdl:operation name="GetEligibleProducts">
+            <wsdl:input message="tns:GetEligibleProductsRequest"/>
+            <wsdl:output message="tns:GetEligibleProductsReply"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetProductInformation">
+            <wsdl:input message="tns:GetProductInformationRequest"/>
+            <wsdl:output message="tns:GetProductInformationReply"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetSegments">
+            <wsdl:input message="tns:GetSegmentsRequest"/>
+            <wsdl:output message="tns:GetSegmentsReply"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetIneligibleSubscribers">
+            <wsdl:input message="tns:GetIneligibleSubscribersRequest"/>
+            <wsdl:output message="tns:GetIneligibleSubscribersReply"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="portTypeEndpoint1Binding" type="tns:portType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetEligibleProducts">
+            <soap:operation soapAction="/Services/ProductService.serviceagent/portTypeEndpoint1/GetEligibleProducts" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetProductInformation">
+            <soap:operation soapAction="/Services/ProductService.serviceagent/portTypeEndpoint1/GetProductInformation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSegments">
+            <soap:operation soapAction="/Services/ProductService.serviceagent/portTypeEndpoint1/GetSegments" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetIneligibleSubscribers">
+            <soap:operation soapAction="/Services/ProductService.serviceagent/portTypeEndpoint1/GetIneligibleSubscribers" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="GetEligibleProductsRequest">
+        <wsdl:part element="ns0:GetEligibleProductsRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetEligibleProductsReply">
+        <wsdl:part element="ns0:GetEligibleProductsReply" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetProductInformationRequest">
+        <wsdl:part element="ns0:GetProductInformationRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetProductInformationReply">
+        <wsdl:part element="ns0:GetProductInformationReply" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetSegmentsRequest">
+        <wsdl:part element="ns0:GetSegmentsRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetSegmentsReply">
+        <wsdl:part element="ns0:GetSegmentsReply" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetIneligibleSubscribersRequest">
+        <wsdl:part element="ns0:GetIneligibleSubscribersRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetIneligibleSubscribersReply">
+        <wsdl:part element="ns0:GetIneligibleSubscribersReply" name="parameters"/>
+    </wsdl:message>
+</wsdl:definitions>

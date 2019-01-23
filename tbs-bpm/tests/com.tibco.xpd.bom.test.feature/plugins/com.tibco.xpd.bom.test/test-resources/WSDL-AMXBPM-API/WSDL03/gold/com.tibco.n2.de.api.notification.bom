@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.de.api.notification2" name="com.tibco.n2.de.api.notification">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_26xX4RUfEeGeRrbRLAepWg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_26xX4hUfEeGeRrbRLAepWg" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_26xX4xUfEeGeRrbRLAepWg" key="created" value="1321979837150"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_26xX5BUfEeGeRrbRLAepWg" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.notificationcreatedResourceType" name="createdResourceType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_z7zFUBUfEeGeRrbRLAepWg" body="&#xA;  Identifies the Resource that has been created within Directory Engine's realm.&#xA;         "/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.notificationcreatedResourceResponseType" name="createdResourceResponseType"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.notificationdeletedResourceType" name="deletedResourceType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_z9DpkBUfEeGeRrbRLAepWg" body="&#xA;  Identifies the Resource(s) that have been deleted from Directory Engine's realm.&#xA;         "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="deletedResourceTypeentity-id" name="entityid" aggregation="composite" association="com.tibco.n2.de.api.notificationComposition56?com.tibco.n2.de.api.notification%3a%3aComposition56?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.organisation.api.bom#com.tibco.n2.common.organisation.apiXmlModelEntityId?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z8__MhUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z8__MRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.notificationComposition56" name="Composition56" memberEnd="deletedResourceTypeentity-id?com.tibco.n2.de.api.notification%3a%3adeletedResourceType%3a%3aentityid? Composition56deletedresourcetype?com.tibco.n2.de.api.notification%3a%3aComposition56%3a%3adeletedresourcetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition56deletedresourcetype" name="deletedresourcetype" type="com.tibco.n2.de.api.notificationdeletedResourceType?com.tibco.n2.de.api.notification%3a%3adeletedResourceType?" association="com.tibco.n2.de.api.notificationComposition56?com.tibco.n2.de.api.notification%3a%3aComposition56?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z9AmQBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z8__NBUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.notificationdeletedResourceResponseType" name="deletedResourceResponseType"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.notificationmodifiedResourceType" name="modifiedResourceType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_z9vmEBUfEeGeRrbRLAepWg" body="&#xA;  Identifies the Resource that has been modified within Directory Engine's realm.&#xA;         "/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.notificationmodifiedResourceResponseType" name="modifiedResourceResponseType"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_z7HI0RUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z7HI0hUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_z7HI0xUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z7HI1BUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_z7Hv4BUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.de.api.notification2?com.tibco.n2.de.api.notification?" xsdTargetNamespace="http://notification.api.de.n2.tibco.com" xsdSchemaLocation="de.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_z7wpEBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.notificationcreatedResourceType?com.tibco.n2.de.api.notification%3a%3acreatedResourceType?" xsdName="createdResource" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_z77oMBUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.de.api.notification2?com.tibco.n2.de.api.notification?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_z78PQBUfEeGeRrbRLAepWg" name="createdResource" type="com.tibco.n2.de.api.notificationcreatedResourceType?com.tibco.n2.de.api.notification%3a%3acreatedResourceType?" isAnonymous="true" targetNamespace="http://notification.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_z8Q_YBUfEeGeRrbRLAepWg" name="createdResourceResponse" type="com.tibco.n2.de.api.notificationcreatedResourceResponseType?com.tibco.n2.de.api.notification%3a%3acreatedResourceResponseType?" isAnonymous="true" targetNamespace="http://notification.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_z9EQoBUfEeGeRrbRLAepWg" name="deletedResource" type="com.tibco.n2.de.api.notificationdeletedResourceType?com.tibco.n2.de.api.notification%3a%3adeletedResourceType?" isAnonymous="true" targetNamespace="http://notification.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_z9aO4BUfEeGeRrbRLAepWg" name="deletedResourceResponse" type="com.tibco.n2.de.api.notificationdeletedResourceResponseType?com.tibco.n2.de.api.notification%3a%3adeletedResourceResponseType?" isAnonymous="true" targetNamespace="http://notification.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_z9xbQBUfEeGeRrbRLAepWg" name="modifiedResource" type="com.tibco.n2.de.api.notificationmodifiedResourceType?com.tibco.n2.de.api.notification%3a%3amodifiedResourceType?" isAnonymous="true" targetNamespace="http://notification.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_z-GycBUfEeGeRrbRLAepWg" name="modifiedResourceResponse" type="com.tibco.n2.de.api.notificationmodifiedResourceResponseType?com.tibco.n2.de.api.notification%3a%3amodifiedResourceResponseType?" isAnonymous="true" targetNamespace="http://notification.api.de.n2.tibco.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_z8OjIBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.notificationcreatedResourceResponseType?com.tibco.n2.de.api.notification%3a%3acreatedResourceResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_z8j6UBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.notificationdeletedResourceType?com.tibco.n2.de.api.notification%3a%3adeletedResourceType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_z9B0YBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_z9AmQRUfEeGeRrbRLAepWg" base_Property="deletedResourceTypeentity-id?com.tibco.n2.de.api.notification%3a%3adeletedResourceType%3a%3aentityid?" xsdName="entity-id" xsdForm="unqualified" xsdType="XmlModelEntityId" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_z9B0YBUfEeGeRrbRLAepWg" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_z9XyoBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.notificationdeletedResourceResponseType?com.tibco.n2.de.api.notification%3a%3adeletedResourceResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_z9tJ0BUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.notificationmodifiedResourceType?com.tibco.n2.de.api.notification%3a%3amodifiedResourceType?" xsdName="modifiedResource" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_z-DvIBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.notificationmodifiedResourceResponseType?com.tibco.n2.de.api.notification%3a%3amodifiedResourceResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BHDIBUfEeGeRrbRLAepWg" base_Element="_z8__MhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BHDIRUfEeGeRrbRLAepWg" base_Element="_z7HI0xUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BHqMBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.notificationdeletedResourceResponseType?com.tibco.n2.de.api.notification%3a%3adeletedResourceResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BHqMRUfEeGeRrbRLAepWg" base_Element="_z9AmQBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BHqMhUfEeGeRrbRLAepWg" base_Element="_z7zFUBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BHqMxUfEeGeRrbRLAepWg" base_Element="_z8__MRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BIRQBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.notificationmodifiedResourceResponseType?com.tibco.n2.de.api.notification%3a%3amodifiedResourceResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BIRQRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.notificationComposition56?com.tibco.n2.de.api.notification%3a%3aComposition56?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BIRQhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.notificationcreatedResourceResponseType?com.tibco.n2.de.api.notification%3a%3acreatedResourceResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BI4UBUfEeGeRrbRLAepWg" base_Element="Composition56deletedresourcetype?com.tibco.n2.de.api.notification%3a%3aComposition56%3a%3adeletedresourcetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BI4URUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.notificationmodifiedResourceType?com.tibco.n2.de.api.notification%3a%3amodifiedResourceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BI4UhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.notificationdeletedResourceType?com.tibco.n2.de.api.notification%3a%3adeletedResourceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BJfYBUfEeGeRrbRLAepWg" base_Element="_z7HI0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BJfYRUfEeGeRrbRLAepWg" base_Element="_z9vmEBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BJfYhUfEeGeRrbRLAepWg" base_Element="_z9DpkBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BJfYxUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.notificationcreatedResourceType?com.tibco.n2.de.api.notification%3a%3acreatedResourceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BKGcBUfEeGeRrbRLAepWg" base_Element="deletedResourceTypeentity-id?com.tibco.n2.de.api.notification%3a%3adeletedResourceType%3a%3aentityid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0BKGcRUfEeGeRrbRLAepWg" base_Element="_z8__NBUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_26pcEBUfEeGeRrbRLAepWg" displayLabel="createdResourceType" base_NamedElement="com.tibco.n2.de.api.notificationcreatedResourceType?com.tibco.n2.de.api.notification%3a%3acreatedResourceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_26qqMBUfEeGeRrbRLAepWg" displayLabel="createdResourceResponseType" base_NamedElement="com.tibco.n2.de.api.notificationcreatedResourceResponseType?com.tibco.n2.de.api.notification%3a%3acreatedResourceResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_26r4UBUfEeGeRrbRLAepWg" displayLabel="deletedResourceType" base_NamedElement="com.tibco.n2.de.api.notificationdeletedResourceType?com.tibco.n2.de.api.notification%3a%3adeletedResourceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_26tGcBUfEeGeRrbRLAepWg" displayLabel="deletedResourceResponseType" base_NamedElement="com.tibco.n2.de.api.notificationdeletedResourceResponseType?com.tibco.n2.de.api.notification%3a%3adeletedResourceResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_26u7oBUfEeGeRrbRLAepWg" displayLabel="modifiedResourceType" base_NamedElement="com.tibco.n2.de.api.notificationmodifiedResourceType?com.tibco.n2.de.api.notification%3a%3amodifiedResourceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_26wJwBUfEeGeRrbRLAepWg" displayLabel="modifiedResourceResponseType" base_NamedElement="com.tibco.n2.de.api.notificationmodifiedResourceResponseType?com.tibco.n2.de.api.notification%3a%3amodifiedResourceResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_26xX4BUfEeGeRrbRLAepWg" displayLabel="entity-id" base_NamedElement="deletedResourceTypeentity-id?com.tibco.n2.de.api.notification%3a%3adeletedResourceType%3a%3aentityid?"/>
+  <notation:Diagram xmi:id="_26x-8BUfEeGeRrbRLAepWg" type="Business Object Model" element="com.tibco.n2.de.api.notification2?com.tibco.n2.de.api.notification?" name="com.tibco.n2.de.api.notification" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_26x-8RUfEeGeRrbRLAepWg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_26x-8hUfEeGeRrbRLAepWg"/>
+  </notation:Diagram>
+</xmi:XMI>

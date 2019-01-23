@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.SimpleSequence" name="org.example.SimpleSequence">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bKw4sU1hEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bKw4sk1hEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bKw4s01hEeSLJZkJre4IDg" key="created" value="1412607755835"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bKw4tE1hEeSLJZkJre4IDg" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.SimpleSequencecomplexWithMixed" name="complexWithMixed">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="complexWithMixedtestElem2" name="testElem2" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bJ-Og01hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bJ-Ogk1hEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="complexWithMixedinnerElem3" name="innerElem3" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKAqw01hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKAqwk1hEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="complexWithMixedinnerInnerElem2" name="innerInnerElem2" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKDHA01hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKDHAk1hEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="complexWithMixedinnerElem4Type" name="innerElem4" type="org.example.SimpleSequenceinnerElem4Type?org.example.SimpleSequence%3a%3ainnerElem4Type?" aggregation="composite" association="org.example.SimpleSequenceComposition0?org.example.SimpleSequence%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKKbw01hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKKbwk1hEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.SimpleSequenceinnerElem4Type" name="innerElem4Type">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="innerElem4TypeinnerAnonElem1" name="innerAnonElem1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKGxY01hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKGxYk1hEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.SimpleSequenceComposition0" name="Composition0" memberEnd="complexWithMixedinnerElem4Type?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerElem4? Composition0complexwithmixed?org.example.SimpleSequence%3a%3aComposition0%3a%3acomplexwithmixed?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0complexwithmixed" name="complexwithmixed" type="org.example.SimpleSequencecomplexWithMixed?org.example.SimpleSequence%3a%3acomplexWithMixed?" association="org.example.SimpleSequenceComposition0?org.example.SimpleSequence%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKLC0E1hEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKKbxU1hEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.SimpleSequenceelemWithAnonComplexType" name="elemWithAnonComplexType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="elemWithAnonComplexTypetestElem1" name="testElem1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKS-o01hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKS-ok1hEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="elemWithAnonComplexTypeinnerElem1" name="innerElem1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKWB8k1hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKWB8U1hEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="elemWithAnonComplexTypeinnerInnerElem1" name="innerInnerElem1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKYeM01hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKYeMk1hEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="elemWithAnonComplexTypeinnerElem2Type" name="innerElem2" type="org.example.SimpleSequenceinnerElem2Type?org.example.SimpleSequence%3a%3ainnerElem2Type?" aggregation="composite" association="org.example.SimpleSequenceComposition1?org.example.SimpleSequence%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKgaAk1hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKgaAU1hEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.SimpleSequenceinnerElem2Type" name="innerElem2Type">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="innerElem2TypeinnerAnonElem1" name="innerAnonElem1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKcvok1hEeSLJZkJre4IDg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKcvoU1hEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.SimpleSequenceComposition1" name="Composition1" memberEnd="elemWithAnonComplexTypeinnerElem2Type?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerElem2? Composition1elemwithanoncomplextype?org.example.SimpleSequence%3a%3aComposition1%3a%3aelemwithanoncomplextype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1elemwithanoncomplextype" name="elemwithanoncomplextype" type="org.example.SimpleSequenceelemWithAnonComplexType?org.example.SimpleSequence%3a%3aelemWithAnonComplexType?" association="org.example.SimpleSequenceComposition1?org.example.SimpleSequence%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bKgaBU1hEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bKgaBE1hEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_bJ59EU1hEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bJ59Ek1hEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_bJ6kIE1hEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bJ6kIU1hEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_bJ6kIk1hEeSLJZkJre4IDg" base_Package="org.example.SimpleSequence?org.example.SimpleSequence?" xsdTargetNamespace="http://www.example.org/SimpleSequence" xsdSchemaLocation="xsd-multi-explicitgroups/XSDBOM_ExpGroups09_MixedNested.xsd" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.9.0.qualifier"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_bJ8ZUE1hEeSLJZkJre4IDg" base_Class="org.example.SimpleSequencecomplexWithMixed?org.example.SimpleSequence%3a%3acomplexWithMixed?" xsdName="complexWithMixed" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bKLp4E1hEeSLJZkJre4IDg" name="MS1_1_1" maxOccurs="-1"/>
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bKM4AE1hEeSLJZkJre4IDg" name="MS2_1_2" minOccurs="3" maxOccurs="6" parent="_bKLp4E1hEeSLJZkJre4IDg" isChoice="true"/>
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bKOtME1hEeSLJZkJre4IDg" name="MS3_1_2" minOccurs="2" maxOccurs="10" parent="_bKM4AE1hEeSLJZkJre4IDg"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bJ-OgU1hEeSLJZkJre4IDg" base_Property="complexWithMixedtestElem2?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3atestElem2?" xsdName="testElem2" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_bKLp4E1hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bJ-1kE1hEeSLJZkJre4IDg" textLength="-1" base_Property="complexWithMixedtestElem2?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3atestElem2?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKAqwU1hEeSLJZkJre4IDg" base_Property="complexWithMixedinnerElem3?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerElem3?" xsdName="innerElem3" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1:C1" xsdParentSequence="_bKM4AE1hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bKBR0E1hEeSLJZkJre4IDg" textLength="-1" base_Property="complexWithMixedinnerElem3?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerElem3?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKDHAU1hEeSLJZkJre4IDg" base_Property="complexWithMixedinnerInnerElem2?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerInnerElem2?" xsdName="innerInnerElem2" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1:C1:S2" xsdParentSequence="_bKOtME1hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bKDHBE1hEeSLJZkJre4IDg" textLength="-1" base_Property="complexWithMixedinnerInnerElem2?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerInnerElem2?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_bKE8MU1hEeSLJZkJre4IDg" base_Class="org.example.SimpleSequenceinnerElem4Type?org.example.SimpleSequence%3a%3ainnerElem4Type?" xsdName="innerElem4" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bKH_gE1hEeSLJZkJre4IDg" name="MS1_1_1" maxOccurs="-1" isChoice="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKGxYU1hEeSLJZkJre4IDg" base_Property="innerElem4TypeinnerAnonElem1?org.example.SimpleSequence%3a%3ainnerElem4Type%3a%3ainnerAnonElem1?" xsdName="innerAnonElem1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="C1" xsdParentSequence="_bKH_gE1hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bKGxZE1hEeSLJZkJre4IDg" textLength="-1" base_Property="innerElem4TypeinnerAnonElem1?org.example.SimpleSequence%3a%3ainnerElem4Type%3a%3ainnerAnonElem1?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKLC0U1hEeSLJZkJre4IDg" base_Property="complexWithMixedinnerElem4Type?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerElem4?" xsdName="innerElem4" xsdForm="qualified" xsdExplicitGroupHierarchy="S1:C1" xsdParentSequence="_bKM4AE1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_bKRJcE1hEeSLJZkJre4IDg" base_Class="org.example.SimpleSequenceelemWithAnonComplexType?org.example.SimpleSequence%3a%3aelemWithAnonComplexType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bKhBEE1hEeSLJZkJre4IDg" name="MS1_1_1" maxOccurs="-1" isChoice="true"/>
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bKiPME1hEeSLJZkJre4IDg" name="MS2_1_2" minOccurs="3" maxOccurs="6" parent="_bKhBEE1hEeSLJZkJre4IDg"/>
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bKkrcE1hEeSLJZkJre4IDg" name="MS3_1_2" minOccurs="2" maxOccurs="10" parent="_bKiPME1hEeSLJZkJre4IDg" isChoice="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKS-oU1hEeSLJZkJre4IDg" base_Property="elemWithAnonComplexTypetestElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3atestElem1?" xsdName="testElem1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="C1" xsdParentSequence="_bKhBEE1hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bKTlsE1hEeSLJZkJre4IDg" textLength="-1" base_Property="elemWithAnonComplexTypetestElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3atestElem1?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKWB8E1hEeSLJZkJre4IDg" base_Property="elemWithAnonComplexTypeinnerElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerElem1?" xsdName="innerElem1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="C1:S1" xsdParentSequence="_bKiPME1hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bKWB801hEeSLJZkJre4IDg" textLength="-1" base_Property="elemWithAnonComplexTypeinnerElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerElem1?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKYeMU1hEeSLJZkJre4IDg" base_Property="elemWithAnonComplexTypeinnerInnerElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerInnerElem1?" xsdName="innerInnerElem1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="C1:S1:C2" xsdParentSequence="_bKkrcE1hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bKYeNE1hEeSLJZkJre4IDg" textLength="-1" base_Property="elemWithAnonComplexTypeinnerInnerElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerInnerElem1?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_bKaTYU1hEeSLJZkJre4IDg" base_Class="org.example.SimpleSequenceinnerElem2Type?org.example.SimpleSequence%3a%3ainnerElem2Type?" xsdName="innerElem2" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bKd9wE1hEeSLJZkJre4IDg" name="MS1_1_1" maxOccurs="-1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKcvoE1hEeSLJZkJre4IDg" base_Property="innerElem2TypeinnerAnonElem1?org.example.SimpleSequence%3a%3ainnerElem2Type%3a%3ainnerAnonElem1?" xsdName="innerAnonElem1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_bKd9wE1hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bKcvo01hEeSLJZkJre4IDg" textLength="-1" base_Property="innerElem2TypeinnerAnonElem1?org.example.SimpleSequence%3a%3ainnerElem2Type%3a%3ainnerAnonElem1?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bKgaBk1hEeSLJZkJre4IDg" base_Property="elemWithAnonComplexTypeinnerElem2Type?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerElem2?" xsdName="innerElem2" xsdForm="qualified" xsdExplicitGroupHierarchy="C1:S1" xsdParentSequence="_bKiPME1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_bKl5kE1hEeSLJZkJre4IDg" base_Package="org.example.SimpleSequence?org.example.SimpleSequence?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_bKl5kU1hEeSLJZkJre4IDg" name="elemWithAnonComplex" type="org.example.SimpleSequenceelemWithAnonComplexType?org.example.SimpleSequence%3a%3aelemWithAnonComplexType?" isAnonymous="true" targetNamespace="http://www.example.org/SimpleSequence" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKmgoE1hEeSLJZkJre4IDg" base_Element="_bKYeM01hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKmgoU1hEeSLJZkJre4IDg" base_Element="org.example.SimpleSequenceComposition0?org.example.SimpleSequence%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKmgok1hEeSLJZkJre4IDg" base_Element="Composition1elemwithanoncomplextype?org.example.SimpleSequence%3a%3aComposition1%3a%3aelemwithanoncomplextype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKmgo01hEeSLJZkJre4IDg" base_Element="_bKcvok1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKmgpE1hEeSLJZkJre4IDg" base_Element="elemWithAnonComplexTypeinnerElem2Type?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerElem2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKmgpU1hEeSLJZkJre4IDg" base_Element="_bJ-Ogk1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnHsE1hEeSLJZkJre4IDg" base_Element="elemWithAnonComplexTypeinnerInnerElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerInnerElem1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnHsU1hEeSLJZkJre4IDg" base_Element="org.example.SimpleSequenceComposition1?org.example.SimpleSequence%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnHsk1hEeSLJZkJre4IDg" base_Element="_bKWB8k1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnHs01hEeSLJZkJre4IDg" base_Element="_bKS-ok1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnHtE1hEeSLJZkJre4IDg" base_Element="_bJ-Og01hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnHtU1hEeSLJZkJre4IDg" base_Element="_bKLC0E1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnHtk1hEeSLJZkJre4IDg" base_Element="complexWithMixedinnerElem3?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerElem3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnuwE1hEeSLJZkJre4IDg" base_Element="_bKDHA01hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnuwU1hEeSLJZkJre4IDg" base_Element="_bKgaAk1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnuwk1hEeSLJZkJre4IDg" base_Element="_bKS-o01hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnuw01hEeSLJZkJre4IDg" base_Element="_bKgaAU1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnuxE1hEeSLJZkJre4IDg" base_Element="Composition0complexwithmixed?org.example.SimpleSequence%3a%3aComposition0%3a%3acomplexwithmixed?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnuxU1hEeSLJZkJre4IDg" base_Element="org.example.SimpleSequenceinnerElem2Type?org.example.SimpleSequence%3a%3ainnerElem2Type?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKnuxk1hEeSLJZkJre4IDg" base_Element="_bKDHAk1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKoV0E1hEeSLJZkJre4IDg" base_Element="_bKAqwk1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKoV0U1hEeSLJZkJre4IDg" base_Element="_bJ59EU1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKoV0k1hEeSLJZkJre4IDg" base_Element="_bKcvoU1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKoV001hEeSLJZkJre4IDg" base_Element="elemWithAnonComplexTypeinnerElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerElem1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKoV1E1hEeSLJZkJre4IDg" base_Element="complexWithMixedtestElem2?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3atestElem2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKo84E1hEeSLJZkJre4IDg" base_Element="_bKKbwk1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKo84U1hEeSLJZkJre4IDg" base_Element="elemWithAnonComplexTypetestElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3atestElem1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKo84k1hEeSLJZkJre4IDg" base_Element="_bKgaBU1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKo8401hEeSLJZkJre4IDg" base_Element="complexWithMixedinnerElem4Type?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerElem4?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKo85E1hEeSLJZkJre4IDg" base_Element="_bKGxYk1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKo85U1hEeSLJZkJre4IDg" base_Element="_bJ6kIE1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKo85k1hEeSLJZkJre4IDg" base_Element="org.example.SimpleSequenceelemWithAnonComplexType?org.example.SimpleSequence%3a%3aelemWithAnonComplexType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKpj8E1hEeSLJZkJre4IDg" base_Element="_bKKbw01hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKpj8U1hEeSLJZkJre4IDg" base_Element="complexWithMixedinnerInnerElem2?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerInnerElem2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKpj8k1hEeSLJZkJre4IDg" base_Element="_bKYeMk1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKpj801hEeSLJZkJre4IDg" base_Element="_bKKbxU1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKpj9E1hEeSLJZkJre4IDg" base_Element="_bKAqw01hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKpj9U1hEeSLJZkJre4IDg" base_Element="_bKgaBE1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKqLAE1hEeSLJZkJre4IDg" base_Element="_bKWB8U1hEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKqLAU1hEeSLJZkJre4IDg" base_Element="org.example.SimpleSequenceinnerElem4Type?org.example.SimpleSequence%3a%3ainnerElem4Type?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKqLAk1hEeSLJZkJre4IDg" base_Element="org.example.SimpleSequencecomplexWithMixed?org.example.SimpleSequence%3a%3acomplexWithMixed?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKqLA01hEeSLJZkJre4IDg" base_Element="innerElem2TypeinnerAnonElem1?org.example.SimpleSequence%3a%3ainnerElem2Type%3a%3ainnerAnonElem1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKqLBE1hEeSLJZkJre4IDg" base_Element="innerElem4TypeinnerAnonElem1?org.example.SimpleSequence%3a%3ainnerElem4Type%3a%3ainnerAnonElem1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bKqLBU1hEeSLJZkJre4IDg" base_Element="_bKGxY01hEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKqyEE1hEeSLJZkJre4IDg" displayLabel="complexWithMixed" base_NamedElement="org.example.SimpleSequencecomplexWithMixed?org.example.SimpleSequence%3a%3acomplexWithMixed?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKrZIE1hEeSLJZkJre4IDg" displayLabel="elemWithAnonComplexType" base_NamedElement="org.example.SimpleSequenceelemWithAnonComplexType?org.example.SimpleSequence%3a%3aelemWithAnonComplexType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKsAME1hEeSLJZkJre4IDg" displayLabel="innerElem3" base_NamedElement="complexWithMixedinnerElem3?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerElem3?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKsAMU1hEeSLJZkJre4IDg" displayLabel="innerElem4" base_NamedElement="complexWithMixedinnerElem4Type?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerElem4?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKsnQE1hEeSLJZkJre4IDg" displayLabel="innerInnerElem2" base_NamedElement="complexWithMixedinnerInnerElem2?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3ainnerInnerElem2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKtOUE1hEeSLJZkJre4IDg" displayLabel="testElem2" base_NamedElement="complexWithMixedtestElem2?org.example.SimpleSequence%3a%3acomplexWithMixed%3a%3atestElem2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKt1YE1hEeSLJZkJre4IDg" displayLabel="innerElem4Type" base_NamedElement="org.example.SimpleSequenceinnerElem4Type?org.example.SimpleSequence%3a%3ainnerElem4Type?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKt1YU1hEeSLJZkJre4IDg" displayLabel="innerAnonElem1" base_NamedElement="innerElem4TypeinnerAnonElem1?org.example.SimpleSequence%3a%3ainnerElem4Type%3a%3ainnerAnonElem1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKuccE1hEeSLJZkJre4IDg" displayLabel="innerElem1" base_NamedElement="elemWithAnonComplexTypeinnerElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerElem1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKvDgE1hEeSLJZkJre4IDg" displayLabel="innerElem2" base_NamedElement="elemWithAnonComplexTypeinnerElem2Type?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerElem2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKvDgU1hEeSLJZkJre4IDg" displayLabel="innerInnerElem1" base_NamedElement="elemWithAnonComplexTypeinnerInnerElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3ainnerInnerElem1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKvqkE1hEeSLJZkJre4IDg" displayLabel="testElem1" base_NamedElement="elemWithAnonComplexTypetestElem1?org.example.SimpleSequence%3a%3aelemWithAnonComplexType%3a%3atestElem1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKwRoE1hEeSLJZkJre4IDg" displayLabel="innerElem2Type" base_NamedElement="org.example.SimpleSequenceinnerElem2Type?org.example.SimpleSequence%3a%3ainnerElem2Type?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bKw4sE1hEeSLJZkJre4IDg" displayLabel="innerAnonElem1" base_NamedElement="innerElem2TypeinnerAnonElem1?org.example.SimpleSequence%3a%3ainnerElem2Type%3a%3ainnerAnonElem1?"/>
+  <notation:Diagram xmi:id="_bKw4tU1hEeSLJZkJre4IDg" type="Business Object Model" element="org.example.SimpleSequence?org.example.SimpleSequence?" name="org.example.SimpleSequence" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_bKw4tk1hEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_bKw4t01hEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

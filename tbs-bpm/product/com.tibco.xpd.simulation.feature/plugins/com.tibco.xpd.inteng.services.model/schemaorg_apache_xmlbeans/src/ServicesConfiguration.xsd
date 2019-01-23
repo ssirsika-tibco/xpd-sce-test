@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Wojciech Zurek (Staffware PLC) -->
+<xs:schema targetNamespace="http://www.staffware.com/ie/servicesconfigurator" xmlns="http://www.staffware.com/ie/servicesconfigurator" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="services" type="ServcesType"/>
+	<xs:complexType name="ServcesType">
+		<xs:sequence>
+			<xs:element name="service" type="ServiceType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ServiceType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="listService">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="result" type="xs:anyType"/>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+						<xs:attribute name="selector" type="xs:string" use="optional"/>
+						<xs:attribute name="offset" type="xs:int" use="optional"/>
+						<xs:attribute name="size" type="xs:int" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="itemService">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="result" type="xs:anyType"/>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string"/>
+						<xs:attribute name="selector" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

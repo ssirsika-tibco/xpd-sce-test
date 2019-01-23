@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://gwl.com/MyClaimRepoCommonLookupRequest.xsd" xmlns:tns1="http://gwl.com/MyClaimRepoCommonLookupRequest.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://gwl.com/MyClaimIdType.xsd"
+    xmlns:tns3="http://gwl.com/MyRequestBaseType.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://gwl.com/MyClaimRepoCommonLookupRequest.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/Test4323JunitInStudio/Business Objects/com.gwl.MyClaimRepoCommonLookupRequest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://gwl.com/MyRequestBaseType.xsd" schemaLocation="com.gwl.MyRequestBaseType.xsd"/>
+  <xsd:import namespace="http://gwl.com/MyClaimIdType.xsd" schemaLocation="com.gwl.MyClaimIdType.xsd"/>
+  <xsd:element abstract="false" name="Password" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="UserName" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="ClaimRepoCommonLookupRequest" nillable="false">
+    <xsd:complexType ecore:name="ClaimRepoCommonLookupRequestType" id="com.gwl.MyClaimRepoCommonLookupRequestClaimRepoCommonLookupRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="request" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Request" type="tns3:RequestBaseType"/>
+        <xsd:element ecore:name="claimId" form="qualified" maxOccurs="1" minOccurs="1"
+            name="ClaimId" type="tns2:ClaimIdType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="UserInfo" nillable="false">
+    <xsd:complexType ecore:name="UserInfoType" id="com.gwl.MyClaimRepoCommonLookupRequestUserInfoType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="userName" maxOccurs="1" minOccurs="1" ref="tns1:UserName"/>
+        <xsd:element ecore:name="password" maxOccurs="1" minOccurs="0" ref="tns1:Password"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="TpaClaimDeleteRequest" nillable="false">
+    <xsd:complexType ecore:name="TpaClaimDeleteRequestType" id="com.gwl.MyClaimRepoCommonLookupRequestTpaClaimDeleteRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="request" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Request" type="tns3:RequestBaseType"/>
+        <xsd:element ecore:name="claimId" form="qualified" maxOccurs="1" minOccurs="1"
+            name="ClaimId" type="tns2:ClaimIdType"/>
+        <xsd:element ecore:name="userInfo" maxOccurs="1" minOccurs="1" ref="tns1:UserInfo"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

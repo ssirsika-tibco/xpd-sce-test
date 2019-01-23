@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no" name="ProcByValBizDataProcess"
+    suppressJoinFailure="yes" tibex:bxVersion="1.9.0"
+    tibex:explicitCompensation="yes"
+    tibex:xpdlId="_pU6uUVNrEeOUC7phQChPyQ"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="PersistentBatching">
+        <task name="EnterCustomer">
+            <startingVariables>
+                <variable>customer</variable>
+            </startingVariables>
+        </task>
+        <task name="DisplayCustomer">
+            <startingVariables>
+                <variable>customer</variable>
+            </startingVariables>
+        </task>
+        <task name="ScriptTask">
+            <startingVariables>
+                <variable>customer</variable>
+            </startingVariables>
+        </task>
+    </tibex:VariableDescriptor>
+    <bpws:documentation/>
+    <bpws:variables>
+        <bpws:variable name="customer"
+            tibex:class="com.example.firstbizdataproj.Customer" tibex:xpdlId="_vb1CMFNrEeOUC7phQChPyQ"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="yes" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:eventHandlers/>
+    <bpws:flow name="_BX_flow">
+        <bpws:links>
+            <bpws:link name="StartEvent to EnterCustomer" tibex:xpdlId="_ybOykFNrEeOUC7phQChPyQ"/>
+            <bpws:link name="ScriptTask to DisplayCustomer" tibex:xpdlId="_zWmOoFNrEeOUC7phQChPyQ"/>
+            <bpws:link name="EnterCustomer to ScriptTask" tibex:xpdlId="_y4gkcFNrEeOUC7phQChPyQ"/>
+            <bpws:link name="DisplayCustomer to EndEvent" tibex:xpdlId="_stfMoFNrEeOUC7phQChPyQ"/>
+        </bpws:links>
+        <bpws:extensionActivity>
+            <tibex:receiveEvent createInstance="yes" eventTimeout="0"
+                name="StartEvent" tibex:type="startEvent"
+                tibex:xpdlId="_stelmVNrEeOUC7phQChPyQ" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:sources>
+                    <bpws:source linkName="StartEvent to EnterCustomer"/>
+                </bpws:sources>
+                <tibex:eventSource>
+                    <tibex:startEvent eventType="Default"/>
+                </tibex:eventSource>
+            </tibex:receiveEvent>
+        </bpws:extensionActivity>
+        <bpws:empty name="EndEvent" tibex:migrationAllowed="yes"
+            tibex:type="endEvent" tibex:xpdlId="_stelmlNrEeOUC7phQChPyQ">
+            <bpws:targets>
+                <bpws:target linkName="DisplayCustomer to EndEvent"/>
+            </bpws:targets>
+        </bpws:empty>
+        <bpws:extensionActivity>
+            <tibex:extActivity name="EnterCustomer"
+                tibex:migrationAllowed="yes" tibex:type="userTask"
+                tibex:xpdlId="_ybNkcFNrEeOUC7phQChPyQ" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:targets>
+                    <bpws:target linkName="StartEvent to EnterCustomer"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="EnterCustomer to ScriptTask"/>
+                </bpws:sources>
+                <model:UserTaskDataModelType
+                    distributionStrategy="OFFER" userTaskPriority="50"
+                    workModelID="WM__ybNkcFNrEeOUC7phQChPyQ"
+                    workModelVersionRange="[1.0.0.qualifier,1.0.0.qualifier]"
+                    xmi:version="2.0"
+                    xmlns:model="http://model.ut.n2.tibco.com" xmlns:xmi="http://www.omg.org/XMI">
+                    <userTaskParticipants>
+                        <userTaskParticipant entity="ROLE"
+                            modelVersion="1" uniqueId="_e1GjQFcOEd6ECemE0GiJmQ"/>
+                    </userTaskParticipants>
+                    <userTaskParameters>
+                        <userTaskParameter mandatory="false"
+                            mode="INOUT" name="customer"/>
+                    </userTaskParameters>
+                    <userTaskGroupMemberships/>
+                </model:UserTaskDataModelType>
+            </tibex:extActivity>
+        </bpws:extensionActivity>
+        <bpws:extensionActivity>
+            <tibex:extActivity name="ScriptTask"
+                tibex:migrationAllowed="yes" tibex:type="scriptTask"
+                tibex:xpdlId="_y4f9YFNrEeOUC7phQChPyQ" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:targets>
+                    <bpws:target linkName="EnterCustomer to ScriptTask"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="ScriptTask to DisplayCustomer"/>
+                </bpws:sources>
+                <tibex:script expressionLanguage="urn:tibco:wsbpel:2.0:sublang:javascript"><![CDATA[customer.address.addrLine1="kembrey park";
+customer.address.addrLine2="swindon";
+customer.gender=com_example_firstbizdataproj_Gender.MALE;
+customer.name="Mr.ABC";]]></tibex:script>
+            </tibex:extActivity>
+        </bpws:extensionActivity>
+        <bpws:extensionActivity>
+            <tibex:extActivity name="DisplayCustomer"
+                tibex:migrationAllowed="yes" tibex:type="userTask"
+                tibex:xpdlId="_zWkZcFNrEeOUC7phQChPyQ" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                <bpws:targets>
+                    <bpws:target linkName="ScriptTask to DisplayCustomer"/>
+                </bpws:targets>
+                <bpws:sources>
+                    <bpws:source linkName="DisplayCustomer to EndEvent"/>
+                </bpws:sources>
+                <model:UserTaskDataModelType
+                    distributionStrategy="OFFER" userTaskPriority="50"
+                    workModelID="WM__zWkZcFNrEeOUC7phQChPyQ"
+                    workModelVersionRange="[1.0.0.qualifier,1.0.0.qualifier]"
+                    xmi:version="2.0"
+                    xmlns:model="http://model.ut.n2.tibco.com" xmlns:xmi="http://www.omg.org/XMI">
+                    <userTaskParticipants>
+                        <userTaskParticipant entity="ROLE"
+                            modelVersion="1" uniqueId="_e1GjQFcOEd6ECemE0GiJmQ"/>
+                    </userTaskParticipants>
+                    <userTaskParameters>
+                        <userTaskParameter mandatory="false"
+                            mode="INOUT" name="customer"/>
+                    </userTaskParameters>
+                    <userTaskGroupMemberships/>
+                </model:UserTaskDataModelType>
+            </tibex:extActivity>
+        </bpws:extensionActivity>
+    </bpws:flow>
+</bpws:process>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:rsd="http://com.tibco.xpd/rsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="rsd" ecore:package="com.tibco.xpd.rsd" targetNamespace="http://com.tibco.xpd/rsd">
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
+  <xsd:element ecore:ignore="true" name="Service" type="rsd:Service"/>
+  <xsd:element ecore:ignore="true" name="Resource" type="rsd:Resource"/>
+  <xsd:element ecore:ignore="true" name="Method" type="rsd:Method"/>
+  <xsd:element ecore:ignore="true" name="ModelElement" type="rsd:ModelElement"/>
+  <xsd:element ecore:ignore="true" name="NamedElement" type="rsd:NamedElement"/>
+  <xsd:element ecore:ignore="true" name="Request" type="rsd:Request"/>
+  <xsd:element ecore:ignore="true" name="AbstractResponse" type="rsd:AbstractResponse"/>
+  <xsd:element ecore:ignore="true" name="Parameter" type="rsd:Parameter"/>
+  <xsd:element ecore:ignore="true" name="ParameterContainer" type="rsd:ParameterContainer"/>
+  <xsd:element ecore:ignore="true" name="PayloadReference" type="rsd:PayloadReference"/>
+  <xsd:element ecore:ignore="true" name="PayloadRefContainer" type="rsd:PayloadRefContainer"/>
+  <xsd:element ecore:ignore="true" name="Error" type="rsd:Error"/>
+  <xsd:element ecore:ignore="true" name="Response" type="rsd:Response"/>
+  <xsd:complexType name="Service">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:NamedElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="resources" type="rsd:Resource"/>
+        </xsd:sequence>
+        <xsd:attribute name="contextPath" type="ecore:EString"/>
+        <xsd:attribute name="mediaType" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="rsd:ParameterContainer" name="Resource">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:NamedElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="methods" type="rsd:Method"/>
+        </xsd:sequence>
+        <xsd:attribute name="pathTemplate" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Method">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:NamedElement">
+        <xsd:sequence>
+          <xsd:element name="request" type="rsd:Request"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="errors" type="rsd:Error"/>
+          <xsd:element name="response" type="rsd:Response"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="httpMethod" type="rsd:HttpMethod"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="ModelElement">
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="NamedElement">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:ModelElement">
+        <xsd:attribute name="name" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="rsd:PayloadRefContainer" name="Request">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:ParameterContainer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:implements="rsd:PayloadRefContainer" name="AbstractResponse">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:ParameterContainer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Parameter">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:NamedElement">
+        <xsd:attribute default="QUERY" ecore:unsettable="false" name="style" type="rsd:ParameterStyle"/>
+        <xsd:attribute ecore:unsettable="false" name="dataType" type="rsd:DataType"/>
+        <xsd:attribute default="false" ecore:unsettable="false" name="mandatory" type="ecore:EBoolean"/>
+        <xsd:attribute ecore:unsettable="true" name="defaultValue" type="ecore:EString"/>
+        <xsd:attribute ecore:unsettable="false" name="fixed" type="ecore:EBoolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="ParameterContainer">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="parameters" type="rsd:Parameter"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="HttpMethod">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="GET"/>
+      <xsd:enumeration value="PUT"/>
+      <xsd:enumeration value="POST"/>
+      <xsd:enumeration value="DELETE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="DataType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="STRING"/>
+      <xsd:enumeration value="INTEGER"/>
+      <xsd:enumeration value="NUMBER"/>
+      <xsd:enumeration value="BOOLEAN"/>
+      <xsd:enumeration value="DATE"/>
+      <xsd:enumeration value="TIME"/>
+      <xsd:enumeration value="DATE_TIME"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ParameterStyle">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PATH"/>
+      <xsd:enumeration value="QUERY"/>
+      <xsd:enumeration value="HEADER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PayloadReference">
+    <xsd:attribute name="namespace" type="ecore:EString"/>
+    <xsd:attribute name="ref" type="ecore:EString"/>
+    <xsd:attribute name="mediaType" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="PayloadRefContainer">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="payloadReference" type="rsd:PayloadReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Error">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:AbstractResponse">
+        <xsd:attribute name="statusCode" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Response">
+    <xsd:complexContent>
+      <xsd:extension base="rsd:AbstractResponse"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

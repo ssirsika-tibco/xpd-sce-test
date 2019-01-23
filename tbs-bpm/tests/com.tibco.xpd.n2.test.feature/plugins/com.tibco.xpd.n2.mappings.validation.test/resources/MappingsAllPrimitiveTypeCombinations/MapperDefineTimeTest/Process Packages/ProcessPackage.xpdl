@@ -1,0 +1,3127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_LzjW0OULEeC9zJ0WVEdnyQ" xpdExt:DisplayName="ProcessPackage" Name="ProcessPackage">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2011-09-22</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>Administrator</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_zHU4MOULEeC9zJ0WVEdnyQ" xpdExt:DisplayName="WebService (API Activity EndPoint)" Name="ProcessPackage_WebService">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/ProcessPackage/WebService" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_fU9PAOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="DefineAllMappingCombinations (API Activity EndPoint)" Name="ProcessPackage_DefineAllMappingCombinations">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/ProcessPackage/DefineAllMappingCombinations" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_wvpkQOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="WebService_Consumer" Name="WebService_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_PaO65eUREeC9zJ0WVEdnyQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_MNxl8OUREeC9zJ0WVEdnyQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_PaO65uUREeC9zJ0WVEdnyQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_b1Z0YOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_XqesEOUMEeC9zJ0WVEdnyQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_b1Z0YeUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_Pd_oQOULEeC9zJ0WVEdnyQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_L1M8oOULEeC9zJ0WVEdnyQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_Pd_oQeULEeC9zJ0WVEdnyQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_L1M8oOULEeC9zJ0WVEdnyQ" xpdExt:DisplayName="WebService" xpdExt:ApiEndPointParticipant="_zHU4MOULEeC9zJ0WVEdnyQ" iProcessExt:MaxStepIndex="5" Name="WebService">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_3G8IYOULEeC9zJ0WVEdnyQ" Name="bomParam" Mode="INOUT" Required="true" xpdExt:DisplayName="bomParam">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MapperTestBom.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_gZ5T4BJoEd-Jq5jVrkEdZQ"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_Pd_oQuULEeC9zJ0WVEdnyQ" Name="StartWebService" xpdExt:DisplayName="Start Web Service" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_zGcHYOULEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="bomParam">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">bomParam</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_zHU4MOULEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_zHU4MOULEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_Pd_oQeULEeC9zJ0WVEdnyQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Pd_oQ-ULEeC9zJ0WVEdnyQ" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_Pd_oQuULEeC9zJ0WVEdnyQ" CatchThrow="THROW">
+                <xpdl2:Message Id="_1lAbkOULEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">bomParam</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_zHU4MOULEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_Pd_oQeULEeC9zJ0WVEdnyQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_Pd_oROULEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_Pd_oQuULEeC9zJ0WVEdnyQ" To="_Pd_oQ-ULEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="bomParam"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_XqesEOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="DefineAllMappingCombinations" xpdExt:ApiEndPointParticipant="_fU9PAOUNEeC9zJ0WVEdnyQ" iProcessExt:MaxStepIndex="19" Name="DefineAllMappingCombinations">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_fxpngOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="input" Name="input">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MapperTestBom.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_gZ5T4BJoEd-Jq5jVrkEdZQ"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_igfMUOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="output" Name="output">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MapperTestBom.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_gZ5T4BJoEd-Jq5jVrkEdZQ"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_b1Z0YuUMEeC9zJ0WVEdnyQ" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_b1Z0Y-UMEeC9zJ0WVEdnyQ" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="51.0">
+              <xpdl2:Coordinates XCoordinate="837.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eIsFoOUMEeC9zJ0WVEdnyQ" Name="ScriptTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Task" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">input = com_tibco_bds_test_mapper_Factory.createAllTypesOptional();&#xD;
+output = com_tibco_bds_test_mapper_Factory.createAllTypesOptional();&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_fU9PAOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Inclusive">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_qMeAkOUMEeC9zJ0WVEdnyQ"/>
+                  <xpdl2:TransitionRef Id="_dY1gkOUNEeC9zJ0WVEdnyQ"/>
+                  <xpdl2:TransitionRef Id="_e9ysMOUNEeC9zJ0WVEdnyQ"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="139.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_qMcycOUMEeC9zJ0WVEdnyQ" Name="Date" xpdExt:Visibility="Private" xpdExt:DisplayName="Date" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_2nYzsuUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.date</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.dateList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_2nYzs-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="264.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_q0lwgOUMEeC9zJ0WVEdnyQ" Name="Time" xpdExt:Visibility="Private" xpdExt:DisplayName="Time" iProcessExt:StepIndex="8">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_308L8OUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.time</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.timeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_308L8eUNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="382.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rbL2cOUMEeC9zJ0WVEdnyQ" Name="Datetime" xpdExt:Visibility="Private" xpdExt:DisplayName="Datetime" iProcessExt:StepIndex="9">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_5FQkUOUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimeList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_5FQkUeUNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="497.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_r-D6AOUMEeC9zJ0WVEdnyQ" Name="Datetimetz" xpdExt:Visibility="Private" xpdExt:DisplayName="Datetimetz" iProcessExt:StepIndex="10">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_6TPaYuUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetz</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.datetimetzList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_6TPaY-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="615.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_uP5ZwOUMEeC9zJ0WVEdnyQ" Name="IntSigned" xpdExt:Visibility="Private" xpdExt:DisplayName="Int Signed" iProcessExt:StepIndex="11">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_wvWpUOUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSigned</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerSignedList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_wvWpUeUNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="268.0" YCoordinate="77.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_u0yPgOUMEeC9zJ0WVEdnyQ" Name="IntFixed" xpdExt:Visibility="Private" xpdExt:DisplayName="Int Fixed" iProcessExt:StepIndex="12">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_ykg0IuUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.integerFixed5List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_ykg0I-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="384.0" YCoordinate="77.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vk6r8OUMEeC9zJ0WVEdnyQ" Name="DecFloat" xpdExt:Visibility="Private" xpdExt:DisplayName="Dec Float" iProcessExt:StepIndex="13">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_z61t4uUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloat</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFloatList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_z61t4-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="499.0" YCoordinate="77.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_wq41gOUMEeC9zJ0WVEdnyQ" Name="Boolean" xpdExt:Visibility="Private" xpdExt:DisplayName="Boolean" iProcessExt:StepIndex="14">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_81qT0uUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.boolList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_81qT0-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="267.0" YCoordinate="231.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_xXPlMOUMEeC9zJ0WVEdnyQ" Name="Text" xpdExt:Visibility="Private" xpdExt:DisplayName="Text" iProcessExt:StepIndex="15">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_-A8bMuUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.text20List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_-A8bM-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="382.0" YCoordinate="231.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_yQJjIOUMEeC9zJ0WVEdnyQ" Name="Id" xpdExt:Visibility="Private" xpdExt:DisplayName="Id" iProcessExt:StepIndex="16">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="__M6fEuUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.idList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.id</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="__M6fE-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="499.0" YCoordinate="231.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_0Dg-MOUMEeC9zJ0WVEdnyQ" Name="Uri" xpdExt:Visibility="Private" xpdExt:DisplayName="Uri" iProcessExt:StepIndex="17">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_Anb8UuUOEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uri</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.uriList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_Anb8U-UOEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="615.0" YCoordinate="231.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1jMoQOUMEeC9zJ0WVEdnyQ" Name="DecFixed" xpdExt:Visibility="Private" xpdExt:DisplayName="Dec Fixed" iProcessExt:StepIndex="18">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_1RCr0uUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed80dot70</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.decimalFixed8Dot4List</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_1RCr0-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="615.0" YCoordinate="77.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2ZR7sOUMEeC9zJ0WVEdnyQ" Name="Duration" xpdExt:Visibility="Private" xpdExt:DisplayName="Duration" iProcessExt:StepIndex="19">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_7d-IIuUNEeC9zJ0WVEdnyQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.bool">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.uri">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.text20">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.time">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerSigned">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.integerFixed5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.id">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.duration">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed8Dot4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.decimalFixed80dot70">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetimetz">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.datetime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="bomParam.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.duration</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.boolList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.dateList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.datetimetzList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFixed8Dot4List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.decimalFloatList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.durationList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.idList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerFixed5List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.integerSignedList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.text20List">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.textArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.timeList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="bomParam.uriList">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">input.durationList</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_7d-II-UNEeC9zJ0WVEdnyQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_wvpkQOUNEeC9zJ0WVEdnyQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="WebService" OperationName="StartWebService">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_wvpkQOUNEeC9zJ0WVEdnyQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_b1Z0YeUMEeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="735.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_b1Z0ZOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_2ZR7sOUMEeC9zJ0WVEdnyQ" To="_b1Z0Y-UMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_eIsssOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_b1Z0YuUMEeC9zJ0WVEdnyQ" To="_eIsFoOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_qMeAkOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_eIsFoOUMEeC9zJ0WVEdnyQ" To="_qMcycOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_q0mXkOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_qMcycOUMEeC9zJ0WVEdnyQ" To="_q0lwgOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rbMdgOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_q0lwgOUMEeC9zJ0WVEdnyQ" To="_rbL2cOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_r-EhEOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_rbL2cOUMEeC9zJ0WVEdnyQ" To="_r-D6AOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_2ZSiwOUMEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_r-D6AOUMEeC9zJ0WVEdnyQ" To="_2ZR7sOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_DUaVYOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_uP5ZwOUMEeC9zJ0WVEdnyQ" To="_u0yPgOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Dntr4OUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_u0yPgOUMEeC9zJ0WVEdnyQ" To="_vk6r8OUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_D7FT0OUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_vk6r8OUMEeC9zJ0WVEdnyQ" To="_1jMoQOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_EVuBYOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_1jMoQOUMEeC9zJ0WVEdnyQ" To="_b1Z0Y-UMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="187.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="-38.0" YCoordinate="-64.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="78.89895651886846" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Fw0GYOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_0Dg-MOUMEeC9zJ0WVEdnyQ" To="_b1Z0Y-UMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="206.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="-16.0" YCoordinate="76.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_HJyrgOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_wq41gOUMEeC9zJ0WVEdnyQ" To="_xXPlMOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Hb4hEOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_xXPlMOUMEeC9zJ0WVEdnyQ" To="_yQJjIOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_NK4rQOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_yQJjIOUMEeC9zJ0WVEdnyQ" To="_0Dg-MOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_dY1gkOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_eIsFoOUMEeC9zJ0WVEdnyQ" To="_uP5ZwOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="-78.0"/>
+              <xpdl2:Coordinates XCoordinate="-129.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_e9ysMOUNEeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_eIsFoOUMEeC9zJ0WVEdnyQ" To="_wq41gOUMEeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="76.0"/>
+              <xpdl2:Coordinates XCoordinate="-128.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_MNxl8OUREeC9zJ0WVEdnyQ" xpdExt:DisplayName="DefineAllScriptAssignmentCombinations" iProcessExt:MaxStepIndex="6" Name="DefineAllScriptAssignmentCombinations">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_y0v2QOUSEeC9zJ0WVEdnyQ" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="MapperTestBom.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_gZ5T4BJoEd-Jq5jVrkEdZQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_PaO65-UREeC9zJ0WVEdnyQ" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_PaO65uUREeC9zJ0WVEdnyQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PaO66OUREeC9zJ0WVEdnyQ" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_PaO65uUREeC9zJ0WVEdnyQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_jDuC8OUREeC9zJ0WVEdnyQ" Name="AllScriptAssignmentCombinations" xpdExt:Visibility="Private" xpdExt:DisplayName="All Script Assignment Combinations" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">var s=com_tibco_bds_test_mapper_Factory.createAllTypesOptional();&#xD;
+var d=com_tibco_bds_test_mapper_Factory.createAllTypesOptional();&#xD;
+&#xD;
+	d.bool=s.bool;&#xD;
+/**/d.bool=s.date;&#xD;
+/**/d.bool=s.time;&#xD;
+/**/d.bool=s.datetime;&#xD;
+/**/d.bool=s.datetimetz;&#xD;
+/**/d.bool=s.decimalFloat;&#xD;
+/**/d.bool=s.decimalFixed8Dot4;&#xD;
+/**/d.bool=s.integerSigned;&#xD;
+/**/d.bool=s.integerFixed5;&#xD;
+/**/d.bool=s.text20;&#xD;
+/**/d.bool=s.duration;&#xD;
+/**/d.bool=s.id;&#xD;
+/**/d.bool=s.uri;&#xD;
+&#xD;
+/**/d.bool=s.boolList;&#xD;
+/**/d.bool=s.dateList;&#xD;
+/**/d.bool=s.timeList;&#xD;
+/**/d.bool=s.datetimeList;&#xD;
+/**/d.bool=s.datetimetzList;&#xD;
+/**/d.bool=s.decimalFloatList;&#xD;
+/**/d.bool=s.decimalFixed8Dot4List;&#xD;
+/**/d.bool=s.integerSignedList;&#xD;
+/**/d.bool=s.integerFixed5List;&#xD;
+/**/d.bool=s.text20List;&#xD;
+/**/d.bool=s.durationList;&#xD;
+/**/d.bool=s.idList;&#xD;
+/**/d.bool=s.uriList;&#xD;
+&#xD;
+/**/d.date=s.bool;&#xD;
+	d.date=s.date;&#xD;
+/**/d.date=s.time;&#xD;
+/**/d.date=s.datetime;&#xD;
+/**/d.date=s.datetimetz;&#xD;
+/**/d.date=s.decimalFloat;&#xD;
+/**/d.date=s.decimalFixed8Dot4;&#xD;
+/**/d.date=s.integerSigned;&#xD;
+/**/d.date=s.integerFixed5;&#xD;
+/**/d.date=s.text20;&#xD;
+/**/d.date=s.duration;&#xD;
+/**/d.date=s.id;&#xD;
+/**/d.date=s.uri;&#xD;
+&#xD;
+/**/d.date=s.boolList;&#xD;
+/**/d.date=s.dateList;&#xD;
+/**/d.date=s.timeList;&#xD;
+/**/d.date=s.datetimeList;&#xD;
+/**/d.date=s.datetimetzList;&#xD;
+/**/d.date=s.decimalFloatList;&#xD;
+/**/d.date=s.decimalFixed8Dot4List;&#xD;
+/**/d.date=s.integerSignedList;&#xD;
+/**/d.date=s.integerFixed5List;&#xD;
+/**/d.date=s.text20List;&#xD;
+/**/d.date=s.durationList;&#xD;
+/**/d.date=s.idList;&#xD;
+/**/d.date=s.uriList;&#xD;
+&#xD;
+/**/d.time=s.bool;&#xD;
+/**/d.time=s.date;&#xD;
+	d.time=s.time;&#xD;
+/**/d.time=s.datetime;&#xD;
+/**/d.time=s.datetimetz;&#xD;
+/**/d.time=s.decimalFloat;&#xD;
+/**/d.time=s.decimalFixed8Dot4;&#xD;
+/**/d.time=s.integerSigned;&#xD;
+/**/d.time=s.integerFixed5;&#xD;
+/**/d.time=s.text20;&#xD;
+/**/d.time=s.duration;&#xD;
+/**/d.time=s.id;&#xD;
+/**/d.time=s.uri;&#xD;
+&#xD;
+/**/d.time=s.boolList;&#xD;
+/**/d.time=s.dateList;&#xD;
+/**/d.time=s.timeList;&#xD;
+/**/d.time=s.datetimeList;&#xD;
+/**/d.time=s.datetimetzList;&#xD;
+/**/d.time=s.decimalFloatList;&#xD;
+/**/d.time=s.decimalFixed8Dot4List;&#xD;
+/**/d.time=s.integerSignedList;&#xD;
+/**/d.time=s.integerFixed5List;&#xD;
+/**/d.time=s.text20List;&#xD;
+/**/d.time=s.durationList;&#xD;
+/**/d.time=s.idList;&#xD;
+/**/d.time=s.uriList;&#xD;
+&#xD;
+/**/d.datetime=s.bool;&#xD;
+/**/d.datetime=s.date;&#xD;
+/**/d.datetime=s.time;&#xD;
+	d.datetime=s.datetime;&#xD;
+	d.datetime=s.datetimetz;&#xD;
+/**/d.datetime=s.decimalFloat;&#xD;
+/**/d.datetime=s.decimalFixed8Dot4;&#xD;
+/**/d.datetime=s.integerSigned;&#xD;
+/**/d.datetime=s.integerFixed5;&#xD;
+/**/d.datetime=s.text20;&#xD;
+/**/d.datetime=s.duration;&#xD;
+/**/d.datetime=s.id;&#xD;
+/**/d.datetime=s.uri;&#xD;
+&#xD;
+/**/d.datetime=s.boolList;&#xD;
+/**/d.datetime=s.dateList;&#xD;
+/**/d.datetime=s.timeList;&#xD;
+/**/d.datetime=s.datetimeList;&#xD;
+/**/d.datetime=s.datetimetzList;&#xD;
+/**/d.datetime=s.decimalFloatList;&#xD;
+/**/d.datetime=s.decimalFixed8Dot4List;&#xD;
+/**/d.datetime=s.integerSignedList;&#xD;
+/**/d.datetime=s.integerFixed5List;&#xD;
+/**/d.datetime=s.text20List;&#xD;
+/**/d.datetime=s.durationList;&#xD;
+/**/d.datetime=s.idList;&#xD;
+/**/d.datetime=s.uriList;&#xD;
+&#xD;
+/**/d.datetimetz=s.bool;&#xD;
+/**/d.datetimetz=s.date;&#xD;
+/**/d.datetimetz=s.time;&#xD;
+	d.datetimetz=s.datetime;&#xD;
+	d.datetimetz=s.datetimetz;&#xD;
+/**/d.datetimetz=s.decimalFloat;&#xD;
+/**/d.datetimetz=s.decimalFixed8Dot4;&#xD;
+/**/d.datetimetz=s.integerSigned;&#xD;
+/**/d.datetimetz=s.integerFixed5;&#xD;
+/**/d.datetimetz=s.text20;&#xD;
+/**/d.datetimetz=s.duration;&#xD;
+/**/d.datetimetz=s.id;&#xD;
+/**/d.datetimetz=s.uri;&#xD;
+&#xD;
+/**/d.datetimetz=s.boolList;&#xD;
+/**/d.datetimetz=s.dateList;&#xD;
+/**/d.datetimetz=s.timeList;&#xD;
+/**/d.datetimetz=s.datetimeList;&#xD;
+/**/d.datetimetz=s.datetimetzList;&#xD;
+/**/d.datetimetz=s.decimalFloatList;&#xD;
+/**/d.datetimetz=s.decimalFixed8Dot4List;&#xD;
+/**/d.datetimetz=s.integerSignedList;&#xD;
+/**/d.datetimetz=s.integerFixed5List;&#xD;
+/**/d.datetimetz=s.text20List;&#xD;
+/**/d.datetimetz=s.durationList;&#xD;
+/**/d.datetimetz=s.idList;&#xD;
+/**/d.datetimetz=s.uriList;&#xD;
+&#xD;
+/**/d.decimalFloat=s.bool;&#xD;
+/**/d.decimalFloat=s.date;&#xD;
+/**/d.decimalFloat=s.time;&#xD;
+/**/d.decimalFloat=s.datetime;&#xD;
+/**/d.decimalFloat=s.datetimetz;&#xD;
+	d.decimalFloat=s.decimalFloat;&#xD;
+/**/d.decimalFloat=s.decimalFixed8Dot4;&#xD;
+	d.decimalFloat=s.integerSigned;&#xD;
+/**/d.decimalFloat=s.integerFixed5;&#xD;
+/**/d.decimalFloat=s.text20;&#xD;
+/**/d.decimalFloat=s.duration;&#xD;
+/**/d.decimalFloat=s.id;&#xD;
+/**/d.decimalFloat=s.uri;&#xD;
+&#xD;
+/**/d.decimalFloat=s.boolList;&#xD;
+/**/d.decimalFloat=s.dateList;&#xD;
+/**/d.decimalFloat=s.timeList;&#xD;
+/**/d.decimalFloat=s.datetimeList;&#xD;
+/**/d.decimalFloat=s.datetimetzList;&#xD;
+/**/d.decimalFloat=s.decimalFloatList;&#xD;
+/**/d.decimalFloat=s.decimalFixed8Dot4List;&#xD;
+/**/d.decimalFloat=s.integerSignedList;&#xD;
+/**/d.decimalFloat=s.integerFixed5List;&#xD;
+/**/d.decimalFloat=s.text20List;&#xD;
+/**/d.decimalFloat=s.durationList;&#xD;
+/**/d.decimalFloat=s.idList;&#xD;
+/**/d.decimalFloat=s.uriList;&#xD;
+&#xD;
+/**/d.decimalFixed8Dot4=s.bool;&#xD;
+/**/d.decimalFixed8Dot4=s.date;&#xD;
+/**/d.decimalFixed8Dot4=s.time;&#xD;
+/**/d.decimalFixed8Dot4=s.datetime;&#xD;
+/**/d.decimalFixed8Dot4=s.datetimetz;&#xD;
+/**/d.decimalFixed8Dot4=s.decimalFloat;&#xD;
+	d.decimalFixed8Dot4=s.decimalFixed8Dot4;&#xD;
+/**/d.decimalFixed8Dot4=s.integerSigned;&#xD;
+/**/d.decimalFixed8Dot4=s.integerFixed5;&#xD;
+/**/d.decimalFixed8Dot4=s.text20;&#xD;
+/**/d.decimalFixed8Dot4=s.duration;&#xD;
+/**/d.decimalFixed8Dot4=s.id;&#xD;
+/**/d.decimalFixed8Dot4=s.uri;&#xD;
+&#xD;
+/**/d.decimalFixed8Dot4=s.boolList;&#xD;
+/**/d.decimalFixed8Dot4=s.dateList;&#xD;
+/**/d.decimalFixed8Dot4=s.timeList;&#xD;
+/**/d.decimalFixed8Dot4=s.datetimeList;&#xD;
+/**/d.decimalFixed8Dot4=s.datetimetzList;&#xD;
+/**/d.decimalFixed8Dot4=s.decimalFloatList;&#xD;
+/**/d.decimalFixed8Dot4=s.decimalFixed8Dot4List;&#xD;
+/**/d.decimalFixed8Dot4=s.integerSignedList;&#xD;
+/**/d.decimalFixed8Dot4=s.integerFixed5List;&#xD;
+/**/d.decimalFixed8Dot4=s.text20List;&#xD;
+/**/d.decimalFixed8Dot4=s.durationList;&#xD;
+/**/d.decimalFixed8Dot4=s.idList;&#xD;
+/**/d.decimalFixed8Dot4=s.uriList;&#xD;
+&#xD;
+/**/d.integerSigned=s.bool;&#xD;
+/**/d.integerSigned=s.date;&#xD;
+/**/d.integerSigned=s.time;&#xD;
+/**/d.integerSigned=s.datetime;&#xD;
+/**/d.integerSigned=s.datetimetz;&#xD;
+	d.integerSigned=s.decimalFloat;&#xD;
+/**/d.integerSigned=s.decimalFixed8Dot4;&#xD;
+	d.integerSigned=s.integerSigned;&#xD;
+/**/d.integerSigned=s.integerFixed5;&#xD;
+/**/d.integerSigned=s.text20;&#xD;
+/**/d.integerSigned=s.duration;&#xD;
+/**/d.integerSigned=s.id;&#xD;
+/**/d.integerSigned=s.uri;&#xD;
+&#xD;
+/**/d.integerSigned=s.boolList;&#xD;
+/**/d.integerSigned=s.dateList;&#xD;
+/**/d.integerSigned=s.timeList;&#xD;
+/**/d.integerSigned=s.datetimeList;&#xD;
+/**/d.integerSigned=s.datetimetzList;&#xD;
+/**/d.integerSigned=s.decimalFloatList;&#xD;
+/**/d.integerSigned=s.decimalFixed8Dot4List;&#xD;
+/**/d.integerSigned=s.integerSignedList;&#xD;
+/**/d.integerSigned=s.integerFixed5List;&#xD;
+/**/d.integerSigned=s.text20List;&#xD;
+/**/d.integerSigned=s.durationList;&#xD;
+/**/d.integerSigned=s.idList;&#xD;
+/**/d.integerSigned=s.uriList;&#xD;
+&#xD;
+/**/d.integerFixed5=s.bool;&#xD;
+/**/d.integerFixed5=s.date;&#xD;
+/**/d.integerFixed5=s.time;&#xD;
+/**/d.integerFixed5=s.datetime;&#xD;
+/**/d.integerFixed5=s.datetimetz;&#xD;
+/**/d.integerFixed5=s.decimalFloat;&#xD;
+/**/d.integerFixed5=s.decimalFixed8Dot4;&#xD;
+/**/d.integerFixed5=s.integerSigned;&#xD;
+	d.integerFixed5=s.integerFixed5;&#xD;
+/**/d.integerFixed5=s.text20;&#xD;
+/**/d.integerFixed5=s.duration;&#xD;
+/**/d.integerFixed5=s.id;&#xD;
+/**/d.integerFixed5=s.uri;&#xD;
+&#xD;
+/**/d.integerFixed5=s.boolList;&#xD;
+/**/d.integerFixed5=s.dateList;&#xD;
+/**/d.integerFixed5=s.timeList;&#xD;
+/**/d.integerFixed5=s.datetimeList;&#xD;
+/**/d.integerFixed5=s.datetimetzList;&#xD;
+/**/d.integerFixed5=s.decimalFloatList;&#xD;
+/**/d.integerFixed5=s.decimalFixed8Dot4List;&#xD;
+/**/d.integerFixed5=s.integerSignedList;&#xD;
+/**/d.integerFixed5=s.integerFixed5List;&#xD;
+/**/d.integerFixed5=s.text20List;&#xD;
+/**/d.integerFixed5=s.durationList;&#xD;
+/**/d.integerFixed5=s.idList;&#xD;
+/**/d.integerFixed5=s.uriList;&#xD;
+&#xD;
+	d.text20=s.bool;&#xD;
+	d.text20=s.date;&#xD;
+	d.text20=s.time;&#xD;
+	d.text20=s.datetime;&#xD;
+	d.text20=s.datetimetz;&#xD;
+	d.text20=s.decimalFloat;&#xD;
+	d.text20=s.decimalFixed8Dot4;&#xD;
+	d.text20=s.integerSigned;&#xD;
+	d.text20=s.integerFixed5;&#xD;
+	d.text20=s.text20;&#xD;
+	d.text20=s.duration;&#xD;
+	d.text20=s.id;&#xD;
+	d.text20=s.uri;&#xD;
+&#xD;
+/**/d.text20=s.boolList;&#xD;
+/**/d.text20=s.dateList;&#xD;
+/**/d.text20=s.timeList;&#xD;
+/**/d.text20=s.datetimeList;&#xD;
+/**/d.text20=s.datetimetzList;&#xD;
+/**/d.text20=s.decimalFloatList;&#xD;
+/**/d.text20=s.decimalFixed8Dot4List;&#xD;
+/**/d.text20=s.integerSignedList;&#xD;
+/**/d.text20=s.integerFixed5List;&#xD;
+/**/d.text20=s.text20List;&#xD;
+/**/d.text20=s.durationList;&#xD;
+/**/d.text20=s.idList;&#xD;
+/**/d.text20=s.uriList;&#xD;
+&#xD;
+/**/d.duration=s.bool;&#xD;
+/**/d.duration=s.date;&#xD;
+/**/d.duration=s.time;&#xD;
+/**/d.duration=s.datetime;&#xD;
+/**/d.duration=s.datetimetz;&#xD;
+/**/d.duration=s.decimalFloat;&#xD;
+/**/d.duration=s.decimalFixed8Dot4;&#xD;
+/**/d.duration=s.integerSigned;&#xD;
+/**/d.duration=s.integerFixed5;&#xD;
+/**/d.duration=s.text20;&#xD;
+	d.duration=s.duration;&#xD;
+/**/d.duration=s.id;&#xD;
+/**/d.duration=s.uri;&#xD;
+&#xD;
+/**/d.duration=s.boolList;&#xD;
+/**/d.duration=s.dateList;&#xD;
+/**/d.duration=s.timeList;&#xD;
+/**/d.duration=s.datetimeList;&#xD;
+/**/d.duration=s.datetimetzList;&#xD;
+/**/d.duration=s.decimalFloatList;&#xD;
+/**/d.duration=s.decimalFixed8Dot4List;&#xD;
+/**/d.duration=s.integerSignedList;&#xD;
+/**/d.duration=s.integerFixed5List;&#xD;
+/**/d.duration=s.text20List;&#xD;
+/**/d.duration=s.durationList;&#xD;
+/**/d.duration=s.idList;&#xD;
+/**/d.duration=s.uriList;&#xD;
+&#xD;
+/**/d.id=s.bool;&#xD;
+/**/d.id=s.date;&#xD;
+/**/d.id=s.time;&#xD;
+/**/d.id=s.datetime;&#xD;
+/**/d.id=s.datetimetz;&#xD;
+/**/d.id=s.decimalFloat;&#xD;
+/**/d.id=s.decimalFixed8Dot4;&#xD;
+/**/d.id=s.integerSigned;&#xD;
+/**/d.id=s.integerFixed5;&#xD;
+	d.id=s.text20;&#xD;
+/**/d.id=s.duration;&#xD;
+	d.id=s.id;&#xD;
+/**/d.id=s.uri;&#xD;
+&#xD;
+/**/d.id=s.boolList;&#xD;
+/**/d.id=s.dateList;&#xD;
+/**/d.id=s.timeList;&#xD;
+/**/d.id=s.datetimeList;&#xD;
+/**/d.id=s.datetimetzList;&#xD;
+/**/d.id=s.decimalFloatList;&#xD;
+/**/d.id=s.decimalFixed8Dot4List;&#xD;
+/**/d.id=s.integerSignedList;&#xD;
+/**/d.id=s.integerFixed5List;&#xD;
+/**/d.id=s.text20List;&#xD;
+/**/d.id=s.durationList;&#xD;
+/**/d.id=s.idList;&#xD;
+/**/d.id=s.uriList;&#xD;
+&#xD;
+/**/d.uri=s.bool;&#xD;
+/**/d.uri=s.date;&#xD;
+/**/d.uri=s.time;&#xD;
+/**/d.uri=s.datetime;&#xD;
+/**/d.uri=s.datetimetz;&#xD;
+/**/d.uri=s.decimalFloat;&#xD;
+/**/d.uri=s.decimalFixed8Dot4;&#xD;
+/**/d.uri=s.integerSigned;&#xD;
+/**/d.uri=s.integerFixed5;&#xD;
+	d.uri=s.text20;&#xD;
+/**/d.uri=s.duration;&#xD;
+/**/d.uri=s.id;&#xD;
+	d.uri=s.uri;&#xD;
+&#xD;
+/**/d.uri=s.boolList;&#xD;
+/**/d.uri=s.dateList;&#xD;
+/**/d.uri=s.timeList;&#xD;
+/**/d.uri=s.datetimeList;&#xD;
+/**/d.uri=s.datetimetzList;&#xD;
+/**/d.uri=s.decimalFloatList;&#xD;
+/**/d.uri=s.decimalFixed8Dot4List;&#xD;
+/**/d.uri=s.integerSignedList;&#xD;
+/**/d.uri=s.integerFixed5List;&#xD;
+/**/d.uri=s.text20List;&#xD;
+/**/d.uri=s.durationList;&#xD;
+/**/d.uri=s.idList;&#xD;
+/**/d.uri=s.uriList;&#xD;
+&#xD;
+	d.boolList.add(s.bool);&#xD;
+/**/d.boolList.add(s.date);&#xD;
+/**/d.boolList.add(s.time);&#xD;
+/**/d.boolList.add(s.datetime);&#xD;
+/**/d.boolList.add(s.datetimetz);&#xD;
+/**/d.boolList.add(s.decimalFloat);&#xD;
+/**/d.boolList.add(s.decimalFixed8Dot4);&#xD;
+/**/d.boolList.add(s.integerSigned);&#xD;
+/**/d.boolList.add(s.integerFixed5);&#xD;
+/**/d.boolList.add(s.text20);&#xD;
+/**/d.boolList.add(s.duration);&#xD;
+/**/d.boolList.add(s.id);&#xD;
+/**/d.boolList.add(s.uri);&#xD;
+&#xD;
+/**/d.boolList.add(s.boolList);&#xD;
+/**/d.boolList.add(s.dateList);&#xD;
+/**/d.boolList.add(s.timeList);&#xD;
+/**/d.boolList.add(s.datetimeList);&#xD;
+/**/d.boolList.add(s.datetimetzList);&#xD;
+/**/d.boolList.add(s.decimalFloatList);&#xD;
+/**/d.boolList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.boolList.add(s.integerSignedList);&#xD;
+/**/d.boolList.add(s.integerFixed5List);&#xD;
+/**/d.boolList.add(s.text20List);&#xD;
+/**/d.boolList.add(s.durationList);&#xD;
+/**/d.boolList.add(s.idList);&#xD;
+/**/d.boolList.add(s.uriList);&#xD;
+&#xD;
+/**/d.boolList.addAll(s.bool);&#xD;
+/**/d.boolList.addAll(s.date);&#xD;
+/**/d.boolList.addAll(s.time);&#xD;
+/**/d.boolList.addAll(s.datetime);&#xD;
+/**/d.boolList.addAll(s.datetimetz);&#xD;
+/**/d.boolList.addAll(s.decimalFloat);&#xD;
+/**/d.boolList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.boolList.addAll(s.integerSigned);&#xD;
+/**/d.boolList.addAll(s.integerFixed5);&#xD;
+/**/d.boolList.addAll(s.text20);&#xD;
+/**/d.boolList.addAll(s.duration);&#xD;
+/**/d.boolList.addAll(s.id);&#xD;
+/**/d.boolList.addAll(s.uri);&#xD;
+&#xD;
+	d.boolList.addAll(s.boolList);&#xD;
+/**/d.boolList.addAll(s.dateList);&#xD;
+/**/d.boolList.addAll(s.timeList);&#xD;
+/**/d.boolList.addAll(s.datetimeList);&#xD;
+/**/d.boolList.addAll(s.datetimetzList);&#xD;
+/**/d.boolList.addAll(s.decimalFloatList);&#xD;
+/**/d.boolList.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.boolList.addAll(s.integerSignedList);&#xD;
+/**/d.boolList.addAll(s.integerFixed5List);&#xD;
+/**/d.boolList.addAll(s.text20List);&#xD;
+/**/d.boolList.addAll(s.durationList);&#xD;
+/**/d.boolList.addAll(s.idList);&#xD;
+/**/d.boolList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.dateList.add(s.bool);&#xD;
+	d.dateList.add(s.date);&#xD;
+/**/d.dateList.add(s.time);&#xD;
+/**/d.dateList.add(s.datetime);&#xD;
+/**/d.dateList.add(s.datetimetz);&#xD;
+/**/d.dateList.add(s.decimalFloat);&#xD;
+/**/d.dateList.add(s.decimalFixed8Dot4);&#xD;
+/**/d.dateList.add(s.integerSigned);&#xD;
+/**/d.dateList.add(s.integerFixed5);&#xD;
+/**/d.dateList.add(s.text20);&#xD;
+/**/d.dateList.add(s.duration);&#xD;
+/**/d.dateList.add(s.id);&#xD;
+/**/d.dateList.add(s.uri);&#xD;
+&#xD;
+/**/d.dateList.add(s.boolList);&#xD;
+/**/d.dateList.add(s.dateList);&#xD;
+/**/d.dateList.add(s.timeList);&#xD;
+/**/d.dateList.add(s.datetimeList);&#xD;
+/**/d.dateList.add(s.datetimetzList);&#xD;
+/**/d.dateList.add(s.decimalFloatList);&#xD;
+/**/d.dateList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.dateList.add(s.integerSignedList);&#xD;
+/**/d.dateList.add(s.integerFixed5List);&#xD;
+/**/d.dateList.add(s.text20List);&#xD;
+/**/d.dateList.add(s.durationList);&#xD;
+/**/d.dateList.add(s.idList);&#xD;
+/**/d.dateList.add(s.uriList);&#xD;
+&#xD;
+/**/d.dateList.addAll(s.bool);&#xD;
+/**/d.dateList.addAll(s.date);&#xD;
+/**/d.dateList.addAll(s.time);&#xD;
+/**/d.dateList.addAll(s.datetime);&#xD;
+/**/d.dateList.addAll(s.datetimetz);&#xD;
+/**/d.dateList.addAll(s.decimalFloat);&#xD;
+/**/d.dateList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.dateList.addAll(s.integerSigned);&#xD;
+/**/d.dateList.addAll(s.integerFixed5);&#xD;
+/**/d.dateList.addAll(s.text20);&#xD;
+/**/d.dateList.addAll(s.duration);&#xD;
+/**/d.dateList.addAll(s.id);&#xD;
+/**/d.dateList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.dateList.addAll(s.boolList);&#xD;
+	d.dateList.addAll(s.dateList);&#xD;
+/**/d.dateList.addAll(s.timeList);&#xD;
+/**/d.dateList.addAll(s.datetimeList);&#xD;
+/**/d.dateList.addAll(s.datetimetzList);&#xD;
+/**/d.dateList.addAll(s.decimalFloatList);&#xD;
+/**/d.dateList.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.dateList.addAll(s.integerSignedList);&#xD;
+/**/d.dateList.addAll(s.integerFixed5List);&#xD;
+/**/d.dateList.addAll(s.text20List);&#xD;
+/**/d.dateList.addAll(s.durationList);&#xD;
+/**/d.dateList.addAll(s.idList);&#xD;
+/**/d.dateList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.timeList.add(s.bool);&#xD;
+/**/d.timeList.add(s.date);&#xD;
+	d.timeList.add(s.time);&#xD;
+/**/d.timeList.add(s.datetime);&#xD;
+/**/d.timeList.add(s.datetimetz);&#xD;
+/**/d.timeList.add(s.decimalFloat);&#xD;
+/**/d.timeList.add(s.decimalFixed8Dot4);&#xD;
+/**/d.timeList.add(s.integerSigned);&#xD;
+/**/d.timeList.add(s.integerFixed5);&#xD;
+/**/d.timeList.add(s.text20);&#xD;
+/**/d.timeList.add(s.duration);&#xD;
+/**/d.timeList.add(s.id);&#xD;
+/**/d.timeList.add(s.uri);&#xD;
+&#xD;
+/**/d.timeList.add(s.boolList);&#xD;
+/**/d.timeList.add(s.dateList);&#xD;
+/**/d.timeList.add(s.timeList);&#xD;
+/**/d.timeList.add(s.datetimeList);&#xD;
+/**/d.timeList.add(s.datetimetzList);&#xD;
+/**/d.timeList.add(s.decimalFloatList);&#xD;
+/**/d.timeList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.timeList.add(s.integerSignedList);&#xD;
+/**/d.timeList.add(s.integerFixed5List);&#xD;
+/**/d.timeList.add(s.text20List);&#xD;
+/**/d.timeList.add(s.durationList);&#xD;
+/**/d.timeList.add(s.idList);&#xD;
+/**/d.timeList.add(s.uriList);&#xD;
+&#xD;
+/**/d.timeList.addAll(s.bool);&#xD;
+/**/d.timeList.addAll(s.date);&#xD;
+/**/d.timeList.addAll(s.time);&#xD;
+/**/d.timeList.addAll(s.datetime);&#xD;
+/**/d.timeList.addAll(s.datetimetz);&#xD;
+/**/d.timeList.addAll(s.decimalFloat);&#xD;
+/**/d.timeList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.timeList.addAll(s.integerSigned);&#xD;
+/**/d.timeList.addAll(s.integerFixed5);&#xD;
+/**/d.timeList.addAll(s.text20);&#xD;
+/**/d.timeList.addAll(s.duration);&#xD;
+/**/d.timeList.addAll(s.id);&#xD;
+/**/d.timeList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.timeList.addAll(s.boolList);&#xD;
+/**/d.timeList.addAll(s.dateList);&#xD;
+	d.timeList.addAll(s.timeList);&#xD;
+/**/d.timeList.addAll(s.datetimeList);&#xD;
+/**/d.timeList.addAll(s.datetimetzList);&#xD;
+/**/d.timeList.addAll(s.decimalFloatList);&#xD;
+/**/d.timeList.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.timeList.addAll(s.integerSignedList);&#xD;
+/**/d.timeList.addAll(s.integerFixed5List);&#xD;
+/**/d.timeList.addAll(s.text20List);&#xD;
+/**/d.timeList.addAll(s.durationList);&#xD;
+/**/d.timeList.addAll(s.idList);&#xD;
+/**/d.timeList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.datetimeList.add(s.bool);&#xD;
+/**/d.datetimeList.add(s.date);&#xD;
+/**/d.datetimeList.add(s.time);&#xD;
+	d.datetimeList.add(s.datetime);&#xD;
+	d.datetimeList.add(s.datetimetz);&#xD;
+/**/d.datetimeList.add(s.decimalFloat);&#xD;
+/**/d.datetimeList.add(s.decimalFixed8Dot4);&#xD;
+/**/d.datetimeList.add(s.integerSigned);&#xD;
+/**/d.datetimeList.add(s.integerFixed5);&#xD;
+/**/d.datetimeList.add(s.text20);&#xD;
+/**/d.datetimeList.add(s.duration);&#xD;
+/**/d.datetimeList.add(s.id);&#xD;
+/**/d.datetimeList.add(s.uri);&#xD;
+&#xD;
+/**/d.datetimeList.add(s.boolList);&#xD;
+/**/d.datetimeList.add(s.dateList);&#xD;
+/**/d.datetimeList.add(s.timeList);&#xD;
+/**/d.datetimeList.add(s.datetimeList);&#xD;
+/**/d.datetimeList.add(s.datetimetzList);&#xD;
+/**/d.datetimeList.add(s.decimalFloatList);&#xD;
+/**/d.datetimeList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.datetimeList.add(s.integerSignedList);&#xD;
+/**/d.datetimeList.add(s.integerFixed5List);&#xD;
+/**/d.datetimeList.add(s.text20List);&#xD;
+/**/d.datetimeList.add(s.durationList);&#xD;
+/**/d.datetimeList.add(s.idList);&#xD;
+/**/d.datetimeList.add(s.uriList);&#xD;
+&#xD;
+/**/d.datetimeList.addAll(s.bool);&#xD;
+/**/d.datetimeList.addAll(s.date);&#xD;
+/**/d.datetimeList.addAll(s.time);&#xD;
+/**/d.datetimeList.addAll(s.datetime);&#xD;
+/**/d.datetimeList.addAll(s.datetimetz);&#xD;
+/**/d.datetimeList.addAll(s.decimalFloat);&#xD;
+/**/d.datetimeList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.datetimeList.addAll(s.integerSigned);&#xD;
+/**/d.datetimeList.addAll(s.integerFixed5);&#xD;
+/**/d.datetimeList.addAll(s.text20);&#xD;
+/**/d.datetimeList.addAll(s.duration);&#xD;
+/**/d.datetimeList.addAll(s.id);&#xD;
+/**/d.datetimeList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.datetimeList.addAll(s.boolList);&#xD;
+/**/d.datetimeList.addAll(s.dateList);&#xD;
+/**/d.datetimeList.addAll(s.timeList);&#xD;
+	d.datetimeList.addAll(s.datetimeList);&#xD;
+	d.datetimeList.addAll(s.datetimetzList);&#xD;
+/**/d.datetimeList.addAll(s.decimalFloatList);&#xD;
+/**/d.datetimeList.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.datetimeList.addAll(s.integerSignedList);&#xD;
+/**/d.datetimeList.addAll(s.integerFixed5List);&#xD;
+/**/d.datetimeList.addAll(s.text20List);&#xD;
+/**/d.datetimeList.addAll(s.durationList);&#xD;
+/**/d.datetimeList.addAll(s.idList);&#xD;
+/**/d.datetimeList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.datetimetzList.add(s.bool);&#xD;
+/**/d.datetimetzList.add(s.date);&#xD;
+/**/d.datetimetzList.add(s.time);&#xD;
+	d.datetimetzList.add(s.datetime);&#xD;
+	d.datetimetzList.add(s.datetimetz);&#xD;
+/**/d.datetimetzList.add(s.decimalFloat);&#xD;
+/**/d.datetimetzList.add(s.decimalFixed8Dot4);&#xD;
+/**/d.datetimetzList.add(s.integerSigned);&#xD;
+/**/d.datetimetzList.add(s.integerFixed5);&#xD;
+/**/d.datetimetzList.add(s.text20);&#xD;
+/**/d.datetimetzList.add(s.duration);&#xD;
+/**/d.datetimetzList.add(s.id);&#xD;
+/**/d.datetimetzList.add(s.uri);&#xD;
+&#xD;
+/**/d.datetimetzList.add(s.boolList);&#xD;
+/**/d.datetimetzList.add(s.dateList);&#xD;
+/**/d.datetimetzList.add(s.timeList);&#xD;
+/**/d.datetimetzList.add(s.datetimeList);&#xD;
+/**/d.datetimetzList.add(s.datetimetzList);&#xD;
+/**/d.datetimetzList.add(s.decimalFloatList);&#xD;
+/**/d.datetimetzList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.datetimetzList.add(s.integerSignedList);&#xD;
+/**/d.datetimetzList.add(s.integerFixed5List);&#xD;
+/**/d.datetimetzList.add(s.text20List);&#xD;
+/**/d.datetimetzList.add(s.durationList);&#xD;
+/**/d.datetimetzList.add(s.idList);&#xD;
+/**/d.datetimetzList.add(s.uriList);&#xD;
+&#xD;
+/**/d.datetimetzList.addAll(s.bool);&#xD;
+/**/d.datetimetzList.addAll(s.date);&#xD;
+/**/d.datetimetzList.addAll(s.time);&#xD;
+/**/d.datetimetzList.addAll(s.datetime);&#xD;
+/**/d.datetimetzList.addAll(s.datetimetz);&#xD;
+/**/d.datetimetzList.addAll(s.decimalFloat);&#xD;
+/**/d.datetimetzList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.datetimetzList.addAll(s.integerSigned);&#xD;
+/**/d.datetimetzList.addAll(s.integerFixed5);&#xD;
+/**/d.datetimetzList.addAll(s.text20);&#xD;
+/**/d.datetimetzList.addAll(s.duration);&#xD;
+/**/d.datetimetzList.addAll(s.id);&#xD;
+/**/d.datetimetzList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.datetimetzList.addAll(s.boolList);&#xD;
+/**/d.datetimetzList.addAll(s.dateList);&#xD;
+/**/d.datetimetzList.addAll(s.timeList);&#xD;
+	d.datetimetzList.addAll(s.datetimeList);&#xD;
+	d.datetimetzList.addAll(s.datetimetzList);&#xD;
+/**/d.datetimetzList.addAll(s.decimalFloatList);&#xD;
+/**/d.datetimetzList.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.datetimetzList.addAll(s.integerSignedList);&#xD;
+/**/d.datetimetzList.addAll(s.integerFixed5List);&#xD;
+/**/d.datetimetzList.addAll(s.text20List);&#xD;
+/**/d.datetimetzList.addAll(s.durationList);&#xD;
+/**/d.datetimetzList.addAll(s.idList);&#xD;
+/**/d.datetimetzList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.decimalFloatList.add(s.bool);&#xD;
+/**/d.decimalFloatList.add(s.date);&#xD;
+/**/d.decimalFloatList.add(s.time);&#xD;
+/**/d.decimalFloatList.add(s.datetime);&#xD;
+/**/d.decimalFloatList.add(s.datetimetz);&#xD;
+	d.decimalFloatList.add(s.decimalFloat);&#xD;
+/**/d.decimalFloatList.add(s.decimalFixed8Dot4);&#xD;
+	d.decimalFloatList.add(s.integerSigned);&#xD;
+/**/d.decimalFloatList.add(s.integerFixed5);&#xD;
+/**/d.decimalFloatList.add(s.text20);&#xD;
+/**/d.decimalFloatList.add(s.duration);&#xD;
+/**/d.decimalFloatList.add(s.id);&#xD;
+/**/d.decimalFloatList.add(s.uri);&#xD;
+&#xD;
+/**/d.decimalFloatList.add(s.boolList);&#xD;
+/**/d.decimalFloatList.add(s.dateList);&#xD;
+/**/d.decimalFloatList.add(s.timeList);&#xD;
+/**/d.decimalFloatList.add(s.datetimeList);&#xD;
+/**/d.decimalFloatList.add(s.datetimetzList);&#xD;
+/**/d.decimalFloatList.add(s.decimalFloatList);&#xD;
+/**/d.decimalFloatList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.decimalFloatList.add(s.integerSignedList);&#xD;
+/**/d.decimalFloatList.add(s.integerFixed5List);&#xD;
+/**/d.decimalFloatList.add(s.text20List);&#xD;
+/**/d.decimalFloatList.add(s.durationList);&#xD;
+/**/d.decimalFloatList.add(s.idList);&#xD;
+/**/d.decimalFloatList.add(s.uriList);&#xD;
+&#xD;
+/**/d.decimalFloatList.addAll(s.bool);&#xD;
+/**/d.decimalFloatList.addAll(s.date);&#xD;
+/**/d.decimalFloatList.addAll(s.time);&#xD;
+/**/d.decimalFloatList.addAll(s.datetime);&#xD;
+/**/d.decimalFloatList.addAll(s.datetimetz);&#xD;
+/**/d.decimalFloatList.addAll(s.decimalFloat);&#xD;
+/**/d.decimalFloatList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.decimalFloatList.addAll(s.integerSigned);&#xD;
+/**/d.decimalFloatList.addAll(s.integerFixed5);&#xD;
+/**/d.decimalFloatList.addAll(s.text20);&#xD;
+/**/d.decimalFloatList.addAll(s.duration);&#xD;
+/**/d.decimalFloatList.addAll(s.id);&#xD;
+/**/d.decimalFloatList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.decimalFloatList.addAll(s.boolList);&#xD;
+/**/d.decimalFloatList.addAll(s.dateList);&#xD;
+/**/d.decimalFloatList.addAll(s.timeList);&#xD;
+/**/d.decimalFloatList.addAll(s.datetimeList);&#xD;
+/**/d.decimalFloatList.addAll(s.datetimetzList);&#xD;
+	d.decimalFloatList.addAll(s.decimalFloatList);&#xD;
+/**/d.decimalFloatList.addAll(s.decimalFixed8Dot4List);&#xD;
+	d.decimalFloatList.addAll(s.integerSignedList);&#xD;
+/**/d.decimalFloatList.addAll(s.integerFixed5List);&#xD;
+/**/d.decimalFloatList.addAll(s.text20List);&#xD;
+/**/d.decimalFloatList.addAll(s.durationList);&#xD;
+/**/d.decimalFloatList.addAll(s.idList);&#xD;
+/**/d.decimalFloatList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.decimalFixed8Dot4List.add(s.bool);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.date);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.time);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.datetime);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.datetimetz);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.decimalFloat);&#xD;
+	d.decimalFixed8Dot4List.add(s.decimalFixed8Dot4);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.integerSigned);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.integerFixed5);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.text20);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.duration);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.id);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.uri);&#xD;
+&#xD;
+/**/d.decimalFixed8Dot4List.add(s.boolList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.dateList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.timeList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.datetimeList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.datetimetzList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.decimalFloatList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.integerSignedList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.integerFixed5List);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.text20List);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.durationList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.idList);&#xD;
+/**/d.decimalFixed8Dot4List.add(s.uriList);&#xD;
+&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.bool);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.date);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.time);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.datetime);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.datetimetz);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.decimalFloat);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.integerSigned);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.integerFixed5);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.text20);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.duration);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.id);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.uri);&#xD;
+&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.boolList);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.dateList);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.timeList);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.datetimeList);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.datetimetzList);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.decimalFloatList);&#xD;
+	d.decimalFixed8Dot4List.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.integerSignedList);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.integerFixed5List);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.text20List);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.durationList);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.idList);&#xD;
+/**/d.decimalFixed8Dot4List.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.integerSignedList.add(s.bool);&#xD;
+/**/d.integerSignedList.add(s.date);&#xD;
+/**/d.integerSignedList.add(s.time);&#xD;
+/**/d.integerSignedList.add(s.datetime);&#xD;
+/**/d.integerSignedList.add(s.datetimetz);&#xD;
+	d.integerSignedList.add(s.decimalFloat);&#xD;
+/**/d.integerSignedList.add(s.decimalFixed8Dot4);&#xD;
+	d.integerSignedList.add(s.integerSigned);&#xD;
+/**/d.integerSignedList.add(s.integerFixed5);&#xD;
+/**/d.integerSignedList.add(s.text20);&#xD;
+/**/d.integerSignedList.add(s.duration);&#xD;
+/**/d.integerSignedList.add(s.id);&#xD;
+/**/d.integerSignedList.add(s.uri);&#xD;
+&#xD;
+/**/d.integerSignedList.add(s.boolList);&#xD;
+/**/d.integerSignedList.add(s.dateList);&#xD;
+/**/d.integerSignedList.add(s.timeList);&#xD;
+/**/d.integerSignedList.add(s.datetimeList);&#xD;
+/**/d.integerSignedList.add(s.datetimetzList);&#xD;
+/**/d.integerSignedList.add(s.decimalFloatList);&#xD;
+/**/d.integerSignedList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.integerSignedList.add(s.integerSignedList);&#xD;
+/**/d.integerSignedList.add(s.integerFixed5List);&#xD;
+/**/d.integerSignedList.add(s.text20List);&#xD;
+/**/d.integerSignedList.add(s.durationList);&#xD;
+/**/d.integerSignedList.add(s.idList);&#xD;
+/**/d.integerSignedList.add(s.uriList);&#xD;
+&#xD;
+/**/d.integerSignedList.addAll(s.bool);&#xD;
+/**/d.integerSignedList.addAll(s.date);&#xD;
+/**/d.integerSignedList.addAll(s.time);&#xD;
+/**/d.integerSignedList.addAll(s.datetime);&#xD;
+/**/d.integerSignedList.addAll(s.datetimetz);&#xD;
+/**/d.integerSignedList.addAll(s.decimalFloat);&#xD;
+/**/d.integerSignedList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.integerSignedList.addAll(s.integerSigned);&#xD;
+/**/d.integerSignedList.addAll(s.integerFixed5);&#xD;
+/**/d.integerSignedList.addAll(s.text20);&#xD;
+/**/d.integerSignedList.addAll(s.duration);&#xD;
+/**/d.integerSignedList.addAll(s.id);&#xD;
+/**/d.integerSignedList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.integerSignedList.addAll(s.boolList);&#xD;
+/**/d.integerSignedList.addAll(s.dateList);&#xD;
+/**/d.integerSignedList.addAll(s.timeList);&#xD;
+/**/d.integerSignedList.addAll(s.datetimeList);&#xD;
+/**/d.integerSignedList.addAll(s.datetimetzList);&#xD;
+	d.integerSignedList.addAll(s.decimalFloatList);&#xD;
+/**/d.integerSignedList.addAll(s.decimalFixed8Dot4List);&#xD;
+	d.integerSignedList.addAll(s.integerSignedList);&#xD;
+/**/d.integerSignedList.addAll(s.integerFixed5List);&#xD;
+/**/d.integerSignedList.addAll(s.text20List);&#xD;
+/**/d.integerSignedList.addAll(s.durationList);&#xD;
+/**/d.integerSignedList.addAll(s.idList);&#xD;
+/**/d.integerSignedList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.integerFixed5List.add(s.bool);&#xD;
+/**/d.integerFixed5List.add(s.date);&#xD;
+/**/d.integerFixed5List.add(s.time);&#xD;
+/**/d.integerFixed5List.add(s.datetime);&#xD;
+/**/d.integerFixed5List.add(s.datetimetz);&#xD;
+/**/d.integerFixed5List.add(s.decimalFloat);&#xD;
+/**/d.integerFixed5List.add(s.decimalFixed8Dot4);&#xD;
+/**/d.integerFixed5List.add(s.integerSigned);&#xD;
+	d.integerFixed5List.add(s.integerFixed5);&#xD;
+/**/d.integerFixed5List.add(s.text20);&#xD;
+/**/d.integerFixed5List.add(s.duration);&#xD;
+/**/d.integerFixed5List.add(s.id);&#xD;
+/**/d.integerFixed5List.add(s.uri);&#xD;
+&#xD;
+/**/d.integerFixed5List.add(s.boolList);&#xD;
+/**/d.integerFixed5List.add(s.dateList);&#xD;
+/**/d.integerFixed5List.add(s.timeList);&#xD;
+/**/d.integerFixed5List.add(s.datetimeList);&#xD;
+/**/d.integerFixed5List.add(s.datetimetzList);&#xD;
+/**/d.integerFixed5List.add(s.decimalFloatList);&#xD;
+/**/d.integerFixed5List.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.integerFixed5List.add(s.integerSignedList);&#xD;
+/**/d.integerFixed5List.add(s.integerFixed5List);&#xD;
+/**/d.integerFixed5List.add(s.text20List);&#xD;
+/**/d.integerFixed5List.add(s.durationList);&#xD;
+/**/d.integerFixed5List.add(s.idList);&#xD;
+/**/d.integerFixed5List.add(s.uriList);&#xD;
+&#xD;
+/**/d.integerFixed5List.addAll(s.bool);&#xD;
+/**/d.integerFixed5List.addAll(s.date);&#xD;
+/**/d.integerFixed5List.addAll(s.time);&#xD;
+/**/d.integerFixed5List.addAll(s.datetime);&#xD;
+/**/d.integerFixed5List.addAll(s.datetimetz);&#xD;
+/**/d.integerFixed5List.addAll(s.decimalFloat);&#xD;
+/**/d.integerFixed5List.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.integerFixed5List.addAll(s.integerSigned);&#xD;
+/**/d.integerFixed5List.addAll(s.integerFixed5);&#xD;
+/**/d.integerFixed5List.addAll(s.text20);&#xD;
+/**/d.integerFixed5List.addAll(s.duration);&#xD;
+/**/d.integerFixed5List.addAll(s.id);&#xD;
+/**/d.integerFixed5List.addAll(s.uri);&#xD;
+&#xD;
+/**/d.integerFixed5List.addAll(s.boolList);&#xD;
+/**/d.integerFixed5List.addAll(s.dateList);&#xD;
+/**/d.integerFixed5List.addAll(s.timeList);&#xD;
+/**/d.integerFixed5List.addAll(s.datetimeList);&#xD;
+/**/d.integerFixed5List.addAll(s.datetimetzList);&#xD;
+/**/d.integerFixed5List.addAll(s.decimalFloatList);&#xD;
+/**/d.integerFixed5List.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.integerFixed5List.addAll(s.integerSignedList);&#xD;
+	d.integerFixed5List.addAll(s.integerFixed5List);&#xD;
+/**/d.integerFixed5List.addAll(s.text20List);&#xD;
+/**/d.integerFixed5List.addAll(s.durationList);&#xD;
+/**/d.integerFixed5List.addAll(s.idList);&#xD;
+/**/d.integerFixed5List.addAll(s.uriList);&#xD;
+&#xD;
+	d.text20List.add(s.bool);&#xD;
+	d.text20List.add(s.date);&#xD;
+	d.text20List.add(s.time);&#xD;
+	d.text20List.add(s.datetime);&#xD;
+	d.text20List.add(s.datetimetz);&#xD;
+	d.text20List.add(s.decimalFloat);&#xD;
+	d.text20List.add(s.decimalFixed8Dot4);&#xD;
+	d.text20List.add(s.integerSigned);&#xD;
+	d.text20List.add(s.integerFixed5);&#xD;
+	d.text20List.add(s.text20);&#xD;
+	d.text20List.add(s.duration);&#xD;
+	d.text20List.add(s.id);&#xD;
+	d.text20List.add(s.uri);&#xD;
+&#xD;
+/**/d.text20List.add(s.boolList);&#xD;
+/**/d.text20List.add(s.dateList);&#xD;
+/**/d.text20List.add(s.timeList);&#xD;
+/**/d.text20List.add(s.datetimeList);&#xD;
+/**/d.text20List.add(s.datetimetzList);&#xD;
+/**/d.text20List.add(s.decimalFloatList);&#xD;
+/**/d.text20List.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.text20List.add(s.integerSignedList);&#xD;
+/**/d.text20List.add(s.integerFixed5List);&#xD;
+/**/d.text20List.add(s.text20List);&#xD;
+/**/d.text20List.add(s.durationList);&#xD;
+/**/d.text20List.add(s.idList);&#xD;
+/**/d.text20List.add(s.uriList);&#xD;
+&#xD;
+/**/d.text20List.addAll(s.bool);&#xD;
+/**/d.text20List.addAll(s.date);&#xD;
+/**/d.text20List.addAll(s.time);&#xD;
+/**/d.text20List.addAll(s.datetime);&#xD;
+/**/d.text20List.addAll(s.datetimetz);&#xD;
+/**/d.text20List.addAll(s.decimalFloat);&#xD;
+/**/d.text20List.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.text20List.addAll(s.integerSigned);&#xD;
+/**/d.text20List.addAll(s.integerFixed5);&#xD;
+/**/d.text20List.addAll(s.text20);&#xD;
+/**/d.text20List.addAll(s.duration);&#xD;
+/**/d.text20List.addAll(s.id);&#xD;
+/**/d.text20List.addAll(s.uri);&#xD;
+&#xD;
+	d.text20List.addAll(s.boolList);&#xD;
+	d.text20List.addAll(s.dateList);&#xD;
+	d.text20List.addAll(s.timeList);&#xD;
+	d.text20List.addAll(s.datetimeList);&#xD;
+	d.text20List.addAll(s.datetimetzList);&#xD;
+	d.text20List.addAll(s.decimalFloatList);&#xD;
+	d.text20List.addAll(s.decimalFixed8Dot4List);&#xD;
+	d.text20List.addAll(s.integerSignedList);&#xD;
+	d.text20List.addAll(s.integerFixed5List);&#xD;
+	d.text20List.addAll(s.text20List);&#xD;
+	d.text20List.addAll(s.durationList);&#xD;
+	d.text20List.addAll(s.idList);&#xD;
+	d.text20List.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.durationList.add(s.bool);&#xD;
+/**/d.durationList.add(s.date);&#xD;
+/**/d.durationList.add(s.time);&#xD;
+/**/d.durationList.add(s.datetime);&#xD;
+/**/d.durationList.add(s.datetimetz);&#xD;
+/**/d.durationList.add(s.decimalFloat);&#xD;
+/**/d.durationList.add(s.decimalFixed8Dot4);&#xD;
+/**/d.durationList.add(s.integerSigned);&#xD;
+/**/d.durationList.add(s.integerFixed5);&#xD;
+/**/d.durationList.add(s.text20);&#xD;
+	d.durationList.add(s.duration);&#xD;
+/**/d.durationList.add(s.id);&#xD;
+/**/d.durationList.add(s.uri);&#xD;
+&#xD;
+/**/d.durationList.add(s.boolList);&#xD;
+/**/d.durationList.add(s.dateList);&#xD;
+/**/d.durationList.add(s.timeList);&#xD;
+/**/d.durationList.add(s.datetimeList);&#xD;
+/**/d.durationList.add(s.datetimetzList);&#xD;
+/**/d.durationList.add(s.decimalFloatList);&#xD;
+/**/d.durationList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.durationList.add(s.integerSignedList);&#xD;
+/**/d.durationList.add(s.integerFixed5List);&#xD;
+/**/d.durationList.add(s.text20List);&#xD;
+/**/d.durationList.add(s.durationList);&#xD;
+/**/d.durationList.add(s.idList);&#xD;
+/**/d.durationList.add(s.uriList);&#xD;
+&#xD;
+/**/d.durationList.addAll(s.bool);&#xD;
+/**/d.durationList.addAll(s.date);&#xD;
+/**/d.durationList.addAll(s.time);&#xD;
+/**/d.durationList.addAll(s.datetime);&#xD;
+/**/d.durationList.addAll(s.datetimetz);&#xD;
+/**/d.durationList.addAll(s.decimalFloat);&#xD;
+/**/d.durationList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.durationList.addAll(s.integerSigned);&#xD;
+/**/d.durationList.addAll(s.integerFixed5);&#xD;
+/**/d.durationList.addAll(s.text20);&#xD;
+/**/d.durationList.addAll(s.duration);&#xD;
+/**/d.durationList.addAll(s.id);&#xD;
+/**/d.durationList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.durationList.addAll(s.boolList);&#xD;
+/**/d.durationList.addAll(s.dateList);&#xD;
+/**/d.durationList.addAll(s.timeList);&#xD;
+/**/d.durationList.addAll(s.datetimeList);&#xD;
+/**/d.durationList.addAll(s.datetimetzList);&#xD;
+/**/d.durationList.addAll(s.decimalFloatList);&#xD;
+/**/d.durationList.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.durationList.addAll(s.integerSignedList);&#xD;
+/**/d.durationList.addAll(s.integerFixed5List);&#xD;
+/**/d.durationList.addAll(s.text20List);&#xD;
+	d.durationList.addAll(s.durationList);&#xD;
+/**/d.durationList.addAll(s.idList);&#xD;
+/**/d.durationList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.idList.add(s.bool);&#xD;
+/**/d.idList.add(s.date);&#xD;
+/**/d.idList.add(s.time);&#xD;
+/**/d.idList.add(s.datetime);&#xD;
+/**/d.idList.add(s.datetimetz);&#xD;
+/**/d.idList.add(s.decimalFloat);&#xD;
+/**/d.idList.add(s.decimalFixed8Dot4);&#xD;
+/**/d.idList.add(s.integerSigned);&#xD;
+/**/d.idList.add(s.integerFixed5);&#xD;
+    d.idList.add(s.text20);&#xD;
+/**/d.idList.add(s.duration);&#xD;
+	d.idList.add(s.id);&#xD;
+/**/d.idList.add(s.uri);&#xD;
+&#xD;
+/**/d.idList.add(s.boolList);&#xD;
+/**/d.idList.add(s.dateList);&#xD;
+/**/d.idList.add(s.timeList);&#xD;
+/**/d.idList.add(s.datetimeList);&#xD;
+/**/d.idList.add(s.datetimetzList);&#xD;
+/**/d.idList.add(s.decimalFloatList);&#xD;
+/**/d.idList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.idList.add(s.integerSignedList);&#xD;
+/**/d.idList.add(s.integerFixed5List);&#xD;
+/**/d.idList.add(s.text20List);&#xD;
+/**/d.idList.add(s.durationList);&#xD;
+/**/d.idList.add(s.idList);&#xD;
+/**/d.idList.add(s.uriList);&#xD;
+&#xD;
+/**/d.idList.addAll(s.bool);&#xD;
+/**/d.idList.addAll(s.date);&#xD;
+/**/d.idList.addAll(s.time);&#xD;
+/**/d.idList.addAll(s.datetime);&#xD;
+/**/d.idList.addAll(s.datetimetz);&#xD;
+/**/d.idList.addAll(s.decimalFloat);&#xD;
+/**/d.idList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.idList.addAll(s.integerSigned);&#xD;
+/**/d.idList.addAll(s.integerFixed5);&#xD;
+/**/d.idList.addAll(s.text20);&#xD;
+/**/d.idList.addAll(s.duration);&#xD;
+/**/d.idList.addAll(s.id);&#xD;
+/**/d.idList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.idList.addAll(s.boolList);&#xD;
+/**/d.idList.addAll(s.dateList);&#xD;
+/**/d.idList.addAll(s.timeList);&#xD;
+/**/d.idList.addAll(s.datetimeList);&#xD;
+/**/d.idList.addAll(s.datetimetzList);&#xD;
+/**/d.idList.addAll(s.decimalFloatList);&#xD;
+/**/d.idList.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.idList.addAll(s.integerSignedList);&#xD;
+/**/d.idList.addAll(s.integerFixed5List);&#xD;
+    d.idList.addAll(s.text20List);&#xD;
+/**/d.idList.addAll(s.durationList);&#xD;
+	d.idList.addAll(s.idList);&#xD;
+/**/d.idList.addAll(s.uriList);&#xD;
+&#xD;
+/**/d.uriList.add(s.bool);&#xD;
+/**/d.uriList.add(s.date);&#xD;
+/**/d.uriList.add(s.time);&#xD;
+/**/d.uriList.add(s.datetime);&#xD;
+/**/d.uriList.add(s.datetimetz);&#xD;
+/**/d.uriList.add(s.decimalFloat);&#xD;
+/**/d.uriList.add(s.decimalFixed8Dot4);&#xD;
+/**/d.uriList.add(s.integerSigned);&#xD;
+/**/d.uriList.add(s.integerFixed5);&#xD;
+    d.uriList.add(s.text20);&#xD;
+/**/d.uriList.add(s.duration);&#xD;
+/**/d.uriList.add(s.id);&#xD;
+	d.uriList.add(s.uri);&#xD;
+&#xD;
+/**/d.uriList.add(s.boolList);&#xD;
+/**/d.uriList.add(s.dateList);&#xD;
+/**/d.uriList.add(s.timeList);&#xD;
+/**/d.uriList.add(s.datetimeList);&#xD;
+/**/d.uriList.add(s.datetimetzList);&#xD;
+/**/d.uriList.add(s.decimalFloatList);&#xD;
+/**/d.uriList.add(s.decimalFixed8Dot4List);&#xD;
+/**/d.uriList.add(s.integerSignedList);&#xD;
+/**/d.uriList.add(s.integerFixed5List);&#xD;
+/**/d.uriList.add(s.text20List);&#xD;
+/**/d.uriList.add(s.durationList);&#xD;
+/**/d.uriList.add(s.idList);&#xD;
+/**/d.uriList.add(s.uriList);&#xD;
+&#xD;
+/**/d.uriList.addAll(s.bool);&#xD;
+/**/d.uriList.addAll(s.date);&#xD;
+/**/d.uriList.addAll(s.time);&#xD;
+/**/d.uriList.addAll(s.datetime);&#xD;
+/**/d.uriList.addAll(s.datetimetz);&#xD;
+/**/d.uriList.addAll(s.decimalFloat);&#xD;
+/**/d.uriList.addAll(s.decimalFixed8Dot4);&#xD;
+/**/d.uriList.addAll(s.integerSigned);&#xD;
+/**/d.uriList.addAll(s.integerFixed5);&#xD;
+/**/d.uriList.addAll(s.text20);&#xD;
+/**/d.uriList.addAll(s.duration);&#xD;
+/**/d.uriList.addAll(s.id);&#xD;
+/**/d.uriList.addAll(s.uri);&#xD;
+&#xD;
+/**/d.uriList.addAll(s.boolList);&#xD;
+/**/d.uriList.addAll(s.dateList);&#xD;
+/**/d.uriList.addAll(s.timeList);&#xD;
+/**/d.uriList.addAll(s.datetimeList);&#xD;
+/**/d.uriList.addAll(s.datetimetzList);&#xD;
+/**/d.uriList.addAll(s.decimalFloatList);&#xD;
+/**/d.uriList.addAll(s.decimalFixed8Dot4List);&#xD;
+/**/d.uriList.addAll(s.integerSignedList);&#xD;
+/**/d.uriList.addAll(s.integerFixed5List);&#xD;
+    d.uriList.addAll(s.text20List);&#xD;
+/**/d.uriList.addAll(s.durationList);&#xD;
+/**/d.uriList.addAll(s.idList);&#xD;
+	d.uriList.addAll(s.uriList);&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="suppressScriptValidation"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_PaO65uUREeC9zJ0WVEdnyQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="326.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_PaO66eUREeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_jDuC8OUREeC9zJ0WVEdnyQ" To="_PaO66OUREeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_jDuqAOUREeC9zJ0WVEdnyQ" xpdExt:DisplayName="" Name="" From="_PaO65-UREeC9zJ0WVEdnyQ" To="_jDuC8OUREeC9zJ0WVEdnyQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="10"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns="http://xmlns.enel.com/mercato/libero/schema/integration/moge/modificastatoresidenteresponse" xmlns:tns="http://xmlns.enel.com/mercato/libero/service/integration/moge/modificastatoresidenteresponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://xmlns.enel.com/mercato/libero/service/integration/moge/modificastatoresidenteresponse">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/integration/moge/modificastatoresidenteresponse" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/integration/moge/modificastatoresidenteresponse" version="1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="ModificaStatoResidenteResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Esito" type="EsitoType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+		<xs:complexType name="EsitoType">
+                <xs:sequence>
+                    <xs:element name="correlationId" type="xs:string"/>
+                    <xs:element name="esito" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>OK, KO</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="codiceEsito" type="xs:string" minOccurs="0"/>
+                    <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+                    <xs:element name="tipoEsito" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Qualifica la tipologia di esito in caso di esiti multipli, in genere usato da R2d per esiti 1,2,3,...</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="sistemaSorgenteEsito" type="xs:string">
+                        <xs:annotation>
+                            <xs:documentation>SAP, CRM, MUTI, FICA, SEMPRE, SEREM,...</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+			
+        </xs:schema>
+		
+    </wsdl:types>
+    <wsdl:portType name="MogeBpmModificaStatoResidenteResponseServicePortType">
+        <wsdl:operation name="ModificaStatoResidenteResponse">
+            <wsdl:input message="tns:ModificaStatoResidenteResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="ModificaStatoResidenteResponse">
+        <wsdl:part name="input" element="ns:ModificaStatoResidenteResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

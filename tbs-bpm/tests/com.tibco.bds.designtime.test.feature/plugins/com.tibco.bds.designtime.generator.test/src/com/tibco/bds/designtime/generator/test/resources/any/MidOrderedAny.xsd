@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/MidOrderedAny" targetNamespace="http://example.com/MidOrderedAny" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:element name="train" type="TrainType"/>
+	<xs:complexType name="TrainType" ecore:name="TrainType">
+		<xs:sequence>
+			<xs:element name="line" type="xs:string" ecore:name="line"/>
+			<xs:any processContents="lax" ecore:name="any"/>
+			<xs:element name="company" type="xs:string" ecore:name="company"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension-point 
+	   	id="activityElementFactories" 
+	   	name="ActivityElement factories" 
+	   	schema="schema/activityElementFactories.exsd"/>
+ <extension-point id="bxTestDelegateService" name="BxTestDelegateService" schema="schema/bxTestDelegateService.exsd"/>	
+	 <extension
+	       point="com.tibco.xpd.resources.workingCopyFactory">
+	    <factory
+	          class="com.tibco.bx.emulation.core.resource.EMWorkingCopyFactory"
+	          filePattern=".*\.[eE][mM]">
+	    </factory>
+	 </extension>
+	 <extension
+             id="emNature"
+             point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run class="com.tibco.bx.emulation.core.EMNature"/>
+      </runtime>
+ 	</extension>
+   <extension
+ 			point="com.tibco.xpd.validation.provider">
+ 		<provider
+ 			id="com.tibco.bx.emulation.validator.id"
+ 			name="Emulation Validation Provider"
+ 			scopeProvider="com.tibco.bx.emulation.core.validator.EMScopeProvider">
+ 			<rule class="com.tibco.bx.emulation.core.validator.rules.ProcessNodeNotExistRule"/>
+ 			<rule class="com.tibco.bx.emulation.core.validator.rules.TestpointNotExistRule"/>
+ 			<rule class="com.tibco.bx.emulation.core.validator.rules.AssertionNotExistRule"/>
+ 		</provider>
+        <issue
+            id="processNotExist.issue"
+            message="%not.exist.process.issue.message"
+            severity="ERROR"/>
+        <issue
+            id="testPointDuplicate.issue"
+            message="%duplicate.testPoint.issue.message"
+            severity="ERROR"/>
+        <issue
+            id="activityNotExist.issue"
+            message="%not.exist.activity.issue.message"
+            severity="ERROR"/>
+        <issue
+            id="sequenceNotExist.issue"
+            message="%not.exist.sequence.issue.message"
+            severity="ERROR"/>
+ 	</extension>
+ 	<extension
+         point="com.tibco.xpd.validation.destinations">
+      <destination
+            id="em.destination"
+            name="%emulation.destination.name"
+            selectable="false"
+            version="">
+         <validationProvider id="com.tibco.bx.emulation.validator.id"/>
+         <filter class="com.tibco.bx.emulation.core.validator.EMFileFilter"/>
+      </destination>
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.resolution">
+      <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.bx.emulation.core.validator.resolutions.DeleteProcessNodeResolution"
+            description="%resolution.description.deleteProcessNode"
+            id="processNotExist.issue"
+            label="%resolution.label.deleteProcessNode"/>
+      <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.bx.emulation.core.validator.resolutions.DeleteTestpointResolution"
+            description="%resolution.description.deleteTestpoint"
+            id="activityNotExist.issue"
+            label="%resolution.label.deleteTestpoint"/>    
+       <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.bx.emulation.core.validator.resolutions.DeleteAssertionResolution"
+            description="%resolution.description.deleteAssertion"
+            id="sequenceNotExist.issue"
+            label="%resolution.label.deleteAssertion"/>
+   </extension>
+ <extension
+            point="com.tibco.xpd.resources.projectAsset">
+         <category
+            id="com.tibco.bx.emulation.core.category"
+            name="%emulation.catagory.name">
+      	</category>
+         <asset
+               category="com.tibco.bx.emulation.core.category"
+               configuration="com.tibco.xpd.resources.projectconfig.projectassets.SpecialFolderAssetConfiguration"
+               icon="icons/EmulationFile.png"
+               id="com.tibco.xpd.asset.em"
+               visible="true"
+               name="%emulation.folder.name">
+            <configurator class="com.tibco.bx.emulation.core.EMNatureAssetConfigurator">
+         		<parameter name="kind" value="em"/>
+       	 		<parameter name="defaultFolder" value="%emulation.folder.name"/>
+       	 	</configurator> 
+            <description>
+               %emulation.asset.description
+            </description>
+         </asset>
+  </extension>
+ <extension
+       point="com.tibco.bx.design.debug.core.emulationService">
+    <emulationService
+          class="com.tibco.bx.emulation.core.invoke.EmulationServiceImpl">
+    </emulationService>
+ </extension>
+  <!--extension
+       point="com.tibco.xpd.resources.projectAssetBinding">
+    <projectAssetBinding
+          assetId="com.tibco.xpd.asset.em"
+          newProjectWizardId="com.tibco.xpd.newProject.BPMSOADeveloper">
+    </projectAssetBinding>
+  </extension-->
+</plugin>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://example.com/DocumentRootNameClash" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/DocumentRootNameClash" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xsd:complexType name="DocumentRoot" ecore:name="DocumentRoot">
+		<xsd:sequence>
+			<xsd:element name="originator" ecore:name="originator">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="notes" maxOccurs="unbounded" ecore:name="notes">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="justString" type="xsd:string"/>
+	<xsd:element name="myDocRoot" type="DocumentRoot"/>
+</xsd:schema>

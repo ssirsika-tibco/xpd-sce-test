@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_lAbYwJrhEd-u3q2xHisXfw" xpdExt:DisplayName="TestJavaServiceValidMapping" Name="TestJavaServiceValidMapping">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-07-29</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_xWbsJ5rhEd-u3q2xHisXfw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_lAbYwZrhEd-u3q2xHisXfw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_xWbsKJrhEd-u3q2xHisXfw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_lAbYwZrhEd-u3q2xHisXfw" xpdExt:DisplayName="TestJavaServiceValidMapping-Process" Name="TestJavaServiceValidMappingProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_12Km25rhEd-u3q2xHisXfw" xpdExt:DisplayName="IntegerField" Name="IntegerField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km3JrhEd-u3q2xHisXfw" xpdExt:DisplayName="ArrayBom" Name="ArrayBom" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="TestJavaServiceValidMapping.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_-Do-kJrhEd-u3q2xHisXfw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km3ZrhEd-u3q2xHisXfw" xpdExt:DisplayName="ReadOnlyField6" Name="ReadOnlyField6" ReadOnly="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km3prhEd-u3q2xHisXfw" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km35rhEd-u3q2xHisXfw" xpdExt:DisplayName="ArrayField5" Name="ArrayField5" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km4JrhEd-u3q2xHisXfw" xpdExt:DisplayName="DateTime" Name="DateTime" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km4ZrhEd-u3q2xHisXfw" xpdExt:DisplayName="DecimalField" Name="DecimalField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km4prhEd-u3q2xHisXfw" xpdExt:DisplayName="Field9" Name="Field9" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km45rhEd-u3q2xHisXfw" xpdExt:DisplayName="Field10" Name="Field10" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km5JrhEd-u3q2xHisXfw" xpdExt:DisplayName="Bom" Name="Bom" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="TestJavaServiceValidMapping.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_-Do-kJrhEd-u3q2xHisXfw"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_12Km5ZrhEd-u3q2xHisXfw" xpdExt:DisplayName="Field8" Name="Field8" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_gkgVIJrjEd-u3q2xHisXfw" xpdExt:DisplayName="Bool" Name="Bool">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_xWbsKZrhEd-u3q2xHisXfw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_xWbsKJrhEd-u3q2xHisXfw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_xWbsKprhEd-u3q2xHisXfw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_xWbsKJrhEd-u3q2xHisXfw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_LSY30ZriEd-u3q2xHisXfw" Name="ValidMappings" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Valid Mappings">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Java" Implementation="Other">
+                <xpdl2:MessageIn Id="_NePEUJriEd-u3q2xHisXfw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.dateTime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">DateTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.chaR">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.string">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.booleaN">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.booleaNc">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.integer">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IntegerField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.inT">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IntegerField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.floaT">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">DecimalField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.floaTc">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">DecimalField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.date">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">DateTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.arrayString">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ArrayField5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_NePEUZriEd-u3q2xHisXfw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="response.RV">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameter.dateTime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">DateTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameter.dateTime.hour">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IntegerField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameter.dateTime.valid">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Bool</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <eaijava:EAIJava project="myPojo">
+                  <eaijava:Pojo name="com.qa.test.pojo.UCTest">
+                    <eaijava:Method name="params">
+                      <eaijava:Return className="java.lang.String" signature="QString;"/>
+                      <eaijava:Parameters>
+                        <eaijava:Parameter signature="C"/>
+                        <eaijava:Parameter className="java.lang.String" signature="QString;"/>
+                        <eaijava:Parameter signature="Z"/>
+                        <eaijava:Parameter className="java.lang.Boolean" signature="QBoolean;"/>
+                        <eaijava:Parameter signature="I"/>
+                        <eaijava:Parameter className="java.lang.Integer" signature="QInteger;"/>
+                        <eaijava:Parameter signature="F"/>
+                        <eaijava:Parameter className="java.lang.Float" signature="QFloat;"/>
+                        <eaijava:Parameter className="javax.xml.datatype.XMLGregorianCalendar" signature="QXMLGregorianCalendar;"/>
+                        <eaijava:Parameter className="java.util.Date" signature="QDate;"/>
+                        <eaijava:Parameter className="java.lang.String" signature="[QString;"/>
+                      </eaijava:Parameters>
+                    </eaijava:Method>
+                  </eaijava:Pojo>
+                </eaijava:EAIJava>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_xWbsKJrhEd-u3q2xHisXfw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="287.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_xWbsK5rhEd-u3q2xHisXfw" Name="" From="_LSY30ZriEd-u3q2xHisXfw" To="_xWbsKprhEd-u3q2xHisXfw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_LSio0JriEd-u3q2xHisXfw" xpdExt:DisplayName="" Name="" From="_xWbsKZrhEd-u3q2xHisXfw" To="_LSY30ZriEd-u3q2xHisXfw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="RPCLiteral"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

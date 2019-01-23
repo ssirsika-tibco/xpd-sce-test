@@ -1,0 +1,108 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<wsdl:definitions targetNamespace = "com.enel.mind.TracciamentoCRM" xmlns:ns = "com.enel.mind.TracciamentoCRM" xmlns:ttns = "http://mind.enel.com/tracciamentocrm" xmlns:wsdl = "http://schemas.xmlsoap.org/wsdl/" xmlns:xsd = "http://www.w3.org/2001/XMLSchema">  
+	<wsdl:types>    
+		<xsd:schema targetNamespace = "com.enel.mind.TracciamentoCRM" xmlns = "com.enel.mind.TracciamentoCRM"/>    
+		<xsd:schema targetNamespace = "http://mind.enel.com/tracciamentocrm" xmlns = "http://mind.enel.com/tracciamentocrm" xmlns:ecore = "http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1 = "http://mind.enel.com/tracciamentocrm">      
+			<xsd:annotation>      </xsd:annotation>      
+			<xsd:complexType name = "TracciamentoCRMInput">        
+				<xsd:sequence>          
+					<xsd:element maxOccurs = "1" minOccurs = "1" name = "idBPM" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "canale" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "tipoOperazione" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "causale" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "commodity" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "contoContrattualeSAP" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "1" name = "descrizione" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "indirizzoIP" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "POD" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "sistemaOrigineEsito" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "1" name = "stato" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "1" name = "tipoAttivita" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "1" name = "specifica" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "idRichiesta" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "numeroOrdine" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "dataEmissioneFattRettifica" type = "xsd:date"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "dataScadenzaFattRettificata" type = "xsd:date"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "dataLettura" type = "xsd:date"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "dataScadenza" type = "xsd:date"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "numeroUtente" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "login" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "idAttivita" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "flagAsync" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "codClienteId" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "commento" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "userId" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "numeroFattura" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "idCasisticaCredito" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "letturaF1" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "letturaF2" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "letturaF3" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "letturaMisuratore" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "letturaCorrettore" type = "xsd:string"/>  
+		  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "trasmissioneLettura" type = "xsd:string"/>  
+		  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "pagata" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "contrattoSAP" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "dataAutoLettura" type = "xsd:string"/>  
+		  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "fineFinestraTemporale" type = "xsd:string"/>  
+		  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "inizioFinestraTemporale" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "importo" type = "xsd:string"/>  		  
+		  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "messaggioRettifica" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "psri" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "statoLettura" type = "xsd:string"/> 
+		  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "numeroFatturaRettificata" type = "xsd:string"/>   
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "importoRettifica" type = "xsd:string"/>
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "modalitaRettifica" type = "xsd:string"/>  	  		  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "tipoRettifica" type = "xsd:string"/>  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "esito" type = "xsd:string"/>
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "numeroBolletta" type = "xsd:string"/> 
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "dataCalcoloIndenizzo" type = "xsd:string"/>
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "dataFatturaIndenizzo" type = "xsd:string"/>     	  
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "numeroFatturaIndenizzo" type = "xsd:string"/>
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "importoIndenizzo" type = "xsd:string"/>   
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "crmCausaleKO" type = "xsd:string"/>        
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "crmCodiceEsitoKO" type = "xsd:string"/>
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "crmContratto" type = "xsd:string"/>    
+				</xsd:sequence>      
+			</xsd:complexType>      
+			<xsd:complexType name = "TracciamentoCRMOutput">        
+				<xsd:sequence>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "esitoType" type = "EsitoType"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "idAttivita" type = "xsd:string"/>        
+				</xsd:sequence>      
+			</xsd:complexType>      
+			<xsd:complexType name = "EsitoType">        
+				<xsd:sequence>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "esito" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "codiceEsito" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "descrizione" type = "xsd:string"/>          
+					<xsd:element maxOccurs = "1" minOccurs = "0" name = "tipoEsito" type = "xsd:string"/>       
+					<xsd:element maxOccurs = "1" minOccurs = "1" name = "sistemaSorgenteEsito" type = "xsd:string"/>        
+				</xsd:sequence>      
+			</xsd:complexType>      
+			<xsd:element name = "TracciamentoCRMInputElement" type = "TracciamentoCRMInput"/>      
+			<xsd:element name = "TracciamentoCRMOutputElement" type = "TracciamentoCRMOutput"/>      
+			<xsd:element name = "EsitoTypeElement" type = "EsitoType"/>    
+		</xsd:schema>  
+	</wsdl:types>  
+	<wsdl:message name = "TracciamentoCRM_TracciamentoCRM_INPUT">    
+		<wsdl:part element = "ttns:TracciamentoCRMInputElement" name = "request"/>  
+	</wsdl:message>  
+	<wsdl:message name = "TracciamentoCRM_TracciamentoCRM_OUTPUT">    
+		<wsdl:part element = "ttns:TracciamentoCRMOutputElement" name = "response"/>  
+	</wsdl:message>  
+	<wsdl:portType name = "TracciamentoCRM">    
+		<wsdl:documentation>      
+			<DocumentationElement Documentation = ""/>    
+		</wsdl:documentation>    
+		<wsdl:operation name = "TracciamentoCRM">      
+			<wsdl:input message = "ns:TracciamentoCRM_TracciamentoCRM_INPUT"/>      
+			<wsdl:output message = "ns:TracciamentoCRM_TracciamentoCRM_OUTPUT"/>    
+		</wsdl:operation>  
+	</wsdl:portType>
+</wsdl:definitions>

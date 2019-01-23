@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.tibco.xpd.n2.wp/src"
+    editDirectory="/com.tibco.xpd.n2.wp.edit/src" editorDirectory="/com.tibco.xpd.n2.wp.editor/src"
+    modelPluginID="com.tibco.xpd.n2.wp" modelName="WorkPresentation" modelPluginClass=""
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false"
+    runtimeVersion="2.4">
+  <foreignModel>wpModel.xsd</foreignModel>
+  <foreignModel>channeltype.xsd</foreignModel>
+  <genPackages prefix="WP" basePackage="com.tibco.n2.wp.archive" resource="XML" disposableProviderFactory="true"
+      ecorePackage="workpresentation.ecore#/">
+    <genClasses ecoreClass="workpresentation.ecore#//BusinessServiceType"/>
+    <genClasses ecoreClass="workpresentation.ecore#//ChannelExtentionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelExtentionType/filename"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelExtentionType/location"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//ChannelsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ChannelsType/channel"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//ChannelType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/targetChannelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/presentationChannelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/implementationType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ChannelType/workType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ChannelType/extendedProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ChannelType/extensionConfig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ChannelType/businessService"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ChannelType/pageFlow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/channelId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/defaultChannel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//ChannelType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference workpresentation.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference workpresentation.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//DocumentRoot/serviceArchiveDescriptor"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//ExtendedPropertiesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ExtendedPropertiesType/property"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//FormType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//FormType/formIdentifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//FormType/relativePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//FormType/basePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//FormType/guid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//FormType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//FormType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//PageActivityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//PageActivityType/pageReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageActivityType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageActivityType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//PageFlowRefType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageFlowRefType/refId"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//PageFlowType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageFlowType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference workpresentation.ecore#//PageFlowType/pageActivity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageFlowType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageFlowType/moduleName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageFlowType/moduleVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageFlowType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PageFlowType/url"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//PropertyType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PropertyType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PropertyType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//PropertyType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//ServiceArchiveDescriptorType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ServiceArchiveDescriptorType/channels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//ServiceArchiveDescriptorType/version"/>
+    </genClasses>
+    <genClasses ecoreClass="workpresentation.ecore#//WorkTypeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//WorkTypeType/extendedProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//WorkTypeType/form"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//WorkTypeType/pageFlow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//WorkTypeType/extensionConfig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workpresentation.ecore#//WorkTypeType/pageFlowRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//WorkTypeType/guid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//WorkTypeType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workpresentation.ecore#//WorkTypeType/version"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Channeltype" basePackage="com.tibco.n2.common" resource="XML"
+      disposableProviderFactory="true" ecorePackage="channeltype.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="channeltype.ecore#//ChannelType">
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ChannelType/JSPChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ChannelType/GIChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ChannelType/PageflowChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ChannelType/EmailChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ChannelType/RssChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ChannelType/openspaceChannel"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ChannelType/MobileChannel"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="channeltype.ecore#//ImplementationType">
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ImplementationType/Pull"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//ImplementationType/Push"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="channeltype.ecore#//PresentationType">
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//PresentationType/JSP"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//PresentationType/GI"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//PresentationType/Pageflow"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//PresentationType/Email"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//PresentationType/Rss"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//PresentationType/GWT"/>
+      <genEnumLiterals ecoreEnumLiteral="channeltype.ecore#//PresentationType/iPhone"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="channeltype.ecore#//ChannelTypeObject"/>
+    <genDataTypes ecoreDataType="channeltype.ecore#//ImplementationTypeObject"/>
+    <genDataTypes ecoreDataType="channeltype.ecore#//PresentationTypeObject"/>
+  </genPackages>
+</genmodel:GenModel>

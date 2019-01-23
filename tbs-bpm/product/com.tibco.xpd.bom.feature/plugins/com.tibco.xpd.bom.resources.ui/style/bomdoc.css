@@ -1,0 +1,237 @@
+/* 
+ #00578D = TIBCO Blue 
+*/ 
+
+.error { color: red } 
+
+/*
+	body style = default for whole document.
+*/
+body
+{
+	background-color: 	white;
+	color: 				black;
+	font-family:		"Tahoma", sans-serif;
+	font-size:			xx-small;
+}
+
+a:visited, a:link, a:active
+{
+	color:			blue;
+	text-decoration:	none;
+	font-family:		"Tahoma", sans-serif;
+	font-size:		x-small;
+}
+
+table
+{
+	background-color: 	white;
+	color: 				black;
+	font-family:		"Tahoma", sans-serif;
+	font-size:			x-small;
+	width:				100%;
+}
+
+table.mainTitle
+{
+	background-color:	#00578D;
+	color:				white;
+	font-size:			large;
+	font-weight:		bolder;
+}
+
+table.Heading
+{
+	font-size:			small;
+	font-weight:		bolder;
+	width:				100%;
+}
+
+tr.indent
+{ 
+	margin-left:        30px;                                                                             
+}
+
+
+th
+{
+	font-weight:		bolder;
+	text-align:			left;
+	vertical-align:		top;
+	background-color:	#E8E8E8;
+	padding-left:		3px;
+}
+
+th.processTitle
+{
+	font-size:			medium;
+	border:				3px solid #00578D;
+	background-color:	#00578D;
+	color:				white;
+}
+
+th.sectionTitle
+{
+	border-bottom:		2px solid #00578D;
+	background-color:	white;
+}
+
+th.heading
+{
+	width:				20%;
+}
+
+th.headingId
+{
+	width:				5%;
+}
+
+th.columnWidth
+{
+	width:				20%;
+}
+
+th.columnIndent
+{ 
+	width:5%;                                                                                             
+}
+
+th.summaryColumnName                    
+{ 
+	width:30%; 
+	font-size:9px; 
+}
+
+th.summaryColumnDescription
+{ 
+	width:65%; 
+	font-size:9px;                                                                             
+}
+
+th.noMargin                             
+{ 
+	horizontal-align:left; 
+	border-top:0px solid; 
+	border-bottom:0px solid; 
+	border-left:0px solid;
+	background-color:white;
+}
+
+
+th.detailColumnId                       { font-size:9px;width:9%;                                                                               }
+th.detailColumnName                     { font-size:9px;width:23%;                                                                              }
+th.detailColumnType                     { font-size:9px;width:20%;                                                                              }
+th.detailColumnMultiplicity             { font-size:9px;width:8%;                                                                               }
+th.detailColumnAssociationName          { font-size:9px;width:20%;                                                                              }
+th.detailColumnDescription              { font-size:9px;width:20%;                                                                              }
+
+th.enumLiteralColumnId                  { font-size:9px;width:10%;                                                                              }
+th.enumLiteralColumnName                { font-size:9px;width:30%;                                                                              }
+th.enumLiteralColumnDescription         { font-size:9px;width:30%;                                                                              }
+th.enumLiteralColumnValue               { font-size:9px;width:30%;                                                                              }
+
+th.separator                            { background-color:white;height:30px;                                                                   }
+th.bomTitle                             { font-weight:bold;border:3px solid #00477D;background-color:#00578D;color:white;                       }
+th.detailTitle                          { font-weight:bold;border:3px solid #666666;background-color:#888888;color:white;                       }
+
+th.operationName                        { font-size:9px;width:25%;                                                                              }
+th.operationDescription                 { font-size:9px;width:50%;                                                                              }
+th.operationReturnType                  { font-size:9px;width:25%;                                                                              }
+
+th.operationParametersIndent            { font-size:9px;width:20%;                                                                              }
+th.operationParameters                  { font-size:9px;width:40%;                                                                              }
+th.operationParameterTypes              { font-size:9px;width:40%;                                                                              }
+
+th.transColumnWidth                     { width:33%;                                                                                            }
+th.position                             { font-size:9px;border-top:0px solid;border-bottom:0px solid;border-left:0px solid;text-align:right;
+                                          border-right:0px solid;background-color:white;color:black;                                            }
+th.bodyText                             { font-size:normal;font-height:12; border-top:0px solid;border-bottom:0px solid;border-left:0px solid;
+                                          border-right:0px solid;background-color:white;color:black;                                            }
+th.column_associationName               { width:20%;font-size:9px;                                                                              }
+th.column_associationType               { width:20%;font-size:9px;                                                                              }
+th.column_associationSourceDestination  { width:20%;font-size:9px;                                                                              }
+th.column_associationMultiplicity       { width:10%;font-size:9px;                                                                              }
+
+
+
+
+td
+{
+	border-bottom:		1px solid;
+	padding-bottom:		5px;
+	padding-left:		3px;
+	padding-right:		10px;
+	vertical-align:		top;
+}
+
+td.mainTitleCol1 {
+	text-align:			left;
+	width:				20%;
+}
+
+td.mainTitle {
+	text-align:			left;
+}
+
+
+td.poolLaneTitle {
+	font-weight:		bolder;
+	white-space:		nowrap;
+	width:				20%;
+}
+
+td.noBorder
+{
+	border-top:			0px solid;	
+	border-bottom:		0px solid;
+	border-left:		0px solid;
+	border-right:		0px solid;
+}
+
+td.sequenceFlowScript {
+	line-height:		140%;
+	
+}
+
+td.detailTitleLeft                      { horizontal-align:left;vertical-align;center;width:20%; font-weight:bold;border:0px solid #666666;
+                                          background-color: #888888;color:white;                                                                }
+td.detailTitleRight                     { width:80%; font-weight: bold;vertical-align:center; /*border:  1px solid #666666; */
+                                          background-color: white;color:black;                                                                  }
+td.detailTitleRight2                    { width:30%;                                                                                            }
+td.associationName                      { margin-left:20px;width:20%;                                                                           }
+td.associationSource                    { width:38%;                                                                                            }
+td.associationDestination               { width:37%;                                                                                            }
+td.indent                               { width:5%;                                                                                             }
+td.bodyText                             { font-size:normal;font-height:12;border-top:0px solid; border-bottom: 0px solid;text-align:left; }
+td.position                             { font-size:9px;border-top:0px solid;border-bottom:0px solid;border-left:0px solid;text-align:right;
+                                          border-right:0px solid;background-color:white;color:black;                                            }
+
+tbody.bodyText                          { font-size:normal;font-height:12;border-top:0px solid; border-bottom: 0px solid;
+                                          border-left: 0px solid; border-right: 0px solid; background-color: white; color:  black;              }
+
+div.section
+{
+	margin-top:			30px;
+	margin-bottom:		30px;
+}
+
+div.image
+{
+	margin-top:			20px;
+	margin-bottom:		20px;
+	text-align:			left;
+}
+
+div.rowUnderLine 
+{
+}
+
+.highLightText
+{
+	font-weight:		bolder;
+}
+
+.screenOnly {
+	visibility:		visible;
+}
+

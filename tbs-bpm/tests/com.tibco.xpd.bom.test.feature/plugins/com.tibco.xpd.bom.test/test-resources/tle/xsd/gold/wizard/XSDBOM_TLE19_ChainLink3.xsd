@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://XSDBOM_TLE19_ChainLink3" xmlns:tns2="http://XSDBOM_TLE19_ChainLink3"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns4="http://XSDBOM_TLE19_ChainLink4"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://XSDBOM_TLE19_ChainLink3">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/hfdgh/Business Objects/XSDBOM_TLE19_ChainLink3.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://XSDBOM_TLE19_ChainLink4" schemaLocation="XSDBOM_TLE19_ChainLink4.xsd"/>
+  <xsd:simpleType id="XSDBOM_TLE19_ChainLink3referenced2Simple2" name="referenced2Simple">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType id="XSDBOM_TLE19_ChainLink3referenced2Enum" name="referenced2Enum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ENUMLIT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType id="XSDBOM_TLE19_ChainLink3referenced2Complex" abstract="false"
+      mixed="false" name="referenced2Complex"/>
+  <xsd:element abstract="false" name="schema3linkto4" nillable="false" type="tns4:schema4"/>
+</xsd:schema>

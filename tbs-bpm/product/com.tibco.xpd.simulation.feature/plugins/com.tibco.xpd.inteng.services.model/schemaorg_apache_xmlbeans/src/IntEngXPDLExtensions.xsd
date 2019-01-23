@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 sp1 U (http://www.xmlspy.com) by mark swaine (Staffware PLC) -->
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by Kamlesh Upadhyaya (Staffware Plc) -->
+<xs:schema targetNamespace="http://www.tibco.com/IntEng" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tibco.com/IntEng">
+	<xs:element name="EJBApplication" type="EJBApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended attribute for EJB Application</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="EJBApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended attribute for EJB Application. The ClassName child element is the fully qualified name of the HomeInterface of the EJB that needs to be called.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PojoApplicationType">
+				<xs:sequence>
+					<xs:element name="JNDIName" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>JNDI name of the EJB.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="DefaultFormApplication" type="DefaultFormApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended attribute for Automatic Form Application</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DefaultFormApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended attribute for Automatic Form Application</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ManualApplicationType">
+				<xs:sequence>
+					<xs:element name="ReferenceRestriction" type="ReferenceRestrictionType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Change element (selected by 'formalParameterXPath') type to XPDL_CHOOSE, enumeration values are taken from XPath selection ('dataFieldXPath').</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ValidationScript" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>This is the script that needs to be validated before the application can be submitted. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FPXslt" type="FPXsltType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>This element will represent all the formal parameters on which xslt needs to applied.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FPList" type="FPListType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="NoOfColsInRow" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>This element tells the client to show number of columns in each row.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FPHidden" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>This FP will not be displayed. This could be a complex type  or simple type. Complex Type would be useful when you want to submit a row from the list or XSLT to a complex type. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="XMLMappingApplication" type="XMLMappingApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended attribute for XML Mapping Application</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="XMLMappingApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended attribute for XML Mapping Application</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Copy" type="CopyType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Copy value (or content) from specified XPath to specified XPath. Both XPaths have to be inside Formal Parameter to the application.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Initialize" type="InitializeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Initialize element selected by XPath with given value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DefaultListApplication" type="DefaultListApplicationType">
+		<xs:annotation>
+			<xs:documentation>ExtendedAttribute for Default List Application</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DefaultListApplicationType">
+		<xs:annotation>
+			<xs:documentation>ExtendedAttribute for Default List Application</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ManualApplicationType">
+				<xs:sequence>
+					<xs:element name="ListProperty" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>XPath which will be used to specify the list element, which will be used to display each row. The format will be /fp1/list, where fp1 is a formal parameter and the list is an element which repeats.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ElementsToShow" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>List of columns on the list (XPaths related to list).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RowSubmit" type="RowSubmitType" minOccurs="0"/>
+					<xs:element name="ListSorting" type="ListSortingType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NavigationButtonType">
+		<xs:annotation>
+			<xs:documentation>Element used on DefaultFormApplication and DefaultListApplication: List of buttons on the form. Value will be passed to 'navigation' Formal Parameter when the user presses the button. 
+					'Use' attribute describes how the form will be submitted after user clicks on the button: 
+					SKIP - only 'navigation' value will be submitted to the Interaction State, 
+					VALIDATE - values will be validated, and when they do not pass the validation, the form will be redisplayed.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Value" type="xs:string" use="required"/>
+		<xs:attribute name="Use" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="SKIP"/>
+					<xs:enumeration value="VALIDATE"/>
+					<xs:enumeration value="SAVE_STATE"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="ListFormApplication" type="ListFormApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended attribute for Automatic Form Application</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ListFormApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended attribute for Automatic Form Application</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="DefaultFormApplicationType">
+				<xs:sequence>
+					<xs:element name="Action" type="ActionType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RulesApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended Attributes for RulesApplication</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Rule" type="RuleType"/>
+			<xs:element name="FPXslt" type="FPXsltType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>This element allows the user to specify the xslt file to be applied on the formal parameter before being sent to the rules engine if in IN mode.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PojoApplicationType">
+		<xs:sequence>
+			<xs:element name="ClassName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name of the class on which the method has to be executed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MethodName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name of the method which needs to be called.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="PojoApplicaton" type="PojoApplicationType">
+		<xs:annotation>
+			<xs:documentation>Extended Attribute for PojoDelegate</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RowSubmitType">
+		<xs:sequence>
+			<xs:element name="Element" type="ElementType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Column on the list (XPath related to list) which will be submitted.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RowIndexFPName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This is name of the formal parameter to which the index of the selected row will be submitted.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FPXsltType">
+		<xs:sequence>
+			<xs:element name="FPName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The name of the formal parameter on which the xslt needs to be applied.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="XsltLocation" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The name of the xslt file that will be applied on the formal parameter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceRestrictionType">
+		<xs:sequence>
+			<xs:element name="FPXPath" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>If it starts with a slash then it means that some part of the formal parameter needs to be represented as a drop down, otherwise it will be assumed that the formal parameter itself needs to be represented as a drop down.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataFieldXPathIds" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>This is the XPath on one of dataFields of the process which contains id values for the drop down.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataFieldXPathValues" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>This is the XPath on one of dataFields of the process which contains display values for the drop down.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InitializeType">
+		<xs:sequence>
+			<xs:element name="Element" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>XPath to select 'from'. If it starts with a slash then it is assumed that it is an Xpath where the first element between first two slashes is name of the formal parameter and the rest is the property of the formal parameter. If it does not start with a slash then it is assumed to be the name of the formal parameter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CopyType">
+		<xs:sequence>
+			<xs:element name="From" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>XPath to select 'from'. If it starts with a slash then it is assumed that it is a Xpath where the first element between first two slashes is name of the formal parameter and the rest is the property of the formal parameter. If it does not start with a slash then it is assumed to be the name of the formal parameter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="To" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>XPath to select 'from'. If it starts with a slash then it is assumed that it is a Xpath where the first element between first two slashes is name of the formal parameter and the rest is the property of the formal parameter. If it does not start with a slash then it is assumed to be the name of the formal parameter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ElementType">
+		<xs:sequence>
+			<xs:element name="FPName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>This is the name of the formal parameter to which the value of Xpath will be submitted.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="XPath" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The value should be relative to the listProperty and should not start with a slash. It cannot resolve into complexType. It has to be simple type.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ColumnType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RuleType">
+		<xs:sequence>
+			<xs:element name="ruleSetId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Id of the rule.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourcePath" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>This is a '/' separated path name which identifies the resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FileName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>This is the file name of the ruleset. This should not have a fiile extension.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ActionType">
+		<xs:sequence>
+			<xs:element name="Name">
+				<xs:annotation>
+					<xs:documentation>The name of the action to be performed.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ADD"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ListProperty" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>XPath which will be used to specify the list element and display each row. The format will be /fp1/list, where fp1 is a formal parameter and the list is an element which repeats.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ListSortingType">
+		<xs:sequence>
+			<xs:element name="XPath" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The value is related to the List Property on the formal parameter. It can be an XPath.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataType">
+				<xs:annotation>
+					<xs:documentation>DataType used for sorting, (might not be same as the datatype of the element).</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NUMBER"/>
+						<xs:enumeration value="STRING"/>
+						<xs:enumeration value="DATE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SortOrder">
+				<xs:annotation>
+					<xs:documentation>Acsending or Descending.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ASCENDING"/>
+						<xs:enumeration value="DESCENDING"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ManualApplicationType">
+		<xs:sequence>
+			<xs:element name="Navigation" type="NavigationButtonType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of buttons on the form. Value will be passed to 'navigation' Formal Parameter when the user presses the button. 
+					'Use' attribute describes how the form will be submitted after user clicks on the button: 
+					SKIP - only 'navigation' value will be submitted to the Interaction State.
+					VALIDATE - values will be validated, and when they do not pass the validation, the form will be redisplayed.
+					SAVE_STATE - saves the InteractionState to the configured place(specified in web.xml file).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="StaffwareRulesManagerApplication" type="RulesApplicationType"/>
+	<xs:element name="JSR94RulesApplication" type="RulesApplicationType"/>
+	<xs:complexType name="FPListType">
+		<xs:sequence>
+			<xs:element name="FPName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The name of the formal parameter on which the list exists. The FPName cannot be same as the FPName under FPXslt element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ListXPath" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>XPath which will be used to specify the list element, which will be used to display each row. It has some restriction depending upon the value of the Action element.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Action" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name of the action to be performed.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ADD"/>
+						<xs:enumeration value="DISPLAY"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ElementsToShow" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The name of the elements of the list which needs to be shown and whether it is editable or not. This name is relative to the property which is a repeating element  as specified by the ListXPath element.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType mixed="1">
+					<xs:attribute name="isEditable" type="xs:boolean" use="optional" default="true"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SAAJWebServiceApplicationType">
+		<xs:sequence>
+			<xs:element name="WSDLLocation" type="xs:anyURI">
+				<xs:annotation>
+					<xs:documentation>The URI of the WSDL file for the Web service</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The service Name which is specified in the WSDL document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PortName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name of Port which needs to be connected</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperationName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name of Operation which needs to be invoked</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InputMsgName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name of inputMessage as defined in the WSDL which will help in uniquely identifying the operation to be invoked</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OutputMsgName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name of inputMessage as defined in the WSDL which will help in uniquely identifying the operation to be invoked</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SAAJWebServiceApplication" type="SAAJWebServiceApplicationType"/>
+	<xs:complexType name="JDBCApplicationType">
+		<xs:sequence>
+			<xs:element name="dataSourceName" type="xs:string" minOccurs="0"/>
+			<xs:element name="query" type="xs:string" minOccurs="0"/>
+			<xs:element name="update" type="xs:string" minOccurs="0"/>
+			<xs:element name="jdbcConnection" type="JDBCConnectionType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="JDBCConnectionType">
+		<xs:sequence>
+			<xs:element name="url" type="xs:string"/>
+			<xs:element name="username" type="xs:string"/>
+			<xs:element name="password" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?eclipse version="3.2"?>
+<plugin>
+    <extension
+               point="org.eclipse.help.toc">
+        <toc
+             file="toc.xml"
+             primary="true">
+        </toc>
+    </extension>
+    <!-- Link JavaDoc Location to Code Plugins-->
+    <extension point="org.eclipse.pde.core.javadoc">
+
+       <javadoc path="html/reference/javadoc"  archive="false">
+
+            <plugin id="com.tibco.xpd.customer.api"/>
+            
+       </javadoc>
+    </extension>
+    
+</plugin>

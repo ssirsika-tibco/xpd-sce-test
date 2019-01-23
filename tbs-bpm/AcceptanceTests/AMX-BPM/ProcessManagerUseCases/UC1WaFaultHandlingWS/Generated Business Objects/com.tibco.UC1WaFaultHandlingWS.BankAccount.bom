@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.UC1WaFaultHandlingWS.BankAccount" name="com.tibco.UC1WaFaultHandlingWS.BankAccount">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_99aKcgdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_99aKcwdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_99aKdAdTEeSRjauCcgnMbg" key="created" value="1404905394967"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_99aKdQdTEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9-VXgAdTEeSRjauCcgnMbg" key="checksum" value="3956698580"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.tibco.UC1WaFaultHandlingWS.BankAccountInvalidAccountNumber" name="InvalidAccountNumberType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_99OkQQdTEeSRjauCcgnMbg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.UC1WaFaultHandlingWS.BankAccountInsufficientFundType" name="InsufficientFundType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InsufficientFundTypebalance" name="balance" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_99RAgwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_99RAggdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InsufficientFundTypeaccount" name="account" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_99TcwwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_99TcwgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.UC1WaFaultHandlingWS.BankAccountBankAccount" name="BankAccount">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BankAccountPayFromAcct" name="PayFromAcct">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="PayFromAcctaccountNumber" name="accountNumber">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="PayFromAcctpayment" name="payment">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="PayFromAcctbalance" name="balance" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_99MvEQdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_99MvEgdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_99MvEwdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_99MvFAdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_99MvFQdTEeSRjauCcgnMbg" base_Package="com.tibco.UC1WaFaultHandlingWS.BankAccount?com.tibco.UC1WaFaultHandlingWS.BankAccount?" xsdTargetNamespace="http://www.tibco.com/UC1WaFaultHandlingWS/BankAccount/" xsdSchemaLocation="BankAccountWithFault.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.8.0.005" bomWsdlSources="BankAccountWithFault.wsdl"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_99OkQgdTEeSRjauCcgnMbg" base_PrimitiveType="com.tibco.UC1WaFaultHandlingWS.BankAccountInvalidAccountNumber?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInvalidAccountNumberType?" xsdSimpleTypeName="InvalidAccountNumber" xsdRestrictionId="" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_99OkQwdTEeSRjauCcgnMbg" base_Package="com.tibco.UC1WaFaultHandlingWS.BankAccount?com.tibco.UC1WaFaultHandlingWS.BankAccount?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_99PLUAdTEeSRjauCcgnMbg" name="InvalidAccountNumber" type="com.tibco.UC1WaFaultHandlingWS.BankAccountInvalidAccountNumber?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInvalidAccountNumberType?" isBaseXSDType="true" targetNamespace="http://www.tibco.com/UC1WaFaultHandlingWS/BankAccount/" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_99Uq4AdTEeSRjauCcgnMbg" name="InsufficientFund" type="com.tibco.UC1WaFaultHandlingWS.BankAccountInsufficientFundType?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType?" isAnonymous="true" targetNamespace="http://www.tibco.com/UC1WaFaultHandlingWS/BankAccount/" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_99PLUgdTEeSRjauCcgnMbg" base_Class="com.tibco.UC1WaFaultHandlingWS.BankAccountInsufficientFundType?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_99UD0AdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_99RAgQdTEeSRjauCcgnMbg" base_Property="InsufficientFundTypebalance?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType%3a%3abalance?" xsdName="balance" xsdForm="unqualified" xsdType="float" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_99UD0AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_99RnkAdTEeSRjauCcgnMbg" base_Property="InsufficientFundTypebalance?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType%3a%3abalance?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="3.4028235E38" xsdMinExclusiveValue="" xsdMinInclusiveValue="-3.4028235E38"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_99RnkQdTEeSRjauCcgnMbg" decimalUpper="3.4028235E38" decimalLower="-3.4028235E38" base_Property="InsufficientFundTypebalance?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType%3a%3abalance?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_99TcwQdTEeSRjauCcgnMbg" base_Property="InsufficientFundTypeaccount?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType%3a%3aaccount?" xsdName="account" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_99UD0AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR8AdTEeSRjauCcgnMbg" base_Element="_99MvEQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR8QdTEeSRjauCcgnMbg" base_Element="_99RAgwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR8gdTEeSRjauCcgnMbg" base_Element="com.tibco.UC1WaFaultHandlingWS.BankAccountInvalidAccountNumber?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInvalidAccountNumberType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR8wdTEeSRjauCcgnMbg" base_Element="_99RAggdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR9AdTEeSRjauCcgnMbg" base_Element="_99OkQQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR9QdTEeSRjauCcgnMbg" base_Element="com.tibco.UC1WaFaultHandlingWS.BankAccountInsufficientFundType?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR9gdTEeSRjauCcgnMbg" base_Element="_99MvEwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR9wdTEeSRjauCcgnMbg" base_Element="_99TcwwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR-AdTEeSRjauCcgnMbg" base_Element="_99TcwgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99VR-QdTEeSRjauCcgnMbg" base_Element="InsufficientFundTypeaccount?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType%3a%3aaccount?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_99V5AAdTEeSRjauCcgnMbg" base_Element="InsufficientFundTypebalance?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType%3a%3abalance?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_99WgEQdTEeSRjauCcgnMbg" base_Class="com.tibco.UC1WaFaultHandlingWS.BankAccountBankAccount?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aBankAccount?" xsdName="BankAccount" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_99Y8UAdTEeSRjauCcgnMbg" displayLabel="BankAccount" base_NamedElement="com.tibco.UC1WaFaultHandlingWS.BankAccountBankAccount?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aBankAccount?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_99ZjYAdTEeSRjauCcgnMbg" displayLabel="InsufficientFundType" base_NamedElement="com.tibco.UC1WaFaultHandlingWS.BankAccountInsufficientFundType?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_99ZjYQdTEeSRjauCcgnMbg" displayLabel="InvalidAccountNumber" base_NamedElement="com.tibco.UC1WaFaultHandlingWS.BankAccountInvalidAccountNumber?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInvalidAccountNumberType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_99aKcAdTEeSRjauCcgnMbg" displayLabel="account" base_NamedElement="InsufficientFundTypeaccount?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType%3a%3aaccount?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_99aKcQdTEeSRjauCcgnMbg" displayLabel="balance" base_NamedElement="InsufficientFundTypebalance?com.tibco.UC1WaFaultHandlingWS.BankAccount%3a%3aInsufficientFundType%3a%3abalance?"/>
+  <notation:Diagram xmi:id="_99aKdgdTEeSRjauCcgnMbg" type="Business Object Model" element="com.tibco.UC1WaFaultHandlingWS.BankAccount?com.tibco.UC1WaFaultHandlingWS.BankAccount?" name="com.tibco.UC1WaFaultHandlingWS.BankAccount" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_99aKdwdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_99aKeAdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

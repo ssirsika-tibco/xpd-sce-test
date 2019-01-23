@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl" name="com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Z1-OUeeiEeKLGLq6rH8VOg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z1-OUueiEeKLGLq6rH8VOg" key="author" value="aallway"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z1-OU-eiEeKLGLq6rH8VOg" key="created" value="1373273147957"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Z1-OVOeiEeKLGLq6rH8VOg" key="version" value="2"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdlBook" name="Book">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BookRequestBookInfo" name="RequestBookInfo">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RequestBookInfopart1" name="part1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RequestBookInfopart12" name="part1" direction="return">
+          <type xmi:type="uml:Class" href="com.amsbqa.Linda02.XSD1ImportsXSD2_Both_Define_types02.XSD1.bom#com.amsbqa.Linda02.XSD1ImportsXSD2_Both_Define_types02.XSD1bookInfoType?com.amsbqa.Linda02.XSD1ImportsXSD2_Both_Define_types02.XSD1%3a%3abookInfoType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Z10dUeeiEeKLGLq6rH8VOg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Z10dUueiEeKLGLq6rH8VOg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Z10dU-eiEeKLGLq6rH8VOg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Z10dVOeiEeKLGLq6rH8VOg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_Z11EYOeiEeKLGLq6rH8VOg" base_Package="com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl?com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl?" xsdTargetNamespace="http://www.amsbqa.com/Linda02/XSD1IncludeXSD2/BothDefineTypes/wsdl" xsdSchemaLocation="Book_XSD1IncludeXSD2.wsdl" xsdStudioVersion="3.6.0.qualifier"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Z13goOeiEeKLGLq6rH8VOg" base_Class="com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdlBook?com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl%3a%3aBook?" xsdName="Book" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Z1-OUOeiEeKLGLq6rH8VOg" displayLabel="Book" base_NamedElement="com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdlBook?com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl%3a%3aBook?"/>
+  <notation:Diagram xmi:id="_Z1-1YOeiEeKLGLq6rH8VOg" type="Business Object Model" element="com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl?com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl?" name="com.amsbqa.Linda02.XSD1IncludeXSD2.BothDefineTypes.wsdl" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Z1-1YeeiEeKLGLq6rH8VOg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_Z1-1YueiEeKLGLq6rH8VOg"/>
+  </notation:Diagram>
+</xmi:XMI>

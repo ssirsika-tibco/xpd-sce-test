@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/amxbpm/esitocaricamentovasvendita.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.enel.com/mercato/libero/interface/esitocaricamentovasvendita" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/interface/esitocaricamentovasvendita" tibex:src="file:/C:/Users/Santullo/Documents/Progetti/ENEL/Specifiche/R2-2014/PMO3222/WS/Muti/ReceiveEsitoCaricamentoVasVendita.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/amxbpm/esitocaricamentovasvendita.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/amxbpm/esitocaricamentovasvendita.xsd">
+            <xs:element name="EsitoCaricamentoVasVendita">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="IdProcessoBpm" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CanaleDiVendita" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CRMU_Servizi_Partner_Out" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CodiceEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DescrizioneEsito" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="EsitoCaricamentoVasVenditaService">
+        <wsdl:port binding="tns:EsitoVasVenditaPortTypeEndpointBinding" name="EsitoVasVenditaPortTypeEndpoint">
+            <soap:address location="http://localhost:9999/mercato/libero/service/bpm/ReceiveEsitoVasVendita"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="EsitoVasVenditaPortType">
+        <wsdl:operation name="ReceiveEsitoVasVendita">
+            <wsdl:input message="tns:EsitoCaricamentoVasVenditaRequest"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="EsitoVasVenditaPortTypeEndpointBinding" type="tns:EsitoVasVenditaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ReceiveEsitoVasVendita">
+            <soap:operation soapAction="ReceiveEsitoVasVendita" style="document"/>
+            <wsdl:input>
+                <soap:body parts="input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="EsitoCaricamentoVasVenditaRequest">
+        <wsdl:part element="ns0:EsitoCaricamentoVasVendita" name="input"/>
+    </wsdl:message>
+</wsdl:definitions>

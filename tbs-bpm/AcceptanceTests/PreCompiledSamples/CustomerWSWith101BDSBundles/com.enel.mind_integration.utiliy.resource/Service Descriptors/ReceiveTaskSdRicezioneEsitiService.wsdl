@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksdricezioneesiti" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.example.com/1380728005684" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.example.com/1380728005684" tibex:src="file:/C:/Users/Santullo/Documents/Progetti/ENEL/Schemas/ReceiveTaskSdRicezioneEsitiService.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksdricezioneesiti" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksdricezioneesiti">
+            <xs:element name="SdRicezioneEsitiCreazioneAnagraficaReq">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="OutIdFatt" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CodiceEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DescrizioneEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CorrelationId" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SdRicezioneEsitiEmissioneFatturaReq">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="OutIdFatt" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CodiceEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DescrizioneEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CorrelationId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DataEmissione" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Fattura" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdProtocollo" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ImportoFattura" type="xs:string"/>
+                        <xs:element minOccurs="0" name="NumeroFattura" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SdRicezioneEsitiStornoReq">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="OutIdFatt" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CodiceEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DescrizioneEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CorrelationId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DataEmissione" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Fattura" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdProtocollo" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ImportoFattura" type="xs:string"/>
+                        <xs:element minOccurs="0" name="NumeroFattura" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ReceiveTaskSdRicezioneEsitiService">
+        <wsdl:port binding="tns:ReceiveTaskSdRicezioneEsitiPortTypeEndpoint0Binding" name="ReceiveTaskSdRicezioneEsitiPortTypeEndpoint0">
+            <soap:address location="http://localhost:99999/Processes/ReceiveTaskSdRicezioneEsiti/ReceiveTaskSdRicezioneEsitiWSDL-service0.serviceagent/ReceiveTaskSdRicezioneEsitiPortTypeEndpoint0"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="ReceiveTaskSdRicezioneEsitiPortType">
+        <wsdl:operation name="ReceiveTaskSdRicezioneEsitiCreazioneAnagrafica">
+            <wsdl:input message="tns:SdCreazioneAnagraficaEsitiReq"/>
+        </wsdl:operation>
+        <wsdl:operation name="ReceiveTaskSdRicezioneEsitiEmissioneFattura">
+            <wsdl:input message="tns:SdEmissioneFatturaEsitiReq"/>
+        </wsdl:operation>
+        <wsdl:operation name="ReceiveTaskSdRicezioneEsitiStorno">
+            <wsdl:input message="tns:SdStornoEsitiReq"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ReceiveTaskSdRicezioneEsitiPortTypeEndpoint0Binding" type="tns:ReceiveTaskSdRicezioneEsitiPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ReceiveTaskSdRicezioneEsitiCreazioneAnagrafica">
+            <soap:operation soapAction="/Processes/ReceiveTaskSdRicezioneEsiti/ReceiveTaskSdRicezioneEsitiWSDL-service0.serviceagent/ReceiveTaskSdRicezioneEsitiPortTypeEndpoint0/ReceiveTaskSdRicezioneEsitiCreazioneAnagrafica" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="ReceiveTaskSdRicezioneEsitiEmissioneFattura">
+            <soap:operation soapAction="/Processes/ReceiveTaskSdRicezioneEsiti/ReceiveTaskSdRicezioneEsitiWSDL-service0.serviceagent/ReceiveTaskSdRicezioneEsitiPortTypeEndpoint0/ReceiveTaskSdRicezioneEsitiEmissioneFattura" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="ReceiveTaskSdRicezioneEsitiStorno">
+            <soap:operation soapAction="/Processes/ReceiveTaskSdRicezioneEsiti/ReceiveTaskSdRicezioneEsitiWSDL-service0.serviceagent/ReceiveTaskSdRicezioneEsitiPortTypeEndpoint0/ReceiveTaskSdRicezioneEsitiStorno" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="SdCreazioneAnagraficaEsitiReq">
+        <wsdl:part element="ns0:SdRicezioneEsitiCreazioneAnagraficaReq" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="SdEmissioneFatturaEsitiReq">
+        <wsdl:part element="ns0:SdRicezioneEsitiEmissioneFatturaReq" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="SdStornoEsitiReq">
+        <wsdl:part element="ns0:SdRicezioneEsitiStornoReq" name="Input"/>
+    </wsdl:message>
+</wsdl:definitions>

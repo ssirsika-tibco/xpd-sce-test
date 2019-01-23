@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="UC6TLEMatchingElemAndComplex" resourceRoot="" soapui-version="3.6" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="MatchingElAndComplex_EP" type="wsdl" bindingName="{urn:amx:BPMEnvironment/com.example.uc6tlematchingelemandcomplex_1.0.0.201010121621.daa}MatchingElAndComplex_EP" soapVersion="1_1" anonymous="optional" definition="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=472&amp;svc_binding_name=MatchingElAndComplex_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=472&amp;svc_binding_name=MatchingElAndComplex_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode"><con:part><con:url>http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=472&amp;svc_binding_name=MatchingElAndComplex_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="ProvidingServiceProcessFlow_1.0.0.201010121621_service_ProvidingService_ProvidingServiceProcess_ProvidingService_ProvidingServiceProcess" targetNamespace="urn:amx:BPMEnvironment/com.example.uc6tlematchingelemandcomplex_1.0.0.201010121621.daa" xmlns:tns="urn:amx:BPMEnvironment/com.example.uc6tlematchingelemandcomplex_1.0.0.201010121621.daa" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://example.com/MatchingElemAndComplex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://example.com/MatchingElemAndComplex" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns="http://example.com/MatchingElemAndComplex" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Car">
+        <xs:sequence>
+          <xs:element name="colour" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Car" type="ns0:Car"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="TesterOperationRequest">
+    <wsdl:part name="inputCar" element="ns0:Car"/>
+  </wsdl:message>
+  <wsdl:message name="TesterOperationResponse">
+    <wsdl:part name="OutputCar" element="ns0:Car"/>
+  </wsdl:message>
+  <wsdl:portType name="MatchingElAndComplex">
+    <wsdl:operation name="TesterOperation">
+      <wsdl:input message="tns:TesterOperationRequest"/>
+      <wsdl:output message="tns:TesterOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MatchingElAndComplex_EP" type="tns:MatchingElAndComplex">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TesterOperation">
+      <wsdl:documentation/>
+      <soap:operation style="document" soapAction="TesterOperation"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="inputCar"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="OutputCar"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProvidingServiceProcessFlow_1.0.0.201010121621_service_ProvidingService_ProvidingServiceProcess_ProvidingService_ProvidingServiceProcess">
+    <wsdl:port name="MatchingElAndComplex_EP" binding="tns:MatchingElAndComplex_EP">
+      <soap:address location="http://0.0.0.0:8080/ProvidingService/ProvidingServiceProcess/201010121621"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEMatchingElemAndComplex/ServiceProviderProcess</con:endpoint></con:endpoints><con:operation isOneWay="false" action="TesterOperation" name="TesterOperation" bindingOperationName="TesterOperation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEMatchingElemAndComplex/ServiceProviderProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://example.com/MatchingElemAndComplex">
+  <soapenv:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">
+      <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="UsernameToken-4">
+        <wsse:Username>tibco-admin</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+        <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">9eHw58NzLIZK1LSbjc8LrA==</wsse:Nonce>
+        <wsu:Created>2010-04-24T22:20:17.539Z</wsu:Created>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+   <soapenv:Body>
+      <mat:Car>
+         <colour>5</colour>
+      </mat:Car>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="TesterOperation"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ConsumingServiceProcess_EP" type="wsdl" bindingName="{urn:amx:BPMEnvironment/com.example.uc6tlematchingelemandcomplex_1.0.0.201010121621.daa}ConsumingServiceProcess_EP" soapVersion="1_1" anonymous="optional" definition="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=474&amp;svc_binding_name=ConsumingServiceProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=474&amp;svc_binding_name=ConsumingServiceProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode"><con:part><con:url>http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=474&amp;svc_binding_name=ConsumingServiceProcess_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="ConsumingServiceProcessFlow_1.0.0.201010121621_service_ConsumingService_ConsumingServiceProcess_ConsumingService_ConsumingServiceProcess" targetNamespace="urn:amx:BPMEnvironment/com.example.uc6tlematchingelemandcomplex_1.0.0.201010121621.daa" xmlns:tns="urn:amx:BPMEnvironment/com.example.uc6tlematchingelemandcomplex_1.0.0.201010121621.daa" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types/>
+  <wsdl:message name="ConsumingServiceProcess_StartEvent_INPUT"/>
+  <wsdl:portType name="ConsumingServiceProcess" ns0:FlowContainer="_0oe6ocbyEd-CToEkCDJNFw" xmlns:ns0="http://www.tibco.com/bs3.2/extensions">
+    <wsdl:operation name="StartEvent">
+      <wsdl:input message="tns:ConsumingServiceProcess_StartEvent_INPUT" ns0:Event="_231uKcbyEd-CToEkCDJNFw"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsumingServiceProcess_EP" type="tns:ConsumingServiceProcess">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="StartEvent">
+      <wsdl:documentation/>
+      <soap:operation style="rpc" soapAction="StartEvent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsumingServiceProcessFlow_1.0.0.201010121621_service_ConsumingService_ConsumingServiceProcess_ConsumingService_ConsumingServiceProcess">
+    <wsdl:port name="ConsumingServiceProcess_EP" binding="tns:ConsumingServiceProcess_EP">
+      <soap:address location="http://0.0.0.0:8080/ConsumingService/ConsumingServiceProcess/201010121621"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEMatchingElemAndComplex/ServiceConsumerProcess</con:endpoint></con:endpoints><con:operation isOneWay="false" action="StartEvent" name="StartEvent" bindingOperationName="StartEvent" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEMatchingElemAndComplex/ServiceConsumerProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="urn:amx:BPMEnvironment/com.example.uc6tlematchingelemandcomplex_1.0.0.201010121621.daa">
+  <soapenv:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">
+      <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="UsernameToken-4">
+        <wsse:Username>tibco-admin</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+        <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">9eHw58NzLIZK1LSbjc8LrA==</wsse:Nonce>
+        <wsu:Created>2010-04-24T22:20:17.539Z</wsu:Created>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+   <soapenv:Body>
+      <com:StartEvent/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="StartEvent"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

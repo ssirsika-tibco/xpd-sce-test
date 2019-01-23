@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by Duncan Head (Tibco Software Limited) -->
+<xs:schema xmlns="http://workcal.api.dac.n2.tibco.com" xmlns:dac="http://basic.api.dac.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://workcal.api.dac.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://basic.api.dac.n2.tibco.com" schemaLocation="dac-basic.xsd"/>
+	<xs:complexType name="XmlCalendarResponse">
+		<xs:annotation>
+			<xs:documentation>A generic request/response type used to pass details of one of the possible Calendar types.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element maxOccurs="1" minOccurs="0" name="base-calendar" type="dac:XmlBaseCalendar"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="overlay-calendar" type="dac:XmlOverlayCalendar"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="XmlCalendarEntries">
+		<xs:annotation>
+			<xs:documentation>A generic request/response type used to pass details of one or more Calendar Entry types.</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded" minOccurs="1">
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="working-day" type="dac:XmlExistingWorkingDayExclusion"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="recurring" type="dac:XmlRecurringExclusionDetail"/>
+		</xs:choice>
+		<xs:attribute name="version" type="dac:XmlLockVersion" use="required">
+			<xs:annotation>
+				<xs:documentation>Returns the version number of the Calendar from which the entries are taken.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attributeGroup ref="dac:XmlCalendarName">
+			<xs:annotation>
+				<xs:documentation>The identifying namespace and name of the Calender to which the given CalendarEntries belongs.</xs:documentation>
+			</xs:annotation>
+		</xs:attributeGroup>
+		<xs:attributeGroup ref="dac:XmlPeriod">
+			<xs:annotation>
+				<xs:documentation>The period that Calendar Entries cover.</xs:documentation>
+			</xs:annotation>
+		</xs:attributeGroup>
+	</xs:complexType>
+	<xs:element name="listTimeZones">
+		<xs:annotation>
+			<xs:documentation>Request element for listTimeZones operation. No parameters are required for this request.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element default="0" name="empty" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>No request parameters are required for this request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listTimeZonesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listTimeZones operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:annotation>
+					<xs:documentation>A collection of the time-zone identifiers recognised by the Calendar component.</xs:documentation>
+				</xs:annotation>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="time-zone" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listCalendars">
+		<xs:annotation>
+			<xs:documentation>Request element for listCalendars operation. No parameters are required for this request.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="namespace" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>An optional value to return only those calendars with the given namespace.
+The namespace comparison will be case-sensitive.
+If the given namespace ends in an asterisk, then all calendars whose namespace starts with the given value will be returned.
+If no namespace is specified, all calendars will be listed.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listCalendarsResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listCalendars operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="calendar" type="dac:XmlCalendarSummary">
+					<xs:annotation>
+						<xs:documentation>The summary information for a collection of named calendars; including their Calendar References.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="resolveReferences">
+		<xs:annotation>
+			<xs:documentation>Request element for resolveReferences operation. Specifies one or more references to be resolved.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="reference" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="resolveReferencesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for resolveReferences operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="reference" type="dac:XmlCalendarReference">
+					<xs:annotation>
+						<xs:documentation>The identifying namespace and name of the Calendar to be returned.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="saveCalendarReferences">
+		<xs:annotation>
+			<xs:documentation>Request element for saveCalendarReferences operation. Specifies a calendar and the references to be associated with it.
+If a given reference is already associated with another calendar, it will be removed before adding it to the calendar identified in this request.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="add-reference" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The collection of Calendar References to be associated with the identified Calendar. This is an additive operation. Any existing references to the Calendar that aren't included in this collection will not be removed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="remove-reference" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The collection of Calendar References to be removed from the identified Calendar. This is an additive operation. Any existing references to the Calendar that aren't included in this collection will not be removed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:attribute default="-1" name="version" type="dac:XmlLockVersion">
+				<xs:annotation>
+					<xs:documentation>The version number used to detect concurrent updates to the same Calendar; also known as optimistic locking.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attributeGroup ref="dac:XmlCalendarName">
+				<xs:annotation>
+					<xs:documentation>The identifying namespace and name of the Calendar whose references are to be updated.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="saveCalendarReferencesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for saveCalendarReferences operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="1" name="updated-calendar" type="dac:XmlUpdatedCalendar">
+					<xs:annotation>
+						<xs:documentation>The identifier and version of a Calendar that has been updated as a result of the saved Calendar References.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="copyCalendar">
+		<xs:annotation>
+			<xs:documentation>Request element for copyCalendar operation. Specifies the calendar to be copied, and the name for the new calendar.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="dac:XmlCalendarName">
+				<xs:annotation>
+					<xs:documentation>The identifying namespace and name of the Calendar to be copied.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+			<xs:attribute name="dest-namespace" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>The namespace to be assigned to the new Calendar. A namespace of null is still considered a valid namespace.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="dest-name" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>The name to be assigned to the new Calendar. This must be unique within the given namespace.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute default="false" name="include-entries" type="xs:boolean" use="optional">
+				<xs:annotation>
+					<xs:documentation>Optional boolean attribute to request that the entries of the orginal Calendar are also copied.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="copyCalendarResponse" type="dac:XmlUpdatedCalendar">
+		<xs:annotation>
+			<xs:documentation>Response element for copyCalendar operation.
+Returns the new version number assigned to the newly created Calendar, and the name and namespace assigned to the Calendar. Acts as a confirmation of success.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getCalendar">
+		<xs:annotation>
+			<xs:documentation>Request element for getCalendar operation. Specifies the calendar to be listed. </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="dac:XmlCalendarName">
+				<xs:annotation>
+					<xs:documentation>The identifying namespace and name of the Calendar to be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getCalendarResponse" type="XmlCalendarResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for getCalendar operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saveCalendar" type="XmlCalendarResponse">
+		<xs:annotation>
+			<xs:documentation>Request element for saveCalendar operation. Specifies the calendar to be saved. If a calendar of this name does not exist, a new calendar is created.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saveCalendarResponse" type="XmlCalendarResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for saveCalendar operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="renameCalendar">
+		<xs:annotation>
+			<xs:documentation>Request element for renameCalendar operation. Specifies the calendar to be renamed, and the new name.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="version" type="dac:XmlLockVersion" use="required">
+				<xs:annotation>
+					<xs:documentation>The version number used to detect concurrent updates to the same Calendar. The value should be taken from the response of the orginal request to getCalender.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="old-namespace" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>The namespace in which the calendar currently resides. A namespace of null is still considered a valid namespace.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="old-name" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>The name of the calendar to be renamed or moved.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="new-namespace" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>The namespace to which the calendar is to be moved. If the calendar is not to be moved, this should be the same as the original value. Calendars sharing the same namespace must have unique names. A namespace of null (or not specified) is still considered a valid namespace.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="new-name" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>The new name of the calendar. If the calendar is only to be moved, this should be the same as the original value. This must be unique within the given namespace.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="renameCalendarResponse" type="dac:XmlUpdatedCalendar">
+		<xs:annotation>
+			<xs:documentation>Response element for renameCalendar operation. 
+Returns the new version number assigned to the modified Calendar, and the name and namespace assigned to the Calendar. Acts as a confirmation of success.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="deleteCalendar">
+		<xs:annotation>
+			<xs:documentation>Request element for deleteCalendar operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="version" type="dac:XmlLockVersion" use="required">
+				<xs:annotation>
+					<xs:documentation>The version number used to detect concurrent updates to the same Calendar. The value should be taken from the response of the orginal request to getCalender.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attributeGroup ref="dac:XmlCalendarName">
+				<xs:annotation>
+					<xs:documentation>The name and namespace of the calendar to be deleted.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteCalendarResponse" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Response element for deleteCalendar operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getCalEntries">
+		<xs:annotation>
+			<xs:documentation>Request element for getCalEntries operation. Specifies a calendar and a date range for entries.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="dac:XmlCalendarName">
+				<xs:annotation>
+					<xs:documentation>The identifying namespace and name of the Calender for which the Calendar Entries are to be retrieved.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+			<xs:attributeGroup ref="dac:XmlPeriod">
+				<xs:annotation>
+					<xs:documentation>The period for which Calendar Entries are to be listed in the response.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getCalEntriesResponse" type="XmlCalendarEntries">
+		<xs:annotation>
+			<xs:documentation>Response element for getCalEntries operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saveCalendarEntry">
+		<xs:annotation>
+			<xs:documentation>Request element for saveCalendarEntry operation. If multiple instructions are contained in a single request they are processed sequentially. For example, a create working day exclusion followed by a create recurring working day exclusion followed by an update recurring working day exclusion.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="create-working-day" type="dac:XmlNewWorkingDayExclusion">
+					<xs:annotation>
+						<xs:documentation>List of exclusions to be created.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="update-working-day" type="dac:XmlExistingWorkingDayExclusion">
+					<xs:annotation>
+						<xs:documentation>List of exclusions to be updated, identified by GUID.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="create-recurring" type="dac:XmlNewRecurringExclusion">
+					<xs:annotation>
+						<xs:documentation>List of recurring exclusions to be created.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="update-recurring" type="dac:XmlExistingRecurringExclusion">
+					<xs:annotation>
+						<xs:documentation>List of recurring exclusions to be updated. Identified by GUID.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="version" type="dac:XmlLockVersion" use="required">
+				<xs:annotation>
+					<xs:documentation>The version of the Calendar to which the caller is saving the given Calendar Entry.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attributeGroup ref="dac:XmlCalendarName">
+				<xs:annotation>
+					<xs:documentation>The identifying namespace and name of the Calender to which the given CalendarEntry belongs.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+			<xs:attributeGroup ref="dac:XmlPeriod">
+				<xs:annotation>
+					<xs:documentation>The period for which Calendar Entries are to be listed in the response.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="saveCalendarEntryResponse" type="XmlCalendarEntries">
+		<xs:annotation>
+			<xs:documentation>Response element for saveCalendarEntry operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="deleteCalendarEntries">
+		<xs:annotation>
+			<xs:documentation>Request element for deleteCalendarEntries operation. Deletes the Calendar Entries identified by the given list of entry-guids. The deleted entries cannot be recovered.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="entry-guid" type="dac:XmlGuidType">
+					<xs:annotation>
+						<xs:documentation>List of GUIDs of the calendar entries to be deleted.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="version" type="dac:XmlLockVersion" use="required"/>
+			<xs:attributeGroup ref="dac:XmlCalendarName">
+				<xs:annotation>
+					<xs:documentation>The namespace and name that uniquely identify the Calendar from which the entries are to be removed.
+This is not required to identify the Calendar Entries, but is used to verify that the listed Calendar Entries belong to the named Calendar.
+An exception will be raised (and no entries deleted) if any GUID in the list does not belong to the named Calendar.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteCalendarEntriesResponse" type="dac:XmlUpdatedCalendar">
+		<xs:annotation>
+			<xs:documentation>Response element for deleteCalendarEntries operation.
+Returns the new version number assigned to the modified Calendar, and the name and namespace of the Calendar. Acts as a confirmation of success.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="purgeCalendarEntries">
+		<xs:annotation>
+			<xs:documentation>Request element for purgeCalendarEntries operation. Deletes the Calendar Entries, of the named Calendar, whose end date is earlier than the given date. The deleted entries cannot be recovered.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="version" type="dac:XmlLockVersion" use="required"/>
+			<xs:attributeGroup ref="dac:XmlCalendarName">
+				<xs:annotation>
+					<xs:documentation>The namespace and name that uniquely identify the calendar from which the entries are to be removed.</xs:documentation>
+				</xs:annotation>
+			</xs:attributeGroup>
+			<xs:attribute name="to-date" type="xs:date" use="required">
+				<xs:annotation>
+					<xs:documentation>The date up to which the named Calendar's entries are to be purged.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="purgeCalendarEntriesResponse" type="dac:XmlUpdatedCalendar">
+		<xs:annotation>
+			<xs:documentation>Response element for purgeCalendarEntries operation.
+Returns the new version number assigned to the modified Calendar, and the name and namespace of the Calendar. Acts as a confirmation of success.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

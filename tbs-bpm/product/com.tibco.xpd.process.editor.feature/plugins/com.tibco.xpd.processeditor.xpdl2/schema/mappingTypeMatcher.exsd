@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.processeditor.xpdl2" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.processeditor.xpdl2" id="mappingTypeMatcher" name="Mapping Type Matcher"/>
+      </appinfo>
+      <documentation>
+         This extension point allows to contribute type matchers which would be used while generating predictive mappings and validating the types of those mappings.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="mappingTypeMatcher"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  This id is used to identify the contributor from the preference store.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Name as shown on the preference page
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="mappingTypeMatcher">
+      <complexType>
+         <attribute name="destinationId" type="string">
+            <annotation>
+               <documentation>
+                  The destination id is a reference to the global destinations. This field is optional. If a destination is specified, this will apply to that specific destination. If a destination is not specified, it will considered part of the default type matchers and will apply to all destinations following the grammar and context.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.tibco.xpd.destinations.globalDestinationEnvironment/globalDestination/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="grammarId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The grammar id to which this type checker needs to be bound
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.tibco.xpd.script.ui.scriptGrammar/scriptGrammar/@grammarId"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="typeMatcherClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The type matcher class sets up the mapping ends that are required to create a mapping. The list is returned to the section which creates the datamapping using the commands that it has been installed with.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.processeditor.xpdl2.extensions.AbstractTypeMatcher:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="doesTypeMatching" type="boolean" use="default" value="true">
+            <annotation>
+               <documentation>
+                  This field is used for type matching validations. This is reserved for future integration with the validation of mapping types
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="includeDefault" type="boolean" use="default" value="true">
+            <annotation>
+               <documentation>
+                  This flag is used to mention that this type matcher needs to be used for the given destination and the default type matchers shouldn&apos;t be grouped together for type matching
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="priority" use="default" value="Medium">
+            <annotation>
+               <documentation>
+                  The  extension point permits specification of priority but the final determination is made by the mapper. This guidance should be provided to extension implementers: 
+• Highest - very specific, destination aware mappings that are extremely likely or guaranteed to be correct should use this priority. 
+• High – very specific, destination aware mappings that are extremely likely or guaranteed to be correct should use this priority. 
+• Medium – exact match mapping creators.
+• Low – inexact matches such as ‘like’ or ‘contains’ should have this priority. 
+• Lowest – inexact matches such as ‘like’ or ‘contains’ should have this priority.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="Highest">
+                  </enumeration>
+                  <enumeration value="High">
+                  </enumeration>
+                  <enumeration value="Medium">
+                  </enumeration>
+                  <enumeration value="Low">
+                  </enumeration>
+                  <enumeration value="Lowest">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="showInPreferencePage" type="boolean" use="default" value="true">
+            <annotation>
+               <documentation>
+                  Flag to let the contributor decide whether the contributor should be allowed to be disabled via the preference page.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

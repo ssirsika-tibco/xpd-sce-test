@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tibco.com/test/schema" targetNamespace="http://www.tibco.com/test/schema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="testAlone">
+	<xsd:restriction base="xsd:decimal">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="test1">
+	<xsd:restriction base="xsd:decimal">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="testComplex">
+	<xsd:sequence>
+	<xsd:element name="attr" type="xsd:decimal">		
+	</xsd:element>
+	<xsd:element name="attr2" >
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:decimal">				
+			</xsd:restriction>
+		</xsd:simpleType>	
+	</xsd:element>
+	</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="testMeSimpleContent">
+		<xsd:simpleContent>
+		<xsd:extension base="xsd:decimal">		
+		<xsd:attribute name="ga" type="xsd:decimal"></xsd:attribute>		
+		</xsd:extension>	
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="test2">
+		<xsd:restriction base="test1">			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="mountainbikesize">
+	  <xsd:restriction base="xsd:decimal">
+	    <xsd:enumeration value="1"/>
+	    <xsd:enumeration value="2"/>
+	    <xsd:enumeration value="3"/>
+	  </xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="FamilyMountainBikeSizes">
+	   <xsd:simpleContent>
+	      <xsd:extension base="mountainbikesize">
+	         <xsd:attribute name="familyMember" type="xsd:decimal" />
+	      </xsd:extension>
+	   </xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="testAloneFloat">
+	<xsd:restriction base="xsd:float">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="test1Float">
+	<xsd:restriction base="xsd:float">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="testComplexFloat">
+	<xsd:sequence>
+	<xsd:element name="attrFloat" type="xsd:float">		
+	</xsd:element>
+	<xsd:element name="attr2Float" >
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:float">				
+			</xsd:restriction>
+		</xsd:simpleType>	
+	</xsd:element>
+	</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="testMeSimpleContentFloat">
+		<xsd:simpleContent>
+		<xsd:extension base="xsd:float">		
+		<xsd:attribute name="gaFloat" type="xsd:float"></xsd:attribute>		
+		</xsd:extension>	
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="test2Float">
+		<xsd:restriction base="test1Float">			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="mountainbikesizeFloat">
+	  <xsd:restriction base="xsd:float">
+	    <xsd:enumeration value="1"/>
+	    <xsd:enumeration value="2"/>
+	    <xsd:enumeration value="3"/>
+	  </xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="FamilyMountainBikeSizesFloat">
+	   <xsd:simpleContent>
+	      <xsd:extension base="mountainbikesizeFloat">
+	         <xsd:attribute name="familyMemberFloat" type="xsd:float" />
+	      </xsd:extension>
+	   </xsd:simpleContent>
+	</xsd:complexType>	
+	
+	<xsd:simpleType name="testAloneDouble">
+	<xsd:restriction base="xsd:double">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="test1Double">
+	<xsd:restriction base="xsd:double">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="testComplexDouble">
+	<xsd:sequence>
+	<xsd:element name="attrDouble" type="xsd:double">		
+	</xsd:element>
+	<xsd:element name="attr2Double" >
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:double">				
+			</xsd:restriction>
+		</xsd:simpleType>	
+	</xsd:element>
+	</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="testMeSimpleContentDouble">
+		<xsd:simpleContent>
+		<xsd:extension base="xsd:double">		
+		<xsd:attribute name="gaDouble" type="xsd:double"></xsd:attribute>		
+		</xsd:extension>	
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="test2Double">
+		<xsd:restriction base="test1Double">			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="mountainbikesizeDouble">
+	  <xsd:restriction base="xsd:double">
+	    <xsd:enumeration value="1"/>
+	    <xsd:enumeration value="2"/>
+	    <xsd:enumeration value="3"/>
+	  </xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="FamilyMountainBikeSizesDouble">
+	   <xsd:simpleContent>
+	      <xsd:extension base="mountainbikesizeDouble">
+	         <xsd:attribute name="familyMemberDouble" type="xsd:double" />
+	      </xsd:extension>
+	   </xsd:simpleContent>
+	</xsd:complexType>
+	
+</xsd:schema>

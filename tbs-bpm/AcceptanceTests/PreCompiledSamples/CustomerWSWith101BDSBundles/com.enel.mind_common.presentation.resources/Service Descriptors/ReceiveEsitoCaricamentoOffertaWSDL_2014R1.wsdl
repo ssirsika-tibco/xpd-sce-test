@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/ReceiveEsitoCaricamentoOfferta_2014R1.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.enel.com/mercato/libero/wsdl/ReceiveEsitoCaricamentoOfferta_2014R1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/wsdl/ReceiveEsitoCaricamentoOfferta_2014R1" tibex:src="file:/C:/Users/Santullo/Documents/Progetti/ENEL/Schemas/PMO2706/ReceiveEsitoCaricamentoOffertaWSDL_2014R1.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/ReceiveEsitoCaricamentoOfferta_2014R1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/ReceiveEsitoCaricamentoOfferta_2014R1.xsd">
+            <xs:element name="RicezioneEsitoCaricamentoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Canale_Di_Vendita" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Causale_Operazione" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Codice_Scarto" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Descrizione_Scarto" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito_Caricamento" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Id_Attivita_Scarto" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Id_BPM" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Id_Transazione_Canale" type="xs:string"/>
+                        <xs:element minOccurs="0" name="TipoKO" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdentificativoOfferta" type="xs:string"/>
+                        <xs:element minOccurs="0" name="identificativoLineaOfferta" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ReceiveEsitoCaricamentoOfferta_2014R1">
+        <wsdl:port binding="tns:EsitoCaricamentoOffertaPortType_v2Endpoint1Binding" name="EsitoCaricamentoOffertaPortType_v2Endpoint1">
+            <soap:address location="http://localhost:-1/mercato/libero/service/bpm/ReceiveEsitoCaricamentoOfferta_2014R1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="EsitoCaricamentoOffertaPortType_2014R1">
+        <wsdl:operation name="RicezioneEsitoCaricamentoOfferta_v2">
+            <wsdl:input message="tns:EsitoCaricamentoOffertaResponse_v2"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="EsitoCaricamentoOffertaPortType_v2Endpoint1Binding" type="tns:EsitoCaricamentoOffertaPortType_2014R1">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="RicezioneEsitoCaricamentoOfferta_v2">
+            <soap:operation soapAction="RicezioneEsitoCaricamentoOfferta_v2" style="document"/>
+            <wsdl:input>
+                <soap:body parts="request" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="EsitoCaricamentoOffertaResponse_v2">
+        <wsdl:part element="ns0:RicezioneEsitoCaricamentoResponse" name="request"/>
+    </wsdl:message>
+</wsdl:definitions>

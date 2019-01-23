@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xsdAllTypes" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xsdAllTypes">
+	<xs:complexType name="TypesTestComplexType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="myDuration" type="xs:duration"/>
+			<xs:element minOccurs="0" name="myDateTime" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="myDateTimeTZ">
+				<xs:simpleType>
+					<xs:restriction base="xs:dateTime">
+						<xs:pattern value=".+T.+(Z|[+-].+)"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="myTime" type="xs:time"/>
+			<xs:element minOccurs="0" name="myDate" type="xs:date"/>
+			<xs:element minOccurs="0" name="myGYearMonth" type="xs:gYearMonth"/>
+			<xs:element minOccurs="0" name="myGYear" type="xs:gYear"/>
+			<xs:element minOccurs="0" name="myGMonthDay" type="xs:gMonthDay"/>
+			<xs:element minOccurs="0" name="myGDay" type="xs:gDay"/>
+			<xs:element minOccurs="0" name="myGMonth" type="xs:gMonth"/>
+			<xs:element minOccurs="0" name="myString" type="xs:string"/>
+			<xs:element minOccurs="0" name="myBoolean" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="myBooleanNillable" nillable="true" type="xs:boolean"/>
+			<xs:element minOccurs="0" name="myFloat" type="xs:float"/>
+			<xs:element minOccurs="0" name="myFloatNillable" nillable="true" type="xs:float"/>
+			<xs:element minOccurs="0" name="myDecimal" type="xs:decimal"/>
+			<xs:element minOccurs="0" name="myDouble" type="xs:double"/>
+			<xs:element minOccurs="0" name="myDoubleNillable" nillable="true" type="xs:double"/>
+			<xs:element minOccurs="0" name="myAnyURI" type="xs:anyURI"/>
+			<xs:element minOccurs="0" name="myQName" type="xs:QName"/>
+			<xs:element minOccurs="0" name="myNormalizedString" type="xs:normalizedString"/>
+			<xs:element minOccurs="0" name="myToken" type="xs:token"/>
+			<xs:element minOccurs="0" name="myLanguage" type="xs:language"/>
+			<xs:element minOccurs="0" name="myName" type="xs:Name"/>
+			<xs:element minOccurs="0" name="myNmToken" type="xs:NMTOKEN"/>
+			<xs:element minOccurs="0" name="myNcName" type="xs:NCName"/>
+			<xs:element minOccurs="0" name="myNmTokens" type="xs:NMTOKENS"/>
+			<xs:element minOccurs="0" name="myId" type="xs:ID"/>
+			<xs:element minOccurs="0" name="myIdRef" type="xs:IDREF"/>
+			<xs:element minOccurs="0" name="myEntity" type="xs:ENTITY"/>
+			<xs:element minOccurs="0" name="myIdRefs" type="xs:IDREFS"/>
+			<xs:element minOccurs="0" name="myEntities" type="xs:ENTITIES"/>
+			<xs:element minOccurs="0" name="myInteger" type="xs:integer"/>
+			<xs:element minOccurs="0" name="myNonPositiveInteger" type="xs:nonPositiveInteger"/>
+			<xs:element minOccurs="0" name="myNegativeInteger" type="xs:negativeInteger"/>
+			<xs:element minOccurs="0" name="myLong" type="xs:long"/>
+			<xs:element minOccurs="0" name="myLongNillable" nillable="true" type="xs:long"/>
+			<xs:element minOccurs="0" name="myInt" type="xs:int"/>
+			<xs:element minOccurs="0" name="myIntNillable" nillable="true" type="xs:int"/>
+			<xs:element minOccurs="0" name="myShort" type="xs:short"/>
+			<xs:element minOccurs="0" name="myShortNillable" nillable="true" type="xs:short"/>
+			<xs:element minOccurs="0" name="myByte" type="xs:byte"/>
+			<xs:element minOccurs="0" name="myByteNillable" nillable="true" type="xs:byte"/>
+			<xs:element minOccurs="0" name="myNonNegativeInteger" type="xs:nonNegativeInteger"/>
+			<xs:element minOccurs="0" name="myUnsignedLong" type="xs:unsignedLong"/>
+			<xs:element minOccurs="0" name="myUnsignedInt" type="xs:unsignedInt"/>
+			<xs:element minOccurs="0" name="myUnsignedIntNillable" nillable="true" type="xs:unsignedInt"/>
+			<xs:element minOccurs="0" name="myUnsignedShort" type="xs:unsignedShort"/>
+			<xs:element minOccurs="0" name="myUnsignedShortNillable" nillable="true" type="xs:unsignedShort"/>
+			<xs:element minOccurs="0" name="myUnsignedByte" type="xs:unsignedByte"/>
+			<xs:element minOccurs="0" name="myUnsignedByteNillable" nillable="true" type="xs:unsignedByte"/>
+			<xs:element minOccurs="0" name="myPositiveInteger" type="xs:positiveInteger"/>
+			<xs:element minOccurs="0" name="myHexBinary" type="xs:hexBinary"/>
+			<xs:element minOccurs="0" name="myBase64Binary" type="xs:base64Binary"/>
+			<!-- Types Not Currently Supported
+			<xs:element name="myAnyType" type="xs:anyType" minOccurs="0"/>
+			<xs:element name="myAnySimpleType" type="xs:anySimpleType" minOccurs="0"/>
+			-->
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/ElmAndComplex" targetNamespace="http://example.com/ElmAndComplex" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:element name="myCarElement" type="Car"/>
+	<xs:complexType name="Car" ecore:name="Car">
+		<xs:sequence>
+			<xs:element name="colour" type="xs:string" ecore:name="colour"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Bus" ecore:name="Bus">
+		<xs:sequence>
+			<xs:element name="route" type="xs:string" ecore:name="route"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

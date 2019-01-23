@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.WSDLFileInBDP" name="org.example.WSDLFileInBDP">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yI6vhhNvEeWtRPSGZlPMdg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yI6vhxNvEeWtRPSGZlPMdg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yI6viBNvEeWtRPSGZlPMdg" key="created" value="1434384253176"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yI6viRNvEeWtRPSGZlPMdg" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yJqWYBNvEeWtRPSGZlPMdg" key="checksum" value="21774935"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.WSDLFileInBDPNewOperationType" name="NewOperationType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewOperationTypein" name="in1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x_qs4xNvEeWtRPSGZlPMdg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x_qs4hNvEeWtRPSGZlPMdg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.WSDLFileInBDPNewOperationResponseType" name="NewOperationResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewOperationResponseTypeout" name="out" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yCXbkxNvEeWtRPSGZlPMdg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yCXbkhNvEeWtRPSGZlPMdg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.WSDLFileInBDPWSDLFileInBDP" name="WSDLFileInBDP">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="WSDLFileInBDPNewOperation" name="NewOperation">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="NewOperationparameters" name="parameters" type="org.example.WSDLFileInBDPNewOperationType?org.example.WSDLFileInBDP%3a%3aNewOperationType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="NewOperationparameters2" name="parameters" type="org.example.WSDLFileInBDPNewOperationResponseType?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType?" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_x_g74RNvEeWtRPSGZlPMdg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_x_g74hNvEeWtRPSGZlPMdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_x_g74xNvEeWtRPSGZlPMdg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_x_g75BNvEeWtRPSGZlPMdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_x_g75RNvEeWtRPSGZlPMdg" base_Package="org.example.WSDLFileInBDP?org.example.WSDLFileInBDP?" xsdTargetNamespace="http://www.example.org/WSDLFileInBDP/" xsdSchemaLocation="WSDLFileInBDP.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="WSDLFileInBDP.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_x_g75xNvEeWtRPSGZlPMdg" base_Class="org.example.WSDLFileInBDPNewOperationType?org.example.WSDLFileInBDP%3a%3aNewOperationType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_yA4N0BNvEeWtRPSGZlPMdg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x_qs4RNvEeWtRPSGZlPMdg" base_Property="NewOperationTypein?org.example.WSDLFileInBDP%3a%3aNewOperationType%3a%3ain1?" xsdName="in" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_yA4N0BNvEeWtRPSGZlPMdg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x_qs5BNvEeWtRPSGZlPMdg" textLength="-1" base_Property="NewOperationTypein?org.example.WSDLFileInBDP%3a%3aNewOperationType%3a%3ain1?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_yCNqkBNvEeWtRPSGZlPMdg" base_Package="org.example.WSDLFileInBDP?org.example.WSDLFileInBDP?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_yCNqkRNvEeWtRPSGZlPMdg" name="NewOperation" type="org.example.WSDLFileInBDPNewOperationType?org.example.WSDLFileInBDP%3a%3aNewOperationType?" isAnonymous="true" targetNamespace="http://www.example.org/WSDLFileInBDP/" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_yCXblhNvEeWtRPSGZlPMdg" name="NewOperationResponse" type="org.example.WSDLFileInBDPNewOperationResponseType?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType?" isAnonymous="true" targetNamespace="http://www.example.org/WSDLFileInBDP/" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_yCNqkxNvEeWtRPSGZlPMdg" base_Class="org.example.WSDLFileInBDPNewOperationResponseType?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_yCXblRNvEeWtRPSGZlPMdg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_yCXbkRNvEeWtRPSGZlPMdg" base_Property="NewOperationResponseTypeout?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType%3a%3aout?" xsdName="out" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_yCXblRNvEeWtRPSGZlPMdg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_yCXblBNvEeWtRPSGZlPMdg" textLength="-1" base_Property="NewOperationResponseTypeout?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXblxNvEeWtRPSGZlPMdg" base_Element="_x_g74xNvEeWtRPSGZlPMdg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXbmBNvEeWtRPSGZlPMdg" base_Element="_yCXbkxNvEeWtRPSGZlPMdg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXbmRNvEeWtRPSGZlPMdg" base_Element="org.example.WSDLFileInBDPNewOperationType?org.example.WSDLFileInBDP%3a%3aNewOperationType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXbmhNvEeWtRPSGZlPMdg" base_Element="org.example.WSDLFileInBDPNewOperationResponseType?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXbmxNvEeWtRPSGZlPMdg" base_Element="NewOperationTypein?org.example.WSDLFileInBDP%3a%3aNewOperationType%3a%3ain1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXbnBNvEeWtRPSGZlPMdg" base_Element="_x_g74RNvEeWtRPSGZlPMdg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXbnRNvEeWtRPSGZlPMdg" base_Element="_x_qs4xNvEeWtRPSGZlPMdg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXbnhNvEeWtRPSGZlPMdg" base_Element="NewOperationResponseTypeout?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXbnxNvEeWtRPSGZlPMdg" base_Element="_x_qs4hNvEeWtRPSGZlPMdg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yCXboBNvEeWtRPSGZlPMdg" base_Element="_yCXbkhNvEeWtRPSGZlPMdg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_yCXbohNvEeWtRPSGZlPMdg" base_Class="org.example.WSDLFileInBDPWSDLFileInBDP?org.example.WSDLFileInBDP%3a%3aWSDLFileInBDP?" xsdName="WSDLFileInBDP" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_yI6vgRNvEeWtRPSGZlPMdg" displayLabel="WSDLFileInBDP" base_NamedElement="org.example.WSDLFileInBDPWSDLFileInBDP?org.example.WSDLFileInBDP%3a%3aWSDLFileInBDP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_yI6vghNvEeWtRPSGZlPMdg" displayLabel="NewOperationType" base_NamedElement="org.example.WSDLFileInBDPNewOperationType?org.example.WSDLFileInBDP%3a%3aNewOperationType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_yI6vgxNvEeWtRPSGZlPMdg" displayLabel="NewOperationResponseType" base_NamedElement="org.example.WSDLFileInBDPNewOperationResponseType?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_yI6vhBNvEeWtRPSGZlPMdg" displayLabel="in" base_NamedElement="NewOperationTypein?org.example.WSDLFileInBDP%3a%3aNewOperationType%3a%3ain1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_yI6vhRNvEeWtRPSGZlPMdg" displayLabel="out" base_NamedElement="NewOperationResponseTypeout?org.example.WSDLFileInBDP%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <notation:Diagram xmi:id="_yI6vihNvEeWtRPSGZlPMdg" type="Business Object Model" element="org.example.WSDLFileInBDP?org.example.WSDLFileInBDP?" name="org.example.WSDLFileInBDP" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_yI6vixNvEeWtRPSGZlPMdg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_yI6vjBNvEeWtRPSGZlPMdg"/>
+  </notation:Diagram>
+</xmi:XMI>

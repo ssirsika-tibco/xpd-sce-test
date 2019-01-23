@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://example.com/elementDeclaredTypes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ElemDeclaredTypesUsage" targetNamespace="http://example.com/elementDeclaredTypes">
+    <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/elementDeclaredTypes">
+		<xsd:complexType name="OutputElement">
+			<xsd:sequence>
+				<xsd:element ref="tns:elementAnonSimpleType"/>
+				<xsd:element ref="tns:elementEnumeration"/>
+				<xsd:element ref="tns:elementExtSimpType"/>
+				<xsd:element ref="tns:elementInteger"/>
+				<xsd:element ref="tns:elementSimpType"/> 
+				<xsd:element ref="tns:elementString"/>
+			</xsd:sequence>
+			<xsd:attribute ref="tns:attributeDouble" />
+			<xsd:attribute ref="tns:attributeString" />
+		</xsd:complexType>
+		<xsd:element name="elementString" type="xsd:string"/>
+		<xsd:element name="elementInteger" type="xsd:int"/>
+		<xsd:attribute name="attributeString" type="xsd:string"/>
+		<xsd:attribute name="attributeDouble" type="xsd:double"/>
+		<xsd:element name="elementEnumeration" type="tns:SubEnumType"/>
+		<xsd:simpleType name="SubEnumType">
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="One"/>
+				<xsd:enumeration value="Two"/>
+				<xsd:enumeration value="Three"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+		<xsd:element name="elementAnonSimpleType" type="tns:ElementAnonSimpleType" />
+		<xsd:simpleType name="ElementAnonSimpleType">
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="200"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+		<xsd:simpleType name="SimpType">
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+		<xsd:element name="elementSimpType" type="tns:SimpType"/>
+		<xsd:simpleType name="ExtSimpType">
+			<xsd:restriction base="tns:SimpType">
+				<xsd:maxLength value="10"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+		<xsd:element name="elementExtSimpType" type="tns:ExtSimpType"/>
+	</xsd:schema>
+	</wsdl:types>
+    <wsdl:message name="DeclaredTypesOpRequest">
+		<wsdl:part name="elementAnonSimpleType" type="tns:ElementAnonSimpleType" />
+		<wsdl:part name="elementEnumeration" type="tns:SubEnumType" />
+		<wsdl:part name="elementExtSimpType" type="tns:ExtSimpType" />
+		<wsdl:part name="elementInteger" type="xsd:int"/>
+		<wsdl:part name="elementSimpType" type="tns:SimpType" />
+		<wsdl:part name="elementString" type="xsd:string"/>
+	</wsdl:message>
+    <wsdl:message name="DeclaredTypesOpResponse">
+    	<wsdl:part name="parameters" type="tns:OutputElement" />
+    </wsdl:message>
+    <wsdl:portType name="ElementDeclaredTypesPortType">
+    	<wsdl:operation name="DeclaredTypesOp">
+    		<wsdl:input message="tns:DeclaredTypesOpRequest"></wsdl:input>
+    		<wsdl:output message="tns:DeclaredTypesOpResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ep:policySetContainer xmlns:ep="http://xsd.tns.tibco.com/amf/models/externalpolicy" 
+   xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" 
+   xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions"  
+   xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"  
+   xmlns:tpa="http://xsd.tns.tibco.com/governance/policy/action/2009"
+   xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+   xmlns:tpc="http://xsd.tns.tibco.com/governance/policy/common/2009"
+   xmlns:jmsbt="http://xsd.tns.tibco.com/amf/models/sca/bindingtype/jms"
+   xmlns:soapbt="http://xsd.tns.tibco.com/amf/models/sca/binding/soap"
+   xmlns:webapp="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/webapp"
+   xmlns:systempolicy="http://xsd.tns.tibco.com/amf/models/sca/policy/system" 
+   targetNamespace="http://www.tibco.com/wrm/policy/virtualize">
+ 
+  <sca:policySet name="Virtualize_WRMComponent" appliesTo="sca:binding.sca.service" provides="scaext:virtualize">
+    <systempolicy:virtualize scaext:label="Virtualize">
+      <scaext:description>This indicates that a message will always be sent through the messaging bus even if the target and the source are on the same node. This policy is required if the component service is load balanced.</scaext:description>
+    </systempolicy:virtualize>
+  </sca:policySet>
+  
+</ep:policySetContainer>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/pocommon"
+	xmlns:tns="http://www.example.org/pocommon"
+	elementFormDefault="qualified" 
+	xmlns:com="http://www.example.org/common">
+
+	<import namespace="http://www.example.org/common" schemaLocation="WSDLBOM17_MixedImportsAndIncludes3.xsd"></import>
+	
+	<complexType name="PartyType">
+		<sequence>
+			<element name="id" type="int"></element>			
+			<element name="address" type="com:AddressType"></element>
+		</sequence>
+	</complexType>
+
+	<!-- repeating elements -->
+	<complexType name="LineItemsType">
+		<sequence>
+			<element name="lineItem" type="tns:LineItemType" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="LineItemType">
+		<sequence>
+			<element name="prodiuctID" type="com:ProductIDType"></element>
+			<element name="productName" type="string"></element>			
+		</sequence>
+	</complexType>
+
+
+
+</schema>

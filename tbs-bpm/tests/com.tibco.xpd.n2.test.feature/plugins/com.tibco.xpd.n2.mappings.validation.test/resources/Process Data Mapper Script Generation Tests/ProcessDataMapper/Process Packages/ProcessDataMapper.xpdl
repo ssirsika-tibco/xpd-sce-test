@@ -1,0 +1,2757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_e-I2EOz2EeSF4IKDfXmKBw" xpdExt:DisplayName="ProcessDataMapper" Name="ProcessDataMapper">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2015-04-27</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_42CBIOz2EeSF4IKDfXmKBw" xpdExt:DisplayName="Participant" Name="Participant">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&quot;tibco-admin&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_0m4ZsPAjEeSZJ5L9UItcvQ" xpdExt:DisplayName="ProcessDataMapper-Process2 (API Activity EndPoint)" Name="ProcessDataMapperProcess2">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/ProcessDataMapper/ProcessDataMapperProcess2" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_dIo5ICWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_dIYacCWCEeWMdKRbP2XvVw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_dIo5ISWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="358.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_f7z_QOz2EeSF4IKDfXmKBw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_e-ai4Oz2EeSF4IKDfXmKBw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_f7z_Qez2EeSF4IKDfXmKBw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="539.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_otxEMO2SEeS4I4a6rDKS7w" ArtifactType="Annotation" TextAnnotation="SEE ACTIVITY DESCRIPTION FOR EXPECTED DATA-MAPPER GENERATED JAVASCRIPT. ">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="215,0,0" Height="19.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="462.0">
+          <xpdl2:Coordinates XCoordinate="17.0" YCoordinate="71.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_e-ai4Oz2EeSF4IKDfXmKBw" xpdExt:DisplayName="ProcessDataMapper-Process" Name="ProcessDataMapperProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_WWpi8-2SEeS4I4a6rDKS7w" Name="TopArrayParam" IsArray="true" Mode="INOUT" Required="false" xpdExt:DisplayName="TopArrayParam">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6PWhEO2REeS4I4a6rDKS7w"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_WWpi8u2SEeS4I4a6rDKS7w" Name="TopParam" Mode="INOUT" Required="false" xpdExt:DisplayName="TopParam">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6PWhEO2REeS4I4a6rDKS7w"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_zXh4Me2SEeS4I4a6rDKS7w" Name="IntParam" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="IntParam">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_kCSXEO2TEeS4I4a6rDKS7w" Name="TextParam" Mode="INOUT" Required="true" xpdExt:DisplayName="TextParam">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_leWFYO2TEeS4I4a6rDKS7w" Name="TextParam2" Mode="INOUT" Required="true" xpdExt:DisplayName="TextParam2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_qD0MQP1YEeSxWKvSBtAVAw" Name="BoolParam" Mode="INOUT" Required="true" xpdExt:DisplayName="BoolParam">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0EhcMP1YEeSxWKvSBtAVAw" Name="DateTimeParam" Mode="INOUT" Required="true" xpdExt:DisplayName="DateTimeParam">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_EueJ8CpcEeWky-pvF47-Ag" Name="TextArrayParam" IsArray="true" Mode="INOUT" Required="true" xpdExt:DisplayName="TextArrayParam">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ubskECpeEeWky-pvF47-Ag" Name="AlternateStructureArray" IsArray="true" Mode="INOUT" Required="true" xpdExt:DisplayName="AlternateStructureArray">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_bou0UCpeEeWky-pvF47-Ag"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_xfVUMCpeEeWky-pvF47-Ag" Name="AlternateStructure" Mode="INOUT" Required="true" xpdExt:DisplayName="AlternateStructure">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_bou0UCpeEeWky-pvF47-Ag"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_rT47oC09EeW2t9LMEsyVTg" Name="RecursiveParam" Mode="INOUT" Required="true" xpdExt:DisplayName="RecursiveParam">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_OA2xUC07EeWpiYaJlt2kOw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_3e85cOz2EeSF4IKDfXmKBw" xpdExt:DisplayName="TextField" Name="TextField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3gntYOz2EeSF4IKDfXmKBw" xpdExt:DisplayName="IntField" Name="IntField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_NPo7IO2SEeS4I4a6rDKS7w" xpdExt:DisplayName="TopField" Name="TopField">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6PWhEO2REeS4I4a6rDKS7w"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_SQ0WAO2SEeS4I4a6rDKS7w" xpdExt:DisplayName="TopArrayField" Name="TopArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_6PWhEO2REeS4I4a6rDKS7w"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_jGpDoO2SEeS4I4a6rDKS7w" xpdExt:DisplayName="TextField2" Name="TextField2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_koEaIO2SEeS4I4a6rDKS7w" xpdExt:DisplayName="TextField3" Name="TextField3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_lYOm4P1YEeSxWKvSBtAVAw" xpdExt:DisplayName="BoolField" Name="BoolField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3H1cMP1YEeSxWKvSBtAVAw" xpdExt:DisplayName="DateTimeField" Name="DateTimeField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_NNNeEBWmEeW1TfEo5pbFWA" xpdExt:DisplayName="LikeMappingPatient" Name="LikeMappingPatient">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_pR9-wBWlEeW1TfEo5pbFWA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_PS70cBWmEeW1TfEo5pbFWA" xpdExt:DisplayName="LikeMappingVisitor" Name="LikeMappingVisitor">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_xJTHYBWlEeW1TfEo5pbFWA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_MieNEBWoEeW1TfEo5pbFWA" xpdExt:DisplayName="LikeMappingPatientArray" Name="LikeMappingPatientArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_pR9-wBWlEeW1TfEo5pbFWA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_MieNERWoEeW1TfEo5pbFWA" xpdExt:DisplayName="LikeMappingVisitorArray" Name="LikeMappingVisitorArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_xJTHYBWlEeW1TfEo5pbFWA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_d6_YEhWoEeW1TfEo5pbFWA" xpdExt:DisplayName="MergeLikeMappingPatientArray" Name="MergeLikeMappingPatientArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_pR9-wBWlEeW1TfEo5pbFWA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_d6_YExWoEeW1TfEo5pbFWA" xpdExt:DisplayName="MergeLikeMappingVisitorArray" Name="MergeLikeMappingVisitorArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_xJTHYBWlEeW1TfEo5pbFWA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_DEw-ASpYEeWky-pvF47-Ag" xpdExt:DisplayName="PatientArray" Name="PatientArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_pR9-wBWlEeW1TfEo5pbFWA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Gux00CpcEeWky-pvF47-Ag" xpdExt:DisplayName="TextArrayField" Name="TextArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_bYZ1ICplEeWky-pvF47-Ag" xpdExt:DisplayName="YetAnother" Name="YetAnother">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_Ikr3cCplEeWky-pvF47-Ag"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_lrpmkCplEeWky-pvF47-Ag" xpdExt:DisplayName="YetAnotherArray" Name="YetAnotherArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_Ikr3cCplEeWky-pvF47-Ag"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_JChuwC0-EeW2t9LMEsyVTg" xpdExt:DisplayName="RecursiveField" Name="RecursiveField">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_3E4dcC09EeW2t9LMEsyVTg"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_f7z_Quz2EeSF4IKDfXmKBw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="63.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_blhbkO2SEeS4I4a6rDKS7w" Name="SimpleTypes" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Simple Types">
+          <xpdl2:Description>// Map from 'IntField' to 'IntParam'
+IntParam = IntField;
+
+// Map from 'TextField' to 'TextParam'
+TextParam = TextField;
+
+// Map from 'TextField2' to 'TextParam2'
+TextParam2 = TextField2;
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="IntParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">IntField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextParam2">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="186.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_uTvYwO2TEeS4I4a6rDKS7w" Name="DirectMapComplexType" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Direct Map Complex Type" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Description>// Map from 'TopField' to 'TopParam'
+TopParam = ScriptUtil.copy(TopField);
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="328.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_8d3i4O2YEeS2iedHMJP9Kw" Name="InflateComplexType" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Inflate Complex Type" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Description>// Create target 'TopParam' if it doesn't exist.
+if (TopParam == null) {
+    TopParam = com_example_bdp_Factory.createTop();
+}
+
+// Map from 'TextField' to 'TopParam.topAttr'
+TopParam.topAttr = TextField;
+
+// Create target 'TopParam.middleSingleInst' if it doesn't exist.
+if (TopParam.middleSingleInst == null) {
+    TopParam.middleSingleInst = com_example_bdp_Factory.createMiddle();
+}
+
+// Map from 'TextField2' to 'TopParam.middleSingleInst.middleAttr'
+TopParam.middleSingleInst.middleAttr = TextField2;
+
+// Create target 'TopParam.middleSingleInst.bottomSingleInst' if it doesn't exist.
+if (TopParam.middleSingleInst.bottomSingleInst == null) {
+    TopParam.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+}
+
+// Map from 'TopField.middleSingleInst.middleAttr' to 'TopParam.middleSingleInst.bottomSingleInst.bottomAttr'
+if (TopField != null &amp;&amp; TopField.middleSingleInst != null) {
+    TopParam.middleSingleInst.bottomSingleInst.bottomAttr = TopField.middleSingleInst.middleAttr;
+} else {
+    TopParam.middleSingleInst.bottomSingleInst.bottomAttr = null;
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleSingleInst.middleAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField2</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleSingleInst.bottomSingleInst.bottomAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopField.middleSingleInst.middleAttr</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.topAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="461.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_FxsCYO2_EeSW7rWR63Shiw" Name="MaptoFromWorkManagerContent" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Map to / From Work Manager Content" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Description>// Map from 'Work Item.cancel' to 'BoolParam'
+BoolParam = WorkManagerFactory.getWorkItem().cancel;
+
+// Map from 'Work Item.Work Item Attributes.Date Of Birth !!!' to 'DateTimeParam'
+DateTimeParam = WorkManagerFactory.getWorkItem().workItemAttributes.attribute7;
+
+// Map from 'Work Item.priority' to 'IntParam'
+IntParam = WorkManagerFactory.getWorkItem().priority;
+
+// Map from 'Work Item.description' to 'TextParam'
+TextParam = WorkManagerFactory.getWorkItem().description;
+
+// Map from 'Work Item.Work Item Attributes.A Name' to 'TextParam2'
+TextParam2 = WorkManagerFactory.getWorkItem().workItemAttributes.attribute2;
+
+// Map from 'BoolField' to 'Work Item.cancel'
+WorkManagerFactory.getWorkItem().cancel = BoolField;
+
+// Map from 'TextField' to 'Work Item.description'
+WorkManagerFactory.getWorkItem().description = TextField;
+
+// Map from 'IntField' to 'Work Item.priority'
+WorkManagerFactory.getWorkItem().priority = IntField;
+
+// Map from 'TextField2' to 'Work Item.Work Item Attributes.A Name'
+WorkManagerFactory.getWorkItem().workItemAttributes.attribute2 = TextField2;
+
+// Map from 'DateTimeField' to 'Work Item.Work Item Attributes.Date Of Birth !!!'
+WorkManagerFactory.getWorkItem().workItemAttributes.attribute7 = DateTimeField;
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ImsgoO2_EeSW7rWR63Shiw"/>
+                <xpdl2:MessageOut Id="_Imsgoe2_EeSW7rWR63Shiw"/>
+                <xpdExt:UserTaskScripts>
+                  <xpdExt:ScheduleScript ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScheduleUserTask" MappingDirection="IN">
+                      <xpdExt:DataMappings>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="DataMapperWMScripts" Direction="IN" Formal="WorkItem_Cancel$">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">BoolField</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="DataMapperWMScripts" Direction="IN" Formal="WorkItem_Attributes_attribute7$">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">DateTimeField</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="DataMapperWMScripts" Direction="IN" Formal="WorkItem_Priority$">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">IntField</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="DataMapperWMScripts" Direction="IN" Formal="WorkItem_Description$">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">TextField</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="DataMapperWMScripts" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BoolParam">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">WorkItem_Cancel$</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="DataMapperWMScripts" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextParam">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">WorkItem_Description$</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="DataMapperWMScripts" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="IntParam">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">WorkItem_Priority$</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="DataMapperWMScripts" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTimeParam">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">WorkItem_Attributes_attribute7$</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="DataMapperWMScripts" Direction="IN" Formal="WorkItem_Attributes_attribute2$">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">TextField2</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                        <xpdExt:DataMapping xpdExt:SourceContributorId="DataMapperWMScripts" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextParam2">
+                          <xpdl2:Actual ScriptGrammar="JavaScript">WorkItem_Attributes_attribute2$</xpdl2:Actual>
+                        </xpdExt:DataMapping>
+                      </xpdExt:DataMappings>
+                    </xpdExt:ScriptDataMapper>
+</xpdExt:ScheduleScript>
+                </xpdExt:UserTaskScripts>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_42CBIOz2EeSF4IKDfXmKBw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="578.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_jcv6MP1vEeSwcMBp6hsoCw" Name="ProcessJSCLassContent" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Process JSCLass Content" xpdExt:RequireNewTransaction="false">
+          <xpdl2:Description>// Map from 'Process.startTime' to 'DateTimeParam'
+DateTimeParam = Process.getStartTime();
+
+// Map from 'Process.priority' to 'IntParam'
+IntParam = Process.priority;
+
+// Map from 'Process.description' to 'TextParam'
+TextParam = Process.getDescription();
+
+// Map from 'Process.id' to 'TextParam2'
+TextParam2 = Process.getId();
+
+// Create target 'TopParam' if it doesn't exist.
+if (TopParam == null) {
+    TopParam = com_example_bdp_Factory.createTop();
+}
+
+// Map from 'Process.moduleName' to 'TopParam.topAttr'
+TopParam.topAttr = Process.getModuleName();
+
+// Create target 'TopParam.middleSingleInst' if it doesn't exist.
+if (TopParam.middleSingleInst == null) {
+    TopParam.middleSingleInst = com_example_bdp_Factory.createMiddle();
+}
+
+// Map from 'Process.originator' to 'TopParam.middleSingleInst.middleAttr'
+TopParam.middleSingleInst.middleAttr = Process.getOriginator();
+
+// Create target 'TopParam.middleSingleInst.bottomSingleInst' if it doesn't exist.
+if (TopParam.middleSingleInst.bottomSingleInst == null) {
+    TopParam.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+}
+
+// Map from 'Process.originatorName' to 'TopParam.middleSingleInst.bottomSingleInst.bottomAttr'
+TopParam.middleSingleInst.bottomSingleInst.bottomAttr = Process.getOriginatorName();
+
+// Map from 'IntField' to 'Process.priority'
+Process.priority = IntField;
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_description$</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextParam2">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_id$</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.topAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_moduleName$</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleSingleInst.middleAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_originator$</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleSingleInst.bottomSingleInst.bottomAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_originatorName$</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="IntParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_priority$</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ProcessManager.DataMapperContent" Direction="IN" Formal="Process_priority$">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">IntField</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ProcessManager.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTimeParam">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Process_startTime$</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="719.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oT3kcACAEeWAIpSUFvcI8w" Name="ScriptMappings" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Script Mappings">
+          <xpdl2:Description>// Map from 'Boolean Script' to 'BoolParam'
+
+// Function for user defined mapping script: Boolean Script
+function _f1_() { 
+    var ret =false;&#xD;
+    &#xD;
+    if (IntField > 0) {&#xD;
+      ret = true;&#xD;
+    }&#xD;
+    &#xD;
+    return ret;
+}
+$_f1_result = _f1_();
+BoolParam = $_f1_result;
+
+// Map from 'DateTime Script' to 'DateTimeParam'
+
+// Function for user defined mapping script: DateTime Script
+function _f2_() { 
+    return DateTimeUtil.createDatetime();&#xD;
+    
+}
+$_f2_result = _f2_();
+DateTimeParam = $_f2_result;
+
+// Map from 'TextParam' to 'TextField'
+TextField = TextParam;
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="BoolParam">
+                        <xpdExt:ScriptInformation Id="_qUqXgACAEeWAIpSUFvcI8w" Name="Boolean Script">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">var ret =false;&#xD;
+&#xD;
+if (IntField > 0) {&#xD;
+  ret = true;&#xD;
+}&#xD;
+&#xD;
+return ret;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTimeParam">
+                        <xpdExt:ScriptInformation Id="_1R9LgACAEeWAIpSUFvcI8w" Name="DateTime Script">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">return DateTimeUtil.createDatetime();&#xD;
+</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">__SCRIPT__</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="855.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_LUfo8BWmEeW1TfEo5pbFWA" Name="LikeMappings" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Like Mappings">
+          <xpdl2:Description>// Like mapping from 'LikeMappingPatient' to 'LikeMappingVisitor'
+
+// Create target 'LikeMappingVisitor' if it doesn't exist.
+if (LikeMappingVisitor == null) {
+    LikeMappingVisitor = com_example_bdp_Factory.createVisitor();
+}
+
+// Map from 'LikeMappingPatient.id' to 'LikeMappingVisitor.id'
+if (LikeMappingPatient != null) {
+    LikeMappingVisitor.id = LikeMappingPatient.id;
+} else {
+    LikeMappingVisitor.id = null;
+}
+
+// Map from 'LikeMappingPatient.name' to 'LikeMappingVisitor.name'
+if (LikeMappingPatient != null) {
+    LikeMappingVisitor.name = LikeMappingPatient.name;
+} else {
+    LikeMappingVisitor.name = null;
+}
+
+// Create target 'LikeMappingVisitor.address' if it doesn't exist.
+if (LikeMappingVisitor.address == null) {
+    LikeMappingVisitor.address = com_example_bdp_Factory.createVisitorAddress();
+}
+
+// Map from 'LikeMappingPatient.address.line1' to 'LikeMappingVisitor.address.line1'
+if (LikeMappingPatient != null &amp;&amp; LikeMappingPatient.address != null) {
+    LikeMappingVisitor.address.line1 = LikeMappingPatient.address.line1;
+} else {
+    LikeMappingVisitor.address.line1 = null;
+}
+
+// Map from 'LikeMappingPatient.address.postcode' to 'LikeMappingVisitor.address.postcode'
+if (LikeMappingPatient != null &amp;&amp; LikeMappingPatient.address != null) {
+    LikeMappingVisitor.address.postcode = LikeMappingPatient.address.postcode;
+} else {
+    LikeMappingVisitor.address.postcode = null;
+}
+
+// Like mapping from 'LikeMappingPatientArray' to 'LikeMappingVisitorArray'
+
+// Overwrite list: LikeMappingVisitorArray
+LikeMappingVisitorArray.clear();
+
+if (LikeMappingPatientArray != null) {
+
+    for (var i1 = 0; i1 &lt; LikeMappingPatientArray.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(LikeMappingPatientArray.get(i1));
+        var $tVi1 = com_example_bdp_Factory.createVisitor();
+
+        // Map from 'LikeMappingPatientArray.id' to 'LikeMappingVisitorArray.id'
+        $tVi1.id = $sVi1.id;
+
+        // Map from 'LikeMappingPatientArray.name' to 'LikeMappingVisitorArray.name'
+        $tVi1.name = $sVi1.name;
+
+        // Create target 'LikeMappingVisitorArray.address' if it doesn't exist.
+        if ($tVi1.address == null) {
+            $tVi1.address = com_example_bdp_Factory.createVisitorAddress();
+        }
+
+        // Map from 'LikeMappingPatientArray.address.line1' to 'LikeMappingVisitorArray.address.line1'
+        if ($sVi1.address != null) {
+            $tVi1.address.line1 = $sVi1.address.line1;
+        } else {
+            $tVi1.address.line1 = null;
+        }
+
+        // Map from 'LikeMappingPatientArray.address.postcode' to 'LikeMappingVisitorArray.address.postcode'
+        if ($sVi1.address != null) {
+            $tVi1.address.postcode = $sVi1.address.postcode;
+        } else {
+            $tVi1.address.postcode = null;
+        }
+        
+        LikeMappingVisitorArray.add($tVi1);
+    }
+}
+
+// Like mapping from 'MergeLikeMappingPatientArray' to 'MergeLikeMappingVisitorArray'
+
+// Merge list content: MergeLikeMappingVisitorArray
+
+if (MergeLikeMappingPatientArray != null) {
+
+    for (var i2 = 0; i2 &lt; MergeLikeMappingPatientArray.size(); i2++) { 
+        var $sVi2 = ScriptUtil.copy(MergeLikeMappingPatientArray.get(i2));
+
+        // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
+        var $tVi2;
+        if (i2 &lt; MergeLikeMappingVisitorArray.size()) {
+            $tVi2 = MergeLikeMappingVisitorArray.get(i2);
+        } else {
+            $tVi2 = com_example_bdp_Factory.createVisitor();
+        }
+
+        // Map from 'MergeLikeMappingPatientArray.id' to 'MergeLikeMappingVisitorArray.id'
+        $tVi2.id = $sVi2.id;
+
+        // Map from 'MergeLikeMappingPatientArray.name' to 'MergeLikeMappingVisitorArray.name'
+        $tVi2.name = $sVi2.name;
+
+        // Create target 'MergeLikeMappingVisitorArray.address' if it doesn't exist.
+        if ($tVi2.address == null) {
+            $tVi2.address = com_example_bdp_Factory.createVisitorAddress();
+        }
+
+        // Map from 'MergeLikeMappingPatientArray.address.line1' to 'MergeLikeMappingVisitorArray.address.line1'
+        if ($sVi2.address != null) {
+            $tVi2.address.line1 = $sVi2.address.line1;
+        } else {
+            $tVi2.address.line1 = null;
+        }
+
+        // Map from 'MergeLikeMappingPatientArray.address.postcode' to 'MergeLikeMappingVisitorArray.address.postcode'
+        if ($sVi2.address != null) {
+            $tVi2.address.postcode = $sVi2.address.postcode;
+        } else {
+            $tVi2.address.postcode = null;
+        }
+        
+        if (i2 >= MergeLikeMappingVisitorArray.size()) {
+            MergeLikeMappingVisitorArray.add($tVi2);
+        }
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="LikeMappingVisitor">
+                        <xpdExt:LikeMappingExclusions>
+                          <xpdExt:LikeMappingExclusion Path="LikeMappingVisitor.address.houseNumberIncompatible"/>
+                        </xpdExt:LikeMappingExclusions>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">LikeMappingPatient</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="LikeMappingVisitorArray">
+                        <xpdExt:LikeMappingExclusions>
+                          <xpdExt:LikeMappingExclusion Path="LikeMappingVisitorArray.address.houseNumberIncompatible"/>
+                        </xpdExt:LikeMappingExclusions>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">LikeMappingPatientArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="MergeLikeMappingVisitorArray">
+                        <xpdExt:LikeMappingExclusions>
+                          <xpdExt:LikeMappingExclusion Path="MergeLikeMappingVisitorArray.address.houseNumberIncompatible"/>
+                        </xpdExt:LikeMappingExclusions>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">MergeLikeMappingPatientArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="MergeLikeMappingVisitorArray" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="996.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_FfZVwCpKEeWky-pvF47-Ag" Name="DirectArrayMappingOverwrite" xpdExt:Visibility="Private" xpdExt:DisplayName="Direct Array Mapping Overwrite">
+          <xpdl2:Description>// Map from 'TopArrayParam' to 'TopArrayField'
+
+// Overwrite list: TopArrayField
+TopArrayField.clear();
+
+if (TopArrayParam != null) {
+
+    for (var i1 = 0; i1 &lt; TopArrayParam.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(TopArrayParam.get(i1));
+        
+        TopArrayField.add($sVi1);
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopArrayParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="MergeLikeMappingPatientArray" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="182.0" YCoordinate="279.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_FfZVwSpKEeWky-pvF47-Ag" Name="ArrayInflationFromNestedContentAtDiffLevels" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Array Inflation From Nested Content At Diff Levels">
+          <xpdl2:Description>// Overwrite list: TopArrayField
+TopArrayField.clear();
+
+if (TopArrayParam != null) {
+
+    for (var i1 = 0; i1 &lt; TopArrayParam.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(TopArrayParam.get(i1));
+        var $tVi1 = com_example_bdp_Factory.createTop();
+
+        // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.topAttr'
+        if ($sVi1.middleSingleInst != null &amp;&amp; $sVi1.middleSingleInst.bottomSingleInst != null) {
+            $tVi1.topAttr = $sVi1.middleSingleInst.bottomSingleInst.bottomAttr;
+        } else {
+            $tVi1.topAttr = null;
+        }
+
+        // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst == null) {
+            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+        }
+
+        // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.middleSingleInst.middleAttr'
+        if ($sVi1.middleSingleInst != null &amp;&amp; $sVi1.middleSingleInst.bottomSingleInst != null) {
+            $tVi1.middleSingleInst.middleAttr = $sVi1.middleSingleInst.bottomSingleInst.bottomAttr;
+        } else {
+            $tVi1.middleSingleInst.middleAttr = null;
+        }
+
+        // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst.bottomSingleInst == null) {
+            $tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+        }
+
+        // Map from 'TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
+        if ($sVi1.middleSingleInst != null &amp;&amp; $sVi1.middleSingleInst.bottomSingleInst != null) {
+            $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = $sVi1.middleSingleInst.bottomSingleInst.bottomAttr;
+        } else {
+            $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
+        }
+        
+        TopArrayField.add($tVi1);
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.topAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.middleSingleInst.middleAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopArrayParam.middleSingleInst.bottomSingleInst.bottomAttr</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="86.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="122.0">
+              <xpdl2:Coordinates XCoordinate="290.0" YCoordinate="396.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_FfZVwipKEeWky-pvF47-Ag" Name="ArrayInflationFromNestedContentAtDiffLevels2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Array Inflation From Nested Content At Diff Levels 2">
+          <xpdl2:Description>// Overwrite list: TopArrayField
+TopArrayField.clear();
+
+if (TopArrayParam != null) {
+
+    for (var i1 = 0; i1 &lt; TopArrayParam.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(TopArrayParam.get(i1));
+        var $tVi1 = com_example_bdp_Factory.createTop();
+
+        // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst == null) {
+            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+        }
+
+        // Map from 'TopArrayParam.topAttr' to 'TopArrayField.middleSingleInst.middleAttr'
+        $tVi1.middleSingleInst.middleAttr = $sVi1.topAttr;
+
+        // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst.bottomSingleInst == null) {
+            $tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+        }
+
+        // Map from 'TopArrayParam.middleSingleInst.middleAttr' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
+        if ($sVi1.middleSingleInst != null) {
+            $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = $sVi1.middleSingleInst.middleAttr;
+        } else {
+            $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
+        }
+        
+        TopArrayField.add($tVi1);
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.middleSingleInst.middleAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopArrayParam.topAttr</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopArrayParam.middleSingleInst.middleAttr</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="86.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="122.0">
+              <xpdl2:Coordinates XCoordinate="140.0" YCoordinate="396.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_8Ti-UCpWEeWky-pvF47-Ag" Name="DirectArrayMappingMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Direct Array Mapping Merge">
+          <xpdl2:Description>// Map from 'TextArrayParam' to 'TextArrayField'
+
+// Merge list content: TextArrayField
+
+if (TextArrayParam != null) {
+
+    for (var i1 = 0; i1 &lt; TextArrayParam.size(); i1++) { 
+        var $sVi1 = TextArrayParam.get(i1);
+
+        // Overwrite existing target elements from source with same index (else append when there are additional source elements)
+        if (i1 &lt; TextArrayField.size()) {
+            TextArrayField.set(i1, $sVi1);
+        } else {
+            TextArrayField.add($sVi1);
+        }
+    }
+}
+
+// Map from 'TopArrayParam' to 'TopArrayField'
+
+// Merge list content: TopArrayField
+
+if (TopArrayParam != null) {
+
+    for (var i2 = 0; i2 &lt; TopArrayParam.size(); i2++) { 
+        var $sVi2 = ScriptUtil.copy(TopArrayParam.get(i2));
+
+        // Overwrite existing target elements from source with same index (else append when there are additional source elements)
+        if (i2 &lt; TopArrayField.size()) {
+            TopArrayField.set(i2, $sVi2);
+        } else {
+            TopArrayField.add($sVi2);
+        }
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TopArrayParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextArrayParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayField" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="TextArrayField" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="301.0" YCoordinate="279.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_drmvMSpXEeWky-pvF47-Ag" Name="InflateArrayMappingOverwrite" xpdExt:Visibility="Private" xpdExt:DisplayName="Inflate Array Mapping Overwrite">
+          <xpdl2:Description>// Overwrite list: TopArrayField
+TopArrayField.clear();
+
+if (PatientArray != null) {
+
+    for (var i1 = 0; i1 &lt; PatientArray.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(PatientArray.get(i1));
+        var $tVi1 = com_example_bdp_Factory.createTop();
+
+        // Map from 'PatientArray.id' to 'TopArrayField.topAttr'
+        $tVi1.topAttr = $sVi1.id;
+
+        // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst == null) {
+            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+        }
+
+        // Map from 'PatientArray.name' to 'TopArrayField.middleSingleInst.middleAttr'
+        $tVi1.middleSingleInst.middleAttr = $sVi1.name;
+
+        // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst.bottomSingleInst == null) {
+            $tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+        }
+
+        // Map from 'PatientArray.address.line1' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
+        if ($sVi1.address != null) {
+            $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = $sVi1.address.line1;
+        } else {
+            $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
+        }
+        
+        TopArrayField.add($tVi1);
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.topAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.id</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.middleSingleInst.middleAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.name</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.address.line1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="423.0" YCoordinate="279.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_iowJMypYEeWky-pvF47-Ag" Name="InflateArrayMappingMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Inflate Array Mapping Merge">
+          <xpdl2:Description>// Merge list content: TopArrayField
+
+if (PatientArray != null) {
+
+    for (var i1 = 0; i1 &lt; PatientArray.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(PatientArray.get(i1));
+
+        // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
+        var $tVi1;
+        if (i1 &lt; TopArrayField.size()) {
+            $tVi1 = TopArrayField.get(i1);
+        } else {
+            $tVi1 = com_example_bdp_Factory.createTop();
+        }
+
+        // Map from 'PatientArray.id' to 'TopArrayField.topAttr'
+        $tVi1.topAttr = $sVi1.id;
+
+        // Create target 'TopArrayField.middleSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst == null) {
+            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+        }
+
+        // Map from 'PatientArray.name' to 'TopArrayField.middleSingleInst.middleAttr'
+        $tVi1.middleSingleInst.middleAttr = $sVi1.name;
+
+        // Create target 'TopArrayField.middleSingleInst.bottomSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst.bottomSingleInst == null) {
+            $tVi1.middleSingleInst.bottomSingleInst = com_example_bdp_Factory.createBottom();
+        }
+
+        // Map from 'PatientArray.address.line1' to 'TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr'
+        if ($sVi1.address != null) {
+            $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = $sVi1.address.line1;
+        } else {
+            $tVi1.middleSingleInst.bottomSingleInst.bottomAttr = null;
+        }
+        
+        if (i1 >= TopArrayField.size()) {
+            TopArrayField.add($tVi1);
+        }
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.topAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.id</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.middleSingleInst.middleAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.name</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayField.middleSingleInst.bottomSingleInst.bottomAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.address.line1</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayField" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="541.0" YCoordinate="279.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_7yzPcCpbEeWky-pvF47-Ag" Name="ArraySimpleTypeOverwrite" xpdExt:Visibility="Private" xpdExt:DisplayName="Array Simple Type Overwrite">
+          <xpdl2:Description>// Map from 'TextArrayParam' to 'TextArrayField'
+
+// Overwrite list: TextArrayField
+TextArrayField.clear();
+
+if (TextArrayParam != null) {
+
+    for (var i1 = 0; i1 &lt; TextArrayParam.size(); i1++) { 
+        var $sVi1 = TextArrayParam.get(i1);
+        
+        TextArrayField.add($sVi1);
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TextArrayField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">TextArrayParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayField" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="660.0" YCoordinate="279.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DbIn4CpeEeWky-pvF47-Ag" Name="NestedDirectArrayMapOverwrite" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Overwrite">
+          <xpdl2:Description>// Create target 'TopParam' if it doesn't exist.
+if (TopParam == null) {
+    TopParam = com_example_bdp_Factory.createTop();
+}
+
+// Map from 'AlternateStructure.middle' to 'TopParam.middleMultiInst'
+
+// Overwrite list: TopParam.middleMultiInst
+TopParam.middleMultiInst.clear();
+
+if (AlternateStructure != null &amp;&amp; AlternateStructure.middle != null) {
+
+    for (var i1 = 0; i1 &lt; AlternateStructure.middle.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(AlternateStructure.middle.get(i1));
+        
+        TopParam.middleMultiInst.add($sVi1);
+    }
+}
+
+// Create target 'TopParam.middleSingleInst' if it doesn't exist.
+if (TopParam.middleSingleInst == null) {
+    TopParam.middleSingleInst = com_example_bdp_Factory.createMiddle();
+}
+
+// Map from 'AlternateStructure.bottom' to 'TopParam.middleSingleInst.bottomMultiInst'
+
+// Overwrite list: TopParam.middleSingleInst.bottomMultiInst
+TopParam.middleSingleInst.bottomMultiInst.clear();
+
+if (AlternateStructure != null &amp;&amp; AlternateStructure.bottom != null) {
+
+    for (var i2 = 0; i2 &lt; AlternateStructure.bottom.size(); i2++) { 
+        var $sVi2 = ScriptUtil.copy(AlternateStructure.bottom.get(i2));
+        
+        TopParam.middleSingleInst.bottomMultiInst.add($sVi2);
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleSingleInst.bottomMultiInst">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">AlternateStructure.bottom</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleMultiInst">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">AlternateStructure.middle</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="772.0" YCoordinate="279.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_WVjOAypfEeWky-pvF47-Ag" Name="NestedDirectArrayMapOverwrite2" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Overwrite 2">
+          <xpdl2:Description>// Overwrite list: TopArrayParam
+TopArrayParam.clear();
+
+if (AlternateStructureArray != null) {
+
+    for (var i1 = 0; i1 &lt; AlternateStructureArray.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(AlternateStructureArray.get(i1));
+        var $tVi1 = com_example_bdp_Factory.createTop();
+
+        // Map from 'AlternateStructureArray.middle' to 'TopArrayParam.middleMultiInst'
+
+        // Overwrite list: TopArrayParam.middleMultiInst
+        $tVi1.middleMultiInst.clear();
+        
+        if ($sVi1.middle != null) {
+        
+            for (var i2 = 0; i2 &lt; $sVi1.middle.size(); i2++) { 
+                var $sVi2 = ScriptUtil.copy($sVi1.middle.get(i2));
+                
+                $tVi1.middleMultiInst.add($sVi2);
+            }
+        }
+
+        // Create target 'TopArrayParam.middleSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst == null) {
+            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+        }
+
+        // Map from 'AlternateStructureArray.bottom' to 'TopArrayParam.middleSingleInst.bottomMultiInst'
+
+        // Overwrite list: TopArrayParam.middleSingleInst.bottomMultiInst
+        $tVi1.middleSingleInst.bottomMultiInst.clear();
+        
+        if ($sVi1.bottom != null) {
+        
+            for (var i3 = 0; i3 &lt; $sVi1.bottom.size(); i3++) { 
+                var $sVi3 = ScriptUtil.copy($sVi1.bottom.get(i3));
+                
+                $tVi1.middleSingleInst.bottomMultiInst.add($sVi3);
+            }
+        }
+        
+        TopArrayParam.add($tVi1);
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayParam.middleSingleInst.bottomMultiInst">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">AlternateStructureArray.bottom</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayParam.middleMultiInst">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">AlternateStructureArray.middle</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="105.0">
+              <xpdl2:Coordinates XCoordinate="890.0" YCoordinate="279.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_dgofNipgEeWky-pvF47-Ag" Name="NestedDirectArrayMapMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Merge">
+          <xpdl2:Description>// Create target 'TopParam' if it doesn't exist.
+if (TopParam == null) {
+    TopParam = com_example_bdp_Factory.createTop();
+}
+
+// Map from 'AlternateStructure.middle' to 'TopParam.middleMultiInst'
+
+// Merge list content: TopParam.middleMultiInst
+
+if (AlternateStructure != null &amp;&amp; AlternateStructure.middle != null) {
+
+    for (var i1 = 0; i1 &lt; AlternateStructure.middle.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(AlternateStructure.middle.get(i1));
+
+        // Overwrite existing target elements from source with same index (else append when there are additional source elements)
+        if (i1 &lt; TopParam.middleMultiInst.size()) {
+            TopParam.middleMultiInst.set(i1, $sVi1);
+        } else {
+            TopParam.middleMultiInst.add($sVi1);
+        }
+    }
+}
+
+// Create target 'TopParam.middleSingleInst' if it doesn't exist.
+if (TopParam.middleSingleInst == null) {
+    TopParam.middleSingleInst = com_example_bdp_Factory.createMiddle();
+}
+
+// Map from 'AlternateStructure.bottom' to 'TopParam.middleSingleInst.bottomMultiInst'
+
+// Merge list content: TopParam.middleSingleInst.bottomMultiInst
+
+if (AlternateStructure != null &amp;&amp; AlternateStructure.bottom != null) {
+
+    for (var i2 = 0; i2 &lt; AlternateStructure.bottom.size(); i2++) { 
+        var $sVi2 = ScriptUtil.copy(AlternateStructure.bottom.get(i2));
+
+        // Overwrite existing target elements from source with same index (else append when there are additional source elements)
+        if (i2 &lt; TopParam.middleSingleInst.bottomMultiInst.size()) {
+            TopParam.middleSingleInst.bottomMultiInst.set(i2, $sVi2);
+        } else {
+            TopParam.middleSingleInst.bottomMultiInst.add($sVi2);
+        }
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleSingleInst.bottomMultiInst">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">AlternateStructure.bottom</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopParam.middleMultiInst">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">AlternateStructure.middle</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="TopParam.middleMultiInst" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="TopParam.middleSingleInst.bottomMultiInst" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1023.0" YCoordinate="279.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_jEl3AypgEeWky-pvF47-Ag" Name="NestedDirectArrayMapMerge2" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Direct Array Map Merge 2">
+          <xpdl2:Description>// Merge list content: TopArrayParam
+
+if (AlternateStructureArray != null) {
+
+    for (var i1 = 0; i1 &lt; AlternateStructureArray.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(AlternateStructureArray.get(i1));
+
+        // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
+        var $tVi1;
+        if (i1 &lt; TopArrayParam.size()) {
+            $tVi1 = TopArrayParam.get(i1);
+        } else {
+            $tVi1 = com_example_bdp_Factory.createTop();
+        }
+
+        // Map from 'AlternateStructureArray.middle' to 'TopArrayParam.middleMultiInst'
+
+        // Merge list content: TopArrayParam.middleMultiInst
+        
+        if ($sVi1.middle != null) {
+        
+            for (var i2 = 0; i2 &lt; $sVi1.middle.size(); i2++) { 
+                var $sVi2 = ScriptUtil.copy($sVi1.middle.get(i2));
+
+                // Overwrite existing target elements from source with same index (else append when there are additional source elements)
+                if (i2 &lt; $tVi1.middleMultiInst.size()) {
+                    $tVi1.middleMultiInst.set(i2, $sVi2);
+                } else {
+                    $tVi1.middleMultiInst.add($sVi2);
+                }
+            }
+        }
+
+        // Create target 'TopArrayParam.middleSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst == null) {
+            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+        }
+
+        // Map from 'AlternateStructureArray.bottom' to 'TopArrayParam.middleSingleInst.bottomMultiInst'
+
+        // Merge list content: TopArrayParam.middleSingleInst.bottomMultiInst
+        
+        if ($sVi1.bottom != null) {
+        
+            for (var i3 = 0; i3 &lt; $sVi1.bottom.size(); i3++) { 
+                var $sVi3 = ScriptUtil.copy($sVi1.bottom.get(i3));
+
+                // Overwrite existing target elements from source with same index (else append when there are additional source elements)
+                if (i3 &lt; $tVi1.middleSingleInst.bottomMultiInst.size()) {
+                    $tVi1.middleSingleInst.bottomMultiInst.set(i3, $sVi3);
+                } else {
+                    $tVi1.middleSingleInst.bottomMultiInst.add($sVi3);
+                }
+            }
+        }
+        
+        if (i1 >= TopArrayParam.size()) {
+            TopArrayParam.add($tVi1);
+        }
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayParam.middleSingleInst.bottomMultiInst">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">AlternateStructureArray.bottom</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayParam.middleMultiInst">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">AlternateStructureArray.middle</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayParam" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayParam.middleMultiInst" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayParam.middleSingleInst.bottomMultiInst" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="105.0">
+              <xpdl2:Coordinates XCoordinate="1023.0" YCoordinate="396.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_JpY9EypiEeWky-pvF47-Ag" Name="NestedInflateArrayMapOverwrite" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Inflate Array Map Overwrite">
+          <xpdl2:Description>// Overwrite list: TopArrayParam
+TopArrayParam.clear();
+
+if (PatientArray != null) {
+
+    for (var i1 = 0; i1 &lt; PatientArray.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(PatientArray.get(i1));
+        var $tVi1 = com_example_bdp_Factory.createTop();
+
+        // Overwrite list: TopArrayParam.middleMultiInst
+        $tVi1.middleMultiInst.clear();
+        
+        if ($sVi1.medicalrecords != null) {
+        
+            for (var i2 = 0; i2 &lt; $sVi1.medicalrecords.size(); i2++) { 
+                var $sVi2 = ScriptUtil.copy($sVi1.medicalrecords.get(i2));
+                var $tVi2 = com_example_bdp_Factory.createMiddle();
+
+                // Map from 'PatientArray.medicalrecords.id' to 'TopArrayParam.middleMultiInst.middleAttr'
+                $tVi2.middleAttr = $sVi2.id;
+                
+                $tVi1.middleMultiInst.add($tVi2);
+            }
+        }
+
+        // Create target 'TopArrayParam.middleSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst == null) {
+            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+        }
+
+        // Overwrite list: TopArrayParam.middleSingleInst.bottomMultiInst
+        $tVi1.middleSingleInst.bottomMultiInst.clear();
+        
+        if ($sVi1.medicalrecords != null) {
+        
+            for (var i3 = 0; i3 &lt; $sVi1.medicalrecords.size(); i3++) { 
+                var $sVi3 = ScriptUtil.copy($sVi1.medicalrecords.get(i3));
+                var $tVi3 = com_example_bdp_Factory.createBottom();
+
+                // Map from 'PatientArray.medicalrecords.summary' to 'TopArrayParam.middleSingleInst.bottomMultiInst.bottomAttr'
+                $tVi3.bottomAttr = $sVi3.summary;
+                
+                $tVi1.middleSingleInst.bottomMultiInst.add($tVi3);
+            }
+        }
+        
+        TopArrayParam.add($tVi1);
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayParam.middleMultiInst.middleAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.medicalrecords.id</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayParam.middleSingleInst.bottomMultiInst.bottomAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.medicalrecords.summary</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="105.0">
+              <xpdl2:Coordinates XCoordinate="890.0" YCoordinate="396.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DD0FUSpkEeWky-pvF47-Ag" Name="NestedInflateArrayMapMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Inflate Array Map Merge">
+          <xpdl2:Description>// Merge list content: TopArrayParam
+
+if (PatientArray != null) {
+
+    for (var i1 = 0; i1 &lt; PatientArray.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(PatientArray.get(i1));
+
+        // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
+        var $tVi1;
+        if (i1 &lt; TopArrayParam.size()) {
+            $tVi1 = TopArrayParam.get(i1);
+        } else {
+            $tVi1 = com_example_bdp_Factory.createTop();
+        }
+
+        // Merge list content: TopArrayParam.middleMultiInst
+        
+        if ($sVi1.medicalrecords != null) {
+        
+            for (var i2 = 0; i2 &lt; $sVi1.medicalrecords.size(); i2++) { 
+                var $sVi2 = ScriptUtil.copy($sVi1.medicalrecords.get(i2));
+
+                // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
+                var $tVi2;
+                if (i2 &lt; $tVi1.middleMultiInst.size()) {
+                    $tVi2 = $tVi1.middleMultiInst.get(i2);
+                } else {
+                    $tVi2 = com_example_bdp_Factory.createMiddle();
+                }
+
+                // Map from 'PatientArray.medicalrecords.id' to 'TopArrayParam.middleMultiInst.middleAttr'
+                $tVi2.middleAttr = $sVi2.id;
+                
+                if (i2 >= $tVi1.middleMultiInst.size()) {
+                    $tVi1.middleMultiInst.add($tVi2);
+                }
+            }
+        }
+
+        // Create target 'TopArrayParam.middleSingleInst' if it doesn't exist.
+        if ($tVi1.middleSingleInst == null) {
+            $tVi1.middleSingleInst = com_example_bdp_Factory.createMiddle();
+        }
+
+        // Merge list content: TopArrayParam.middleSingleInst.bottomMultiInst
+        
+        if ($sVi1.medicalrecords != null) {
+        
+            for (var i3 = 0; i3 &lt; $sVi1.medicalrecords.size(); i3++) { 
+                var $sVi3 = ScriptUtil.copy($sVi1.medicalrecords.get(i3));
+
+                // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
+                var $tVi3;
+                if (i3 &lt; $tVi1.middleSingleInst.bottomMultiInst.size()) {
+                    $tVi3 = $tVi1.middleSingleInst.bottomMultiInst.get(i3);
+                } else {
+                    $tVi3 = com_example_bdp_Factory.createBottom();
+                }
+
+                // Map from 'PatientArray.medicalrecords.summary' to 'TopArrayParam.middleSingleInst.bottomMultiInst.bottomAttr'
+                $tVi3.bottomAttr = $sVi3.summary;
+                
+                if (i3 >= $tVi1.middleSingleInst.bottomMultiInst.size()) {
+                    $tVi1.middleSingleInst.bottomMultiInst.add($tVi3);
+                }
+            }
+        }
+        
+        if (i1 >= TopArrayParam.size()) {
+            TopArrayParam.add($tVi1);
+        }
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayParam.middleMultiInst.middleAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.medicalrecords.id</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TopArrayParam.middleSingleInst.bottomMultiInst.bottomAttr">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">PatientArray.medicalrecords.summary</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayParam" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayParam.middleMultiInst" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayParam.middleSingleInst.bottomMultiInst" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="105.0">
+              <xpdl2:Coordinates XCoordinate="746.0" YCoordinate="396.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_6rhvQypkEeWky-pvF47-Ag" Name="NestedSimpleArrayMapMerge" xpdExt:Visibility="Private" xpdExt:DisplayName="Nested Simple Array Map Merge">
+          <xpdl2:Description>// Merge list content: PatientArray
+
+if (YetAnotherArray != null) {
+
+    for (var i1 = 0; i1 &lt; YetAnotherArray.size(); i1++) { 
+        var $sVi1 = ScriptUtil.copy(YetAnotherArray.get(i1));
+
+        // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
+        var $tVi1;
+        if (i1 &lt; PatientArray.size()) {
+            $tVi1 = PatientArray.get(i1);
+        } else {
+            $tVi1 = com_example_bdp_Factory.createPatient();
+        }
+
+        // Merge list content: PatientArray.medicalrecords
+        
+        if ($sVi1.yetanothermiddle != null) {
+        
+            for (var i2 = 0; i2 &lt; $sVi1.yetanothermiddle.size(); i2++) { 
+                var $sVi2 = ScriptUtil.copy($sVi1.yetanothermiddle.get(i2));
+
+                // Map to existing target elements from source with same index (else append new targets when there are additional source elements)
+                var $tVi2;
+                if (i2 &lt; $tVi1.medicalrecords.size()) {
+                    $tVi2 = $tVi1.medicalrecords.get(i2);
+                } else {
+                    $tVi2 = com_example_bdp_Factory.createMedicalRecords();
+                }
+
+                // Map from 'YetAnotherArray.yetanothermiddle.middleArray' to 'PatientArray.medicalrecords.additionalRecordRefs'
+
+                // Overwrite list: PatientArray.medicalrecords.additionalRecordRefs
+                $tVi2.additionalRecordRefs.clear();
+                
+                if ($sVi2.middleArray != null) {
+                
+                    for (var i3 = 0; i3 &lt; $sVi2.middleArray.size(); i3++) { 
+                        var $sVi3 = $sVi2.middleArray.get(i3);
+                        
+                        $tVi2.additionalRecordRefs.add($sVi3);
+                    }
+                }
+                
+                if (i2 >= $tVi1.medicalrecords.size()) {
+                    $tVi1.medicalrecords.add($tVi2);
+                }
+            }
+        }
+        
+        if (i1 >= PatientArray.size()) {
+            PatientArray.add($tVi1);
+        }
+    }
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="PatientArray.medicalrecords.additionalRecordRefs">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">YetAnotherArray.yetanothermiddle.middleArray</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                    <xpdExt:ArrayInflation>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayParam.middleMultiInst" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="TopArrayParam.middleSingleInst.bottomMultiInst" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="PatientArray" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                      <xpdExt:DataMapperArrayInflation Path="PatientArray.medicalrecords" MappingType="MergeList" ContributorId="ActivityInterface.DataMapperContent"/>
+                    </xpdExt:ArrayInflation>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="105.0">
+              <xpdl2:Coordinates XCoordinate="599.0" YCoordinate="396.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_NcBekC0-EeW2t9LMEsyVTg" Name="RecursiveObjectLikeMapping" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Recursive Object Like Mapping">
+          <xpdl2:Description>// Like mapping from 'RecursiveParam' to 'RecursiveField'
+
+// Create target 'RecursiveField' if it doesn't exist.
+if (RecursiveField == null) {
+    RecursiveField = com_example_bdp_Factory.createRecursive2();
+}
+
+// Map from 'RecursiveParam.attribute1' to 'RecursiveField.attribute1'
+if (RecursiveParam != null) {
+    RecursiveField.attribute1 = RecursiveParam.attribute1;
+} else {
+    RecursiveField.attribute1 = null;
+}
+
+// Map from 'RecursiveParam.attribute2' to 'RecursiveField.attribute2'
+if (RecursiveParam != null) {
+    RecursiveField.attribute2 = RecursiveParam.attribute2;
+} else {
+    RecursiveField.attribute2 = null;
+}
+
+// Create target 'RecursiveField.recursChild' if it doesn't exist.
+if (RecursiveField.recursChild == null) {
+    RecursiveField.recursChild = com_example_bdp_Factory.createChildRecursive2();
+}
+
+// Map from 'RecursiveParam.recursChild.attribute1' to 'RecursiveField.recursChild.attribute1'
+if (RecursiveParam != null &amp;&amp; RecursiveParam.recursChild != null) {
+    RecursiveField.recursChild.attribute1 = RecursiveParam.recursChild.attribute1;
+} else {
+    RecursiveField.recursChild.attribute1 = null;
+}
+
+// Create target 'RecursiveField.recursChild.recursGrandChild' if it doesn't exist.
+if (RecursiveField.recursChild.recursGrandChild == null) {
+    RecursiveField.recursChild.recursGrandChild = com_example_bdp_Factory.createGrandChildRecusrive2();
+}
+
+// Map from 'RecursiveParam.recursChild.recursGrandChild.attribute1' to 'RecursiveField.recursChild.recursGrandChild.attribute1'
+if (RecursiveParam != null &amp;&amp; RecursiveParam.recursChild != null &amp;&amp; RecursiveParam.recursChild.recursGrandChild != null) {
+    RecursiveField.recursChild.recursGrandChild.attribute1 = RecursiveParam.recursChild.recursGrandChild.attribute1;
+} else {
+    RecursiveField.recursChild.recursGrandChild.attribute1 = null;
+}
+
+
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                    <xpdExt:DataMappings>
+                      <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:likeMapping="true" Direction="IN" Formal="RecursiveField">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">RecursiveParam</xpdl2:Actual>
+                      </xpdExt:DataMapping>
+                    </xpdExt:DataMappings>
+                  </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_f7z_Qez2EeSF4IKDfXmKBw" Width="105.0">
+              <xpdl2:Coordinates XCoordinate="450.0" YCoordinate="396.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="RecursiveField" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="RecursiveParam" Mode="INOUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_bliCoO2SEeS4I4a6rDKS7w" xpdExt:DisplayName="" Name="" From="_f7z_Quz2EeSF4IKDfXmKBw" To="_blhbkO2SEeS4I4a6rDKS7w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_uT0RQO2TEeS4I4a6rDKS7w" xpdExt:DisplayName="" Name="" From="_blhbkO2SEeS4I4a6rDKS7w" To="_uTvYwO2TEeS4I4a6rDKS7w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_8eWrEO2YEeS2iedHMJP9Kw" xpdExt:DisplayName="" Name="" From="_uTvYwO2TEeS4I4a6rDKS7w" To="_8d3i4O2YEeS2iedHMJP9Kw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_FyIuUO2_EeSW7rWR63Shiw" xpdExt:DisplayName="" Name="" From="_8d3i4O2YEeS2iedHMJP9Kw" To="_FxsCYO2_EeSW7rWR63Shiw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_jcxIUP1vEeSwcMBp6hsoCw" xpdExt:DisplayName="" Name="" From="_FxsCYO2_EeSW7rWR63Shiw" To="_jcv6MP1vEeSwcMBp6hsoCw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oUeBYACAEeWAIpSUFvcI8w" xpdExt:DisplayName="" Name="" From="_jcv6MP1vEeSwcMBp6hsoCw" To="_oT3kcACAEeWAIpSUFvcI8w">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_LUg3EBWmEeW1TfEo5pbFWA" xpdExt:DisplayName="" Name="" From="_oT3kcACAEeWAIpSUFvcI8w" To="_LUfo8BWmEeW1TfEo5pbFWA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_TZvRwBWmEeW1TfEo5pbFWA" xpdExt:DisplayName="" Name="" From="_LUfo8BWmEeW1TfEo5pbFWA" To="_FfZVwCpKEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="86.0" YCoordinate="31.0"/>
+              <xpdl2:Coordinates XCoordinate="886.0" YCoordinate="-66.0"/>
+              <xpdl2:Coordinates XCoordinate="-918.0" YCoordinate="77.0"/>
+              <xpdl2:Coordinates XCoordinate="-118.0" YCoordinate="-20.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_FfZVxCpKEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_FfZVwSpKEeWky-pvF47-Ag" To="_FfZVwipKEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_8Tod4CpWEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_FfZVwCpKEeWky-pvF47-Ag" To="_8Ti-UCpWEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_drqZkCpXEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_8Ti-UCpWEeWky-pvF47-Ag" To="_drmvMSpXEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_iozzkCpYEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_drmvMSpXEeWky-pvF47-Ag" To="_iowJMypYEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_7y4vACpbEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_iowJMypYEeWky-pvF47-Ag" To="_7yzPcCpbEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_DbMSQCpeEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_7yzPcCpbEeWky-pvF47-Ag" To="_DbIn4CpeEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_WVmRUCpfEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_DbIn4CpeEeWky-pvF47-Ag" To="_WVjOAypfEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_dgpGQCpgEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_NcBekC0-EeW2t9LMEsyVTg" To="_FfZVwSpKEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_dgul0CpgEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_WVjOAypfEeWky-pvF47-Ag" To="_dgofNipgEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_jEo6UCpgEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_dgofNipgEeWky-pvF47-Ag" To="_jEl3AypgEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Jpd1kCpiEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_jEl3AypgEeWky-pvF47-Ag" To="_JpY9EypiEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_DD3vsCpkEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_JpY9EypiEeWky-pvF47-Ag" To="_DD0FUSpkEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_6rlZoCpkEeWky-pvF47-Ag" xpdExt:DisplayName="" Name="" From="_DD0FUSpkEeWky-pvF47-Ag" To="_6rhvQypkEeWky-pvF47-Ag">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_NcCFoC0-EeW2t9LMEsyVTg" xpdExt:DisplayName="" Name="" From="_6rhvQypkEeWky-pvF47-Ag" To="_NcBekC0-EeW2t9LMEsyVTg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="TopArrayParam"/>
+            <simulation:ParameterDistribution ParameterId="TopParam"/>
+            <simulation:ParameterDistribution ParameterId="IntParam"/>
+            <simulation:ParameterDistribution ParameterId="TextParam"/>
+            <simulation:ParameterDistribution ParameterId="TextParam2"/>
+            <simulation:ParameterDistribution ParameterId="BoolParam"/>
+            <simulation:ParameterDistribution ParameterId="DateTimeParam"/>
+            <simulation:ParameterDistribution ParameterId="TextArrayParam"/>
+            <simulation:ParameterDistribution ParameterId="AlternateStructureArray"/>
+            <simulation:ParameterDistribution ParameterId="AlternateStructure"/>
+            <simulation:ParameterDistribution ParameterId="RecursiveParam"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_dIYacCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="ProcessDataMapper-TypeTests" Name="ProcessDataMapperTypeTests">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_eD2kQiWCEeWMdKRbP2XvVw">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_eD2kQyWCEeWMdKRbP2XvVw" Name="StartEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="Start Event 2">
+              <xpdl2:Event>
+                <xpdl2:StartEvent Trigger="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" Width="67.0">
+                  <xpdl2:Coordinates XCoordinate="59.0" YCoordinate="99.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_eD2kRCWCEeWMdKRbP2XvVw" Name="ClassAttributeTypeCompatibility" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Class Attribute Type Compatibility">
+              <xpdl2:Description>// Map from 'TypesClass.boolean1' to 'Text01'
+if (TypesClass != null) {
+    Text01 = TypesClass.boolean1;
+} else {
+    Text01 = null;
+}
+
+// Map from 'TypesClass.date' to 'Text02'
+if (TypesClass != null) {
+    Text02 = TypesClass.date;
+} else {
+    Text02 = null;
+}
+
+// Map from 'TypesClass.datetime' to 'Text04'
+if (TypesClass != null) {
+    Text04 = TypesClass.datetime;
+} else {
+    Text04 = null;
+}
+
+// Map from 'TypesClass.decimal' to 'Text05'
+if (TypesClass != null) {
+    Text05 = TypesClass.decimal;
+} else {
+    Text05 = null;
+}
+
+// Map from 'TypesClass.duration' to 'Text06'
+if (TypesClass != null) {
+    Text06 = TypesClass.duration;
+} else {
+    Text06 = null;
+}
+
+// Map from 'TypesClass.enum1' to 'Text07'
+if (TypesClass != null &amp;&amp; TypesClass.enum1 != null) {
+    Text07 = String(TypesClass.enum1);
+} else {
+    Text07 = null;
+}
+
+// Map from 'TypesClass.integer' to 'Text08'
+if (TypesClass != null) {
+    Text08 = TypesClass.integer;
+} else {
+    Text08 = null;
+}
+
+// Map from 'TypesClass.time' to 'Text09'
+if (TypesClass != null) {
+    Text09 = TypesClass.time;
+} else {
+    Text09 = null;
+}
+
+// Map from 'TypesClass.uri' to 'Text10'
+if (TypesClass != null) {
+    Text10 = TypesClass.uri;
+} else {
+    Text10 = null;
+}
+
+// Map from 'TypesClass.id' to 'Text11'
+if (TypesClass != null) {
+    Text11 = TypesClass.id;
+} else {
+    Text11 = null;
+}
+
+// Map from 'TypesClass.text' to 'Text12'
+if (TypesClass != null) {
+    Text12 = TypesClass.text;
+} else {
+    Text12 = null;
+}
+
+// Create target 'TypesClass' if it doesn't exist.
+if (TypesClass == null) {
+    TypesClass = com_example_bdp_Factory.createTypes();
+}
+
+// Map from 'DateTime2' to 'TypesClass.dateTimeTZ'
+TypesClass.dateTimeTZ = DateTime2;
+
+// Map from 'Text13' to 'TypesClass.enum1'
+TypesClass.enum1 = com_example_bdp_Colors.get(String(Text13));
+
+
+</xpdl2:Description>
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskScript>
+                    <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                        <xpdExt:DataMappings>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text01">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.boolean1</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text02">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.date</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text04">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.datetime</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text05">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.decimal</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text06">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.duration</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text07">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.enum1</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text08">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.integer</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text09">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.time</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text10">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.uri</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.enum1">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text13</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text11">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.id</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text12">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">TypesClass.text</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.dateTimeTZ">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">DateTime2</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                        </xpdExt:DataMappings>
+                      </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+                  </xpdl2:TaskScript>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="197.0" YCoordinate="99.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ActivityResourcePatterns>
+                <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+              </xpdExt:ActivityResourcePatterns>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_QqdcwCYoEeWOVbireKkn9g" Name="FieldTypesCompatibility" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Field Types Compatibility">
+              <xpdl2:Description>// Map from 'Boolean1' to 'Text01'
+Text01 = Boolean1;
+
+// Map from 'Integer' to 'Text02'
+Text02 = Integer;
+
+// Map from 'Decimal' to 'Text03'
+Text03 = Decimal;
+
+// Map from 'Date1' to 'Text04'
+Text04 = Date1;
+
+// Map from 'Time1' to 'Text05'
+Text05 = Time1;
+
+// Map from 'DateTime' to 'Text06'
+Text06 = DateTime;
+
+
+</xpdl2:Description>
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskScript>
+                    <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                        <xpdExt:DataMappings>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text01">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Boolean1</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text02">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Integer</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text03">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Decimal</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text04">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Date1</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text05">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Time1</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Text06">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">DateTime</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                        </xpdExt:DataMappings>
+                      </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+                  </xpdl2:TaskScript>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="354.0" YCoordinate="99.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ActivityResourcePatterns>
+                <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+              </xpdExt:ActivityResourcePatterns>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_IRAXISYrEeWOVbireKkn9g" Name="SubtoSuperClass" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Sub to Super Class">
+              <xpdl2:Description>// Map from 'SubClass' to 'SuperClass'
+SuperClass = ScriptUtil.copy(SubClass);
+
+
+</xpdl2:Description>
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskScript>
+                    <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                        <xpdExt:DataMappings>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="SuperClass">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">SubClass</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                        </xpdExt:DataMappings>
+                      </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+                  </xpdl2:TaskScript>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="504.0" YCoordinate="99.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ActivityResourcePatterns>
+                <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+              </xpdExt:ActivityResourcePatterns>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_ET-RECcAEeWQGL9kU2bBTg" Name="TypeMappingErrors" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Type Mapping Errors">
+              <xpdl2:Description>// Map from 'Text01' to 'Date1'
+Date1 = Text01;
+
+// Map from 'DateTime' to 'Date2'
+Date2 = DateTime;
+
+// Map from 'Date2' to 'DateTime'
+DateTime = Date2;
+
+// Map from 'SuperClass' to 'SubClass'
+SubClass = ScriptUtil.copy(SuperClass);
+
+// Create target 'TypesClass' if it doesn't exist.
+if (TypesClass == null) {
+    TypesClass = com_example_bdp_Factory.createTypes();
+}
+
+// Map from 'Text02' to 'TypesClass.attachment'
+TypesClass.attachment = Text02;
+
+// Map from 'Text03' to 'TypesClass.boolean1'
+TypesClass.boolean1 = Text03;
+
+// Map from 'Text04' to 'TypesClass.date'
+TypesClass.date = Text04;
+
+// Map from 'Text05' to 'TypesClass.dateTimeTZ'
+TypesClass.dateTimeTZ = Text05;
+
+// Map from 'Text06' to 'TypesClass.datetime'
+TypesClass.datetime = Text06;
+
+// Map from 'Text07' to 'TypesClass.decimal'
+TypesClass.decimal = Text07;
+
+// Map from 'Text08' to 'TypesClass.duration'
+TypesClass.duration = Text08;
+
+// Map from 'Text09' to 'TypesClass.integer'
+TypesClass.integer = Text09;
+
+// Map from 'Text10' to 'TypesClass.time'
+TypesClass.time = Text10;
+
+// Map from 'SuperClass2' to 'TypesClass.subClass'
+TypesClass.subClass = ScriptUtil.copy(SuperClass2);
+
+
+</xpdl2:Description>
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskScript>
+                    <xpdl2:Script ScriptGrammar="DataMapper">
+<xpdExt:ScriptDataMapper MapperContext="ScriptTask" MappingDirection="IN">
+                        <xpdExt:DataMappings>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="SubClass">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">SuperClass</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Date1">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text01</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="DateTime">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Date2</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="Date2">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">DateTime</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.attachment">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text02</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.boolean1">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text03</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.date">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text04</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.datetime">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text06</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.dateTimeTZ">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text05</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.decimal">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text07</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.duration">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text08</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.integer">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text09</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.time">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">Text10</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                          <xpdExt:DataMapping xpdExt:SourceContributorId="ActivityInterface.DataMapperContent" xpdExt:TargetContributorId="ActivityInterface.DataMapperContent" Direction="IN" Formal="TypesClass.subClass">
+                            <xpdl2:Actual ScriptGrammar="JavaScript">SuperClass2</xpdl2:Actual>
+                          </xpdExt:DataMapping>
+                        </xpdExt:DataMappings>
+                      </xpdExt:ScriptDataMapper>
+</xpdl2:Script>
+                  </xpdl2:TaskScript>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="659.0" YCoordinate="99.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ActivityResourcePatterns>
+                <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+              </xpdExt:ActivityResourcePatterns>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_eD2kRSWCEeWMdKRbP2XvVw" Name="" From="_eD2kQyWCEeWMdKRbP2XvVw" To="_eD2kRCWCEeWMdKRbP2XvVw">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_RhJNICYoEeWOVbireKkn9g" xpdExt:DisplayName="" Name="" From="_eD2kRCWCEeWMdKRbP2XvVw" To="_QqdcwCYoEeWOVbireKkn9g">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+                <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+                  <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+                  <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+                </xpdl2:ConnectorGraphicsInfo>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_IRAXIiYrEeWOVbireKkn9g" Name="" From="_QqdcwCYoEeWOVbireKkn9g" To="_IRAXISYrEeWOVbireKkn9g">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_ET-REScAEeWQGL9kU2bBTg" Name="" From="_IRAXISYrEeWOVbireKkn9g" To="_ET-RECcAEeWQGL9kU2bBTg">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_dIo5IiWCEeWMdKRbP2XvVw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_dIo5ISWCEeWMdKRbP2XvVw" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="44.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_dIo5IyWCEeWMdKRbP2XvVw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_dIo5ISWCEeWMdKRbP2XvVw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="959.0" YCoordinate="152.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eD2kMCWCEeWMdKRbP2XvVw" Name="TypeCompatibility" xpdExt:Visibility="Private" xpdExt:DisplayName="Type Compatibility">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="false" xpdExt:EmbSubprocOtherStateWidth="128.0" xpdExt:EmbSubprocOtherStateHeight="80.0" ActivitySetId="_eD2kQiWCEeWMdKRbP2XvVw" View="EXPANDED"/>
+          <xpdl2:DataFields>
+            <xpdl2:DataField Id="_eD2kMSWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text01" Name="Text01" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kMiWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text02" Name="Text02" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kMyWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text03" Name="Text03" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kNCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text04" Name="Text04" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kNSWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text05" Name="Text05" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kNiWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text06" Name="Text06" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kNyWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text07" Name="Text07" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kOCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text08" Name="Text08" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kOSWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text09" Name="Text09" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kOiWCEeWMdKRbP2XvVw" xpdExt:DisplayName="TypesClass" Name="TypesClass" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_5Uze0CWAEeWMdKRbP2XvVw"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kOyWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Integer" Name="Integer" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="INTEGER">
+                  <xpdl2:Precision>9</xpdl2:Precision>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kPCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Integer2" Name="Integer2" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="INTEGER">
+                  <xpdl2:Precision>9</xpdl2:Precision>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kPSWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Date1" Name="Date1" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATE"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kPiWCEeWMdKRbP2XvVw" xpdExt:DisplayName="DateTime" Name="DateTime" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kPyWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Time1" Name="Time1" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="TIME"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kQCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Decimal" Name="Decimal" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="FLOAT">
+                  <xpdl2:Precision>10</xpdl2:Precision>
+                  <xpdl2:Scale>2</xpdl2:Scale>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_eD2kQSWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Boolean1" Name="Boolean1" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="BOOLEAN"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_1u1LwCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text10" Name="Text10" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_1ye8sCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text11" Name="Text11" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_12YlQCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text12" Name="Text12" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_17HUQCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="Text13" Name="Text13" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="STRING">
+                  <xpdl2:Length>50</xpdl2:Length>
+                </xpdl2:BasicType>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_T3eyYCYoEeWOVbireKkn9g" xpdExt:DisplayName="Date2" Name="Date2" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATE"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_WiiqcCYoEeWOVbireKkn9g" xpdExt:DisplayName="DateTime2" Name="DateTime2" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:BasicType Type="DATETIME"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_u1-HMCYqEeWOVbireKkn9g" xpdExt:DisplayName="SubClass" Name="SubClass" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_R8ci8CWBEeWMdKRbP2XvVw"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_2Zh_QCYqEeWOVbireKkn9g" xpdExt:DisplayName="SubClass2" Name="SubClass2" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_R8ci8CWBEeWMdKRbP2XvVw"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_5rDaYCYqEeWOVbireKkn9g" xpdExt:DisplayName="SuperClass" Name="SuperClass" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_S2zSYCWBEeWMdKRbP2XvVw"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+            <xpdl2:DataField Id="_7lWj4CYqEeWOVbireKkn9g" xpdExt:DisplayName="SuperClass2" Name="SuperClass2" ReadOnly="false">
+              <xpdl2:DataType>
+                <xpdl2:ExternalReference location="BDP.bom" namespace="http://www.eclipse.org/uml2/5.0.0/UML" xref="_S2zSYCWBEeWMdKRbP2XvVw"/>
+              </xpdl2:DataType>
+              <xpdl2:InitialValue/>
+            </xpdl2:DataField>
+          </xpdl2:DataFields>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="284.0" LaneId="_dIo5ISWCEeWMdKRbP2XvVw" Width="795.0">
+              <xpdl2:Coordinates XCoordinate="514.0" YCoordinate="175.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_dIo5JCWCEeWMdKRbP2XvVw" Name="" From="_eD2kMCWCEeWMdKRbP2XvVw" To="_dIo5IyWCEeWMdKRbP2XvVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_eD8DwCWCEeWMdKRbP2XvVw" xpdExt:DisplayName="" Name="" From="_dIo5IiWCEeWMdKRbP2XvVw" To="_eD2kMCWCEeWMdKRbP2XvVw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="22"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="18"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

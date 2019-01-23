@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.mind" name="com.enel.mind">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_A3mxog93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_A3mxow93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_A3mxpA93EeW3MruGqUCC5Q" key="created" value="1433947553850"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_A3mxpQ93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_A5F_YA93EeW3MruGqUCC5Q" key="checksum" value="3230294153"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.mindTracciamentoCRM" name="TracciamentoCRM">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_A3T3Rw93EeW3MruGqUCC5Q" body="      &#xA;&#x9;&#x9;&#x9;"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="TracciamentoCRMTracciamentoCRM" name="TracciamentoCRM">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="TracciamentoCRMrequest" name="request">
+          <type xmi:type="uml:Class" href="com.enel.mind.tracciamentocrm.bom#com.enel.mind.tracciamentocrmTracciamentoCRMInput?com.enel.mind.tracciamentocrm%3a%3aTracciamentoCRMInput?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="TracciamentoCRMresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.mind.tracciamentocrm.bom#com.enel.mind.tracciamentocrmTracciamentoCRMOutput?com.enel.mind.tracciamentocrm%3a%3aTracciamentoCRMOutput?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_A0CgQQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_A0CgQg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_A0CgQw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_A0CgRA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_A0CgRQ93EeW3MruGqUCC5Q" base_Package="com.enel.mind?com.enel.mind?" xsdTargetNamespace="com.enel.mind.TracciamentoCRM" xsdSchemaLocation="TracciamentoCRMServiceAbstract.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="TracciamentoCRMServiceAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_A0CgRg93EeW3MruGqUCC5Q" base_Element="_A0CgQQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_A0CgRw93EeW3MruGqUCC5Q" base_Element="_A0CgQw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_A3T3SA93EeW3MruGqUCC5Q" base_Class="com.enel.mindTracciamentoCRM?com.enel.mind%3a%3aTracciamentoCRM?" xsdName="TracciamentoCRM" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_A3mxoQ93EeW3MruGqUCC5Q" displayLabel="TracciamentoCRM" base_NamedElement="com.enel.mindTracciamentoCRM?com.enel.mind%3a%3aTracciamentoCRM?"/>
+  <notation:Diagram xmi:id="_A3mxpg93EeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.mind?com.enel.mind?" name="com.enel.mind" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_A3mxpw93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_A3mxqA93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

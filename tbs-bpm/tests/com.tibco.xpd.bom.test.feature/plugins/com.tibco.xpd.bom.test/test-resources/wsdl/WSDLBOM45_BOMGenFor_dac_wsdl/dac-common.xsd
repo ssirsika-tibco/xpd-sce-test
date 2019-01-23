@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://api.dac.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.dac.n2.tibco.com" version="1.0">
+	<xs:simpleType name="XmlTimeZoneType">
+		<xs:annotation>
+			<xs:documentation>Java API defined Time Zone name.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="XmlGuidType">
+		<xs:annotation>
+			<xs:documentation>Definition of a unique ID.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="XmlRequiredDetailType">
+		<xs:annotation>
+			<xs:documentation>Enumerated value describing the working time information to be returned.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WORKING_WEEK"/>
+			<xs:enumeration value="FREE_BUSY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="XmlDayNameType">
+		<xs:annotation>
+			<xs:documentation>Enumerated value of the short form of names of days of the week. Note: Order of elements to be preserved.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SU"/>
+			<xs:enumeration value="MO"/>
+			<xs:enumeration value="TU"/>
+			<xs:enumeration value="WE"/>
+			<xs:enumeration value="TH"/>
+			<xs:enumeration value="FR"/>
+			<xs:enumeration value="SA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="XmlDaylightSavingsType">
+		<xs:annotation>
+			<xs:documentation>Is daylight savings being observed in the associated time zone?</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<xs:simpleType name="XmlFreeBusyType">
+		<xs:annotation>
+			<xs:documentation>Enumerated value of working time status; FREE representing available for work and BUSY unavailable for work.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FREE"/>
+			<xs:enumeration value="BUSY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="XmlTimeSlotType">
+		<xs:annotation>
+			<xs:documentation>Pairs of start and end working times.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="start" type="xs:time" use="required">
+			<xs:annotation>
+				<xs:documentation>Start time.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="end" type="xs:time" use="required">
+			<xs:annotation>
+				<xs:documentation>End time.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="XmlDayType">
+		<xs:annotation>
+			<xs:documentation>Working day definition with pairs of start and end working times.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="5" minOccurs="0" name="time-slot" type="XmlTimeSlotType">
+				<xs:annotation>
+					<xs:documentation>Pairs of start and end times for the associated working day.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="day-of-week" type="XmlDayNameType" use="required">
+			<xs:annotation>
+				<xs:documentation>Enumerated value of the short form of the day of the week.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="XmlNewWorkingDayExceptionType">
+		<xs:annotation>
+			<xs:documentation>Working day exception definition for creating a new exception.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="description" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>User friendly name for this exception, e.g. Summer Holiday.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute default="false" name="all-day" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Marker denoting if this exception lasts a full day. Note that this is represented for the benefit of the client only and is not correlated to the start or end time.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="start" type="xs:dateTime" use="required">
+			<xs:annotation>
+				<xs:documentation>Start date and time of this exception.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="end" type="xs:dateTime" use="required">
+			<xs:annotation>
+				<xs:documentation>End date and time of this exception.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="free-busy" type="XmlFreeBusyType" use="required">
+			<xs:annotation>
+				<xs:documentation>Enumeration of whether this exception is available working time (FREE) or unavailable working time (BUSY). The only supported value is BUSY.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="XmlExistingWorkingDayExceptionType">
+		<xs:annotation>
+			<xs:documentation>Working day exception definition for updating an existing exception.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="guid" type="XmlGuidType" use="required">
+			<xs:annotation>
+				<xs:documentation>ID of exception.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="description" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Optional user friendly name for this exception, e.g. Summer Holiday.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute default="false" name="all-day" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Optional marker denoting if this exception lasts a full day. Note that this is represented for the benefit of the client only and is not correlated to the start or end time.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="start" type="xs:dateTime">
+			<xs:annotation>
+				<xs:documentation>Optional start date and time of this exception.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="end" type="xs:dateTime">
+			<xs:annotation>
+				<xs:documentation>Optional end date and time of this exception.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="free-busy" type="XmlFreeBusyType">
+			<xs:annotation>
+				<xs:documentation>Optional enumeration of whether this exception is available working time (FREE) or unavailable working time (BUSY). The only supported value is BUSY.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="XmlCalendarEntriesType">
+		<xs:annotation>
+			<xs:documentation>Calendar and working time details for a given entity.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="7" minOccurs="0" name="working-days" type="XmlDayType">
+				<xs:annotation>
+					<xs:documentation>Working time defined per working day of the week.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="working-day-exceptions" type="XmlExistingWorkingDayExceptionType">
+				<xs:annotation>
+					<xs:documentation>Exceptions to the working days.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="time-zone" type="XmlTimeZoneType" use="required">
+			<xs:annotation>
+				<xs:documentation>Java API specified time zone for this calendar.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="daylight-savings" type="XmlDaylightSavingsType" use="required">
+			<xs:annotation>
+				<xs:documentation>Denotes if daylight savings is being being observed for the associated time zone for thie calendar.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

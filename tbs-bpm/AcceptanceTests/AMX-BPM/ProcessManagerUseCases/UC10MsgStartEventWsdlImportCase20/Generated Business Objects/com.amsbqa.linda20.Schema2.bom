@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.amsbqa.linda20.Schema2" name="com.amsbqa.linda20.Schema2">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bJ4TohfGEeSvDpssaIxetA" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bJ4ToxfGEeSvDpssaIxetA" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bJ4TpBfGEeSvDpssaIxetA" key="created" value="1406713772122"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bJ4TpRfGEeSvDpssaIxetA" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bLCxQBfGEeSvDpssaIxetA" key="checksum" value="3031924780"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.linda20.Schema2LunchComplexType" name="LunchComplexType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="LunchComplexTypeLunchType" name="lunchType" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bFT8sxfGEeSvDpssaIxetA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bFT8shfGEeSvDpssaIxetA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="LunchComplexTypeLunchPrice" name="lunchPrice" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bFWY8hfGEeSvDpssaIxetA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bFWY8RfGEeSvDpssaIxetA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="LunchComplexTypeHowMuchBread" name="howMuchBread" type="com.amsbqa.linda20.Schema2HowMuchBread?com.amsbqa.linda20.Schema2%3a%3aHowMuchBreadType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bFbRcRfGEeSvDpssaIxetA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bFbRcBfGEeSvDpssaIxetA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.amsbqa.linda20.Schema2HowMuchBread" name="HowMuchBreadType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_bFY1MBfGEeSvDpssaIxetA">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      </generalization>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_bFMn8RfGEeSvDpssaIxetA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bFMn8hfGEeSvDpssaIxetA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_bFMn8xfGEeSvDpssaIxetA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bFMn9BfGEeSvDpssaIxetA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_bFMn9RfGEeSvDpssaIxetA" base_Package="com.amsbqa.linda20.Schema2?com.amsbqa.linda20.Schema2?" xsdTargetNamespace="http://www.amsbqa.com/linda20/Schema2" xsdSchemaLocation="WSDL1importsWSDL2.wsdl;WSDL2embedsSchema1andSchema2.wsdl" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.8.0.005" bomWsdlSources="WSDL1importsWSDL2.wsdl,WSDL2embedsSchema1andSchema2.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_bFQ5YBfGEeSvDpssaIxetA" base_Class="com.amsbqa.linda20.Schema2LunchComplexType?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType?" xsdName="LunchComplexType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_bFbRchfGEeSvDpssaIxetA" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bFT8sRfGEeSvDpssaIxetA" base_Property="LunchComplexTypeLunchType?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3alunchType?" xsdName="LunchType" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_bFbRchfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bFWY8BfGEeSvDpssaIxetA" base_Property="LunchComplexTypeLunchPrice?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3alunchPrice?" xsdName="LunchPrice" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_bFbRchfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_bFY1MRfGEeSvDpssaIxetA" base_PrimitiveType="com.amsbqa.linda20.Schema2HowMuchBread?com.amsbqa.linda20.Schema2%3a%3aHowMuchBreadType?" xsdSimpleTypeName="HowMuchBread" xsdRestrictionId="" xsdRestrictionBase="int"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_bFY1MhfGEeSvDpssaIxetA" base_PrimitiveType="com.amsbqa.linda20.Schema2HowMuchBread?com.amsbqa.linda20.Schema2%3a%3aHowMuchBreadType?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_bFZcQBfGEeSvDpssaIxetA" base_PrimitiveType="com.amsbqa.linda20.Schema2HowMuchBread?com.amsbqa.linda20.Schema2%3a%3aHowMuchBreadType?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_bFaDUBfGEeSvDpssaIxetA" base_Package="com.amsbqa.linda20.Schema2?com.amsbqa.linda20.Schema2?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_bFaqYBfGEeSvDpssaIxetA" name="HowMuchBread" type="com.amsbqa.linda20.Schema2HowMuchBread?com.amsbqa.linda20.Schema2%3a%3aHowMuchBreadType?" isBaseXSDType="true" targetNamespace="http://www.amsbqa.com/linda20/Schema2" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_bGqnkBfGEeSvDpssaIxetA" name="LunchElement" type="com.amsbqa.linda20.Schema2LunchComplexType?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType?" targetNamespace="http://www.amsbqa.com/linda20/Schema2" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_bFaqYhfGEeSvDpssaIxetA" base_Property="LunchComplexTypeHowMuchBread?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3ahowMuchBread?" xsdName="HowMuchBread" xsdRef="http://www.amsbqa.com/linda20/Schema2:HowMuchBread" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_bFbRchfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGqnkRfGEeSvDpssaIxetA" base_Element="_bFMn8xfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGrOoBfGEeSvDpssaIxetA" base_Element="_bFWY8RfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGrOoRfGEeSvDpssaIxetA" base_Element="_bFT8shfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGrOohfGEeSvDpssaIxetA" base_Element="com.amsbqa.linda20.Schema2HowMuchBread?com.amsbqa.linda20.Schema2%3a%3aHowMuchBreadType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGrOoxfGEeSvDpssaIxetA" base_Element="LunchComplexTypeLunchPrice?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3alunchPrice?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGrOpBfGEeSvDpssaIxetA" base_Element="LunchComplexTypeLunchType?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3alunchType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGrOpRfGEeSvDpssaIxetA" base_Element="_bFWY8hfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGrOphfGEeSvDpssaIxetA" base_Element="com.amsbqa.linda20.Schema2LunchComplexType?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGrOpxfGEeSvDpssaIxetA" base_Element="_bFY1MBfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGr1sBfGEeSvDpssaIxetA" base_Element="_bFT8sxfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGr1sRfGEeSvDpssaIxetA" base_Element="_bFMn8RfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGr1shfGEeSvDpssaIxetA" base_Element="_bFbRcBfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGr1sxfGEeSvDpssaIxetA" base_Element="_bFbRcRfGEeSvDpssaIxetA"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_bGr1tBfGEeSvDpssaIxetA" base_Element="LunchComplexTypeHowMuchBread?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3ahowMuchBread?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bJ3FgBfGEeSvDpssaIxetA" displayLabel="LunchComplexType" base_NamedElement="com.amsbqa.linda20.Schema2LunchComplexType?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bJ3FgRfGEeSvDpssaIxetA" displayLabel="HowMuchBread" base_NamedElement="com.amsbqa.linda20.Schema2HowMuchBread?com.amsbqa.linda20.Schema2%3a%3aHowMuchBreadType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bJ3skBfGEeSvDpssaIxetA" displayLabel="HowMuchBread" base_NamedElement="LunchComplexTypeHowMuchBread?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3ahowMuchBread?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bJ4ToBfGEeSvDpssaIxetA" displayLabel="LunchPrice" base_NamedElement="LunchComplexTypeLunchPrice?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3alunchPrice?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_bJ4ToRfGEeSvDpssaIxetA" displayLabel="LunchType" base_NamedElement="LunchComplexTypeLunchType?com.amsbqa.linda20.Schema2%3a%3aLunchComplexType%3a%3alunchType?"/>
+  <notation:Diagram xmi:id="_bJ46sBfGEeSvDpssaIxetA" type="Business Object Model" element="com.amsbqa.linda20.Schema2?com.amsbqa.linda20.Schema2?" name="com.amsbqa.linda20.Schema2" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_bJ46sRfGEeSvDpssaIxetA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_bJ46shfGEeSvDpssaIxetA"/>
+  </notation:Diagram>
+</xmi:XMI>

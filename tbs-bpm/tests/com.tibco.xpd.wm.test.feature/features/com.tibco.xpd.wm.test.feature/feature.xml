@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.wm.test.feature"
+      label="%featureName"
+      version="2.0.0.qualifier"
+      provider-name="%providerName">
+
+   <description url="">
+      JUnit test Release Unit
+   </description>
+
+   <copyright url="">
+      Copyright 2007 TIBCO Software Inc.
+   </copyright>
+
+   <license url="">
+      For internal use only.
+   </license>
+
+   <requires>
+      <import feature="com.tibco.xpd.core.test.feature" version="5.0.0" match="compatible"/>
+      <import feature="com.tibco.xpd.wm.feature" version="2.0.0" match="compatible"/>
+      <import feature="org.mockito.feature" version="1.9.5" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.n2.ut.test"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.amxbpm.documentactivity.test"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.wm.test"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.validation.wm.test"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.wm.n2.test"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.qualifier"/>
+
+</feature>

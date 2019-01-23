@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generic Pageflow Validations Plug-in
+Bundle-SymbolicName: com.tibco.xpd.validation.pageflow;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Activator: com.tibco.xpd.validation.pageflow.PageflowValidationPlugin
+Bundle-Vendor: TIBCO Software Inc
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.ide,
+ com.tibco.xpd.resources;visibility:=reexport,
+ com.tibco.xpd.validation;visibility:=reexport,
+ com.tibco.xpd.validation.xpdl2;visibility:=reexport,
+ com.tibco.xpd.xpdl2;visibility:=reexport,
+ com.tibco.xpd.xpdl2.edit,
+ com.tibco.xpd.destinations.ui,
+ com.tibco.xpd.processeditor.xpdl2,
+ com.tibco.xpd.resources.ui,
+ com.tibco.xpd.xpdl2.edit.ui,
+ com.tibco.xpd.destinations,
+ com.tibco.xpd.ui.properties,
+ com.tibco.xpd.validation.bpmn
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: com.tibco.xpd.validation.pageflow,
+ com.tibco.xpd.validation.pageflow.rules

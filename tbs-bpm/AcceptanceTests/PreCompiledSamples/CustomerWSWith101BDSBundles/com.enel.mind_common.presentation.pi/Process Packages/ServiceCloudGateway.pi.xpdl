@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_L-WnAKLKEeOb3989fozZUw" xpdExt:DisplayName="ServiceCloudGateway" Name="ServiceCloudGateway">
+  <xpdl2:PackageHeader xpdExt:Language="it_IT">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-03-03</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>EUR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>edecmic</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_QkV6t6LKEeOb3989fozZUw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_L-WnAaLKEeOb3989fozZUw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_QkV6uKLKEeOb3989fozZUw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_L-WnAaLKEeOb3989fozZUw" xpdExt:DisplayName="ServiceCloudGateway-Process" Name="ServiceCloudGatewayProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_QkV6uaLKEeOb3989fozZUw" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_QkV6uKLKEeOb3989fozZUw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_QkV6uqLKEeOb3989fozZUw" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_QkV6uKLKEeOb3989fozZUw" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_QkV6u6LKEeOb3989fozZUw" xpdExt:DisplayName="" Name="" From="_QkV6uaLKEeOb3989fozZUw" To="_QkV6uqLKEeOb3989fozZUw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="14"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_dse1oKLKEeOb3989fozZUw" xpdExt:DisplayName="NotificaStatoConsegna" Name="NotificaStatoConsegna" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_qYRy0KLKEeOb3989fozZUw" Name="NotificaStatoConsegnaRequest" Mode="IN" Required="false" xpdExt:DisplayName="NotificaStatoConsegnaRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.sevicecloudgateway.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_qZ5H8KLAEeOb3989fozZUw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_xAzmAKLKEeOb3989fozZUw" Name="NotificaStatoConsegnaResponse" Mode="OUT" Required="false" xpdExt:DisplayName="NotificaStatoConsegnaResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.sevicecloudgateway.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_ZI3PkKLBEeOb3989fozZUw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_h_PrUKLKEeOb3989fozZUw" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_1v7nkKLKEeOb3989fozZUw" xpdExt:DisplayName="NotificaDatiFattura" Name="NotificaDatiFattura" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_43oYUKLKEeOb3989fozZUw" Name="NotificaDatiFatturaRequest" Mode="IN" Required="false" xpdExt:DisplayName="NotificaDatiFatturaRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.sevicecloudgateway.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_HUahEKLCEeOb3989fozZUw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ImWT8KLLEeOb3989fozZUw" Name="NotificaDatiFatturaResponse" Mode="OUT" Required="false" xpdExt:DisplayName="NotificaDatiFatturaResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.sevicecloudgateway.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_xs4tEKLDEeOb3989fozZUw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_35xB4KLKEeOb3989fozZUw" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_DeSlwH_JEeSWQrSXn3t8VQ" xpdExt:DisplayName="UpdateIncassoFattura" Name="UpdateIncassoFattura" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_FZxbAH_JEeSWQrSXn3t8VQ" Name="UpdateIncassoFatturaRequest" Mode="IN" Required="false" xpdExt:DisplayName="UpdateIncassoFatturaRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.presentation.abstract_.ServiceCloudGatewayService.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.presentation.abstract_.ServiceCloudGatewayServiceUpdateIncassoFatturaRequestType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_IUopoH_JEeSWQrSXn3t8VQ" Name="UpdateIncassoFatturaResponse" Mode="OUT" Required="false" xpdExt:DisplayName="UpdateIncassoFatturaResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.presentation.abstract_.ServiceCloudGatewayService.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.presentation.abstract_.ServiceCloudGatewayServiceUpdateIncassoFatturaResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_E7RhIH_JEeSWQrSXn3t8VQ" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

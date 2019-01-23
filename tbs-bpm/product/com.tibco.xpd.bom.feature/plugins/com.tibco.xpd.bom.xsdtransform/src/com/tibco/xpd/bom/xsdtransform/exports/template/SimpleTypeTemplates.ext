@@ -1,0 +1,877 @@
+import xmlSchema;
+import uml;
+import com::tibco::xpd::bom::xsdtransform::exports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::Extensions reexport;
+
+// This class deals with creating a Template (one time only and on demand) for all the KNOWN simple types that have not got a one to one mapping for Primitive Type facets.
+// I.e a Normalised String is an xsd:string with a pattern applied to it which represents a normalised string. Basically each method here deals with creating a simple type template
+// that we can reuse when encountering such constructs.
+
+cached TopLevelSimpleType createEntitiesSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("[\\i-[:]][\\c-[:]]*( [\\i-[:]][\\c-[:]]*)*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("entities_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createEntitySimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("[\\i-[:]][\\c-[:]]*") ->
+	
+	restrictionType.setPattern({patternType}) ->
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("entity_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createGDaySimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("\\-\\-\\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("gday_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createGMonthSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("\\-\\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("gmonth_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createGMonthDaySimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("\\-\\-(0[1-9]|[1][0-2])\\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("gmonthday_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createGYearSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("(\\-\\d{4,}|\\d{4,})(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("gyear_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createGYearMonthSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("(\\-\\d{4,}|\\d{4,})(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))\\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("gyearmonth_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createHexBinarySimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("([0-9a-fA-F][0-9a-fA-F])*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("hexbinary_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createBase64BinarySimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?)*(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/])|([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[AEIMQUYcgkosw048] ?=)|([A-Za-z0-9+/] ?[AQgw] ?= ?=)))?") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("base64binary_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createIDSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("[\\i-[:]][\\c-[:]]*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("id_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createIDRefSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("[\\i-[:]][\\c-[:]]*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("idref_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createIDRefsSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("[\\i-[:]][\\c-[:]]*( [\\i-[:]][\\c-[:]]*)*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("idrefs_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createLanguageSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("([a-zA-Z]{2}|[iI]-[a-zA-Z]+|[xX]-[a-zA-Z]{1,8})(-[a-zA-Z]{1,8})*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("language_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createNameSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("\\i\\c*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("name_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createNCNameSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("[\\i-[:]][\\c-[:]]*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("ncname_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;		
+	
+cached TopLevelSimpleType createNMTokenSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("\\c+") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("nmtoken_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;		
+	
+cached TopLevelSimpleType createNMTokensSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("\\c+( \\c+)*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("nmtokens_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;			
+	
+cached TopLevelSimpleType createNormalizedStringSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("[^\t\n\r]*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("normalizedstring_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;		
+	
+cached TopLevelSimpleType createQNameSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("([\\i-[:]][\\c-[:]]*:)?[\\i-[:]][\\c-[:]]*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("qname_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createTokenSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let patternType = new PatternType :
+	
+	patternType.setValue("[^ \\t\\n\\r]+([ ][^ \\t\\n\\r]+)*") ->
+	
+	restrictionType.setPattern({patternType}) ->	
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("token_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createAnyURISimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+		
+	restrictionType.setBase(createQName("xsd:anyURI")) ->
+		
+	topLevelSimpleType.setName("anyuri_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createBooleanSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+		
+	restrictionType.setBase(createQName("xsd:boolean")) ->
+		
+	topLevelSimpleType.setName("boolean_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;		
+	
+cached TopLevelSimpleType createByteSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("-128") ->
+	maxfacet.setValue("127") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:int")) ->
+		
+	topLevelSimpleType.setName("byte_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createDateSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+		
+	restrictionType.setBase(createQName("xsd:date")) ->
+		
+	topLevelSimpleType.setName("date_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createDateTimeSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+		
+	restrictionType.setBase(createQName("xsd:dateTime")) ->
+		
+	topLevelSimpleType.setName("datetime_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createDecimalSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+		
+	restrictionType.setBase(createQName("xsd:decimal")) ->
+		
+	topLevelSimpleType.setName("decimal_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createDoubleSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("-179.76931348623157E+306") ->
+	maxfacet.setValue("179.76931348623157E+306") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:double")) ->
+		
+	topLevelSimpleType.setName("double_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createDurationSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+		
+	restrictionType.setBase(createQName("xsd:duration")) ->
+		
+	topLevelSimpleType.setName("duration_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createFloatSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("-340.28235E+36") ->
+	maxfacet.setValue("340.28235E+36") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:double")) ->
+		
+	topLevelSimpleType.setName("float_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createLongSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("-9223372036854775808") ->
+	maxfacet.setValue("9223372036854775807") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:integer")) ->
+		
+	topLevelSimpleType.setName("long_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createNegativeIntegerSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :	
+	let maxfacet = new Facet :
+		
+	maxfacet.setValue("-1") ->
+		
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:integer")) ->
+		
+	topLevelSimpleType.setName("negativeinteger_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createNonNegativeIntegerSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :	
+	let minfacet = new Facet :
+		
+	minfacet.setValue("0") ->
+		
+	restrictionType.setMinInclusive({minfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:integer")) ->
+		
+	topLevelSimpleType.setName("nonnegativeinteger_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createNonPositiveIntegerSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :	
+	let maxfacet = new Facet :
+		
+	maxfacet.setValue("0") ->
+		
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:integer")) ->
+		
+	topLevelSimpleType.setName("nonpositiveinteger_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createPositiveIntegerSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :	
+	let minfacet = new Facet :
+		
+	minfacet.setValue("1") ->
+		
+	restrictionType.setMinInclusive({minfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:integer")) ->
+		
+	topLevelSimpleType.setName("positiveinteger_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;	
+	
+cached TopLevelSimpleType createShortSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("-32768") ->
+	maxfacet.setValue("32767") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:int")) ->
+		
+	topLevelSimpleType.setName("short_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createStringSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+		
+	restrictionType.setBase(createQName("xsd:string")) ->
+		
+	topLevelSimpleType.setName("string_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createTimeSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+		
+	restrictionType.setBase(createQName("xsd:time")) ->
+		
+	topLevelSimpleType.setName("time_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;		
+	
+cached TopLevelSimpleType createUnsignedByteSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("0") ->
+	maxfacet.setValue("255") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:int")) ->
+		
+	topLevelSimpleType.setName("unsignedbyte_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createUnsignedIntSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("0") ->
+	maxfacet.setValue("4294967295") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:integer")) ->
+		
+	topLevelSimpleType.setName("unsignedint_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createUnsignedLongSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("0") ->
+	maxfacet.setValue("18446744073709551615") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:integer")) ->
+		
+	topLevelSimpleType.setName("unsignedlong_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached TopLevelSimpleType createUnsignedShortSimpleType(SchemaType schemaType) :
+	let topLevelSimpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let minfacet = new Facet :
+	let maxfacet = new Facet :
+	
+	minfacet.setValue("0") ->
+	maxfacet.setValue("65535") ->
+	
+	restrictionType.setMinInclusive({minfacet})	->
+	restrictionType.setMaxInclusive({maxfacet}) ->
+	
+	restrictionType.setBase(createQName("xsd:int")) ->
+		
+	topLevelSimpleType.setName("unsignedshort_StudioGeneratedTemplate") ->
+	topLevelSimpleType.setRestriction(restrictionType) ->
+	
+	schemaType.simpleType.add(topLevelSimpleType) ->
+	
+	topLevelSimpleType;
+	
+cached stripKnownTemplatePatterns(RestrictionType1 restrictionType) :
+	let baseType = getLocalPart(restrictionType.base.localPart) :
+	let patternType = restrictionType.pattern.first() :
+	patternType != null ? (
+		let patternValue = patternType.value.toString().trim() :		
+		switch(baseType) {
+			case "entities_StudioGeneratedTemplate" : (
+				patternValue == "[\\i-[:]][\\c-[:]]*( [\\i-[:]][\\c-[:]]*)*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "entity_StudioGeneratedTemplate" : (
+				patternValue == "[\\i-[:]][\\c-[:]]*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "gday_StudioGeneratedTemplate" : (				
+				patternValue == "\\-\\-\\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "gmonth_StudioGeneratedTemplate" : (
+				patternValue == "\\-\\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "gmonthday_StudioGeneratedTemplate" : (
+				patternValue == "\\-\\-(0[1-9]|[1][0-2])\\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "gyear_StudioGeneratedTemplate" : (
+				patternValue == "(\\-\\d{4,}|\\d{4,})(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "gyearmonth_StudioGeneratedTemplate" : (
+				patternValue == "(\\-\\d{4,}|\\d{4,})(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))\\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "hexbinary_StudioGeneratedTemplate" : (
+				patternValue == "([0-9a-fA-F][0-9a-fA-F])*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "base64binary_StudioGeneratedTemplate" : (
+				patternValue == "(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?)*(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/])|([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[AEIMQUYcgkosw048] ?=)|([A-Za-z0-9+/] ?[AQgw] ?= ?=)))?" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "id_StudioGeneratedTemplate" : (
+				patternValue == "[\\i-[:]][\\c-[:]]*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "idref_StudioGeneratedTemplate" : (
+				patternValue == "[\\i-[:]][\\c-[:]]*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "idrefs_StudioGeneratedTemplate" : (
+				patternValue == "[\\i-[:]][\\c-[:]]*( [\\i-[:]][\\c-[:]]*)*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "language_StudioGeneratedTemplate" : (
+				patternValue == "([a-zA-Z]{2}|[iI]-[a-zA-Z]+|[xX]-[a-zA-Z]{1,8})(-[a-zA-Z]{1,8})*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "name_StudioGeneratedTemplate" : (
+				patternValue == "\\i\\c*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "ncname_StudioGeneratedTemplate" : (
+				patternValue == "[\\i-[:]][\\c-[:]]*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "nmtoken_StudioGeneratedTemplate" : (
+				patternValue == "\\c+" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "nmtokens_StudioGeneratedTemplate" : (
+				patternValue == "\\c+( \\c+)*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "normalizedstring_StudioGeneratedTemplate" : (
+				patternValue == "[^\t\n\r]*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "qname_StudioGeneratedTemplate" : (
+				patternValue == "([\\i-[:]][\\c-[:]]*:)?[\\i-[:]][\\c-[:]]*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			case "token_StudioGeneratedTemplate" : (
+				patternValue == "[^ \\t\\n\\r]+([ ][^ \\t\\n\\r]+)*" ? restrictionType.pattern.remove(patternType) : null
+			)
+			default: (
+				null
+			)
+		}
+	) : null;
+	
+cached stripKnownTemplateMinInclusives(RestrictionType1 restrictionType) :
+	let baseType = getLocalPart(restrictionType.base.localPart) :
+	let minInclusiveFacet = restrictionType.minInclusive.first() :
+	minInclusiveFacet != null ? (
+		let minInclusiveValue = minInclusiveFacet.value.toString().trim() : 
+		switch(baseType) {
+			case "byte_StudioGeneratedTemplate" : (
+				minInclusiveValue == "-128" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)
+			case "double_StudioGeneratedTemplate" : (
+				minInclusiveValue == "-179.76931348623157E+306" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)			
+			case "float_StudioGeneratedTemplate" : (
+				minInclusiveValue == "-340.28235E+36" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)			
+			case "long_StudioGeneratedTemplate" : (
+				minInclusiveValue == "-9223372036854775808" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)			
+			case "nonnegativeinteger_StudioGeneratedTemplate" : (
+				minInclusiveValue == "0" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)
+			case "positiveinteger_StudioGeneratedTemplate" : (
+				minInclusiveValue == "1" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)
+			case "short_StudioGeneratedTemplate" : (
+				minInclusiveValue == "-32768" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)			
+			case "unsignedbyte_StudioGeneratedTemplate" : (
+				minInclusiveValue == "0" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)			
+			case "unsignedint_StudioGeneratedTemplate" : (
+				minInclusiveValue == "0" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)
+			case "unsignedlong_StudioGeneratedTemplate" : (
+				minInclusiveValue == "0" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)
+			case "unsignedshort_StudioGeneratedTemplate" : (
+				minInclusiveValue == "0" ? restrictionType.minInclusive.remove(minInclusiveFacet) : null
+			)
+			default: (
+				null
+			)
+		}
+	) : null;
+	
+cached stripKnownTemplateMaxInclusives(RestrictionType1 restrictionType) :
+	let baseType = getLocalPart(restrictionType.base.localPart) :
+	let maxInclusiveFacet = restrictionType.maxInclusive.first() :	
+	maxInclusiveFacet != null ? (
+		let maxInclusiveValue = maxInclusiveFacet.value.toString().trim() : 
+		switch(baseType) {
+			case "byte_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "127" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)
+			case "double_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "179.76931348623157E+306" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)
+			case "float_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "340.28235E+36" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)	
+			case "long_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "9223372036854775807" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)	
+			case "negativeinteger_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "-1" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)	
+			case "nonpositiveinteger_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "0" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)	
+			case "short_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "32767" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)
+			case "unsignedbyte_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "255" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)	
+			case "unsignedint_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "4294967295" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)
+			case "unsignedlong_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "18446744073709551615" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)
+			case "unsignedshort_StudioGeneratedTemplate" : (
+				maxInclusiveValue == "65535" ? restrictionType.maxInclusive.remove(maxInclusiveFacet) : null
+			)
+			default: (
+				null
+			)
+		}
+	) : null;

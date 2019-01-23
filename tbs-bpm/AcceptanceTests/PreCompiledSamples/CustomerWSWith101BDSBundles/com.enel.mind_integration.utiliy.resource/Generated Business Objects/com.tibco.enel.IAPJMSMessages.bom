@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.enel.IAPJMSMessages" name="com.tibco.enel.IAPJMSMessages">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r5jN9w93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_r5jN-A93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_r5jN-Q93EeW3MruGqUCC5Q" key="created" value="1433947842622"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_r5jN-g93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_r7V9oA93EeW3MruGqUCC5Q" key="checksum" value="243787237"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.enel.IAPJMSMessagesIAMJMSPortType" name="IAMJMSPortType">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="IAMJMSPortTypeSendGestioneAllarmeReportRequest" name="SendGestioneAllarmeReportRequest">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="SendGestioneAllarmeReportRequestparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.schema.libero._2009._01._01.BpmReport.bom#com.enel.xmlns.schema.libero._2009._01._01.BpmReportBPMReportRequestType?com.enel.xmlns.schema.libero._2009._01._01.BpmReport%3a%3aBPMReportRequestType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="IAMJMSPortTypeSendVariazioneStatoReportRequest" name="SendVariazioneStatoReportRequest">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="SendVariazioneStatoReportRequestparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.schema.libero._2009._01._01.BpmReport.bom#com.enel.xmlns.schema.libero._2009._01._01.BpmReportBPMReportRequestType?com.enel.xmlns.schema.libero._2009._01._01.BpmReport%3a%3aBPMReportRequestType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="IAMJMSPortTypeSendCreaAllarmeRequest" name="SendCreaAllarmeRequest">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="SendCreaAllarmeRequestparameters" name="parameters">
+          <type xmi:type="uml:Class" href="it.enel.xmlns.schema.libero._2011._10._01.BAMAllarme.bom#it.enel.xmlns.schema.libero._2011._10._01.BAMAllarmeBAMCreaAllarmeRequestType?it.enel.xmlns.schema.libero._2011._10._01.BAMAllarme%3a%3aBAMCreaAllarmeRequestType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="IAMJMSPortTypeSendChiudiAllarmeRequest" name="SendChiudiAllarmeRequest">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="SendChiudiAllarmeRequestparameters" name="parameters">
+          <type xmi:type="uml:Class" href="it.enel.xmlns.schema.libero._2011._10._01.BAMAllarme.bom#it.enel.xmlns.schema.libero._2011._10._01.BAMAllarmeBAMChiudiAllarmeRequestType?it.enel.xmlns.schema.libero._2011._10._01.BAMAllarme%3a%3aBAMChiudiAllarmeRequestType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_r5HJEQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r5HJEg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_r5HJEw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r5HJFA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_r5HJFQ93EeW3MruGqUCC5Q" base_Package="com.tibco.enel.IAPJMSMessages?com.tibco.enel.IAPJMSMessages?" xsdTargetNamespace="http://www.tibco.com/enel/IAPJMSMessages.xsd" xsdSchemaLocation="IAPJMSMessages.wsdl" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="IAPJMSMessages.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_r5HJFw93EeW3MruGqUCC5Q" base_Class="com.tibco.enel.IAPJMSMessagesIAMJMSPortType?com.tibco.enel.IAPJMSMessages%3a%3aIAMJMSPortType?" xsdName="IAMJMSPortType" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_r5jN9g93EeW3MruGqUCC5Q" displayLabel="IAMJMSPortType" base_NamedElement="com.tibco.enel.IAPJMSMessagesIAMJMSPortType?com.tibco.enel.IAPJMSMessages%3a%3aIAMJMSPortType?"/>
+  <notation:Diagram xmi:id="_r5jN-w93EeW3MruGqUCC5Q" type="Business Object Model" element="com.tibco.enel.IAPJMSMessages?com.tibco.enel.IAPJMSMessages?" name="com.tibco.enel.IAPJMSMessages" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_r5jN_A93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_r5jN_Q93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

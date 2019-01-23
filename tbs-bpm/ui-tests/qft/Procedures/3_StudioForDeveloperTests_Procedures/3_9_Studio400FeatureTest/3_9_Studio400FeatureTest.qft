@@ -1,0 +1,2656 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <reference>../../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</reference>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="1) Process Datamapper Test">
+      <comment>Procedure that ensures that the Process Data Mapper test works fine as mentioned under http://confluence.tibco.com/display/BPM/3.9+Studio+4.0.0+Feature+Test
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu15p"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:3_9_Studio400FeatureTestArchivedFileLocation}/ProcessDataMapperTestProject.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu15s" name="Open process editor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject"
+                        event="MOUSE_MPRC" id="_uu15t" modifiers="16" x="-27"
+                        y="13"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu15u" modifiers="16" x="-31"
+                        y="6"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/ProcessDataMapperTestProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu15v" modifiers="16" x="-30"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes"
+                        event="MOUSE_MPRC" id="_uu15w" modifiers="16" x="-31"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes/ProcessDataMapperTestProject-Process (ProcessDataMapperTestProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu15x" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes/ProcessDataMapperTestProject-Process (ProcessDataMapperTestProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu15y" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence disabled="true" id="_uu16o"
+                     name="Create Data Mapper Mappings">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Pool/Lane/ScriptTask"
+                        event="MOUSE_MPRC" id="_uu16p" modifiers="4"
+                        popup="true" x="45" y="55"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu16q"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="comboScriptGrammerTypes@Data Mapper"
+                            event="SELECTION" id="_uu16r"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Properties.canvasTask10" event="MOUSE_MPRC"
+                        id="_uu1Lo" modifiers="16" x="51" y="14"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu16t"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu16u" modifiers="16" x="62"
+                        y="18"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Copy_2_Of_Field : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu16w" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_3_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu16x" modifiers="19"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Process"
+                        event="MOUSE_MPRC" id="_uu16y" modifiers="16" x="-8"
+                        y="11"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Process"
+                        event="MOUSE_MPRC" id="_uu16z" modifiers="16" x="-29"
+                        y="10"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Process/id : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu16+" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_2_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu16-" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Process/moduleName : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu170" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_4_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu171" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Copy_Of_Field4 [] : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu172" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Field4 [] : Text"
+                        event="MOUSE_DROP_TO" id="_uu173" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Field4 [] : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu174" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data..."
+                        event="MOUSE_DRAG_OVER" id="_uu175" modifiers="19"
+                        x="580" y="130"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_Of_Field4 [] : Text"
+                        event="MOUSE_DROP_TO" id="_uu176" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Field5 : Class1 (BOM Type)"
+                        event="MOUSE_DRAG_FROM" id="_uu177" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Field4 [] : Text"
+                        event="MOUSE_DRAG_OVER" id="_uu178" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_Of_Field5 : Class1 (BOM Type)"
+                        event="MOUSE_DROP_TO" id="_uu179" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Copy_Of_Field5 : Class1 (BOM Type)"
+                        event="MOUSE_DRAG_FROM" id="_uu17A" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Field5 : Class1 (BOM Type)"
+                        event="MOUSE_DROP_TO" id="_uu17B" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Process/priority : Integer"
+                        event="MOUSE_DRAG_FROM" id="_uu17C" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_Of_Field2 : Integer"
+                        event="MOUSE_DRAG_OVER" id="_uu17D" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Field2 : Integer"
+                        event="MOUSE_DROP_TO" id="_uu17E" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Process/originator : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu17F" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_5_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu17G" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Field3 : Boolean"
+                        event="MOUSE_DRAG_FROM" id="_uu17H" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_Of_Field3 : Boolean"
+                        event="MOUSE_DROP_TO" id="_uu17I" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Copy_Of_Field2 : Integer"
+                        event="MOUSE_DRAG_FROM" id="_uu17J" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Process/priority : Integer"
+                        event="MOUSE_DROP_TO" id="_uu17K" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Field2 : Integer"
+                        event="MOUSE_DRAG_FROM" id="_uu17L" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_Of_Field2 : Integer"
+                        event="MOUSE_DROP_TO" id="_uu17M" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Process/parentProcessId : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu17N" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Copy_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu17O" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Process/description : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu17P" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu17Q" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...&amp;0@/Copy_Of_Field3 : Boolean"
+                        event="MOUSE_DRAG_FROM" id="_uu17R" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="Properties.treeMap_Process_Data_to_Process_Data...2@/Field3 : Boolean"
+                        event="MOUSE_DROP_TO" id="_uu17S" modifiers="19"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu17T"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu17U" modifiers="16" x="57"
+                        y="15"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/* ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes/ProcessDataMapperTestProject-Process (ProcessDataMapperTestProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu17V" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/* ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes/ProcessDataMapperTestProject-Process (ProcessDataMapperTestProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu17W" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1OX" name="Create Data Mapper Mappings">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="../../../UtilProcedures/StandardStudioOperationsAndProcedures.qft#Editor.canvas@/Diagram/Pool/Lane/ScriptTask"
+                        event="MOUSE_MPRC" id="_uu1OY" modifiers="4"
+                        popup="true" x="36" y="41"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu1OZ"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1Oa"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1Ob" modifiers="16" x="70"
+                        y="6"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="comboScriptGrammerTypes@Data Mapper"
+                            event="SELECTION" id="_uu1Oc"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Process"
+                        event="MOUSE_MPRC" id="_uu1Od" modifiers="16" x="-9"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Process"
+                        event="MOUSE_MPRC" id="_uu1Oe" modifiers="16" x="-31"
+                        y="7"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Process/description : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu1Of" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu1Og" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Process/priority : Integer"
+                        event="MOUSE_DRAG_FROM" id="_uu1Oh" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_Of_Field2 : Integer"
+                        event="MOUSE_DROP_TO" id="_uu1Oi" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Field4 [] : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu1Oj" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_Of_Field4 [] : Text"
+                        event="MOUSE_DROP_TO" id="_uu1Ok" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Copy_Of_Field2 : Integer"
+                        event="MOUSE_DRAG_FROM" id="_uu1Ol" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Process/priority : Integer"
+                        event="MOUSE_DROP_TO" id="_uu1Om" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Copy_Of_Field5 : Class1 (BOM Type)"
+                        event="MOUSE_DRAG_FROM" id="_uu1On" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Field5 : Class1 (BOM Type)"
+                        event="MOUSE_DROP_TO" id="_uu1Oo" modifiers="19"
+                        x="-3" y="4"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Field5 : Class1 (BOM Type)"
+                        event="MOUSE_DRAG_FROM" id="_uu1Op" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_Of_Field5 : Class1 (BOM Type)"
+                        event="MOUSE_DROP_TO" id="_uu1Oq" modifiers="19"
+                        x="-3" y="3"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Copy_2_Of_Field : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu1Or" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_3_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu1Os" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Copy_4_Of_Field : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu1Ot" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_2_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu1Ou" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Copy_5_Of_Field : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu1Ov" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_4_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu1Ow" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Process/id : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu1Ox" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_5_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu1Oy" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Process/moduleName : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu1Oz" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_Of_Field : Text"
+                        event="MOUSE_DROP_TO" id="_uu1O+" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Copy_Of_Field4 [] : Text"
+                        event="MOUSE_DRAG_FROM" id="_uu1O-" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Field4 [] : Text"
+                        event="MOUSE_DROP_TO" id="_uu1P0" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Field3 : Boolean"
+                        event="MOUSE_DRAG_FROM" id="_uu1P1" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Copy_Of_Field3 : Boolean"
+                        event="MOUSE_DROP_TO" id="_uu1P2" modifiers="19"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.treeScript_Defined_As:&amp;0@/Copy_Of_Field3 : Boolean"
+                        event="MOUSE_DRAG_FROM" id="_uu1P3" modifiers="16"/>
+        <MouseEventStep clicks="0" client="BusinessStudio"
+                        component="ScriptEditorComposite.tree@/Field3 : Boolean"
+                        event="MOUSE_DROP_TO" id="_uu1P4" modifiers="19"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1P5"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1P6" modifiers="16" x="57"
+                        y="12"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/* ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes/ProcessDataMapperTestProject-Process (ProcessDataMapperTestProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1P7" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/* ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes/ProcessDataMapperTestProject-Process (ProcessDataMapperTestProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1P8" modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1Gj"
+                     procedure="business_studio_operations.saveAll"/>
+      <ProcedureCall id="_uu1LX"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1HL" name="Inspect XPDL Model">
+        <ProcedureCall id="_uu0r8"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessDataMapperTestProject/Process Packages/ProcessDataMapperTestProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessDataMapperTestProjectProcess"].activities[Name="ScriptTask"].implementation.taskScript.script[ScriptGrammar="DataMapper",MapperContext="ScriptTask",MappingDirection="IN"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <BasicSequence id="_uu1Ho" name="Change Grammer from DM to JS">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes/ProcessDataMapperTestProject-Process (ProcessDataMapperTestProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1PF" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessDataMapperTestProject/Process Packages/ProcessDataMapperTestProject.xpdl/ProcessDataMapperTestProject (ProcessDataMapperTestProject)/Processes/ProcessDataMapperTestProject-Process (ProcessDataMapperTestProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1PG" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas2@/Diagram/Pool/Lane/ScriptTask"
+                        event="MOUSE_MPRC" id="_uu1PH" modifiers="4"
+                        popup="true" x="32" y="59"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu1PI"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="comboScriptGrammerTypes@JavaScript"
+                            event="SELECTION" id="_uu1Ht"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1Hu"
+                     procedure="business_studio_operations.saveAll"/>
+      <ProcedureCall id="_uu1LY"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1Hv" name="Inspect XPDL Model">
+        <ProcedureCall id="_uu1Hw"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessDataMapperTestProject/Process Packages/ProcessDataMapperTestProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessDataMapperTestProjectProcess"].activities[Name="ScriptTask"].implementation.taskScript.script[ScriptGrammar="JavaScript"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu0v3"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessDataMapperTestProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1H-" name="2) Case Signal Test">
+      <comment>Procedure that ensures that the Case Signalr test works fine as mentioned under http://confluence.tibco.com/display/BPM/3.9+Studio+4.0.0+Feature+Test
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1I0"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:3_9_Studio400FeatureTestArchivedFileLocation}/CaseSignalTestProjects.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1I1" name="Open Process Editor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1I2" modifiers="16" x="-26"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1I3" modifiers="16" x="-30"
+                        y="13"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1I4" modifiers="16" x="-32"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes"
+                        event="MOUSE_MPRC" id="_uu1I5" modifiers="16" x="-30"
+                        y="13"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1I6" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1I7" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1IF"
+                     name="Select Case data for catch signal in event sub proc">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas2@/Diagram/Pool/Lane/EventSubProcess/CatchSignal12"
+                        event="MOUSE_MPRC" id="_uu1IG" modifiers="4"
+                        popup="true" x="24" y="11"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu1IH"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1II"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1IJ" modifiers="16" x="52"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonCase_Data:" event="MOUSE_MPRC"
+                        id="_uu1IL" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event."
+                        event="MOUSE_MPRC" id="_uu1IM" modifiers="16" x="37"
+                        y="4"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event."
+                      event="KEY_PRESSED" id="_uu1IN" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event."
+                      event="KEY_PTR" id="_uu1IO" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="ContentProposalAdapter__ContentProposalPopup"
+                         id="_uu1IP"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event."
+                      event="KEY_RELEASED" id="_uu1IQ" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event."
+                      event="KEY_PTR" id="_uu1IR" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1IS"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1IT" modifiers="16" x="41"
+                        y="14"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Ib"
+                     name="Define 'CaseSignalAttributes' scripts in Script Task.">
+        <ComponentEventStep client="BusinessStudio"
+                            component="WorkbenchWindow"
+                            event="COMPONENT_MOVED" id="_uu1Ic" param1="-8"
+                            param2="-8"/>
+        <ComponentEventStep client="BusinessStudio"
+                            component="WorkbenchWindow"
+                            event="COMPONENT_RESIZED" id="_uu1Id"
+                            param1="1936" param2="1056"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1Ie" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1If" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas2@/Diagram/Pool/Lane/EventSubProcess/ScriptTask"
+                        event="MOUSE_MPRC" id="_uu1Ig" modifiers="4"
+                        popup="true" x="45" y="42"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.refactorMenu"
+                            event="SELECTION" id="_uu1Ih"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu1Ii"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1Ij"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1Ik" modifiers="16" x="54"
+                        y="6"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="comboScriptGrammerTypes@JavaScript"
+                            event="SELECTION" id="_uu1Im"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="ScriptEditorComposite.textScript_Defined_As:"
+                        event="MOUSE_MPRC" id="_uu1In" modifiers="16" x="119"
+                        y="28"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1Io">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PRESSED" id="_uu1Ip" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Iq" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Ir"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_RELEASED" id="_uu1Is" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1It" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1Iu">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Iv"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Iw" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1Ix">
+          <text>;</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Iy" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1Iz">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PRESSED" id="_uu1I+" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1I-" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1J0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_RELEASED" id="_uu1J1" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1J2" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1J3">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1J4"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1J5" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1J6" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1J7">
+          <text>;</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1J8" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1J9">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PRESSED" id="_uu1JA" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JB" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1JC"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_RELEASED" id="_uu1JD" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JE" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1JF">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1JG"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JH" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JI" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JJ" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1JK">
+          <text>;</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JL" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1JM">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PRESSED" id="_uu1JN" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JO" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1JP"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_RELEASED" id="_uu1JQ" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JR" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1JS">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1JT"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JU" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JV" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JW" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JX" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1JY">
+          <text>;</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1JZ" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1Ja">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PRESSED" id="_uu1Jb" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Jc" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Jd"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_RELEASED" id="_uu1Je" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Jf" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1Jg">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Jh"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Ji" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Jj" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Jk" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Jl" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_Defined_As:"
+                      event="KEY_PTR" id="_uu1Jm" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_Defined_As:"
+                       id="_uu1Jn">
+          <text>;</text>
+        </TextInputStep>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1Jo"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1Jp" modifiers="16" x="77"
+                        y="20"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Jv"
+                     name="Select Case data for catch signal handler">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1Jw" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1Jx" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas2@/Diagram/Pool/Lane/CatchSignal1"
+                        event="MOUSE_MPRC" id="_uu1Jy" modifiers="4"
+                        popup="true" x="23" y="18"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu1Jz"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1J+"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1J-" modifiers="16" x="59"
+                        y="12"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonCase_Data:2" event="MOUSE_MPRC"
+                        id="_uu1K1" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event.2"
+                        event="MOUSE_MPRC" id="_uu1K2" modifiers="16" x="116"
+                        y="10"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event.2"
+                      event="KEY_PRESSED" id="_uu1K3" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event.2"
+                      event="KEY_PTR" id="_uu1K4" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="ContentProposalAdapter__ContentProposalPopup"
+                         id="_uu1K5"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event.2"
+                      event="KEY_RELEASED" id="_uu1K6" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="textTipCase_reference_for_case_object_whose_changes_trigger_this_event.2"
+                      event="KEY_PTR" id="_uu1K7" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1K8"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1K9" modifiers="16" x="62"
+                        y="8"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1KG"
+                     name="Define 'CaseSignalAttributes' scripts in User Task Complete Scripts.">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1KH" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/* ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1KI" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas2@/Diagram/Pool/Lane/UserTask"
+                        event="MOUSE_MPRC" id="_uu1KJ" modifiers="4"
+                        popup="true" x="74" y="46"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-pageflowMenu" event="SELECTION"
+                            id="_uu1KK"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu1KL"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1KM"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1KN" modifiers="16" x="66"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Properties.canvasTask" event="MOUSE_MPRC"
+                        id="_uu1KP" modifiers="16" x="39" y="13"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="sectionProcess_Manager_Scripts.tabbed@Complete Script"
+                            event="SELECTION" id="_uu1KQ"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="comboScriptGrammerTypes@JavaScript"
+                            event="SELECTION" id="_uu1KR"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                        event="MOUSE_MPRC" id="_uu1KS" modifiers="16" x="486"
+                        y="29"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1KT">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PRESSED" id="_uu1KU" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1KV" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1KW"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_RELEASED" id="_uu1KX" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1KY" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1KZ">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Ka"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Kb" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1Kc">
+          <text>;</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Kd" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1Ke">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PRESSED" id="_uu1Kf" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Kg" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Kh"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_RELEASED" id="_uu1Ki" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Kj" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1Kk">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Kl"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Km" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Kn" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1Ko">
+          <text>;</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Kp" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1Kq">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PRESSED" id="_uu1Kr" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Ks" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Kt"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_RELEASED" id="_uu1Ku" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Kv" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1Kw">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1Kx"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Ky" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1Kz" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1K+" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1K-">
+          <text>;</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1L0" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1L1">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PRESSED" id="_uu1L2" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1L3" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1L4"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_RELEASED" id="_uu1L5" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1L6" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1L7">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1L8"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1L9" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LA" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LB" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LC" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1LD">
+          <text>;</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LE" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1LF">
+          <text>Ca</text>
+        </TextInputStep>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PRESSED" id="_uu1LG" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LH" keychar="32" keycode="32"
+                      modifiers="2"/>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1LI"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_RELEASED" id="_uu1LJ" keychar="32"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LK" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1LL">
+          <text>.</text>
+        </TextInputStep>
+        <ComponentWaiter client="BusinessStudio" component="shell"
+                         id="_uu1LM"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LN" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LO" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LP" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LQ" keychar="65535" keycode="40"
+                      modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                      event="KEY_PTR" id="_uu1LR" keychar="13" keycode="10"
+                      modifiers="0"/>
+        <TextInputStep client="BusinessStudio"
+                       component="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                       id="_uu1LS">
+          <text>;</text>
+        </TextInputStep>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-bottom@Properties"
+                            event="SELECTION" id="_uu1LT"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="tabfolder-bottom@Properties"
+                        event="MOUSE_MPRC" id="_uu1LU" modifiers="16" x="78"
+                        y="11"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1LV"
+                     procedure="business_studio_operations.saveAll"/>
+      <ProcedureCall id="_uu1LW"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1Lp" name="Inspect XPDL Model">
+        <ProcedureCall id="_uu1Lq"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess"].activitySets.activities[Name="CatchFieldChanged"].event[Trigger="Signal"].triggerResultSignal[xpdExt:SignalType="CaseData",xpdExt:EventHandlerFlowStrategy="SerializeConcurrent",CatchThrow="CATCH",Name="Field"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Lr"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess"].activities[Name="CatchFieldChanged2"].event[Trigger="Signal"].triggerResultSignal[xpdExt:SignalType="CaseData",xpdExt:EventHandlerFlowStrategy="SerializeConcurrent",CatchThrow="CATCH",Name="Field"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu1LZ"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1La"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1Ls" name="3) Precompiled Projects Test">
+      <comment>Procedure that ensures that the Precompile Project test works fine as mentioned under http://confluence.tibco.com/display/BPM/3.9+Studio+4.0.0+Feature+Test
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Lt"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:3_9_Studio400FeatureTestArchivedFileLocation}/PrecompileProjectTest.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1PR" name="Enable Precompile for Projects">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1PS" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemPre-Compile_Project"
+                            event="SELECTION" id="_uu1PT"/>
+        <SelectionEventStep client="BusinessStudio" component="menuitemEnable"
+                            event="SELECTION" id="_uu1PU"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="EnablePrecompileProjectWizard"
+                         id="_uu1PV"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonEnable_pre-compilation_on_referenced_projects."
+                        event="MOUSE_MPRC" id="_uu1PW" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1PX" modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="EnablePrecompileProjectWizard" id="_uu1Qi"
+                         timeout="120000"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Pf" name="Enable/Disable show hidden resources">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="tabfolder-topLeft.toolbar"
+                        event="MOUSE_MOVED" id="_uu1Pg" modifiers="0" x="8"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="tabfolder-topLeft.toolbar"
+                        event="MOUSE_PRESSED" id="_uu1Ph" modifiers="16" x="8"
+                        y="5"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemCustomize_View..."
+                            event="SELECTION" id="_uu1Pi"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="CommonFilterSelectionDialog" id="_uu1Pj"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="CommonFilterSelectionDialog.tabbed@Filters"
+                            event="SELECTION" id="_uu1Pk"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CommonFilterSelectionDialog.tableSelect_the_filters_to_apply_(matching_items_will_be_hidden):&amp;0&amp;2"
+                        event="MOUSE_MPRC" id="_uu1Pl" modifiers="16" x="-13"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk" event="MOUSE_MPRC" id="_uu1Pm"
+                        modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Pn"
+                     name="Inspect Hidden precompile folder of the process project">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]"
+                        event="MOUSE_MPRC" id="_uu1Po" modifiers="16" x="-29"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled"
+                        event="MOUSE_MPRC" id="_uu1Pp" modifiers="16" x="-30"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/bom2Xsd"
+                        event="MOUSE_MPRC" id="_uu1Pq" modifiers="16" x="-31"
+                        y="11"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/bom2Xsd/com.example.businessobjectmodel.xsd"
+                        event="MOUSE_MPRC" id="_uu1Pr" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/bom2Xsd/org.example.NewWSDLFile.xsd"
+                        event="MOUSE_MPRC" id="_uu1Ps" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/bomjars"
+                        event="MOUSE_MPRC" id="_uu1Pt" modifiers="16" x="-28"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/bomjars/com.example.bizdataproject.bds_1.0.0.qualifier.jar"
+                        event="MOUSE_MPRC" id="_uu1Pu" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/bomjars/com.example.bizdataproject.da.bds_1.0.0.qualifier.jar"
+                        event="MOUSE_MPRC" id="_uu1Pv" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/bomjars/com.example.bizdataproject.si.bds_1.0.0.qualifier.jar"
+                        event="MOUSE_MPRC" id="_uu1Pw" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/bomjars/org.example.NewWSDLFile.bds_1.0.0.qualifier.jar"
+                        event="MOUSE_MPRC" id="_uu1Px" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]/.precompiled/SourceFileChecksum.checksum"
+                        event="MOUSE_MPRC" id="_uu1Py" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Pz"
+                     name="Inspect Hidden precompile folder of the BOM  project">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]"
+                        event="MOUSE_MPRC" id="_uu1P+" modifiers="16" x="-32"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled"
+                        event="MOUSE_MPRC" id="_uu1P-" modifiers="16" x="-30"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/bom2Xsd"
+                        event="MOUSE_MPRC" id="_uu1Q0" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/bomjars"
+                        event="MOUSE_MPRC" id="_uu1Q1" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/bom2Xsd"
+                        event="MOUSE_MPRC" id="_uu1Q2" modifiers="16" x="-29"
+                        y="6"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/bom2Xsd/com.example.bizdataproject.xsd"
+                        event="MOUSE_MPRC" id="_uu1Q3" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/bomjars"
+                        event="MOUSE_MPRC" id="_uu1Q4" modifiers="16" x="-29"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/bomjars/com.example.bizdataproject.bds_1.0.0.qualifier.jar"
+                        event="MOUSE_MPRC" id="_uu1Q5" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/bomjars/com.example.bizdataproject.da.bds_1.0.0.qualifier.jar"
+                        event="MOUSE_MPRC" id="_uu1Q6" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/bomjars/com.example.bizdataproject.si.bds_1.0.0.qualifier.jar"
+                        event="MOUSE_MPRC" id="_uu1Q7" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]/.precompiled/SourceFileChecksum.checksum"
+                        event="MOUSE_MPRC" id="_uu1Q8" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Q9" name="Enable/Disable show hidden resources">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="tabfolder-topLeft.toolbar"
+                        event="MOUSE_MOVED" id="_uu1QA" modifiers="0" x="8"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="tabfolder-topLeft.toolbar"
+                        event="MOUSE_PRESSED" id="_uu1QB" modifiers="16" x="8"
+                        y="5"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemCustomize_View..."
+                            event="SELECTION" id="_uu1QC"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="CommonFilterSelectionDialog" id="_uu1QD"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="CommonFilterSelectionDialog.tabbed@Filters"
+                            event="SELECTION" id="_uu1QE"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CommonFilterSelectionDialog.tableSelect_the_filters_to_apply_(matching_items_will_be_hidden):&amp;0&amp;2"
+                        event="MOUSE_MPRC" id="_uu1QF" modifiers="16" x="-13"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk" event="MOUSE_MPRC" id="_uu1QG"
+                        modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1QP" name="Disable Precompile for projects">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject [Pre-compiled]"
+                        event="MOUSE_MPRC" id="_uu1QQ" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemPre-Compile_Project3"
+                            event="SELECTION" id="_uu1QR"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemDisable" event="SELECTION"
+                            id="_uu1QS"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="DisablePrecompileProjectWizard"
+                         id="_uu1QT"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish2" event="MOUSE_MPRC"
+                        id="_uu1QU" modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="DisablePrecompileProjectWizard"
+                         id="_uu1Qj" timeout="120000"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tool-com.tibco.qft.helper.actions.TrackBackgroundBuildAction"
+                            event="SELECTION" id="_uu1QV"/>
+        <ComponentWaiter client="BusinessStudio" component="MessageDialog"
+                         id="_uu1QW"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk2" event="MOUSE_MPRC" id="_uu1QX"
+                        modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject [Pre-compiled]"
+                        event="MOUSE_MPRC" id="_uu1QY" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemPre-Compile_Project3"
+                            event="SELECTION" id="_uu1QZ"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemDisable" event="SELECTION"
+                            id="_uu1Qa"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="DisablePrecompileProjectWizard"
+                         id="_uu1Qb"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish2" event="MOUSE_MPRC"
+                        id="_uu1Qc" modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="DisablePrecompileProjectWizard"
+                         id="_uu1Qk" timeout="120000"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tool-com.tibco.qft.helper.actions.TrackBackgroundBuildAction"
+                            event="SELECTION" id="_uu1Qd"/>
+        <ComponentWaiter client="BusinessStudio" component="MessageDialog"
+                         id="_uu1Qe"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonOk2" event="MOUSE_MPRC" id="_uu1Qf"
+                        modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1Qh"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Qg"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1MC" name="4) Simplified UI Test">
+      <comment>Procedure that ensures that the Simplified UI test works fine as mentioned under http://confluence.tibco.com/display/BPM/3.9+Studio+4.0.0+Feature+Test
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <BasicSequence id="_uu1MI" name="Switch perspective to modelling">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                            event="SELECTION" id="_uu1MJ"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemModeling" event="SELECTION"
+                            id="_uu1MK"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Mq"
+                     name="Check for visible buttons in modelling perspective.">
+        <ProcedureCall id="_uu1Mr"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-forwardHistory</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ms"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-backardHistory</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1My"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-org.eclipse.debug.internal.ui.actions.DebugDropDownAction</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1N2"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-org.eclipse.debug.internal.ui.actions.RunDropDownAction</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1N9"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1ND"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-openType</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1NL"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-org.eclipse.search.OpenSearchDialogPage</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1NT"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-org.eclipse.ui.edit.text.gotoNextAnnotation</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1NX"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-org.eclipse.ui.edit.text.gotoPreviousAnnotation</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Nb"
+                       procedure="business_studio_operations.monitorbutton.checkButtonVisible">
+          <variable name="componentID">tool-org.eclipse.ui.window.pinEditor</variable>
+        </ProcedureCall>
+      </BasicSequence>
+      <BasicSequence id="_uu1Nd" name="Switch perspective to BPM modelling">
+        <SelectionEventStep client="BusinessStudio"
+                            component="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                            event="SELECTION" id="_uu1Ne"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemBPM_Modeling" event="SELECTION"
+                            id="_uu1Nf"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Ng"
+                     name="Check for Hidden buttons in BPM modelling perspective.">
+        <ProcedureCall id="_uu1Nh"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-forwardHistory</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ni"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-backardHistory</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Nj"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-org.eclipse.debug.internal.ui.actions.DebugDropDownAction</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Nk"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-org.eclipse.debug.internal.ui.actions.RunDropDownAction</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Nl"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Nm"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-openType</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Nn"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-org.eclipse.search.OpenSearchDialogPage</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1No"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-org.eclipse.ui.edit.text.gotoNextAnnotation</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Np"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-org.eclipse.ui.edit.text.gotoPreviousAnnotation</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Nq"
+                       procedure="business_studio_operations.monitorbutton.checkButtonHidden">
+          <variable name="componentID">tool-org.eclipse.ui.window.pinEditor</variable>
+        </ProcedureCall>
+      </BasicSequence>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - TIBCO Business Studio" height="876"
+                id="WorkbenchWindow" name="WorkbenchWindow" uid="_uu15q"
+                width="1616">
+      <ComponentStep class="Tree" classcount="1" classindex="0" height="472"
+                     id="Project_Explorer" name="Project Explorer"
+                     uid="_uu15r" width="258" x="15" y="133">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="27" classindex="24"
+                     height="394" id="Editor" name="Editor" uid="_uu16a"
+                     width="1319" x="282" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.gef.ui.palette.FlyoutPaletteComposite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="6" classindex="5"
+                       height="394" id="Editor.canvas" uid="_uu16b"
+                       width="1191" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="3" classindex="2"
+                       height="644" id="Editor.canvas2" uid="_uu1P9"
+                       width="1636" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Popup InvokerClass: Canvas"
+                     height="372" id="menuPopup_InvokerClass:_Canvas"
+                     uid="_uu16c" width="184">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" feature="Show Properties View"
+                       height="19"
+                       id="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                       name="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                       uid="_uu16d" width="180" x="2" y="257">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">2146591693</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Show Properties View</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="22" classindex="7"
+                       feature="Refactor" height="19"
+                       id="menu-com.tibco.xpd.processwidget.refactorMenu"
+                       name="menu-com.tibco.xpd.processwidget.refactorMenu"
+                       uid="_uu1IU" width="180" x="2" y="125">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Refactor</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="25" classindex="4"
+                       feature="Pageflow" height="19" id="menu-pageflowMenu"
+                       name="menu-pageflowMenu" uid="_uu1KA" width="180" x="2"
+                       y="78">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Pageflow</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="27" classindex="14"
+                     height="300" id="Properties" name="Properties"
+                     uid="_uu16e" width="1319" x="282" y="535">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.ui.part.PageBook</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="18" classindex="17"
+                       height="270" id="Properties.scroll" uid="_uu16f"
+                       width="1188" x="131" y="30">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">Panel:ScrollPanel</extrafeature>
+          <ComponentStep class="Panel" classcount="11" classindex="10"
+                         height="270" id="Properties.scroll2" uid="_uu16g"
+                         width="597" x="597" y="0">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">Panel:ScrollPanel</extrafeature>
+            <ComponentStep class="Panel" classcount="1" classindex="0"
+                           height="270" id="Properties.book" uid="_uu16h"
+                           width="597" x="0" y="0">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.ui.part.PageBook</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+              <ComponentStep class="ComboBox" classcount="1" classindex="0"
+                             height="17" id="comboScriptGrammerTypes"
+                             name="comboScriptGrammerTypes" uid="_uu16i"
+                             width="91" x="108" y="6">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">org.eclipse.swt.custom.CCombo</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">ComboBox</extrafeature>
+                <extrafeature name="qfs:label" negate="false" regexp="false"
+                              state="1">Script Defined As:</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.custom.CCombo</extrafeature>
+              </ComponentStep>
+              <ComponentStep class="Link" classcount="1" classindex="0"
+                             feature="Show in Separate Property Tab..."
+                             height="17"
+                             id="linkShow_in_Separate_Property_Tab..."
+                             uid="_uu16j" width="172" x="415" y="7">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">org.eclipse.ui.forms.widgets.Hyperlink</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">Link</extrafeature>
+                <extrafeature name="qfs:label" negate="false" regexp="false"
+                              state="1">Show in Separate Property Tab...</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+          <ComponentStep class="Tree" classcount="2" classindex="0"
+                         height="611"
+                         id="Properties.treeMap_Process_Data_to_Process_Data..."
+                         uid="_uu16m" width="585" x="5" y="49">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Tree</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Map Process Data to Process Data...</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="Tree" classcount="2" classindex="1"
+                         height="611"
+                         id="Properties.treeMap_Process_Data_to_Process_Data...2"
+                         uid="_uu16n" width="585" x="810" y="49">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Tree</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Map Process Data to Process Data...</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="Panel" classcount="12" classindex="8"
+                         height="813" id="Properties.scroll7" uid="_uu1Jq"
+                         width="1718" x="0" y="63">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">Panel:ScrollPanel</extrafeature>
+            <ComponentStep class="Panel" classcount="7" classindex="5"
+                           height="185" id="Properties.book4" uid="_uu1Jr"
+                           width="1631" x="81" y="29">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.ui.part.PageBook</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+              <ComponentStep class="Panel" classcount="4" classindex="2"
+                             feature="Signal Type" height="109"
+                             id="groupSignal_Type2" uid="_uu1Js" width="1621"
+                             x="5" y="5">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">org.eclipse.swt.widgets.Group</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">Panel</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.widgets.Group</extrafeature>
+                <extrafeature name="qfs:type" negate="false" regexp="false"
+                              state="0">Panel:TitledPanel</extrafeature>
+                <ComponentStep class="RadioButton" classcount="3"
+                               classindex="2" feature="Case Data:" height="16"
+                               id="buttonCase_Data:2" uid="_uu1Jt" width="76"
+                               x="8" y="80">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.swt.widgets.Button</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">RadioButton</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">Case Data:</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Button</extrafeature>
+                </ComponentStep>
+                <ComponentStep class="TextArea" classcount="2" classindex="1"
+                               feature="ToolTip: Case reference for case object whose changes trigger this event."
+                               height="21"
+                               id="textTipCase_reference_for_case_object_whose_changes_trigger_this_event.2"
+                               uid="_uu1Ju" width="1501" x="100" y="78">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.swt.widgets.Text</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">TextArea</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">Case reference for case object whose changes trigger this event. 
+ Note that the CaseSignalAttributes class is available in activity complete 
+ script for information on the nature of the change that trigger the signal.</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Text</extrafeature>
+                </ComponentStep>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+          <ComponentStep class="Panel" classcount="5" classindex="4"
+                         height="876" id="Properties.scroll8" uid="_uu1KC"
+                         width="1721" x="0" y="0">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">Panel:ScrollPanel</extrafeature>
+            <ComponentStep class="Panel" classcount="4" classindex="2"
+                           feature="Process Manager Scripts" height="430"
+                           id="sectionProcess_Manager_Scripts" uid="_uu1KD"
+                           width="1717" x="4" y="5">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.ui.forms.widgets.Section</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:label" negate="false" regexp="false"
+                            state="1">Process Manager Scripts</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+              <ComponentStep class="TabPanel" classcount="1" classindex="0"
+                             height="406"
+                             id="sectionProcess_Manager_Scripts.tabbed"
+                             uid="_uu1KE" width="1690" x="21" y="24">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">TabPanel</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="18" classindex="16"
+                       height="22" id="Properties.canvasTask8" uid="_uu1Hm"
+                       width="131" x="0" y="238">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Task</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="18" classindex="7"
+                       height="22" id="Properties.canvasTask9" uid="_uu1Hn"
+                       width="131" x="0" y="40">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Task</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="18" classindex="11"
+                       height="22" id="Properties.canvasTask10" uid="_uu1Hx"
+                       width="131" x="0" y="128">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Task</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="16" classindex="15"
+                       height="876" id="Properties.scroll3" uid="_uu1I8"
+                       width="1721" x="131" y="30">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">Panel:ScrollPanel</extrafeature>
+          <ComponentStep class="Panel" classcount="12" classindex="8"
+                         height="813" id="Properties.scroll4" uid="_uu1I9"
+                         width="1718" x="0" y="63">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">Panel:ScrollPanel</extrafeature>
+            <ComponentStep class="Panel" classcount="8" classindex="6"
+                           height="124" id="Properties.book2" uid="_uu1IA"
+                           width="1631" x="81" y="84">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.ui.part.PageBook</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+              <ComponentStep class="Panel" classcount="3" classindex="2"
+                             feature="Signal Type" height="109"
+                             id="groupSignal_Type" uid="_uu1IB" width="1621"
+                             x="5" y="5">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">org.eclipse.swt.widgets.Group</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">Panel</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.widgets.Group</extrafeature>
+                <extrafeature name="qfs:type" negate="false" regexp="false"
+                              state="0">Panel:TitledPanel</extrafeature>
+                <ComponentStep class="RadioButton" classcount="3"
+                               classindex="2" feature="Case Data:" height="16"
+                               id="buttonCase_Data:" uid="_uu1IC" width="76"
+                               x="8" y="80">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.swt.widgets.Button</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">RadioButton</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">Case Data:</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Button</extrafeature>
+                </ComponentStep>
+                <ComponentStep class="TextArea" classcount="2" classindex="1"
+                               feature="ToolTip: Case reference for case object whose changes trigger this event."
+                               height="21"
+                               id="textTipCase_reference_for_case_object_whose_changes_trigger_this_event."
+                               uid="_uu1ID" width="1501" x="100" y="78">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.swt.widgets.Text</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">TextArea</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">Case reference for case object whose changes trigger this event. 
+ Note that the CaseSignalAttributes class is available in activity complete 
+ script for information on the nature of the change that trigger the signal.</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Text</extrafeature>
+                </ComponentStep>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="17" classindex="16"
+                       height="876" id="Properties.scroll5" uid="_uu1IV"
+                       width="1721" x="131" y="30">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">Panel:ScrollPanel</extrafeature>
+          <ComponentStep class="Panel" classcount="11" classindex="10"
+                         height="876" id="Properties.scroll6" uid="_uu1IW"
+                         width="864" x="863" y="0">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">Panel:ScrollPanel</extrafeature>
+            <ComponentStep class="Panel" classcount="1" classindex="0"
+                           height="876" id="Properties.book3" uid="_uu1IX"
+                           width="864" x="0" y="0">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.ui.part.PageBook</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+              <ComponentStep class="Panel" classcount="8" classindex="7"
+                             height="845" id="ScriptEditorComposite"
+                             name="ScriptEditorComposite" uid="_uu1IY"
+                             width="854" x="5" y="27">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">org.eclipse.ui.part.PageBook</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">Panel</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+                <ComponentStep class="TextArea" classcount="1" classindex="0"
+                               height="815"
+                               id="ScriptEditorComposite.textScript_Defined_As:"
+                               uid="_uu1IZ" width="813" x="23" y="25">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.swt.custom.StyledText</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">TextArea</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">Script Defined As:</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.custom.StyledText</extrafeature>
+                </ComponentStep>
+                <ComponentStep class="TextArea" classcount="1" classindex="0"
+                               height="323"
+                               id="ScriptEditorComposite.textScript_executed_by_the_process_engine_on_completion_of_the_activity."
+                               uid="_uu1KF" width="1637" x="23" y="25">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.swt.custom.StyledText</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">TextArea</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">Script executed by the process engine on completion of the activity.</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.custom.StyledText</extrafeature>
+                </ComponentStep>
+                <ComponentStep class="Tree" classcount="2" classindex="0"
+                               height="772"
+                               id="ScriptEditorComposite.treeScript_Defined_As:"
+                               uid="_uu1Nr" width="308" x="10" y="38">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">Tree</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">Script Defined As:</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                </ComponentStep>
+                <ComponentStep class="Tree" classcount="2" classindex="1"
+                               height="772" id="ScriptEditorComposite.tree"
+                               uid="_uu1Ns" width="308" x="538" y="38">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">Tree</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+                </ComponentStep>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="18" classindex="12"
+                       height="22" id="Properties.canvasTask" uid="_uu1KB"
+                       width="131" x="0" y="150">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Task</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="18" classindex="8"
+                       height="22" id="Properties.canvasTask11" uid="_uu1Ld"
+                       width="131" x="0" y="62">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Task</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="18" classindex="9"
+                       height="22" id="Properties.canvasTask12" uid="_uu1Le"
+                       width="131" x="0" y="84">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Task</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="18" classindex="10"
+                       height="22" id="Properties.canvasTask13" uid="_uu1Lf"
+                       width="131" x="0" y="106">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Task</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="18" classindex="13"
+                       height="22" id="Properties.canvasTask14" uid="_uu1Lg"
+                       width="131" x="0" y="172">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.ui.internal.views.properties.tabbed.view.TabbedPropertyList$$ListElement</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Task</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="TabPanel" classcount="4" classindex="1"
+                     height="329" id="tabfolder-bottom"
+                     name="tabfolder-bottom" uid="_uu16k" width="1325" x="279"
+                     y="509">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="TabPanel" classcount="2" classindex="1"
+                     height="755" id="tabfolder-bottomLeft"
+                     name="tabfolder-bottomLeft" uid="_uu16l" width="212"
+                     x="39" y="83">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="ToolBar" classcount="10" classindex="1"
+                     height="22" id="WorkbenchWindow.coolbar3" uid="_uu1MD"
+                     width="160" x="1448" y="56">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">ToolBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <ComponentStep class="ToolBar" classcount="1" classindex="0"
+                       height="22" id="WorkbenchWindow.toolbar5" uid="_uu1ME"
+                       width="106" x="2" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="2" classindex="0"
+                         feature="ToolTip: Open Perspective" height="22"
+                         id="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                         name="tool-org.eclipse.ui.internal.PerspectiveBarNewContributionItem"
+                         uid="_uu1MF" width="24" x="0" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-1087419245</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Open Perspective</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Popup" height="165"
+                     id="menuPopup" uid="_uu1MG" width="198">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" feature="Modeling" height="19"
+                       id="menuitemModeling" uid="_uu1MH" width="194" x="2"
+                       y="40">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-763265226</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Modeling</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="BPM Modeling" height="19"
+                       id="menuitemBPM_Modeling" uid="_uu1Nc" width="194"
+                       x="2" y="21">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">332688852</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">BPM Modeling</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Customize View..."
+                       height="19" id="menuitemCustomize_View..." uid="_uu1Pa"
+                       width="205" x="2" y="124">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">-1194425242</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Customize View...</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="ToolBar" classcount="10" classindex="0"
+                     height="22" id="WorkbenchWindow.coolbar4" uid="_uu1ML"
+                     width="1398" x="10" y="56">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">ToolBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <ComponentStep class="ToolBar" classcount="9" classindex="7"
+                       height="22" id="WorkbenchWindow.toolbar6" uid="_uu1MM"
+                       width="114" x="270" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="3" classindex="0"
+                         feature="ToolTip: Debug" height="22"
+                         id="tool-org.eclipse.debug.internal.ui.actions.DebugDropDownAction"
+                         name="tool-org.eclipse.debug.internal.ui.actions.DebugDropDownAction"
+                         uid="_uu1MN" width="38" x="0" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-1554698064</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Debug</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="ToolBar" classcount="9" classindex="6"
+                       height="22" id="WorkbenchWindow.toolbar7" uid="_uu1MS"
+                       width="61" x="430" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="2" classindex="0"
+                         feature="ToolTip: Open Type (Ctrl+Shift+T)"
+                         height="22" id="tool-openType" name="tool-openType"
+                         uid="_uu1MT" width="23" x="0" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-2032157668</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Open Type (Ctrl+Shift+T)</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="ToolBar" classcount="7" classindex="4"
+                       height="26" id="WorkbenchWindow.toolbar" uid="_uu1QL"
+                       width="66" x="133" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="2" classindex="1"
+                         feature="ToolTip: Notify me when Build completes"
+                         height="26"
+                         id="tool-com.tibco.qft.helper.actions.TrackBackgroundBuildAction"
+                         name="tool-com.tibco.qft.helper.actions.TrackBackgroundBuildAction"
+                         uid="_uu1QM" width="33" x="33" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-608767511</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Notify me when Build completes</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="ToolBar" classcount="9" classindex="0" height="22"
+                     id="WorkbenchWindow.coolbar5" uid="_uu1MZ" width="1714"
+                     x="10" y="56">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">ToolBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <ComponentStep class="ToolBar" classcount="10" classindex="8"
+                       height="22" id="WorkbenchWindow.toolbar8" uid="_uu1Ma"
+                       width="206" x="506" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="7" classindex="3"
+                         feature="ToolTip: Back to ProcessProject-Process (ProcessProjectProcess) (Alt+Left)"
+                         height="22" id="tool-backardHistory"
+                         name="tool-backardHistory" uid="_uu1Mb" width="38"
+                         x="99" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1158179835</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Back to ProcessProject-Process (ProcessProjectProcess) (Alt+Left)</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="ToolBarItem" classcount="7" classindex="4"
+                         feature="ToolTip: Forward to ProcessProject-Process (ProcessProjectProcess) (Alt+Right)"
+                         height="22" id="tool-forwardHistory"
+                         name="tool-forwardHistory" uid="_uu1Mc" width="38"
+                         x="137" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-2107960569</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Forward to ProcessProject-Process (ProcessProjectProcess) (Alt+Right)</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="ToolBar" classcount="9" classindex="7"
+                       height="22" id="WorkbenchWindow.toolbar9" uid="_uu1Mz"
+                       width="114" x="301" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="3" classindex="1"
+                         feature="ToolTip: Run ProcessProject" height="22"
+                         id="tool-org.eclipse.debug.internal.ui.actions.RunDropDownAction"
+                         name="tool-org.eclipse.debug.internal.ui.actions.RunDropDownAction"
+                         uid="_uu1M+" width="38" x="38" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1512990294</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Run ProcessProject</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="ToolBarItem" classcount="3" classindex="2"
+                         feature="ToolTip: External Tools" height="22"
+                         id="tool-org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"
+                         name="tool-org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"
+                         uid="_uu1N3" width="38" x="76" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-366594505</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">External Tools</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="ToolBar" classcount="9" classindex="6"
+                       height="22" id="WorkbenchWindow.toolbar10" uid="_uu1NE"
+                       width="61" x="430" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="2" classindex="1"
+                         feature="ToolTip: Search" height="22"
+                         id="tool-org.eclipse.search.OpenSearchDialogPage"
+                         name="tool-org.eclipse.search.OpenSearchDialogPage"
+                         uid="_uu1NF" width="38" x="23" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">2056873059</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Search</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="ToolBar" classcount="11" classindex="8"
+                       height="22" id="WorkbenchWindow.toolbar11" uid="_uu1NO"
+                       width="206" x="567" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="7" classindex="0"
+                         feature="ToolTip: Next Annotation (Ctrl+.)"
+                         height="22"
+                         id="tool-org.eclipse.ui.edit.text.gotoNextAnnotation"
+                         name="tool-org.eclipse.ui.edit.text.gotoNextAnnotation"
+                         uid="_uu1NP" width="38" x="0" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-23614613</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Next Annotation (Ctrl+.)</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="ToolBarItem" classcount="7" classindex="1"
+                         feature="ToolTip: Previous Annotation (Ctrl+,)"
+                         height="22"
+                         id="tool-org.eclipse.ui.edit.text.gotoPreviousAnnotation"
+                         name="tool-org.eclipse.ui.edit.text.gotoPreviousAnnotation"
+                         uid="_uu1NU" width="38" x="38" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">407439337</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Previous Annotation (Ctrl+,)</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="ToolBarItem" classcount="7" classindex="6"
+                         feature="ToolTip: Pin the current editor" height="22"
+                         id="tool-org.eclipse.ui.window.pinEditor"
+                         name="tool-org.eclipse.ui.window.pinEditor"
+                         uid="_uu1NY" width="23" x="183" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-212862342</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Pin the current editor</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="19" classindex="0" height="29"
+                     id="WorkbenchWindow.banner" uid="_uu1Mt" width="1914"
+                     x="10" y="52">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CBanner</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CBanner</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="24" classindex="21"
+                     height="644" id="canvas-Editor" name="canvas-Editor"
+                     uid="_uu1NM" width="1649" x="268" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        <ComponentStep class="TextArea" classcount="1" classindex="0"
+                       height="644" id="canvas-Editor.text" uid="_uu1NN"
+                       width="1615" x="21" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.StyledText</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">TextArea</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.StyledText</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar"
+                     feature="Popup InvokerName: Project Explorer"
+                     height="429" id="popup-Project_Explorer"
+                     name="popup-Project Explorer" uid="_uu1PJ" width="253">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="25" classindex="1"
+                       feature="Pre-Compile Project" height="19"
+                       id="menuitemPre-Compile_Project" uid="_uu1PK"
+                       width="249" x="2" y="21">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Pre-Compile Project</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Pre-Compile Project"
+                       height="19" id="menuitemPre-Compile_Project2"
+                       uid="_uu1PL" width="249" x="2" y="21">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Pre-Compile Project</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="Enable" height="22"
+                         id="menuitemEnable" uid="_uu1PM" width="108" x="2"
+                         y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">345575345</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Enable</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Disable" height="22"
+                         id="menuitemDisable" uid="_uu1QI" width="108" x="2"
+                         y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">-1167482030</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Disable</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="26" classindex="1"
+                       feature="Pre-Compile Project" height="19"
+                       id="menuitemPre-Compile_Project3" uid="_uu1QH"
+                       width="249" x="2" y="21">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Pre-Compile Project</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="TabPanel" classcount="4" classindex="1"
+                     height="648" id="tabfolder-topLeft"
+                     name="tabfolder-topLeft" uid="_uu1PY" width="250" x="12"
+                     y="87">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <ComponentStep class="ToolBar" classcount="1" classindex="0"
+                       height="22" id="tabfolder-topLeft.toolbar" uid="_uu1PZ"
+                       width="18" x="229" y="26">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Window" engine="swt" height="221"
+                id="ContentProposalAdapter__ContentProposalPopup"
+                name="ContentProposalAdapter$$ContentProposalPopup"
+                uid="_uu1IE" width="1532"/>
+    <WindowStep class="Window" engine="swt" height="238" id="shell"
+                uid="_uu1Ia" width="355"/>
+    <WindowStep class="Dialog" engine="swt" feature="Open Type" height="500"
+                id="OpenTypeSelectionDialog" modal="true"
+                name="OpenTypeSelectionDialog" uid="_uu1MU" width="600"/>
+    <WindowStep class="Dialog" engine="swt"
+                feature="External Tools Configurations" height="640"
+                id="LaunchConfigurationsDialog" modal="true"
+                name="LaunchConfigurationsDialog" uid="_uu1N4" width="800"/>
+    <WindowStep class="Dialog" engine="swt" feature="Search" height="427"
+                id="SearchDialog" modal="true" name="SearchDialog"
+                uid="_uu1NG" width="507"/>
+    <WindowStep class="Dialog" engine="swt"
+                feature="Enable Pre-Compile On Project" height="433"
+                id="EnablePrecompileProjectWizard" modal="true"
+                name="EnablePrecompileProjectWizard" uid="_uu1PN" width="907">
+      <ComponentStep class="Panel" classcount="7" classindex="4" height="215"
+                     id="ProcessProject" name="ProcessProject" uid="_uu1PO"
+                     width="881" x="13" y="103">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="CheckBox" classcount="1" classindex="0"
+                       feature="Enable pre-compilation on referenced projects."
+                       height="16"
+                       id="buttonEnable_pre-compilation_on_referenced_projects."
+                       uid="_uu1PP" width="269" x="39" y="85">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Button</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">CheckBox</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Enable pre-compilation on referenced projects.</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="2" classindex="0"
+                     feature="Finish" height="25" id="buttonFinish"
+                     name="buttonFinish" uid="_uu1PQ" width="92" x="698"
+                     y="387">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Available Customizations"
+                height="475" id="CommonFilterSelectionDialog" modal="true"
+                name="CommonFilterSelectionDialog" uid="_uu1Pb" width="494">
+      <ComponentStep class="TabPanel" classcount="1" classindex="0"
+                     height="307" id="CommonFilterSelectionDialog.tabbed"
+                     uid="_uu1Pc" width="456" x="19" y="43">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <ComponentStep class="Table" classcount="1" classindex="0"
+                       height="225"
+                       id="CommonFilterSelectionDialog.tableSelect_the_filters_to_apply_(matching_items_will_be_hidden):"
+                       uid="_uu1Pd" width="440" x="8" y="74">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Table</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Table</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Select the filters to apply (matching items will be hidden):</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Table</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="2" classindex="0" feature="OK"
+                     height="25" id="buttonOk" name="buttonOk" uid="_uu1Pe"
+                     width="92" x="285" y="429">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">OK</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt"
+                feature="Disable Pre-Compile On Project" height="433"
+                id="DisablePrecompileProjectWizard" modal="true"
+                name="DisablePrecompileProjectWizard" uid="_uu1QJ"
+                width="525">
+      <ComponentStep class="Button" classcount="2" classindex="0"
+                     feature="Finish" height="25" id="buttonFinish2"
+                     name="buttonFinish" uid="_uu1QK" width="92" x="316"
+                     y="387">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="Build complete"
+                height="142" id="MessageDialog" modal="true"
+                name="MessageDialog" uid="_uu1QN" width="522">
+      <ComponentStep class="Button" classcount="1" classindex="0" feature="OK"
+                     height="25" id="buttonOk2" name="buttonOk" uid="_uu1QO"
+                     width="92" x="416" y="101">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">OK</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>

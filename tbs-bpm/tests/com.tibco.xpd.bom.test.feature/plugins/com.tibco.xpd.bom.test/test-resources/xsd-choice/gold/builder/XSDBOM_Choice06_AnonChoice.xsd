@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/AnonChoice" xmlns:tns1="http://example.com/AnonChoice"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/AnonChoice">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_Choice06_AnonChoice/Business Objects/com.example.AnonChoice.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="Boeing" nillable="false">
+    <xsd:complexType ecore:name="BoeingType" id="com.example.AnonChoiceBoeingType"
+        mixed="false">
+      <xsd:choice>
+        <xsd:element ecore:name="freightDetails" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="freightDetails" type="xsd:string"/>
+        <xsd:element ecore:name="seats" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="seats">
+          <xsd:complexType ecore:name="seatsType" id="com.example.AnonChoiceseatsType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="colour" form="unqualified" maxOccurs="1" minOccurs="1"
+                  name="colour" type="xsd:string"/>
+            </xsd:sequence>
+            <xsd:attribute ecore:name="armrest" id="seatsTypearmrest" form="unqualified"
+                name="armrest" type="xsd:boolean" use="optional"/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

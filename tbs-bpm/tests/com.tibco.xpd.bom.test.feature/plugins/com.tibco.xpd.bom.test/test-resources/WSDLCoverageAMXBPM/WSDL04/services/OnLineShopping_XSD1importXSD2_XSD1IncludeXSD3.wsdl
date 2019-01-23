@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.amsbqa/Linda04/XSD1importXSD2/XSD1IncludeXSD3/allDefineTypes/wsdl" xmlns:ns="http://www.amsbqa.com/Linda04/XSD1importedXSD2/XSD1IncludesXSD3/allDefinestypes" targetNamespace="http://www.amsbqa/Linda04/XSD1importXSD2/XSD1IncludeXSD3/allDefineTypes/wsdl">
+    <import namespace="http://www.amsbqa.com/Linda04/XSD1importedXSD2/XSD1IncludesXSD3/allDefinestypes" location="XSD1.xsd"/>
+    <message name="OrderRequest">
+        <part name="part1" element="ns:BaseInfoReQuest"/>
+    </message>
+    <message name="OrderResponse">
+        <part name="part1" element="ns:BaseInfoResponse"/>
+    </message>
+    <portType name="Order">
+        <operation name="Order">
+            <input message="tns:OrderRequest"/>
+            <output message="tns:OrderResponse"/>
+        </operation>
+    </portType>
+</definitions>

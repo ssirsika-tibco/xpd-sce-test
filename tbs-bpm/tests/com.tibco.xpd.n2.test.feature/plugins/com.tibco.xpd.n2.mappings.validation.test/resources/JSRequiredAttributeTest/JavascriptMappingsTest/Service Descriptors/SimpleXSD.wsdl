@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/SimpleXSD/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SimpleXSD" targetNamespace="http://www.example.org/SimpleXSD/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/SimpleXSD/">
+        <xsd:complexType name="NewOperation">
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="NewOperationResponse">
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      <xsd:complexType name="StrComplexType">
+      	<xsd:attribute name="strAttrib" type="xsd:string" use="required"></xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="ComplxTypWElement">
+      	<xsd:sequence>
+      		<xsd:element name="ReqdEl" type="xsd:string"></xsd:element>
+      		<xsd:element name="OptionalEl" type="xsd:string" minOccurs="0"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part name="parameters" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part name="parameters" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperation_faultMsg">
+  	<wsdl:part name="fault" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComplexTypeOperationRequest">
+  	<wsdl:part name="ComplexTypeOperationRequest"
+  		type="tns:StrComplexType">
+  	</wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComplexTypeOperationResponse">
+  	<wsdl:part name="ComplexTypeOperationResponse"
+  		type="tns:StrComplexType">
+  	</wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComplexTypeWithElementRequest">
+  	<wsdl:part name="ComplexTypeWithElementRequest"
+  		type="tns:ComplxTypWElement">
+  	</wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComplexTypeWithElementResponse">
+  	<wsdl:part name="ComplexTypeWithElementResponse" type="tns:ComplxTypWElement"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComplexTypeOperation_faultMsg">
+  	<wsdl:part name="fault" type="tns:StrComplexType"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComplexTypeWithElement_faultMsg">
+  	<wsdl:part name="fault" type="tns:ComplxTypWElement"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SimpleXSD">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:NewOperationResponse"/>
+            <wsdl:fault name="fault" message="tns:NewOperation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    <wsdl:operation name="ComplexTypeOperation">
+    	<wsdl:input message="tns:ComplexTypeOperationRequest"></wsdl:input>
+    	<wsdl:output message="tns:ComplexTypeOperationResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="tns:ComplexTypeOperation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    <wsdl:operation name="ComplexTypeWithElement">
+    	<wsdl:input message="tns:ComplexTypeWithElementRequest"></wsdl:input>
+    	<wsdl:output message="tns:ComplexTypeWithElementResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="tns:ComplexTypeWithElement_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

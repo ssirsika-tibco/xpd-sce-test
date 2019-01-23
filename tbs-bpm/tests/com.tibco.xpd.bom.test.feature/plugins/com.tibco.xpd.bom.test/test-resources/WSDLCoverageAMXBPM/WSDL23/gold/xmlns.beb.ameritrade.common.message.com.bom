@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="xmlns.beb.ameritrade.common.message.com" name="xmlns.beb.ameritrade.common.message.com">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DIXVsMYUEeORcLTPv83dfQ" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DIXVscYUEeORcLTPv83dfQ" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DIXVssYUEeORcLTPv83dfQ" key="created" value="1397731116299"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DIXVs8YUEeORcLTPv83dfQ" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_DNMLUMYUEeORcLTPv83dfQ" key="checksum" value="2866453340"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="xmlns.beb.ameritrade.common.message.comResponsibleBrokerType" name="ResponsibleBrokerType"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="xmlns.beb.ameritrade.common.message.comResponsibleBrokerValues2" name="ResponsibleBrokerValues">
+      <generalization xmi:type="uml:Generalization" xmi:id="_C2woUMYUEeORcLTPv83dfQ">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="xmlns.beb.ameritrade.common.message.comAsOfDateType2" name="AsOfDateType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_C22H4MYUEeORcLTPv83dfQ">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="xmlns.beb.ameritrade.common.message.comCreatedDateType2" name="CreatedDateType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_C27ncMYUEeORcLTPv83dfQ">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="xmlns.beb.ameritrade.common.message.comActionType" name="ActionType">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C3BHAMYUEeORcLTPv83dfQ" name="UPDATE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C3BHAsYUEeORcLTPv83dfQ" name="DELETE"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="xmlns.beb.ameritrade.common.message.comInternalAccountTypeT" name="InternalAccountTypeT">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C4HTMMYUEeORcLTPv83dfQ" name="CUSTOMER"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C4HTMsYUEeORcLTPv83dfQ" name="DEALER"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C4HTNMYUEeORcLTPv83dfQ" name="GENERAL_LEDGER"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C4HTNsYUEeORcLTPv83dfQ" name="HOUSE_ACCOUNT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C4H6QcYUEeORcLTPv83dfQ" name="LOCATION"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C4H6Q8YUEeORcLTPv83dfQ" name="TRANSFER_AGENT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C4H6RcYUEeORcLTPv83dfQ" name="VENDOR"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="xmlns.beb.ameritrade.common.message.comSubAccountTypeT" name="SubAccountTypeT">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C5MRQMYUEeORcLTPv83dfQ" name="CASH"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C5MRQsYUEeORcLTPv83dfQ" name="MARGIN"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C5MRRMYUEeORcLTPv83dfQ" name="INCOME"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C5MRRsYUEeORcLTPv83dfQ" name="SHORT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C5MRSMYUEeORcLTPv83dfQ" name="DVPRVP"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C5M4UMYUEeORcLTPv83dfQ" name="DIVIDEND"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="xmlns.beb.ameritrade.common.message.comOrderSourceT" name="OrderSourceT">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6RPUMYUEeORcLTPv83dfQ" name="BROKER"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6RPUsYUEeORcLTPv83dfQ" name="DROP_COPY"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6RPVMYUEeORcLTPv83dfQ" name="PHONE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6RPVsYUEeORcLTPv83dfQ" name="WEB"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6RPWMYUEeORcLTPv83dfQ" name="TEST"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6RPWsYUEeORcLTPv83dfQ" name="TRADE_TRIGGERS"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6R2YMYUEeORcLTPv83dfQ" name="ADVISOR_SERVICES"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6R2YsYUEeORcLTPv83dfQ" name="ADVISOR_CLIENT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C6R2ZMYUEeORcLTPv83dfQ" name="VEO_EXPRESS"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="xmlns.beb.ameritrade.common.message.comChargeTypeT" name="ChargeTypeT">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7WNYMYUEeORcLTPv83dfQ" name="COMMISSION"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7WNYsYUEeORcLTPv83dfQ" name="COMMISSION_AMOUNT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7WNZMYUEeORcLTPv83dfQ" name="COMMISSION_OVERRIDE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7WNZsYUEeORcLTPv83dfQ" name="SEC_FEE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7WNaMYUEeORcLTPv83dfQ" name="STR_FEE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7WNasYUEeORcLTPv83dfQ" name="SEC_FEE1"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7W0ccYUEeORcLTPv83dfQ" name="STR_FEE1"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7W0c8YUEeORcLTPv83dfQ" name="ADDITIONAL_FEES"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7W0dcYUEeORcLTPv83dfQ" name="CDSC_FEE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7W0d8YUEeORcLTPv83dfQ" name="FUND_REDEMPTION_FEE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_C7W0ecYUEeORcLTPv83dfQ" name="OTHER_CHARGES"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xmlns.beb.ameritrade.common.message.comGroupIDType" name="GroupIDType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="GroupIDTypeFirm" name="firm" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C8dAo8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C8dAosYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="GroupIDTypeBranch" name="branch" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C8grA8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C8grAsYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="GroupIDTypeClientKey" name="clientKey" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C8kVY8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C8kVYsYUEeORcLTPv83dfQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="GroupIDTypeAccountKey" name="accountKey" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C8n_w8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C8n_wsYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xmlns.beb.ameritrade.common.message.comResponsibleBrokerTypeU" name="ResponsibleBrokerTypeU">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ResponsibleBrokerTypeUaction" name="action" type="xmlns.beb.ameritrade.common.message.comActionType?xmlns.beb.ameritrade.common.message.com%3a%3aActionType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C8uGYMYUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C8tfUsYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ResponsibleBrokerTypeUvalue" name="value" type="xmlns.beb.ameritrade.common.message.comResponsibleBrokerType?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C8xww8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C8xwwsYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xmlns.beb.ameritrade.common.message.comAsOfDateTypeU" name="AsOfDateTypeU">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AsOfDateTypeUaction" name="action" type="xmlns.beb.ameritrade.common.message.comActionType?xmlns.beb.ameritrade.common.message.com%3a%3aActionType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C81bI8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C81bIsYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AsOfDateTypeUvalue" name="value" type="xmlns.beb.ameritrade.common.message.comAsOfDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C85sk8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C85sksYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xmlns.beb.ameritrade.common.message.comCreatedDateTypeU" name="CreatedDateTypeU">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CreatedDateTypeUaction" name="action" type="xmlns.beb.ameritrade.common.message.comActionType?xmlns.beb.ameritrade.common.message.com%3a%3aActionType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C89W88YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C89W8sYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="CreatedDateTypeUvalue" name="value" type="xmlns.beb.ameritrade.common.message.comCreatedDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C9BoY8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C9BoYsYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xmlns.beb.ameritrade.common.message.comChargesT" name="ChargesT">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChargesTCharge" name="charge" type="xmlns.beb.ameritrade.common.message.comChargeT?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT?" aggregation="composite" association="xmlns.beb.ameritrade.common.message.comComposition0?xmlns.beb.ameritrade.common.message.com%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C9TVM8YUEeORcLTPv83dfQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C9TVMsYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="xmlns.beb.ameritrade.common.message.comChargeT" name="ChargeT">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChargeTType" name="type" type="xmlns.beb.ameritrade.common.message.comChargeTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C9LZY8YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C9LZYsYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ChargeTAmount" name="amount" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C9QR48YUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C9QR4sYUEeORcLTPv83dfQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="xmlns.beb.ameritrade.common.message.comComposition0" name="Composition0" memberEnd="ChargesTCharge?xmlns.beb.ameritrade.common.message.com%3a%3aChargesT%3a%3acharge? Composition0chargest?xmlns.beb.ameritrade.common.message.com%3a%3aComposition0%3a%3achargest?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0chargest" name="chargest" type="xmlns.beb.ameritrade.common.message.comChargesT?xmlns.beb.ameritrade.common.message.com%3a%3aChargesT?" association="xmlns.beb.ameritrade.common.message.comComposition0?xmlns.beb.ameritrade.common.message.com%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_C9TVNsYUEeORcLTPv83dfQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_C9TVNcYUEeORcLTPv83dfQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_C2b4McYUEeORcLTPv83dfQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C2b4MsYUEeORcLTPv83dfQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_C2b4M8YUEeORcLTPv83dfQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C2b4NMYUEeORcLTPv83dfQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_C2b4NcYUEeORcLTPv83dfQ" base_Package="xmlns.beb.ameritrade.common.message.com?xmlns.beb.ameritrade.common.message.com?" xsdTargetNamespace="urn:xmlns:beb.ameritrade.common-message.com" xsdSchemaLocation="Schema/common-messages.xsd" xsdStudioVersion="3.7.0.qualifier" />
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_C2osgMYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comResponsibleBrokerType?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C2p6oMYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comResponsibleBrokerType?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerType?" xsdSimpleTypeName="ResponsibleBrokerType" xsdRestrictionBase="ResponsibleBrokerValues"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_C2uzIMYUEeORcLTPv83dfQ"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_C2vaMMYUEeORcLTPv83dfQ" textLength="8" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comResponsibleBrokerValues2?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerValues?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_C2wBQMYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comResponsibleBrokerValues2?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerValues?" xsdMaxLengthFixed="false" xsdMaxLengthValue="8"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C2woUcYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comResponsibleBrokerValues2?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerValues?" xsdSimpleTypeName="ResponsibleBrokerValues" xsdRestrictionBase="string"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_C205wMYUEeORcLTPv83dfQ"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_C205wcYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comAsOfDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateType?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_C21g0MYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comAsOfDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C22H4cYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comAsOfDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateType?" xsdSimpleTypeName="AsOfDateType" xsdRestrictionBase="date"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_C26ZUMYUEeORcLTPv83dfQ"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_C26ZUcYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comCreatedDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateType?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_C27AYMYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comCreatedDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateType?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C27nccYUEeORcLTPv83dfQ" base_PrimitiveType="xmlns.beb.ameritrade.common.message.comCreatedDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateType?" xsdSimpleTypeName="CreatedDateType" xsdRestrictionBase="date"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C3Af8MYUEeORcLTPv83dfQ" base_Enumeration="xmlns.beb.ameritrade.common.message.comActionType?xmlns.beb.ameritrade.common.message.com%3a%3aActionType?" xsdSimpleTypeName="ActionType" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C3BHAcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C3BHAMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aActionType%3a%3aUPDATE?" xsdValue="update"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C3BHA8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C3BHAsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aActionType%3a%3aDELETE?" xsdValue="delete"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C4GsIMYUEeORcLTPv83dfQ" base_Enumeration="xmlns.beb.ameritrade.common.message.comInternalAccountTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT?" xsdSimpleTypeName="InternalAccountTypeT" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C4HTMcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C4HTMMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aCUSTOMER?" xsdValue="Customer"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C4HTM8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C4HTMsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aDEALER?" xsdValue="Dealer"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C4HTNcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C4HTNMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aGENERAL_LEDGER?" xsdValue="General Ledger"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C4H6QMYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C4HTNsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aHOUSE_ACCOUNT?" xsdValue="House Account"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C4H6QsYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C4H6QcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aLOCATION?" xsdValue="Location"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C4H6RMYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C4H6Q8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aTRANSFER_AGENT?" xsdValue="Transfer Agent"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C4H6RsYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C4H6RcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aVENDOR?" xsdValue="Vendor"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C5LqMMYUEeORcLTPv83dfQ" base_Enumeration="xmlns.beb.ameritrade.common.message.comSubAccountTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT?" xsdSimpleTypeName="SubAccountTypeT" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C5MRQcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C5MRQMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aCASH?" xsdValue="Cash"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C5MRQ8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C5MRQsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aMARGIN?" xsdValue="Margin"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C5MRRcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C5MRRMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aINCOME?" xsdValue="Income"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C5MRR8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C5MRRsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aSHORT?" xsdValue="Short"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C5MRScYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C5MRSMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aDVPRVP?" xsdValue="DVP/RVP"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C5M4UcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C5M4UMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aDIVIDEND?" xsdValue="Dividend"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C6QoQMYUEeORcLTPv83dfQ" base_Enumeration="xmlns.beb.ameritrade.common.message.comOrderSourceT?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT?" xsdSimpleTypeName="OrderSourceT" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6RPUcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6RPUMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aBROKER?" xsdValue="Broker"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6RPU8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6RPUsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aDROP_COPY?" xsdValue="Drop Copy"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6RPVcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6RPVMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aPHONE?" xsdValue="Phone"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6RPV8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6RPVsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aWEB?" xsdValue="Web"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6RPWcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6RPWMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aTEST?" xsdValue="Test"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6RPW8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6RPWsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aTRADE_TRIGGERS?" xsdValue="Trade Triggers"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6R2YcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6R2YMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aADVISOR_SERVICES?" xsdValue="Advisor Services"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6R2Y8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6R2YsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aADVISOR_CLIENT?" xsdValue="Advisor Client"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C6R2ZcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C6R2ZMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aVEO_EXPRESS?" xsdValue="VEO Express"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_C7VmUMYUEeORcLTPv83dfQ" base_Enumeration="xmlns.beb.ameritrade.common.message.comChargeTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT?" xsdSimpleTypeName="ChargeTypeT" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7WNYcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7WNYMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION?" xsdValue="Commission"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7WNY8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7WNYsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION_AMOUNT?" xsdValue="CommissionAmount"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7WNZcYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7WNZMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION_OVERRIDE?" xsdValue="Commission Override"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7WNZ8YUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7WNZsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSEC_FEE?" xsdValue="SEC Fee"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7WNacYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7WNaMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSTR_FEE?" xsdValue="STR Fee"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7W0cMYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7WNasYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSEC_FEE1?" xsdValue="SECFee"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7W0csYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7W0ccYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSTR_FEE1?" xsdValue="STRFee"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7W0dMYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7W0c8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aADDITIONAL_FEES?" xsdValue="Additional Fees"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7W0dsYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7W0dcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCDSC_FEE?" xsdValue="CDSCFee"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7W0eMYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7W0d8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aFUND_REDEMPTION_FEE?" xsdValue="FundRedemptionFee"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_C7W0esYUEeORcLTPv83dfQ" base_EnumerationLiteral="_C7W0ecYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aOTHER_CHARGES?" xsdValue="OtherCharges"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_C8YvMcYUEeORcLTPv83dfQ" base_Class="xmlns.beb.ameritrade.common.message.comGroupIDType?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType?" xsdName="GroupIDType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_C8om0MYUEeORcLTPv83dfQ" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C8dAocYUEeORcLTPv83dfQ" base_Property="GroupIDTypeFirm?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3afirm?" xsdName="Firm" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_C8om0MYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C8grAcYUEeORcLTPv83dfQ" base_Property="GroupIDTypeBranch?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3abranch?" xsdName="Branch" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_C8om0MYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C8kVYcYUEeORcLTPv83dfQ" base_Property="GroupIDTypeClientKey?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3aclientKey?" xsdName="ClientKey" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_C8om0MYUEeORcLTPv83dfQ" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C8n_wcYUEeORcLTPv83dfQ" base_Property="GroupIDTypeAccountKey?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3aaccountKey?" xsdName="AccountKey" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_C8om0MYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_C8rqIcYUEeORcLTPv83dfQ" base_Class="xmlns.beb.ameritrade.common.message.comResponsibleBrokerTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU?" xsdName="ResponsibleBrokerTypeU" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C8tfUcYUEeORcLTPv83dfQ" base_Property="ResponsibleBrokerTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU%3a%3aaction?" xsdName="action" xsdForm="unqualified" xsdUse="required" xsdType="ActionType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C8xwwcYUEeORcLTPv83dfQ" base_Property="ResponsibleBrokerTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU%3a%3avalue?" xsdName="value" xsdType="ResponsibleBrokerType" xsdIsSimpleContentExtension="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_C8zl8cYUEeORcLTPv83dfQ" base_Class="xmlns.beb.ameritrade.common.message.comAsOfDateTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU?" xsdName="AsOfDateTypeU" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C81bIcYUEeORcLTPv83dfQ" base_Property="AsOfDateTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU%3a%3aaction?" xsdName="action" xsdForm="unqualified" xsdUse="required" xsdType="ActionType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C85skcYUEeORcLTPv83dfQ" base_Property="AsOfDateTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU%3a%3avalue?" xsdName="value" xsdType="AsOfDateType" xsdIsSimpleContentExtension="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_C87hwcYUEeORcLTPv83dfQ" base_Class="xmlns.beb.ameritrade.common.message.comCreatedDateTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU?" xsdName="CreatedDateTypeU" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C89W8cYUEeORcLTPv83dfQ" base_Property="CreatedDateTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU%3a%3aaction?" xsdName="action" xsdForm="unqualified" xsdUse="required" xsdType="ActionType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C9BoYcYUEeORcLTPv83dfQ" base_Property="CreatedDateTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU%3a%3avalue?" xsdName="value" xsdType="CreatedDateType" xsdIsSimpleContentExtension="true"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_C9DdkcYUEeORcLTPv83dfQ" base_Class="xmlns.beb.ameritrade.common.message.comChargesT?xmlns.beb.ameritrade.common.message.com%3a%3aChargesT?" xsdName="ChargesT" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_C9UjUMYUEeORcLTPv83dfQ" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_C9IWEcYUEeORcLTPv83dfQ" base_Class="xmlns.beb.ameritrade.common.message.comChargeT?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT?" xsdName="ChargeT" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_C9RgAMYUEeORcLTPv83dfQ" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C9LZYcYUEeORcLTPv83dfQ" base_Property="ChargeTType?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT%3a%3atype?" xsdName="Type" xsdForm="qualified" xsdType="ChargeTypeT" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_C9RgAMYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C9QR4cYUEeORcLTPv83dfQ" base_Property="ChargeTAmount?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT%3a%3aamount?" xsdName="Amount" xsdForm="qualified" xsdType="double" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_C9RgAMYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_C9QR5MYUEeORcLTPv83dfQ" base_Property="ChargeTAmount?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT%3a%3aamount?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="1.7976931348623157E308" xsdMinExclusiveValue="" xsdMinInclusiveValue="-1.7976931348623157E308"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_C9Q48MYUEeORcLTPv83dfQ" decimalUpper="1.7976931348623157E308" decimalLower="-1.7976931348623157E308" base_Property="ChargeTAmount?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT%3a%3aamount?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_C9T8QMYUEeORcLTPv83dfQ" base_Property="ChargesTCharge?xmlns.beb.ameritrade.common.message.com%3a%3aChargesT%3a%3acharge?" xsdName="Charge" xsdForm="qualified" xsdType="ChargeT" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_C9UjUMYUEeORcLTPv83dfQ" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_DD994MYUEeORcLTPv83dfQ" base_Package="xmlns.beb.ameritrade.common.message.com?xmlns.beb.ameritrade.common.message.com?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_DD994cYUEeORcLTPv83dfQ" name="GroupID" type="xmlns.beb.ameritrade.common.message.comGroupIDType?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType?" targetNamespace="urn:xmlns:beb.ameritrade.common-message.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHTlxMYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comResponsibleBrokerValues2?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerValues?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHTlxcYUEeORcLTPv83dfQ" base_Element="_C7WNYMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHTlxsYUEeORcLTPv83dfQ" base_Element="_C5MRQMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aCASH?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHTlx8YUEeORcLTPv83dfQ" base_Element="_C8xww8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUM0MYUEeORcLTPv83dfQ" base_Element="Composition0chargest?xmlns.beb.ameritrade.common.message.com%3a%3aComposition0%3a%3achargest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUM0cYUEeORcLTPv83dfQ" base_Element="_C3BHAsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aActionType%3a%3aDELETE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUM0sYUEeORcLTPv83dfQ" base_Element="_C8dAosYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUM08YUEeORcLTPv83dfQ" base_Element="_C9QR48YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUM1MYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comActionType?xmlns.beb.ameritrade.common.message.com%3a%3aActionType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUM1cYUEeORcLTPv83dfQ" base_Element="_C2woUMYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUM1sYUEeORcLTPv83dfQ" base_Element="_C8grA8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUz4MYUEeORcLTPv83dfQ" base_Element="_C6R2ZMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aVEO_EXPRESS?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUz4cYUEeORcLTPv83dfQ" base_Element="ResponsibleBrokerTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU%3a%3aaction?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUz4sYUEeORcLTPv83dfQ" base_Element="_C81bI8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUz48YUEeORcLTPv83dfQ" base_Element="_C9TVNsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUz5MYUEeORcLTPv83dfQ" base_Element="_C7W0c8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aADDITIONAL_FEES?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUz5cYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comCreatedDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUz5sYUEeORcLTPv83dfQ" base_Element="_C8n_wsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHUz58YUEeORcLTPv83dfQ" base_Element="_C9TVM8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHVa8MYUEeORcLTPv83dfQ" base_Element="_C4H6QcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aLOCATION?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHVa8cYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comAsOfDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHVa8sYUEeORcLTPv83dfQ" base_Element="_C8uGYMYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHVa88YUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comAsOfDateTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHVa9MYUEeORcLTPv83dfQ" base_Element="_C6RPUMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aBROKER?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHVa9cYUEeORcLTPv83dfQ" base_Element="AsOfDateTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHVa9sYUEeORcLTPv83dfQ" base_Element="_C5MRQsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aMARGIN?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHVa98YUEeORcLTPv83dfQ" base_Element="_C4H6Q8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aTRANSFER_AGENT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWCAMYUEeORcLTPv83dfQ" base_Element="_C7W0ccYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSTR_FEE1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWCAcYUEeORcLTPv83dfQ" base_Element="_C8kVY8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWCAsYUEeORcLTPv83dfQ" base_Element="_C89W8sYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWCA8YUEeORcLTPv83dfQ" base_Element="_C8grAsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWCBMYUEeORcLTPv83dfQ" base_Element="_C6RPUsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aDROP_COPY?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWCBcYUEeORcLTPv83dfQ" base_Element="_C4HTNMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aGENERAL_LEDGER?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWCBsYUEeORcLTPv83dfQ" base_Element="GroupIDTypeClientKey?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3aclientKey?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWCB8YUEeORcLTPv83dfQ" base_Element="_C8xwwsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWpEMYUEeORcLTPv83dfQ" base_Element="_C4HTMsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aDEALER?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWpEcYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comChargesT?xmlns.beb.ameritrade.common.message.com%3a%3aChargesT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWpEsYUEeORcLTPv83dfQ" base_Element="ChargesTCharge?xmlns.beb.ameritrade.common.message.com%3a%3aChargesT%3a%3acharge?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWpE8YUEeORcLTPv83dfQ" base_Element="_C4H6RcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aVENDOR?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWpFMYUEeORcLTPv83dfQ" base_Element="_C8kVYsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWpFcYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comSubAccountTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWpFsYUEeORcLTPv83dfQ" base_Element="_C7W0ecYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aOTHER_CHARGES?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHWpF8YUEeORcLTPv83dfQ" base_Element="_C5MRRsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aSHORT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHXQIMYUEeORcLTPv83dfQ" base_Element="_C9BoYsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHXQIcYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comComposition0?xmlns.beb.ameritrade.common.message.com%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHXQIsYUEeORcLTPv83dfQ" base_Element="_C6RPWMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aTEST?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHXQI8YUEeORcLTPv83dfQ" base_Element="_C89W88YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHXQJMYUEeORcLTPv83dfQ" base_Element="_C5MRRMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aINCOME?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHXQJcYUEeORcLTPv83dfQ" base_Element="GroupIDTypeAccountKey?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3aaccountKey?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHXQJsYUEeORcLTPv83dfQ" base_Element="_C8dAo8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHX3MMYUEeORcLTPv83dfQ" base_Element="_C8tfUsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHX3McYUEeORcLTPv83dfQ" base_Element="_C2b4M8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHX3MsYUEeORcLTPv83dfQ" base_Element="_C7W0dcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCDSC_FEE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHX3M8YUEeORcLTPv83dfQ" base_Element="AsOfDateTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU%3a%3aaction?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHX3NMYUEeORcLTPv83dfQ" base_Element="CreatedDateTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHX3NcYUEeORcLTPv83dfQ" base_Element="ChargeTType?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT%3a%3atype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHX3NsYUEeORcLTPv83dfQ" base_Element="_C9TVNcYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHX3N8YUEeORcLTPv83dfQ" base_Element="ResponsibleBrokerTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHYeQMYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comGroupIDType?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHYeQcYUEeORcLTPv83dfQ" base_Element="_C7WNZMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION_OVERRIDE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHYeQsYUEeORcLTPv83dfQ" base_Element="_C6RPWsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aTRADE_TRIGGERS?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHYeQ8YUEeORcLTPv83dfQ" base_Element="GroupIDTypeFirm?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3afirm?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHYeRMYUEeORcLTPv83dfQ" base_Element="_C7WNaMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSTR_FEE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHYeRcYUEeORcLTPv83dfQ" base_Element="_C9QR4sYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHYeRsYUEeORcLTPv83dfQ" base_Element="_C6RPVMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aPHONE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHYeR8YUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comChargeTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZFUMYUEeORcLTPv83dfQ" base_Element="_C5MRSMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aDVPRVP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZFUcYUEeORcLTPv83dfQ" base_Element="_C6RPVsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aWEB?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZFUsYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comCreatedDateTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZFU8YUEeORcLTPv83dfQ" base_Element="_C9TVMsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZFVMYUEeORcLTPv83dfQ" base_Element="_C2b4McYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZFVcYUEeORcLTPv83dfQ" base_Element="_C3BHAMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aActionType%3a%3aUPDATE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZFVsYUEeORcLTPv83dfQ" base_Element="_C85sk8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZFV8YUEeORcLTPv83dfQ" base_Element="_C8n_w8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZsYMYUEeORcLTPv83dfQ" base_Element="_C81bIsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZsYcYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comResponsibleBrokerType?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZsYsYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comChargeT?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZsY8YUEeORcLTPv83dfQ" base_Element="_C6R2YMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aADVISOR_SERVICES?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZsZMYUEeORcLTPv83dfQ" base_Element="_C7W0d8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aFUND_REDEMPTION_FEE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZsZcYUEeORcLTPv83dfQ" base_Element="_C7WNZsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSEC_FEE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHZsZsYUEeORcLTPv83dfQ" base_Element="CreatedDateTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU%3a%3aaction?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHaTcMYUEeORcLTPv83dfQ" base_Element="_C9LZYsYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHaTccYUEeORcLTPv83dfQ" base_Element="_C7WNYsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION_AMOUNT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHaTcsYUEeORcLTPv83dfQ" base_Element="_C9BoY8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHaTc8YUEeORcLTPv83dfQ" base_Element="_C9LZY8YUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHaTdMYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comResponsibleBrokerTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHaTdcYUEeORcLTPv83dfQ" base_Element="_C4HTMMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aCUSTOMER?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHaTdsYUEeORcLTPv83dfQ" base_Element="GroupIDTypeBranch?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3abranch?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHaTd8YUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comInternalAccountTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHa6gMYUEeORcLTPv83dfQ" base_Element="_C6R2YsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aADVISOR_CLIENT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHa6gcYUEeORcLTPv83dfQ" base_Element="_C27ncMYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHa6gsYUEeORcLTPv83dfQ" base_Element="_C22H4MYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHa6g8YUEeORcLTPv83dfQ" base_Element="ChargeTAmount?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT%3a%3aamount?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHa6hMYUEeORcLTPv83dfQ" base_Element="xmlns.beb.ameritrade.common.message.comOrderSourceT?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHa6hcYUEeORcLTPv83dfQ" base_Element="_C5M4UMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aDIVIDEND?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHa6hsYUEeORcLTPv83dfQ" base_Element="_C85sksYUEeORcLTPv83dfQ"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHa6h8YUEeORcLTPv83dfQ" base_Element="_C7WNasYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSEC_FEE1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_DHbhkMYUEeORcLTPv83dfQ" base_Element="_C4HTNsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aHOUSE_ACCOUNT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIB-gMYUEeORcLTPv83dfQ" displayLabel="ActionType" base_NamedElement="xmlns.beb.ameritrade.common.message.comActionType?xmlns.beb.ameritrade.common.message.com%3a%3aActionType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIClkMYUEeORcLTPv83dfQ" displayLabel="AsOfDateType" base_NamedElement="xmlns.beb.ameritrade.common.message.comAsOfDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIDMoMYUEeORcLTPv83dfQ" displayLabel="AsOfDateTypeU" base_NamedElement="xmlns.beb.ameritrade.common.message.comAsOfDateTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIDMocYUEeORcLTPv83dfQ" displayLabel="ChargeT" base_NamedElement="xmlns.beb.ameritrade.common.message.comChargeT?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIDzsMYUEeORcLTPv83dfQ" displayLabel="ChargeTypeT" base_NamedElement="xmlns.beb.ameritrade.common.message.comChargeTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIDzscYUEeORcLTPv83dfQ" displayLabel="ChargesT" base_NamedElement="xmlns.beb.ameritrade.common.message.comChargesT?xmlns.beb.ameritrade.common.message.com%3a%3aChargesT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIEawMYUEeORcLTPv83dfQ" displayLabel="CreatedDateType" base_NamedElement="xmlns.beb.ameritrade.common.message.comCreatedDateType2?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIEawcYUEeORcLTPv83dfQ" displayLabel="CreatedDateTypeU" base_NamedElement="xmlns.beb.ameritrade.common.message.comCreatedDateTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIFB0MYUEeORcLTPv83dfQ" displayLabel="GroupIDType" base_NamedElement="xmlns.beb.ameritrade.common.message.comGroupIDType?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIFB0cYUEeORcLTPv83dfQ" displayLabel="InternalAccountTypeT" base_NamedElement="xmlns.beb.ameritrade.common.message.comInternalAccountTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIFo4MYUEeORcLTPv83dfQ" displayLabel="OrderSourceT" base_NamedElement="xmlns.beb.ameritrade.common.message.comOrderSourceT?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIFo4cYUEeORcLTPv83dfQ" displayLabel="ResponsibleBrokerType" base_NamedElement="xmlns.beb.ameritrade.common.message.comResponsibleBrokerType?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIGP8MYUEeORcLTPv83dfQ" displayLabel="ResponsibleBrokerTypeU" base_NamedElement="xmlns.beb.ameritrade.common.message.comResponsibleBrokerTypeU?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIGP8cYUEeORcLTPv83dfQ" displayLabel="ResponsibleBrokerValues" base_NamedElement="xmlns.beb.ameritrade.common.message.comResponsibleBrokerValues2?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerValues?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIG3AMYUEeORcLTPv83dfQ" displayLabel="SubAccountTypeT" base_NamedElement="xmlns.beb.ameritrade.common.message.comSubAccountTypeT?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIG3AcYUEeORcLTPv83dfQ" displayLabel="delete" base_NamedElement="_C3BHAsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aActionType%3a%3aDELETE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIHeEMYUEeORcLTPv83dfQ" displayLabel="update" base_NamedElement="_C3BHAMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aActionType%3a%3aUPDATE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIHeEcYUEeORcLTPv83dfQ" displayLabel="value" base_NamedElement="AsOfDateTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU%3a%3avalue?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIIFIMYUEeORcLTPv83dfQ" displayLabel="action" base_NamedElement="AsOfDateTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aAsOfDateTypeU%3a%3aaction?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIIsMMYUEeORcLTPv83dfQ" displayLabel="Amount" base_NamedElement="ChargeTAmount?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT%3a%3aamount?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIIsMcYUEeORcLTPv83dfQ" displayLabel="Type" base_NamedElement="ChargeTType?xmlns.beb.ameritrade.common.message.com%3a%3aChargeT%3a%3atype?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIJTQMYUEeORcLTPv83dfQ" displayLabel="Additional Fees" base_NamedElement="_C7W0c8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aADDITIONAL_FEES?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIJ6UMYUEeORcLTPv83dfQ" displayLabel="CDSCFee" base_NamedElement="_C7W0dcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCDSC_FEE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIJ6UcYUEeORcLTPv83dfQ" displayLabel="Commission" base_NamedElement="_C7WNYMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIKhYMYUEeORcLTPv83dfQ" displayLabel="Commission Override" base_NamedElement="_C7WNZMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION_OVERRIDE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIKhYcYUEeORcLTPv83dfQ" displayLabel="CommissionAmount" base_NamedElement="_C7WNYsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aCOMMISSION_AMOUNT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DILIcMYUEeORcLTPv83dfQ" displayLabel="FundRedemptionFee" base_NamedElement="_C7W0d8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aFUND_REDEMPTION_FEE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DILIccYUEeORcLTPv83dfQ" displayLabel="OtherCharges" base_NamedElement="_C7W0ecYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aOTHER_CHARGES?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DILvgMYUEeORcLTPv83dfQ" displayLabel="SEC Fee" base_NamedElement="_C7WNZsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSEC_FEE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DILvgcYUEeORcLTPv83dfQ" displayLabel="SECFee" base_NamedElement="_C7WNasYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSEC_FEE1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIMWkMYUEeORcLTPv83dfQ" displayLabel="STR Fee" base_NamedElement="_C7WNaMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSTR_FEE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIMWkcYUEeORcLTPv83dfQ" displayLabel="STRFee" base_NamedElement="_C7W0ccYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aChargeTypeT%3a%3aSTR_FEE1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIM9oMYUEeORcLTPv83dfQ" displayLabel="Charge" base_NamedElement="ChargesTCharge?xmlns.beb.ameritrade.common.message.com%3a%3aChargesT%3a%3acharge?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIM9ocYUEeORcLTPv83dfQ" displayLabel="value" base_NamedElement="CreatedDateTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU%3a%3avalue?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DINksMYUEeORcLTPv83dfQ" displayLabel="action" base_NamedElement="CreatedDateTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aCreatedDateTypeU%3a%3aaction?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIOLwMYUEeORcLTPv83dfQ" displayLabel="AccountKey" base_NamedElement="GroupIDTypeAccountKey?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3aaccountKey?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIOLwcYUEeORcLTPv83dfQ" displayLabel="Branch" base_NamedElement="GroupIDTypeBranch?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3abranch?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIOy0MYUEeORcLTPv83dfQ" displayLabel="ClientKey" base_NamedElement="GroupIDTypeClientKey?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3aclientKey?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIOy0cYUEeORcLTPv83dfQ" displayLabel="Firm" base_NamedElement="GroupIDTypeFirm?xmlns.beb.ameritrade.common.message.com%3a%3aGroupIDType%3a%3afirm?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIPZ4MYUEeORcLTPv83dfQ" displayLabel="Customer" base_NamedElement="_C4HTMMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aCUSTOMER?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIPZ4cYUEeORcLTPv83dfQ" displayLabel="Dealer" base_NamedElement="_C4HTMsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aDEALER?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIQA8MYUEeORcLTPv83dfQ" displayLabel="General Ledger" base_NamedElement="_C4HTNMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aGENERAL_LEDGER?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIQA8cYUEeORcLTPv83dfQ" displayLabel="House Account" base_NamedElement="_C4HTNsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aHOUSE_ACCOUNT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIQoAMYUEeORcLTPv83dfQ" displayLabel="Location" base_NamedElement="_C4H6QcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aLOCATION?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIRPEMYUEeORcLTPv83dfQ" displayLabel="Transfer Agent" base_NamedElement="_C4H6Q8YUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aTRANSFER_AGENT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIRPEcYUEeORcLTPv83dfQ" displayLabel="Vendor" base_NamedElement="_C4H6RcYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aInternalAccountTypeT%3a%3aVENDOR?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIR2IMYUEeORcLTPv83dfQ" displayLabel="Advisor Client" base_NamedElement="_C6R2YsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aADVISOR_CLIENT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIR2IcYUEeORcLTPv83dfQ" displayLabel="Advisor Services" base_NamedElement="_C6R2YMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aADVISOR_SERVICES?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DISdMMYUEeORcLTPv83dfQ" displayLabel="Broker" base_NamedElement="_C6RPUMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aBROKER?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DISdMcYUEeORcLTPv83dfQ" displayLabel="Drop Copy" base_NamedElement="_C6RPUsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aDROP_COPY?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DITEQMYUEeORcLTPv83dfQ" displayLabel="Phone" base_NamedElement="_C6RPVMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aPHONE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DITrUMYUEeORcLTPv83dfQ" displayLabel="Test" base_NamedElement="_C6RPWMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aTEST?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DITrUcYUEeORcLTPv83dfQ" displayLabel="Trade Triggers" base_NamedElement="_C6RPWsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aTRADE_TRIGGERS?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIUSYMYUEeORcLTPv83dfQ" displayLabel="VEO Express" base_NamedElement="_C6R2ZMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aVEO_EXPRESS?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIUSYcYUEeORcLTPv83dfQ" displayLabel="Web" base_NamedElement="_C6RPVsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aOrderSourceT%3a%3aWEB?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIU5cMYUEeORcLTPv83dfQ" displayLabel="value" base_NamedElement="ResponsibleBrokerTypeUvalue?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU%3a%3avalue?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIU5ccYUEeORcLTPv83dfQ" displayLabel="action" base_NamedElement="ResponsibleBrokerTypeUaction?xmlns.beb.ameritrade.common.message.com%3a%3aResponsibleBrokerTypeU%3a%3aaction?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIVggMYUEeORcLTPv83dfQ" displayLabel="Cash" base_NamedElement="_C5MRQMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aCASH?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIVggcYUEeORcLTPv83dfQ" displayLabel="DVP/RVP" base_NamedElement="_C5MRSMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aDVPRVP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIWHkMYUEeORcLTPv83dfQ" displayLabel="Dividend" base_NamedElement="_C5M4UMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aDIVIDEND?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIWHkcYUEeORcLTPv83dfQ" displayLabel="Income" base_NamedElement="_C5MRRMYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aINCOME?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIWuoMYUEeORcLTPv83dfQ" displayLabel="Margin" base_NamedElement="_C5MRQsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aMARGIN?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DIWuocYUEeORcLTPv83dfQ" displayLabel="Short" base_NamedElement="_C5MRRsYUEeORcLTPv83dfQ?xmlns.beb.ameritrade.common.message.com%3a%3aSubAccountTypeT%3a%3aSHORT?"/>
+  <notation:Diagram xmi:id="_DIXVtMYUEeORcLTPv83dfQ" type="Business Object Model" element="xmlns.beb.ameritrade.common.message.com?xmlns.beb.ameritrade.common.message.com?" name="xmlns.beb.ameritrade.common.message.com" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_DIXVtcYUEeORcLTPv83dfQ"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_DIXVtsYUEeORcLTPv83dfQ"/>
+  </notation:Diagram>
+</xmi:XMI>

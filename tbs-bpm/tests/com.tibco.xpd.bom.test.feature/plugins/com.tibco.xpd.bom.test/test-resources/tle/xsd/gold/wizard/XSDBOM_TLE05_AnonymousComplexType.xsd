@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE05_AnonymousComplexType" xmlns:tns1="http://www.example.org/XSDBOM_TLE05_AnonymousComplexType"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE05_AnonymousComplexType">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfsdfdsfsd/Business Objects/XSDBOM_TLE05_AnonymousComplexType.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="topElement" nillable="false">
+    <xsd:complexType id="org.example.xsdbo.m.tle0._5.anonymous.complex.type_topElementType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="name">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

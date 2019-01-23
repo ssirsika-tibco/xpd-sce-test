@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Adrian Hussey (Tibco Software Ltd) -->
+<xs:schema xmlns="http://security.api.de.n2.tibco.com" xmlns:de="http://api.de.n2.tibco.com" xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://security.api.de.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="organisation.xsd"/>
+	<xs:import namespace="http://api.de.n2.tibco.com" schemaLocation="de.xsd"/>
+	<xs:element name="authenticateUser">
+		<xs:annotation>
+			<xs:documentation>Request element for authenticateUser operation. 
+
+This operation is deprecated and should no longer be used. It is only available for backward compatibility and may be removed in future releases.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="password" type="xs:base64Binary">
+					<xs:annotation>
+						<xs:documentation>Password to be authenticated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="login" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>Login name to be authenticated.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="authenticateUserResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for authenticateUser operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="failure" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Message indicating a possible reason why authentication failed.
+
+This is only returned if authentication fails.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="user-guid" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>Unique ID providing the security context for a successfully authenticated user.
+
+If authentication fails, the user-guid is not set.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="name" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>The name by which the authenticated user is known (the login name).</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="display-name" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>The name of the authenticated user, as it can be displayed.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="domain" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>The domain in which the user was authenticated.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getUserPrivileges">
+		<xs:annotation>
+			<xs:documentation>Request element for getUserPrivileges operation. Returns the privileges held by the resource identified by its GUID. Resources inherit privileges from the organization units, positions and groups with which they are associated.
+
+For those privileges that are qualified, the response will include the qualifierSet that gives the qualifying value that applies.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="user-guid" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>Unique ID of the user for whom privilege assignments should be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getUserPrivilegesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for getUserPrivileges operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="Privilege" type="de:XmlModelEntity">
+					<xs:annotation>
+						<xs:documentation>Definition of a privilege currently assigned to this user.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="user-guid" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>Unique ID of the user for whom privilege assignments are being returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="XmlSystemAction">
+		<xs:annotation>
+			<xs:documentation>Identifies a system action by its name and the application component to which it belongs.
+        </xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="component" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifier of the application component to which the named system action belongs.
+
+See "System Actions" in the BPM Developer's Guide for a list of system actions and their parent component identifiers.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the system action.
+
+See "System Actions" in the BPM Developer's Guide for a list of system actions and their parent component identifiers.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="isActionAuthorised">
+		<xs:annotation>
+			<xs:documentation>Request element for isActionAuthorised operation. 
+
+This operation tests whether the caller (as identified by the SOAP security header) is authorized to perform the specified system actions within the scope of the specified organization model entity.
+
+Each specified system action is tested individually.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="0" name="performer" type="orgdto:XmlModelEntityId">
+					<xs:annotation>
+						<xs:documentation>Optionally identifies an org-model entity, a resource, whose authorisation is to be tested. If not specified, the caller's authorisation is tested.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="scope" type="orgdto:XmlModelEntityId">
+					<xs:annotation>
+						<xs:documentation>Optionally, identifies the organization model entity upon which the System Action(s) is/are to be performed - the System Action scope. 
+
+Each listed system action will be tested for authorization within the scope of this organization model entity. If scope is not set, each system action will be tested for authorization against the complete organization model.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" name="action" type="XmlSystemAction">
+					<xs:annotation>
+						<xs:documentation>Definition of a system action.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute default="false" name="fault-on-unauthorised" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Boolean value indicating whether a service fault should be raised if any of the queried system actions are not authorised. If "false" (the default), an un-authorised system action will be reported in the response.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="isActionAuthorisedResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for isActionAuthorised operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="scope" type="orgdto:XmlModelEntityId">
+					<xs:annotation>
+						<xs:documentation>Definition of the organization model entity that defines the scope of the authorization testing for the named system action.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" name="action">
+					<xs:annotation>
+						<xs:documentation>Definition of a system action and whether the user is authorized to perform it.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="XmlSystemAction">
+								<xs:attribute name="authorised" type="xs:boolean">
+									<xs:annotation>
+										<xs:documentation>Boolean value indicating whether the user specified in the request:
+
+- has the necessary privileges to perform the named system action (TRUE).
+
+- does not have the necessary privileges to perform the named system action (FALSE).</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="overall" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Boolean value indicating whether the user specified in the request is:
+                   
+- authorized to perform all of the requested system actions (TRUE).
+
+- authorized to perform only some, or none, of the requested system actions (FALSE).</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listActionAuthorisedEntities">
+		<xs:annotation>
+			<xs:documentation>Request element for listActionAuthorisedEntities operation. 
+
+This operation returns a list of organization model entities (identified by their GUID) on which the caller (determined by the security context) is authorized to perform the named system action.
+
+This is an expensive operation as it involves traversing the entire structure of all versions of the organizational model.
+            </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="XmlSystemAction"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listActionAuthorisedEntitiesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listActionAuthorisedEntities operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="guid" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Unique ID of an organization model entity on which the user is authorized to perform the requested system action.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listAuthorisedOrgs">
+		<xs:annotation>
+			<xs:documentation>Request element for listAuthorisedOrgs operation.
+
+Identifies the system action against which the user's authorization is to be tested.
+
+The test will only verify the system action to the organization level. If the system action can be scoped to a lower organization-entity level, such as organization unit or position, the test will not verify whether the user has authorization at those levels. In those cases, an additional "isActionAuthorised"  test will be required before the action is performed.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="XmlSystemAction"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listAuthorisedOrgsResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listAuthorisedOrgs operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="guid" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Unique ID of an organization on which the user is authorized to perform the requested system action.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute default="false" name="all-organizations" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Boolean value defining whether the user is permitted to perform the system action on all available organizations.
+
+The organizations' GUIDs will still be listed in the response.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

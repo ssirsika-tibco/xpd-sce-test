@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example.org/MyMessageWSDL/" 
+	xmlns:ns0="http://www.example.org/MyTypesSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MyMessageWSDL"
+	targetNamespace="http://www.example.org/MyMessageWSDL/">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.example.org/MyMessageWSDL/">
+			<xsd:import namespace="http://www.example.org/MyTypesSchema"
+				schemaLocation="MyTypesSchema.xsd"></xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	
+	<!-- Messages that use Elements -->
+	<wsdl:message name="PORequestMessage">
+		<wsdl:part element="ns0:PurchaseOrderRequestElem" name="reqParams" />
+	</wsdl:message>
+	<wsdl:message name="POResponseMessage">
+		<wsdl:part element="ns0:PurchaseOrderResponseElem" name="respParams" />
+	</wsdl:message>
+	<!-- Messages that use Types -->
+	<wsdl:message name="PORequestMessage2">
+		<wsdl:part type="ns0:CTRequest" name="reqParams" />
+	</wsdl:message>
+	<wsdl:message name="POResponseMessage2">
+		<wsdl:part type="ns0:CTResponse" name="respParams" />
+	</wsdl:message>
+</wsdl:definitions>

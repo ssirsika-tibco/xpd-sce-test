@@ -1,0 +1,1103 @@
+//author Ravi
+import xpdl2;
+import wsdl;
+import xpdExtension;
+import uml;
+import xsd;
+import javax::wsdl;
+
+extension org::openarchitectureware::util::stdlib::cloning;
+extension com::tibco::xpd::wsdlgen::transform::template::Extensions reexport;
+extension org::openarchitectureware::xsd::lib::qname;
+
+//Operation = InterfaceMethod
+//PortType = ProcessInterface
+
+//Method invoked by the WSDL Generation builder to do the XPDL to WSDL transformation - This is invoked on Project Clean or any change to XPDL 
+transformXpdlToWsdl(xpdl2::Package xpdlModel, Definition definition) :
+	let xsdList = {} :
+	let portTypeList = {} :
+	updateDefinitionQName(definition, xpdlModel) ->
+	createTypes(definition) ->
+	xpdlModel.eAllContents.typeSelect(Process).select(e | ((doesNeedPortType(e)== true)? renewPortTypes(e, definition, portTypeList): null)) ->
+	xpdlModel.eAllContents.typeSelect(ProcessInterface).select(e | 
+			((doesNeedPortType(e) == true) ? renewPortTypes(e, definition, portTypeList): null)) ->
+	cleanupPortTypes(definition, portTypeList) ->
+	cleanupInlinedSchemas (definition, xpdlModel);
+	
+//Method invoked when a BOM related to an XPDL is changed. This is to update all the WSDLs that have inlined the XSDs for the BOMs changed.
+updateSchema(xpdl2::Package xpdlModel, Definition definition, uml::Model model) :
+	updateParts(definition, model) ->
+	transformXpdlToWsdl(xpdlModel, definition);
+	
+//Method invoked by the Service task WSDL creation wizard. 	
+createPortTypeForServiceTask(Definition definition, Activity serviceTaskActivity, String bindingType) :
+	((definition.eTypes == null) ? createTypes(definition) : null) ->
+	(
+		let proc = serviceTaskActivity.process :
+		let processName = _prefixWithUnderscoreIfStartsWithDigit(proc.name) :
+		let qname = createQname(definition, processName) :
+		let portType = createPortTypeExt(qname) :
+		createDescription(definition, portType, proc) ->
+		definition.ePortTypes.add(portType) ->
+		createProcessInfoIdentifier(definition, portType, "FlowContainer", "Id", proc.id) ->
+		createOperation(definition, portType, proc, serviceTaskActivity, bindingType)
+	);
+
+//Deletes port types with the extension elements.
+private cleanupPortTypes(Definition definition, List necessaryPortTypes) :
+	let allPortTypes = {} :
+	let portTypesToDelete = {} :
+	let portTypesWithoutExtn = {}:
+	allPortTypes.addAll(definition.ePortTypes) ->
+	portTypesWithoutExtn.add(allPortTypes.reject(e | doesContainExtensionElement(e, "FlowContainer"))) ->
+	portTypesToDelete.add(allPortTypes.reject(e | necessaryPortTypes.contains(e))) ->
+	(portTypesWithoutExtn!=null && !(portTypesWithoutExtn.isEmpty)) ? portTypesToDelete.first().removeAll(portTypesWithoutExtn.first()):null ->
+	(
+		let portTypesToDel = portTypesToDelete.first():
+		portTypesToDel.collect(e | removeOperations(definition, e, e.eOperations)) 
+	) ->
+	definition.ePortTypes.removeAll(portTypesToDelete.first());
+
+//If a new BOM is referenced by the XPDL, the XSD relevant to the BOM needs to be inlined - This method is invoked then.
+addSchemaToTypes(Definition definition, List xsdList) :
+	addSchemaToTypesExt(definition, xsdList) ;
+
+//Creates the WSDL Types under WSDL Definition
+private wsdl::Types createTypes(Definition definition) :
+	let types = createTypesExt(definition) :
+	types;
+
+//Utility to help verify whether a given process needs a port type created in the WSDL.
+//The main criteria here is if it not a page flow and has an activity which has generated == true
+private boolean doesNeedPortType(Process proc) :
+	let activities = {} :
+	//do not create port types for page flow type processes
+	!(isPageFlowProcess(proc))?
+	(
+		isDestinationFavouredForProcess(proc) ? 
+		(
+			activities.add(proc.eAllContents.typeSelect(Activity).collect(e| doesNeedPortTypeConsiderProcIfc(e)))->
+			activities.size  > 0 && activities.first().contains(true)
+		) : null
+	) : null;
+
+//Utility to verify if the given process is a page flow process.
+private boolean isPageFlowProcess(Process proc) :
+	isPageFlowProcessExt(proc) ? true : false;
+
+//Utility to verify if the activity is a start event of type none/message or intermediate event of type message.
+private boolean doesNeedPortTypeConsiderProcIfc(Activity act):
+//if activity is a start event of type none and message or intermediate event of type 
+	let flag = {}:
+	(!(isImplementedAct(act)))? 
+	(
+		doesNeedPortType(act) ? flag.add(true) : null
+	): null ->
+	flag.size>0;
+
+//Activities need port types only if it is an API request activity and a Web-service implementation.
+private boolean doesNeedPortType(Activity act) :
+	let event = act.event :
+	let flag = {}:
+	((event != null) ?
+			(
+				let startEvent = act.eContents.typeSelect(StartEvent).first() :
+				let intermediateEvent = act.eContents.typeSelect(IntermediateEvent).first() :
+				(startEvent != null)? 
+				(
+					let actContainer = _getActivityContainerExt(act) :
+					(actContainer != null)?
+					(
+						let triggerType = startEvent.trigger :
+						let triggerResultMessage = startEvent.triggerResultMessage :
+						("Message" == triggerType.toString() && isWebService(startEvent) && isGeneratedRequestActivity(act)) ? flag.add(true) : 
+							(("None" == triggerType.toString())? (doesProcessContainReqdExtAttr(act.process)? flag.add(true): null) : null)
+					) : null
+				): 
+				(
+					(intermediateEvent != null && isGeneratedRequestActivity(act)) ?
+					(
+						let triggerType = intermediateEvent.trigger :
+						("Message" == triggerType.toString()) ?
+						(
+							let triggerResultMessage = intermediateEvent.triggerResultMessage :
+							let catchObj = triggerResultMessage.catchThrow :
+							("CATCH" == catchObj.toString() && isWebService(intermediateEvent)) ? flag.add(true): null
+						) : null
+					): null
+				)
+			): 
+			(
+				let impl = act.implementation :
+				let tFlag = act.eContents.typeSelect(Task) :
+				(!(tFlag.isEmpty))?
+				(
+					let rcvTask = impl.taskReceive :
+					(rcvTask != null && isWebService(rcvTask) && isGeneratedRequestActivity(act)) ? 
+					(
+						flag.add(true) 
+					): null						 
+				) : null
+			)) -> 
+	flag.size > 0 ;
+
+//calls JAVA code to identify whether the the process has an extended attribute saying InternalJmxDebug - this is used to generate porttype for none start event.
+private boolean doesProcessContainReqdExtAttr(Process process) :
+	let val = doesProcessContainReqdExtAttrExt(process) :
+	val;
+	
+//returns true if the list of associated Params contains either IN and OUT or INOUT
+private boolean doesContainInOutAssocParams(List assocParams) :
+	let flag = {} :
+	let inoutParams = assocParams.select(e | "INOUT" == e.mode.toString()) :
+	(inoutParams != null && !(inoutParams.isEmpty)) ?
+	(
+		flag.add(true)
+	):
+	(
+		let inParams = assocParams.select(e | "IN" == e.mode.toString()) :
+		let outParams = assocParams.select(e | "OUT" == e.mode.toString()) :
+		(!(inParams.isEmpty) && !(outParams.isEmpty)) ? flag.add(true):null
+	) ->
+	flag.contains(true);
+	
+//returns true if the list of formal parameters contains either IN and OUT or INOUT	
+private boolean doesContainInOutFormalParams(List formalParams) :
+	let flag = {} :
+	let inoutParams = formalParams.select(e | "INOUT" == e.mode.toString()) :
+	(inoutParams != null && !(inoutParams.isEmpty)) ?
+	(
+		flag.add(true)
+	):
+	(
+		let inParams = formalParams.select(e | "IN" == e.mode.toString()) :
+		let outParams = formalParams.select(e | "OUT" == e.mode.toString()) :
+		(!(inParams.isEmpty) && !(outParams.isEmpty)) ? flag.add(true):null
+	) ->
+	flag.contains(true);
+
+//returns true if process interface contains none start, message start or message intermediate
+private boolean doesNeedPortType(ProcessInterface procIfc) :
+	isDestinationFavouredForProcessInterface(procIfc) ? 
+	(
+		let ifcMethods = {} :
+		ifcMethods.addAll(procIfc.eAllContents.typeSelect(InterfaceMethod).select(e | (isWsdlGenEnabledForProcessInterface(procIfc) || isNotIntermediateNone(e)))) ->
+		((ifcMethods.size > 0) ? true : false)
+	) : false ;
+
+//This method checks if the porttype for the process exists, if it doesn't then it creates on, otherwise updates the same porttype for changes in the process.
+private renewPortTypes(Process proc, Definition definition, List portTypeList) :
+	let portType = doesNeedToCreatePortType(definition, proc) :
+	let processName = _prefixWithUnderscoreIfStartsWithDigit(proc.name):
+	let bindingType = getBindingType(proc) :
+	((portType.size < 1) ? 
+	(
+		let qname = createQname(definition, processName) :
+		let portTypeCreated = createPortTypeExt(qname) :
+		createDescription(definition, portTypeCreated, proc) ->
+		definition.ePortTypes.add(portTypeCreated)->
+		createProcessInfoIdentifier(definition, portTypeCreated, "FlowContainer", "Id", proc.id) ->
+		portTypeList.add(portTypeCreated) ->
+		proc.eAllContents.typeSelect(Activity).select(e | ((doesNeedPortType(e) == true) ?	createOperation(definition, portTypeCreated, proc, e, bindingType): null))
+	) : 
+	(
+		let existingPortType = portType.first(): 
+		portTypeList.add(existingPortType) ->
+		clearFaultsFromExistingOperations(definition, existingPortType)-> 
+		updatePortType(definition, proc, existingPortType, bindingType) 
+	));
+	
+//Clears the WSDL faults from existing operations
+private void clearFaultsFromExistingOperations(Definition defn, PortType portType) :
+	portType.eContents.typeSelect(Operation).select(op | removeFaults(defn, op));
+
+//Call to delete faults
+private void removeFaults(Definition defn, Operation op):
+	let opFaults = op.eFaults :
+	let faultsToBeRemoved = {} :
+	((opFaults!=null)? 
+	(
+	opFaults.select(fault | 
+		(
+			let msg = fault.eMessage :
+			((msg != null && defn.eMessages != null) ? defn.eMessages.remove(msg) : null) ->  
+			((op.eFaults != null) ? faultsToBeRemoved.add(fault) : null)
+		))
+	)
+	:null) ->
+	op.eFaults.removeAll(faultsToBeRemoved); 
+
+// Calculate the name of the fault from the error event activity given
+private String faultName(Activity errorEventActivity) :
+	let resultError = errorEventActivity.eAllContents.typeSelect(ResultError).first() :
+	resultError != null && resultError.errorCode != null && resultError.errorCode != "" ? getInternalName(resultError.errorCode) :
+	(
+		errorEventActivity.name != "" ? errorEventActivity.name : errorEventActivity.id
+	) ;	
+
+//Method to create faults for error events for given activity - faults are created for end events that are downstream to the activity.
+private void createFaultForErrorEvent(Definition definition, Operation op, Activity requestActivity, Activity e, String bindingType) :
+	let process = e.process :
+	let fault = createFault():
+	let isAssocParamsEmpty = isAssocParamsEmpty(e) :
+	let faultName = e.faultName() :
+	let processName = _prefixWithUnderscoreIfStartsWithDigit(process.name):	
+	let qn = createQName(definition.targetNamespace, processName+"_" + op.name +"_"+ faultName +"_fault"):
+	let faultMsg = createFaultMsg(qn) :
+	// XPD-4183: To avoid duplicate key error - check if the wsdl definition already has the fault message added to it.
+	// if yes, then do not add it again. 
+	let faultMsgAlreadyExists = _isFaultMsgAlreadyExists(definition, faultMsg) :
+	faultMsgAlreadyExists == true ? null : 
+	(
+		definition.eMessages.add(faultMsg) ->
+		fault.setEMessage(faultMsg) ->
+		fault.setName(faultName) ->
+		(!isAssocParamsEmpty)?
+		(
+			let assocParams = getAssociatedParameters(e) :
+			let assocDataFields = getDataFieldAssociatedParameters(e) :
+			assocParams.select(assocParam | 
+				( 
+					(assocParam.mode.toString() == "INOUT" || assocParam.mode.toString() == "OUT") ?
+						(
+							createPartExt(definition, faultMsg, assocParam.formalParam, assocParam.mode, getDataTypeForAssocParam(assocParam.formalParam, process), process, bindingType)
+						) : null
+				)
+			) ->
+			assocDataFields.select
+				(e | 
+					(
+						(e.mode.toString() == "INOUT" || e.mode.toString() == "OUT") ? 
+							createPartExt(definition, faultMsg, e.formalParam, e.mode, getDataTypeForAssocParamDataField(e.formalParam, process), process, bindingType) : null
+					)
+				)	
+		) : 
+		(
+			// Sid XPD-2087: Don't output messag eparts when implicit is association disabled.
+			!isImplicitAssociationDisabled(e) ?
+			(
+				let allFormalParams = {} :
+				let allDataFields = {} :
+				!(isImplementedAct(e)) ? ( 
+					// If not an implementing activity then implicitly associate ALL params including interface ones.
+					allFormalParams.addAll(getAllFormalParameters(e.process).sortBy( e | e.name)) ->
+					isServiceOrSendOneWayTask(requestActivity) ? allDataFields.addAll(e.process.eAllContents.typeSelect(DataField).sortBy( e | e.name)) : null
+				  ) : (
+					// if it is an implemented event then only add interface parameters.
+					let procIfc = getImplementedProcesInterfaceExt(e.process) :
+					procIfc !=null ? allFormalParams.addAll(procIfc.eAllContents.typeSelect(FormalParameter).sortBy( e | e.name)):null	
+				  ) ->
+				  			
+				(!(allFormalParams.isEmpty))?
+				(
+					allFormalParams.select(formalParam |
+						(
+							(formalParam.mode.toString() == "INOUT" || formalParam.mode.toString() == "OUT") ? 
+								createPartExt(definition, faultMsg, formalParam.name, formalParam.mode, formalParam.dataType, process, bindingType) : null
+						)
+					)
+				):null ->
+				(!(allDataFields.isEmpty))?
+				(
+					allDataFields.collect( e | (createPartExt(definition, faultMsg, e.name, null, e.dataType, process, bindingType)))
+				) : null
+			) : null
+		) ->
+		op.eFaults.add(fault) -> 
+		createProcessInfoIdentifier(definition, fault, "Error", "Id", e.id) ->
+		fault 
+	);
+
+//Method to return list of Error end events present in a given process.
+private List[Activity] getErrorEndEvents(Process proc):
+	let endErrorEvents = proc.eAllContents.typeSelect(Activity).select(e | 
+		(
+			let endEventFlag = e.eContents.typeSelect(EndEvent) :
+			(!(endEventFlag.isEmpty))			
+		)	 
+			&& e.event.resultError !=null
+		) :
+	endErrorEvents;
+	
+//Updates the porttypes for a given process interface, if a port type doesn't exist - Studio creates one,other wise the existing one is updated. 
+private renewPortTypes(ProcessInterface procIfc, Definition definition, List portTypeList) :
+	let portType = doesNeedToCreatePortType(definition, procIfc) :
+	let bindingType = getBindingType(procIfc) :
+	let procIfcName = _prefixWithUnderscoreIfStartsWithDigit(procIfc.name):
+	((portType.size < 1) ? 
+	(
+		let qname = createQname(definition, procIfcName) :
+		let portType = createPortTypeExt(qname) :
+		createDescription(definition, portType, procIfc) ->
+		definition.ePortTypes.add(portType)->
+		createProcessInfoIdentifier(definition, portType, "FlowContainer", "Id", procIfc.id)->
+		portTypeList.add(portType) ->
+		procIfc.eAllContents.typeSelect(InterfaceMethod).select(e |	
+					((isWsdlGenEnabledForProcessInterface(procIfc) || isNotIntermediateNone(e)) ? 
+							createOperation(definition, portType, procIfc, e, bindingType) 
+							: null)
+							)
+	) : 
+	(
+		portTypeList.add(portType.first()) ->
+		updatePortType(definition, procIfc, portType.first(), bindingType)
+	));
+
+//This method returns a list of port types for given process interface methods.
+private List doesNeedToCreatePortType(Definition definition, NamedElement namedElement) :
+	let list = {} :
+	definition.eAllContents.typeSelect(PortType).select
+	(e |(
+			((containsProcessIfcId(e, namedElement))? list.add(e) : null)
+		)
+	) ->
+	list;
+
+//Port type for a given process interface method is updated, if there isn't one already, one is created otherwise the existing one is updated.
+private updatePortType(Definition definition, ProcessInterface procIfc, PortType portType, String bindingType) :
+	//update existing operations and delete the ones for which the Interfacemethod has been deleted.
+	let operations = {} :
+	updatePortTypeName(definition, procIfc, portType) ->
+	updatePortTypeDescription(portType, procIfc) ->
+	(
+		procIfc.eAllContents.typeSelect(InterfaceMethod).collect
+		(e |
+			(
+				let opList = getMethodSpecificOperation(e, portType) :
+				(isWsdlGenEnabledForProcessInterface(procIfc) || isNotIntermediateNone(e))?
+				(
+					(opList.size < 1) ? 
+					(
+						let op = createOperation(definition, portType, procIfc, e, bindingType) :
+						operations.add(op) 
+					): 
+					(
+						updateOperation(definition, portType, procIfc, e, opList.first()) ->
+						operations.add(opList.first())
+					)
+				): null
+			)
+		)
+	) ->
+	(
+		let opsToDelete = getListOfOperationsToRemove(operations, portType) :
+		(opsToDelete != null)?removeOperations(definition, portType, opsToDelete): null 
+	);
+
+//Port type for a given process activity is updated, if there isn't one already, one is created otherwise the existing one is updated.
+private updatePortType(Definition definition, Process proc, PortType portType, String bindingType) :
+	//update existing operations and delete the ones for which the Interfacemethod has been deleted.
+	let operations = {} :
+	updatePortTypeName(definition, proc, portType) ->
+	updatePortTypeDescription(portType, proc) ->
+	(
+		proc.eAllContents.typeSelect(Activity).collect
+		(e |
+			(
+				let opList = getMethodSpecificOperation(e, portType) :
+				(doesNeedPortType(e))?
+				(
+					(opList.size < 1) ? 
+					(
+						let op = createOperation(definition, portType, proc, e, bindingType) :
+						(op != null) ? operations.add(op) : null 
+					): 
+					(
+						updateOperation(definition, portType, proc, e, opList.first()) ->
+						operations.add(opList.first())
+					)
+				): null
+			)
+		)
+	) ->
+	(
+		let opsToDelete = getListOfOperationsToRemove(operations, portType) :
+		(opsToDelete != null)?removeOperations(definition, portType, opsToDelete): null 
+	);	
+
+//Method to remove operations from a given porttype.
+private removeOperations(Definition definition, PortType portType, List opsToDelete) :
+	opsToDelete.typeSelect(Operation).collect(e | 
+	(
+		let msgs = {} :
+		let inputMsg = e.eInput.eMessage :
+		let outMsg = e.eOutput.eMessage :
+		msgs.add(inputMsg) ->
+		msgs.add(outMsg) ->
+		definition.eMessages.removeAll(msgs) 
+	)) ->
+	portType.eOperations.removeAll(opsToDelete);
+
+//Details of the remove WSDL operations.
+private List[Operation] getListOfOperationsToRemove(List operations, PortType portType) :
+	let allOperations = {} :
+	let operationsToDelete = {} :
+	let opsWithoutExtensionElement = {}:
+	allOperations.addAll(portType.eOperations) ->
+	opsWithoutExtensionElement.add(allOperations.reject(e | doesContainExtensionElement(e, "Event"))) ->
+	operationsToDelete.add(allOperations.reject(e | operations.contains(e)))->
+	(opsWithoutExtensionElement != null && !(opsWithoutExtensionElement.isEmpty)) ? operationsToDelete.first().removeAll(opsWithoutExtensionElement.first()):null ->
+	operationsToDelete.first();
+
+//Returns true if either the WSDL operation, or the WSDL porttype has extensible element that identifies that this is generated from something XPDL specific
+private boolean doesContainExtensionElement(ExtensibleElement element, String val) :	
+	let val = getAttributeValForElement(element, val):
+	((val != null) ? true : false);
+
+//Updates the WSDL operation for a given process - activity or process interface - interface method
+private updateOperation(Definition definition, PortType portType, FormalParametersContainer formalParamContainer, NamedElement namedElement, Operation op ) :
+	let inParts = op.eInput.eMessage.eParts :
+	let outParts = op.eOutput.eMessage.eParts :
+	updateOperationName(portType, op, namedElement)->
+	//updateDescription(op, namedElement) ->
+	(op.eInput != null) ? 
+	(
+		op.eInput.eMessage.eParts.removeAll(inParts)
+	): null->
+	(op.eOutput != null) ?
+	( 
+		op.eOutput.eMessage.eParts.removeAll(outParts) 
+		
+	): null ->
+	(isImplementedAct(namedElement))?
+	(
+		let interfaceMethod = getImplementedMethodExt(namedElement) :
+		createParts(definition, op, interfaceMethod.eContainer, interfaceMethod, null) ->
+		updateFaults(definition, op, formalParamContainer, namedElement)
+	):
+	(
+		//Parts corresponding to implemented interface parameters are only to be generated for those activities 
+		//with no associated parameters at this point.
+		// USed to make a separate call to createImplementedIfcPartsForProcess() here to add the implicitly associated implemented process interface parameters
+		// to the activity input / output parts. However, if the parameters were EXPLICITLY associated then this would merely repeat what createParts() above did.
+		// So all parts from process ifc params got duplicated in message. So now createParts() for implementing process activity with implciit associations
+		// will pick up implemented proc ifc parameters itself.  
+		
+		//getAssociatedParameters(namedElement).isEmpty ?
+		//	createImplementedIfcPartsForProcess(definition, op, formalParamContainer, namedElement, null) : null ->
+			
+		createParts(definition, op, formalParamContainer, namedElement, null) ->
+		updateFaults(definition, op, formalParamContainer, namedElement)
+	) ->
+	
+	isServiceOrSendOneWayTask(namedElement) ? createPartsForDataFields(definition, operation, namedElement, null) : null ->
+	sortOperationParts(op);
+
+//Operation parts are sorted - if there are no associated parameters, then sorting is done alphbetically, 
+//but if there are associated params - then sorting is done according to the order of the associated params.
+private sortOperationParts(Operation operation) :
+	let unsortedInParts =  operation.eInput.eMessage.eParts :
+	let unsortedOutParts = operation.eOutput.eMessage.eParts :
+	let sortedInParts = operation.eInput.eMessage.eParts.sortBy(e | e.name) :
+	let sortedOutParts = operation.eOutput.eMessage.eParts.sortBy(e | e.name) :
+	operation.eInput.eMessage.eParts.removeAll(unsortedInParts) ->
+	operation.eInput.eMessage.eParts.addAll(sortedInParts) ->
+	operation.eOutput.eMessage.eParts.removeAll(unsortedOutParts) ->
+	operation.eOutput.eMessage.eParts.addAll(sortedOutParts) ;
+
+//For a given process that implements a process interface - parts for the proc ifc params are created in the process specific operation.
+//private createImplementedIfcPartsForProcess(Definition definition, Operation op, Process process, NamedElement namedElement, String bindingType) :
+//	let processInterface = getImplementedProcesInterfaceExt(process) :
+//	(processInterface!=null)? 
+//	(
+//		createParts(definition, op, processInterface, namedElement, bindingType) 
+//	) : null; 
+
+//for avoiding isInstance
+//private createImplementedIfcPartsForProcess (Definition definition, Operation op, NamedElement formalParamContainer, NamedElement namedElement, String bindingType) :
+//	null; 
+
+//Updates the name of the WSDL operation/
+private updateOperationName(PortType portType, Operation op, NamedElement namedElement):
+	(isImplementedAct(namedElement))?
+		(
+			let interfaceMethod = getImplementedMethodExt(namedElement) :
+			//op.setName(interfaceMethod.name)
+			setOperationName(portType, op, interfaceMethod) 
+		):
+		setOperationName(portType, op, namedElement);
+
+//Returns the process interface Method/event that relates to the WSDL operation. 
+private List getMethodSpecificOperation(NamedElement namedElement, PortType portType) :
+	let listOps = {} :
+	portType.eAllContents.typeSelect(Operation).collect
+	(e |
+		(
+			let val = getAttributeValForElement(e , "Event") :
+			(val == namedElement.id)? listOps.add(e) : null 
+		)
+	) ->
+	listOps;
+
+//Returns the Error event in the process interface for a given WSDL fault.
+private List getErrorSpecificFault(UniqueIdElement idElement, Operation operation) :
+	let listFaults = {} :
+	operation.eAllContents.typeSelect(Fault).collect
+	(e |
+		(
+			let val = getAttributeValForElement(e , "Error") :
+			(val == idElement.id)? listFaults.add(e) : null 
+		)
+	) ->
+	listFaults;
+
+//Returns the extended data that is attached to either port type or operation.
+private String getAttributeValForElement(ExtensibleElement extensibleElement, String elementName) :
+	getProcessInfoIdentifier(extensibleElement, elementName) ;
+
+//Updates the port type name with the given process or process interface name.
+private updatePortTypeName(Definition definition, NamedElement namedElement, PortType portType) :
+	//update the port type name
+	let namedElementName = _prefixWithUnderscoreIfStartsWithDigit(namedElement.name):
+	let newQname = createQname(definition, namedElementName) :
+	setPortTypeQnameExt(portType, newQname);
+
+//Checks if a given porttype is related to any process interface.	
+private boolean containsProcessIfcId(PortType portType, NamedElement namedElement) :
+	let procIfcCheck = getAttributeValForElement(portType, "FlowContainer") :
+	((procIfcCheck == namedElement.id )? true : false );
+
+//Checks if a given process interface method is not a None type event
+private boolean isNotIntermediateNone(InterfaceMethod ifcMethod) :
+	let flag = isIntermediateMessage(ifcMethod) :
+	flag.contains(true) ? false : true ; 
+
+//Checks if a given process interface method is an intermediate message method.	
+private List[boolean] isIntermediateMessage(IntermediateMethod intermediateMethod) :
+	let flag = {} :
+	(intermediateMethod.trigger.toString() != "Message") ? flag.add(true) : flag.add(false) ->
+	flag;
+	
+//Checks if a given process interface method is an start message method.	
+private List[boolean] isIntermediateMessage(StartMethod startMethod) :
+	let flag = {} :
+	(startMethod.trigger.toString() != "Message") ? flag.add(true) : flag.add(false) ->
+	flag;	
+
+//Checks if a given process interface method is an intermediate method.
+private List[boolean] isIntermediateMessage(InterfaceMethod interfaceMethod) :
+	let flag = {false}:
+	flag;
+
+
+//Create WSDL operation for a given process activity
+private Operation createOperation(Definition definition, PortType portType, FormalParametersContainer formalParametersContainer, NamedElement actOrMethod, String bindingType) :
+	let operation = createOperationExt(portType, actOrMethod) :
+	//createDescription(definition, operation, actOrMethod) ->
+	createParts(definition, operation, formalParametersContainer, actOrMethod, bindingType) ->
+	createProcessInfoIdentifier(definition, operation, "Event", "Id", actOrMethod.id) ->
+	createFaults(definition, operation, formalParametersContainer, actOrMethod, bindingType) ->
+	
+	// USed to make a separate call to createImplementedIfcPartsForProcess() here to add the implicitly associated implemented process interface parameters
+	// to the activity input / output parts. However, if the parameters were EXCPLICITLY associated then this would merely repeat what createParts() above did.
+	// So all parts from process ifc params got duplicated in message. So now createParts() for implementing process activity with implciit associations
+	// will pick up implemented proc ifc parameters itself.  
+	// createImplementedIfcPartsForProcess(definition, operation, formalParametersContainer, actOrMethod, bindingType) ->
+	
+	isServiceOrSendOneWayTask(actOrMethod) ? createPartsForDataFields(definition, operation, actOrMethod, bindingType) : null ->
+	sortOperationParts(operation) ->
+	operation;
+
+//Method used by Service task generating WSDL - data fields are added as parts to the WSDL message.
+private createPartsForDataFields(Definition definition, Operation operation, NamedElement actOrMethod, String bindingType):
+	let isAssocParamsEmpty = {} :
+	let isAssocParamsEmpty = isAssocParamsEmpty(actOrMethod) :
+	(isAssocParamsEmpty) ? 
+		(
+		//No Associated parameter - all formal parameters become parts.
+		//For Service tasks, data fields become parts as well.
+			createPartsFromDataFieldsInScope(definition, operation, actOrMethod, bindingType) 
+		) 
+		: 	(
+				 createPartsFromAssocDataFields(definition, operation, actOrMethod, bindingType)  
+			);
+			
+//Faults created for WSDL operation
+private createFaults(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement activity, String bindingType):
+	let errorEvents = getErrorEventsForActivity(activity) :
+	(!errorEvents.isEmpty)?
+	(
+		errorEvents.collect(e | createFaultForErrorEvent(definition, op, activity, e, bindingType))
+	) :
+	null;
+
+//Create faults for process interface - interface method.
+private createFaults(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, InterfaceMethod interfaceMethod, String bindingType):
+	let errorMethods = interfaceMethod.eAllContents.typeSelect(ErrorMethod) :
+	(!(errorMethods.isEmpty))?
+	(
+		errorMethods.collect(e | createFaultForErrorMethod(definition, op, formalParametersContainer, e, bindingType))
+	):
+	null;
+
+//Updates faults for process specific error events - in actual deletes and rec-creates them
+private updateFaults(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement actOrMethod):
+	let faultsInclusion = {} :
+	let faultsInclusion = createFaultsForElements(definition, op, formalParametersContainer, actOrMethod, null) :
+	let faultsToDelete = getListOfFaultsToRemove(faultsInclusion, op) :
+	(faultsToDelete != null) ? removeFaults(definition, op, faultsToDelete): null ;
+
+// For process interface events create the Faults for error events
+private List createFaultsForElements(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, InterfaceMethod interfaceMethod, String bindingType) :
+	let errorMethods = interfaceMethod.eAllContents.typeSelect(ErrorMethod) :
+	let faultsInclusion = {} :
+	(!(errorMethods.isEmpty))?
+	(
+		errorMethods.collect(e | 
+		(
+			let faults = getErrorSpecificFault(e, op) :
+			(faults.size < 1) ?
+			(
+				let fault = createFaultForErrorMethod(definition, op, formalParametersContainer, e, bindingType) :
+				faultsInclusion.add(fault)
+			):
+			(
+				faultsInclusion.add(faults.first()) ->
+				updateFault(definition, op, formalParametersContainer, e, faults.first())
+			)
+		))
+	):
+	null ->
+	faultsInclusion;
+
+//For Process activities - create faults for error events
+private createFaultsForElements(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement activity, String bindingType) :
+	let faultsInclusion = {} :
+	createFaults(definition, op, formalParametersContainer, activity, bindingType) ->
+	faultsInclusion.addAll(op.eFaults)->
+	faultsInclusion;
+
+//Remove faults for given operation
+private removeFaults(Definition definition, Operation op, List faultsToDelete) :
+	faultsToDelete.typeSelect(Fault).collect(e | 
+	(
+		let msg = e.eMessage :
+		definition.eMessages.remove(msg) 
+	)) ->
+	op.eFaults.removeAll(faultsToDelete);
+
+//Returns a list of faults to remove for a given operation
+private List[Fault] getListOfFaultsToRemove(List faults, Operation op) :
+	let allFaults = {} :
+	let faultsToDelete = {} :
+	let faultsWithoutExtn = {}:
+	allFaults.addAll(op.eFaults) ->
+	faultsWithoutExtn.add(allFaults.reject(e | doesContainExtensionElement(e, "Error"))) ->
+	faultsToDelete.add(allFaults.reject(e | faults.contains(e)))->
+	(faultsWithoutExtn != null && !(faultsWithoutExtn.isEmpty)) ? faultsToDelete.first().removeAll(faultsWithoutExtn.first()):null ->
+	faultsToDelete.first();
+	
+//Updates the WSDL fault information for a given Error Method in a process interface
+private updateFault(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, ErrorMethod errorMethod, Fault fault):
+	let faultMessage = fault.eMessage :
+	let assocParams = errorMethod.eContents.typeSelect(AssociatedParameter) :
+	let procIfcName = _prefixWithUnderscoreIfStartsWithDigit(formalParametersContainer.name) :
+	let interfaceMethod = errorMethod.eContainer :
+	let faultParts = faultMessage.eParts :
+	let qn = createQName(definition.targetNamespace, procIfcName + "_" + interfaceMethod.name+"_" + getInternalName(errorMethod.errorCode) + "_fault"):
+	fault.setName(getInternalName(errorMethod.errorCode)) ->
+	//Updating the fault message name 
+	updateFaultMessageQName(faultMessage, qn) ->
+	fault.setEMessage(faultMessage) ->
+	
+	faultMessage.eParts.removeAll(faultParts) ->
+	(!(assocParams.isEmpty))?
+	(
+		assocParams.select(assocParam | 
+			( 
+				(assocParam.mode.toString() == "INOUT" || assocParam.mode.toString() == "OUT") ?
+					(
+						createPartExt(definition, faultMessage, assocParam.formalParam, assocParam.mode, getDataTypeForAssocParam(assocParam.formalParam, formalParametersContainer), formalParametersContainer, null)
+					) : null
+			)
+		) 
+	) : 
+	(
+		// Sid XPD-2087: Don't output messag eparts when implicit is association disabled.
+		!isImplicitAssociationDisabled(errorMethod) ?
+		(
+			let formalParams = formalParametersContainer.eAllContents.typeSelect(FormalParameter).sortBy( e | e.name) :
+			(!(formalParams.isEmpty))?
+			(
+				formalParams.select(formalParam |
+					(
+						(formalParam.mode.toString() == "INOUT" || formalParam.mode.toString() == "OUT") ?
+							( 
+								createPartExt(definition, faultMessage, formalParam.name, formalParam.mode, formalParam.dataType, formalParametersContainer, null)
+							) : null
+					)
+				)
+			):null
+		) : null
+	);
+	
+//Creates the fault information for a given Error Method in a process interface
+private wsdl::Fault createFaultForErrorMethod(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, ErrorMethod errorMethod, String bindingType):
+	let fault = createFault() :
+	let assocParams = errorMethod.eContents.typeSelect(AssociatedParameter) :
+	let procIfcName = _prefixWithUnderscoreIfStartsWithDigit(formalParametersContainer.name) :
+	let interfaceMethod = errorMethod.eContainer :
+	let qn = createQName(definition.targetNamespace, procIfcName + "_" + interfaceMethod.name+"_" + getInternalName(errorMethod.errorCode) + "_fault"):
+	let faultMsg = createFaultMsg(qn) :
+	definition.eMessages.add(faultMsg) ->
+	fault.setEMessage(faultMsg) ->
+	fault.setName(getInternalName(errorMethod.errorCode)) ->
+	(!(assocParams.isEmpty))?
+	(
+		assocParams.select(assocParam | 
+			( 
+				(assocParam.mode.toString() == "INOUT" || assocParam.mode.toString() == "OUT") ?
+					(
+						createPartExt(definition, faultMsg, assocParam.formalParam, assocParam.mode, getDataTypeForAssocParam(assocParam.formalParam, formalParametersContainer), formalParametersContainer, bindingType)
+					) : null
+			)
+		)
+	) : 
+	(
+		// Sid XPD-2087: Don't output messag eparts when implicit is association disabled.
+		!isImplicitAssociationDisabled(errorMethod) ?
+		(
+			let formalParams = formalParametersContainer.eAllContents.typeSelect(FormalParameter).sortBy( e | e.name) :
+			(!(formalParams.isEmpty))?
+			(
+				formalParams.select(formalParam | 
+					( 
+						(formalParam.mode.toString() == "INOUT" || formalParam.mode.toString() == "OUT") ?
+							(	 
+								createPartExt(definition, faultMsg, formalParam.name, formalParam.mode, formalParam.dataType, formalParametersContainer, bindingType) 
+							) : null
+					)
+				)
+			) : null
+		) : null
+	) ->
+	op.eFaults.add(fault) -> 
+	createProcessInfoIdentifier(definition, fault, "Error", "Id", errorMethod.id) ->
+	fault;
+
+//OO way of implementing - general method to check if the process activity implements a process interface method.
+private boolean isImplementedAct(NamedElement actOrMethod) :
+	isImplementedActivity(actOrMethod);
+
+//OO way of implementing - specific method to check if the process activity implements a process interface method.
+private boolean isImplementedActivity(Activity activity) :
+	isImplementedActivityExt(activity);
+
+//OO way of implementing - general method to check if the process activity implements a process interface method.
+private boolean isImplementedActivity(NamedElement namedElement) :
+	false;
+
+//Creates parts for operations based on associated params
+private createParts(Definition definition, Operation operation, FormalParametersContainer formalParametersContainer, NamedElement actOrMethod, String bindingType):
+	let isAssocParamsEmpty = {} :
+	let isAssocParamsEmpty = isAssocParamsEmpty(actOrMethod) :
+	let isStartMessageWithReplyImmediate = isStartMessageWithReplyImmediate(actOrMethod) :
+	isStartMessageWithReplyImmediate ? 
+		createOutputPartsForReplyImmediately(definition, operation, formalParametersContainer, actOrMethod, bindingType) : null ->	 
+	(isAssocParamsEmpty) ? 
+		(
+		//No Associated parameter - all formal parameters become parts.
+			createPartsFromFormalParams(definition, operation, formalParametersContainer, actOrMethod, bindingType, isStartMessageWithReplyImmediate) 
+		) 
+		: 	(
+			 createPartsFromAssocParams(definition, operation, formalParametersContainer, actOrMethod, bindingType, isStartMessageWithReplyImmediate) 
+			);
+
+//Creates parts for operation based on data fields.
+private void createPartsFromAssocDataFields(Definition defn, Operation op, Activity activity, String bindingType) :
+	let input = op.eInput :
+	let output = op.eOutput :
+	((input == null )? createInput(definition, op, activity.process.name): null) ->
+	(
+		let inMsg = op.eInput.eMessage :
+		let assocParams = getDataFieldAssociatedParameters(activity) :
+		assocParams.select
+			(e | 
+				(
+					(e.mode.toString() == "INOUT" || e.mode.toString() == "IN") ? 
+						createPartExt(defn, inMsg, e.formalParam, e.mode, getDataTypeForAssocParamDataField(e.formalParam, activity.process), activity.process, bindingType) : null
+				)
+			)	
+	) ->
+	//Only add output data if the activity is not a Send One way
+	!(isSendOneWayActivity(activity)) ?
+	( 
+		((output == null) ? (createOutput(defn, op, activity.process, activity) ): null) ->
+		(
+			let outMsg = op.eOutput.eMessage :
+			let assocParams = getDataFieldAssociatedParameters(activity) :
+			assocParams.select
+				(e | 
+					(
+						(e.mode.toString() == "INOUT" || e.mode.toString() == "OUT") ? 
+							createPartExt(defn, outMsg, e.formalParam, e.mode, getDataTypeForAssocParamDataField(e.formalParam, activity.process), activity.process, bindingType) : null
+					)
+				)
+		)
+	) : null ;
+
+//Returns the data type for a given data field which is attached as an associated parameter.
+private DataType getDataTypeForAssocParamDataField(String name, Process proc) :
+	proc.eAllContents.typeSelect(DataField).select(e | (name == e.name)).first().dataType ;
+
+//Returns list of associated parameters which are referring to data fields.
+private List[AssociatedParameter] getDataFieldAssociatedParameters (Activity act):
+	let assocParamsObj = act.eAllContents.typeSelect(AssociatedParameters).first():
+	let assocParamList = {}:
+	assocParamsObj != null ? assocParamList.addAll(assocParamsObj.eContents.typeSelect(AssociatedParameter).
+		select(assocParam | (isAssociatedDataField(assocParam, act)))) : null ->
+	assocParamList ; 
+
+//Checks if the given associated param refers to a datafield.
+boolean isAssociatedDataField(AssociatedParameter assocParam, Activity activity) :
+	let proc = activity.process :
+	let dataFields = proc.eAllContents.typeSelect(DataField) :
+	let df = dataFields.typeSelect(DataField).select(dfield| dfield.name == assocParam.formalParam).first() :
+	df != null ? true: false;
+
+//Creats parts from data fields in the Activity scope - Studio does this only for WSDLs created out of Service tasks.	
+private createPartsFromDataFieldsInScope(Definition defn, Operation op, Activity activity, String bindingType) :
+	let process = activity.process :
+	let input = op.eInput :
+	let output = op.eOutput :
+	((input == null ) ? createInput(defn, op, process.name): input) ->
+	( 
+		let inMsg = op.eInput.eMessage :
+		(
+			// Sid XPD-2087: Don't output messag eparts when implicit is association disabled.
+			!isImplicitAssociationDisabled(activity) ?
+			(
+				addDataFieldsToMessage(inMsg, activity, defn, bindingType )
+			) : null 
+		)
+	) ->
+	//Only add output data if the activity is not a Send One way
+	(!isSendOneWayActivity(activity)) ?
+	(
+		((output == null) ? createOutput(defn, op, process, activity): null) ->
+		(
+			let outMsg = op.eOutput.eMessage :
+			(
+				//Only add output data if the activity is not a Send One way
+				!(isSendOneWayActivity(activity)) ? 
+				(
+					// Sid XPD-2087: Don't output messag eparts when implicit is association disabled.
+					!isImplicitAssociationDisabled(activity) ?
+					(
+						addDataFieldsToMessage(outMsg, activity, defn, bindingType)
+					) : null 
+				) : null
+			) 
+		)
+	) : null ;
+
+//Add the data fields to WSDL message
+private void addDataFieldsToMessage(wsdl::Message msg, Activity activity, Definition defn, String bindingType) :
+	let sortedDataFields = getDataFieldsInScope(activity).sortBy( e | e.name) :
+	sortedDataFields.collect( e | (createPartExt(defn, msg, e.name, null, e.dataType, activity.process, bindingType))) ;
+
+//Checsk if the given activity is a Service task or a Send One way activity.
+private boolean isServiceOrSendOneWayTask(Activity activity) :
+	let serviceTask = activity.eAllContents.typeSelect(TaskService).first():
+	let tasks = {} :
+	((serviceTask == null) ?
+		(
+			let isSendOneWay = isSendOneWayActivity(activity):
+			(isSendOneWay) ? tasks.add(activity) : null
+		) 
+		: (tasks.add(activity))
+	)->				
+	(!(tasks.isEmpty)) ;
+	
+//More general implementation - OO way
+private boolean isServiceOrSendOneWayTask(NamedElement namedElement) :
+	false;
+
+//Checks if the activity does not have any explicit associated parameters.
+private boolean isAssocParamsEmpty(Activity activity) :
+	activity.eAllContents.typeSelect(AssociatedParameter).isEmpty ;
+
+//More general implementation - OO way
+private boolean isAssocParamsEmpty(NamedElement namedElement) :
+	namedElement.eContents.typeSelect(AssociatedParameter).isEmpty ;
+
+//Create xml QName for a given name - name could be for porttype or message - always takes reference of the WSDL Definition.
+private javax::xml::namespace::QName createQname(Definition definition, String name) :
+	let qName = createQName(definition.targetNamespace, name) :
+	(qName);
+
+//Creates Process info identifier on the porttype - saves the id of the process
+private createProcessInfoIdentifier(Definition definition, ExtensibleElement extensibleElement, String elementName, String attrib, String val) :
+	let element = createExtensibilityElementExt(definition, extensibleElement, elementName, attrib, val) :
+	element;
+
+//Creates parts for formal parameters
+private createPartsFromFormalParams(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement actOrMethod, String bindingType, boolean isStartMessageWithReplyImmediate) :
+	createInputPartsFromFormalParams(definition, op, formalParametersContainer, actOrMethod, bindingType) ->
+	(!(isSendOneWayActivity(actOrMethod) || isStartMessageWithReplyImmediate) ?
+		createOutputPartsFromFormalParams(definition, op, formalParametersContainer, actOrMethod, bindingType) :  null
+	);
+
+//Creates input parts for formal parameters of IN or INOUT
+private createInputPartsFromFormalParams(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement actOrMethod, String bindingType):
+	let input = op.eInput :
+	((input == null ) ? createInput(definition, op, formalParametersContainer.name): input) -> 
+	(
+		// Sid XPD-2087: Don't output message parts when implicit is association disabled.
+		!isImplicitAssociationDisabled(actOrMethod) ?
+		(
+			let inMsg = op.eInput.eMessage :
+			let allFormalParams = {} :
+			
+			!(isImplementedAct(actOrMethod)) ? ( 
+				// If not an implementing activity then implicitly associate ALL params including interface ones.
+				allFormalParams.addAll(getAllFormalParameters(formalParametersContainer).sortBy( e | e.name))
+	
+			  ) : (
+				// if it is an implemented event then only add interface parameters.
+				let procIfc = getImplementedProcesInterfaceExt(formalParametersContainer) :
+				procIfc !=null ? allFormalParams.addAll(procIfc.eAllContents.typeSelect(FormalParameter).sortBy( e | e.name)):null	
+			  ) ->
+
+			allFormalParams.
+				collect
+				(e | 
+					(	
+						(e.mode.toString() == "INOUT" || e.mode.toString() == "IN") ?
+							createPartExt(definition, inMsg, e.name, e.mode, e.dataType, formalParametersContainer, bindingType)
+							:null 
+					)
+				)
+		) : null
+	);
+
+//Creates WSDL Input in the WSDL operation
+private Input createInput(Definition definition, Operation op, String name) :
+	let input = createInputExt(definition, op, name) :
+	input;
+	
+//Create the output parts for the message start event with "reply immediately" set	
+private createOutputPartsForReplyImmediately(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement actOrMethod, String bindingType):
+	createReplyImmediatelyPart (definition, op, formalParametersContainer, bindingType);
+ 
+
+//Creates input parts for formal parameters of INOUT or OUT
+private createOutputPartsFromFormalParams(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement actOrMethod, String bindingType):
+	let output = op.eOutput :
+	((output == null) ? createOutput(definition, op, formalParametersContainer, actOrMethod): null) ->
+	(
+		let out = op.eOutput :
+		(out != null) ?
+		(
+			// Sid XPD-2087: Don't output messag eparts when implicit is association disabled.
+			!isImplicitAssociationDisabled(actOrMethod) ?
+			(
+				let outMsg = out.eMessage :
+				let allFormalParams = {} :
+				
+				!(isImplementedAct(actOrMethod)) ? ( 
+					// If not an implementing activity then implicitly associate ALL params including interface ones.
+					allFormalParams.addAll(getAllFormalParameters(formalParametersContainer).sortBy( e | e.name))
+	
+			  	) : (
+					// if it is an implemented event then only add interface parameters.
+					let procIfc = getImplementedProcesInterfaceExt(formalParametersContainer) :
+					procIfc !=null ? allFormalParams.addAll(procIfc.eAllContents.typeSelect(FormalParameter).sortBy( e | e.name)):null	
+			  	) ->
+			  
+				allFormalParams.
+					collect
+					(e | 
+						(
+							(e.mode.toString() == "INOUT" || e.mode.toString() == "OUT") ? 
+								createPartExt(definition, outMsg, e.name, e.mode, e.dataType, formalParametersContainer, bindingType) : null
+						)
+					)
+			) : null
+		): null
+	) ->
+	(op.eOutput == null || (op.eOutput != null && op.eOutput.eMessage.eParts.isEmpty)) ?
+		(!doesHaveReplyActivities(actOrMethod) ? removeOutput(definition, op) : null) : null;
+
+//Method to remove the WSDL output
+private void removeOutput(Definition definition, Operation op) :
+	(op.eOutput != null)?
+	(
+		let outMessage = op.eOutput.eMessage :
+		(outMessage != null) ? definition.eMessages.remove(outMessage) : null ->
+		op.setOutput(null) 
+	) : null ;
+
+//Method to create the WSDL output.
+private Output createOutput(Definition definition, Operation op, FormalParametersContainer formalParamsContainer, NamedElement actOrMethod):
+	let output = createOutputExt(definition, op, formalParamsContainer, actOrMethod) :
+	output;
+
+//Method to create parts from Associated parameters.
+private createPartsFromAssocParams(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement namedElement, String bindingType, boolean isStartMessageWithReplyImmediate) :
+	createInputPartsFromAssocParams(definition, op, formalParametersContainer, namedElement, bindingType) ->
+	(!(isSendOneWayActivity(namedElement) || isStartMessageWithReplyImmediate) ?
+		createOutputPartsFromAssocParams(definition, op, formalParametersContainer, namedElement, bindingType) :null
+	);
+
+//Method to create Input parts from Associated parameters - IN or INOUT mode on the associated parameters will assist in doing this.
+private Input createInputPartsFromAssocParams(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement namedElement, String bindingType) :
+	let input = op.eInput :
+	((input == null )? createInput(definition, op, formalParametersContainer.name): null) ->
+	(
+		let inMsg = op.eInput.eMessage :
+		let assocParams = getAssociatedParameters(namedElement) :
+		assocParams.select
+			(e | 
+				(
+					(e.mode.toString() == "INOUT" || e.mode.toString() == "IN") ? 
+						createPartExt(definition, inMsg, e.formalParam, e.mode, getDataTypeForAssocParam(e.formalParam, formalParametersContainer), formalParametersContainer, bindingType) : null
+				)
+			)	
+	) ;
+
+//Returns the list of associated parameters for a given activity.
+List[AssociatedParameter] getAssociatedParameters(Activity act) :
+	let assocParamsObj = act.eAllContents.typeSelect(AssociatedParameters).first():
+	let assocParamList = {}:
+	assocParamsObj != null ? assocParamList.addAll(assocParamsObj.eContents.typeSelect(AssociatedParameter).
+		select(assocParam | (isAssociatedFormalParam(assocParam, act)))) : null ->
+	assocParamList ; 
+
+//Checks if the associated parameter refers to a formal parameter.
+boolean isAssociatedFormalParam(AssociatedParameter assocParam, Activity activity) :
+	let proc = activity.process :
+	let formalParams = getAllFormalParameters(proc).typeSelect(FormalParameter) :
+	(
+		let formalParam = formalParams.typeSelect(FormalParameter).select(formalParam | formalParam.name == assocParam.formalParam).first() :
+		formalParam != null ? true: false
+	);
+
+//Returns a list of associated parameters for a given activity
+List[AssociatedParameter] getAssociatedParameters(NamedElement namedElement) :
+	let assocParamList = namedElement.eContents.typeSelect(AssociatedParameter) :
+	assocParamList ;
+
+//Returns the data type for a given associated parameter - find the actual data field or formal parameter and retrieves the information from that.
+private DataType getDataTypeForAssocParam(String name, FormalParametersContainer formalParametersContainer) :
+	let dataType  = getAllFormalParameters(formalParametersContainer).select(e | (name == e.name)).first().dataType :
+	dataType;
+
+//Creates output parts from Associated parameters - consider either parameters of either OUT or INOUT.
+private Output createOutputPartsFromAssocParams(Definition definition, Operation op, FormalParametersContainer formalParametersContainer, NamedElement namedElement, String bindingType) :
+	let output = op.eOutput :
+	((output == null) ? createOutput(definition, op, formalParametersContainer, namedElement): null) ->
+	(
+		let outMsg = op.eOutput.eMessage :
+		let assocParams = getAssociatedParameters(namedElement) :
+		assocParams.select
+			(e | 
+				(
+					(e.mode.toString() == "INOUT" || e.mode.toString() == "OUT") ? 
+						createPartExt(definition, outMsg, e.formalParam, e.mode, getDataTypeForAssocParam(e.formalParam, formalParametersContainer), formalParametersContainer, bindingType): null
+				)
+			)
+	) ->
+	(op.eOutput == null || (op.eOutput != null && op.eOutput.eMessage.eParts.isEmpty)) ?
+		(!doesHaveReplyActivities(namedElement) ? removeOutput(definition, op) : null) : null;

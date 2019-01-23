@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: REST Schema Validator
+Bundle-SymbolicName: com.tibco.xpd.rest.schema.validator;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Vendor: TIBCO
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
+Require-Bundle: com.tibco.xpd.validation,
+ org.eclipse.emf.ecore,
+ org.eclipse.uml2.uml,
+ com.tibco.xpd.resources,
+ com.tibco.xpd.rest.schema,
+ com.tibco.xpd.rest.ui
+Export-Package: com.tibco.xpd.rest.schema.validator.rules

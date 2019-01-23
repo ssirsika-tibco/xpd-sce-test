@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/XSDBOM_TLE07_topLevelEnumeration"
+	xmlns:tns="http://www.example.org/XSDBOM_TLE07_topLevelEnumeration"
+	elementFormDefault="qualified">
+	
+	<!--
+		Tests 3.8 as described in 'BDS Support for Handling - Studio BOM
+		Import'.
+	-->
+	
+	<element name="topElement" type="tns:SubAccountType"/>
+	<simpleType name="SubAccountType">
+		<restriction base="string">
+			<enumeration value="Cash"/>
+			<enumeration value="Margin"/>
+			<enumeration value="Income"/>
+			<enumeration value="Short"/>
+			<enumeration value="DVP/RVP"/>
+			<enumeration value="Dividend"/>
+		</restriction>
+	</simpleType>
+	<attribute name="attrString" type="string" />
+	<attribute name="attrGDay" type="gDay" />
+	<attribute name="attrGMonth" type="gMonth" />
+	
+	<element name="element" type="tns:NoValues"/>
+	<simpleType name="NoValues">
+		<restriction base="string">
+		</restriction>
+	</simpleType>
+	
+	
+</schema>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2013 (x64) (http://www.altova.com) by Joe Humphries (Tibco Software Limited) -->
+<xs:schema xmlns="http://base.api.bs.n2.tibco.com" xmlns:ch="http://channeltype.common.n2.tibco.com" xmlns:df="http://datafeed.common.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:pm="http://presentationmodel.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://base.api.bs.n2.tibco.com">
+	<xs:import namespace="http://channeltype.common.n2.tibco.com" schemaLocation="channeltype.xsd"/>
+	<xs:import namespace="http://presentationmodel.common.n2.tibco.com" schemaLocation="presentationmodel.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:import namespace="http://datafeed.common.n2.tibco.com" schemaLocation="df-payload.xsd"/>
+	<xs:simpleType name="ProcessState">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NOT_STARTED"/>
+			<xs:enumeration value="STARTED"/>
+			<xs:enumeration value="IN_PROGRESS"/>
+			<xs:enumeration value="COMPLETED"/>
+			<xs:enumeration value="UNKNOWN"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BusinessServiceAction">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="START_SERVICE"/>
+			<xs:enumeration value="UPDATE_SERVICE"/>
+			<xs:enumeration value="CANCEL_SERVICE"/>
+			<xs:enumeration value="QUERY_SERVICES"/>
+			<xs:enumeration value="LIST_CATEGORIES"/>
+			<xs:enumeration value="LIST_SERVICES"/>
+			<xs:enumeration value="QUERY_CATEGORIES"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="BaseWrapperRequest">
+		<xs:attribute name="action" type="BusinessServiceAction" use="optional">
+			<xs:annotation>
+				<xs:documentation>Defines the action required for this request</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Category">
+		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="ChildCategory" type="Category"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessCategory">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="BusinessServiceTemplate" type="BusinessServiceTemplate"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ChildBusinessCategory" type="BusinessCategory"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The category name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="Privilege">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="Channel">
+		<xs:attribute name="channelId" type="xs:string"/>
+		<xs:attribute name="channelType" type="ch:ChannelType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessServiceTemplate">
+		<xs:attribute name="moduleName" type="xs:string" use="required"/>
+		<xs:attribute name="processName" type="xs:string" use="required"/>
+		<xs:attribute name="version" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="pageActivityResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="payloadModel" type="df:dataPayload"/>
+						<xs:element minOccurs="0" name="PresentationType" type="xs:string"/>
+						<xs:element minOccurs="0" name="PresentationUrl" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="activityId" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>ID of the page activity</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="processState" type="ProcessState" use="required">
+			<xs:annotation>
+				<xs:documentation>Indicates the current state of the Business Service</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="processId" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Process Id of the Business Service instance</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ListCategoriesRequest">
+		<xs:attribute name="channelId" type="xs:string"/>
+		<xs:attribute name="privilege" type="Privilege"/>
+	</xs:complexType>
+	<xs:complexType name="QueryCategoriesRequest">
+		<xs:attribute name="channelId" type="xs:string"/>
+		<xs:attribute name="privilege" type="Privilege"/>
+		<xs:attribute name="category" type="xs:string"/>
+		<xs:attribute name="includeFormalParameters" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="QueryBusinessServicesRequest">
+		<xs:attribute name="category" type="xs:string"/>
+		<xs:attribute name="channelId" type="xs:string"/>
+		<xs:attribute name="privilege" type="Privilege"/>
+		<xs:attribute name="includeFormalParameters" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessServiceRequest">
+		<xs:complexContent>
+			<xs:extension base="Channel">
+				<xs:sequence>
+					<xs:element name="payloadModel" type="df:dataPayload"/>
+					<xs:element name="BusinessServiceTemplate" type="BusinessServiceTemplate"/>
+				</xs:sequence>
+				<xs:attribute name="activityId" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>ID of the page activity</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="privilege" type="Privilege"/>
+				<xs:attribute name="processId" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The Process Id of the Business Service instance to to updated.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StartBusinessServiceRequest">
+		<xs:complexContent>
+			<xs:extension base="Channel">
+				<xs:sequence>
+					<xs:element name="payloadMode" type="df:payloadModeType"/>
+					<xs:element name="BusinessServiceTemplate" type="BusinessServiceTemplate"/>
+					<xs:element minOccurs="0" name="formalParams" type="df:dataPayload">
+						<xs:annotation>
+							<xs:documentation>Data for the formal parameters associated with the business service start event.
+
+Note: You cannot determine the names of these formal parameters programmatically. Instead, you must obtain them by examining the business service in TIBCO Business Studio.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="privilege" type="Privilege"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ListBusinessServicesRequest">
+		<xs:attribute name="channelId" type="xs:string"/>
+		<xs:attribute name="privilege" type="Privilege"/>
+	</xs:complexType>
+	<xs:complexType name="CancelBusinessServiceRequest">
+		<xs:sequence>
+			<xs:element name="BusinessServiceTemplate" type="BusinessServiceTemplate"/>
+		</xs:sequence>
+		<xs:attribute name="privilege" type="Privilege"/>
+		<xs:attribute name="processId" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="ListCategoriesResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="Category" type="Category"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueryBusinessServicesResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="BusinessServiceTemplate" type="BusinessServiceTemplate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StartBusinessServiceResponse">
+		<xs:complexContent>
+			<xs:extension base="BusinessResponse"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="UpdateBusinessServiceResponse">
+		<xs:complexContent>
+			<xs:extension base="BusinessResponse"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ListBusinessServicesResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="BusinessCategory" type="BusinessCategory"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueryCategoriesResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="BusinessCategory" type="BusinessCategory"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CancelBusinessServiceResponse">
+		<xs:attribute name="success" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessServicesRequest">
+		<xs:annotation>
+			<xs:documentation>Used by any component that uses Servlet Chaining to call the Business Services API</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseWrapperRequest">
+				<xs:choice>
+					<xs:element name="ListCategoriesRequest" type="ListCategoriesRequest"/>
+					<xs:element name="ListBusinessServicesRequest" type="ListBusinessServicesRequest"/>
+					<xs:element name="StartBusinessServiceRequest" type="StartBusinessServiceRequest"/>
+					<xs:element name="UpdateBusinessServiceRequest" type="UpdateBusinessServiceRequest"/>
+					<xs:element name="CancelBusinessServiceRequest">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="CancelBusinessServiceRequest"/>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="QueryBusinessServicesRequest" type="QueryBusinessServicesRequest"/>
+					<xs:element name="QueryCategoriesRequest" type="QueryCategoriesRequest"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BusinessServicesResponse">
+		<xs:choice>
+			<xs:element name="ListCategoriesResponse" type="ListCategoriesResponse"/>
+			<xs:element name="QueryBusinessServicesResponse" type="QueryBusinessServicesResponse"/>
+			<xs:element name="StartBusinessServiceResponse" type="StartBusinessServiceResponse"/>
+			<xs:element name="UpdateBusinessServiceResponse" type="UpdateBusinessServiceResponse"/>
+			<xs:element name="CancelBusinessServiceResponse" type="CancelBusinessServiceResponse"/>
+			<xs:element name="ListBusinessServicesResponse" type="ListBusinessServicesResponse"/>
+			<xs:element name="QueryCategoriesResponse" type="QueryCategoriesResponse"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="PageFlowTemplate">
+		<xs:complexContent>
+			<xs:extension base="BusinessServiceTemplate"/>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

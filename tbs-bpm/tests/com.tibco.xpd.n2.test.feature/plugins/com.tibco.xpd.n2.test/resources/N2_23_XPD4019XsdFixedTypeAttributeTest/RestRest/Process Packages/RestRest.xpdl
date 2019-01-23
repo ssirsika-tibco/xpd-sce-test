@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_lX2owMqPEeGWEtJlKs6lRA" xpdExt:DisplayName="RestRest" Name="RestRest">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2012-07-10</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>rjoseph</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_woeocMqPEeGWEtJlKs6lRA" xpdExt:DisplayName="RestRestProc (API Activity EndPoint)" Name="RestRest_RestRestProc">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/RestRest/RestRestProc" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_zmc1cMqPEeGWEtJlKs6lRA" xpdExt:DisplayName="RestRestProcess_Consumer" Name="RestRestProcess_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_-0zc4MqSEeGWEtJlKs6lRA" xpdExt:DisplayName="RestRestProc_Consumer" Name="RestRestProc_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_brhwlMqTEeGWEtJlKs6lRA" xpdExt:DisplayName="RestRestProc_Consumer2" Name="RestRestProc_Consumer2">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_dCbyQOuGEeG_pu6vooS7Qg" xpdExt:DisplayName="Participant" Name="Participant">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&quot;tibco-admin&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_TpfMwMqTEeGWEtJlKs6lRA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_TpZGIMqTEeGWEtJlKs6lRA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_TpfMwcqTEeGWEtJlKs6lRA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="340.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_n_tb18qPEeGWEtJlKs6lRA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_lX2owcqPEeGWEtJlKs6lRA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_n_tb2MqPEeGWEtJlKs6lRA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_lX2owcqPEeGWEtJlKs6lRA" xpdExt:ApiEndPointParticipant="_woeocMqPEeGWEtJlKs6lRA" xpdExt:DisplayName="RestRestProc" Name="RestRestProc">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_6hWLAMqPEeGWEtJlKs6lRA" Name="InternalAddressTyp2" Mode="INOUT" Required="true" xpdExt:DisplayName="InternalAddressTyp2">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.Restriction.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.RestrictionInternalAddressType2"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_FCyCEMqTEeGWEtJlKs6lRA" Name="InternalAddressType1" Mode="INOUT" Required="true" xpdExt:DisplayName="InternalAddressType1">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.Restriction.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.RestrictionInternalAddressType1"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_Hu7_cOuGEeG_pu6vooS7Qg" xpdExt:DisplayName="Class1" Name="Class1">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="RestRest.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_q6XFUPsyEeGyhNGV4hT3SA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_n_tb2cqPEeGWEtJlKs6lRA" Name="RestRestOp" xpdExt:DisplayName="RestRestOp">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_wn6AsMqPEeGWEtJlKs6lRA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="InternalAddressTyp2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">InternalAddressTyp2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="InternalAddressType1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">InternalAddressType1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_woeocMqPEeGWEtJlKs6lRA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="RestRest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="RestRestProc" OperationName="RestRestOp">
+                  <xpdExt:ExternalReference location="RestRest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_woeocMqPEeGWEtJlKs6lRA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_n_tb2MqPEeGWEtJlKs6lRA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_n_tb2sqPEeGWEtJlKs6lRA" Name="ReplyToRestRestOp" xpdExt:DisplayName="Reply To: RestRestOp">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_n_tb2cqPEeGWEtJlKs6lRA" CatchThrow="THROW">
+                <xpdl2:Message Id="_Cu3esMqTEeGWEtJlKs6lRA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="InternalAddressTyp2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">InternalAddressTyp2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="InternalAddressType1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">InternalAddressType1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_woeocMqPEeGWEtJlKs6lRA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="RestRest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="RestRestProc" OperationName="RestRestOp">
+                  <xpdExt:ExternalReference location="RestRest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_n_tb2MqPEeGWEtJlKs6lRA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2ijzBOuFEeG_pu6vooS7Qg" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">Log.write(&quot;*******The Restricted InterAddrTyp1 line 5 attribute details is&quot; +InternalAddressType1);&#xD;
+Log.write(&quot;*******The Restricted InterAddrTyp2 line 5 attribute details is&quot; +InternalAddressTyp2);&#xD;
+&#xD;
+Class1=com_example_restrest_Factory.createClass1();&#xD;
+Class1.attribute1=&quot;ForObjectModified&quot;;&#xD;
+&#xD;
+//InternalAddressType1=org_example_Restriction_Factory.createInternalAddressType1();&#xD;
+&#xD;
+InternalAddressType1.line1=&quot;Line1Type1M&quot;;&#xD;
+InternalAddressType1.line2=ScriptUtil.copy(Class1);&#xD;
+InternalAddressType1.line3=111;&#xD;
+InternalAddressType1.line5.clear();&#xD;
+InternalAddressType1.line5.add(&quot;Line5Type1M&quot;);&#xD;
+InternalAddressType1.line5.add(&quot;Line5Type1M&quot;);&#xD;
+InternalAddressType1.line5.add(&quot;Line5Type1M&quot;);&#xD;
+InternalAddressType1.line5.add(&quot;Line5Type1M&quot;);&#xD;
+InternalAddressType1.line5.add(&quot;Line5Type1M&quot;);&#xD;
+InternalAddressType1.lineDT=DateTimeUtil.createDate();&#xD;
+&#xD;
+InternalAddressTyp2=org_example_Restriction_Factory.createInternalAddressType2();&#xD;
+InternalAddressTyp2.line1=&quot;Line1Type2M&quot;;&#xD;
+InternalAddressTyp2.line3=222;&#xD;
+InternalAddressTyp2.line5.clear();&#xD;
+InternalAddressTyp2.line5.add(&quot;Line5Type2M&quot;);&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_n_tb2MqPEeGWEtJlKs6lRA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="275.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_n_tb28qPEeGWEtJlKs6lRA" xpdExt:DisplayName="" Name="" From="_2ijzBOuFEeG_pu6vooS7Qg" To="_n_tb2sqPEeGWEtJlKs6lRA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_2ijzBeuFEeG_pu6vooS7Qg" xpdExt:DisplayName="" Name="" From="_n_tb2cqPEeGWEtJlKs6lRA" To="_2ijzBOuFEeG_pu6vooS7Qg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="InternalAddressTyp2"/>
+            <simulation:ParameterDistribution ParameterId="InternalAddressType1"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_TpZGIMqTEeGWEtJlKs6lRA" xpdExt:DisplayName="RestRestInvoke" Name="RestRestInvoke">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="__5as0MqYEeGB8brWQ1j6Rw" xpdExt:DisplayName="InterAddrTyp1" Name="InterAddrTyp1">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.Restriction.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.RestrictionInternalAddressType1"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Cd_F4MqaEeGB8brWQ1j6Rw" xpdExt:DisplayName="Class1" Name="Class1">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="RestRest.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_q6XFUPsyEeGyhNGV4hT3SA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_rYQcQMqgEeGB8brWQ1j6Rw" xpdExt:DisplayName="InternalAddressType2" Name="InternalAddressType2">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.Restriction.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.RestrictionInternalAddressType2"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_PzycIOuFEeG_pu6vooS7Qg" xpdExt:DisplayName="AddressType" Name="AddressType">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.Restriction.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.RestrictionAddressType"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Eb4LIPwMEeGyhNGV4hT3SA" xpdExt:DisplayName="Line5data" Name="Line5data">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_TpfMwsqTEeGWEtJlKs6lRA" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_TpfMwcqTEeGWEtJlKs6lRA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_TpfMw8qTEeGWEtJlKs6lRA" Name="EndEvent" xpdExt:DisplayName="End Event" xpdExt:Visibility="Private">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_TpfMwcqTEeGWEtJlKs6lRA" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="761.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Uy0zYMqTEeGWEtJlKs6lRA" Name="ServiceTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Service Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_brhwksqTEeGWEtJlKs6lRA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="InternalAddressTyp2.line1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">AddressType.line1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="InternalAddressTyp2.line3">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">AddressType.line3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="InternalAddressTyp2.lineDT">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">AddressType.lineDT</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="InternalAddressType1.line1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">AddressType.line1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="InternalAddressType1.line2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">AddressType.line2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="InternalAddressType1.line3">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">AddressType.line3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="InternalAddressType1.lineDT">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">AddressType.lineDT</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="InternalAddressType1.line5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">AddressType.line5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="InternalAddressTyp2.line5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Line5data</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_brhwk8qTEeGWEtJlKs6lRA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="InternalAddressTyp2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">InternalAddressType2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="InternalAddressType1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">InterAddrTyp1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_uZ-vUPwNEeGyhNGV4hT3SA" Name="ExtractLine5" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">MESSAGE_InternalAddressType1.line5.get(2);</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Line5data</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_brhwlMqTEeGWEtJlKs6lRA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="RestRest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="RestRestProc" OperationName="RestRestOp">
+                  <xpdExt:ExternalReference location="RestRest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_brhwlMqTEeGWEtJlKs6lRA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_TpfMwcqTEeGWEtJlKs6lRA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="314.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2_Kg4MqTEeGWEtJlKs6lRA" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">Class1=com_example_restrest_Factory.createClass1();&#xD;
+Class1.attribute1=&quot;ForObject&quot;;&#xD;
+&#xD;
+AddressType=org_example_Restriction_Factory.createAddressType();&#xD;
+AddressType.line1=&quot;Line1AddressType&quot;;&#xD;
+AddressType.line2=ScriptUtil.copy(Class1);&#xD;
+AddressType.line3=111;&#xD;
+AddressType.line4=ScriptUtil.copy(Class1);&#xD;
+AddressType.line5.add(&quot;Line5AddressType&quot;);&#xD;
+AddressType.line5.add(&quot;Line5AddressType&quot;);&#xD;
+AddressType.line5.add(&quot;Line5AddressType&quot;);&#xD;
+AddressType.lineDT=DateTimeUtil.createDate();&#xD;
+&#xD;
+Log.write(&quot;*******The main Address Class details are &quot;+AddressType);&#xD;
+&#xD;
+Line5data=&quot;Line5dataProcessDF&quot;;&#xD;
+&#xD;
+/*&#xD;
+InterAddrTyp1=org_example_Restriction_Factory.createInternalAddressType1();&#xD;
+InterAddrTyp1.line1=&quot;Line1Type1&quot;;&#xD;
+InterAddrTyp1.line2=ScriptUtil.copy(Class1);&#xD;
+InterAddrTyp1.line3=111;&#xD;
+InterAddrTyp1.line5.add(&quot;Line5Type1&quot;);&#xD;
+InterAddrTyp1.line5.add(&quot;Line5Type1&quot;);&#xD;
+InterAddrTyp1.line5.add(&quot;Line5Type1&quot;);&#xD;
+InterAddrTyp1.line5.add(&quot;Line5Type1&quot;);&#xD;
+InterAddrTyp1.line5.add(&quot;Line5Type1&quot;);&#xD;
+InterAddrTyp1.lineDT=DateTimeUtil.createDate();&#xD;
+Log.write(&quot;*******The Restricted InterAddrTyp1 line 5 attribute details is&quot; +InterAddrTyp1);&#xD;
+&#xD;
+&#xD;
+InternalAddressType2=org_example_Restriction_Factory.createInternalAddressType2();&#xD;
+InternalAddressType2.line1=&quot;Line1Type2&quot;;&#xD;
+InternalAddressType2.line3=222;&#xD;
+InternalAddressType2.line5.add(&quot;Line5Type2&quot;);&#xD;
+///LineDT has a fixed value.&#xD;
+Log.write(&quot;******The Restricted InternalAddressType2 line5 attribute details is&quot; +InternalAddressType2.line5);&#xD;
+&#xD;
+*/&#xD;
+&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_TpfMwcqTEeGWEtJlKs6lRA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="145.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_a-QUAOuGEeG_pu6vooS7Qg" Name="UserTask" xpdExt:Visibility="Private" xpdExt:DisplayName="User Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_a-QUAeuGEeG_pu6vooS7Qg"/>
+                <xpdl2:MessageOut Id="_a-QUAuuGEeG_pu6vooS7Qg"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_dCbyQOuGEeG_pu6vooS7Qg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_TpfMwcqTEeGWEtJlKs6lRA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="578.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="InternalAddressType2" Mode="INOUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_AQUVQPs-EeGyhNGV4hT3SA" Name="ScriptTask2" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task 2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">Log.write(&quot;*******The Restricted InterAddrTyp1 line 5 attribute details is&quot; +InterAddrTyp1);&#xD;
+Log.write(&quot;******The Restricted InternalAddressType2 line5 attribute details is&quot; +InternalAddressType2);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_TpfMwcqTEeGWEtJlKs6lRA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="450.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_TpfMxMqTEeGWEtJlKs6lRA" xpdExt:DisplayName="" Name="" From="_a-QUAOuGEeG_pu6vooS7Qg" To="_TpfMw8qTEeGWEtJlKs6lRA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_2_Kg4cqTEeGWEtJlKs6lRA" xpdExt:DisplayName="" Name="" From="_TpfMwsqTEeGWEtJlKs6lRA" To="_2_Kg4MqTEeGWEtJlKs6lRA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_a-QUA-uGEeG_pu6vooS7Qg" xpdExt:DisplayName="" Name="" From="_AQUVQPs-EeGyhNGV4hT3SA" To="_a-QUAOuGEeG_pu6vooS7Qg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Q87oE_s0EeGyhNGV4hT3SA" xpdExt:DisplayName="" Name="" From="_2_Kg4MqTEeGWEtJlKs6lRA" To="_Uy0zYMqTEeGWEtJlKs6lRA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_AQUVQfs-EeGyhNGV4hT3SA" xpdExt:DisplayName="" Name="" From="_Uy0zYMqTEeGWEtJlKs6lRA" To="_AQUVQPs-EeGyhNGV4hT3SA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="15"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

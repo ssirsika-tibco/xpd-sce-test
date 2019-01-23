@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://mind.enel.com/statoconti" xmlns:tns12="http://mind.enel.com/statoconti"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mind.enel.com/statoconti">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.integration.credito.resources/Business Objects/StatoConti.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="StatoContiRequest" id="_dDusQE8HEeOudeDv_044hw" name="StatoContiRequest">
+    <xsd:sequence>
+      <xsd:element ecore:name="businessPartner" id="_rNWSUE8HEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="businessPartner">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="contoContrattuale" id="_uh7BcE8HEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="contoContrattuale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="flagRichiestaSaldo" id="_wLfnUE8HEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="flagRichiestaSaldo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="flagRichiestaRate" id="_0BQX8E8HEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="flagRichiestaRate">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="flagRichiestaCmor" id="_2y7OUE8HEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="flagRichiestaCmor">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="flagRichiestaBlocchi" id="_4f7isE8HEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="flagRichiestaBlocchi">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="canaleChiamante" id="_6gMxUE8HEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="canaleChiamante">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="CF_PI" id="_8gqNME8HEeOudeDv_044hw" maxOccurs="1" minOccurs="0"
+          name="CF_PI">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="16"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idBpm" id="_Tx5TkFz0EeOCNpqtuWfmUg" maxOccurs="1" minOccurs="0"
+          name="idBpm">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="StatoContiResponse" id="_dYnXIE8HEeOudeDv_044hw" name="StatoContiResponse">
+    <xsd:sequence>
+      <xsd:element ecore:name="importoACreditoCLT" id="_U30lUE8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="importoACreditoCLT">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoADebitoCLT" id="_Vv_jcE8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="importoADebitoCLT">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="saldoCF_PI" id="_XswLEE8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="saldoCF_PI">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="saldoSingolaFornitura" id="_ZVFa0E8IEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="saldoSingolaFornitura">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoACreditoPOD" id="_b1TU0E8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="importoACreditoPOD">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoADebitoPOD" id="_irnFUE8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="importoADebitoPOD">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoDepositiCauzionaliPagaPOD" id="_jYpKcE8IEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="importoDepositiCauzionaliPagaPOD">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codiceBloccoDunning" id="_lhnCEE8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="codiceBloccoDunning">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="bloccoDunning" id="_nFSbUE8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="bloccoDunning">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="40"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codiceBloccoInteressi" id="_pPfpEE8IEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="codiceBloccoInteressi">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="bloccoInteressi" id="_q4m78E8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="bloccoInteressi">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="40"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="statoCMORTraderUscente" id="_tAi40E8IEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="statoCMORTraderUscente">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoCMORTraderUscente" id="_wsN5UE8IEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="importoCMORTraderUscente">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="cmorRichiesta" id="_ynkLsE8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="cmorRichiesta">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="cmorNonFatturata" id="_1diTQE8IEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="cmorNonFatturata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="limiteImportoRiaccreditabile" id="_2e5poE8IEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="limiteImportoRiaccreditabile" type="tns12:double_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="elencoFatture" id="_7CvoQE8IEeOudeDv_044hw" maxOccurs="unbounded"
+          minOccurs="0" name="elencoFatture" type="tns12:Fattura"/>
+      <xsd:element ecore:name="elencoBlocchi" id="_OhAXwE8JEeOudeDv_044hw" maxOccurs="unbounded"
+          minOccurs="0" name="elencoBlocchi" type="tns12:Blocco"/>
+      <xsd:element ecore:name="codiceAggregante" id="_UPyfgE8JEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="codiceAggregante">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="livelloDiClassificazione" id="_Vz2TQE8JEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="livelloDiClassificazione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="giorniSollecito" id="_hjw3AE8JEeOudeDv_044hw" maxOccurs="unbounded"
+          minOccurs="0" name="giorniSollecito" type="tns12:Giorno"/>
+      <xsd:element ecore:name="esito" id="_lM3EoE8JEeOudeDv_044hw" maxOccurs="1" minOccurs="0"
+          name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codiceEsito" id="_nxRiIE8JEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="codiceEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="descrizioneEsito" id="_p9Y0YE8JEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="descrizioneEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="sorgenteEsito" id="_oZhbwFdKEeOvgv6U0sUU9w" maxOccurs="1"
+          minOccurs="0" name="sorgenteEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Fattura" id="_-RNvYE8IEeOudeDv_044hw" name="Fattura">
+    <xsd:sequence>
+      <xsd:element ecore:name="tipoDocumento" id="_APNbME8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="tipoDocumento">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numeroDocumento" id="_A8DTEE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="numeroDocumento">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="16"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="dataEmissione" id="_CsfV8E8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="dataEmissione" type="xsd:date"/>
+      <xsd:element ecore:name="numeroRataIdentificativoUnivno" id="_FQdukE8LEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="numeroRataIdentificativoUnivno" type="xsd:int"/>
+      <xsd:element ecore:name="importoFattura" id="_HJhh8E8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="importoFattura">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="dataScadenza" id="_JYBZ0E8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="dataScadenza" type="xsd:date"/>
+      <xsd:element ecore:name="importoResiduo" id="_LLoFcE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="importoResiduo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="rettifica" id="_M9_a8E8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="rettifica" type="xsd:date"/>
+      <xsd:element ecore:name="dataPagamento" id="_OsHJoE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="dataPagamento" type="xsd:date"/>
+      <xsd:element ecore:name="tipoFattura" id="_QPirQE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="tipoFattura">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="statoPareggio" id="_R8vM4E8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="statoPareggio">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="domiciliata" id="_UCdjQE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="domiciliata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="esistenzaDimostratoPagamento" id="_VvAkoE8LEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="esistenzaDimostratoPagamento">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numeroPianoRata" id="_X1w1wE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="numeroPianoRata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="16"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="IDModuloDiPagamentoRata" id="_ZnD0QE8LEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="IDModuloDiPagamentoRata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="ultimoLivelloDiDunning" id="_bU2LwE8LEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="ultimoLivelloDiDunning">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codiceStatoFattura" id="_dHAF4E8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="codiceStatoFattura">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="statoFattura" id="_evnpgE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="statoFattura">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="60"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="esistenzaSospensiveAttiveD" id="_ghM74E8LEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="esistenzaSospensiveAttiveD">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="esistenzaSospensiveAttiveI" id="_iGHrQE8LEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="esistenzaSospensiveAttiveI">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="cmorApplicata" id="_jqj5gE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="cmorApplicata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="note" id="_lLdEgE8LEeOudeDv_044hw" maxOccurs="1" minOccurs="0"
+          name="note">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="80"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="flagDelibera104" id="_moDlYE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="flagDelibera104">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idProtocollo" id="_oeydgE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="idProtocollo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="dataProtocollo" id="_qyUmYE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="dataProtocollo" type="xsd:date"/>
+      <xsd:element ecore:name="flagImportoAddebito" id="_tYpIYE8LEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="flagImportoAddebito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoAddebito" id="_BrHjEE8MEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="importoAddebito" type="tns12:double_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="tipologiaSpesa" id="_DeoIEE8MEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="tipologiaSpesa">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Blocco" id="_WxSL4E8JEeOudeDv_044hw" name="Blocco">
+    <xsd:sequence>
+      <xsd:element ecore:name="dataInserimento" id="_jye0gE8NEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="dataInserimento" type="xsd:date"/>
+      <xsd:element ecore:name="dataInizioValidita" id="_lhIHoE8NEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="dataInizioValidita" type="xsd:date"/>
+      <xsd:element ecore:name="dataFineValidita" id="_nDvJ4E8NEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="dataFineValidita" type="xsd:date"/>
+      <xsd:element ecore:name="tipoBlocco" id="_owF-AE8NEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="tipoBlocco">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codiceBloccoDunningInteressi" id="_qh4rwE8NEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="codiceBloccoDunningInteressi">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="motivoBlocco" id="_sLtJQE8NEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="motivoBlocco">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Giorno" id="_jd7doE8JEeOudeDv_044hw" name="Giorno">
+    <xsd:sequence>
+      <xsd:element ecore:name="livelloSollecito" id="_uG-DcE8KEeOudeDv_044hw" maxOccurs="1"
+          minOccurs="0" name="livelloSollecito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="giorniProceduraSollecito" id="_uwdFUE8KEeOudeDv_044hw"
+          maxOccurs="1" minOccurs="0" name="giorniProceduraSollecito" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="StatoContiPDR_Request" id="_Xr9noFQ8EeO-EvD3wf04sA"
+      name="StatoContiPDR_Request">
+    <xsd:sequence>
+      <xsd:element ecore:name="dettaglioPiantoDiRientro_Request" id="_gB1tcFQ8EeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="dettaglioPiantoDiRientro_Request" type="tns12:DettaglioPiantoDiRientro_Request"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="StatoContiPDR_Response" id="_X-lBoFQ8EeO-EvD3wf04sA"
+      name="StatoContiPDR_Response">
+    <xsd:sequence>
+      <xsd:element ecore:name="codiceEsito" id="_7ZUb8FQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="codiceEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="dataInizioPiano" id="_7oNMgFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="dataInizioPiano" type="xsd:date"/>
+      <xsd:element ecore:name="datainscsf" id="_76-XgFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="datainscsf" type="xsd:date"/>
+      <xsd:element ecore:name="dataRegistrazione" id="_8Q-csFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="dataRegistrazione" type="xsd:date"/>
+      <xsd:element ecore:name="descrizioneEsito" id="_8eXYcFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="descrizioneEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="elencoFatture" id="_8qskQFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="elencoFatture" type="tns12:ElencoFatture"/>
+      <xsd:element ecore:name="elencoRate" id="_82ougFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="elencoRate" type="tns12:ElencoRate"/>
+      <xsd:element ecore:name="esito" id="_9EQ60FQ8EeO-EvD3wf04sA" maxOccurs="1" minOccurs="0"
+          name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idProtocollo" id="_9PCncFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="idProtocollo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoAnticipo" id="_9cso8FQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="importoAnticipo" type="tns12:double_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="importoTotaleFatturaInteressiDilazione" id="_9sAQQFQ8EeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="importoTotaleFatturaInteressiDilazione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoTotalePiano" id="_-EwugFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="importoTotalePiano">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="importoTotaleRateizzo" id="_-XyYMFQ8EeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="importoTotaleRateizzo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="modalitaDiPagamento" id="_-oAlgFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="modalitaDiPagamento">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="modalitaPiano" id="_IZIdIFREEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="modalitaPiano">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="8"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="NContoContrattuale" id="_IoLlwFREEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="NContoContrattuale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numeroBusinessPartner" id="_I5gmUFREEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="numeroBusinessPartner">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numPianoRateizzazione" id="_JI3Q8FREEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="numPianoRateizzazione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numPianoRateizzazioneExt" id="_fTDbMFREEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="numPianoRateizzazioneExt" type="xsd:string"/>
+      <xsd:element ecore:name="numRate" id="_fgL4QFREEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="numRate" type="xsd:int"/>
+      <xsd:element ecore:name="percentualeAnticipo" id="_ftxoUFREEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="percentualeAnticipo" type="tns12:double_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="scadenzaAnticipo" id="_f5vnwFREEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="scadenzaAnticipo" type="xsd:date"/>
+      <xsd:element ecore:name="stato" id="_scpusFREEeO-EvD3wf04sA" maxOccurs="1" minOccurs="0"
+          name="stato">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="tipoPiano" id="_sp5ggFREEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="tipoPiano">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="tassointeresse" id="_zAyKEFREEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="tassointeresse" type="tns12:double_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="sorgenteEsito" id="_Djut0FdMEeOvgv6U0sUU9w" maxOccurs="1"
+          minOccurs="0" name="sorgenteEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DettaglioPiantoDiRientro_Request" id="_gi2v0FQ8EeO-EvD3wf04sA"
+      name="DettaglioPiantoDiRientro_Request">
+    <xsd:sequence>
+      <xsd:element ecore:name="idPianoRata" id="_qVo4gFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="idPianoRata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="canaleChiamante" id="_qjw0EFQ8EeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="canaleChiamante">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idBpm" id="_X7K2EFz0EeOCNpqtuWfmUg" maxOccurs="1" minOccurs="0"
+          name="idBpm">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ElencoFatture" id="_PfWOsFRAEeO-EvD3wf04sA" name="ElencoFatture">
+    <xsd:sequence>
+      <xsd:element ecore:name="fatture" id="_8Y2FoFREEeO-EvD3wf04sA" maxOccurs="unbounded"
+          minOccurs="0" name="fatture" type="tns12:Fattura"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ElencoRate" id="_RHDzYFRAEeO-EvD3wf04sA" name="ElencoRate">
+    <xsd:sequence>
+      <xsd:element ecore:name="rate" id="_8sYssFREEeO-EvD3wf04sA" maxOccurs="unbounded"
+          minOccurs="0" name="rate" type="tns12:Rate"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Rate" id="_Bzr9sFRFEeO-EvD3wf04sA" name="Rate">
+    <xsd:sequence>
+      <xsd:element ecore:name="numeroPianoRataIdentificativ" id="_mF06EFRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="numeroPianoRataIdentificativ">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numeroRataIdentificativoUnivno" id="_mdw48FRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="numeroRataIdentificativoUnivno" type="xsd:int"/>
+      <xsd:element ecore:name="IDModuloDiPagamentoRata" id="_mqxaMFRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="IDModuloDiPagamentoRata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="dataScadenzaRata" id="_m2hXMFRFEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="dataScadenzaRata" type="xsd:date"/>
+      <xsd:element ecore:name="importoSingolaRata" id="_nPROYFRFEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="importoSingolaRata">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="quotaCapitaleTotale" id="_ne3JkFRFEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="quotaCapitaleTotale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="quotaInteressiDiMora" id="_nq_hEFRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="quotaInteressiDiMora">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="quotaInteressiDiDilazione" id="_n9iCkFRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="quotaInteressiDiDilazione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="dataPagamentoRata" id="_oatGwFRFEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="dataPagamentoRata" type="xsd:date"/>
+      <xsd:element ecore:name="importoResiduo" id="_ooxX8FRFEeO-EvD3wf04sA" maxOccurs="1"
+          minOccurs="0" name="importoResiduo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="evidenzaDimostratoPagamento" id="_o4B78FRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="evidenzaDimostratoPagamento">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="ultimoLivelloDiDunning" id="_pFyrIFRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="ultimoLivelloDiDunning">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="bloccoAlSollecitoAttivo" id="_pRY3IFRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="bloccoAlSollecitoAttivo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="bloccoAgliInteressiAttivo" id="_peeQ4FRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="bloccoAgliInteressiAttivo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="note" id="_pqVioFRFEeO-EvD3wf04sA" maxOccurs="1" minOccurs="0"
+          name="note">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="80"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="numeroPianoRataIdExt" id="_p1_ZAFRFEeO-EvD3wf04sA"
+          maxOccurs="1" minOccurs="0" name="numeroPianoRataIdExt" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="double_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-179.76931348623157E+306"/>
+      <xsd:maxInclusive value="179.76931348623157E+306"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="StatoContiRequestElement" type="StatoContiRequest"/>
+  <xsd:element name="StatoContiResponseElement" type="StatoContiResponse"/>
+  <xsd:element name="FatturaElement" type="Fattura"/>
+  <xsd:element name="BloccoElement" type="Blocco"/>
+  <xsd:element name="GiornoElement" type="Giorno"/>
+  <xsd:element name="StatoContiPDR_RequestElement" type="StatoContiPDR_Request"/>
+  <xsd:element name="StatoContiPDR_ResponseElement" type="StatoContiPDR_Response"/>
+  <xsd:element name="DettaglioPiantoDiRientro_RequestElement" type="DettaglioPiantoDiRientro_Request"/>
+  <xsd:element name="ElencoFattureElement" type="ElencoFatture"/>
+  <xsd:element name="ElencoRateElement" type="ElencoRate"/>
+  <xsd:element name="RateElement" type="Rate"/>
+</xsd:schema>

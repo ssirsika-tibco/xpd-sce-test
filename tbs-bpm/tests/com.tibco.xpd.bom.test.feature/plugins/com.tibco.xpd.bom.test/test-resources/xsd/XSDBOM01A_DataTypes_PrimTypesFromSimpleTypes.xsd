@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/DataTypeRestrictions"
+	xmlns:tns="http://www.example.org/DataTypeRestrictions"
+	elementFormDefault="qualified">
+
+
+	<!-- All XSD data type that map to boolean -->
+	<simpleType name="Boolean_XsdBoolean">
+		<restriction base="boolean"></restriction>
+	</simpleType>
+
+
+	<!-- All XSD data type that map to URI -->
+
+	<simpleType name="URI_XsdAnyURI">
+		<restriction base="anyURI">
+		</restriction>
+	</simpleType>
+
+
+	<!-- All XSD data type that map to Date -->
+	<simpleType name="Date_XsdDate">
+		<restriction base="date">
+		</restriction>
+	</simpleType>
+
+	<!-- All XSD data type that map to Time -->
+	<simpleType name="Time_XsdTime">
+		<restriction base="time">
+		</restriction>
+	</simpleType>
+
+	<!-- All XSD data type that map to DateTime -->
+	<simpleType name="DateTime_XsdDateTime">
+		<restriction base="dateTime">
+		</restriction>
+	</simpleType>
+
+
+	<!-- All XSD data type that map to Duration -->
+	<simpleType name="Duration_XsdDuration">
+		<restriction base="duration">
+		</restriction>
+	</simpleType>
+
+
+	<!-- All XSD data type that map to Text -->
+	<simpleType name="Text_XsdString">
+		<restriction base="string">
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdId">
+		<restriction base="ID" />
+	</simpleType>
+	
+	<simpleType name="Text_XsdHexBinary">
+		<restriction base="hexBinary" />
+	</simpleType>
+	
+	<simpleType name="Text_XsdBase64Binary">
+		<restriction base="base64Binary" />
+	</simpleType>
+	
+	<simpleType name="Text_XsdGDay">
+		<restriction base="gDay" />
+	</simpleType>
+
+	<simpleType name="Text_XsdGMonth">
+		<restriction base="gMonth" />
+	</simpleType>
+
+	<simpleType name="Text_XsdGMonthDay">
+		<restriction base="gMonthDay" />
+	</simpleType>
+
+	<simpleType name="Text_XsdGYear">
+		<restriction base="gYear" />
+	</simpleType>
+
+	<simpleType name="Text_XsdGYearMonth">
+		<restriction base="gYearMonth" />
+	</simpleType>
+
+	<simpleType name="Text_XsdIdRef">
+		<restriction base="IDREF" />
+	</simpleType>
+
+	<simpleType name="Text_XsdIdRefs">
+		<restriction base="IDREFS"></restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdLanguage">
+		<restriction base="language"/>
+	</simpleType>
+	
+	<simpleType name="Text_XsdName">
+		<restriction base="Name" />
+	</simpleType>
+
+	<simpleType name="Text_XsdNCName">
+		<restriction base="NCName" />
+	</simpleType>
+
+	<simpleType name="Text_XsdNMToken">
+		<restriction base="NMTOKEN" />
+	</simpleType>
+
+	<simpleType name="Text_XsdNMTokens">
+		<restriction base="NMTOKENS"></restriction>
+	</simpleType>
+
+	<simpleType name="Text_XsdNormalizedString">
+		<restriction base="normalizedString" />
+	</simpleType>
+
+	<simpleType name="Text_XsdQName">
+		<restriction base="QName" />
+	</simpleType>
+
+	<simpleType name="Text_XsdEntity">
+		<restriction base="ENTITY" />
+	</simpleType>
+
+	<simpleType name="Text_XsdEntities">
+		<restriction base="ENTITIES" />
+	</simpleType>
+
+	<simpleType name="Text_XsdToken">
+		<restriction base="token"></restriction>
+	</simpleType>
+
+
+	<!-- All XSD data type that map to Integer subtype signed int -->
+
+	<simpleType name="IntegerSignedInt_XsdByte">
+		<restriction base="byte" />
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdUnsignedByte">
+		<restriction base="unsignedByte" />
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdShort">
+		<restriction base="short" />
+	</simpleType>
+
+	<simpleType name="IntegerSignedInt_XsdUnsignedShort">
+		<restriction base="unsignedShort" />
+	</simpleType>
+	
+	<simpleType name="IntegerSignedInt_XsdInt">
+		<restriction base="int" />
+	</simpleType>
+
+	<!-- All XSD data type that map to Integer subtype fixed -->
+
+	<simpleType name="IntegerFixed_XsdInteger">
+		<restriction base="integer" />
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdLong">
+		<restriction base="long" />
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdNegativeInteger">
+		<restriction base="negativeInteger" />
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdNonNegativeInteger">
+		<restriction base="nonNegativeInteger" />
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdNonPositiveInteger">
+		<restriction base="nonPositiveInteger" />
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdPositiveInteger">
+		<restriction base="positiveInteger" />
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdUnsignedInt">
+		<restriction base="unsignedInt" />
+	</simpleType>
+
+	<simpleType name="IntegerFixed_XsdUnsignedLong">
+		<restriction base="unsignedLong" />
+	</simpleType>
+
+	<!-- All XSD data type that map to Decimal subtype Fixed -->
+
+	<simpleType name="DecimalFixed_XsdDecimal">
+		<restriction base="decimal" />
+	</simpleType>
+
+	<!-- All XSD data type that map to Decimal subtype Float -->
+
+	<simpleType name="DecimalFloat_XsdFloat">
+		<restriction base="float" />
+	</simpleType>
+
+	<!--
+		Reintroduce when we decide how BOM handles INF and Nan <simpleType
+		name="DecimalFloat_XsdFloat_Inf"> <restriction base="float">
+		<minInclusive value="-INF" /> <maxInclusive value="INF" />
+		</restriction> </simpleType> <simpleType
+		name="DecimalFloat_XsdFloat_Nan"> <restriction base="float">
+		<minInclusive value="NaN" /> <maxInclusive value="NaN" />
+		</restriction> </simpleType>
+	-->
+
+	<simpleType name="DecimalFloat_XsdDouble">
+		<restriction base="double" />
+	</simpleType>
+
+	<!--
+		Reintroduce when we decide how BOM handles INF and Nan <simpleType
+		name="DecimalFloat_XsdDouble_Inf"> <restriction base="double">
+		<minInclusive value="-INF" /> <maxInclusive value="INF" />
+		</restriction> </simpleType> <simpleType
+		name="DecimalFloat_XsdDouble_Nan"> <restriction base="double">
+		<minInclusive value="NaN" /> <maxInclusive value="NaN" />
+		</restriction> </simpleType>
+	-->
+
+
+
+</schema>

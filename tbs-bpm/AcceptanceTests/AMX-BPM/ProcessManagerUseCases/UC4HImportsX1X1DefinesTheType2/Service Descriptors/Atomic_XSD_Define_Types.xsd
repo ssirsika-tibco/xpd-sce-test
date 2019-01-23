@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:tns="http://www.amsbqa.uc4h.com/linda01/XSDDefineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.amsbqa.uc4h.com/linda01/XSDDefineTypes" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="msisdnType">
+		<xs:sequence>
+			<xs:element name="msisdn" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="banType">
+		<xs:sequence>
+			<xs:element name="ban" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="couponPinType">
+		<xs:sequence>
+			<xs:element name="couponPin" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="subscriberPinType">
+		<xs:sequence>
+			<xs:element name="subscriberPin" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="simType">
+		<xs:sequence>
+			<xs:element name="sim" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="authenticationKeyType">
+		<xs:sequence>
+			<xs:element name="authenticationKey" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="imeiType">
+		<xs:sequence>
+			<xs:element name="imei" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="dealerCodeType">
+		<xs:sequence>
+			<xs:element name="dealerCode" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="npaType">
+		<xs:sequence>
+			<xs:element name="npa" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="cityCodeType">
+		<xs:sequence>
+			<xs:element name="cityCode" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="storeCodeType">
+		<xs:sequence>
+			<xs:element name="storedCode" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="personalInfoType">
+		<xs:sequence>
+			<xs:element name="personalInfo" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="middleNameType">
+		<xs:sequence>
+			<xs:element name="middleName" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="cityNameType">
+		<xs:sequence>
+			<xs:element name="cityName" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="zipCodeType">
+		<xs:sequence>
+			<xs:element name="zipCode" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="stateCodeType">
+		<xs:sequence>
+			<xs:element name="stateCode" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="contactPhoneType">
+		<xs:sequence>
+			<xs:element name="contactPhone" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="requestName">
+		<xs:sequence>
+			<xs:element name="requestName" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="userName">
+		<xs:sequence>
+			<xs:element name="userName" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="password">
+		<xs:sequence>
+			<xs:element name="password" type="xs:normalizedString" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="correlationIdType">
+		<xs:sequence>
+			<xs:element name="correlationId" type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="errorCodeType">
+		<xs:sequence>
+			<xs:element name="errorCode" type="xs:nonNegativeInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="errorMessageType">
+		<xs:sequence>
+			<xs:element name="errorMessage" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="requestInfoType">
+		<xs:sequence>
+			<xs:element name="requestName" type="tns:requestName"/>
+			<xs:element name="userName" type="tns:userName"/>
+			<xs:element name="password" type="tns:password"/>
+			<xs:element name="correlationId" type="tns:correlationIdType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="errorInfoCT">
+		<xs:sequence>
+			<xs:element name="correlationId" type="tns:correlationIdType" minOccurs="0"/>
+			<xs:element name="errorCode" type="tns:errorCodeType"/>
+			<xs:element name="errorMessage" type="tns:errorMessageType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="flexpaySubscriberIdType">
+		<xs:sequence>
+			<xs:element name="msisdn" type="tns:msisdnType"/>
+			<xs:element name="ban" type="tns:banType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="couponDetailsType">
+		<xs:sequence>
+			<xs:element name="issuerId" type="xs:positiveInteger"/>
+			<xs:element name="serialNumber" type="xs:nonNegativeInteger"/>
+			<xs:element name="validForRefill" type="xs:boolean"/>
+			<xs:element name="validForActivation" type="xs:boolean"/>
+			<xs:element name="faceValue" type="xs:nonNegativeInteger"/>
+			<xs:element name="typeCode" type="xs:normalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="couponIssuerAndSerialType">
+		<xs:sequence>
+			<xs:element name="serialNumber" type="xs:nonNegativeInteger"/>
+			<xs:element name="issuerId" type="xs:nonNegativeInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="https://nameclash3" targetNamespace="https://nameclash3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Hello">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Hello">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Hello">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Hello">
+											<xs:complexType>
+												<xs:sequence/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="HelloWorld">
+											<xs:complexType>
+												<xs:sequence/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HelloWorld">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Hello">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Hello">
+														<xs:complexType>
+															<xs:sequence/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="HelloWorld">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Hello">
+																	<xs:complexType>
+																		<xs:sequence/>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="HelloWorld">
+																	<xs:complexType>
+																		<xs:sequence/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="HelloWorld">
+											<xs:complexType>
+												<xs:sequence/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="HelloWorld">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Hello">
+								<xs:complexType>
+									<xs:sequence/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HelloWorld">
+								<xs:complexType>
+									<xs:sequence/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="HelloWorld">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Hello">
+					<xs:complexType>
+						<xs:sequence/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="HelloWorld">
+					<xs:complexType>
+						<xs:sequence/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EmailRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RequestDetails" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="message">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="100"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="messageType">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="25"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EmailRequest2">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RequestDetails" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

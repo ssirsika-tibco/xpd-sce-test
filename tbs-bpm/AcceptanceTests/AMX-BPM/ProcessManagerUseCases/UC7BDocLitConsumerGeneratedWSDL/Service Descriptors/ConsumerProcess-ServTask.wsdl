@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_H7zbwODZEd-OpPm3d3dvnw_ServTask__sodw8ODZEd-OpPm3d3dvnw" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Consumer" targetNamespace="http://www.tibco.com/bs3.0/_H7zbwODZEd-OpPm3d3dvnw_ServTask__sodw8ODZEd-OpPm3d3dvnw" tibex:ServiceTask="_sodw8ODZEd-OpPm3d3dvnw" tibex:XPDL="Consumer.xpdl" tibex:process="_H78lsODZEd-OpPm3d3dvnw">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_H7zbwODZEd-OpPm3d3dvnw_ServTask__sodw8ODZEd-OpPm3d3dvnw" targetNamespace="http://www.tibco.com/bs3.0/_H7zbwODZEd-OpPm3d3dvnw_ServTask__sodw8ODZEd-OpPm3d3dvnw">
+      <xsd:simpleType name="date">
+        <xsd:restriction base="xsd:date"/>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_dtInParam" type="date"/>
+      <xsd:simpleType name="boolean">
+        <xsd:restriction base="xsd:boolean"/>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_boolInOnly" type="boolean"/>
+      <xsd:simpleType name="string_25">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="25"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_txtInParam" type="string_25"/>
+      <xsd:simpleType name="dateTime">
+        <xsd:restriction base="xsd:dateTime"/>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_dtInTimeParam" type="dateTime"/>
+      <xsd:simpleType name="decimal__">
+        <xsd:restriction base="xsd:decimal"/>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_decInOnly" type="decimal__"/>
+      <xsd:simpleType name="integer_10">
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_integerInParam" type="integer_10"/>
+      <xsd:simpleType name="string">
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_performerInParam" type="string"/>
+      <xsd:simpleType name="time">
+        <xsd:restriction base="xsd:time"/>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_timeInParam" type="time"/>
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProcess_txtOutParam" type="string_50"/>
+      <xsd:element name="ConsumerProcess_boolOutOnly" type="boolean"/>
+      <xsd:element name="ConsumerProcess_decimalOutOnly" type="decimal__"/>
+      <xsd:element name="ConsumerProcess_performerOutParam" type="string"/>
+      <xsd:element name="ConsumerProcess_integerOutParam" type="integer_10"/>
+      <xsd:element name="ConsumerProcess_dtOutTimeParam" type="dateTime"/>
+      <xsd:element name="ConsumerProcess_timeOutParam" type="time"/>
+      <xsd:element name="ConsumerProcess_dtOutParam" type="date"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsumerProcess_ServTask_INPUT">
+    <wsdl:part element="ns:ConsumerProcess_boolInOnly" name="boolInOnly"/>
+    <wsdl:part element="ns:ConsumerProcess_decInOnly" name="decInOnly"/>
+    <wsdl:part element="ns:ConsumerProcess_dtInParam" name="dtInParam"/>
+    <wsdl:part element="ns:ConsumerProcess_dtInTimeParam" name="dtInTimeParam"/>
+    <wsdl:part element="ns:ConsumerProcess_integerInParam" name="integerInParam"/>
+    <wsdl:part element="ns:ConsumerProcess_performerInParam" name="performerInParam"/>
+    <wsdl:part element="ns:ConsumerProcess_timeInParam" name="timeInParam"/>
+    <wsdl:part element="ns:ConsumerProcess_txtInParam" name="txtInParam"/>
+  </wsdl:message>
+  <wsdl:message name="ConsumerProcess_ServTask_OUTPUT">
+    <wsdl:part element="ns:ConsumerProcess_boolOutOnly" name="boolOutOnly"/>
+    <wsdl:part element="ns:ConsumerProcess_decimalOutOnly" name="decimalOutOnly"/>
+    <wsdl:part element="ns:ConsumerProcess_dtOutParam" name="dtOutParam"/>
+    <wsdl:part element="ns:ConsumerProcess_dtOutTimeParam" name="dtOutTimeParam"/>
+    <wsdl:part element="ns:ConsumerProcess_integerOutParam" name="integerOutParam"/>
+    <wsdl:part element="ns:ConsumerProcess_performerOutParam" name="performerOutParam"/>
+    <wsdl:part element="ns:ConsumerProcess_timeOutParam" name="timeOutParam"/>
+    <wsdl:part element="ns:ConsumerProcess_txtOutParam" name="txtOutParam"/>
+  </wsdl:message>
+  <wsdl:portType name="ConsumerProcess" tibex:FlowContainer="_H78lsODZEd-OpPm3d3dvnw">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="ServTask">
+      <wsdl:input message="ns:ConsumerProcess_ServTask_INPUT" tibex:Event="_sodw8ODZEd-OpPm3d3dvnw"/>
+      <wsdl:output message="ns:ConsumerProcess_ServTask_OUTPUT"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

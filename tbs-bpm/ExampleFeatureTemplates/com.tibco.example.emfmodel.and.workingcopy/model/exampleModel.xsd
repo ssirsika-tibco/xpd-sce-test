@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/ExampleModel" xmlns:exm="http://www.tibco.com/ExampleModel" elementFormDefault="qualified">
+
+    <complexType name="MainElementType">
+    	<sequence>
+    		<element name="ChildElements" type="exm:ChildType"
+    			maxOccurs="unbounded">
+    		</element>
+    	</sequence>
+    	<attribute name="Name" type="string"></attribute>
+    	<attribute name="Id" type="string"></attribute>
+    </complexType>
+
+    <element name="MainElement" type="exm:MainElementType"></element>
+
+    <complexType name="ChildType">
+    	<sequence>
+    		<element name="TestElement" type="string"></element>
+    	</sequence>
+    	<attribute name="ChildAttribute" type="string"></attribute>
+    </complexType>
+</schema>

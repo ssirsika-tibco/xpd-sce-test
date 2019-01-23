@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.processeditor.xpdl2" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.processeditor.xpdl2" id="advancedProperties" name="Process Advanced Properties "/>
+      </appinfo>
+      <documentation>
+         This extension point allows the contribution of destination environment-specific properties to the advanced properties tab for selectable process objects.
+&lt;p&gt;
+The contribution specifies a destination category (DestinationEnvrionemts element) that specifies a destination-group category label and a list of Process Destination Environment Id&apos;s (as contributed via the &lt;code&gt;com.tibco.xpd.destinations.ui.processDestinationEnvironments&lt;/code&gt; extension point). The destination group category label specifies a &apos;top level folder&apos; in the Advanced Property Sheet tab control.
+&lt;/p&gt;
+&lt;p&gt;
+The contribution then specifies an AdvancedProperties element. This contains AdvancedProperty and AdvancedPropertyCategory entries.
+
+&lt;li&gt;AdvancedProperty elements form a single property that appear within the parent category. Each specifies a display label name (that appears in the Advanced Properties Tab) and a class that extends the abstract &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.extensions.AbstractContributedAdvancedProperty&lt;/code&gt; class. Via this class, the contribution provides various methods to get/set the value of the property and a PropertyDescriptor (that wraps up a cell editor for the property). See API Information for more details.&lt;/li&gt;
+
+&lt;li&gt;AdvancedPropertyCategory elements specify sub-categories that contain further properties and sub-categories.&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+The process editor then uses the contributions to...
+&lt;li&gt;Display Advanced Tab properties that are applicable to the current selection (in project explorer or process diagram editor). Nominally, the selection will currently always be an object that extends com.tibco.xpd.xpdl2.NamedElement, but the API uses EObject in case this changes).&lt;/li&gt;
+
+&lt;li&gt;Allows the user to edit the property in the property sheet.&lt;/li&gt;
+
+&lt;li&gt;Optionally sets a default value for a property when an object is added to the model that the property is applicable to OR if an existing model object is changed so that a property becomes applicable to it. This is done by (A) Asking contribution if a property is applicable to a given object; (B) if it is then the contribution is asked whether the property is currently set in the model; (C) if it is not then the contribution is asked for a default value; (D) if a non-null default value is returned then it is added to the model (via the contribution&apos;s get set value command method).&lt;/li&gt;
+
+&lt;li&gt;Clears up properties that are no longer applicable to a particular object. This is done by (A) Asking the contribution whether the model has a value set for the property; (B) if it has then the contribution is asked whether the property is still applicable for the object; (C) if it is not then the contribution is asked for an EMF command to remove the value.&lt;/li&gt;
+
+&lt;li&gt;NOTE that the contribution WILL NOT be asked to remove property values from model simply because a desination environment has been switched off. It is desired that destination environment specific properties (once defined) are preserved as it is sometimes necessary for the user to temporarily switch of an environment.&lt;/li&gt;
+
+&lt;li&gt;The extension point will also give the property contributions the chance to set default values in model for the properties when an applicable destination environment is switched on (in much the same way as default values are got/set when an object becomes applicable to a property&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+----------------------------------------------------------------------------
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="DestinationEnvironments"/>
+            <element ref="AdvancedProperties"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="DestinationEnvironments">
+      <annotation>
+         <documentation>
+            Properties can apply to one or more destination environments. Use this element to specify a group of destination environments the properties apply to and a display label for the resulting destination environment category.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="DestinationEnvironment" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="DestinationEnvCategoryLabel" type="string" use="required">
+            <annotation>
+               <documentation>
+                  This label will appear as the top-level expandable category for the destination group in the advanced properties tab.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="DestinationEnvironment">
+      <complexType>
+         <attribute name="DestinationEnvironmentId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A Global desination environment id - as contributed via &lt;code&gt;com.tibco.xpd.destinations.ui.globalDestinationEnvironments&lt;/code&gt;.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="AdvancedProperty">
+      <annotation>
+         <appinfo>
+            <meta.element labelAttribute="DisplayName"/>
+         </appinfo>
+         <documentation>
+            Contribution of an individual property to advanced tab properties.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="DisplayName" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Advanced properties tab item Display label for property.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="ContributedAdvancedPropertyClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Class for providing PropertyDescriptor and value setter/getter and for filtering property in/out according to type/state of selected object etc.
+&lt;p&gt;See &lt;code&gt;&lt;code&gt;com.tibco.xpd.processeditor.xpdl2.extensions.AbstractContributedAdvancedProperty&lt;/code&gt; for further details.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.processeditor.xpdl2.extensions.AbstractContributedAdvancedProperty:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="AdvancedPropertyCategory">
+      <complexType>
+         <sequence>
+            <element ref="AdvancedProperties"/>
+         </sequence>
+         <attribute name="DisplayName" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Display label for this property sub-category.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="AdvancedProperties">
+      <annotation>
+         <documentation>
+            A collection of properties and property sub-categories.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <choice>
+               <element ref="AdvancedPropertyCategory"/>
+               <element ref="AdvancedProperty"/>
+            </choice>
+         </sequence>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         v3.0.0
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         &lt;pre&gt;
+See JavaDoc for:
+   &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.extensions.AbstractContributedAdvancedProperty&lt;/code&gt;
+
+Other useful classes:
+   &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.extensions.AbstractAdvancedModelFeatureProperty&lt;/code&gt;
+   
+     This abstract class implements some of the methods required by
+     AbstractContributedAdvancedProperty and simplifies the addition 
+     of advanced properties that are represented in EMF model elements and
+     attributes under the chosen input object.
+     
+   &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.properties.advanced.BooleanPropertyDescriptor&lt;/code&gt;
+   
+     PropertyDescriptor that displays a false/true drop down and coerces property value to/from
+     Boolean objects.
+     
+   &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.properties.advanced.DropDownPropertyDescriptor&lt;/code&gt;
+   
+     PropertyDescriptor that displays a displays a drop down list from a gives list of
+     label strings and coerces the user selected list item to the matching value in a 
+     given list of values matching the labels.
+     
+   &lt;code&gt;com.tibco.xpd.processeditor.xpdl2.properties.advanced.IntegerPropertyDescriptor&lt;/code&gt;
+   
+     PropertyDescriptor allowing numeric text only entry.
+     
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         TIBCO Software Inc (c) 2008
+      </documentation>
+   </annotation>
+
+</schema>

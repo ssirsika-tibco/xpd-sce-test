@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ns20="http://gwl.com/Status.xsd" xmlns:ns23="http://gwl.com/Provider.xsd"
+	xmlns:tns="http://www.example.org/ReproduceWsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReproduceWsdl"
+	targetNamespace="http://www.example.org/ReproduceWsdl/">
+	<wsdl:types>
+
+		<xs:schema xmlns="http://gwl.com/Status.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://gwl.com/Status.xsd">
+			<xs:simpleType name="OverallStatusType">
+				<xs:restriction base="xs:string">
+					<xs:pattern value="OK|.*" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="StatusType">
+				<xs:sequence>
+					<xs:element name="OverallStatus" type="ns20:OverallStatusType" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="Status" type="ns20:StatusType" />
+		</xs:schema>
+
+		<xs:schema xmlns="http://gwl.com/Provider.xsd"
+			xmlns:address="http://gwl.com/AddressType.xsd" xmlns:gender="http://gwl.com/GenderType.xsd"
+			xmlns:pol="http://gwl.com/Policy.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://gwl.com/Provider.xsd">
+
+			<xs:complexType name="ProviderType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Status">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="ActiveCode" type="xs:string" />
+								<xs:element minOccurs="0" name="ActiveDescription"
+									type="xs:string" />
+								<xs:element minOccurs="0" name="InactiveDate" type="xs:date" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="TaxIdNumberType">
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="9" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="Provider" type="ns23:ProviderType" />
+
+		</xs:schema>
+
+
+		<xs:schema xmlns="http://gwl.com/ReceiveMatchProviderRateSheetResponse.xsd"
+			xmlns:ns1="http://gwl.com/ReceiveMatchProviderRateSheetRequest.xsd"
+			xmlns:provider="http://gwl.com/Provider.xsd" xmlns:statustype="http://gwl.com/Status.xsd"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+			elementFormDefault="qualified"
+			targetNamespace="http://gwl.com/ReceiveMatchProviderRateSheetRequest.xsd">
+			
+			<xs:import namespace="http://gwl.com/Status.xsd" />
+			<xs:import namespace="http://gwl.com/Provider.xsd" />
+			
+			<xs:complexType name="NetworkCodeType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Code" type="xs:string" />
+					<xs:element minOccurs="0" name="Type" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ReceiveMatchProviderRateSheetRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Status" type="statustype:StatusType" />
+						<xs:element minOccurs="0" name="Provider" type="provider:ProviderType" />
+						<xs:element minOccurs="0" name="ManagedCareType" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+
+		<xsd:schema targetNamespace="http://www.example.org/ReproduceWsdl/">
+			<xsd:element name="NewOperation">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="in" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NewOperationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="NewOperationRequest">
+		<wsdl:part element="tns:NewOperation" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="NewOperationResponse">
+		<wsdl:part element="tns:NewOperationResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="ReproduceWsdl">
+		<wsdl:operation name="NewOperation">
+			<wsdl:input message="tns:NewOperationRequest" />
+			<wsdl:output message="tns:NewOperationResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ReproduceWsdlSOAP" type="tns:ReproduceWsdl">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="NewOperation">
+			<soap:operation soapAction="http://www.example.org/ReproduceWsdl/NewOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ReproduceWsdl">
+		<wsdl:port binding="tns:ReproduceWsdlSOAP" name="ReproduceWsdlSOAP">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

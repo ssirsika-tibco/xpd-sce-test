@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.w3schools2" name="com.w3schools">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CMUDwfooEeC0qIHo0OPAuw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CMUDwvooEeC0qIHo0OPAuw" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CMUDw_ooEeC0qIHo0OPAuw" key="created" value="1319014667388"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CMUDxPooEeC0qIHo0OPAuw" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.w3schoolsperson" name="person">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="personfirstname" name="firstname" type="com.w3schoolsperson2?com.w3schools%3a%3aperson2?" aggregation="composite" association="com.w3schoolsComposition0?com.w3schools%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CLfkY_ooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CLfkYvooEeC0qIHo0OPAuw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="personlastname" name="lastname" type="com.w3schoolsperson3?com.w3schools%3a%3aperson3?" aggregation="composite" association="com.w3schoolsComposition1?com.w3schools%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CL2wwPooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CL2JsvooEeC0qIHo0OPAuw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="personany" name="any">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_w5Q_kB_WEeC4u6LGdGphwA?BomPrimitiveTypes%3a%3aObject?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CL4l8fooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CL4l8PooEeC0qIHo0OPAuw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.w3schoolsperson2" name="person2">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="person2attr1" name="attr1">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CLXBgfooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CLXBgPooEeC0qIHo0OPAuw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="person2any" name="any">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_w5Q_kB_WEeC4u6LGdGphwA?BomPrimitiveTypes%3a%3aObject?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CLY2svooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CLY2sfooEeC0qIHo0OPAuw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.w3schoolsComposition0" name="Composition0" memberEnd="personfirstname?com.w3schools%3a%3aperson%3a%3afirstname? Composition0person?com.w3schools%3a%3aComposition0%3a%3aperson?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0person" name="person" type="com.w3schoolsperson?com.w3schools%3a%3aperson?" association="com.w3schoolsComposition0?com.w3schools%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CLgLcvooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CLgLcfooEeC0qIHo0OPAuw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.w3schoolsperson3" name="person3">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="person3attr1" name="attr1">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CLu08vooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CLu08fooEeC0qIHo0OPAuw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="person3any" name="any">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_w5Q_kB_WEeC4u6LGdGphwA?BomPrimitiveTypes%3a%3aObject?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CLwqIvooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CLwqIfooEeC0qIHo0OPAuw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.w3schoolsComposition1" name="Composition1" memberEnd="personlastname?com.w3schools%3a%3aperson%3a%3alastname? Composition1person?com.w3schools%3a%3aComposition1%3a%3aperson?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1person" name="person" type="com.w3schoolsperson?com.w3schools%3a%3aperson?" association="com.w3schoolsComposition1?com.w3schools%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CL2ww_ooEeC0qIHo0OPAuw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CL2wwvooEeC0qIHo0OPAuw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_CLFUsfooEeC0qIHo0OPAuw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CLFUsvooEeC0qIHo0OPAuw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_CLZdwPooEeC0qIHo0OPAuw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CLZdwfooEeC0qIHo0OPAuw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_CLF7wPooEeC0qIHo0OPAuw" base_Package="com.w3schools2?com.w3schools?" xsdTargetNamespace="http://www.w3schools.com" xsdSchemaLocation="XSDBOM_Any04_Composition.xsd" xsdAttributeForm="unqualified" xsdElementForm="qualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_CLI_EPooEeC0qIHo0OPAuw" base_Class="com.w3schoolsperson?com.w3schools%3a%3aperson?" xsdName="person" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_CL7pQPooEeC0qIHo0OPAuw" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_CLQT0PooEeC0qIHo0OPAuw" base_Class="com.w3schoolsperson2?com.w3schools%3a%3aperson2?" xsdName="person2" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_CLb6APooEeC0qIHo0OPAuw" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_CLXBgvooEeC0qIHo0OPAuw" base_Property="person2attr1?com.w3schools%3a%3aperson2%3a%3aattr1?" xsdName="attr1" xsdForm="qualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_CLb6APooEeC0qIHo0OPAuw"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_CLZdwvooEeC0qIHo0OPAuw" base_Property="person2any?com.w3schools%3a%3aperson2%3a%3aany?" objectSubType="xsdAny"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_CLaE0PooEeC0qIHo0OPAuw" base_Property="person2any?com.w3schools%3a%3aperson2%3a%3aany?" xsdName="any*" xsdType="any" xsdExplicitGroupHierarchy="S1" xsdNamespace="##any" xsdProcessContents="strict" xsdParentSequence="_CLb6APooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_CLgygPooEeC0qIHo0OPAuw" base_Property="personfirstname?com.w3schools%3a%3aperson%3a%3afirstname?" xsdName="firstname" xsdForm="qualified" xsdType="person2" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_CL7pQPooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_CLouUPooEeC0qIHo0OPAuw" base_Class="com.w3schoolsperson3?com.w3schools%3a%3aperson3?" xsdName="person3" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_CLztcPooEeC0qIHo0OPAuw" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_CLu08_ooEeC0qIHo0OPAuw" base_Property="person3attr1?com.w3schools%3a%3aperson3%3a%3aattr1?" xsdName="attr1" xsdForm="qualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_CLztcPooEeC0qIHo0OPAuw"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_CLxRMPooEeC0qIHo0OPAuw" base_Property="person3any?com.w3schools%3a%3aperson3%3a%3aany?" objectSubType="xsdAny"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_CLx4QPooEeC0qIHo0OPAuw" base_Property="person3any?com.w3schools%3a%3aperson3%3a%3aany?" xsdName="any**" xsdType="any" xsdExplicitGroupHierarchy="S1" xsdNamespace="##any" xsdProcessContents="strict" xsdParentSequence="_CLztcPooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_CL3X0PooEeC0qIHo0OPAuw" base_Property="personlastname?com.w3schools%3a%3aperson%3a%3alastname?" xsdName="lastname" xsdForm="qualified" xsdType="person3" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_CL7pQPooEeC0qIHo0OPAuw"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_CL4l8vooEeC0qIHo0OPAuw" base_Property="personany?com.w3schools%3a%3aperson%3a%3aany?" objectSubType="xsdAny"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_CL50EPooEeC0qIHo0OPAuw" base_Property="personany?com.w3schools%3a%3aperson%3a%3aany?" xsdName="any***" xsdType="any" xsdExplicitGroupHierarchy="S1" xsdNamespace="##any" xsdProcessContents="strict" xsdParentSequence="_CL7pQPooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMBI0PooEeC0qIHo0OPAuw" base_Element="_CL4l8PooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMBI0fooEeC0qIHo0OPAuw" base_Element="_CLZdwPooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMBI0vooEeC0qIHo0OPAuw" base_Element="_CLu08fooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMBv4PooEeC0qIHo0OPAuw" base_Element="person2attr1?com.w3schools%3a%3aperson2%3a%3aattr1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMBv4fooEeC0qIHo0OPAuw" base_Element="_CL4l8fooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMBv4vooEeC0qIHo0OPAuw" base_Element="_CL2wwvooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMCW8PooEeC0qIHo0OPAuw" base_Element="_CLfkY_ooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMCW8fooEeC0qIHo0OPAuw" base_Element="_CLu08vooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMCW8vooEeC0qIHo0OPAuw" base_Element="com.w3schoolsComposition1?com.w3schools%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMC-APooEeC0qIHo0OPAuw" base_Element="_CL2wwPooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMC-AfooEeC0qIHo0OPAuw" base_Element="_CLXBgfooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMC-AvooEeC0qIHo0OPAuw" base_Element="_CLgLcfooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMDlEPooEeC0qIHo0OPAuw" base_Element="person3attr1?com.w3schools%3a%3aperson3%3a%3aattr1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMDlEfooEeC0qIHo0OPAuw" base_Element="com.w3schoolsperson?com.w3schools%3a%3aperson?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMDlEvooEeC0qIHo0OPAuw" base_Element="personany?com.w3schools%3a%3aperson%3a%3aany?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMDlE_ooEeC0qIHo0OPAuw" base_Element="personfirstname?com.w3schools%3a%3aperson%3a%3afirstname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMEMIPooEeC0qIHo0OPAuw" base_Element="_CLXBgPooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMEMIfooEeC0qIHo0OPAuw" base_Element="_CL2ww_ooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMEMIvooEeC0qIHo0OPAuw" base_Element="Composition1person?com.w3schools%3a%3aComposition1%3a%3aperson?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMEzMPooEeC0qIHo0OPAuw" base_Element="_CLY2svooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMEzMfooEeC0qIHo0OPAuw" base_Element="_CL2JsvooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMEzMvooEeC0qIHo0OPAuw" base_Element="_CLFUsfooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMFaQPooEeC0qIHo0OPAuw" base_Element="personlastname?com.w3schools%3a%3aperson%3a%3alastname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMFaQfooEeC0qIHo0OPAuw" base_Element="_CLgLcvooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMFaQvooEeC0qIHo0OPAuw" base_Element="com.w3schoolsperson3?com.w3schools%3a%3aperson3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMGBUPooEeC0qIHo0OPAuw" base_Element="_CLwqIfooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMGBUfooEeC0qIHo0OPAuw" base_Element="person3any?com.w3schools%3a%3aperson3%3a%3aany?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMGoYPooEeC0qIHo0OPAuw" base_Element="person2any?com.w3schools%3a%3aperson2%3a%3aany?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMGoYfooEeC0qIHo0OPAuw" base_Element="com.w3schoolsComposition0?com.w3schools%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMGoYvooEeC0qIHo0OPAuw" base_Element="Composition0person?com.w3schools%3a%3aComposition0%3a%3aperson?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMHPcPooEeC0qIHo0OPAuw" base_Element="_CLfkYvooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMHPcfooEeC0qIHo0OPAuw" base_Element="_CLwqIvooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMHPcvooEeC0qIHo0OPAuw" base_Element="_CLY2sfooEeC0qIHo0OPAuw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_CMH2gPooEeC0qIHo0OPAuw" base_Element="com.w3schoolsperson2?com.w3schools%3a%3aperson2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMJEoPooEeC0qIHo0OPAuw" displayLabel="person" base_NamedElement="com.w3schoolsperson?com.w3schools%3a%3aperson?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMKSwPooEeC0qIHo0OPAuw" displayLabel="person2" base_NamedElement="com.w3schoolsperson2?com.w3schools%3a%3aperson2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMLg4PooEeC0qIHo0OPAuw" displayLabel="person3" base_NamedElement="com.w3schoolsperson3?com.w3schools%3a%3aperson3?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMMvAPooEeC0qIHo0OPAuw" displayLabel="firstname" base_NamedElement="personfirstname?com.w3schools%3a%3aperson%3a%3afirstname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMN9IPooEeC0qIHo0OPAuw" displayLabel="lastname" base_NamedElement="personlastname?com.w3schools%3a%3aperson%3a%3alastname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMPLQPooEeC0qIHo0OPAuw" displayLabel="any" base_NamedElement="personany?com.w3schools%3a%3aperson%3a%3aany?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMQZYPooEeC0qIHo0OPAuw" displayLabel="attr1" base_NamedElement="person2attr1?com.w3schools%3a%3aperson2%3a%3aattr1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMRngPooEeC0qIHo0OPAuw" displayLabel="any" base_NamedElement="person2any?com.w3schools%3a%3aperson2%3a%3aany?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMS1oPooEeC0qIHo0OPAuw" displayLabel="attr1" base_NamedElement="person3attr1?com.w3schools%3a%3aperson3%3a%3aattr1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_CMUDwPooEeC0qIHo0OPAuw" displayLabel="any" base_NamedElement="person3any?com.w3schools%3a%3aperson3%3a%3aany?"/>
+  <notation:Diagram xmi:id="_CMUDxfooEeC0qIHo0OPAuw" type="Business Object Model" element="com.w3schools2?com.w3schools?" name="com.w3schools" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_CMUDxvooEeC0qIHo0OPAuw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_CMUDx_ooEeC0qIHo0OPAuw"/>
+  </notation:Diagram>
+</xmi:XMI>

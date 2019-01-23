@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.com/stockcheck" xmlns:tns4="http://www.example.com/stockcheck"
+    xmlns:tns1="http://www.example.com/stockcheck/innerpackage/mypackage1/mypackage2"
+    xmlns:tns3="http://www.example.com/stockcheck/innerpackage" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.com/stockcheck">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gdfgdf/Business Objects/PackageContainer.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.example.com/stockcheck/innerpackage" schemaLocation="com.example.www.stockcheck.innerpackage.xsd"/>
+  <xsd:import namespace="http://www.example.com/stockcheck/innerpackage/mypackage1/mypackage2"
+      schemaLocation="com.example.www.stockcheck.innerpackage.mypackage1.mypackage2.xsd"/>
+  <xsd:complexType id="_Jf4m0PNxEd2xQIQfTfBKXw" name="MyOuterClass">
+    <xsd:complexContent>
+      <xsd:extension base="tns3:MyInnerClass"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType id="_9FDnQBxtEd-b0dsXNTuRTw" name="ClassComposition">
+    <xsd:sequence>
+      <xsd:element id="_-4XX8hxtEd-b0dsXNTuRTw" maxOccurs="1" minOccurs="1" name="myinnerclass"
+          type="tns3:MyInnerClass"/>
+      <xsd:element id="_E-EK4BxuEd-b0dsXNTuRTw" maxOccurs="1" minOccurs="0" name="attribute1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_Ufe9EFHyEd-nd9L7lYe-eg" maxOccurs="1" minOccurs="0" name="attribute2"
+          type="tns1:Class1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

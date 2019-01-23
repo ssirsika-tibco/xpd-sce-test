@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2012 rel. 2 sp1 (x64) (http://www.altova.com) by Joe Humphries (Tibco Software Limited) -->
+<xs:schema xmlns="http://exception.api.wp.n2.tibco.com" xmlns:brmapi="http://api.brm.n2.tibco.com" xmlns:comex="http://exception.api.common.n2.tibco.com" xmlns:dModel="http://datamodel.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://exception.api.wp.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://exception.api.common.n2.tibco.com" schemaLocation="comexception.xsd"/>
+	<xs:import namespace="http://api.brm.n2.tibco.com" schemaLocation="brm.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:element name="InvalidWorkRequest" type="comex:DetailedException"/>
+	<xs:element name="WorkItemUnavailable" type="comex:DetailedException"/>
+	<xs:element name="WorkProcessingFault" type="comex:DetailedException"/>
+	<xs:element name="ChainedTimeOut" type="comex:DetailedException"/>
+	<xs:element name="ChannelUnavailable" type="comex:DetailedException"/>
+	<xs:element name="InternalServiceFault" type="comex:DetailedException"/>
+	<xs:element name="WorkTypeFault" type="comex:DetailedException"/>
+	<xs:element name="BusinessServiceRequestFault" type="comex:DetailedException"/>
+	<xs:element name="DataOutOfSyncFault">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comex:DetailedException">
+					<xs:sequence>
+						<xs:element name="managedObjectId" type="brmapi:ManagedObjectID">
+							<xs:annotation>
+								<xs:documentation>This is the ID of the new Work Item that was generated as the result of the reschedule.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="dataModel" type="dModel:DataModel">
+							<xs:annotation>
+								<xs:documentation>If specified this will be a complete set of all the Work Item data. This will allow a client to decide if user data has been overwritten, and possibly allow a merge of changed data and client local data.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ignoreIncomingData" type="xs:boolean"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/businessobjectmodel" xmlns:tns1="http://example.com/businessobjectmodel"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/businessobjectmodel">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/UC25_DataMapperForCSPCatchCSPAndCatchAll/BOM Folder/BusinessObjectModel.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Class1" id="_OCvDQOs-EeWM9Z8_2MBCaA" name="Class1">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1" id="_Ou7a4Os-EeWM9Z8_2MBCaA" maxOccurs="1"
+          minOccurs="0" name="attribute1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="class2" id="_QwwItOs-EeWM9Z8_2MBCaA" maxOccurs="1"
+          minOccurs="1" name="class2" type="Class2"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Class2" id="_PBcHMOs-EeWM9Z8_2MBCaA" name="Class2">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute2" id="_PZKDoOs-EeWM9Z8_2MBCaA" maxOccurs="1"
+          minOccurs="0" name="attribute2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Class1Element" type="Class1"/>
+  <xsd:element name="Class2Element" type="Class2"/>
+</xsd:schema>

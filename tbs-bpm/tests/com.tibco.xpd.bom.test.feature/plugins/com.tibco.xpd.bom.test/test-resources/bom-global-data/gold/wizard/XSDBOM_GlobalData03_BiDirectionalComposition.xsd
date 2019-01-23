@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/businessobjectmodel3" xmlns:tns1="http://example.com/businessobjectmodel3"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/businessobjectmodel3">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gdfg/Business Objects/XSDBOM_GlobalData03_BiDirectionalComposition.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="_tb3B4HGWEeC5w-_cphi0rw" name="Order">
+    <xsd:sequence>
+      <xsd:element ecore:opposite="order" id="_uSw0tHGWEeC5w-_cphi0rw" maxOccurs="unbounded"
+          minOccurs="0" name="orderlines" type="OrderLine"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_tqcQcHGWEeC5w-_cphi0rw" name="OrderLine">
+    <xsd:sequence>
+      <xsd:element ecore:reference="Order" ecore:opposite="orderlines" id="_uSw0sXGWEeC5w-_cphi0rw"
+          maxOccurs="1" minOccurs="1" name="order" type="xsd:anyURI"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="OrderElement" type="Order"/>
+  <xsd:element name="OrderLineElement" type="OrderLine"/>
+</xsd:schema>

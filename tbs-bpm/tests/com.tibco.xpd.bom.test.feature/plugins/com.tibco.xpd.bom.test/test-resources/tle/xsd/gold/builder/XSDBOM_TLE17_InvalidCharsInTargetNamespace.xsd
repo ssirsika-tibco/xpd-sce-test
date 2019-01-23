@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.tibco.com/xml/DOMM20Cambio20Prodotto20Input" xmlns:tns1="http://www.tibco.com/xml/DOMM20Cambio20Prodotto20Input"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.tibco.com/xml/DOMM20Cambio20Prodotto20Input">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_TLE17_InvalidCharsInTargetNamespace/Business Objects/com.tibco.xml.DOMM._2._0Cambio._2._0Prodotto._2._0Input.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="GenericOutputIOTopElmt" id="com.tibco.xml.DOMM._2._0Cambio._2._0Prodotto._2._0InputGenericOutputIOTopElmt"
+      abstract="false" mixed="false" name="GenericOutputIOTopElmt">
+    <xsd:sequence>
+      <xsd:element ecore:name="genericOutputIO" id="GenericOutputIOTopElmtGenericOutputIO"
+          form="qualified" maxOccurs="1" minOccurs="1" name="GenericOutputIO" type="GenericOutputIO"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GenericOutputIO" id="com.tibco.xml.DOMM._2._0Cambio._2._0Prodotto._2._0InputGenericOutputIO"
+      abstract="false" mixed="false" name="GenericOutputIO">
+    <xsd:sequence>
+      <xsd:element ecore:name="genericOutputIC" id="GenericOutputIOGenericOutputIC"
+          form="qualified" maxOccurs="unbounded" minOccurs="0" name="GenericOutputIC"
+          type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="GenericOutputIO" nillable="false" type="GenericOutputIO"/>
+</xsd:schema>

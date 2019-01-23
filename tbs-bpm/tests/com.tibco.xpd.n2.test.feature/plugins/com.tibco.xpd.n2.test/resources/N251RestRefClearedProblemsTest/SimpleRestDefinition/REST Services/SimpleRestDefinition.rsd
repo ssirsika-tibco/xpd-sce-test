@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<rsd:Service xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsd="http://com.tibco.xpd/rsd" xmi:id="_4IjrYBs-EeWvwe0ulGaN4Q" name="SimpleRestDefinition-Service">
+  <resources xmi:id="_5mzyEBs-EeWvwe0ulGaN4Q" name="Client" pathTemplate="clients/{clientId}">
+    <parameters xmi:id="_ghxCECTHEeWYv9EshzaLCg" name="clientId2" style="PATH" mandatory="true"/>
+    <methods xmi:id="_4dVzIBs_EeWvwe0ulGaN4Q" name="GetClientById">
+      <request xmi:id="_4dVzIRs_EeWvwe0ulGaN4Q"/>
+      <response xmi:id="_4dVzIhs_EeWvwe0ulGaN4Q">
+        <payloadReference xmi:id="_mjn3kCVbEeWYv9EshzaLCg" namespace="http://xpd.tibco.com/jsd/1.0" ref="_-mqh0Bs_EeWvwe0ulGaN4Q" location="Clients.jsd" mediaType="application/json"/>
+      </response>
+    </methods>
+    <methods xmi:id="_ajzhgCVZEeWYv9EshzaLCg" name="Method1">
+      <request xmi:id="_ajzhgSVZEeWYv9EshzaLCg"/>
+      <response xmi:id="_ajzhgiVZEeWYv9EshzaLCg"/>
+    </methods>
+    <methods xmi:id="_dGYL8CVZEeWYv9EshzaLCg" name="Method2" httpMethod="PUT">
+      <request xmi:id="_dGYL8SVZEeWYv9EshzaLCg">
+        <payloadReference xmi:id="_g59yUCVZEeWYv9EshzaLCg" namespace="http://xpd.tibco.com/jsd/1.0" ref="_-mqh0Bs_EeWvwe0ulGaN4Q" location="Clients.jsd" mediaType="application/json"/>
+      </request>
+      <response xmi:id="_dGYL8iVZEeWYv9EshzaLCg"/>
+    </methods>
+    <methods xmi:id="_i9o6QCVZEeWYv9EshzaLCg" name="Method3" httpMethod="DELETE">
+      <request xmi:id="_i9o6QSVZEeWYv9EshzaLCg"/>
+      <faults xmi:id="_pLROQCVmEeWYv9EshzaLCg" name="fault1"/>
+      <faults xmi:id="_pkOg0CVmEeWYv9EshzaLCg" name="fault2"/>
+      <response xmi:id="_i9o6QiVZEeWYv9EshzaLCg"/>
+    </methods>
+  </resources>
+  <resources xmi:id="_EHFS4Bs_EeWvwe0ulGaN4Q" name="Clients" pathTemplate="clients">
+    <methods xmi:id="_IisikBs_EeWvwe0ulGaN4Q" name="AddNewClient" httpMethod="POST">
+      <request xmi:id="_IisikRs_EeWvwe0ulGaN4Q">
+        <parameters xmi:id="_QOBukCVbEeWYv9EshzaLCg" name="param1" dataType="INTEGER">
+          <defaultValue xsi:nil="true"/>
+        </parameters>
+        <payloadReference xmi:id="_XnVfEBtCEeWvwe0ulGaN4Q" namespace="http://xpd.tibco.com/jsd/1.0" ref="_-mqh0Bs_EeWvwe0ulGaN4Q" location="Clients.jsd" mediaType="application/json"/>
+      </request>
+      <faults xmi:id="_UFiysCVbEeWYv9EshzaLCg" name="fault1" statusCode="404"/>
+      <faults xmi:id="_V4W0ICVbEeWYv9EshzaLCg" name="fault2"/>
+      <response xmi:id="_Iisikhs_EeWvwe0ulGaN4Q">
+        <payloadReference xmi:id="_oJxokBtAEeWvwe0ulGaN4Q" namespace="http://xpd.tibco.com/jsd/1.0" ref="_-mqh0Bs_EeWvwe0ulGaN4Q" location="Clients.jsd" mediaType="application/json"/>
+      </response>
+    </methods>
+  </resources>
+</rsd:Service>

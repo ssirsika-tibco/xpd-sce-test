@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://ecorenames" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:element name="TeamMeat">
+		<xs:complexType ecore:name="AAATeamMeatBBB">
+			<xs:sequence>
+				<xs:element name="Edmund" ecore:name="AAAEdmundBBB">
+					<xs:complexType ecore:name="AAAEdmundTypeBBB">
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Tommy" ecore:name="AAATommyBBB">
+					<xs:simpleType ecore:name="CCCTommyDDD">
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="1" ecore:name="AONEB"/>
+							<xs:enumeration value="2" ecore:name="ATWOB"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="BandageGirl" ecore:name="AAABandageGirlBBB">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="123"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SantaCruz" ecore:name="AAASantaCruzBBB">
+		<xs:sequence>
+			<xs:element name="beach" ecore:name="AAAbeachBBB"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+    xmlns="http://example.com/businessobjectmodel" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/businessobjectmodel">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://example.com/businessobjectmodel">
+      <xsd:annotation>
+        <xsd:documentation>BOMORIGIN::/fds/Business Objects/MultipleClassWithOperation.bom</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType id="_8pcjoCmZEd6uG8m8YoWBeg" name="ParentClass">
+        <xsd:sequence>
+          <xsd:element id="_Ky7m1CmaEd6uG8m8YoWBeg" maxOccurs="1" minOccurs="1" name="class2" type="xsd:anySimpleType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType id="_JD7HUCmaEd6uG8m8YoWBeg" name="ChildClass">
+        <xsd:sequence>
+          <xsd:element id="_Ky7m0SmaEd6uG8m8YoWBeg" maxOccurs="1" minOccurs="1" name="class1" type="xsd:anyURI"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewMessage">
+  	<wsdl:part name="NewPart" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ParentClassPortType">
+    <wsdl:operation name="operation1">
+    <wsdl:input name="temp1" message="NewMessage"></wsdl:input>
+     </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ChildClassPortType">
+    <wsdl:operation name="operation2">
+    <wsdl:input name="temp2" message="NewMessage"></wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

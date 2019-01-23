@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_sS3t8F3DEeOrcb3mOJYcAg" xpdExt:DisplayName="XPD4445" Name="XPD4445">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2013-12-05</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>bharge</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_tpAacF3DEeOrcb3mOJYcAg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_sS-boF3DEeOrcb3mOJYcAg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_tpAacV3DEeOrcb3mOJYcAg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_sS-boF3DEeOrcb3mOJYcAg" xpdExt:DisplayName="XPD4445-Process" Name="XPD4445Process">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_9CphIF3HEeOrcb3mOJYcAg" xpdExt:DisplayName="personRef" Name="personRef" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_gO1-kF3HEeOrcb3mOJYcAg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_WjaloF3IEeOrcb3mOJYcAg" xpdExt:DisplayName="personBomType" Name="personBomType">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_gO1-kF3HEeOrcb3mOJYcAg"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ZDcSYF3IEeOrcb3mOJYcAg" xpdExt:DisplayName="custBomType" Name="custBomType">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_hs1mkF3HEeOrcb3mOJYcAg"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qU-PIF3JEeOrcb3mOJYcAg" xpdExt:DisplayName="personRefList" Name="personRefList" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_gO1-kF3HEeOrcb3mOJYcAg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_tKFbEF3JEeOrcb3mOJYcAg" xpdExt:DisplayName="custRefList" Name="custRefList" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_hs1mkF3HEeOrcb3mOJYcAg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_hbOZQF5jEeONV8NVK_HWMA" xpdExt:DisplayName="txtField" Name="txtField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_LJ0IUGC2EeOKUO2BHcGZow" xpdExt:DisplayName="custRef" Name="custRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_hs1mkF3HEeOrcb3mOJYcAg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_npd_0GC2EeOKUO2BHcGZow" xpdExt:DisplayName="personBomTypeList" Name="personBomTypeList" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_gO1-kF3HEeOrcb3mOJYcAg"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qQGD0GC2EeOKUO2BHcGZow" xpdExt:DisplayName="custBomTypeList" Name="custBomTypeList" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_hs1mkF3HEeOrcb3mOJYcAg"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_McyjIGi5EeOa1PbnEKfiDQ" xpdExt:DisplayName="baseOrderRef" Name="baseOrderRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_26mu8GgGEeO_oaMsYMWhsg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Pr7_sGi5EeOa1PbnEKfiDQ" xpdExt:DisplayName="orderBomType" Name="orderBomType">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_pEON8GgGEeO_oaMsYMWhsg"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ArzL4Gi6EeOa1PbnEKfiDQ" xpdExt:DisplayName="orderRef" Name="orderRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_pEON8GgGEeO_oaMsYMWhsg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_UoBCsGi6EeOa1PbnEKfiDQ" xpdExt:DisplayName="carRefList" Name="carRefList" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="BDFor4445.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_DkkF8GGtEeO06OGeqzAf8A"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_tpAacl3DEeOrcb3mOJYcAg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="52.0" LaneId="_tpAacV3DEeOrcb3mOJYcAg" Width="73.0">
+              <xpdl2:Coordinates XCoordinate="36.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tpAac13DEeOrcb3mOJYcAg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="52.0" LaneId="_tpAacV3DEeOrcb3mOJYcAg" Width="67.0">
+              <xpdl2:Coordinates XCoordinate="1097.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_EO-k8F3IEeOrcb3mOJYcAg" Name="OtherMiscellaneous" xpdExt:Visibility="Private" xpdExt:DisplayName="Other Miscellaneous">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">var vCust = com_example_bdfor4445_Factory.createCustomer();&#xD;
+var vCustRef = cac_com_example_bdfor4445_Customer.create(vCust);&#xD;
+var str = &quot;sdf&quot;;&#xD;
+personRef = cac_com_example_bdfor4445_Person.create(personBomType);&#xD;
+&#xD;
+var addr = com_example_bdfor4445_Factory.createAddress();&#xD;
+&#xD;
+//this is allowed&#xD;
+personRef = vCustRef;&#xD;
+//this is allowed&#xD;
+personRefList.add(vCustRef) ;&#xD;
+personRefList.add(txtField);&#xD;
+personRefList.add(str);&#xD;
+personRefList.add(addr);&#xD;
+&#xD;
+//earlier shows warning. now must show error for case ref types&#xD;
+vCustRef = personRef;&#xD;
+// earlier this was allowed. now must show error for case refs&#xD;
+custRefList.add(personRef);&#xD;
+// this should be ok? - for now this ok - joshy to confirm&#xD;
+personRefList = cac_com_example_bdfor4445_Customer.find(vCust);&#xD;
+personRefList.get(0).readPerson().personName;&#xD;
+&#xD;
+//currently shows warning. should it error? - should be error&#xD;
+custRefList = cac_com_example_bdfor4445_Person.find(personBomType);&#xD;
+&#xD;
+//shows error on this currently. but this should be allowed!&#xD;
+personRefList = cac_com_example_bdfor4445_Person.find(vCust);&#xD;
+//shows error on all the two below. and this is right i think!&#xD;
+personRefList = cac_com_example_bdfor4445_Customer.find(personBomType);&#xD;
+custRefList = cac_com_example_bdfor4445_Customer.find(personBomType);&#xD;
+&#xD;
+var pagelist = cac_com_example_bdfor4445_Person.find(vCust,1,4);&#xD;
+&#xD;
+custRefList.add(personRef); &#xD;
+personRefList.add(personRef);&#xD;
+personRefList.add(custRef);&#xD;
+&#xD;
+var vcustRef = cac_com_example_bdfor4445_Customer.create(custBomType);&#xD;
+personRefList.add(vcustRef);&#xD;
+&#xD;
+var vpersbom = com_example_bdfor4445_Factory.createPerson();&#xD;
+var vpersref = cac_com_example_bdfor4445_Person.create(vpersbom);&#xD;
+custRefList.add(vpersref);&#xD;
+personRefList.add(vpersref);&#xD;
+&#xD;
+personRef = cac_com_example_bdfor4445_Person.create(custBomType);&#xD;
+custRef = cac_com_example_bdfor4445_Customer.create(vpersbom);&#xD;
+custRef = cac_com_example_bdfor4445_Customer.create(personBomType);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_tpAacV3DEeOrcb3mOJYcAg" Width="151.0">
+              <xpdl2:Coordinates XCoordinate="956.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_RPq-MGC0EeOKUO2BHcGZow" Name="CAC_And_List_SubSuperValid" xpdExt:Visibility="Private" xpdExt:DisplayName="CAC_And_List_Sub-Super-Valid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">custBomType = com_example_bdfor4445_Factory.createCustomer();&#xD;
+personBomType = com_example_bdfor4445_Factory.createPerson();&#xD;
+/* creating person ref passing the sub type customer */&#xD;
+personRef = cac_com_example_bdfor4445_Person.create(custBomType);&#xD;
+/* adding sub type customer to person bom type list */&#xD;
+personBomTypeList.add(personBomType);&#xD;
+personBomTypeList.add(custBomType);&#xD;
+/* creating person ref list passing person bom type list that has customer */&#xD;
+personRefList = cac_com_example_bdfor4445_Person.create(personBomTypeList);&#xD;
+personRefList.addAll(cac_com_example_bdfor4445_Person.create(personBomTypeList));&#xD;
+/* creating person ref list passing cust bom type list */&#xD;
+custBomTypeList.add(custBomType);&#xD;
+personRefList.clear();&#xD;
+personRefList.addAll(cac_com_example_bdfor4445_Person.create(custBomTypeList));&#xD;
+personRefList = cac_com_example_bdfor4445_Person.create(custBomTypeList);&#xD;
+/* using sub type customer cac to create customer and assign to person */&#xD;
+personRef = cac_com_example_bdfor4445_Customer.create(custBomType);&#xD;
+personRefList = cac_com_example_bdfor4445_Customer.create(custBomTypeList);&#xD;
+/* normal way */&#xD;
+personBomTypeList = cac_com_example_bdfor4445_Person.read(personRefList);&#xD;
+/* read cust ref list into person bom type list */&#xD;
+personBomTypeList = cac_com_example_bdfor4445_Person.read(custRefList);&#xD;
+personBomTypeList = cac_com_example_bdfor4445_Customer.read(custRefList);&#xD;
+/* find - super cac taking sub bom type into super ref list */&#xD;
+personRefList = cac_com_example_bdfor4445_Person.find(custBomType);&#xD;
+personRefList = cac_com_example_bdfor4445_Person.find(custBomType,1,3);&#xD;
+/* find - sub cac taking sub bom type into super ref list*/&#xD;
+personRefList = cac_com_example_bdfor4445_Customer.find(custBomType);&#xD;
+/* update - using cac_super passing sub types with result into super ref list */&#xD;
+personRefList = cac_com_example_bdfor4445_Person.update(custRefList,custBomTypeList);&#xD;
+/* update - using cac_sub passing sub types with result into super ref list */&#xD;
+personRefList = cac_com_example_bdfor4445_Customer.update(custRefList,custBomTypeList);&#xD;
+/* delete - cac super taking sub ref list */&#xD;
+cac_com_example_bdfor4445_Person.deleteRefs(custRefList);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="78.0" LaneId="_tpAacV3DEeOrcb3mOJYcAg" Width="139.0">
+              <xpdl2:Coordinates XCoordinate="189.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UxgtQGC0EeOKUO2BHcGZow" Name="CAC_And_List_SuperSubInvalid" xpdExt:Visibility="Private" xpdExt:DisplayName="CAC_And_List_Super-Sub-Invalid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">custBomType = com_example_bdfor4445_Factory.createCustomer();&#xD;
+personBomType = com_example_bdfor4445_Factory.createPerson();&#xD;
+/* create super cac with super type into sub ref */&#xD;
+custRef = cac_com_example_bdfor4445_Person.create(personBomType);&#xD;
+/* create super cac with sub type into sub ref */&#xD;
+custRef = cac_com_example_bdfor4445_Person.create(custBomType);&#xD;
+/* create cac sub with super bom type into sub ref*/&#xD;
+custRef = cac_com_example_bdfor4445_Customer.create(personBomType);&#xD;
+/* add super bom type to sub bom type list - this is valid */&#xD;
+custBomTypeList.add(personBomType);&#xD;
+/* add super ref list to sub ref list */&#xD;
+custRefList.addAll(personRefList);&#xD;
+custRefList.add(personRef);&#xD;
+custRefList.add(baseOrderRef);&#xD;
+/* create super cac super bom type list into sub ref list */&#xD;
+custRefList.addAll(cac_com_example_bdfor4445_Person.create(personBomTypeList));&#xD;
+/* create super cac sub bom type list into sub ref list */&#xD;
+custRefList.addAll(cac_com_example_bdfor4445_Person.create(custBomTypeList));&#xD;
+/* create cac sub with super bom type list into sub ref list */&#xD;
+custRefList = cac_com_example_bdfor4445_Customer.create(personBomTypeList);&#xD;
+/* read cac sub with super ref list into sub bom type list */&#xD;
+custBomTypeList = cac_com_example_bdfor4445_Customer.read(personRefList);&#xD;
+/* read - warning because it is a bom type - cac super with super ref list into sub bom type list */&#xD;
+custBomTypeList = cac_com_example_bdfor4445_Person.read(personRefList);&#xD;
+/* find cac sub with super bom type into sub ref list */&#xD;
+custRefList = cac_com_example_bdfor4445_Customer.find(personBomType);&#xD;
+/* find cac super with sub bom type into sub ref list */&#xD;
+custRefList = cac_com_example_bdfor4445_Person.find(custBomType);&#xD;
+/* find cac super with super bom type into sub ref list */&#xD;
+custRefList = cac_com_example_bdfor4445_Person.find(personBomType,1,3);&#xD;
+/* update - cac sub with super types into sub ref list */&#xD;
+custRefList = cac_com_example_bdfor4445_Customer.update(personRefList,personBomType);&#xD;
+/* update - cac super with super types into sub ref list */&#xD;
+custRefList = cac_com_example_bdfor4445_Person.update(personRefList,personBomType);&#xD;
+/* update - cac super with sub types into sub ref list */&#xD;
+custRefList = cac_com_example_bdfor4445_Person.update(custRefList,custBomTypeList);&#xD;
+/* delete - cac sub with super ref list */&#xD;
+cac_com_example_bdfor4445_Customer.deleteRefs(personRefList);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_tpAacV3DEeOrcb3mOJYcAg" Width="143.0">
+              <xpdl2:Coordinates XCoordinate="378.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_8ovbkGi4EeOa1PbnEKfiDQ" Name="CaseRef_SubSuperValid" xpdExt:Visibility="Private" xpdExt:DisplayName="CaseRef_Sub-Super-Valid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">personRef = personRef.updatePerson(custBomType);&#xD;
+baseOrderRef = baseOrderRef.updateBaseOrder(orderBomType);&#xD;
+orderRef = orderRef.updateOrder(orderBomType);&#xD;
+baseOrderRef = orderRef.updateOrder(orderBomType);&#xD;
+&#xD;
+custRef.linkOrder(orderRef);&#xD;
+orderRef.linkCustomer(custBomType);&#xD;
+carRefList.get(0).linkPerson(personRef);&#xD;
+carRefList.get(0).linkPerson(custRef);&#xD;
+&#xD;
+custRef.unlinkOrder(orderRef);&#xD;
+orderRef.unlinkCustomer(custRef);&#xD;
+carRefList.get(0).unlinkPerson(custRef);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="79.0" LaneId="_tpAacV3DEeOrcb3mOJYcAg" Width="134.0">
+              <xpdl2:Coordinates XCoordinate="575.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_mrpcsGi5EeOa1PbnEKfiDQ" Name="CaseRef_SuperSubInvalid" xpdExt:Visibility="Private" xpdExt:DisplayName="CaseRef_Super-Sub-Invalid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">custRef.linkOrder(baseOrderRef);&#xD;
+orderRef.linkCustomer(personRef);&#xD;
+&#xD;
+custRef.unlinkOrder(baseOrderRef);&#xD;
+orderRef.unlinkCustomer(personRef);&#xD;
+&#xD;
+orderRef = orderRef.updateOrder(baseOrderBomType);&#xD;
+orderRef = baseOrderRef.updateBaseOrder(orderBomType);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="79.0" LaneId="_tpAacV3DEeOrcb3mOJYcAg" Width="131.0">
+              <xpdl2:Coordinates XCoordinate="762.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_EO_MAF3IEeOrcb3mOJYcAg" xpdExt:DisplayName="" Name="" From="_mrpcsGi5EeOa1PbnEKfiDQ" To="_EO-k8F3IEeOrcb3mOJYcAg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_RPsMUGC0EeOKUO2BHcGZow" xpdExt:DisplayName="" Name="" From="_tpAacl3DEeOrcb3mOJYcAg" To="_RPq-MGC0EeOKUO2BHcGZow">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Uxh7YGC0EeOKUO2BHcGZow" xpdExt:DisplayName="" Name="" From="_RPq-MGC0EeOKUO2BHcGZow" To="_UxgtQGC0EeOKUO2BHcGZow">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_gXDpgGgGEeO_oaMsYMWhsg" xpdExt:DisplayName="" Name="" From="_EO-k8F3IEeOrcb3mOJYcAg" To="_tpAac13DEeOrcb3mOJYcAg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_8owpsGi4EeOa1PbnEKfiDQ" xpdExt:DisplayName="" Name="" From="_UxgtQGC0EeOKUO2BHcGZow" To="_8ovbkGi4EeOa1PbnEKfiDQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_mrrR4Gi5EeOa1PbnEKfiDQ" xpdExt:DisplayName="" Name="" From="_8ovbkGi4EeOa1PbnEKfiDQ" To="_mrpcsGi5EeOa1PbnEKfiDQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="16"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

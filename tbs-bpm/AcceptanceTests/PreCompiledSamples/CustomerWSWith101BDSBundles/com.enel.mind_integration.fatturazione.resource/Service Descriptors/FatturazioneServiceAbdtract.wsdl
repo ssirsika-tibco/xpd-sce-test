@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://com.enel.mind.integration.fatturazione" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MutiIntegrationFatturazioneAbstract" targetNamespace="http://com.enel.mind.integration.fatturazione" tibex:src="file:/C:/Users/egiusro/Desktop/AMX-ALLACCIO/FatturazioneAbdtract.wsdl">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://com.enel.mind.integration.fatturazione">
+	
+	
+	<xsd:element name="AvvioRateizzoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BEstrconto" type="tns:char13" minOccurs="0"/>
+				<xsd:element name="Bp" type="tns:char10" minOccurs="0"/>
+				<xsd:element name="Causale" type="tns:char30" minOccurs="0"/>
+				<xsd:element name="CodFinanziaria" type="tns:char4" minOccurs="0"/>
+				<xsd:element name="ContoContrattuale" type="tns:char12" minOccurs="0"/>
+				<xsd:element name="DataScadenza" type="tns:char10" minOccurs="0"/>
+				<xsd:element name="DataStipula" type="tns:char10" minOccurs="0"/>
+				<xsd:element name="FRate" type="tns:char2" minOccurs="0"/>
+				<xsd:element name="IdBpm" type="tns:char15" minOccurs="0"/>
+				<xsd:element name="IdPratica" type="tns:char15" minOccurs="0"/>
+				<xsd:element name="IdRequest" type="tns:char15" minOccurs="0"/>
+				<xsd:element name="ImpoAttivazione" type="tns:char13" minOccurs="0"/>
+				<xsd:element name="ImpoFinanziamento" type="tns:char13" minOccurs="0"/>
+				<xsd:element name="ImpoInteressi" type="tns:char13" minOccurs="0"/>
+				<xsd:element name="ImpoIntsingrata" type="tns:char13" minOccurs="0"/>
+				<xsd:element name="ImpoScoint" type="tns:char13" minOccurs="0"/>
+				<xsd:element name="ImpoSingrata" type="tns:char13" minOccurs="0"/>
+				<xsd:element name="NRate" type="tns:char3" minOccurs="0"/>
+				<xsd:element name="OrdineSd" type="tns:char10" minOccurs="0"/>
+				<xsd:element name="SpeseAnn" type="tns:char13" minOccurs="0"/>
+				<xsd:element name="TipoOperazione" type="tns:char30" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AvvioRateizzoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Codice" type="tns:char10" minOccurs="0"/>
+				<xsd:element name="Descrizione" type="tns:char255" minOccurs="0"/>
+				<xsd:element name="Esito" type="tns:char2" minOccurs="0"/>
+				<xsd:element name="SistemaSorgente" type="tns:char4" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:simpleType name="char10">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char12">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char13">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="13"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char15">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char2">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char220">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="220"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char3">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char30">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char4">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="numeric3">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="char255">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	
+ <xsd:element name="AddebitoAccreditoRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Richiesta" type="tns:RichiestaType"/>
+			
+			<xsd:element minOccurs="0" name="FatturazioneCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="PreventivoCommercialeCDM" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="DatiProcessiOutCdmSDM" type="xsd:string">
+          	</xsd:element>
+			
+			<xsd:element minOccurs="1" name="DelayedReleaseId" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="FatturaCDM" type="xsd:string">
+          	</xsd:element>
+
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddebitoAccreditoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+
+
+      <xsd:element name="GestioneRidRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+			
+			<xsd:element minOccurs="0" name="NumeroUtente" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="StatoDomiciliazioneBanca" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CodicePaese" type="xsd:string">
+          	</xsd:element>
+			
+			<xsd:element minOccurs="0" name="Cin" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CheckDigit" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="NumeroContoBancario" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="ChiaveBanca" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="BusinessPartner" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="ContoContrattuale" type="xsd:string">
+          	</xsd:element>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GestioneRidResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+
+      <xsd:element name="FattElettrPARequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          
+			
+			<xsd:element minOccurs="0" name="IdRichiesta" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="TipoOperazione" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="Causale" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_CLIENTE" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_IDISUFATT" type="xsd:string">
+          	</xsd:element>
+
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="FattElettrPAResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+
+
+      <xsd:element name="InvioScontiBonusRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+			<xsd:element minOccurs="0" name="IdRichiesta" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="Pod" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="NumeroUtente" type="xsd:string">
+          	</xsd:element>	
+          	
+			
+			<xsd:element minOccurs="0" name="CDM_Richiesta" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_IdFatturazione" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_Sconti" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_Bonus" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="TerminaPerfezionamento" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IndiceSconto" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IndiceBonus" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CausaleDinamica" type="xsd:string">
+          	</xsd:element>
+
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InvioScontiBonusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="esito" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="1" name="codiceEsito" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="1" name="descrizione" type="xsd:string">
+			</xsd:element>
+			
+			<xsd:element minOccurs="0" name="SistemaSorgente" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IdBpm" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_Sconti" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_Bonus" type="xsd:string">
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+	  
+	  
+      <xsd:element name="InvioIndicizzazioniRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+			<xsd:element minOccurs="0" name="IdRichiesta" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="Pod" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="NumeroUtente" type="xsd:string">
+          	</xsd:element>	
+          	
+			
+			<xsd:element minOccurs="0" name="CDM_Richiesta" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_IdFatturazione" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CDM_Indicizzazioni" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IndiceElemento" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="TerminaPerfezionamento" type="xsd:string">
+          	</xsd:element>
+
+
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InvioIndicizzazioniResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	          	<xsd:element minOccurs="1" name="esito" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="1" name="codiceEsito" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="1" name="descrizione" type="xsd:string">
+			</xsd:element>
+			
+			<xsd:element minOccurs="0" name="SistemaSorgente" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IdBpm" type="xsd:string">
+          	</xsd:element>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>	  
+
+
+
+      <xsd:element name="AttivazioneRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+			<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+				<xsd:element minOccurs="0" name="cliente" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IdFatturazione" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="ContoCorrente" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="Prodotto" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="fornitura" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="DatiFatturazione" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="canaleDiStampa">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="1"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="rowIdListino">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="15"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="dataFineValiditaListino" type="xsd:date"/>
+				<xsd:element minOccurs="0" name="NumeroListino">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="10"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="codiceCatastale">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="4"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="codiceIstat">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="6"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="codiceImposte">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="10"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="dataAttivazioneTrasporto">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string"/>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="motivoDepositoCauzionale">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string"/>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="importoDepositoCauzionale">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string"/>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="caratteristicaDeterminazioneConti">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string"/>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="businessArea">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string"/>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="canaleDiVendita">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string"/>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="tipoContrattoCommerciale">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="2"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="tipoRicontrattualizzazione">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string"/>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="dataDichiarazione" type="xsd:date"/>
+				<xsd:element minOccurs="0" name="numeroDichiarazione">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="10"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="flagBasilicata" type="xsd:boolean"/>
+				<xsd:element minOccurs="0" name="flagCondominio" type="xsd:boolean"/>
+				<xsd:element minOccurs="0" name="volumeDiRiferimento">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:integer">
+							<xsd:totalDigits value="13"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="tipologiaGas">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="30"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="DelayedReleaseID" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="DataAttivazione" type="xsd:date"/>
+				<xsd:element minOccurs="0" name="ContoCorrenteCDM" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IndirizzoSedeLegaleCDM" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="DatiOutCdmSDM" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="AttivazioneReq_XML" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NomeInFattura" type="xsd:string"/>
+
+
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AttivazioneResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="BollettaWebRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+			
+			<xsd:element minOccurs="0" name="identificativi" type="tns:IdFatturazione">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="canaleStampa" type="xsd:string">
+          	</xsd:element>
+
+
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BollettaWebResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="CessazioneRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+			
+			<xsd:element minOccurs="0" name="IdFatturazione" type="tns:IdFatturazione">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="FlagModificaIndirizzoFatturazione" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="DataCessazione" type="xsd:date">
+          	</xsd:element>				
+			
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CessazioneResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+			<xsd:element minOccurs="0" name="IdFatturazione" type="tns:IdFatturazione">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="flag_bonifica" type="xsd:string"/>
+			
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  
+	  
+	  
+	  
+      <xsd:element name="InvioFlussoVasRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="IdBpm" type="xsd:string"/>
+			
+			<xsd:element minOccurs="0" name="VasMemo" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IdFatturazioneMemo" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="TipoOperazione" type="xsd:string">
+          	</xsd:element>				
+			<xsd:element minOccurs="0" name="Causale" type="xsd:string">
+          	</xsd:element>				
+			<xsd:element minOccurs="0" name="CdmFattura" type="xsd:string">
+          	</xsd:element>	
+			<xsd:element minOccurs="0" name="ImportoTotale" type="xsd:string">
+          	</xsd:element>				
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InvioFlussoVasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+			<xsd:element minOccurs="0" name="IdBpm" type="xsd:string">
+          	</xsd:element>
+			
+			
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>	  
+
+	  
+      <xsd:complexType name="RichiestaType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="sistemaRichiedente" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="canale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="idRichiesta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="tipoOperazione" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="causale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="idProcessoBpm" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="commodity" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagDelibera40" type="xsd:boolean"/>
+      		<xsd:element minOccurs="0" name="Ip" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Profilo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Matricola" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="DataRichiesta" type="xsd:date"/>
+      		<xsd:element minOccurs="0" name="IdMuti" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDms" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDmsReclamo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2d" type="tns:IdentificativiR2dType">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="dataDecorrenza" type="xsd:date"/>
+      		<xsd:element minOccurs="0" name="tipoRichiesta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagComplesso" type="xsd:boolean"/>
+      		<xsd:element minOccurs="0" name="flagPreventivo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagDocumentazione" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="idCRM" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoServizio" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoOrdine" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoFiCa" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoISU" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoR2D" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoSempre" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoUDB" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2R" type="tns:IdentificativiR2rType">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="IdAttivitaCrm" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+  
+
+      <xsd:complexType name="IdFatturazione">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="businessPartner" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="contoContrattuale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="contrattoSap" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="businessPartnerEsterno" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="descrizioneContoContrattuale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="cartatteristicaDeterminazioneConti" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="contrattoCRM" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="contrattoSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="contoContrattualeSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="businessPartnerSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="NumeroProgressivo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="CodiceSocieta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="TipoPratica" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+  
+      <xsd:complexType name="IdentificativiR2dType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="IdDistr" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDistr2" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2d" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="IdentificativiR2rType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="IdR2R" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="EsitoType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="esito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="codiceEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="descrizione" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="tipoEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="1" name="sistemaSorgenteEsito" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AttivazioneVas">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="IdBpm" type="xsd:string"></xsd:element>
+      			<xsd:element name="VasMemo" type="xsd:string"></xsd:element>
+      			<xsd:element name="IdFatturazioneMemo"
+      				type="xsd:string">
+      			</xsd:element>
+      			<xsd:element name="TipoOperazione"
+      				type="xsd:string">
+      			</xsd:element>
+      			<xsd:element name="Causale" type="xsd:string"></xsd:element>
+      			<xsd:element name="FatturaCDM" type="xsd:string"></xsd:element>
+      			<xsd:element name="TotaleImporto" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AttivazioneVasResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="Esito" type="tns:EsitoType" minOccurs="1" maxOccurs="1"></xsd:element>
+      			<xsd:element name="IdBpm" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+
+  <wsdl:message name="AvvioRateizzoRequest">
+    <wsdl:part element="tns:AvvioRateizzoRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="AvvioRateizzoResponse">
+    <wsdl:part element="tns:AvvioRateizzoResponse" name="response"/>
+  </wsdl:message>
+  
+  <wsdl:message name="GestioneRidRequest">
+    <wsdl:part element="tns:GestioneRidRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="GestioneRidResponse">
+    <wsdl:part element="tns:GestioneRidResponse" name="response"/>
+  </wsdl:message>
+  
+  <wsdl:message name="AddebitoAccreditoRequest">
+    <wsdl:part element="tns:AddebitoAccreditoRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="AddebitoAccreditoResponse">
+    <wsdl:part element="tns:AddebitoAccreditoResponse" name="response"/>
+  </wsdl:message>
+
+  <wsdl:message name="FattElettrPARequest">
+    <wsdl:part element="tns:FattElettrPARequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="FattElettrPAResponse">
+    <wsdl:part element="tns:FattElettrPAResponse" name="response"/>
+  </wsdl:message>
+
+  <wsdl:message name="InvioScontiBonusRequest">
+    <wsdl:part element="tns:InvioScontiBonusRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="InvioScontiBonusResponse">
+    <wsdl:part element="tns:InvioScontiBonusResponse" name="response"/>
+  </wsdl:message>
+  
+   <wsdl:message name="InvioIndicizzazioniRequest">
+    <wsdl:part element="tns:InvioIndicizzazioniRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="InvioIndicizzazioniResponse">
+    <wsdl:part element="tns:InvioIndicizzazioniResponse" name="response"/>
+  </wsdl:message> 
+ 
+   <wsdl:message name="AttivazioneRequest">
+    <wsdl:part element="tns:AttivazioneRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="AttivazioneResponse">
+    <wsdl:part element="tns:AttivazioneResponse" name="response"/>
+  </wsdl:message>  
+
+  <wsdl:message name="BollettaWebRequest">
+    <wsdl:part element="tns:BollettaWebRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="BollettaWebResponse">
+    <wsdl:part element="tns:BollettaWebResponse" name="response"/>
+  </wsdl:message>
+
+    <wsdl:message name="CessazioneRequest">
+    <wsdl:part element="tns:CessazioneRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="CessazioneResponse">
+    <wsdl:part element="tns:CessazioneResponse" name="response"/>
+  </wsdl:message>
+  
+  <wsdl:message name="InvioFlussoVasRequest">
+    <wsdl:part element="tns:InvioFlussoVasRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="InvioFlussoVasResponse">
+    <wsdl:part element="tns:InvioFlussoVasResponse" name="response"/>
+  </wsdl:message>
+  
+
+  <wsdl:message name="AttivazioneVasRequest">
+  	<wsdl:part name="parameters" element="tns:AttivazioneVas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AttivazioneVasResponse">
+  	<wsdl:part name="parameters" element="tns:AttivazioneVasResponse"></wsdl:part>
+  </wsdl:message>
+  
+  
+  <wsdl:portType name="MutiIntegrationFatturazioneAbstract">
+  
+	<wsdl:operation name="AvvioRateizzo">
+      <wsdl:input message="tns:AvvioRateizzoRequest"/>
+      <wsdl:output message="tns:AvvioRateizzoResponse"/>
+    </wsdl:operation>
+	
+	<wsdl:operation name="GestioneRid">
+      <wsdl:input message="tns:GestioneRidRequest"/>
+      <wsdl:output message="tns:GestioneRidResponse"/>
+    </wsdl:operation>
+	
+	<wsdl:operation name="AddebitoAccredito">
+      <wsdl:input message="tns:AddebitoAccreditoRequest"/>
+      <wsdl:output message="tns:AddebitoAccreditoResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="FattElettrPA">
+      <wsdl:input message="tns:FattElettrPARequest"/>
+      <wsdl:output message="tns:FattElettrPAResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="InvioScontiBonus">
+      <wsdl:input message="tns:InvioScontiBonusRequest"/>
+      <wsdl:output message="tns:InvioScontiBonusResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="InvioIndicizzazioni">
+      <wsdl:input message="tns:InvioIndicizzazioniRequest"/>
+      <wsdl:output message="tns:InvioIndicizzazioniResponse"/>
+    </wsdl:operation>	
+	
+	    <wsdl:operation name="Attivazione">
+      <wsdl:input message="tns:AttivazioneRequest"/>
+      <wsdl:output message="tns:AttivazioneResponse"/>
+    </wsdl:operation>
+	
+	<wsdl:operation name="BollettaWeb">
+      <wsdl:input message="tns:BollettaWebRequest"/>
+      <wsdl:output message="tns:BollettaWebResponse"/>
+    </wsdl:operation>
+	
+	<wsdl:operation name="Cessazione">
+      <wsdl:input message="tns:CessazioneRequest"/>
+      <wsdl:output message="tns:CessazioneResponse"/>
+    </wsdl:operation>
+	
+	<wsdl:operation name="InvioFlussoVas">
+      <wsdl:input message="tns:InvioFlussoVasRequest"/>
+      <wsdl:output message="tns:InvioFlussoVasResponse"/>
+    </wsdl:operation>	
+	
+	<wsdl:operation name="AttivazioneVas">
+		<wsdl:input message="tns:AttivazioneVasRequest"></wsdl:input>
+		<wsdl:output message="tns:AttivazioneVasResponse"></wsdl:output>
+	</wsdl:operation>
+  </wsdl:portType>
+
+
+</wsdl:definitions>

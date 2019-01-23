@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.resources.workingCopyDependencyProvider">
+      <dependency
+            provider="com.tibco.xpd.implementer.script.Xpdl2WsdlDependencyProvider">
+      </dependency>
+   </extension>
+   <extension
+         point="com.tibco.xpd.analyst.resources.xpdl2.processPreCommitCommandContributor">
+      <ProcessPreCommitCommandContributor
+            class="com.tibco.xpd.implementer.script.precommit.AddNamespacePrefixMapPreCommitContributor">
+      </ProcessPreCommitCommandContributor>
+   </extension>
+
+</plugin>

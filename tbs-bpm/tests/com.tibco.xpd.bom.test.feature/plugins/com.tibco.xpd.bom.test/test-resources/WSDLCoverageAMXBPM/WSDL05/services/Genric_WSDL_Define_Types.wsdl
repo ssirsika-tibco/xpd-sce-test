@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.amsbqa.com/Linda05/WSDLDefineTypes/WSDL" targetNamespace="http://www.amsbqa.com/Linda05/WSDLDefineTypes/WSDL">
+    <types/>
+    <!-- Input output Messages for operations -->
+    <message name="string">
+        <part name="teststring" type="xsd:string"/>
+    </message>
+    <message name="normalizedString">
+        <part name="testnormalizedString" type="xsd:normalizedString"/>
+    </message>
+    <message name="token">
+        <part name="testtoken" type="xsd:token"/>
+    </message>
+    <message name="language">
+        <part name="testlanguage" type="xsd:language"/>
+    </message>
+    <message name="Name">
+        <part name="testName" type="xsd:Name"/>
+    </message>
+    <message name="NCName">
+        <part name="testNCName" type="xsd:NCName"/>
+    </message>
+    <message name="QName">
+        <part name="testQName" type="xsd:QName"/>
+    </message>
+    <message name="NMToken">
+        <part name="testNMToken" type="xsd:NMTOKEN"/>
+    </message>
+    <message name="NMTokens">
+        <part name="testpart1" type="xsd:NMTOKENS"/>
+    </message>
+    <message name="ID">
+        <part name="testID" type="xsd:ID"/>
+    </message>
+    <message name="IDREF">
+        <part name="testIDREF" type="xsd:IDREF"/>
+    </message>
+    <message name="IDREFS">
+        <part name="testIDREFS" type="xsd:IDREFS"/>
+    </message>
+    <message name="ENTITY">
+        <part name="testENTITY" type="xsd:ENTITY"/>
+    </message>
+    <message name="ENTITIES">
+        <part name="testENTITIES" type="xsd:ENTITIES"/>
+    </message>
+    <message name="Byte">
+        <part name="testByte" type="xsd:byte"/>
+    </message>
+    <message name="Short">
+        <part name="testShort" type="xsd:short"/>
+    </message>
+    <message name="Int">
+        <part name="testInt" type="xsd:int"/>
+    </message>
+    <message name="Long">
+        <part name="testLong" type="xsd:long"/>
+    </message>
+    <message name="UnSignedByte">
+        <part name="testUnSignedByte" type="xsd:unsignedByte"/>
+    </message>
+    <message name="UnSignedShort">
+        <part name="testUnSignedShort" type="xsd:unsignedShort"/>
+    </message>
+    <message name="UnSignedInt">
+        <part name="UnSignedInt" type="xsd:unsignedInt"/>
+    </message>
+    <message name="UnSignedLong">
+        <part name="testUnSignedLong" type="xsd:unsignedLong"/>
+    </message>
+    <message name="Integer">
+        <part name="testInteger" type="xsd:integer"/>
+    </message>
+    <message name="PositiveInteger">
+        <part name="testPositiveInteger" type="xsd:positiveInteger"/>
+    </message>
+    <message name="NegativeInteger">
+        <part name="testNegativeInteger" type="xsd:negativeInteger"/>
+    </message>
+    <message name="nonPositiveInteger">
+        <part name="testnonPositiveInteger" type="xsd:nonPositiveInteger"/>
+    </message>
+    <message name="nonNegativeInteger">
+        <part name="testnonNegativeInteger" type="xsd:nonNegativeInteger"/>
+    </message>
+    <message name="float">
+        <part name="testfloat" type="xsd:float"/>
+    </message>
+    <message name="double">
+        <part name="testdouble" type="xsd:double"/>
+    </message>
+    <message name="decimal">
+        <part name="testdecimal" type="xsd:decimal"/>
+    </message>
+    <message name="boolean">
+        <part name="testboolean" type="xsd:boolean"/>
+    </message>
+    <message name="time">
+        <part name="testtime" type="xsd:time"/>
+    </message>
+    <message name="date">
+        <part name="testdate" type="xsd:date"/>
+    </message>
+    <message name="dateTime">
+        <part name="testdateTime" type="xsd:dateTime"/>
+    </message>
+    <message name="duration">
+        <part name="testduration" type="xsd:duration"/>
+    </message>
+    <message name="day">
+        <part name="testday" type="xsd:gDay"/>
+    </message>
+    <message name="month">
+        <part name="testmonth" type="xsd:gMonth"/>
+    </message>
+    <message name="year">
+        <part name="testyear" type="xsd:gYear"/>
+    </message>
+    <message name="yearMonth">
+        <part name="testyearMonth" type="xsd:gYearMonth"/>
+    </message>
+    <message name="monthDay">
+        <part name="testmonthDay" type="xsd:gMonthDay"/>
+    </message>
+    <message name="base64">
+        <part name="testbase64" type="xsd:base64Binary"/>
+    </message>
+    <message name="hexBinary">
+        <part name="testhexBinary" type="xsd:hexBinary"/>
+    </message>
+    <message name="anyURI">
+        <part name="testanyURI" type="xsd:anyURI"/>
+    </message>
+    <portType name="StringGenerics">
+        <operation name="opeRstring">
+            <input message="tns:string" name="inMessageSG1"/>
+            <output message="tns:string" name="OutMessageSG1"/>
+        </operation>
+        <operation name="opeRnormalizedString">
+            <input message="tns:normalizedString" name="inMessageSG2"/>
+            <output message="tns:normalizedString" name="OutMessageSG2"/>
+        </operation>
+        <operation name="opeRtoken">
+            <input message="tns:token" name="inMessageSG3"/>
+            <output message="tns:token" name="OutMessageSG3"/>
+        </operation>
+        <operation name="opeRlanguage">
+            <input message="tns:language" name="inMessageSG4"/>
+            <output message="tns:language" name="OutMessageSG4"/>
+        </operation>
+        <operation name="opeRName">
+            <input message="tns:Name" name="inMessageSG5"/>
+            <output message="tns:Name" name="OutMessageSG5"/>
+        </operation>
+        <operation name="opeRNCName">
+            <input message="tns:NCName" name="inMessageSG6"/>
+            <output message="tns:NCName" name="OutMessageSG6"/>
+        </operation>
+        <operation name="opeRQName">
+            <input message="tns:QName" name="inMessageSG7"/>
+            <output message="tns:QName" name="OutMessageSG7"/>
+        </operation>
+        <operation name="opeRNMToken">
+            <input message="tns:NMToken" name="inMessageSG8"/>
+            <output message="tns:NMToken" name="OutMessageSG8"/>
+        </operation>
+        <operation name="opeRNMTokens">
+            <input message="tns:NMTokens" name="inMessageSG9"/>
+            <output message="tns:NMTokens" name="OutMessageSG9"/>
+        </operation>
+        <operation name="opeRID">
+            <input message="tns:ID" name="inMessageSG10"/>
+            <output message="tns:ID" name="OutMessageSG10"/>
+        </operation>
+        <operation name="opeRIDREF">
+            <input message="tns:IDREF" name="inMessageSG11"/>
+            <output message="tns:IDREF" name="OutMessageSG11"/>
+        </operation>
+        <operation name="opeRIDREFS">
+            <input message="tns:IDREFS" name="inMessageSG12"/>
+            <output message="tns:IDREFS" name="OutMessageSG12"/>
+        </operation>
+        <operation name="opeRENTITY">
+            <input message="tns:ENTITY" name="inMessageSG13"/>
+            <output message="tns:ENTITY" name="OutMessageSG13"/>
+        </operation>
+        <operation name="opeRENTITIES">
+            <input message="tns:ENTITIES" name="inMessageSG14"/>
+            <output message="tns:ENTITIES" name="OutMessageSG14"/>
+        </operation>
+    </portType>
+    <portType name="IntGenerics">
+        <operation name="opeRInt">
+            <input message="tns:Int" name="inMessageIG1"/>
+            <output message="tns:Int" name="OutMessageIG1"/>
+        </operation>
+        <operation name="opeRLong">
+            <input message="tns:Long" name="inMessageIG2"/>
+            <output message="tns:Long" name="OutMessageIG2"/>
+        </operation>
+        <operation name="opeRShort">
+            <input message="tns:Short" name="inMessageIG3"/>
+            <output message="tns:Short" name="OutMessageIG3"/>
+        </operation>
+        <operation name="opeRUnSignedByte">
+            <input message="tns:UnSignedByte" name="inMessageIG4"/>
+            <output message="tns:UnSignedByte" name="OutMessageIG4"/>
+        </operation>
+        <operation name="opeRUnSignedShort">
+            <input message="tns:UnSignedShort" name="inMessageIG5"/>
+            <output message="tns:UnSignedShort" name="OutMessageIG5"/>
+        </operation>
+        <operation name="opeRUnSignedInt">
+            <input message="tns:UnSignedInt" name="inMessageIG6"/>
+            <output message="tns:UnSignedInt" name="OutMessageIG6"/>
+        </operation>
+        <operation name="opeRUnSignedLong">
+            <input message="tns:UnSignedLong" name="inMessageIG7"/>
+            <output message="tns:UnSignedLong" name="OutMessageIG7"/>
+        </operation>
+        <operation name="opeRInteger">
+            <input message="tns:Integer" name="inMessageIG8"/>
+            <output message="tns:Integer" name="OutMessageIG8"/>
+        </operation>
+        <operation name="opeRPositiveInteger">
+            <input message="tns:PositiveInteger" name="inMessageIG9"/>
+            <output message="tns:PositiveInteger" name="OutMessageIG9"/>
+        </operation>
+        <operation name="opeRNegativeInteger">
+            <input message="tns:NegativeInteger" name="inMessageIG10"/>
+            <output message="tns:NegativeInteger" name="OutMessageIG10"/>
+        </operation>
+        <operation name="opeRnonPositiveInteger">
+            <input message="tns:nonPositiveInteger" name="inMessageIG11"/>
+            <output message="tns:nonPositiveInteger" name="OutMessageIG11"/>
+        </operation>
+        <operation name="opeRnonNegativeInteger">
+            <input message="tns:nonNegativeInteger" name="inMessageIG12"/>
+            <output message="tns:nonNegativeInteger" name="OutMessageIG12"/>
+        </operation>
+    </portType>
+    <portType name="DecimalGenerics">
+        <operation name="opeRfloat">
+            <input message="tns:float" name="inMessageDG1"/>
+            <output message="tns:float" name="OutMessageDG1"/>
+        </operation>
+        <operation name="opeRdouble">
+            <input message="tns:double" name="inMessageDG2"/>
+            <output message="tns:double" name="OutMessageDG2"/>
+        </operation>
+        <operation name="opeRdecimal">
+            <input message="tns:decimal" name="inMessageDG3"/>
+            <output message="tns:decimal" name="OutMessageDG3"/>
+        </operation>
+    </portType>
+    <portType name="BooleanGeneric">
+        <operation name="opeRboolean">
+            <input message="tns:boolean" name="inMessageB1"/>
+            <output message="tns:boolean" name="OutMessageB1"/>
+        </operation>
+    </portType>
+    <portType name="DateTimeGenerics">
+        <operation name="opeRtime">
+            <input message="tns:time" name="inMessageDT1"/>
+            <output message="tns:time" name="OutMessageDT1"/>
+        </operation>
+        <operation name="opeRdate">
+            <input message="tns:date" name="inMessageDT2"/>
+            <output message="tns:date" name="OutMessageDT2"/>
+        </operation>
+        <operation name="opeRdateTime">
+            <input message="tns:dateTime" name="inMessageDT3"/>
+            <output message="tns:dateTime" name="OutMessageDT3"/>
+        </operation>
+        <operation name="opeRduration">
+            <input message="tns:duration" name="inMessageDT4"/>
+            <output message="tns:duration" name="OutMessageDT4"/>
+        </operation>
+        <operation name="opeRday">
+            <input message="tns:day" name="inMessageDT5"/>
+            <output message="tns:day" name="OutMessageDT5"/>
+        </operation>
+        <operation name="opeRmonth">
+            <input message="tns:month" name="inMessageDT6"/>
+            <output message="tns:month" name="OutMessagDT6"/>
+        </operation>
+        <operation name="opeRyear">
+            <input message="tns:year" name="inMessageDT7"/>
+            <output message="tns:year" name="OutMessageDT7"/>
+        </operation>
+        <operation name="opeRyearMonth">
+            <input message="tns:yearMonth" name="inMessageDT8"/>
+            <output message="tns:yearMonth" name="OutMessageDT8"/>
+        </operation>
+        <operation name="opeRmonthDay">
+            <input message="tns:monthDay" name="inMessageDT9"/>
+            <output message="tns:monthDay" name="OutMessageDT9"/>
+        </operation>
+    </portType>
+    <portType name="BinaryGenerics">
+        <operation name="opeRbase64">
+            <input message="tns:base64" name="inMessageBG1"/>
+            <output message="tns:base64" name="OutMessageBG1"/>
+        </operation>
+        <operation name="opeRhexBinary">
+            <input message="tns:hexBinary" name="inMessageBG2"/>
+            <output message="tns:hexBinary" name="OutMessageBG2"/>
+        </operation>
+    </portType>
+    <portType name="URIGenerics">
+        <operation name="opeRanyURI">
+            <input message="tns:anyURI" name="inMessage"/>
+            <output message="tns:anyURI" name="OutMessage"/>
+        </operation>
+    </portType>
+</definitions>

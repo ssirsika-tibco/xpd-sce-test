@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_M1ufsEGGEd-0VOfyYxibvg" xpdExt:DisplayName="N2JavaScriptUnaryValidation" Name="N2JavaScriptUnaryValidation">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-04-06</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>bharge</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:TypeDeclarations>
+    <xpdl2:TypeDeclaration Id="_mKxfq0GKEd-0VOfyYxibvg" xpdExt:DisplayName="TextTypeDeclaration" Name="TextTypeDeclaration">
+      <xpdl2:BasicType Type="STRING">
+        <xpdl2:Length>50</xpdl2:Length>
+      </xpdl2:BasicType>
+    </xpdl2:TypeDeclaration>
+  </xpdl2:TypeDeclarations>
+  <xpdl2:DataFields>
+    <xpdl2:DataField Id="_mKxfokGKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldTextTypeDeclaration" Name="fieldTextTypeDeclaration" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:DeclaredType Id="_mKxfq0GKEd-0VOfyYxibvg"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfo0GKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldStr" Name="fieldStr" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="STRING">
+          <xpdl2:Length>50</xpdl2:Length>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfpEGKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldBoolean" Name="fieldBoolean" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="BOOLEAN"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfpUGKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldInteger" Name="fieldInteger" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="INTEGER">
+          <xpdl2:Precision>10</xpdl2:Precision>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfpkGKEd-0VOfyYxibvg" xpdExt:DisplayName="personArr" Name="personArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_avU-oOCgEd6xgPEp5GHMsA"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfp0GKEd-0VOfyYxibvg" xpdExt:DisplayName="person" Name="person" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_avU-oOCgEd6xgPEp5GHMsA"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfqEGKEd-0VOfyYxibvg" xpdExt:DisplayName="customerArr" Name="customerArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_g8LG4OPLEd6fm9D0kjLv3A"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfqUGKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldPerformer" Name="fieldPerformer" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="PERFORMER"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfqkGKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldBooleanArr" Name="fieldBooleanArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="BOOLEAN"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfrEGKEd-0VOfyYxibvg" xpdExt:DisplayName="account" Name="account" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_nmd0oOPLEd6fm9D0kjLv3A"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfrUGKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldDate" Name="fieldDate" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="DATE"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfrkGKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldStrArr" Name="fieldStrArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="STRING">
+          <xpdl2:Length>50</xpdl2:Length>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfr0GKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldDecimalNumber" Name="fieldDecimalNumber" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="FLOAT">
+          <xpdl2:Precision>10</xpdl2:Precision>
+          <xpdl2:Scale>2</xpdl2:Scale>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfsEGKEd-0VOfyYxibvg" xpdExt:DisplayName="customer" Name="customer" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_g8LG4OPLEd6fm9D0kjLv3A"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfsUGKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldDateTime" Name="fieldDateTime" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="DATETIME"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfskGKEd-0VOfyYxibvg" xpdExt:DisplayName="accountArr" Name="accountArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_nmd0oOPLEd6fm9D0kjLv3A"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_mKxfs0GKEd-0VOfyYxibvg" xpdExt:DisplayName="fieldTime" Name="fieldTime" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="TIME"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+  </xpdl2:DataFields>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_sWkQRUGGEd-0VOfyYxibvg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_q9-FoEGGEd-0VOfyYxibvg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_sWkQRkGGEd-0VOfyYxibvg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_V4MlxUGGEd-0VOfyYxibvg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_M14QsEGGEd-0VOfyYxibvg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_V4MlxkGGEd-0VOfyYxibvg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_M14QsEGGEd-0VOfyYxibvg" xpdExt:DisplayName="InvalidUnaryOperatorScripts" Name="InvalidUnaryOperatorScripts">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_V4Mlx0GGEd-0VOfyYxibvg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_V4MlyEGGEd-0VOfyYxibvg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="51.0">
+              <xpdl2:Coordinates XCoordinate="1330.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_FfFg8EGUEd-0VOfyYxibvg" Name="InvalidUnaryPlusOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Unary Plus Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = +fieldStr;&#xD;
+&#xD;
+fieldBoolean = +person.attDate;&#xD;
+&#xD;
+fieldDecimalNumber = +customer.account.att3Str;&#xD;
+&#xD;
+fieldDateTime.setDay(+Date.getDate());&#xD;
+&#xD;
+fieldDate.setHour(+Date.getHours());&#xD;
+&#xD;
+fieldTime.setMinute(+Date.getMinutes());&#xD;
+&#xD;
+fieldStrArr.contains(+person.attStr);&#xD;
+&#xD;
+fieldStr.indexOf(+&quot;ast&quot;);&#xD;
+&#xD;
+fieldBooleanArr.remove(+fieldBoolean);&#xD;
+&#xD;
+person.attInt = +ScriptUtil.createBigInteger(fieldStr);&#xD;
+&#xD;
+customer.account = +account;&#xD;
+&#xD;
+account.att3Str = +customer.att2Str;&#xD;
+&#xD;
+personArr.remove(+person);&#xD;
+&#xD;
+customerArr.contains(+customer);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="109.0">
+              <xpdl2:Coordinates XCoordinate="190.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_LJIOcEGbEd-0VOfyYxibvg" Name="InvalidUnaryMinusOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Unary Minus Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = -fieldStr;&#xD;
+&#xD;
+fieldBoolean = -person.attDate;&#xD;
+&#xD;
+fieldDecimalNumber = -customer.account.att3Str;&#xD;
+&#xD;
+fieldDateTime.setDay(-Date.getDate());&#xD;
+&#xD;
+fieldDate.setHour(-Date.getHours());&#xD;
+&#xD;
+fieldTime.setMinute(-Date.getMinutes());&#xD;
+&#xD;
+fieldStrArr.contains(-person.attStr);&#xD;
+&#xD;
+fieldStr.indexOf(-&quot;ast&quot;);&#xD;
+&#xD;
+fieldBooleanArr.remove(-fieldBoolean);&#xD;
+&#xD;
+person.attInt = -ScriptUtil.createBigInteger(fieldStr);&#xD;
+&#xD;
+customer.account = -account;&#xD;
+&#xD;
+account.att3Str = -customer.att2Str;&#xD;
+&#xD;
+personArr.remove(-person);&#xD;
+&#xD;
+customerArr.contains(-customer);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="112.0">
+              <xpdl2:Coordinates XCoordinate="359.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_GbpWMEGcEd-0VOfyYxibvg" Name="InvalidUnaryPreDecrementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Unary Pre-Decrement Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = --fieldStr;&#xD;
+&#xD;
+fieldBoolean = --person.attDate;&#xD;
+&#xD;
+fieldDecimalNumber = --customer.account.att3Str;&#xD;
+&#xD;
+fieldDateTime.setDay(--Date.getDate());&#xD;
+&#xD;
+fieldDate.setHour(--Date.getHours());&#xD;
+&#xD;
+fieldTime.setMinute(--Date.getMinutes());&#xD;
+&#xD;
+fieldStrArr.contains(--person.attStr);&#xD;
+&#xD;
+fieldStr.indexOf(--&quot;ast&quot;);&#xD;
+&#xD;
+fieldBooleanArr.remove(--fieldBoolean);&#xD;
+&#xD;
+person.attInt = --ScriptUtil.createBigInteger(fieldStr);&#xD;
+&#xD;
+customer.account = --account;&#xD;
+&#xD;
+account.att3Str = --customer.att2Str;&#xD;
+&#xD;
+personArr.remove(--person);&#xD;
+&#xD;
+customerArr.contains(--customer);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="108.0">
+              <xpdl2:Coordinates XCoordinate="871.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UFGZAEGdEd-0VOfyYxibvg" Name="InvalidUnaryLogicalComplementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Unary Logical Complement Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = !account.att3Str.toString();&#xD;
+&#xD;
+fieldDecimalNumber = !customer.account.att3Str.length;&#xD;
+&#xD;
+fieldDate = !DateTimeUtil.createDate();&#xD;
+&#xD;
+fieldDateTime = !person.attDateTime;&#xD;
+&#xD;
+fieldTime = !customer.attTime;&#xD;
+&#xD;
+true;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="87.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="1204.0" YCoordinate="157.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_IqkZ8EGeEd-0VOfyYxibvg" Name="InvalidUnaryPreIncrementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Unary Pre- Increment Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = ++fieldStr;&#xD;
+&#xD;
+fieldBoolean = ++person.attDate;&#xD;
+&#xD;
+fieldDecimalNumber = ++customer.account.att3Str;&#xD;
+&#xD;
+fieldDateTime.setDay(++Date.getDate());&#xD;
+&#xD;
+fieldDate.setHour(++Date.getHours());&#xD;
+&#xD;
+fieldTime.setMinute(++Date.getMinutes());&#xD;
+&#xD;
+fieldStrArr.contains(++person.attStr);&#xD;
+&#xD;
+fieldStr.indexOf(++&quot;ast&quot;);&#xD;
+&#xD;
+fieldBooleanArr.remove(++fieldBoolean);&#xD;
+&#xD;
+person.attInt = ++ScriptUtil.createBigInteger(fieldStr);&#xD;
+&#xD;
+customer.account = ++account;&#xD;
+&#xD;
+account.att3Str = ++customer.att2Str;&#xD;
+&#xD;
+personArr.remove(++person);&#xD;
+&#xD;
+customerArr.contains(++customer);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="73.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="105.0">
+              <xpdl2:Coordinates XCoordinate="528.0" YCoordinate="157.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DCYaQEIeEd-2yonybBo9gA" Name="InvalidUnaryPostIncrementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Unary Post-Increment Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = fieldStr++;&#xD;
+&#xD;
+fieldBoolean = person.attDate++;&#xD;
+&#xD;
+fieldDecimalNumber = customer.account.att3Str++;&#xD;
+&#xD;
+fieldDateTime.setDay(Date.getDate()++);&#xD;
+&#xD;
+fieldDate.setHour(Date.getHours()++);&#xD;
+&#xD;
+fieldTime.setMinute(Date.getMinutes()++);&#xD;
+&#xD;
+fieldStrArr.contains(person.attStr++);&#xD;
+&#xD;
+fieldStr.indexOf(&quot;ast&quot;++);&#xD;
+&#xD;
+fieldBooleanArr.remove(fieldBoolean++);&#xD;
+&#xD;
+person.attInt = ScriptUtil.createBigInteger(fieldStr)++;&#xD;
+&#xD;
+customer.account = account++;&#xD;
+&#xD;
+account.att3Str = customer.att2Str++;&#xD;
+&#xD;
+personArr.remove(person++);&#xD;
+&#xD;
+customerArr.contains(customer++);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="694.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DjT9EEIeEd-2yonybBo9gA" Name="InvalidUnaryPostDecrementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid Unary Post-Decrement Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = fieldStr--;&#xD;
+&#xD;
+fieldBoolean = person.attDate--;&#xD;
+&#xD;
+fieldDecimalNumber = customer.account.att3Str--;&#xD;
+&#xD;
+fieldDateTime.setDay(Date.getDate()--);&#xD;
+&#xD;
+fieldDate.setHour(Date.getHours()--);&#xD;
+&#xD;
+fieldTime.setMinute(Date.getMinutes()--);&#xD;
+&#xD;
+fieldStrArr.contains(person.attStr--);&#xD;
+&#xD;
+fieldStr.indexOf(&quot;ast&quot;--);&#xD;
+&#xD;
+fieldBooleanArr.remove(fieldBoolean--);&#xD;
+&#xD;
+person.attInt = ScriptUtil.createBigInteger(fieldStr)--;&#xD;
+&#xD;
+customer.account = account--;&#xD;
+&#xD;
+account.att3Str = customer.att2Str--;&#xD;
+&#xD;
+personArr.remove(person--);&#xD;
+&#xD;
+customerArr.contains(customer--);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="83.0" LaneId="_V4MlxkGGEd-0VOfyYxibvg" Width="112.0">
+              <xpdl2:Coordinates XCoordinate="1039.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_V4MlyUGGEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_UFGZAEGdEd-0VOfyYxibvg" To="_V4MlyEGGEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_grRmcUGJEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_V4Mlx0GGEd-0VOfyYxibvg" To="_FfFg8EGUEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_LJRYYEGbEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_FfFg8EGUEd-0VOfyYxibvg" To="_LJIOcEGbEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_GbzHMEGcEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_DCYaQEIeEd-2yonybBo9gA" To="_GbpWMEGcEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_UFQKAEGdEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_DjT9EEIeEd-2yonybBo9gA" To="_UFGZAEGdEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_IquK8EGeEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_LJIOcEGbEd-0VOfyYxibvg" To="_IqkZ8EGeEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_DCiLQEIeEd-2yonybBo9gA" xpdExt:DisplayName="" Name="" From="_IqkZ8EGeEd-0VOfyYxibvg" To="_DCYaQEIeEd-2yonybBo9gA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_DjduEEIeEd-2yonybBo9gA" xpdExt:DisplayName="" Name="" From="_GbpWMEGcEd-0VOfyYxibvg" To="_DjT9EEIeEd-2yonybBo9gA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="RPCLiteral"/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_q9-FoEGGEd-0VOfyYxibvg" xpdExt:DisplayName="ValidUnaryOperatorScripts" Name="ValidUnaryOperatorScripts">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_sWkQR0GGEd-0VOfyYxibvg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_sWkQSEGGEd-0VOfyYxibvg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="51.0">
+              <xpdl2:Coordinates XCoordinate="1334.0" YCoordinate="152.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_4C134kGLEd-0VOfyYxibvg" Name="ValidUnaryPlusOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid Unary Plus Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = +5;&#xD;
+&#xD;
+fieldDecimalNumber = +100;&#xD;
+&#xD;
+fieldDateTime.setHour(+5);&#xD;
+&#xD;
+fieldTime.setMinute(+person.attTime.getMinute());&#xD;
+&#xD;
+fieldDate.setDay(+fieldInteger);&#xD;
+&#xD;
+fieldStrArr.add(+3,fieldStr);&#xD;
+&#xD;
+fieldBooleanArr.get(+2);&#xD;
+&#xD;
+ScriptUtil.createMathContext(+fieldInteger);&#xD;
+&#xD;
+DateTimeUtil.createDuration(+person.attInt);&#xD;
+&#xD;
+customer.attId.substr(+fieldInteger);&#xD;
+&#xD;
+person.attDuration.multiply(+2);&#xD;
+&#xD;
+customerArr.remove(+fieldInteger);&#xD;
+&#xD;
+personArr.subList(fieldInteger, +fieldInteger);&#xD;
+&#xD;
+accountArr.set(+fieldInteger, account);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="115.0">
+              <xpdl2:Coordinates XCoordinate="190.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tx3ZgEGaEd-0VOfyYxibvg" Name="ValidUnaryMinusOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid Unary Minus Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = -5;&#xD;
+&#xD;
+fieldDecimalNumber = -100;&#xD;
+&#xD;
+fieldDateTime.setHour(-5);&#xD;
+&#xD;
+fieldTime.setMinute(-person.attTime.getMinute());&#xD;
+&#xD;
+fieldDate.setDay(-fieldInteger);&#xD;
+&#xD;
+fieldStrArr.add(-3,fieldStr);&#xD;
+&#xD;
+fieldBooleanArr.get(-2);&#xD;
+&#xD;
+ScriptUtil.createMathContext(-fieldInteger);&#xD;
+&#xD;
+DateTimeUtil.createDuration(-person.attInt);&#xD;
+&#xD;
+customer.attId.substr(-fieldInteger);&#xD;
+&#xD;
+person.attDuration.multiply(-2);&#xD;
+&#xD;
+customerArr.remove(-fieldInteger);&#xD;
+&#xD;
+personArr.subList(fieldInteger, -fieldInteger);&#xD;
+&#xD;
+accountArr.set(-fieldInteger, account);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="113.0">
+              <xpdl2:Coordinates XCoordinate="366.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_bVZBsEGbEd-0VOfyYxibvg" Name="ValidUnaryPreIncrementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid Unary Pre-Increment Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = ++5;&#xD;
+&#xD;
+fieldDecimalNumber = ++100;&#xD;
+&#xD;
+fieldDateTime.setHour(++5);&#xD;
+&#xD;
+fieldTime.setMinute(++person.attTime.getMinute());&#xD;
+&#xD;
+fieldDate.setDay(++fieldInteger);&#xD;
+&#xD;
+fieldStrArr.add(++3,fieldStr);&#xD;
+&#xD;
+fieldBooleanArr.get(++2);&#xD;
+&#xD;
+ScriptUtil.createMathContext(++fieldInteger);&#xD;
+&#xD;
+DateTimeUtil.createDuration(++person.attInt);&#xD;
+&#xD;
+customer.attId.substr(++fieldInteger);&#xD;
+&#xD;
+person.attDuration.multiply(++2);&#xD;
+&#xD;
+customerArr.remove(++fieldInteger);&#xD;
+&#xD;
+personArr.subList(fieldInteger, ++fieldInteger);&#xD;
+&#xD;
+accountArr.set(++fieldInteger, account);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="109.0">
+              <xpdl2:Coordinates XCoordinate="538.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_-XnOUEGbEd-0VOfyYxibvg" Name="ValidUnaryPreDecrementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid Unary Pre-Decrement Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = --5;&#xD;
+&#xD;
+fieldDecimalNumber = --100;&#xD;
+&#xD;
+fieldDateTime.setHour(--5);&#xD;
+&#xD;
+fieldTime.setMinute(--person.attTime.getMinute());&#xD;
+&#xD;
+fieldDate.setDay(--fieldInteger);&#xD;
+&#xD;
+fieldStrArr.add(--3,fieldStr);&#xD;
+&#xD;
+fieldBooleanArr.get(--2);&#xD;
+&#xD;
+ScriptUtil.createMathContext(--fieldInteger);&#xD;
+&#xD;
+DateTimeUtil.createDuration(--person.attInt);&#xD;
+&#xD;
+customer.attId.substr(--fieldInteger);&#xD;
+&#xD;
+person.attDuration.multiply(--2);&#xD;
+&#xD;
+customerArr.remove(--fieldInteger);&#xD;
+&#xD;
+personArr.subList(fieldInteger, --fieldInteger);&#xD;
+&#xD;
+accountArr.set(--fieldInteger, account);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="84.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="111.0">
+              <xpdl2:Coordinates XCoordinate="878.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_aat3QEGdEd-0VOfyYxibvg" Name="ValidUnaryLogicalComplementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid Unary Logical Complement Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldBoolean = !fieldBooleanArr.isEmpty();&#xD;
+&#xD;
+fieldStr = !fieldStrArr.isEmpty();&#xD;
+&#xD;
+fieldPerformer = !ScriptUtil.createBoolean(&quot;true&quot;);&#xD;
+&#xD;
+person.attBoolean = !fieldBoolean;&#xD;
+&#xD;
+customer.att2Boolean = !person.attBoolean;&#xD;
+&#xD;
+fieldBoolean = !fieldBooleanArr.isEmpty();&#xD;
+&#xD;
+fieldBoolean = !customer.attBoolean;&#xD;
+&#xD;
+fieldBoolean = !fieldBooleanArr.contains(fieldBoolean);&#xD;
+&#xD;
+true;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="83.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="1214.0" YCoordinate="152.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_e6uPkEIdEd-2yonybBo9gA" Name="ValidUnaryPostIncrementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid Unary Post-Increment Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = 5++;&#xD;
+&#xD;
+fieldDecimalNumber = 100++;&#xD;
+&#xD;
+fieldDateTime.setHour(5++);&#xD;
+&#xD;
+fieldTime.setMinute(person.attTime.getMinute()++);&#xD;
+&#xD;
+fieldDate.setDay(fieldInteger++);&#xD;
+&#xD;
+fieldStrArr.add(3++,fieldStr);&#xD;
+&#xD;
+fieldBooleanArr.get(2++);&#xD;
+&#xD;
+ScriptUtil.createMathContext(fieldInteger++);&#xD;
+&#xD;
+DateTimeUtil.createDuration(person.attInt++);&#xD;
+&#xD;
+customer.attId.substr(fieldInteger++);&#xD;
+&#xD;
+person.attDuration.multiply(2++);&#xD;
+&#xD;
+customerArr.remove(fieldInteger++);&#xD;
+&#xD;
+personArr.subList(fieldInteger, fieldInteger++);&#xD;
+&#xD;
+accountArr.set(fieldInteger++, account);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="116.0">
+              <xpdl2:Coordinates XCoordinate="713.0" YCoordinate="160.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_qN8QQEIdEd-2yonybBo9gA" Name="ValidUnaryPostDecrementOperator" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid Unary Post-Decrement Operator">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">fieldInteger = 5--;&#xD;
+&#xD;
+fieldDecimalNumber = 100--;&#xD;
+&#xD;
+fieldDateTime.setHour(5--);&#xD;
+&#xD;
+fieldTime.setMinute(person.attTime.getMinute()--);&#xD;
+&#xD;
+fieldDate.setDay(fieldInteger--);&#xD;
+&#xD;
+fieldStrArr.add(3--,fieldStr);&#xD;
+&#xD;
+fieldBooleanArr.get(2--);&#xD;
+&#xD;
+ScriptUtil.createMathContext(fieldInteger--);&#xD;
+&#xD;
+DateTimeUtil.createDuration(person.attInt--);&#xD;
+&#xD;
+customer.attId.substr(fieldInteger--);&#xD;
+&#xD;
+person.attDuration.multiply(2--);&#xD;
+&#xD;
+customerArr.remove(fieldInteger--);&#xD;
+&#xD;
+personArr.subList(fieldInteger, fieldInteger--);&#xD;
+&#xD;
+accountArr.set(fieldInteger--, account);&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="79.0" LaneId="_sWkQRkGGEd-0VOfyYxibvg" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="1050.0" YCoordinate="160.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_MJ9CAEGKEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_sWkQR0GGEd-0VOfyYxibvg" To="_4C134kGLEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_yp6GgEGaEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_4C134kGLEd-0VOfyYxibvg" To="_tx3ZgEGaEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ewcMQEGbEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_tx3ZgEGaEd-0VOfyYxibvg" To="_bVZBsEGbEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Dv_BMEGcEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_e6uPkEIdEd-2yonybBo9gA" To="_-XnOUEGbEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_d57wIEGdEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_qN8QQEIdEd-2yonybBo9gA" To="_aat3QEGdEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="61.16751269035533" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ekZpcEGdEd-0VOfyYxibvg" xpdExt:DisplayName="" Name="" From="_aat3QEGdEd-0VOfyYxibvg" To="_sWkQSEGGEd-0VOfyYxibvg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_e64AkEIdEd-2yonybBo9gA" xpdExt:DisplayName="" Name="" From="_bVZBsEGbEd-0VOfyYxibvg" To="_e6uPkEIdEd-2yonybBo9gA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_qN8QQUIdEd-2yonybBo9gA" xpdExt:DisplayName="" Name="" From="_-XnOUEGbEd-0VOfyYxibvg" To="_qN8QQEIdEd-2yonybBo9gA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="RPCLiteral"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

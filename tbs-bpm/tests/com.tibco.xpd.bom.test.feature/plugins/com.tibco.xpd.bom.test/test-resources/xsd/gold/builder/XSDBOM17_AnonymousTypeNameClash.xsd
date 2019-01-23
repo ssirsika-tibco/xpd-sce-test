@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://nameclash" xmlns:tns1="http://nameclash" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://nameclash">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM17_AnonymousTypeNameClash/Business Objects/nameclash.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="banana1" id="nameclashbanana2" name="banana">
+    <xsd:restriction base="xsd:int"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Banana" id="nameclashBanana2" name="Banana">
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="cherry2" id="nameclashcherry2" name="cherry">
+    <xsd:restriction base="xsd:decimal"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="BananaType2" id="nameclashBananaType2" name="BananaType2">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="CURVY" value="Curvy"/>
+      <xsd:enumeration ecore:name="STRAIGHT" value="Straight"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="_cherry1" id="nameclash_cherry" name="_cherry">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="GLACE" value="GLACE"/>
+      <xsd:enumeration ecore:name="MORELLO" value="MORELLO"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Apple" id="nameclashApple" abstract="false" mixed="false"
+      name="Apple">
+    <xsd:sequence>
+      <xsd:element ecore:name="apple" id="AppleAppleType" form="qualified" maxOccurs="1"
+          minOccurs="1" name="Apple">
+        <xsd:complexType ecore:name="AppleType1" id="nameclashAppleType" mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="apple" form="qualified" maxOccurs="1" minOccurs="1"
+                name="Apple">
+              <xsd:complexType ecore:name="AppleType2" id="nameclashAppleType2" mixed="false">
+                <xsd:sequence>
+                  <xsd:element ecore:name="banana" form="qualified" maxOccurs="1"
+                      minOccurs="1" name="banana">
+                    <xsd:complexType ecore:name="bananaType" id="nameclashbananaType"
+                        mixed="false">
+                      <xsd:sequence>
+                        <xsd:element ecore:name="attr11" form="qualified" maxOccurs="1"
+                            minOccurs="1" name="attr1" type="xsd:string"/>
+                        <xsd:element ecore:name="attr1" form="qualified" maxOccurs="1"
+                            minOccurs="1" name="Attr1" type="xsd:int"/>
+                        <xsd:element ecore:name="banana" form="qualified" maxOccurs="1"
+                            minOccurs="1" name="Banana">
+                          <xsd:complexType ecore:name="BananaType3" id="nameclashBananaType"
+                              mixed="false">
+                            <xsd:sequence>
+                              <xsd:element ecore:name="deepNestedBananaName" form="qualified"
+                                  maxOccurs="1" minOccurs="1" name="deepNestedBananaName"
+                                  type="xsd:string"/>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element ecore:name="appleType" form="qualified" maxOccurs="1"
+                            minOccurs="1" name="AppleType">
+                          <xsd:simpleType ecore:name="AppleTypeType">
+                            <xsd:restriction base="xsd:string">
+                              <xsd:enumeration ecore:name="GRANNY_SMITH2" value="Granny Smith"/>
+                              <xsd:enumeration ecore:name="GRANNY_SMITH3" value="GrannySmith"/>
+                              <xsd:enumeration ecore:name="GRANNYSMITH" value="GRANNYSMITH"/>
+                              <xsd:enumeration ecore:name="GRANNYSMITH1" value="GRANNY_SMITH"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="apple1" id="nameclashapple" abstract="false" mixed="false"
+      name="apple">
+    <xsd:sequence>
+      <xsd:element ecore:name="topLevelAppleAttr" id="appletopLevelAppleAttr" form="qualified"
+          maxOccurs="1" minOccurs="1" name="topLevelAppleAttr" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="AppleType" id="nameclashAppleType23" abstract="false"
+      mixed="false" name="AppleType"/>
+  <xsd:complexType ecore:name="BananaType1" id="nameclashBananaType1" abstract="false"
+      mixed="false" name="BananaType1">
+    <xsd:sequence>
+      <xsd:element ecore:name="attrInBananaType1" id="BananaType1AttrInBananaType1"
+          form="qualified" maxOccurs="1" minOccurs="1" name="AttrInBananaType1" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Cherry" id="nameclashCherry" abstract="false" mixed="false"
+      name="Cherry"/>
+</xsd:schema>

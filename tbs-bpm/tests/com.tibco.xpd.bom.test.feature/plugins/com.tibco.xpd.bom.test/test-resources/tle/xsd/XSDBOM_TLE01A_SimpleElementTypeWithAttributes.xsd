@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema"
+	xmlns:tns="http://www.example.org/NewXMLSchema" elementFormDefault="qualified">
+
+	<element name="tle1" type="string"></element>
+
+	<element name="tle1attrs" type="string" id="myID1" nillable="true"
+		 block="#all" default="default1" final="#all" ></element>
+
+	<!-- Need another for 'fixed' as it can't exist with 'default' -->
+	<element name="tle2attrs" type="string" id="myID2" nillable="true"
+		 block="#all" fixed="fixed1" final="#all" >
+	</element>
+
+	<!-- TODO: abstract, block, default, final -->
+
+	<!-- Test substitionGroup and abstract - NOT YET SUPPORTED -->
+	<!--
+		<element name="name" type="string" /> <element name="navn"
+		substitutionGroup="tns:name" />
+	-->
+
+</schema>

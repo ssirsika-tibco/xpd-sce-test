@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.amsbqa.com/linda03/XSD1IncludesXSD2_Both_Define_Types03/"
+	 targetNamespace="http://www.amsbqa.com/linda03/XSD1IncludesXSD2_Both_Define_Types03/"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:include schemaLocation="IncludedXSD2.xsd"/>
+	<xs:element name="Name" type="fooType"/>
+	<xs:element name="Info" type="myType"/>
+</xs:schema>

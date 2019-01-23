@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.tibco.xpd.om.core/src"
+    creationIcons="false" modelPluginID="com.tibco.xpd.om.core" modelName="Organization Model"
+    modelPluginClass="" editPluginClass="com.tibco.xpd.om.core.om.provider.OrganisationModelEditPlugin"
+    editorPluginClass="com.tibco.xpd.om.core.om.presentation.OrganisationModelEditorPlugin"
+    nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>om.ecore</foreignModel>
+  <genPackages prefix="OM" basePackage="com.tibco.xpd.om.core" resource="XMI" disposableProviderFactory="true"
+      multipleEditorPages="false" ecorePackage="om.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="om.ecore#//AttributeType">
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/Text"/>
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/Decimal"/>
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/DateTime"/>
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/Date"/>
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/Time"/>
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/Enum"/>
+      <genEnumLiterals ecoreEnumLiteral="om.ecore#//AttributeType/EnumSet"/>
+    </genEnums>
+    <genClasses ecoreClass="om.ecore#//OrgUnit">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnit/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnit/positions"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference om.ecore#//OrgUnit/orgUnitType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnit/outgoingRelationships"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnit/incomingRelationships"/>
+      <genOperations ecoreOperation="om.ecore#//OrgUnit/getSubUnits"/>
+      <genOperations ecoreOperation="om.ecore#//OrgUnit/getParentOrgUnit"/>
+      <genOperations ecoreOperation="om.ecore#//OrgUnit/getOutgoingHierachicalRelationships"/>
+      <genOperations ecoreOperation="om.ecore#//OrgUnit/getOutgoingNonHierachicalRelationships"/>
+      <genOperations ecoreOperation="om.ecore#//OrgUnit/getIncomingHierachicalRelationship"/>
+      <genOperations ecoreOperation="om.ecore#//OrgUnit/getIncomingNonHierachicalRelationships"/>
+      <genOperations ecoreOperation="om.ecore#//OrgUnit/getOrganization"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//DynamicOrgUnit">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//DynamicOrgUnit/dynamicOrganization"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//DynamicOrgReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//DynamicOrgReference/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//DynamicOrgReference/to"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Position/idealNumber"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//Position/feature"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference om.ecore#//Position/positionType"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//Location">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//Location/locationType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Location/locale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Location/timeZone"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//OrgNode"/>
+    <genClasses image="false" ecoreClass="om.ecore#//OrgElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//OrgElement/purpose"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//OrgElement/startDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//OrgElement/endDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//OrgElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//Capability">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//Capability/category"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//Group">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//Group/subGroups"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//Organization">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//Organization/units"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//Organization/organizationType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//Organization/orgUnitRelationships"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Organization/dynamic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//Organization/dynamicOrgIdentifiers"/>
+      <genOperations ecoreOperation="om.ecore#//Organization/getSubUnits"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//DynamicOrgIdentifier"/>
+    <genClasses ecoreClass="om.ecore#//AttributeValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//AttributeValue/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//AttributeValue/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//AttributeValue/enumSetValues"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//AttributeValue/type"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Attribute/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//Attribute/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Attribute/defaultValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//Attribute/defaultEnumSetValues"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Attribute/description"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//OrganizationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrganizationType/orgUnitFeatures"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//OrgUnitType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnitType/orgUnitFeatures"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnitType/positionFeatures"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//PositionType"/>
+    <genClasses ecoreClass="om.ecore#//OrgUnitFeature">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnitFeature/featureType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnitFeature/contextRelationshipType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//MultipleFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//MultipleFeature/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//MultipleFeature/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//PositionFeature">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//PositionFeature/featureType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//OrgElementType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgElementType/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//OrgUnitRelationship">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnitRelationship/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnitRelationship/to"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgUnitRelationship/relationshipType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//OrgUnitRelationship/isHierarchical"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//OrgUnitRelationshipType"/>
+    <genClasses ecoreClass="om.ecore#//CapabilityCategory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//CapabilityCategory/subCategories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//CapabilityCategory/members"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//LocationType"/>
+    <genClasses image="false" ecoreClass="om.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//NamedElement/name"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference om.ecore#//NamedElement/namespace"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//NamedElement/label"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//NamedElement/qualifiedName"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//NamedElement/labelKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//NamedElement/displayName"/>
+      <genOperations ecoreOperation="om.ecore#//NamedElement/getLabel">
+        <genParameters ecoreParameter="om.ecore#//NamedElement/getLabel/localize"/>
+      </genOperations>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="om.ecore#//OrgModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/groups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/capabilityCategories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/capabilities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/organizations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/locations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/privileges"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/privilegeCategories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/metamodels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/resources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/embeddedMetamodel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/queries"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/humanResourceType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/consumableResourceType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/durableResourceType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgModel/dynamicOrgReferences"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//EnumValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//EnumValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//Privilege">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//Privilege/category"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//QualifiedOrgElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//QualifiedOrgElement/qualifierAttribute"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//Authorizable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//Authorizable/systemActions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//Feature"/>
+    <genClasses image="false" ecoreClass="om.ecore#//OrgTypedElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgTypedElement/attributeValues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//OrgTypedElement/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//Namespace"/>
+    <genClasses ecoreClass="om.ecore#//CapabilityAssociation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//CapabilityAssociation/capability"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="om.ecore#//OrgMetaModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgMetaModel/locationTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgMetaModel/orgUnitRelationshipTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgMetaModel/organizationTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgMetaModel/orgUnitTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgMetaModel/positionTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//OrgMetaModel/resourceTypes"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//OrgMetaModel/embedded"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//BaseOrgModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//BaseOrgModel/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//BaseOrgModel/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//BaseOrgModel/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//BaseOrgModel/dateCreated"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//ModelElement">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//ModelElement/id"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//PrivilegeAssociation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//PrivilegeAssociation/privilege"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//Capable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//Capable/capabilitiesAssociations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//QualifiedAssociation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//QualifiedAssociation/qualifierValue"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//PrivilegeCategory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//PrivilegeCategory/subCategories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//PrivilegeCategory/members"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//Allocable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Allocable/allocationMethod"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//ResourceType">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//ResourceType/humanResourceType"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//ResourceType/durableResourceType"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//ResourceType/consumableResourceType"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//Resource">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//Resource/resourceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//Resource/dn"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//ResourceAssociation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//ResourceAssociation/resource"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//AssociableWithResources">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//AssociableWithResources/resourceAssociation"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//OrgQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//OrgQuery/grammar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//OrgQuery/query"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//Locatable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference om.ecore#//Locatable/location"/>
+    </genClasses>
+    <genClasses ecoreClass="om.ecore#//SystemAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//SystemAction/actionId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute om.ecore#//SystemAction/component"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="om.ecore#//AssociableWithPrivileges">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference om.ecore#//AssociableWithPrivileges/privilegeAssociations"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

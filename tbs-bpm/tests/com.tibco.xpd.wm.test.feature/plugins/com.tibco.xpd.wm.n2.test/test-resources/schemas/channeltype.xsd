@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Stephen Young (TIBCO Software Inc.) -->
+<xs:schema xmlns="http://channeltype.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://channeltype.common.n2.tibco.com" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:simpleType name="ChannelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="JSPChannel"/>
+			<xs:enumeration value="GIChannel"/>
+			<xs:enumeration value="PageflowChannel"/>
+			<xs:enumeration value="EmailChannel"/>
+			<xs:enumeration value="RssChannel"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

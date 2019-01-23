@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/GetBalance" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns1="http://example.com/bank" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConsumerProc" targetNamespace="http://www.tibco.com/bs3.0/GetBalance" tibex:ServiceTask="_MnLEEODsEd-Watvve-g_vA" tibex:XPDL="ConsumerProc.xpdl" tibex:process="_He5iseDsEd-Watvve-g_vA">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/GetBalance" targetNamespace="http://www.tibco.com/bs3.0/GetBalance">
+      <xsd:simpleType name="decimal__">
+        <xsd:restriction base="xsd:decimal"/>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProc_balance" type="decimal__"/>
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="ConsumerProc_customerName" type="string_50"/>
+    </xsd:schema>
+    <xsd:schema xmlns="http://example.com/bank" targetNamespace="http://example.com/bank">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/UC7CDocLit/Business Objects/Bank.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="Customer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="name">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="address" type="Address"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="id">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:totalDigits value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="account" type="Account"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Address">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="street">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="postCode">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Account">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="number">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:totalDigits value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Savings">
+        <xsd:complexContent>
+          <xsd:extension base="Account"/>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Current">
+        <xsd:complexContent>
+          <xsd:extension base="Account">
+            <xsd:sequence>
+              <xsd:element maxOccurs="1" minOccurs="0" name="name">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="50"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Bank">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="name">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="address" type="Address"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="customer" type="Customer"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CustomerElement" type="Customer"/>
+      <xsd:element name="AddressElement" type="Address"/>
+      <xsd:element name="AccountElement" type="Account"/>
+      <xsd:element name="SavingsElement" type="Savings"/>
+      <xsd:element name="CurrentElement" type="Current"/>
+      <xsd:element name="BankElement" type="Bank"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsumerProc_GetBalance_INPUT">
+    <wsdl:part element="tns1:BankElement" name="Bank"/>
+    <wsdl:part element="tns1:CustomerElement" name="Customer"/>
+  </wsdl:message>
+  <wsdl:message name="ConsumerProc_GetBalance_OUTPUT">
+    <wsdl:part element="ns:ConsumerProc_balance" name="balance"/>
+    <wsdl:part element="ns:ConsumerProc_customerName" name="customerName"/>
+  </wsdl:message>
+  <wsdl:portType name="ConsumerProc" tibex:FlowContainer="_He5iseDsEd-Watvve-g_vA">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="GetBalance">
+      <wsdl:input message="ns:ConsumerProc_GetBalance_INPUT" tibex:Event="_MnLEEODsEd-Watvve-g_vA"/>
+      <wsdl:output message="ns:ConsumerProc_GetBalance_OUTPUT"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
+

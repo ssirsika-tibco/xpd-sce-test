@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/PrimSchema2" xmlns:tns3="http://www.example.org/PrimSchema2"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/PrimSchema2">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD4041/Generated Business Objects/org.example.PrimSchema2.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="MyString" id="org.example.PrimSchema2MyString2" name="MyString">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="ComplexWithPrimTypeInSameSchema" id="org.example.PrimSchema2ComplexWithPrimTypeInSameSchema"
+      abstract="false" mixed="false" name="ComplexWithPrimTypeInSameSchema">
+    <xsd:sequence>
+      <xsd:element ecore:name="myprimtype" id="ComplexWithPrimTypeInSameSchemamyprimtype"
+          form="qualified" maxOccurs="1" minOccurs="1" name="myprimtype" type="tns3:MyString"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

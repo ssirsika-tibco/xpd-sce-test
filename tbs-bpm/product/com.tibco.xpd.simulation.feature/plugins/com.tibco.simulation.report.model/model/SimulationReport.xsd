@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Jan Arciuchiewicz (Staffware PLC) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Experiment" type="ExperimentType"/>
+	<xs:complexType name="ExperimentDataType">
+		<xs:sequence>
+			<xs:element name="ExperimentState" type="ExperimentStateType"/>
+			<xs:element name="SimulationTime" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>Unit independent double value abstract simulation time. Every other time dependent element is based on this time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReferenceTimeUnit" type="ReferenceTimeUnitType">
+				<xs:annotation>
+					<xs:documentation>This is time unit which adds meaning to simulation time. It says what is one unit of simulation time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReferenceStartTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Point in real time from which simulation real time should start.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RealTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Shows the real time simulation time based on SimulationTime, ReferenceTimeUnit and ReferenceStartTime</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReferenceCostUnit" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unit of cost for whole experiment (for example $ or GBP). It ads the meaning to all cost related statistic values.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ActivityType">
+		<xs:sequence>
+			<xs:element name="DurationDistribution" type="DistributionType">
+				<xs:annotation>
+					<xs:documentation>Shows what distribution was used to determine times of activiry duration.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ActivityQueue" type="ActivityQueueType">
+				<xs:annotation>
+					<xs:documentation>Represent queue which is used by activity to holds cases to be processed by activity.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ActivityCost" type="CostType"/>
+			<xs:element name="AverageDuration" type="xs:double"></xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="IdentifiedElementAttributeGroup"/>
+	</xs:complexType>
+	<xs:complexType name="ActivityQueueType">
+		<xs:sequence>
+			<xs:element name="QueueOrder" type="QueueOrderType"/>
+			<xs:element name="ObservedCases" type="xs:int"/>
+			<xs:element name="CurrentSize" type="xs:int"/>
+			<xs:element name="MaxSize" type="xs:int"/>
+			<xs:element name="AverageSize" type="xs:double"/>
+			<xs:element name="AverageWait" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CasesType">
+		<xs:sequence>
+			<xs:element name="CaseStartIntervalDistribution" type="DistributionType">
+				<xs:annotation>
+					<xs:documentation>Describes how frequently cases are started during the experiment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StartedCases" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Current number of started cases.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FinishedCases" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Current number of finished cases.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AverageCaseTime" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>What was the average time of processing the case.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MinCaseTime" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>What was the shortest time of processing the case.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaxCaseTime" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>What was the shortest time of processing the case.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CaseCost" type="CostType">
+				<xs:annotation>
+					<xs:documentation>Case cost statistic data.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CostType">
+		<xs:sequence>
+			<xs:element name="AverageCost" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>Average cost for one case.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MinCost" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>Minimal cost for one case.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaxCost" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>Maximal cost for one case.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CumulativeAverageCost" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>Sum of average cost of all cases </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DistributionType">
+		<xs:sequence>
+			<xs:element name="LastResetTime" type="xs:double"/>
+			<xs:element name="ObservedElements" type="xs:long"/>
+			<xs:element name="DistributionCategory" type="DistributionCategoryType"/>
+			<xs:element name="Parameter1" type="xs:double"/>
+			<xs:element name="Parameter2" type="xs:double"/>
+			<xs:element name="Seed" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ParticipantType">
+		<xs:sequence>
+			<xs:element name="NoOfInstances" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Overall number or participant instances.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdleInstances" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Curent number of idle instances.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AverageIdle" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>Average number of idle participant instances.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AverageIdleTime" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>Average vaiting time of participant.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AverageBusyTime" type="xs:double"></xs:element>
+			<xs:element name="CostOfWorkForCase" type="CostType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="IdentifiedElementAttributeGroup"/>
+	</xs:complexType>
+	<xs:complexType name="ExperimentType">
+		<xs:sequence>
+			<xs:element name="ExperimentData" type="ExperimentDataType">
+				<xs:annotation>
+					<xs:documentation>Container for the all experiment specific parameters.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Cases" type="CasesType">
+				<xs:annotation>
+					<xs:documentation>Container for the all cases connected statistics.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Participants">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Participant" type="ParticipantType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Statistics for participant.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Activities">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Activity" type="ActivityType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Statistics tor activity.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="IdentifiedElementAttributeGroup"/>
+		<xs:attribute name="PackageId" type="xs:string" use="required"/>
+		<xs:attribute name="ProcessId" type="xs:string" use="required"/>
+		<xs:attribute name="PackageName" type="xs:string" use="required"/>
+		<xs:attribute name="ProcessName" type="xs:string" use="required"/>
+		<xs:attribute name="ProcessLabel" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:simpleType name="DistributionCategoryType">
+		<xs:restriction base="xs:NCName">
+			<xs:enumeration value="REAL_CONSTANT"/>
+			<xs:enumeration value="REAL_UNIFORM"/>
+			<xs:enumeration value="REAL_NORMAL"/>
+			<xs:enumeration value="REAL_EXPONENTIAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReferenceTimeUnitType">
+		<xs:restriction base="xs:NCName">
+			<xs:enumeration value="SECOND"/>
+			<xs:enumeration value="MINUTE"/>
+			<xs:enumeration value="HOUR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExperimentStateType">
+		<xs:restriction base="xs:NCName">
+			<xs:enumeration value="NOT_STARTED"/>
+			<xs:enumeration value="RUNNING"/>
+			<xs:enumeration value="PAUSED"/>
+			<xs:enumeration value="FINISHED"/>
+			<xs:enumeration value="ABORTED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="QueueOrderType">
+		<xs:restriction base="xs:NCName">
+			<xs:pattern value="FIFO"/>
+			<xs:pattern value="LIFO"/>
+			<xs:enumeration value="FIFO"/>
+			<xs:enumeration value="LIFO"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:attributeGroup name="IdentifiedElementAttributeGroup">
+		<xs:attribute name="Id" type="xs:string" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+	</xs:attributeGroup>
+</xs:schema>

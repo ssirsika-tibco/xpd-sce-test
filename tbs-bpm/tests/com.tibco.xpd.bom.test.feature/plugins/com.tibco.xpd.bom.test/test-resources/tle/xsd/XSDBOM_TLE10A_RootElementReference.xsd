@@ -1,0 +1,11 @@
+<xs:schema xmlns="http://example.com/XSDBOM_TLE10A_RootElementReference" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/XSDBOM_TLE10A_RootElementReference">
+	
+	
+	<xs:complexType name="Person">
+		<xs:sequence>
+			<xs:element ref="surname"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="surname" type="xs:string"/>
+</xs:schema>

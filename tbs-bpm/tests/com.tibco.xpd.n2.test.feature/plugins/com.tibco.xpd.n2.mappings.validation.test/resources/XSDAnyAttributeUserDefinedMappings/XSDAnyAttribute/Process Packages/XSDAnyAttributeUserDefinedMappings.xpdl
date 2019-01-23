@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_BaYK8JXXEeCkocAM0TkjhQ" xpdExt:DisplayName="XSDAnyAttributeUserDefinedMappings" Name="XSDAnyAttributeUserDefinedMappings">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2011-06-13</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>bharge</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_IsKWhJXXEeCkocAM0TkjhQ" xpdExt:DisplayName="TestAnyAttributePortType_Consumer" Name="TestAnyAttributePortType_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_GbhwqJXXEeCkocAM0TkjhQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_GbhwoJXXEeCkocAM0TkjhQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_GbhwqZXXEeCkocAM0TkjhQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_E_w9R5XXEeCkocAM0TkjhQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_BaYK8ZXXEeCkocAM0TkjhQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_E_w9SJXXEeCkocAM0TkjhQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_BaYK8ZXXEeCkocAM0TkjhQ" xpdExt:DisplayName="Valid Mappings" Name="ValidMappings">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_S6E8AZXXEeCkocAM0TkjhQ" xpdExt:DisplayName="classWithAnyAttribute" Name="classWithAnyAttribute" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="XSDAnyAttribute.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_RkxksJXREeCkocAM0TkjhQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_E_w9SZXXEeCkocAM0TkjhQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_E_w9SJXXEeCkocAM0TkjhQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_E_w9SpXXEeCkocAM0TkjhQ" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_E_w9SJXXEeCkocAM0TkjhQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_QMGS1ZXXEeCkocAM0TkjhQ" Name="XSDAnyAttributeToXSDAnyAttribute" xpdExt:Visibility="Private" xpdExt:DisplayName="XSDAnyAttribute To XSDAnyAttribute">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_QMGS15XXEeCkocAM0TkjhQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.anyAttribute">
+                      <xpdExt:ScriptInformation Id="_QMGS1pXXEeCkocAM0TkjhQ" Name="anyAttribute"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var aa = com_example_xsdanyattribute_Factory.createClassWithAnyAttribute();&#xD;
+aa.anyAttribute;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.name">
+                      <xpdExt:ScriptInformation Id="_Z0UxUJXXEeCkocAM0TkjhQ" Name="name"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var x = &quot;Tibco&quot;;&#xD;
+x;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_QMGS2JXXEeCkocAM0TkjhQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_IsKWhJXXEeCkocAM0TkjhQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestAnyAttribute.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestAnyAttributePortType" OperationName="GetCustomerOrderOp">
+                  <xpdExt:ExternalReference location="TestAnyAttribute.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_IsKWhJXXEeCkocAM0TkjhQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_E_w9SJXXEeCkocAM0TkjhQ" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="268.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_E_w9S5XXEeCkocAM0TkjhQ" Name="" From="_QMGS1ZXXEeCkocAM0TkjhQ" To="_E_w9SpXXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_QMGS2pXXEeCkocAM0TkjhQ" xpdExt:DisplayName="" Name="" From="_E_w9SZXXEeCkocAM0TkjhQ" To="_QMGS1ZXXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_GbhwoJXXEeCkocAM0TkjhQ" xpdExt:DisplayName="Invalid Mappings" iProcessExt:MaxStepIndex="5" Name="InvalidMappings">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_UU7wcZXXEeCkocAM0TkjhQ" xpdExt:DisplayName="classWithAnyAttribute" Name="classWithAnyAttribute" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="XSDAnyAttribute.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_RkxksJXREeCkocAM0TkjhQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue></xpdl2:InitialValue>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_GbhwqpXXEeCkocAM0TkjhQ" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Gbhwq5XXEeCkocAM0TkjhQ" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="1262.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hhqQkJXXEeCkocAM0TkjhQ" Name="AnyAttributeToAnyType" xpdExt:Visibility="Private" xpdExt:DisplayName="AnyAttribute To AnyType">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_hhqQkZXXEeCkocAM0TkjhQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.anyAttribute">
+                      <xpdExt:ScriptInformation Id="_0TleZJXXEeCkocAM0TkjhQ" Name="anyType"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var at = com_example_xsdanyattribute_Factory.createUnsupportedAnyType();&#xD;
+at.anyType;&#xD;
+</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.name">
+                      <xpdExt:ScriptInformation Id="_qjnZI5XXEeCkocAM0TkjhQ" Name="name"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var x = &quot;Tibco&quot;;&#xD;
+x;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_hhqQkpXXEeCkocAM0TkjhQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_IsKWhJXXEeCkocAM0TkjhQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestAnyAttribute.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestAnyAttributePortType" OperationName="GetCustomerOrderOp">
+                  <xpdExt:ExternalReference location="TestAnyAttribute.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_IsKWhJXXEeCkocAM0TkjhQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="77.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="179.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hhqQk5XXEeCkocAM0TkjhQ" Name="AnyAttributeToAnySimpleType" xpdExt:Visibility="Private" xpdExt:DisplayName="AnyAttribute To AnySimpleType">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_hhqQlJXXEeCkocAM0TkjhQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.anyAttribute">
+                      <xpdExt:ScriptInformation Id="_6MhAoJXXEeCkocAM0TkjhQ" Name="anySimpleType"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var ast = com_example_xsdanyattribute_Factory.createUnsupportedAnySimpleType();&#xD;
+ast.anySimpleTypeAttr;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.name">
+                      <xpdExt:ScriptInformation Id="_soL485XXEeCkocAM0TkjhQ" Name="name"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var x = &quot;Tibco&quot;;&#xD;
+x;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_hhqQlZXXEeCkocAM0TkjhQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_IsKWhJXXEeCkocAM0TkjhQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestAnyAttribute.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestAnyAttributePortType" OperationName="GetCustomerOrderOp">
+                  <xpdExt:ExternalReference location="TestAnyAttribute.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_IsKWhJXXEeCkocAM0TkjhQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="77.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="112.0">
+              <xpdl2:Coordinates XCoordinate="328.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hhqQlpXXEeCkocAM0TkjhQ" Name="AnyAttributeToAny" xpdExt:Visibility="Private" xpdExt:DisplayName="AnyAttribute To Any">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_hhqQl5XXEeCkocAM0TkjhQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.anyAttribute">
+                      <xpdExt:ScriptInformation Id="__9HGQ5XXEeCkocAM0TkjhQ" Name="any"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var a = com_example_xsdanyattribute_Factory.createUnSupportedAny();&#xD;
+a.anyAttr;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.name">
+                      <xpdExt:ScriptInformation Id="_tsZvApXXEeCkocAM0TkjhQ" Name="name"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var x = &quot;Tibco&quot;;&#xD;
+x;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_hhqQmJXXEeCkocAM0TkjhQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_IsKWhJXXEeCkocAM0TkjhQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestAnyAttribute.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestAnyAttributePortType" OperationName="GetCustomerOrderOp">
+                  <xpdExt:ExternalReference location="TestAnyAttribute.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_IsKWhJXXEeCkocAM0TkjhQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="77.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="124.0">
+              <xpdl2:Coordinates XCoordinate="484.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hhqQmZXXEeCkocAM0TkjhQ" Name="AnyAttributeToProcessSimpleType" xpdExt:Visibility="Private" xpdExt:DisplayName="AnyAttribute To Process Simple Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_hhqQmpXXEeCkocAM0TkjhQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.anyAttribute">
+                      <xpdExt:ScriptInformation Id="_ESVaEZXYEeCkocAM0TkjhQ" Name="simpleType"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var y = 100.80;&#xD;
+y;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.name">
+                      <xpdExt:ScriptInformation Id="_utWOoJXXEeCkocAM0TkjhQ" Name="name"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var x = &quot;Tibco&quot;;&#xD;
+x;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_hhqQm5XXEeCkocAM0TkjhQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_IsKWhJXXEeCkocAM0TkjhQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestAnyAttribute.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestAnyAttributePortType" OperationName="GetCustomerOrderOp">
+                  <xpdExt:ExternalReference location="TestAnyAttribute.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_IsKWhJXXEeCkocAM0TkjhQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="77.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="118.0">
+              <xpdl2:Coordinates XCoordinate="640.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hhqQnJXXEeCkocAM0TkjhQ" Name="AnyAttributeToBOMBasePrimType" xpdExt:Visibility="Private" xpdExt:DisplayName="AnyAttribute To BOM Base Prim Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_hhqQnZXXEeCkocAM0TkjhQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.anyAttribute">
+                      <xpdExt:ScriptInformation Id="_KO44EJXYEeCkocAM0TkjhQ" Name="bomBasePrimType"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var b1 = com_example_xsdanyattribute_Factory.createBOMDataTypes().booleanAttr;&#xD;
+b1;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.name">
+                      <xpdExt:ScriptInformation Id="_v4t1kZXXEeCkocAM0TkjhQ" Name="name"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var x = &quot;Tibco&quot;;&#xD;
+x;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_hhqQnpXXEeCkocAM0TkjhQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_IsKWhJXXEeCkocAM0TkjhQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestAnyAttribute.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestAnyAttributePortType" OperationName="GetCustomerOrderOp">
+                  <xpdExt:ExternalReference location="TestAnyAttribute.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_IsKWhJXXEeCkocAM0TkjhQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="71.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="117.0">
+              <xpdl2:Coordinates XCoordinate="812.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hhqQn5XXEeCkocAM0TkjhQ" Name="AnyAttributeToBOMAttrOfBOMClass" xpdExt:Visibility="Private" xpdExt:DisplayName="Any Attribute To BOM Attr Of BOM Class">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_hhqQoJXXEeCkocAM0TkjhQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.anyAttribute">
+                      <xpdExt:ScriptInformation Id="_QiBqEZXYEeCkocAM0TkjhQ" Name="bomAttBomClass"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var b2 = com_example_xsdanyattribute_Factory.createBOMDataTypes().objAnotherClass;&#xD;
+b2;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.name">
+                      <xpdExt:ScriptInformation Id="_xF4MQZXXEeCkocAM0TkjhQ" Name="name"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var x = &quot;Tibco&quot;;&#xD;
+x;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_hhqQoZXXEeCkocAM0TkjhQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_IsKWhJXXEeCkocAM0TkjhQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestAnyAttribute.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestAnyAttributePortType" OperationName="GetCustomerOrderOp">
+                  <xpdExt:ExternalReference location="TestAnyAttribute.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_IsKWhJXXEeCkocAM0TkjhQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="110.0">
+              <xpdl2:Coordinates XCoordinate="967.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hhqQopXXEeCkocAM0TkjhQ" Name="AnyAttributeToBOMClass" xpdExt:Visibility="Private" xpdExt:DisplayName="AnyAttribute To BOM Class">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_hhqQo5XXEeCkocAM0TkjhQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.anyAttribute">
+                      <xpdExt:ScriptInformation Id="_XNO90JXYEeCkocAM0TkjhQ" Name="bomClass"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var b3 = com_example_xsdanyattribute_Factory.createBOMDataTypes();&#xD;
+b3;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.name">
+                      <xpdExt:ScriptInformation Id="_yrdqAJXXEeCkocAM0TkjhQ" Name="name"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var x = &quot;Tibco&quot;;&#xD;
+x;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_hhqQpJXXEeCkocAM0TkjhQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_IsKWhJXXEeCkocAM0TkjhQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestAnyAttribute.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestAnyAttributePortType" OperationName="GetCustomerOrderOp">
+                  <xpdExt:ExternalReference location="TestAnyAttribute.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_IsKWhJXXEeCkocAM0TkjhQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="77.0" LaneId="_GbhwqZXXEeCkocAM0TkjhQ" Width="111.0">
+              <xpdl2:Coordinates XCoordinate="1121.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_HtThk5XXEeCkocAM0TkjhQ" Name="" From="_hhqQopXXEeCkocAM0TkjhQ" To="_Gbhwq5XXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hhqQpZXXEeCkocAM0TkjhQ" xpdExt:DisplayName="" Name="" From="_hhqQkJXXEeCkocAM0TkjhQ" To="_hhqQk5XXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hhqQppXXEeCkocAM0TkjhQ" xpdExt:DisplayName="" Name="" From="_hhqQk5XXEeCkocAM0TkjhQ" To="_hhqQlpXXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hhqQp5XXEeCkocAM0TkjhQ" xpdExt:DisplayName="" Name="" From="_hhqQlpXXEeCkocAM0TkjhQ" To="_hhqQmZXXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hhqQqJXXEeCkocAM0TkjhQ" xpdExt:DisplayName="" Name="" From="_hhqQmZXXEeCkocAM0TkjhQ" To="_hhqQnJXXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hhqQqZXXEeCkocAM0TkjhQ" xpdExt:DisplayName="" Name="" From="_hhqQnJXXEeCkocAM0TkjhQ" To="_hhqQn5XXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hhqQqpXXEeCkocAM0TkjhQ" xpdExt:DisplayName="" Name="" From="_hhqQn5XXEeCkocAM0TkjhQ" To="_hhqQopXXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hitZUJXXEeCkocAM0TkjhQ" xpdExt:DisplayName="" Name="" From="_GbhwqpXXEeCkocAM0TkjhQ" To="_hhqQkJXXEeCkocAM0TkjhQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="9"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

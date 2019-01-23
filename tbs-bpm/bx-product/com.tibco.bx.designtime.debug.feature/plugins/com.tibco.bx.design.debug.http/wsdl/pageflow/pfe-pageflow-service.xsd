@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 (x64) (http://www.altova.com) by Joe Humphries (Tibco Software Limited) -->
+<xs:schema xmlns="http://pageflow.api.pfe.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pfecom="http://common.api.pfe.n2.tibco.com" xmlns:df="http://datafeed.common.n2.tibco.com" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://common.api.pfe.n2.tibco.com" schemaLocation="pfe-common.xsd"/>
+	<xs:import namespace="http://datafeed.common.n2.tibco.com" schemaLocation="df-payload.xsd"/>
+	
+	<xs:element name="listPageFlows" type="pfecom:ListingRequest">
+		<xs:annotation>
+			<xs:documentation>Request element for listPageFlows operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="listPageFlowsResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listPageFlows operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="startPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>**PRIVATE API - Reserved for internal use** 
+
+Position in the list of the first item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="endPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>**PRIVATE API - Reserved for internal use**
+
+Position in the list of the last item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="totalItems" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>**PRIVATE API - Reserved for internal use**
+
+Total number of items in the list. (If this value is -1 the Page Flow Engine did not build the count of total number of items.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pageFlowTemplate" type="pfecom:PageFlowTemplate" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Array describing deployed pageflows that match the criteria specified in the request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="startPageFlow">
+		<xs:annotation>
+			<xs:documentation>Request element for startPageFlow operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pageFlowDefinition" type="pfecom:PFETemplate">
+					<xs:annotation>
+						<xs:documentation>Unique identifier of the pageflow to be started.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="formalParams" type="df:dataPayload" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Data for the formal parameters associated with the pageflow start event.
+
+Note: You cannot determine the names of these formal parameters programmatically. Instead, you must obtain them by examining the process in TIBCO Business Studio.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="responsePayloadMode" type="df:payloadModeType">
+					<xs:annotation>
+						<xs:documentation>Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). 
+
+If not specified, the default value is JSON.
+
+(RSS is currently not supported.)
+</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cacheTimeout" type="xs:long" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Timeout value (in minutes) for the pageflow activity.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="startPageFlowResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for startPageFlow operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pageResponse" type="pfecom:PageResponse">
+					<xs:annotation>
+						<xs:documentation>Pageflow execution state, context and page data.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/XSDBOM_TLE08_anonymousSimpleTypes"
+	xmlns:tns="http://www.example.org/XSDBOM_TLE08_anonymousSimpleTypes"
+	elementFormDefault="qualified">
+	
+	<!--
+		Tests 3.9 as described in 'BDS Support for Handling - Studio BOM
+		Import'.
+	-->
+
+	<element name="MyStrElement">
+		<simpleType>
+			<restriction base="string">
+				<maxLength value="200" />
+				<pattern value=".*"></pattern>
+			</restriction>
+		</simpleType>
+	</element>
+	<element name="MyNameElement">
+		<simpleType>
+			<restriction base="Name">
+				<maxLength value="150"></maxLength>
+			</restriction>
+		</simpleType>
+	</element>
+	<element name="MyEntityElement">
+		<simpleType>
+			<restriction base="ENTITY" />
+		</simpleType>
+	</element>
+	<element name="MyLongElement">
+		<simpleType>
+			<restriction base="long" />
+		</simpleType>
+	</element>
+	<element name="MyDoubleElement">
+		<simpleType>
+			<restriction base="double">
+			</restriction>
+		</simpleType>
+	</element>
+	<element name="MyAnyURIElement">
+		<simpleType>
+			<restriction base="anyURI"/>
+		</simpleType>
+	</element>
+</schema>

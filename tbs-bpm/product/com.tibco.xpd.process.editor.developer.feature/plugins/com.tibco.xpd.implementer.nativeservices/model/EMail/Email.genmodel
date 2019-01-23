@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) TIBCO Software Inc 2004, 2006. All rights reserved."
+    modelDirectory="/com.tibco.xpd.implementer.nativeservices/src" editDirectory="/com.tibco.xpd.implementer.nativeservices/src"
+    modelPluginID="com.tibco.xpd.implementer.nativeservices" modelName="Email" editPluginClass="com.tibco.xpd.implementer.nativeservices.emailservice.email.provider.EmailEditPlugin"
+    nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer">
+  <foreignModel>Email.xsd</foreignModel>
+  <genPackages prefix="Email" basePackage="com.tibco.xpd.implementer.nativeservices.emailservice"
+      resource="XML" disposableProviderFactory="true" ecorePackage="Email.ecore#/">
+    <genEnums ecoreEnum="Email.ecore#//ConfigurationType">
+      <genEnumLiterals ecoreEnumLiteral="Email.ecore#//ConfigurationType/Custom"/>
+      <genEnumLiterals ecoreEnumLiteral="Email.ecore#//ConfigurationType/Server"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="Email.ecore#//ConfigurationTypeObject"/>
+    <genDataTypes ecoreDataType="Email.ecore#//ParameterType"/>
+    <genClasses ecoreClass="Email.ecore#//AttachmentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//AttachmentType/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Email.ecore#//AttachmentType/files"/>
+    </genClasses>
+    <genClasses ecoreClass="Email.ecore#//DefinitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Email.ecore#//DefinitionType/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//DefinitionType/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//DefinitionType/cc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//DefinitionType/bcc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//DefinitionType/replyTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//DefinitionType/headers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//DefinitionType/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//DefinitionType/subject"/>
+    </genClasses>
+    <genClasses ecoreClass="Email.ecore#//DocumentRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute Email.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Email.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Email.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Email.ecore#//DocumentRoot/email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//DocumentRoot/configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="Email.ecore#//EmailType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Email.ecore#//EmailType/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//EmailType/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Email.ecore#//EmailType/attachment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Email.ecore#//EmailType/sMTP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Email.ecore#//EmailType/error"/>
+    </genClasses>
+    <genClasses ecoreClass="Email.ecore#//ErrorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//ErrorType/returnCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//ErrorType/returnMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="Email.ecore#//FilesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//FilesType/file"/>
+    </genClasses>
+    <genClasses ecoreClass="Email.ecore#//FromType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//FromType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//FromType/configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="Email.ecore#//SMTPType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//SMTPType/configuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//SMTPType/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//SMTPType/port"/>
+    </genClasses>
+    <genClasses ecoreClass="Email.ecore#//TextMappingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Email.ecore#//TextMappingType/text"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

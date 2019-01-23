@@ -1,0 +1,61 @@
+import bomnotation;
+import sql::tables;
+import sql::schema;
+import sql::constraints;
+import sql::datatypes;
+import sql::expressions;
+import sql::routines;
+import sql::statements;
+import sql::accesscontrol;
+
+extension org::openarchitectureware::util::stdlib::cloning;
+extension com::tibco::xpd::bom::dbimport::template::Extensions reexport;
+
+
+transform(List dbObjects, uml::Model modelObj) :
+	dbObjects.typeSelect(tables::PersistentTable).createUMLClass(modelObj) ->
+	dbObjects.typeSelect(tables::PersistentTable).eAllContents.typeSelect(constraints::ForeignKey).createAssociation(modelObj) ;
+	
+createAssociation(constraints::ForeignKey foreignKey, uml::Model model) :
+	let containerTb = foreignKey.eContainer:
+	//Considering only the first member initially, shall improvise as requirements get clearer
+	let uniqueConstraint = foreignKey.uniqueConstraint :
+	let origClass = model.eAllContents.typeSelect(uml::Class).select(e| containerTb.name== e.name) :
+	let referencedTb = uniqueConstraint.BaseTable :
+	let refClass = model.eAllContents.typeSelect(uml::Class).select(e| referencedTb.name== e.name).first() :
+	origClass.createAssociation(refClass, foreignKey.name);
+
+createAssociation(uml::Class originalClass, uml::Class refClass, String foreignKeyName) :
+	createAssociationExt(originalClass, refClass, foreignKeyName);
+
+createUMLClass(tables::PersistentTable table, uml::Model model) :
+	let cls = createClass(table, model) :
+	table.eAllContents.typeSelect(tables::Column).createAttribute(cls);
+
+createAttribute(tables::Column column, uml::Class cls) :
+	let attrib = createAttrib(column, cls):
+	((column.getDataType() != null) ?
+		(setAttribType(column.getDataType(), attrib)) : null) ;
+	
+setAttribType(datatypes::DataType dataType, uml::Property attrib) :
+	attrib.setType(getType(dataType, attrib));
+	
+uml::DataType getType(datatypes::CharacterStringDataType characterStringDataType, uml::Property attrib) :
+	let dt = getCharacterStringType(characterStringDataType, attrib) :
+	dt;
+	
+uml::DataType getType(datatypes::NumericalDataType numericDataType, uml::Property attrib) :
+	let dt = getIntegerDataType(numericDataType, attrib) :
+	dt;
+	
+uml::DataType getType(datatypes::DateDataType dateDataType, uml::Property attrib) :
+	let dt = getDateDataType(dateDataType, attrib) :
+	dt;
+
+uml::DataType getType(datatypes::TimeDataType timeDataType, uml::Property attrib) :
+	let dt = getTimeDataType(timeDataType, attrib) :
+	dt;
+	
+uml::DataType getType(datatypes::SQLDataType dataType, uml::Property attrib) :
+	null;
+

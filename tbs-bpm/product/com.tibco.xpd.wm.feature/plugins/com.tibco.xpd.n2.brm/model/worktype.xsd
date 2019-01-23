@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by XMLSpy 2008 Enterprise Ed., Concurrent for 6 users (with SMP from 2007-11-05 to 2008-11-05) (TIBCO Software Inc.) -->
+<xs:schema xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wt="http://worktype.common.n2.tibco.com" targetNamespace="http://worktype.common.n2.tibco.com" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="organisation.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:element name="WorkTypes" type="wt:WorkType">
+		<xs:annotation>
+			<xs:documentation>The root WorkType element.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="WorkType">
+		<xs:annotation>
+			<xs:documentation>Array of work types.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="WorkType" type="dm:WorkType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="version" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

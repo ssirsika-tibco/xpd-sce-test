@@ -1,0 +1,13 @@
+import xmlSchema;
+import xsd;
+import type;
+import uml;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension org::openarchitectureware::xsd::lib::map;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::Bom2Xsd reexport; 
+extension com::tibco::xpd::script::transform::template::Extensions reexport;
+
+List[XmlSchemaDocumentRoot] test(Model model) :
+	traceMe("Inside Template") ->
+	transform(model);

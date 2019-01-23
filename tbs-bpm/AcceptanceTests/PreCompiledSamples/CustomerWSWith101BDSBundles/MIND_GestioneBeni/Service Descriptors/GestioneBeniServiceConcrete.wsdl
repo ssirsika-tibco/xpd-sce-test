@@ -1,0 +1,673 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions name = "Untitled" targetNamespace = "http://xmlns.example.com/1392723640633" xmlns:ns0 = "http://xmlns.enel.it/mercato/libero/schema/presentation/gestionebeni.xsd" xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns = "http://xmlns.example.com/1392723640633" xmlns:wsdl = "http://schemas.xmlsoap.org/wsdl/">    
+	<wsdl:types>        
+		<xs:schema attributeFormDefault = "unqualified" elementFormDefault = "qualified" targetNamespace = "http://xmlns.enel.it/mercato/libero/schema/presentation/gestionebeni.xsd" xmlns = "http://xmlns.enel.it/mercato/libero/schema/presentation/gestionebeni.xsd" xmlns:xs = "http://www.w3.org/2001/XMLSchema">            
+			<xs:element name = "AreaGeografica">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "50"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "AttributoProdotto">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "18"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Bye_CodiceVAS">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Bye_DataAdesione">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:date"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Bye_DataAttivazione">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:date"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Bye_NumeroContratto">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Bye_NumeroPratica">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Bye_NumeroUtentePDR">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Bye_TipoDocumento">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CDM_Cliente">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CDM_IdFatturazione">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CDM_IndirizzoFatturazione">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CDM_VAS">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Canale">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CarattDeterConti">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Causale">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CausaleOperazione">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Cellulare">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "30"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "ChiaveUnivocaBeneCRM">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "30"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Codice">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "15"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CodiceClienteCRM">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "15"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CodicePartner">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "30"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CodiceProdotto">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "18"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Cognome">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Commodity">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CondizioniPagamento">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "ConsegnaManuale">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "1"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "CorrelationId" type = "xs:string"/>            
+			<xs:element name = "DataRichiestaConsegna">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "8"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "DatiIndirizzo">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" ref = "ns0:via"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:civico"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:cap"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:comune"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:provincia"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:titolo"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:presso"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "DatiInstallatore">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" ref = "ns0:Codice"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:RagioneSociale"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Nome"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Cognome"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:AreaGeografica"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Email"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Telefono"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Cellulare"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:DatiIndirizzo"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "Descrizione">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "255"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "ESITO">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" ref = "ns0:Esito"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Codice"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Descrizione"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "Email">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "241"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Esito">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "2"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Flag_CVP">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "1"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Flag_StandAlone">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "1"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "GestioneBeniRequest">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" ref = "ns0:TipoOperazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CausaleOperazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TipoFlusso"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CodiceClienteCRM"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:ChiaveUnivocaBeneCRM"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdOrdineFO"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdRichiestaFO"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdCaseFatturazioneFO"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CodiceProdotto"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:AttributoProdotto"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:QuantitaProdotto"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:DataRichiestaConsegna"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:DatiInstallatore"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdPraticaFinanziamento"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:OrderStatus"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdRichiestaIPE"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:SistemaRichiedente"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Canale"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Pod"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CDM_VAS"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CDM_Cliente"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CDM_IdFatturazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CDM_IndirizzoFatturazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_NumeroContratto"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_NumeroPratica"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_NumeroUtentePDR"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_DataAttivazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_DataAdesione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_TipoDocumento"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_CodiceVAS"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CarattDeterConti"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CondizioniPagamento"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Commodity"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:SistemaOrigineDati"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:NumeroUtente"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:ImportoTotale"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:ConsegnaManuale"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Flag_CVP"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Flag_StandAlone"/>                        
+						<xs:element minOccurs = "0" name = "GiorniRipensamento" type = "xs:integer"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CodicePartner"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TripBusinessPartner"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TripContoContr"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TripContrattoSap"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "GestioneBeniResponse">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdBPM"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "IdBPM">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "15"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "IdCaseFatturazioneFO">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "15"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "IdOrdineFO">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "15"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "IdPraticaFinanziamento">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "15"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "IdRichiestaFO">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "15"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "IdRichiestaIPE">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "15"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "ImportoTotale">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Nome">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "NotificaFatturaRequest">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" ref = "ns0:ESITO"/>                        
+						<xs:element minOccurs = "0" name = "Fattura" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "TipoOperazione" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "Causale" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "TipoFlusso" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "IdProtocollo">                            
+							<xs:simpleType>                                
+								<xs:restriction base = "xs:decimal">                                    
+									<xs:totalDigits value = "13"/>                                    
+									<xs:fractionDigits value = "2"/>                                
+								</xs:restriction>                            
+							</xs:simpleType>                        
+						</xs:element>                        
+						<xs:element minOccurs = "0" name = "DataEmissione" type = "xs:date"/>                        
+						<xs:element minOccurs = "0" name = "DataConsegna" type = "xs:date"/>                        
+						<xs:element minOccurs = "0" name = "NumeroFattura" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "ImportoFattura" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "ImportoNetto" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "ImportoIva" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "IdDocumentoStampa" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "IdOrdineSAP" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "IdRichiesta" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CorrelationId"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "NotificaStepConsegnaRequest">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" ref = "ns0:CorrelationId"/>                        
+						<xs:element minOccurs = "0" name = "Numerodtt" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "TimeStampRicezione" type = "xs:date"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:ESITO"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "NumeroUtente">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "OrderStatus">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "30"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Pod">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "QuantitaProdotto">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "18"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "RagioneSociale">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "40"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "ReceiveTaskAnnullamentoResponse">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element ref = "ns0:CorrelationId"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ReceiveTaskEsitoISU">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element ref = "ns0:CorrelationId"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Esito"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Codice"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Descrizione"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ReceiveTaskRilavorazioneResponse">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element ref = "ns0:CorrelationId"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TipoOperazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CausaleOperazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TipoFlusso"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CodiceClienteCRM"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:ChiaveUnivocaBeneCRM"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdOrdineFO"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdRichiestaFO"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdCaseFatturazioneFO"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CodiceProdotto"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:AttributoProdotto"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:QuantitaProdotto"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:DataRichiestaConsegna"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:DatiInstallatore"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdPraticaFinanziamento"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:OrderStatus"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:IdRichiestaIPE"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:SistemaRichiedente"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Canale"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Pod"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CDM_VAS"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CDM_Cliente"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CDM_IdFatturazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CDM_IndirizzoFatturazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_NumeroContratto"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_NumeroPratica"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_NumeroUtentePDR"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_DataAttivazione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_DataAdesione"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_TipoDocumento"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Bye_CodiceVAS"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CarattDeterConti"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CondizioniPagamento"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Commodity"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:SistemaOrigineDati"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:NumeroUtente"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:ImportoTotale"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:ConsegnaManuale"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Flag_CVP"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:Flag_StandAlone"/>                        
+						<xs:element minOccurs = "0" name = "GiorniRipensamento" type = "xs:integer"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:CodicePartner"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TripBusinessPartner"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TripContoContr"/>                        
+						<xs:element minOccurs = "0" ref = "ns0:TripContrattoSap"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "SistemaOrigineDati">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "SistemaRichiedente">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "Telefono">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "30"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "TipoFlusso">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "TipoOperazione">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "TripBusinessPartner">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "10"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "TripContoContr">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "12"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "TripContrattoSap">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "10"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "cap">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "10"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "civico">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "10"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "comune">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "40"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "presso">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "40"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "provincia">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "3"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "titolo">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string"/>                
+				</xs:simpleType>            
+			</xs:element>            
+			<xs:element name = "via">                
+				<xs:simpleType>                    
+					<xs:restriction base = "xs:string">                        
+						<xs:maxLength value = "60"/>                    
+					</xs:restriction>                
+				</xs:simpleType>            
+			</xs:element>        
+		</xs:schema>    
+	</wsdl:types>    
+	<wsdl:service name = "GestioneBeniBpmService">        
+		<wsdl:port binding = "tns:GestioneBeniPortTypeEndpoint1Binding" name = "GestioneBeniPortTypeEndpoint1">            
+			<soap:address location = "http://localhost:9999/Processes/GestioneBeni/GestioneBeniBpmService.serviceagent/GestioneBeniPortTypeEndpoint1"/>        
+		</wsdl:port>    
+	</wsdl:service>    
+	<wsdl:portType name = "GestioneBeniPortType">        
+		<wsdl:operation name = "ReceiveTaskEsitoISU">            
+			<wsdl:input message = "tns:ReceiveTaskEsitoISUResponse"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "Annullamento">            
+			<wsdl:input message = "tns:ReceiveTaskAnnullamentoResponse"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "GestioneBeniStart">            
+			<wsdl:input message = "tns:GestioneBeniRequest"/>            
+			<wsdl:output message = "tns:GestioneBeniResponse"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "ReceiveTaskRilavorazioneResponse">            
+			<wsdl:input message = "tns:ReceiveTaskRilavorazioneResponse"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "NotificaFatturaOperation">            
+			<wsdl:input message = "tns:NotificaFatturaRequest"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "NotificaStepConsegnaOperation">            
+			<wsdl:input message = "tns:NotificaStepConsegnaRequest"/>        
+		</wsdl:operation>    
+	</wsdl:portType>    
+	<wsdl:binding name = "GestioneBeniPortTypeEndpoint1Binding" type = "tns:GestioneBeniPortType">        
+		<soap:binding style = "document" transport = "http://schemas.xmlsoap.org/soap/http"/>        
+		<wsdl:operation name = "ReceiveTaskEsitoISU">            
+			<soap:operation soapAction = "/Processes/GestioneBeni/GestioneBeniBpmService.serviceagent/GestioneBeniPortTypeEndpoint1/ReceiveTaskEsitoISU" style = "document"/>            
+			<wsdl:input>                
+				<soap:body parts = "Input" use = "literal"/>            
+			</wsdl:input>        
+		</wsdl:operation>        
+		<wsdl:operation name = "Annullamento">            
+			<soap:operation soapAction = "/Processes/GestioneBeni/GestioneBeniBpmService.serviceagent/GestioneBeniPortTypeEndpoint1/Annullamento" style = "document"/>            
+			<wsdl:input>                
+				<soap:body parts = "input" use = "literal"/>            
+			</wsdl:input>        
+		</wsdl:operation>        
+		<wsdl:operation name = "GestioneBeniStart">            
+			<soap:operation soapAction = "/Processes/GestioneBeni/GestioneBeniBpmService.serviceagent/GestioneBeniPortTypeEndpoint1/GestioneBeniStart" style = "document"/>            
+			<wsdl:input>                
+				<soap:body parts = "Input" use = "literal"/>            
+			</wsdl:input>            
+			<wsdl:output>                
+				<soap:body parts = "Output" use = "literal"/>            
+			</wsdl:output>        
+		</wsdl:operation>        
+		<wsdl:operation name = "ReceiveTaskRilavorazioneResponse">            
+			<soap:operation soapAction = "/Processes/GestioneBeni/GestioneBeniBpmService.serviceagent/GestioneBeniPortTypeEndpoint1/ReceiveTaskRilavorazioneResponse" style = "document"/>            
+			<wsdl:input>                
+				<soap:body parts = "Input" use = "literal"/>            
+			</wsdl:input>        
+		</wsdl:operation>        
+		<wsdl:operation name = "NotificaFatturaOperation">            
+			<soap:operation soapAction = "/Processes/GestioneBeni/GestioneBeniBpmService.serviceagent//NotificaFatturaOperation" style = "document"/>            
+			<wsdl:input>                
+				<soap:body parts = "partBody" use = "literal"/>            
+			</wsdl:input>        
+		</wsdl:operation>        
+		<wsdl:operation name = "NotificaStepConsegnaOperation">            
+			<soap:operation soapAction = "/Processes/GestioneBeni/GestioneBeniBpmService.serviceagent//NotificaStepConsegnaOperation" style = "document"/>            
+			<wsdl:input>                
+				<soap:body parts = "partBody" use = "literal"/>            
+			</wsdl:input>        
+		</wsdl:operation>    
+	</wsdl:binding>    
+	<wsdl:message name = "ReceiveTaskEsitoISUResponse">        
+		<wsdl:part element = "ns0:ReceiveTaskEsitoISU" name = "Input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ReceiveTaskAnnullamentoResponse">        
+		<wsdl:part element = "ns0:ReceiveTaskAnnullamentoResponse" name = "input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "GestioneBeniRequest">        
+		<wsdl:part element = "ns0:GestioneBeniRequest" name = "Input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "GestioneBeniResponse">        
+		<wsdl:part element = "ns0:GestioneBeniResponse" name = "Output"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ReceiveTaskRilavorazioneResponse">        
+		<wsdl:part element = "ns0:ReceiveTaskRilavorazioneResponse" name = "Input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "NotificaFatturaRequest">        
+		<wsdl:part element = "ns0:NotificaFatturaRequest" name = "partBody"/>    
+	</wsdl:message>    
+	<wsdl:message name = "NotificaStepConsegnaRequest">        
+		<wsdl:part element = "ns0:NotificaStepConsegnaRequest" name = "partBody"/>    
+	</wsdl:message>
+</wsdl:definitions>

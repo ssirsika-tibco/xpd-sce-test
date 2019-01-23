@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/CaricatoreVAS/" xmlns:tns31="http://www.example.org/CaricatoreVAS/"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/CaricatoreVAS/">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.presentation.resources/Generated Business Objects/org.example.CaricatoreVAS.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="ServiziPartner" id="org.example.CaricatoreVASServiziPartner"
+      abstract="false" mixed="false" name="ServiziPartner">
+    <xsd:sequence>
+      <xsd:element ecore:name="codiceUnivoco" id="ServiziPartnerCodiceUnivoco" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="CodiceUnivoco" type="xsd:string"/>
+      <xsd:element ecore:name="fatturazioneEE" id="ServiziPartnerFatturazioneEE" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="FatturazioneEE" type="xsd:string"/>
+      <xsd:element ecore:name="saldoAnnoContrattuale" id="ServiziPartnerSaldoAnnoContrattuale"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="SaldoAnnoContrattuale"
+          type="xsd:string"/>
+      <xsd:element ecore:name="attributi" id="ServiziPartnerAttributi" form="unqualified"
+          maxOccurs="unbounded" minOccurs="0" name="Attributi" type="Attributi"/>
+      <xsd:element ecore:name="codiceContratto" id="ServiziPartnerCodiceContratto"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="CodiceContratto" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Attributi" id="org.example.CaricatoreVASAttributi"
+      abstract="false" mixed="false" name="Attributi">
+    <xsd:sequence>
+      <xsd:element ecore:name="nome" id="AttributiNome" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="Nome" type="xsd:string"/>
+      <xsd:element ecore:name="valore" id="AttributiValore" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="Valore" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="InserimentoVAS" nillable="false">
+    <xsd:complexType ecore:name="InserimentoVASType" id="org.example.CaricatoreVASInserimentoVASType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="idBPM" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="IdBPM" type="xsd:string"/>
+        <xsd:element ecore:name="canale" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Canale" type="xsd:string"/>
+        <xsd:element ecore:name="insOffertaMemo" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="insOffertaMemo" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="InserimentoVASResponse" nillable="false">
+    <xsd:complexType ecore:name="InserimentoVASResponseType" id="org.example.CaricatoreVASInserimentoVASResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Esito" type="xsd:string"/>
+        <xsd:element ecore:name="codice" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Codice" type="xsd:string"/>
+        <xsd:element ecore:name="descrizione" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Descrizione" type="xsd:string"/>
+        <xsd:element ecore:name="POD" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="POD" type="xsd:string"/>
+        <xsd:element ecore:name="idBPM" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="IdBPM" type="xsd:string"/>
+        <xsd:element ecore:name="codiceContrattoPartner" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="CodiceContrattoPartner" type="xsd:string"/>
+        <xsd:element ecore:name="sorgenteEsito" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="SorgenteEsito" type="xsd:string"/>
+        <xsd:element ecore:name="idTransazioneCanale" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="IdTransazioneCanale" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

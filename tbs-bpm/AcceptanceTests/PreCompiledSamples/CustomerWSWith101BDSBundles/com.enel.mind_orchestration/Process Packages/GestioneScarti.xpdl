@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_EMizAPCnEeOYaobZr_f3pg" xpdExt:DisplayName="GestioneScarti" Name="GestioneScarti">
+  <xpdl2:PackageHeader xpdExt:Language="it_IT">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-06-10</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>EUR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>egiusro</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:ExternalPackages>
+    <xpdl2:ExternalPackage Id="_e4vt4PC9EeORYpsqMccWEA" href="com.enel.mind_orchestration.pi">
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="location" Value="/com.enel.mind_orchestration.pi.xpdl"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:ExternalPackage>
+    <xpdl2:ExternalPackage Id="_mZTVQPC9EeORYpsqMccWEA" href="com.enel.mind_integration.utiliy.pi">
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="location" Value="/com.enel.mind_integration.utiliy.pi.xpdl"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:ExternalPackage>
+  </xpdl2:ExternalPackages>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_kLxKoPFVEeO9uLSrHbxmlg" xpdExt:DisplayName="GestioneScartiEndpoint1_Provider" Name="GestioneScartiEndpoint1_Provider">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="DocumentLiteral" SoapVersion="1.1" EndpointUrlPath="/GestioneScartiBpmServiceConcrete/mercato/libero/service/bpm/gestionescarti" HttpConnectorInstanceName="com.enel.mind.GestioneScartiServiceHttpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_FKSNp_CnEeOYaobZr_f3pg" xpdExt:DisplayName="GestioneScarti" Name="GestioneScarti" BoundaryVisible="true" Process="_EMizAfCnEeOYaobZr_f3pg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_FKSNqPCnEeOYaobZr_f3pg" xpdExt:DisplayName="BPM" Name="BPM">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_EMizAfCnEeOYaobZr_f3pg" xpdExt:DisplayName="GestioneScarti" Name="SGESCART">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_wYF5oPC9EeORYpsqMccWEA" xpdExt:DisplayName="callAperturaChiusuraScarti" Name="callAperturaChiusuraScarti">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>150</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdExt:InitialValues>
+            <xpdExt:Value>/com.enel.mind_integration.utiliy/Process Packages/GestioneScarti.xpdl.SAPCHSCA</xpdExt:Value>
+          </xpdExt:InitialValues>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qlSYEfC-EeORYpsqMccWEA" xpdExt:DisplayName="TipoPratica" Name="TipoPratica">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qlSYEvC-EeORYpsqMccWEA" xpdExt:DisplayName="Servizio" Name="Servizio">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qlSYE_C-EeORYpsqMccWEA" xpdExt:DisplayName="BAMRuntimeId" Name="BAMRuntimeId">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>150</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdExt:InitialValues>
+            <xpdExt:Value>/com.enel.mind_integration.utiliy/Process Packages/Utiliy.xpdl.UVARSTAT</xpdExt:Value>
+          </xpdExt:InitialValues>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_qlSYFvC-EeORYpsqMccWEA" xpdExt:DisplayName="IdProcessoBpm" Name="IdProcessoBpm">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_h4-zMPFWEeO9uLSrHbxmlg" xpdExt:DisplayName="CorrelationId" Name="CorrelationId" ReadOnly="false" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_FKSNqvCnEeOYaobZr_f3pg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_FKSNqPCnEeOYaobZr_f3pg" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="850.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_e4xjEPC9EeORYpsqMccWEA" Name="StartEvent" xpdExt:DisplayName="Start Event" xpdExt:Implements="_T4N_sPC9EeORYpsqMccWEA" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="47.0" LaneId="_FKSNqPCnEeOYaobZr_f3pg" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="47.0" YCoordinate="149.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_mZp6kPC9EeORYpsqMccWEA" Name="AperturaChiusuraScartoInterface" xpdExt:Visibility="Private" xpdExt:DisplayName="AperturaChiusuraScarto-Interface">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_QwtE4PCsEeOYaobZr_f3pg" PackageRef="com.enel.mind_integration.utiliy.pi" xpdExt:SuspendResumeWithParent="true" xpdExt:StartStrategy="StartImmediately" xpdExt:ProcessIdentifierField="callAperturaChiusuraScarti">
+              <xpdl2:DataMappings>
+                <xpdl2:DataMapping Direction="IN" Formal="request">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">AperturaChiusuraScartoRequest</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="OUT" Formal="response">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">AperturaChiusuraScartoResponse</xpdl2:Actual>
+                </xpdl2:DataMapping>
+              </xpdl2:DataMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Inclusive">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_GgHrQPC_EeORYpsqMccWEA"/>
+                  <xpdl2:TransitionRef Id="_2eIEdfb3EeO1dOsGGIUdbg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_FKSNqPCnEeOYaobZr_f3pg" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="207.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Completed">
+              <xpdExt:Information ScriptGrammar="JavaScript">CorrelationId='SCRT_ESITO'+AperturaChiusuraScartoResponse.idScartoOut;</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vA7yEfDAEeORYpsqMccWEA" Name="EsitoScarto" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="EsitoScarto">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_kLnZoPFVEeO9uLSrHbxmlg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="input">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">EsitoScarto</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="input.correlationId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationId</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_kLxKoPFVEeO9uLSrHbxmlg" OperationName="EsitoScarto">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="GestioneScartiEndpoint1" ServiceName="GestioneScartiBpmService">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="GestioneScartiBpmServiceConcrete.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="GestioneScarti" OperationName="EsitoScarto">
+                  <xpdExt:ExternalReference location="GestioneScartiBpmServiceConcrete.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_kLxKoPFVEeO9uLSrHbxmlg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_FKSNqPCnEeOYaobZr_f3pg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="719.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedCorrelationFields>
+            <xpdExt:AssociatedCorrelationField Name="CorrelationId" CorrelationMode="Correlate"/>
+          </xpdExt:AssociatedCorrelationFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2eIEdPb3EeO1dOsGGIUdbg">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_5LwIUfb3EeO1dOsGGIUdbg"/>
+                  <xpdl2:TransitionRef Id="_FRz7MPb4EeO1dOsGGIUdbg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_FKSNqPCnEeOYaobZr_f3pg" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="388.0" YCoordinate="154.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_5LwIUPb3EeO1dOsGGIUdbg" Name="VS01GestioneScarti" FinishMode="Automatic" StartMode="Automatic" xpdExt:Visibility="Private" xpdExt:DisplayName="VS01-GestioneScarti">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_BnjasL73EeORxvz2b25VOw" PackageRef="com.enel.mind_integration.utiliy.pi" xpdExt:SuspendResumeWithParent="true" xpdExt:ProcessIdentifierField="BAMRuntimeId" xpdExt:StartStrategy="StartImmediately">
+              <xpdl2:DataMappings>
+                <xpdl2:DataMapping Direction="IN" Formal="BPMReportRequest">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">BamRequest</xpdl2:Actual>
+                </xpdl2:DataMapping>
+              </xpdl2:DataMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="80.0" LaneId="_FKSNqPCnEeOYaobZr_f3pg" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="543.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_FKSNq_CnEeOYaobZr_f3pg" xpdExt:DisplayName="" Name="" From="_e4xjEPC9EeORYpsqMccWEA" To="_mZp6kPC9EeORYpsqMccWEA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="3.8989565188684656" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.33653846153846" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_-AcwQPC-EeORYpsqMccWEA" xpdExt:DisplayName="" Name="" From="_5LwIUPb3EeO1dOsGGIUdbg" To="_vA7yEfDAEeORYpsqMccWEA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_GgHrQPC_EeORYpsqMccWEA" Name="" From="_mZp6kPC9EeORYpsqMccWEA" To="_FKSNqvCnEeOYaobZr_f3pg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="2.0" YCoordinate="-85.0"/>
+              <xpdl2:Coordinates XCoordinate="-422.0" YCoordinate="-111.0"/>
+              <xpdl2:Coordinates XCoordinate="422.0" YCoordinate="-85.0"/>
+              <xpdl2:Coordinates XCoordinate="-2.0" YCoordinate="-111.0"/>
+              <xpdl2:Coordinates XCoordinate="644.0" YCoordinate="-85.0"/>
+              <xpdl2:Coordinates XCoordinate="-2.0" YCoordinate="-111.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="84.13461538461539" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="76.66916832152626" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_DnOxUPFpEeO9uLSrHbxmlg" xpdExt:DisplayName="" Name="" From="_vA7yEfDAEeORYpsqMccWEA" To="_FKSNqvCnEeOYaobZr_f3pg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_2eIEdfb3EeO1dOsGGIUdbg" xpdExt:DisplayName="APRI" Name="APRI" From="_mZp6kPC9EeORYpsqMccWEA" To="_2eIEdPb3EeO1dOsGGIUdbg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">AperturaChiusuraScartoRequest.azione=='APRI';</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="9.375" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_5LwIUfb3EeO1dOsGGIUdbg" xpdExt:DisplayName="" Name="" From="_2eIEdPb3EeO1dOsGGIUdbg" To="_5LwIUPb3EeO1dOsGGIUdbg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_FRz7MPb4EeO1dOsGGIUdbg" xpdExt:DisplayName="RINNOVO" Name="RINNOVO" From="_2eIEdPb3EeO1dOsGGIUdbg" To="_vA7yEfDAEeORYpsqMccWEA">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">AperturaChiusuraScartoRequest.processo=='RINNOVO';</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="3.0" YCoordinate="-69.0"/>
+              <xpdl2:Coordinates XCoordinate="-340.0" YCoordinate="-59.0"/>
+              <xpdl2:Coordinates XCoordinate="342.0" YCoordinate="-69.0"/>
+              <xpdl2:Coordinates XCoordinate="-1.0" YCoordinate="-59.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="88.75" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData/>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ImplementedInterface xpdExt:PackageRef="com.enel.mind_orchestration.pi" xpdExt:ProcessInterfaceId="_PtBKkPC9EeORYpsqMccWEA"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="14"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

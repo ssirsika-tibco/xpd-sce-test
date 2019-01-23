@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_xa3jcPXaEeOBNOM6NrQ9UQ" xpdExt:DisplayName="SPLCHAR" Name="SPLCHAR">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2184-10-06</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>kthombar</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="N65891" xpdExt:DisplayName="Péró" Name="Péró">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name = &quot;Péró&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="N65902" xpdExt:DisplayName="Sid" Name="Sid">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name = &quot;Sid&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="N66340" xpdExt:DisplayName="Default Pool" Name="DefaultPool" BoundaryVisible="true" Process="_xZUEQPXaEeOBNOM6NrQ9UQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="N66352" xpdExt:DisplayName="Default Lane" Name="DefaultLane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="348.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_xZUEQPXaEeOBNOM6NrQ9UQ" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="SPLCHAR" Name="SPLCHAR_GOLD" AccessLevel="PUBLIC">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Created></xpdl2:Created>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="N65588" xpdExt:DisplayName="SW_CASEDESC" Name="SW_CASEDESC" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65613" xpdExt:DisplayName="SW_CP_INCPERIOD" Name="SW_CP_INCPERIOD" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>4</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65638" xpdExt:DisplayName="SW_CP_INCREMENT" Name="SW_CP_INCREMENT" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>4</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65663" xpdExt:DisplayName="SW_CP_NUMINC" Name="SW_CP_NUMINC" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65688" xpdExt:DisplayName="SW_CP_PERIODTYP" Name="SW_CP_PERIODTYP" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>1</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65713" xpdExt:DisplayName="SW_CP_VALUE" Name="SW_CP_VALUE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65738" xpdExt:DisplayName="SW_GEN_IDX" Name="SW_GEN_IDX" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>6</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65763" xpdExt:DisplayName="SW_QPARAM1" Name="SW_QPARAM1" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65788" xpdExt:DisplayName="SW_QPARAM2" Name="SW_QPARAM2" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65813" xpdExt:DisplayName="SW_QPARAM3" Name="SW_QPARAM3" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>12</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65838" xpdExt:DisplayName="SW_QPARAM4" Name="SW_QPARAM4" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>12</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65863" xpdExt:DisplayName="TXT" Name="TXT" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="N65940" Name="SPECIALC" xpdExt:DisplayName="SPECIALC">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;;
+TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;; // lSpecial chars within special chars
+TXT = &quot;Hi Mu name is Ruth\n i am 20years old\r i live in London! &quot; + &quot;\nI am good in Java and C++&quot;; // 
+// SPECIALCHARS(&quot;Your test results are\r\n English=80 \r\n Maths=90&quot;) commented out, should not get converted.
+TXT = &quot;hello SPECIALCHARS(\&quot;)&quot;; // do not onvert</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="3"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66352" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="341.0" YCoordinate="207.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66023" Name="UT2" FinishMode="Manual" StartMode="Manual" xpdExt:DisplayName="UT2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="msgIn_N66023"/>
+                <xpdl2:MessageOut Id="msgOut_N66023"/>
+                <xpdExt:UserTaskScripts>
+                  <xpdExt:OpenScript ScriptGrammar="JavaScript">  // CALL(&quot;S2&quot;); // 
+  // ============ Invoked Script ============
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;;
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;; // lSpecial chars within special chars
+   TXT = &quot;Hi Mu name is Ruth\n i am 20years old\r i live in London! &quot; + &quot;\nI am good in Java and C++&quot;; // 
+   // SPECIALCHARS(&quot;Your test results are\r\n English=80 \r\n Maths=90&quot;) commented out, should not get converted.
+   TXT = &quot;hello SPECIALCHARS(\&quot;)&quot;; // do not onvert
+  // ========================================</xpdExt:OpenScript>
+                  <xpdExt:CloseScript ScriptGrammar="JavaScript">  // CALL(&quot;S2&quot;); // 
+  // ============ Invoked Script ============
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;;
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;; // lSpecial chars within special chars
+   TXT = &quot;Hi Mu name is Ruth\n i am 20years old\r i live in London! &quot; + &quot;\nI am good in Java and C++&quot;; // 
+   // SPECIALCHARS(&quot;Your test results are\r\n English=80 \r\n Maths=90&quot;) commented out, should not get converted.
+   TXT = &quot;hello SPECIALCHARS(\&quot;)&quot;; // do not onvert
+  // ========================================</xpdExt:CloseScript>
+                  <xpdExt:SubmitScript ScriptGrammar="JavaScript">  // CALL(&quot;S2&quot;); // 
+  // ============ Invoked Script ============
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;;
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;; // lSpecial chars within special chars
+   TXT = &quot;Hi Mu name is Ruth\n i am 20years old\r i live in London! &quot; + &quot;\nI am good in Java and C++&quot;; // 
+   // SPECIALCHARS(&quot;Your test results are\r\n English=80 \r\n Maths=90&quot;) commented out, should not get converted.
+   TXT = &quot;hello SPECIALCHARS(\&quot;)&quot;; // do not onvert
+  // ========================================</xpdExt:SubmitScript>
+                </xpdExt:UserTaskScripts>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>N65891</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="7"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66352" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="461.0" YCoordinate="240.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="AllocateOne" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66112" Name="UT1" FinishMode="Manual" StartMode="Manual" xpdExt:DisplayName="UT1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="msgIn_N66112"/>
+                <xpdl2:MessageOut Id="msgOut_N66112"/>
+                <xpdExt:UserTaskScripts>
+                  <xpdExt:OpenScript ScriptGrammar="JavaScript">  // CALL(&quot;S1&quot;); // 
+  // ============ Invoked Script ============
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;;
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;; // lSpecial chars within special chars
+   TXT = &quot;Hi Mu name is Ruth\n i am 20years old\r i live in London! &quot; + &quot;\nI am good in Java and C++&quot;; // 
+   // SPECIALCHARS(&quot;Your test results are\r\n English=80 \r\n Maths=90&quot;) commented out, should not get converted.
+   TXT = &quot;hello SPECIALCHARS(\&quot;)&quot;; // do not onvert
+  // ========================================</xpdExt:OpenScript>
+                  <xpdExt:CloseScript ScriptGrammar="JavaScript">  // CALL(&quot;S1&quot;); // 
+  // ============ Invoked Script ============
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;;
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;; // lSpecial chars within special chars
+   TXT = &quot;Hi Mu name is Ruth\n i am 20years old\r i live in London! &quot; + &quot;\nI am good in Java and C++&quot;; // 
+   // SPECIALCHARS(&quot;Your test results are\r\n English=80 \r\n Maths=90&quot;) commented out, should not get converted.
+   TXT = &quot;hello SPECIALCHARS(\&quot;)&quot;; // do not onvert
+  // ========================================</xpdExt:CloseScript>
+                  <xpdExt:SubmitScript ScriptGrammar="JavaScript">  // CALL(&quot;S1&quot;); // 
+  // ============ Invoked Script ============
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;;
+   TXT = &quot;Your test results are\r\n English=80 \r\n Maths=90&quot;; // lSpecial chars within special chars
+   TXT = &quot;Hi Mu name is Ruth\n i am 20years old\r i live in London! &quot; + &quot;\nI am good in Java and C++&quot;; // 
+   // SPECIALCHARS(&quot;Your test results are\r\n English=80 \r\n Maths=90&quot;) commented out, should not get converted.
+   TXT = &quot;hello SPECIALCHARS(\&quot;)&quot;; // do not onvert
+  // ========================================</xpdExt:SubmitScript>
+                </xpdExt:UserTaskScripts>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>N65902</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="6"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66352" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="155.0" YCoordinate="150.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="AllocateOne" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66201" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66352" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="773.0" YCoordinate="234.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66247" Name="Start" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66352" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="60.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="N66297" xpdExt:DisplayName="" Name="" From="N65940" To="N66023">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66302" xpdExt:DisplayName="" Name="" From="N66112" To="N65940">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66307" xpdExt:DisplayName="" Name="" From="N66023" To="N66201">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66312" xpdExt:DisplayName="" Name="" From="N66247" To="N66112">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

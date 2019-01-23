@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workmodel:WorkModels xmlns:workmodel="http://workmodel.brm.n2.tibco.com" orgModelVersion="1" version="1.0.0.201311291210">
+  <workmodel:WorkModel workModelUID="WM__Uj5QMFa9EeOt-7pcljj2fA">
+    <BaseModelInfo description="Display Data" name="DisplayData" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="Field" optional="true" type="Complex">
+        <complexSpec className="com.example.proclocalbomsameproj.ProcLocalSameProj"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.201311291210,1.0.0.201311291210]" workTypeID="WT__Uj5QMFa9EeOt-7pcljj2fA">
+        <WorkModelMapping>
+          <TypeParamName>Field</TypeParamName>
+          <ModelParamName>Field</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__TrQYAFa9EeOt-7pcljj2fA">
+    <BaseModelInfo description="Enter Data" name="EnterData" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="Field" optional="true" type="Complex">
+        <complexSpec className="com.example.proclocalbomsameproj.ProcLocalSameProj"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.201311291210,1.0.0.201311291210]" workTypeID="WT__TrQYAFa9EeOt-7pcljj2fA">
+        <WorkModelMapping>
+          <TypeParamName>Field</TypeParamName>
+          <ModelParamName>Field</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+</workmodel:WorkModels>

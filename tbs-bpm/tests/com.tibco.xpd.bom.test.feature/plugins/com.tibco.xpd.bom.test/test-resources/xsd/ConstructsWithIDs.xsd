@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema id="schema1" xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/ConstructsWithIDs" xmlns:tns="http://www.example.org/ConstructsWithIDs"
+	elementFormDefault="qualified">
+
+	<annotation id="annotation1">
+
+	</annotation>
+
+	<attribute name="topLevelAttr" id="topLevelAttr1"></attribute>
+
+	<attributeGroup name="attrGroup" id="attrGroup1">
+	</attributeGroup>
+
+	<complexType name="complex" id="complex1">
+		<simpleContent id="simpleContentID1">
+			<extension base="string" id="simpleContentExtensionID1">
+				<attribute name="attr" id="attrID1"></attribute>			
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="complexType"></complexType>
+
+	<element name="topLevelElem" id="topLevelElem1">
+		<complexType id="anonComplexID1">
+			<complexContent id="complexContentID1">
+				<extension base="tns:complexType" id="complexContentExtensionID1">
+					<sequence id="mySequence1">
+						<element name="elem" id="elemID1"></element>
+						<sequence id="mySequence2"></sequence>
+						<choice id="myChoice1"></choice>
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+
+	<simpleType name="simple" id="simple1">
+		<restriction id="simpRestID" base="string">
+		</restriction>
+	</simpleType>
+
+</schema>

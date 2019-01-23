@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://ComplexRestriction" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ComplexRestriction">
+	<!-- base type -->
+	<xs:complexType name="BaseInfo">
+		<xs:sequence>
+			<xs:element maxOccurs="5" minOccurs="0" name="numPosts" type="xs:float"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="notification" type="xs:int"/>
+		</xs:sequence>
+		<xs:attribute name="firstSubscribed" type="xs:date" use="optional"/>
+		<xs:attribute name="mailReader" type="xs:string"/>
+	</xs:complexType>
+	<!-- derived type -->
+	<xs:complexType name="RestrictedOne">
+		<xs:complexContent>
+			<xs:restriction base="BaseInfo">
+				<xs:sequence>
+					<xs:element maxOccurs="1" minOccurs="0" name="numPosts" type="xs:float"/>
+					<xs:element default="3" maxOccurs="1" minOccurs="1" name="notification" type="xs:int"/>
+				</xs:sequence>
+				<xs:attribute name="firstSubscribed" type="xs:date" use="required"/>
+				<xs:attribute fixed="Microsoft Outlook" name="mailReader" type="xs:string"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- derived of derived type -->
+	<xs:complexType name="RestrictedTwo">
+		<xs:complexContent>
+			<xs:restriction base="RestrictedOne">
+				<xs:sequence>
+					<xs:element minOccurs="1" name="numPosts" type="xs:float"/>
+					<xs:element default="2" maxOccurs="1" minOccurs="1" name="notification" type="xs:int"/>
+				</xs:sequence>
+				<xs:attribute name="firstSubscribed" type="xs:date" use="required"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="urn:org:schema1" xmlns:tns2="urn:org:schema1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:org:schema1">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/tryproj/Generated Business Objects/org.schema1.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="BedragType" id="org.schema1BedragType2" name="BedragType">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:fractionDigits fixed="false" value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="SoortUitgavenType" id="org.schema1SoortUitgavenType"
+      name="SoortUitgavenType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="LOPENDE_LENING" value="LopendeLening"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="DienstBetrekkingInkomstenType" id="org.schema1DienstBetrekkingInkomstenType"
+      abstract="false" mixed="false" name="DienstBetrekkingInkomstenType">
+    <xsd:sequence>
+      <xsd:element ecore:name="e1" id="DienstBetrekkingInkomstenTypee1" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="e1" type="xsd:string"/>
+      <xsd:element ecore:name="e2" id="DienstBetrekkingInkomstenTypee2" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="e2" type="BedragComponenten"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="BedragComponenten" id="org.schema1BedragComponenten"
+      abstract="false" mixed="false" name="BedragComponenten">
+    <xsd:sequence>
+      <xsd:element ecore:name="e2" id="BedragComponentene2" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="e2" type="xsd:string"/>
+      <xsd:element ecore:name="nettoPerMaand" id="BedragComponentenNettoPerMaand"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="NettoPerMaand" nillable="true"
+          type="tns2:BedragType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="UitgaveType" id="org.schema1UitgaveType" abstract="false"
+      mixed="false" name="UitgaveType">
+    <xsd:sequence>
+      <xsd:element ecore:name="uitgaveId" id="UitgaveTypeUitgaveId" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="UitgaveId" nillable="true" type="xsd:int"/>
+      <xsd:element ecore:name="soortUitgaven" id="UitgaveTypeSoortUitgaven" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="SoortUitgaven" type="tns2:SoortUitgavenType"/>
+      <xsd:element ecore:name="bedrag" id="UitgaveTypeBedrag" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="Bedrag" type="BedragComponenten"/>
+      <xsd:element ecore:name="e2" id="UitgaveTypee2" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="e2" type="tns2:BedragType"/>
+      <xsd:element ecore:name="lopendeLening" id="UitgaveTypeLopendeLening" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="LopendeLening" nillable="true" type="LopendeLeningType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="LopendeLeningType" id="org.schema1LopendeLeningType"
+      abstract="false" mixed="false" name="LopendeLeningType">
+    <xsd:sequence>
+      <xsd:element ecore:name="restantLooptijd" id="LopendeLeningTypeRestantLooptijd"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="RestantLooptijd" nillable="true"
+          type="xsd:integer"/>
+      <xsd:element ecore:name="termijnBedrag" id="LopendeLeningTypeTermijnBedrag"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="TermijnBedrag" nillable="true"
+          type="BedragComponenten"/>
+      <xsd:element ecore:name="leningInlossen" id="LopendeLeningTypeLeningInlossen"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="LeningInlossen" type="xsd:boolean"/>
+      <xsd:element ecore:name="e2" id="LopendeLeningTypee2" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="e2" type="xsd:string"/>
+      <xsd:element ecore:name="maatschappij" id="LopendeLeningTypeMaatschappij" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="Maatschappij" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="contractNummer" id="LopendeLeningTypeContractNummer"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="ContractNummer" nillable="true"
+          type="xsd:string"/>
+      <xsd:element ecore:name="openstaandBedragDatum" id="LopendeLeningTypeOpenstaandBedragDatum"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="OpenstaandBedragDatum"
+          nillable="true" type="xsd:date"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="DienstBetrekkingInkomsten" nillable="false"
+      type="DienstBetrekkingInkomstenType"/>
+  <xsd:element abstract="false" name="BedragComponenten" nillable="false" type="BedragComponenten"/>
+  <xsd:element abstract="false" name="LopendeLening" nillable="false" type="LopendeLeningType"/>
+  <xsd:element abstract="false" name="MyAnony" nillable="false">
+    <xsd:complexType ecore:name="MyAnonyType" id="org.schema1MyAnonyType" mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="anonyelem1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="anonyelem1" type="BedragComponenten"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

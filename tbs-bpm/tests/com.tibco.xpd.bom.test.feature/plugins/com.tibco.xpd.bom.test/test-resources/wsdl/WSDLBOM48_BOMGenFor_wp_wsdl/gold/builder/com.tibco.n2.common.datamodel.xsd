@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://datamodel.common.n2.tibco.com" xmlns:tns12="http://datamodel.common.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://datamodel.common.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.common.datamodel.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="FieldType" id="com.tibco.n2.common.datamodelFieldType"
+      abstract="false" mixed="false" name="FieldType">
+    <xsd:annotation>
+      <xsd:documentation>Defines a single data field (its name, type and an optional value). </xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ecore:name="simpleSpec" id="FieldTypesimpleSpecType" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="simpleSpec">
+        <xsd:complexType ecore:name="simpleSpecType" id="com.tibco.n2.common.datamodelsimpleSpecType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="value" form="unqualified" maxOccurs="unbounded"
+                minOccurs="0" name="value" type="xsd:string"/>
+          </xsd:sequence>
+          <xsd:attribute ecore:name="length" id="simpleSpecTypelength" form="unqualified"
+              name="length" type="xsd:int" use="optional">
+            <xsd:annotation>
+              <xsd:documentation>Maximum length allowed for the data field (not including decimal places). </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute ecore:name="decimal" id="simpleSpecTypedecimal" form="unqualified"
+              name="decimal" type="xsd:int" use="optional">
+            <xsd:annotation>
+              <xsd:documentation>Number of decimal places allowed for the data field. </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ecore:name="complexSpec" id="FieldTypecomplexSpecType" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="complexSpec">
+        <xsd:complexType ecore:name="complexSpecType" id="com.tibco.n2.common.datamodelcomplexSpecType"
+            mixed="false">
+          <xsd:annotation>
+            <xsd:documentation>The Global Object Business Reference ID </xsd:documentation>
+          </xsd:annotation>
+          <xsd:choice>
+            <xsd:element ecore:name="value" form="unqualified" maxOccurs="unbounded"
+                minOccurs="0" name="value" type="xsd:anyType"/>
+            <xsd:element ecore:name="globalValue" form="unqualified" maxOccurs="unbounded"
+                minOccurs="0" name="globalValue">
+              <xsd:complexType ecore:name="globalValueType" id="com.tibco.n2.common.datamodelglobalValueType"
+                  mixed="false">
+                <xsd:sequence>
+                  <xsd:element ecore:name="value" form="unqualified" maxOccurs="1"
+                      minOccurs="1" name="value" type="xsd:anyType"/>
+                  <xsd:element ecore:name="goRefId" form="unqualified" maxOccurs="1"
+                      minOccurs="1" name="goRefId" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+          <xsd:attribute ecore:name="goRefId" id="complexSpecTypegoRefId" form="unqualified"
+              name="goRefId" type="xsd:string" use="optional">
+            <xsd:annotation>
+              <xsd:documentation>The Global Object Reference ID for BDS data. </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute ecore:name="className" id="complexSpecTypeclassName" form="unqualified"
+              name="className" type="xsd:string" use="optional">
+            <xsd:annotation>
+              <xsd:documentation>The fully qualified name of the complex class from the Business Object Model (BOM). </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:choice>
+    <xsd:attribute ecore:name="name" id="FieldTypename" form="unqualified" name="name"
+        type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the data field. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="type" id="FieldTypetype" form="unqualified" name="type"
+        use="required">
+      <xsd:simpleType ecore:name="typeType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration ecore:name="STRING" value="String"/>
+          <xsd:enumeration ecore:name="DECIMAL_NUMBER" value="Decimal Number"/>
+          <xsd:enumeration ecore:name="INTEGER_NUMBER" value="Integer Number"/>
+          <xsd:enumeration ecore:name="BOOLEAN" value="Boolean"/>
+          <xsd:enumeration ecore:name="DATE" value="Date"/>
+          <xsd:enumeration ecore:name="TIME" value="Time"/>
+          <xsd:enumeration ecore:name="DATE_TIME" value="Date Time"/>
+          <xsd:enumeration ecore:name="PERFORMER" value="Performer"/>
+          <xsd:enumeration ecore:name="COMPLEX" value="Complex"/>
+          <xsd:enumeration ecore:name="DATA_REFERENCE" value="Data Reference"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="optional" id="FieldTypeoptional" form="unqualified"
+        name="optional" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Boolean value that defines whether the parameter is optional (default is false). </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="array" id="FieldTypearray" form="unqualified" name="array"
+        type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Indicates whether this parameter contains an array of values (default is false). </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DataModel" id="com.tibco.n2.common.datamodelDataModel"
+      abstract="false" mixed="false" name="DataModel">
+    <xsd:annotation>
+      <xsd:documentation>Sets of INPUT, OUTPUT and INOUT parameters that define the complete data model for a work item or page activity. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="inputs" id="DataModelinputs" form="unqualified" maxOccurs="unbounded"
+          minOccurs="0" name="inputs" type="FieldType"/>
+      <xsd:element ecore:name="outputs" id="DataModeloutputs" form="unqualified" maxOccurs="unbounded"
+          minOccurs="0" name="outputs" type="FieldType"/>
+      <xsd:element ecore:name="inouts" id="DataModelinouts" form="unqualified" maxOccurs="unbounded"
+          minOccurs="0" name="inouts" type="FieldType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="WorkTypeSpec" id="com.tibco.n2.common.datamodelWorkTypeSpec"
+      abstract="false" mixed="false" name="WorkTypeSpec">
+    <xsd:annotation>
+      <xsd:documentation>Complex type for work type UID and version </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="workTypeID" id="WorkTypeSpecworkTypeID" form="unqualified"
+        name="workTypeID" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>The UID of the work type </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="workTypeDescription" id="WorkTypeSpecworkTypeDescription"
+        form="unqualified" name="workTypeDescription" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>The description of the work type. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="version" id="WorkTypeSpecversion" form="unqualified"
+        name="version" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>The OSGi version number of this work type. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="WorkType" id="com.tibco.n2.common.datamodelWorkType"
+      abstract="false" mixed="false" name="WorkType">
+    <xsd:annotation>
+      <xsd:documentation>Work type definition. (This should be considered as the API specification of any work item created for this work type.) </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="workTypeID" id="WorkTypeworkTypeID" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="workTypeID" type="tns12:long_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="workTypeUID" id="WorkTypeworkTypeUID" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="workTypeUID" type="xsd:string"/>
+      <xsd:element ecore:name="workTypeDescription" id="WorkTypeworkTypeDescription"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="workTypeDescription"
+          type="xsd:string"/>
+      <xsd:element ecore:name="dataModel" id="WorkTypedataModel" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="dataModel" type="DataModel"/>
+      <xsd:element ecore:name="typePiled" id="WorkTypetypePiled" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="typePiled" type="xsd:boolean"/>
+      <xsd:element ecore:name="pilingLimit" id="WorkTypepilingLimit" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="pilingLimit" type="xsd:int"/>
+      <xsd:element ecore:name="ignoreIncomingData" id="WorkTypeignoreIncomingData"
+          default="true" form="unqualified" maxOccurs="1" minOccurs="0" name="ignoreIncomingData"
+          type="xsd:boolean"/>
+      <xsd:element ecore:name="reofferOnClose" id="WorkTypereofferOnClose" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="reofferOnClose" type="xsd:boolean"/>
+      <xsd:element ecore:name="reofferOnCancel" id="WorkTypereofferOnCancel" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="reofferOnCancel" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

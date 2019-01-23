@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="empiricaldata"
+    nsURI="file:/E:/XPD/EmpiricalData.xsd" nsPrefix="EmpiricalData">
+  <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+    <details key="qualified" value="false"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EEnum" name="DayOfMonthPeriodType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="DayOfMonthPeriodType"/>
+    </eAnnotations>
+    <eLiterals name="D1"/>
+    <eLiterals name="D2" value="1"/>
+    <eLiterals name="D3" value="2"/>
+    <eLiterals name="D4" value="3"/>
+    <eLiterals name="D5" value="4"/>
+    <eLiterals name="D6" value="5"/>
+    <eLiterals name="D7" value="6"/>
+    <eLiterals name="D8" value="7"/>
+    <eLiterals name="D9" value="8"/>
+    <eLiterals name="D10" value="9"/>
+    <eLiterals name="D11" value="10"/>
+    <eLiterals name="D12" value="11"/>
+    <eLiterals name="D13" value="12"/>
+    <eLiterals name="D14" value="13"/>
+    <eLiterals name="D15" value="14"/>
+    <eLiterals name="D16" value="15"/>
+    <eLiterals name="D17" value="16"/>
+    <eLiterals name="D18" value="17"/>
+    <eLiterals name="D19" value="18"/>
+    <eLiterals name="D20" value="19"/>
+    <eLiterals name="D21" value="20"/>
+    <eLiterals name="D22" value="21"/>
+    <eLiterals name="D23" value="22"/>
+    <eLiterals name="D24" value="23"/>
+    <eLiterals name="D25" value="24"/>
+    <eLiterals name="D26" value="25"/>
+    <eLiterals name="D27" value="26"/>
+    <eLiterals name="D28" value="27"/>
+    <eLiterals name="D29" value="28"/>
+    <eLiterals name="D30" value="29"/>
+    <eLiterals name="D31" value="30"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DayOfMonthPeriodTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="DayOfMonthPeriodType:Object"/>
+      <details key="baseType" value="DayOfMonthPeriodType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DayOfWeekPeriodType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="DayOfWeekPeriodType"/>
+    </eAnnotations>
+    <eLiterals name="Monday"/>
+    <eLiterals name="Tuesday" value="1"/>
+    <eLiterals name="Wednesday" value="2"/>
+    <eLiterals name="Thursday" value="3"/>
+    <eLiterals name="Friday" value="4"/>
+    <eLiterals name="Saturday" value="5"/>
+    <eLiterals name="Sunday" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DayOfWeekPeriodTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="DayOfWeekPeriodType:Object"/>
+      <details key="baseType" value="DayOfWeekPeriodType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value=""/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xMLNSPrefixMap" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xmlns:prefix"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xsi:schemaLocation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="empiricalData" upperBound="-2"
+        eType="#//EmpiricalData" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="EmpiricalData"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmpiricalData">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="EmpiricalData"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="period" upperBound="-1"
+        eType="#//Period" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Period"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumeration">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="Enumeration"/>
+      <details key="kind" value="empty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Name"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weightingFactor" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="WeightingFactor"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HourOfDayPeriodType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="HourOfDayPeriodType"/>
+    </eAnnotations>
+    <eLiterals name="H0"/>
+    <eLiterals name="H1" value="1"/>
+    <eLiterals name="H2" value="2"/>
+    <eLiterals name="H3" value="3"/>
+    <eLiterals name="H4" value="4"/>
+    <eLiterals name="H5" value="5"/>
+    <eLiterals name="H6" value="6"/>
+    <eLiterals name="H7" value="7"/>
+    <eLiterals name="H8" value="8"/>
+    <eLiterals name="H9" value="9"/>
+    <eLiterals name="H10" value="10"/>
+    <eLiterals name="H11" value="11"/>
+    <eLiterals name="H12" value="12"/>
+    <eLiterals name="H13" value="13"/>
+    <eLiterals name="H14" value="14"/>
+    <eLiterals name="H15" value="15"/>
+    <eLiterals name="H16" value="16"/>
+    <eLiterals name="H17" value="17"/>
+    <eLiterals name="H18" value="18"/>
+    <eLiterals name="H19" value="19"/>
+    <eLiterals name="H20" value="20"/>
+    <eLiterals name="H21" value="21"/>
+    <eLiterals name="H22" value="22"/>
+    <eLiterals name="H23" value="23"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="HourOfDayPeriodTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="HourOfDayPeriodType:Object"/>
+      <details key="baseType" value="HourOfDayPeriodType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MonthOfYearPeriodType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="MonthOfYearPeriodType"/>
+    </eAnnotations>
+    <eLiterals name="Janruary"/>
+    <eLiterals name="February" value="1"/>
+    <eLiterals name="March" value="2"/>
+    <eLiterals name="April" value="3"/>
+    <eLiterals name="May" value="4"/>
+    <eLiterals name="June" value="5"/>
+    <eLiterals name="July" value="6"/>
+    <eLiterals name="August" value="7"/>
+    <eLiterals name="September" value="8"/>
+    <eLiterals name="October" value="9"/>
+    <eLiterals name="November" value="10"/>
+    <eLiterals name="December" value="11"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="MonthOfYearPeriodTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="MonthOfYearPeriodType:Object"/>
+      <details key="baseType" value="MonthOfYearPeriodType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="Parameter"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" lowerBound="1"
+        upperBound="-1" eType="#//Enumeration" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Enumeration"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Name"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Period">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="Period"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+        eType="#//Parameter" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Parameter"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="period" upperBound="-1"
+        eType="#//Period" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="Period"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//NMTOKEN">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Name"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" lowerBound="1"
+        eType="#//PeriodType" defaultValueLiteral="MonthOfYear" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="Type"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weightingFactor" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="WeightingFactor"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PeriodType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="PeriodType"/>
+    </eAnnotations>
+    <eLiterals name="MonthOfYear"/>
+    <eLiterals name="DayOfMonth" value="1"/>
+    <eLiterals name="DayOfWeek" value="2"/>
+    <eLiterals name="HourOfDay" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="PeriodTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="PeriodType:Object"/>
+      <details key="baseType" value="PeriodType"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

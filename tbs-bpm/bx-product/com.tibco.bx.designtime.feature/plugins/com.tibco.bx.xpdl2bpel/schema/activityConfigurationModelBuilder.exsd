@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.bpel.convertxpdltobpel">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.bpel.convertxpdltobpel" id="activityConfigurationModelBuilder" name="Builder of the XPDL Activity Configuration Models"/>
+      </appInfo>
+      <documentation>
+         This extension point is invoked at design time when generating a .bpel file, if the default EMF model used to configure the activity at runtime is not suitable.
+      </documentation>
+   </annotation>
+
+   <include schemaLocation="schema://org.eclipse.core.expressions/schema/expressionLanguage.exsd"/>
+
+   <element name="extension">
+      <complexType>
+         <sequence>
+            <element ref="builder" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="builder">
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.bpel.convertxpdltobpel.extensions.IActivityConfigurationModelBuilder"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="targetModel" type="string" use="required">
+            <annotation>
+               <documentation/>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.emf.ecore.EObject"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+</schema>

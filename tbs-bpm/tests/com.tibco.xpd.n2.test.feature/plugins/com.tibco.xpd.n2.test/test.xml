@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="testsuite" default="run" basedir=".">
+	<!-- The property ${eclipse-home} should be passed into this script -->
+	<!-- Set a meaningful default value for when it is not. -->
+	<property name="eclipse-home" value="${basedir}\..\.." />
+	<echo>Eclipse home: ${eclipse-home}</echo>
+
+	<!-- sets the properties eclipse-home, and library-file -->
+	<property name="plugin-name"
+		value="com.tibco.xpd.n2.test" />
+	<property name="library-file"
+		value="${eclipse-home}/plugins/org.eclipse.test_3.2.0/library.xml" />
+
+	<!-- This target holds all initialization code that needs to be done for -->
+	<!-- all tests that are to be run. Initialization for individual tests -->
+	<!-- should be done within the body of the suite target. -->
+	<target name="init">
+		<property environment="env" />
+		<tstamp />
+		<delete>
+			<fileset dir="${eclipse-home}" includes="com*.xml" />
+		</delete>
+	</target>
+	
+	<target name="hudson-output" if="env.WORKSPACE">
+			<property name="results.dir" value="${env.WORKSPACE}/results"/>
+			<echo>------ SETTING HUDSON OUTPUT --------</echo>
+			<echo>------ ${results.dir}}</echo>
+			<echo>------ --------------------- --------</echo>
+	</target>
+
+	<!-- This target defines the tests that need to be run. -->
+	<target name="schemas_suite" depends="hudson-output">
+		<property name="results.dir" value="${eclipse-home}/results" />
+		<property name="core-workspace"
+			value="${eclipse-home}/n2-test-ws" />
+		<delete dir="${core-workspace}" quiet="true" />
+		<ant target="ui-test" antfile="${library-file}"
+			dir="${eclipse-home}">
+			<property name="data-dir" value="${core-workspace}" />
+			<property name="plugin-name" value="${plugin-name}" />
+			<property name="classname"
+				value="com.tibco.xpd.n2.test.schemas.AllTests" />
+			<property name="junit-report-output" value="${results.dir}"/>
+			<!-- Sid: Setting extraVMargs prevents addition of jacocoagent (code coverage) 
+			     to test which was causing it to hang badly :o(. --> 
+			<property name="extraVMargs" value=""/>
+		</ant>
+	</target>
+
+	<!-- Splitting AllTests into two to fix no more handles issue.--> 
+	<!-- This target defines the tests that need to be run for validations. -->
+	<target name="validations_suiteA" depends="hudson-output">
+		<property name="results.dir" value="${eclipse-home}/results" />
+		<property name="core-workspace"
+			value="${eclipse-home}/n2-test-ws" />
+		<delete dir="${core-workspace}" quiet="true" />
+		<ant target="ui-test" antfile="${library-file}"
+			dir="${eclipse-home}">
+			<property name="data-dir" value="${core-workspace}" />
+			<property name="plugin-name" value="${plugin-name}" />
+			<property name="classname"
+				value="com.tibco.xpd.n2.test.validations.AllTestsA" />
+			<property name="junit-report-output" value="${results.dir}"/>
+			<!-- Sid: Setting extraVMargs prevents addition of jacocoagent (code coverage) 
+			     to test which was causing it to hang badly :o(. --> 
+			<property name="extraVMargs" value=""/>
+		</ant>
+	</target>
+	
+	<!-- This target defines the tests that need to be run for validations. -->
+	<target name="validations_suiteB" depends="hudson-output">
+		<property name="results.dir" value="${eclipse-home}/results" />
+		<property name="core-workspace"
+			value="${eclipse-home}/n2-test-ws" />
+		<delete dir="${core-workspace}" quiet="true" />
+		<ant target="ui-test" antfile="${library-file}"
+			dir="${eclipse-home}">
+			<property name="data-dir" value="${core-workspace}" />
+			<property name="plugin-name" value="${plugin-name}" />
+			<property name="classname"
+				value="com.tibco.xpd.n2.test.validations.AllTestsB" />
+			<property name="junit-report-output" value="${results.dir}"/>
+			<!-- Sid: Setting extraVMargs prevents addition of jacocoagent (code coverage) 
+			     to test which was causing it to hang badly :o(. --> 
+			<property name="extraVMargs" value=""/>
+		</ant>
+	</target>
+	
+	<!-- This target defines the tests that need to be run for validations. -->
+		<target name="validations_suiteC" depends="hudson-output">
+			<property name="results.dir" value="${eclipse-home}/results" />
+			<property name="core-workspace"
+				value="${eclipse-home}/n2-test-ws" />
+			<delete dir="${core-workspace}" quiet="true" />
+			<ant target="ui-test" antfile="${library-file}"
+				dir="${eclipse-home}">
+				<property name="data-dir" value="${core-workspace}" />
+				<property name="plugin-name" value="${plugin-name}" />
+				<property name="classname"
+					value="com.tibco.xpd.n2.test.validations.AllTestsC" />
+				<property name="junit-report-output" value="${results.dir}"/>
+				<!-- Sid: Setting extraVMargs prevents addition of jacocoagent (code coverage) 
+				     to test which was causing it to hang badly :o(. --> 
+				<property name="extraVMargs" value=""/>
+			</ant>
+		</target>
+	
+	<!-- This target defines the tests that need to be run for general suite. -->
+		<target name="general_suite" depends="hudson-output">
+			<property name="results.dir" value="${eclipse-home}/results" />
+			<property name="core-workspace"
+				value="${eclipse-home}/n2-test-ws" />
+			<delete dir="${core-workspace}" quiet="true" />
+			<ant target="ui-test" antfile="${library-file}"
+				dir="${eclipse-home}">
+				<property name="data-dir" value="${core-workspace}" />
+				<property name="plugin-name" value="${plugin-name}" />
+				<property name="classname"
+					value="com.tibco.xpd.n2.test.general.AllTests" />
+				<property name="junit-report-output" value="${results.dir}"/>
+				<!-- Sid: Setting extraVMargs prevents addition of jacocoagent (code coverage) 
+				     to test which was causing it to hang badly :o(. --> 
+				<property name="extraVMargs" value=""/>
+			</ant>
+		</target>
+
+	<!-- This target defines the tests that need to be run for general suite. -->
+		<target name="generate_suite" depends="hudson-output">
+			<property name="results.dir" value="${eclipse-home}/results" />
+			<property name="core-workspace"
+				value="${eclipse-home}/n2-test-ws" />
+			<delete dir="${core-workspace}" quiet="true" />
+			<ant target="ui-test" antfile="${library-file}"
+				dir="${eclipse-home}">
+				<property name="data-dir" value="${core-workspace}" />
+				<property name="plugin-name" value="${plugin-name}" />
+				<property name="classname"
+					value="com.tibco.xpd.n2.test.generate.AllTests" />
+				<property name="junit-report-output" value="${results.dir}"/>
+				<!-- Sid: Setting extraVMargs prevents addition of jacocoagent (code coverage) 
+				     to test which was causing it to hang badly :o(. --> 
+				<property name="extraVMargs" value=""/>
+			</ant>
+		</target>
+
+	<!-- This target holds code to cleanup the testing environment after -->
+	<!-- after all of the tests have been run. You can use this target to -->
+	<!-- delete temporary files that have been created. -->
+	<target name="cleanup"></target>
+
+	<!-- This target runs the test suite. Any actions that need to happen -->
+	<!-- after all the tests have been run should go here. -->
+	<!--<target name="run" depends="init,suite,validations_suite,cleanup">-->
+	<target name="run" depends="init,schemas_suite,validations_suiteA,validations_suiteB,validations_suiteC,general_suite,generate_suite,cleanup">
+		<ant target="collect" antfile="${library-file}"
+			dir="${eclipse-home}">
+			<property name="includes" value="com*.xml" />
+			<property name="output-file" value="${plugin-name}.xml" />
+		</ant>
+	</target>
+</project>

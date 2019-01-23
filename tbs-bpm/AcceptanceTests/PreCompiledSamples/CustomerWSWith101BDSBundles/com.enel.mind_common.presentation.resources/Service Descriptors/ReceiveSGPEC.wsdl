@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/schema/integration/esitocanalistandardjms.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.example.com/1403268454436" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.example.com/1403268454436" tibex:src="file://Ste/d/PROGETTI/MIND/share/ReceiveSGPEC.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/schema/integration/esitocanalistandardjms.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/schema/integration/esitocanalistandardjms.xsd">
+            <xs:element name="EsitiSendMail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="identificativoMessaggioChiamante" type="xs:string"/>
+                        <xs:element name="identificativoSgPec" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" name="casellaMailToDestinatario">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="email">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:maxLength value="1024"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="casellaMailCCDestinatario">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="email">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:maxLength value="1024"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="canale" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sistemaRichiedente">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="15"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="esito">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="2"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="codiceEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="descrizione" type="xs:string"/>
+                        <xs:element minOccurs="0" name="dataConsegnaEmail" type="xs:dateTime"/>
+                        <xs:element minOccurs="0" name="FlagUltimoEsito">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:maxLength value="1"/>
+                                    <xs:enumeration value="Y"/>
+                                    <xs:enumeration value="N"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ReceiveSGPEC">
+        <wsdl:port binding="tns:SGPECPortTypeEndpoint0Binding" name="SGPECPortTypeEndpoint0">
+            <soap:address location="http://localhost:99999/SGPEC/PortType"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="SGPECPortType">
+        <wsdl:operation name="ReceiveEsitoCanaliStampa">
+            <wsdl:input message="tns:ReceiveEsitoCanaliStampaRequest"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SGPECPortTypeEndpoint0Binding" type="tns:SGPECPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ReceiveEsitoCanaliStampa">
+            <soap:operation soapAction="/ReceiveEsitoCanaliStampa" style="document"/>
+            <wsdl:input>
+                <soap:body parts="input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="ReceiveEsitoCanaliStampaRequest">
+        <wsdl:part element="ns0:EsitiSendMail" name="input"/>
+    </wsdl:message>
+</wsdl:definitions>

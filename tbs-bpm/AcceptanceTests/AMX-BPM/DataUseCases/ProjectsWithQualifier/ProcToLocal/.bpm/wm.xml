@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workmodel:WorkModels xmlns:workmodel="http://workmodel.brm.n2.tibco.com" orgModelVersion="1" version="1.0.0.201311291559">
+  <workmodel:WorkModel workModelUID="WM__HD_2QFOAEeOydMVTHmI6_w">
+    <BaseModelInfo description="User Task 2" name="UserTask2" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="Field" optional="true" type="Complex">
+        <complexSpec className="com.example.localbomproj.Person"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.201311291559,1.0.0.201311291559]" workTypeID="WT__HD_2QFOAEeOydMVTHmI6_w">
+        <WorkModelMapping>
+          <TypeParamName>Field</TypeParamName>
+          <ModelParamName>Field</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__Gae_MFOAEeOydMVTHmI6_w">
+    <BaseModelInfo description="User Task" name="UserTask" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="Field" optional="true" type="Complex">
+        <complexSpec className="com.example.localbomproj.Person"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.201311291559,1.0.0.201311291559]" workTypeID="WT__Gae_MFOAEeOydMVTHmI6_w">
+        <WorkModelMapping>
+          <TypeParamName>Field</TypeParamName>
+          <ModelParamName>Field</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+</workmodel:WorkModels>

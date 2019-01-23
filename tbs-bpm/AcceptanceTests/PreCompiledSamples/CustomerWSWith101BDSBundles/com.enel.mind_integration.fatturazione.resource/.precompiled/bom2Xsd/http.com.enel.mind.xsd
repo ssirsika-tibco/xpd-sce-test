@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://http://com.enel.mind.richiestavariazioneridisu" xmlns:tns1="http://http://com.enel.mind.richiestavariazioneridisu"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://http://com.enel.mind.richiestavariazioneridisu">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_integration.fatturazione.resource/Generated Business Objects/http.com.enel.mind.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="string_15" id="http.com.enel.mindstring_152" name="string_15">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="string_255" id="http.com.enel.mindstring_2552" name="string_255">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="string_30" id="http.com.enel.mindstring_302" name="string_30">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="string_50" id="http.com.enel.mindstring_502" name="string_50">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="string_100" id="http.com.enel.mindstring_1002" name="string_100">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="string_4000" id="http.com.enel.mindstring_40002" name="string_4000">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="4000"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="integer_3" id="http.com.enel.mindinteger_32" name="integer_3">
+    <xsd:restriction base="xsd:integer">
+      <xsd:totalDigits fixed="false" value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="integer_9" id="http.com.enel.mindinteger_92" name="integer_9">
+    <xsd:restriction base="xsd:integer">
+      <xsd:totalDigits fixed="false" value="9"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="SVARRID2_P_O_CodiceEsito" nillable="false" type="string_15"/>
+  <xsd:element abstract="false" name="SVARRID2_P_O_DescrizioneEsito" nillable="false"
+      type="string_255"/>
+  <xsd:element abstract="false" name="SVARRID2_P_O_Esito" nillable="false" type="string_30"/>
+  <xsd:element abstract="false" name="SVARRID2_CorrelationFieldDummy" nillable="false"
+      type="string_50"/>
+  <xsd:element abstract="false" name="SVARRID2_SorgenteEsito" nillable="false" type="string_50"/>
+  <xsd:element abstract="false" name="SVARRID2_errorCode" nillable="false" type="string_100"/>
+  <xsd:element abstract="false" name="SVARRID2_errorDetail" nillable="false" type="string_4000"/>
+  <xsd:element abstract="false" name="SVARRID2_errorMaxRetries" nillable="false" type="integer_3"/>
+  <xsd:element abstract="false" name="SVARRID2_errorPerformer" nillable="false" type="string_50"/>
+  <xsd:element abstract="false" name="SVARRID2_errorRetryCount" nillable="false" type="integer_3"/>
+  <xsd:element abstract="false" name="SVARRID2_errorShortRetries" nillable="false"
+      type="integer_3"/>
+  <xsd:element abstract="false" name="SVARRID2_errorWaitLongDelayMin" nillable="false"
+      type="integer_9"/>
+  <xsd:element abstract="false" name="SVARRID2_errorWaitShortDelayMin" nillable="false"
+      type="integer_9"/>
+  <xsd:element abstract="false" name="SVARRID2_msgPayload" nillable="false" type="string_4000"/>
+  <xsd:element abstract="false" name="SVARRID2_processId" nillable="false" type="string_50"/>
+  <xsd:element abstract="false" name="SVARRID2_processName" nillable="false" type="string_100"/>
+</xsd:schema>

@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://workcal.api.dac.n2.tibco.com" xmlns:tns8="http://workcal.api.dac.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns3="http://basic.api.dac.n2.tibco.com"
+    xmlns:tns4="http://api.dac.n2.tibco.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://workcal.api.dac.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.dac.api.workcal.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://basic.api.dac.n2.tibco.com" schemaLocation="com.tibco.n2.dac.api.basic.xsd"/>
+  <xsd:import namespace="http://api.dac.n2.tibco.com" schemaLocation="com.tibco.n2.dac.api.xsd"/>
+  <xsd:complexType ecore:name="XmlCalendarResponse" id="com.tibco.n2.dac.api.workcalXmlCalendarResponse"
+      abstract="false" mixed="false" name="XmlCalendarResponse">
+    <xsd:annotation>
+      <xsd:documentation>A generic request/response type used to pass details of one of the possible Calendar types. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ecore:name="basecalendar" id="XmlCalendarResponsebase-calendar"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="base-calendar" type="tns3:XmlBaseCalendar"/>
+      <xsd:element ecore:name="overlaycalendar" id="XmlCalendarResponseoverlay-calendar"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="overlay-calendar" type="tns3:XmlOverlayCalendar"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlCalendarEntries" id="com.tibco.n2.dac.api.workcalXmlCalendarEntries"
+      abstract="false" mixed="false" name="XmlCalendarEntries">
+    <xsd:annotation>
+      <xsd:documentation>A generic request/response type used to pass details of one or more Calendar Entry types. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice maxOccurs="unbounded">
+      <xsd:element ecore:name="workingday" id="XmlCalendarEntriesworking-day" form="unqualified"
+          maxOccurs="unbounded" minOccurs="0" name="working-day" type="tns3:XmlExistingWorkingDayExclusion"/>
+      <xsd:element ecore:name="recurring" id="XmlCalendarEntriesrecurring" form="unqualified"
+          maxOccurs="unbounded" minOccurs="0" name="recurring" type="tns3:XmlRecurringExclusionDetail"/>
+    </xsd:choice>
+    <xsd:attribute ecore:name="version" id="XmlCalendarEntriesversion" form="unqualified"
+        name="version" type="tns3:XmlLockVersion" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Returns the version number of the Calendar from which the entries are taken. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="namespace" id="XmlCalendarEntriesnamespace" form="unqualified"
+        name="namespace" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="name" id="XmlCalendarEntriesname" form="unqualified"
+        name="name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="start" id="XmlCalendarEntriesstart" form="unqualified"
+        name="start" type="xsd:dateTime" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Start date and time from which Calendar Entries are listed. This value is time-zone neutral. That is, it expresses only a value, but not the time-zone in which it applies. The time-zone will be implied from the Base Calendar on which this exclusions is placed. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="end" id="XmlCalendarEntriesend" form="unqualified"
+        name="end" type="xsd:dateTime" use="required">
+      <xsd:annotation>
+        <xsd:documentation>End date and time to which Calendar Entries are listed. This value is time-zone neutral. That is, it expresses only a value, but not the time-zone in which it applies. The time-zone will be implied from the Base Calendar on which this exclusions is placed. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="deleteCalendarResponse" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="copyCalendarResponse" nillable="false" type="tns3:XmlUpdatedCalendar"/>
+  <xsd:element abstract="false" name="getCalendarResponse" nillable="false" type="XmlCalendarResponse"/>
+  <xsd:element abstract="false" name="saveCalendar" nillable="false" type="XmlCalendarResponse"/>
+  <xsd:element abstract="false" name="saveCalendarResponse" nillable="false" type="XmlCalendarResponse"/>
+  <xsd:element abstract="false" name="renameCalendarResponse" nillable="false" type="tns3:XmlUpdatedCalendar"/>
+  <xsd:element abstract="false" name="getCalEntriesResponse" nillable="false" type="XmlCalendarEntries"/>
+  <xsd:element abstract="false" name="saveCalendarEntryResponse" nillable="false"
+      type="XmlCalendarEntries"/>
+  <xsd:element abstract="false" name="deleteCalendarEntriesResponse" nillable="false"
+      type="tns3:XmlUpdatedCalendar"/>
+  <xsd:element abstract="false" name="purgeCalendarEntriesResponse" nillable="false"
+      type="tns3:XmlUpdatedCalendar"/>
+  <xsd:element abstract="false" name="listTimeZones" nillable="false">
+    <xsd:complexType ecore:name="listTimeZonesType" id="com.tibco.n2.dac.api.workcallistTimeZonesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="empty" default="0" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="empty" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listTimeZonesResponse" nillable="false">
+    <xsd:complexType ecore:name="listTimeZonesResponseType" id="com.tibco.n2.dac.api.workcallistTimeZonesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="timezone" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="time-zone" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listCalendars" nillable="false">
+    <xsd:complexType ecore:name="listCalendarsType" id="com.tibco.n2.dac.api.workcallistCalendarsType"
+        mixed="false">
+      <xsd:attribute ecore:name="namespace" id="listCalendarsTypenamespace" form="unqualified"
+          name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>An optional value to return only those calendars with the given namespace.
+The namespace comparison will be case-sensitive.
+If the given namespace ends in an asterisk, then all calendars whose namespace starts with the given value will be returned.
+If no namespace is specified, all calendars will be listed. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listCalendarsResponse" nillable="false">
+    <xsd:complexType ecore:name="listCalendarsResponseType" id="com.tibco.n2.dac.api.workcallistCalendarsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="calendar" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="calendar" type="tns3:XmlCalendarSummary"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="resolveReferences" nillable="false">
+    <xsd:complexType ecore:name="resolveReferencesType" id="com.tibco.n2.dac.api.workcalresolveReferencesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="reference" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="reference" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="resolveReferencesResponse" nillable="false">
+    <xsd:complexType ecore:name="resolveReferencesResponseType" id="com.tibco.n2.dac.api.workcalresolveReferencesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="reference" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="reference" type="tns3:XmlCalendarReference"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="saveCalendarReferences" nillable="false">
+    <xsd:complexType ecore:name="saveCalendarReferencesType" id="com.tibco.n2.dac.api.workcalsaveCalendarReferencesType"
+        mixed="false">
+      <xsd:choice>
+        <xsd:element ecore:name="addreference" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="add-reference" type="xsd:string"/>
+        <xsd:element ecore:name="removereference" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="remove-reference" type="xsd:string"/>
+      </xsd:choice>
+      <xsd:attribute ecore:name="version" id="saveCalendarReferencesTypeversion" default="-1"
+          form="unqualified" name="version" type="tns3:XmlLockVersion" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>The version number used to detect concurrent updates to the same Calendar; also known as optimistic locking. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="namespace" id="saveCalendarReferencesTypenamespace"
+          form="unqualified" name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="saveCalendarReferencesTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="saveCalendarReferencesResponse" nillable="false">
+    <xsd:complexType ecore:name="saveCalendarReferencesResponseType" id="com.tibco.n2.dac.api.workcalsaveCalendarReferencesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="updatedcalendar" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="updated-calendar" type="tns3:XmlUpdatedCalendar"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="copyCalendar" nillable="false">
+    <xsd:complexType ecore:name="copyCalendarType" id="com.tibco.n2.dac.api.workcalcopyCalendarType"
+        mixed="false">
+      <xsd:attribute ecore:name="namespace" id="copyCalendarTypenamespace" form="unqualified"
+          name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="copyCalendarTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="destnamespace" id="copyCalendarTypedest-namespace"
+          form="unqualified" name="dest-namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>The namespace to be assigned to the new Calendar. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="destname" id="copyCalendarTypedest-name" form="unqualified"
+          name="dest-name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The name to be assigned to the new Calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="includeentries" id="copyCalendarTypeinclude-entries"
+          default="false" form="unqualified" name="include-entries" type="xsd:boolean"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Optional boolean attribute to request that the entries of the orginal Calendar are also copied. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getCalendar" nillable="false">
+    <xsd:complexType ecore:name="getCalendarType" id="com.tibco.n2.dac.api.workcalgetCalendarType"
+        mixed="false">
+      <xsd:attribute ecore:name="namespace" id="getCalendarTypenamespace" form="unqualified"
+          name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="getCalendarTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="renameCalendar" nillable="false">
+    <xsd:complexType ecore:name="renameCalendarType" id="com.tibco.n2.dac.api.workcalrenameCalendarType"
+        mixed="false">
+      <xsd:attribute ecore:name="version" id="renameCalendarTypeversion" form="unqualified"
+          name="version" type="tns3:XmlLockVersion" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The version number used to detect concurrent updates to the same Calendar. The value should be taken from the response of the orginal request to getCalender. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="oldnamespace" id="renameCalendarTypeold-namespace"
+          form="unqualified" name="old-namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>The namespace in which the calendar currently resides. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="oldname" id="renameCalendarTypeold-name" form="unqualified"
+          name="old-name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The name of the calendar to be renamed or moved. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="newnamespace" id="renameCalendarTypenew-namespace"
+          form="unqualified" name="new-namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>The namespace to which the calendar is to be moved. If the calendar is not to be moved, this should be the same as the original value. Calendars sharing the same namespace must have unique names. A namespace of null (or not specified) is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="newname" id="renameCalendarTypenew-name" form="unqualified"
+          name="new-name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The new name of the calendar. If the calendar is only to be moved, this should be the same as the original value. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteCalendar" nillable="false">
+    <xsd:complexType ecore:name="deleteCalendarType" id="com.tibco.n2.dac.api.workcaldeleteCalendarType"
+        mixed="false">
+      <xsd:attribute ecore:name="version" id="deleteCalendarTypeversion" form="unqualified"
+          name="version" type="tns3:XmlLockVersion" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The version number used to detect concurrent updates to the same Calendar. The value should be taken from the response of the orginal request to getCalender. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="namespace" id="deleteCalendarTypenamespace" form="unqualified"
+          name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="deleteCalendarTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getCalEntries" nillable="false">
+    <xsd:complexType ecore:name="getCalEntriesType" id="com.tibco.n2.dac.api.workcalgetCalEntriesType"
+        mixed="false">
+      <xsd:attribute ecore:name="namespace" id="getCalEntriesTypenamespace" form="unqualified"
+          name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="getCalEntriesTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="start" id="getCalEntriesTypestart" form="unqualified"
+          name="start" type="xsd:dateTime" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Start date and time from which Calendar Entries are listed. This value is time-zone neutral. That is, it expresses only a value, but not the time-zone in which it applies. The time-zone will be implied from the Base Calendar on which this exclusions is placed. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="end" id="getCalEntriesTypeend" form="unqualified"
+          name="end" type="xsd:dateTime" use="required">
+        <xsd:annotation>
+          <xsd:documentation>End date and time to which Calendar Entries are listed. This value is time-zone neutral. That is, it expresses only a value, but not the time-zone in which it applies. The time-zone will be implied from the Base Calendar on which this exclusions is placed. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="saveCalendarEntry" nillable="false">
+    <xsd:complexType ecore:name="saveCalendarEntryType" id="com.tibco.n2.dac.api.workcalsaveCalendarEntryType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="createworkingday" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="create-working-day" type="tns3:XmlNewWorkingDayExclusion"/>
+        <xsd:element ecore:name="updateworkingday" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="update-working-day" type="tns3:XmlExistingWorkingDayExclusion"/>
+        <xsd:element ecore:name="createrecurring" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="create-recurring" type="tns3:XmlNewRecurringExclusion"/>
+        <xsd:element ecore:name="updaterecurring" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="update-recurring" type="tns3:XmlExistingRecurringExclusion"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="version" id="saveCalendarEntryTypeversion" form="unqualified"
+          name="version" type="tns3:XmlLockVersion" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The version of the Calendar to which the caller is saving the given Calendar Entry. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="namespace" id="saveCalendarEntryTypenamespace" form="unqualified"
+          name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="saveCalendarEntryTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="start" id="saveCalendarEntryTypestart" form="unqualified"
+          name="start" type="xsd:dateTime" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Start date and time from which Calendar Entries are listed. This value is time-zone neutral. That is, it expresses only a value, but not the time-zone in which it applies. The time-zone will be implied from the Base Calendar on which this exclusions is placed. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="end" id="saveCalendarEntryTypeend" form="unqualified"
+          name="end" type="xsd:dateTime" use="required">
+        <xsd:annotation>
+          <xsd:documentation>End date and time to which Calendar Entries are listed. This value is time-zone neutral. That is, it expresses only a value, but not the time-zone in which it applies. The time-zone will be implied from the Base Calendar on which this exclusions is placed. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteCalendarEntries" nillable="false">
+    <xsd:complexType ecore:name="deleteCalendarEntriesType" id="com.tibco.n2.dac.api.workcaldeleteCalendarEntriesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="entryguid" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="entry-guid" type="tns4:XmlGuidType"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="version" id="deleteCalendarEntriesTypeversion" form="unqualified"
+          name="version" type="tns3:XmlLockVersion" use="required"/>
+      <xsd:attribute ecore:name="namespace" id="deleteCalendarEntriesTypenamespace"
+          form="unqualified" name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="deleteCalendarEntriesTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="purgeCalendarEntries" nillable="false">
+    <xsd:complexType ecore:name="purgeCalendarEntriesType" id="com.tibco.n2.dac.api.workcalpurgeCalendarEntriesType"
+        mixed="false">
+      <xsd:attribute ecore:name="version" id="purgeCalendarEntriesTypeversion" form="unqualified"
+          name="version" type="tns3:XmlLockVersion" use="required"/>
+      <xsd:attribute ecore:name="namespace" id="purgeCalendarEntriesTypenamespace"
+          form="unqualified" name="namespace" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Used to categorize, or group, named Calendars. Calendars sharing the same namespace must have unique names. A namespace of null is still considered a valid namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="purgeCalendarEntriesTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The mandatory name of the calendar. This must be unique within the given namespace. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="todate" id="purgeCalendarEntriesTypeto-date" form="unqualified"
+          name="to-date" type="xsd:date" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The date up to which the named Calendar's entries are to be purged. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

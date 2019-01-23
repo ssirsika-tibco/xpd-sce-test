@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_7X0BIK3CEeOOVoYcrPHtVg" xpdExt:DisplayName="tmp" Name="tmp">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-03-17</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>bharge</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_8NDnEK3CEeOOVoYcrPHtVg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_7X_AQK3CEeOOVoYcrPHtVg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_8NDnEa3CEeOOVoYcrPHtVg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_7X_AQK3CEeOOVoYcrPHtVg" xpdExt:DisplayName="CriteriaAndDQLContext-Process" Name="CriteriaAndDQLContextProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_89MqkK3CEeOOVoYcrPHtVg" xpdExt:DisplayName="custref" Name="custref">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_MN3MMKBlEeOhd5eYvI6Dcg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_3UOO0K6REeOjtsrJdsPpqQ" xpdExt:DisplayName="orderRef" Name="orderRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_jWNoYJSfEeOJUMM6MH3ieQ"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_5zl0QK6REeOjtsrJdsPpqQ" xpdExt:DisplayName="addrRef" Name="addrRef">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="ordermodel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="__yHBYK3yEeOBrdy6IKoaqg"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_8NDnEq3CEeOOVoYcrPHtVg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_8NDnEa3CEeOOVoYcrPHtVg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_8NDnE63CEeOOVoYcrPHtVg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_8NDnEa3CEeOOVoYcrPHtVg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ACkgEK3DEeOOVoYcrPHtVg" Name="Valid" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">var addrCrit = cac_com_example_ordermodel_new1_Address.createCriteria(&quot;addrId > 10&quot;);&#xD;
+var pageSizeAddrCrit = cac_com_example_ordermodel_new1_Address.createCriteria(&quot;addrId > 10&quot;,2,3);&#xD;
+&#xD;
+addrRef = cac_com_example_ordermodel_new1_Address.findByAddrId(1); &#xD;
+//no error&#xD;
+var pageList = cac_com_example_ordermodel_new1_Address.findByCriteria(addrCrit) ;&#xD;
+var list1 = cac_com_example_ordermodel_new1_Address.findByCriteria(&quot;addrId > 10&quot;);&#xD;
+&#xD;
+var custCrit = cac_com_example_ordermodel_new1_Customer.createCriteria(&quot;autoCaseIdentifier1 &lt; 10&quot;);&#xD;
+// no error&#xD;
+addrRef.navigateByCriteriaToCustomerRef(custCrit); &#xD;
+&#xD;
+var newcustRef = cac_com_example_ordermodel_new1_Customer.findByAutoCaseIdentifier1(0);&#xD;
+newcustRef.navigateByCriteriaToOrdersRefs(&quot;orderLines.quantity > 100&quot;); </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="86.0" LaneId="_8NDnEa3CEeOOVoYcrPHtVg" Width="116.0">
+              <xpdl2:Coordinates XCoordinate="214.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_yZNGUK6REeOjtsrJdsPpqQ" Name="Invalid" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// show error&#xD;
+addrRef.navigateByCriteriaToCustomerRef(&quot;addrId > 10&quot;);&#xD;
+// valid&#xD;
+var addrCrit = cac_com_example_ordermodel_new1_Address.createCriteria(&quot;addrId > 10&quot;);&#xD;
+// show error&#xD;
+addrRef.navigateByCriteriaToCustomerRef(addrCrit);   &#xD;
+// show error&#xD;
+cac_com_example_ordermodel_new1_Customer.findByCriteria(addrCrit);&#xD;
+//show error&#xD;
+cac_com_example_ordermodel_new1_Customer.findByCriteria(&quot;addrId > 10&quot;);&#xD;
+//show error&#xD;
+custref.navigateByCriteriaToOrdersRefs(&quot;orders.orderLines.quantity > 100&quot;);&#xD;
+// valid&#xD;
+var custCrit = cac_com_example_ordermodel_new1_Customer.createCriteria(&quot;autoCaseIdentifier1 &lt; 10&quot;);&#xD;
+//show error&#xD;
+custref.navigateByCriteriaToOrdersRefs(custCrit);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="75.0" LaneId="_8NDnEa3CEeOOVoYcrPHtVg" Width="123.0">
+              <xpdl2:Coordinates XCoordinate="404.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_8NDnFK3CEeOOVoYcrPHtVg" xpdExt:DisplayName="" Name="" From="_yZNGUK6REeOjtsrJdsPpqQ" To="_8NDnE63CEeOOVoYcrPHtVg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ACluMK3DEeOOVoYcrPHtVg" xpdExt:DisplayName="" Name="" From="_8NDnEq3CEeOOVoYcrPHtVg" To="_ACkgEK3DEeOOVoYcrPHtVg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_yZO7gK6REeOjtsrJdsPpqQ" xpdExt:DisplayName="" Name="" From="_ACkgEK3DEeOOVoYcrPHtVg" To="_yZNGUK6REeOjtsrJdsPpqQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="16"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

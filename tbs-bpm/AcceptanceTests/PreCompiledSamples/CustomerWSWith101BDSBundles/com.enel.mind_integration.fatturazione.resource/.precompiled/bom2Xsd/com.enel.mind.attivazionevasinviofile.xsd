@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://mind.enel.com/attivazionevasinviofile" xmlns:tns18="http://mind.enel.com/attivazionevasinviofile"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mind.enel.com/attivazionevasinviofile">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_integration.fatturazione.resource/Business Objects/com.enel.mind.AttivazioneVasInvioFile.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="AttivazioneVasInvioFileRequest" id="_Spg_cKnFEeOXUJAp7SDdvw"
+      name="AttivazioneVasInvioFileRequest">
+    <xsd:sequence>
+      <xsd:element ecore:name="idBpm" id="_XKpoUKnFEeOXUJAp7SDdvw" maxOccurs="1" minOccurs="0"
+          name="idBpm">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="VAS_memo" id="_drs6gKnFEeOXUJAp7SDdvw" maxOccurs="1"
+          minOccurs="0" name="VAS_memo" type="xsd:string"/>
+      <xsd:element ecore:name="idFatturazione" id="_faBdgKnFEeOXUJAp7SDdvw" maxOccurs="1"
+          minOccurs="0" name="idFatturazione" type="xsd:string"/>
+      <xsd:element ecore:name="tipoOperazione" id="_ih8QsKnFEeOXUJAp7SDdvw" maxOccurs="1"
+          minOccurs="0" name="tipoOperazione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="causale" id="_lJ5xcKnFEeOXUJAp7SDdvw" maxOccurs="1"
+          minOccurs="0" name="causale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="fatturaCDM" id="_nGmusKnFEeOXUJAp7SDdvw" maxOccurs="1"
+          minOccurs="0" name="fatturaCDM" type="xsd:string"/>
+      <xsd:element ecore:name="totaleImport" id="_pbVKYKnFEeOXUJAp7SDdvw" maxOccurs="1"
+          minOccurs="0" name="totaleImport">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="AttivazioneVasInvioFileResponse" id="_vkm1wKnFEeOXUJAp7SDdvw"
+      name="AttivazioneVasInvioFileResponse">
+    <xsd:sequence>
+      <xsd:element ecore:name="sistemaSorgenteEsito" id="_-Fz1YKnFEeOXUJAp7SDdvw"
+          maxOccurs="1" minOccurs="0" name="sistemaSorgenteEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AttivazioneVasInvioFileRequestElement" type="AttivazioneVasInvioFileRequest"/>
+  <xsd:element name="AttivazioneVasInvioFileResponseElement" type="AttivazioneVasInvioFileResponse"/>
+</xsd:schema>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/RPCLiteral_MultiPart/" xmlns:tns9="http://www.example.org/RPCLiteral_MultiPart/"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/RPCLiteral_MultiPart/">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/UC26_DataMapperForWSInOutAndFaultConsumer/Generated Business Objects/org.example.RPCLiteral_MultiPart.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="NewSimpleType" id="org.example.RPCLiteral_MultiPartNewSimpleType2"
+      name="NewSimpleType">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="IputType" id="org.example.RPCLiteral_MultiPartIputType"
+      abstract="false" mixed="false" name="IputType">
+    <xsd:sequence>
+      <xsd:element ecore:name="newElement" id="IputTypeNewElement" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="NewElement" type="xsd:string"/>
+      <xsd:element ecore:name="newElement2" id="IputTypeNewElement2" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="NewElement2" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="OutputType" id="org.example.RPCLiteral_MultiPartOutputType"
+      abstract="false" mixed="false" name="OutputType">
+    <xsd:sequence>
+      <xsd:element ecore:name="newElement" id="OutputTypeNewElement" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="NewElement" type="xsd:string"/>
+      <xsd:element ecore:name="newElement2" id="OutputTypeNewElement2" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="NewElement2" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="NewElement" nillable="false">
+    <xsd:complexType ecore:name="NewElementType" id="org.example.RPCLiteral_MultiPartNewElementType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="newElement" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="NewElement" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

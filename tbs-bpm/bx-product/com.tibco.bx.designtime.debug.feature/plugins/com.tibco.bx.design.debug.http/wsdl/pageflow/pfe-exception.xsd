@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 (x64) (http://www.altova.com) by Paul Raby (Tibco Software Limited) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://exception.pfe.n2.tibco.com" xmlns:comex="http://exception.api.common.n2.tibco.com" targetNamespace="http://exception.pfe.n2.tibco.com" version="1.0">
+	
+	<xs:import namespace="http://exception.api.common.n2.tibco.com" schemaLocation="comexception.xsd"/>
+	
+	<xs:element name="InternalServiceFault" type="comex:DetailedException">
+		<xs:annotation>
+			<xs:documentation>An internal error has occurred.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="InvalidArgumentFault" type="comex:DetailedException">
+		<xs:annotation>
+			<xs:documentation>An invalid parameter was supplied or a mandatory parameter was missing from the request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PageFlowExecutionFault" type="comex:DetailedException">
+		<xs:annotation>
+			<xs:documentation>An error occurred when executing the PageFlow or Business Service.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+</xs:schema>

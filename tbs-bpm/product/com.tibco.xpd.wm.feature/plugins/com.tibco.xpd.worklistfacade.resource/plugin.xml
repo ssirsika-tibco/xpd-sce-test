@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  
+<extension
+        point="com.tibco.xpd.resources.projectAsset">
+     
+      <!-- Define Work List Facade Asset -->
+     <asset               
+           configuration="com.tibco.xpd.worklistfacade.resource.newproject.WorkListFacadeAssetConfigration"
+           configurator="com.tibco.xpd.worklistfacade.resource.newproject.WorkListFacadeAssetConfigurator"
+           icon="icons/obj16/workListFacadeFolder.png"
+           id="com.tibco.xpd.asset.workListFacade"
+           name="%projectAsset.workListFacade.name"
+           visible="false">
+          <customParam
+            		name="notAppliedByDefault"
+            		value="true">
+     	  </customParam>     
+        <description>
+           %projectAsset.workListFacade.description
+        </description>
+        <!--Declare Creation Wizard Page for Work List Facade Asset-->
+        <wizardpage
+              page="com.tibco.xpd.worklistfacade.resource.wizards.WorkListFacadeAssetWizardPage">
+        </wizardpage> 
+        <!-- TODO To revisit The MigrationFactory for required changes -->
+      <assetMigration 
+            class="com.tibco.xpd.resources.projectconfig.projectassets.util.AssetWorkingCopyMigrationFactory: -kind wlf -fileExt wlf">
+      </assetMigration>
+      <dynamicVersion
+            versionProvider="com.tibco.xpd.worklistfacade.resource.newproject.WorkListFacadeAssetConfigurator">
+      </dynamicVersion>     
+     </asset>
+   </extension>
+   
+<!-- Define Special Folder Asset Configuration-->
+ <extension
+         point="com.tibco.xpd.resources.specialFolders">
+      <folder
+            allowDuplicateResources="false"
+            icon="icons/obj16/workListFacadeFolder.png"
+            issueId="processPackage.duplicateResourceIssue"
+            kind="wlf"
+            multiple="false"
+            name="%folder.name.workListFacade"
+            navigatorContentId="com.tibco.xpd.projectExplorer.workListFacadeContent"
+            projectAssetId="com.tibco.xpd.asset.workListFacade"
+            unsettable="true">
+      </folder>
+   </extension>
+<!-- Define Special Folder to File Binding-->
+    <extension
+         point="com.tibco.xpd.resources.specialFolderFileBinding">
+      <binding
+            kind="wlf">
+         <filePatterns
+               match=".*\.[wW][lL][fF]">
+         </filePatterns>
+      </binding>
+   </extension>
+   <!-- Bind Work List Facade Asset to WorkListFacade projects to chain WorkListFacade wizard page in the new Project Creation Wizard-->
+   <extension
+         point="com.tibco.xpd.resources.projectAssetBinding">
+      <projectAssetBinding
+            assetId="com.tibco.xpd.asset.workListFacade"
+            mandatory="true"
+            newProjectWizardId="com.tibco.xpd.newProject.FacadeDeveloper">
+      </projectAssetBinding>
+   </extension>
+   
+   <!--Define New WorkListFacade project Wizard -->
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <primaryWizard
+            id="com.tibco.xpd.newProject.FacadeDeveloper">
+      </primaryWizard>
+      <wizard
+            category="com.tibco.xpd.newWizard.modeling.category"
+            finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+            preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+            icon="icons/obj16/workListFacadeProject.png"
+            id="com.tibco.xpd.newProject.FacadeDeveloper"
+            name="%developer_project_title"
+            project="true">
+          <class class="com.tibco.xpd.ui.wizards.newproject.XpdProjectWizardFactory">
+            <parameter name="hideAssetSelection" value="true"/>
+            <parameter name="title" value="%developer_project_wizard_title" />
+         </class> 
+         <description>
+            %developer_project_description
+         </description>
+      </wizard>
+   </extension>
+   <!-- New Facade File Creation Wizard -->
+   <extension point="org.eclipse.ui.newWizards">
+      <?gmfgen generated="false"?>
+  	  <wizard
+  	     name="%newFileWizardName"
+  	     icon="icons/obj16/workListFacadeFile.png"
+  	     category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.workListFacade.categoryWLF"
+  	     class="com.tibco.xpd.worklistfacade.resource.wizards.WorkListFacadeCreationWizard"
+  	     finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+         preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+  	     id="com.tibco.xpd.wlf.FacadeWizardID">
+  	  	 <description>%newFileWizardDesc</description>  
+      </wizard>
+     <category
+           id="com.tibco.xpd.workListFacade.categoryWLF"
+           name="%wlfw.category.name"
+           parentCategory="com.tibco.xpd.newWizard.modeling.category">
+     </category>
+   </extension>
+    <!--Add new wizard  to the perspective's "New" submenu of the "File" menu-->    
+    <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.tibco.modeling.perspective">
+         <newWizardShortcut
+               id="com.tibco.xpd.newProject.FacadeDeveloper">
+         </newWizardShortcut>        
+      </perspectiveExtension>
+   </extension>
+   
+  
+  
+    <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+         <!--  Wizard for New File option on Special Folder-->
+      <commonWizard
+            associatedExtensionId="com.tibco.xpd.projectExplorer.workListFacadeContent"
+            menuGroupId="group.wlf"
+            type="new"
+            wizardId="com.tibco.xpd.wlf.FacadeWizardID">
+         <enablement>
+            
+               <and>
+                  <instanceof
+                        value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                  </instanceof>
+                  <test
+                        property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                        value="wlf">
+                  </test>
+               </and>
+               
+            </enablement>
+      </commonWizard>
+   </extension>
+   
+     <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <!--Add new Project wizard menu to New menu -->   
+      <commonWizard
+            menuGroupId="additions.xpdproject"
+            type="new"
+            wizardId="com.tibco.xpd.newProject.FacadeDeveloper">
+         <enablement>
+            <or>
+               <instanceof
+                     value="org.eclipse.core.resources.IWorkspaceRoot">
+               </instanceof>
+               <and>
+                  <instanceof
+                        value="java.util.Collection">
+                  </instanceof>
+                  <count
+                        value="0">
+                  </count>
+               </and>
+            </or></enablement>
+      </commonWizard>     
+         
+     <navigatorContent
+          activeByDefault="true"          
+          icon="icons/obj16/workListFacadeFolder.png"
+          contentProvider="com.tibco.xpd.worklistfacade.resource.ui.navigator.WorkListFacadeContentProvider"
+          labelProvider="com.tibco.xpd.ui.projectexplorer.providers.ProjectExplorerLabelProvider"
+          id="com.tibco.xpd.projectExplorer.workListFacadeContent"         
+          name="%navigatorContent_name"
+          priority="high"
+          providesSaveables="true">
+       <triggerPoints>
+       		<or>
+				<and>
+					<instanceof value="org.eclipse.core.resources.IProject"/>
+						<test
+							property="org.eclipse.core.resources.projectNature"
+	                        value="com.tibco.xpd.resources.xpdNature"/>
+	                    <test
+	                        property="org.eclipse.core.resources.open"
+	                        value="true"/>
+				</and>
+				<and>
+					<instanceof value="org.eclipse.core.resources.IFolder"/>
+					<test
+						property="com.tibco.xpd.resources.specialfolder.containsSpecialFolder"
+						value="wlf"/>
+				</and>
+				<and>
+					<instanceof value="com.tibco.xpd.resources.projectconfig.SpecialFolder"/>
+					<test
+						property="com.tibco.xpd.resources.specialfolder.isOfKind"
+						value="wlf"/>
+				</and>
+			<and>
+	               <instanceof
+	                     value="org.eclipse.core.resources.IFile">
+	               </instanceof>
+	               <test
+	                     property="org.eclipse.core.resources.extension"
+	                     value="wlf">
+	               </test>
+                <test
+                      property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                      value="wlf">
+                </test>
+            	</and>
+			</or>
+       </triggerPoints>
+       <possibleChildren>
+            <or>
+            	<and>
+                	 <instanceof value="com.tibco.xpd.resources.projectconfig.SpecialFolder"/>
+                 	<test
+                       property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                       value="wlf"/>
+             	</and>             	
+              <instanceof
+                    value="org.eclipse.core.resources.IFile">
+              </instanceof>
+              <instanceof
+                    value="org.eclipse.core.resources.IFolder">
+              </instanceof>             
+            </or>
+       </possibleChildren>
+       <override
+             policy="InvokeAlwaysRegardlessOfSuppressedExt"
+             suppressedExtensionId="org.eclipse.ui.navigator.resourceContent">
+       </override>
+       <commonSorter
+             class="com.tibco.xpd.ui.projectexplorer.sorter.ResourceSorterWithIgnoredDirtyMarker">
+          <parentExpression>
+             <or>
+                <and>
+                   <instanceof
+                         value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                   </instanceof>
+                   <test
+                         property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                         value="wlf">
+                   </test>
+                </and>             
+                <instanceof
+                      value="org.eclipse.core.resources.IFolder">
+                </instanceof>
+                <instanceof
+                      value="org.eclipse.core.resources.IFile">
+                </instanceof>
+             </or>
+          </parentExpression>
+       </commonSorter> 
+    </navigatorContent>
+  
+   </extension>
+   <!--Working Copy Factory -->
+   <extension
+         point="com.tibco.xpd.resources.workingCopyFactory">
+      <factory
+            class="com.tibco.xpd.worklistfacade.resource.workingcopy.WorkListFacadeWorkingCopyFactory"
+            filePattern=".*\.[wW][lL][fF]">
+      </factory>
+   </extension>
+   
+   <!--Work List Facade Editor-->
+     <extension point="org.eclipse.ui.editors">
+      <editor
+            id="com.tibco.xpd.worklistfacade.presentation.WorkListFacadeEditorID"
+            name="%WorkListFacadeEditor_label"
+            icon="icons/obj16/workListFacadeFile.png"
+            extensions="wlf"
+            class="com.tibco.xpd.worklistfacade.resource.editor.WorkListFacadeEditor"
+            contributorClass="com.tibco.xpd.worklistfacade.resource.editor.WorkListFacadeActionBarContributor">
+      </editor>
+   </extension>
+      <!--Work List Facade Mapping Section Contribution-->
+  <extension
+         point="com.tibco.xpd.processeditor.xpdl2.sashPropertySection">
+         <sashPropertySection
+            afterSection="ProcessDataToDynamicOrgIdentifierMappingSection"
+            class="com.tibco.xpd.worklistfacade.resource.mapper.ProcessDataToWIAttributeMappingSection"
+            expandFirstTimeEver="false"
+            expandHeaderLabel="%processDataToWorkItemAliasMappingSection.Title2"
+            filter="com.tibco.xpd.worklistfacade.resource.mapper.ProcessDataToWIAttributeMappingSectionFilter"
+            grabExtraVertical="true"
+            id="ProcessDataToWorkListFacadeMappingSection"
+            location="GENERAL"
+            minimumHeightOrMinus1ForDefault="-1"            
+            sashContributionSection="com.tibco.xpd.processeditor.xpdl2.ProcessWorkResourceSection">
+      </sashPropertySection>
+   </extension>   
+   <!-- User Task/Mapping Validation Contribution Rules-->
+    <extension
+        point="com.tibco.xpd.validation.providerExtension">
+     <providerExtension
+           providerId="com.tibco.n2.ut.resources.provider.v1">
+        <rule
+              class="com.tibco.xpd.worklistfacade.resource.mapper.validation.ProcessDataToWorkItemAttributeMappingRule">
+        </rule>
+       <rule
+              class="com.tibco.xpd.worklistfacade.resource.mapper.validation.UserTaskDataAssociationValidationRule">
+        </rule>
+     </providerExtension>
+  </extension>
+
+   <!--Field OR Param Resolver-->
+	<extension
+        point="com.tibco.xpd.xpdl2.edit.fieldOrParamReferenceResolver">
+     <DataReferenceResolver
+           class="com.tibco.xpd.worklistfacade.resource.mapper.WorkItemAttributeMappingProcessDataResolver">
+     </DataReferenceResolver>
+  </extension>
+ 
+ <!--Work List Facade Validation-->
+ 	<extension point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.xpd.worklistfacade.resource.provider"
+            name="com.tibco.xpd.worklistfacade.resource.provider"            
+            scopeProvider="com.tibco.xpd.worklistfacade.resource.validation.WorkListFacadeScopeProvider">
+            
+         <rule class="com.tibco.xpd.worklistfacade.resource.validation.WorkListFacadeValidationRule"/>            
+         <rule class="com.tibco.xpd.worklistfacade.resource.validation.WorkItemAttributeValidationRule"/>
+    
+      </provider>
+
+        <issue
+            id="duplicate.attribute.display.label.issue"
+            message="%duplicate.attribute.display.label.issue"
+            severity="ERROR">
+      </issue>     
+        <issue
+            id="attribute.display.label.length.issue"
+            message="%attribute.display.label.length.issue"
+            severity="ERROR">
+      </issue>
+     
+       <issue
+            id="multiple.work.list.facade.issue"
+            message="%multiple.work.list.facade.issue"
+            severity="ERROR">
+      </issue>    
+   
+       <issue
+            id="user.task.missing.data.association"
+            message="%user.task.missing.data.association"
+            preferenceGroupId="com.tibco.xpd.validation.bpmn.activity_seq"
+            preferenceDescription="%user.task.missing.data.association"
+            severity="WARNING">
+          <resolution
+                canApplyToMultiple="true"
+                id="associate.data.to.user.task.resolution">
+          </resolution>
+           <resolution
+                canApplyToMultiple="false"
+                id="associate.all.data.to.user.task.resolution">
+          </resolution>
+      </issue>   
+            
+   </extension>
+   
+   <!-- Work List Facade Workspace Resource Validator-->
+ <extension
+         point="com.tibco.xpd.validation.workspaceResourceValidationProvider">
+      <provider
+            id="com.tibco.xpd.wlf.workspaceValidatorProvider">        
+         <validator
+               class="com.tibco.xpd.worklistfacade.resource.validation.WorkListFacadeProjectValidation"
+               id="com.tibco.xpd.wlf.validation.workListFacadeAllowedAssets"
+               validateType="PROJECT">
+         </validator>        
+      </provider>
+      <issues>
+	      <issue
+	            id="workListFacadeProject.other.assets.not.allowed.issue"
+	            message="%workListFacadeProject.other.assets.not.allowed.issue"
+	            severity="ERROR">
+	      </issue>    
+      </issues>
+   </extension>
+   
+<!--Destinations Validation & Resource-->                  
+  <extension
+       point="com.tibco.xpd.validation.destinations">       
+     <destination
+          id="com.tibco.xpd.worklistfacade.resource.destination"
+          name="%destination.name"
+          selectable="true"
+          version="">
+       <filter
+             class="com.tibco.xpd.worklistfacade.resource.validation.WorkListFacadeFileFilter">
+       </filter>
+       <validationProvider
+             id="com.tibco.xpd.worklistfacade.resource.provider">
+       </validationProvider>
+    </destination>
+    
+    <workspaceResourceDestination
+          id="wlf.workspaceResourceDestination"
+          name="%destination.name"
+          version="">
+         <validationProvider
+               id="com.tibco.xpd.wlf.workspaceValidatorProvider">
+         </validationProvider>
+      </workspaceResourceDestination>      
+  </extension>
+  
+ <!--Resolutions/QuickFixes -->
+  <extension
+          point="com.tibco.xpd.validation.reusableResolutions">
+     <resolution
+           class="com.tibco.xpd.worklistfacade.resource.mapper.validation.AddProcDataMappedWithWIAttribToUserTaskResolution"
+           description="%add.data.user.task.interface.resolution.description"
+           id="associate.data.to.user.task.resolution"
+           label="%add.data.user.task.interface.resolution.label">
+     </resolution>     
+      <resolution
+           class="com.tibco.xpd.worklistfacade.resource.mapper.validation.AddAllProcDataMappedWithWIAttribToUserTaskResolution"
+           description="%add.all.data.user.task.interface.resolution.description"
+           id="associate.all.data.to.user.task.resolution"
+           label="%add.all.data.user.task.interface.resolution.label">
+     </resolution>       
+  </extension>
+    <!-- WLF File Export Documentation Wizard Contribution -->
+  <extension
+         point="com.tibco.xpd.resources.ui.documentViewerContribution">
+      <documentViewerContribution
+            documentGenerator="com.tibco.xpd.worklistfacade.doc.WlfDocXsltGeneration"
+            fileExtensions="wlf"
+            specialFolders="wlf">
+      </documentViewerContribution>
+   </extension>
+   <!-- WLF File Export Documentation File Contribution -->
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonWizard
+            associatedExtensionId="com.tibco.xpd.projectExplorer.workListFacadeContent"
+            type="export"
+            wizardId="com.tibco.xpd.ui.importexport.exportwizard.documentation.DocExportWizard">
+            <enablement>
+          <or>
+             <and>
+                <instanceof
+                      value="org.eclipse.core.resources.IFile">
+                </instanceof>
+                <test
+                      property="org.eclipse.core.resources.extension"
+                      value="wlf">
+                </test>
+             </and>
+             <and>
+                 <instanceof
+                     value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+               	 </instanceof>
+               	 <test
+                      property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                      value="wlf">
+                 </test>
+           	 </and>
+          </or>
+       </enablement>
+      </commonWizard>
+   </extension>
+ 
+</plugin>

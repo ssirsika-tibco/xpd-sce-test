@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://com.enel.mind.integration.mutiisuadeguamentolistinobpm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MutiIsuAdeguamentoListinoBpm" targetNamespace="http://com.enel.mind.integration.mutiisuadeguamentolistinobpm" tibex:src="file:/C:/Users/eamogio/Desktop/Delivery/Migrazione/MutiIsuAdeguamentoListinoAbstract.wsdl">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://com.enel.mind.integration.mutiisuadeguamentolistinobpm">
+    <xsd:element name="InvioRichiestaRinnovoEsecutivaBpmRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	
+			<xsd:element minOccurs="0" name="IdRichiesta" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="TipoOperazione" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="Causale" type="xsd:string">
+          	</xsd:element>
+			
+			<xsd:element minOccurs="0" name="ContrattoSAP" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="ListinoNew" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="DataAdeguamento" type="xsd:date">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="SubProcedure" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="ReleaseId" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="NomeInFattura" type="xsd:string">
+          	</xsd:element>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InvioRichiestaRinnovoEsecutivaBpmResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+
+    
+      <xsd:complexType name="EsitoType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="Esito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="CodiceEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="DescrizioneEsito" type="xsd:string">
+      		</xsd:element>
+
+      		<xsd:element minOccurs="1" name="SistemaSorgente" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+     
+    
+    </xsd:schema>
+  </wsdl:types>
+  
+ 
+  
+  <wsdl:message name="InvioRichiestaRinnovoEsecutivaBpmRequest">
+    <wsdl:part element="tns:InvioRichiestaRinnovoEsecutivaBpmRequest" name="input"/>
+  </wsdl:message>
+  <wsdl:message name="InvioRichiestaRinnovoEsecutivaBpmResponse">
+    <wsdl:part element="tns:InvioRichiestaRinnovoEsecutivaBpmResponse" name="output"/>
+  </wsdl:message>
+
+  
+	
+	 <wsdl:portType name="MutiIsuAdeguamentoListinoBpm">
+	<wsdl:operation name="InvioRichiestaRinnovoEsecutivaBpm">
+      <wsdl:input message="tns:InvioRichiestaRinnovoEsecutivaBpmRequest"/>
+      <wsdl:output message="tns:InvioRichiestaRinnovoEsecutivaBpmResponse"/>
+    </wsdl:operation>
+ </wsdl:portType>
+
+</wsdl:definitions>

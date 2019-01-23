@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example.Unions2" name="com.example.Unions">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QjlccaFhEeCvnMhuevoqPg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QjofwKFhEeCvnMhuevoqPg" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QjpG0KFhEeCvnMhuevoqPg" key="created" value="1309253591613"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QjpG0aFhEeCvnMhuevoqPg" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsmySimple" name="mySimple">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QelnsKFhEeCvnMhuevoqPg" name="memberType1" type="com.example.UnionsUnionStandardBaseType1?com.example.Unions%3a%3aUnionStandardBaseType1?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QetjgKFhEeCvnMhuevoqPg" name="memberType2" type="com.example.UnionsUnionStandardBaseType2?com.example.Unions%3a%3aUnionStandardBaseType2?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Qe04QKFhEeCvnMhuevoqPg" name="memberType3" type="com.example.UnionsUnionStandardBaseType3?com.example.Unions%3a%3aUnionStandardBaseType3?"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsUnionStandardBaseType1" name="UnionStandardBaseType1">
+      <generalization xmi:type="uml:Generalization" xmi:id="_QbZw0KFhEeCvnMhuevoqPg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsUnionStandardBaseType2" name="UnionStandardBaseType2">
+      <generalization xmi:type="uml:Generalization" xmi:id="_QerHQKFhEeCvnMhuevoqPg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsUnionStandardBaseType3" name="UnionStandardBaseType3">
+      <generalization xmi:type="uml:Generalization" xmi:id="_QezDEKFhEeCvnMhuevoqPg">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      </generalization>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_QUJSQaFhEeCvnMhuevoqPg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QUJSQqFhEeCvnMhuevoqPg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_QjbrcKFhEeCvnMhuevoqPg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QjbrcaFhEeCvnMhuevoqPg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_QUaYAKFhEeCvnMhuevoqPg" base_Package="com.example.Unions2?com.example.Unions?" xsdTargetNamespace="http://example.com/Unions" xsdSchemaLocation="D:\Workspace\com.tibco.xpd.bom.test\test-resources\xsd-union\XSDBOM_Union01_Simple.xsd" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_QV93MKFhEeCvnMhuevoqPg" base_PrimitiveType="com.example.UnionsmySimple?com.example.Unions%3a%3amySimple?" xsdSimpleTypeName="mySimple"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_QbaX4KFhEeCvnMhuevoqPg" base_PrimitiveType="com.example.UnionsUnionStandardBaseType1?com.example.Unions%3a%3aUnionStandardBaseType1?" xsdSimpleTypeName="UnionStandardBaseType1" xsdSimpleTypeId="" xsdRestrictionId="" xsdRestrictionBase="decimal" xsdIsStandardUnionSimpleType="true"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_QeruUKFhEeCvnMhuevoqPg" base_PrimitiveType="com.example.UnionsUnionStandardBaseType2?com.example.Unions%3a%3aUnionStandardBaseType2?" xsdSimpleTypeName="UnionStandardBaseType2" xsdSimpleTypeId="" xsdRestrictionId="" xsdRestrictionBase="string" xsdIsStandardUnionSimpleType="true"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_QezqIKFhEeCvnMhuevoqPg" base_PrimitiveType="com.example.UnionsUnionStandardBaseType3?com.example.Unions%3a%3aUnionStandardBaseType3?" xsdSimpleTypeName="UnionStandardBaseType3" xsdSimpleTypeId="" xsdRestrictionId="" xsdRestrictionBase="int" xsdIsStandardUnionSimpleType="true"/>
+  <XsdNotationProfile:XsdBasedUnion xmi:id="_Qe1fUKFhEeCvnMhuevoqPg" base_PrimitiveType="com.example.UnionsmySimple?com.example.Unions%3a%3amySimple?" xsdMemberTypes="[{http://www.w3.org/2001/XMLSchema}decimal, {http://www.w3.org/2001/XMLSchema}string, {http://www.w3.org/2001/XMLSchema}int]"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjMa4KFhEeCvnMhuevoqPg" base_Element="com.example.UnionsmySimple?com.example.Unions%3a%3amySimple?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjNB8KFhEeCvnMhuevoqPg" base_Element="_QUJSQaFhEeCvnMhuevoqPg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjNB8aFhEeCvnMhuevoqPg" base_Element="_QbZw0KFhEeCvnMhuevoqPg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjNpAKFhEeCvnMhuevoqPg" base_Element="com.example.UnionsUnionStandardBaseType2?com.example.Unions%3a%3aUnionStandardBaseType2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjNpAaFhEeCvnMhuevoqPg" base_Element="com.example.UnionsUnionStandardBaseType1?com.example.Unions%3a%3aUnionStandardBaseType1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjOQEKFhEeCvnMhuevoqPg" base_Element="_QezDEKFhEeCvnMhuevoqPg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjOQEaFhEeCvnMhuevoqPg" base_Element="_QelnsKFhEeCvnMhuevoqPg?com.example.Unions%3a%3amySimple%3a%3amemberType1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjO3IKFhEeCvnMhuevoqPg" base_Element="com.example.UnionsUnionStandardBaseType3?com.example.Unions%3a%3aUnionStandardBaseType3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjO3IaFhEeCvnMhuevoqPg" base_Element="_QerHQKFhEeCvnMhuevoqPg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjPeMKFhEeCvnMhuevoqPg" base_Element="_Qe04QKFhEeCvnMhuevoqPg?com.example.Unions%3a%3amySimple%3a%3amemberType3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QjPeMaFhEeCvnMhuevoqPg" base_Element="_QetjgKFhEeCvnMhuevoqPg?com.example.Unions%3a%3amySimple%3a%3amemberType2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QjfV0KFhEeCvnMhuevoqPg" displayLabel="UnionStandardBaseType1" base_NamedElement="com.example.UnionsUnionStandardBaseType1?com.example.Unions%3a%3aUnionStandardBaseType1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QjhLAKFhEeCvnMhuevoqPg" displayLabel="UnionStandardBaseType2" base_NamedElement="com.example.UnionsUnionStandardBaseType2?com.example.Unions%3a%3aUnionStandardBaseType2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QjjAMKFhEeCvnMhuevoqPg" displayLabel="UnionStandardBaseType3" base_NamedElement="com.example.UnionsUnionStandardBaseType3?com.example.Unions%3a%3aUnionStandardBaseType3?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QjlccKFhEeCvnMhuevoqPg" displayLabel="mySimple" base_NamedElement="com.example.UnionsmySimple?com.example.Unions%3a%3amySimple?"/>
+  <notation:Diagram xmi:id="_QjsKIKFhEeCvnMhuevoqPg" type="Business Object Model" element="com.example.Unions2?com.example.Unions?" name="com.example.Unions" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_QjsKIaFhEeCvnMhuevoqPg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_QjsKIqFhEeCvnMhuevoqPg"/>
+  </notation:Diagram>
+</xmi:XMI>

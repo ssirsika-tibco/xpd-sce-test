@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+    xmlns="http://example.com/businessobjectmodel" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/businessobjectmodel">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://example.com/businessobjectmodel">
+      <xsd:annotation>
+        <xsd:documentation>BOMORIGIN::/fds/Business Objects/OperationWithDefaultPrimitiveOutputNoInputs.bom</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType id="_8pcjoCmZEd6uG8m8YoWBeg" name="ClassB">
+        <xsd:attribute id="_0vTssCmbEd6uG8m8YoWBeg" name="attribute1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="50"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ClassB_operation1_outputMessage">
+    <wsdl:part name="operation1_outputPart" type="xsd:date"/>
+  </wsdl:message>
+  <wsdl:portType name="ClassB">
+    <wsdl:operation name="operation1">
+      <wsdl:output message="ClassB_operation1_outputMessage" name="operation1_outputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %BundleName_notrans
+Bundle-SymbolicName: com.tibco.xpd.bizassets.resources; singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Activator: com.tibco.xpd.bizassets.resources.BusinessassetsPlugin
+Bundle-Vendor: %BundleVendor_notrans
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ com.tibco.xpd.resources,
+ org.eclipse.emf.edit.ui,
+ com.tibco.xpd.resources.ui,
+ org.eclipse.ui.navigator,
+ org.eclipse.ui.navigator.resources,
+ org.eclipse.ui.workbench.texteditor,
+ com.tibco.xpd.ui.properties,
+ com.tibco.xpd.validation
+Eclipse-LazyStart: true
+Export-Package: com.tibco.xpd.bizassets.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

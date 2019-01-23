@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.amsbqa.com/linda21/WSDL1ImportWSDL2/wsdl2embedSchema1/WSDL2EmbedSchema1/Schema1includeSchema2/Schema.xsd"
+	 targetNamespace="http://www.amsbqa.com/linda21/WSDL1ImportWSDL2/wsdl2embedSchema1/WSDL2EmbedSchema1/Schema1includeSchema2/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:include schemaLocation="fixml-datatypes-4-4.xsd"/>
+	<xs:element name="q" type="Qty"/>
+	<xs:element name="Length" type="Length"/>
+	<xs:element name="Amt" type="Amt"/>
+	<xs:element name="Char" type="char"/>
+	<xs:element name="Country" type="Country"/>
+	<xs:element name="Info">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="q"/>
+				<xs:element ref="Length"/>
+				<xs:element ref="Amt"/>
+				<xs:element ref="Char"/>
+				<xs:element ref="Country"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Currency" type="Currency"/>
+	<xs:element name="Data" type="data"/>
+	<xs:element name="Exchange" type="Exchange"/>
+	<xs:element name="Local" type="LocalMktDate"/>
+	<xs:element name="Mic" type="MIC"/>
+	<xs:element name="Month" type="MonthYear"/>
+	<xs:element name="Year" type="UTCDateOnly"/>
+	<xs:element name="ResInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Currency"/>
+				<xs:element ref="Data"/>
+				<xs:element ref="Exchange"/>
+				<xs:element ref="Local"/>
+				<xs:element ref="Mic"/>
+				<xs:element ref="Month"/>
+				<xs:element ref="Year"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

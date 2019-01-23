@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+<extension
+      point="com.tibco.xpd.script.ui.scriptGrammarDestinationBinding">
+   <destination
+         destinationId="simulation1.2">
+      <scriptContextGrammarBinding
+            scriptContextReference="ScriptTask">
+         <grammar
+               id="JavaScript"
+               resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider">
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="SequenceFlow">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="TimerEvent">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="OpenUserTask">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="CloseUserTask">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="SubmitUserTask">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="StdLoopExpr">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="MILoopExpr">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="MIComplexExitExpr">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="MIAdditionalInstancesExpr">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="InitiatedScriptTask">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="CompletedScriptTask">
+         <defaultGrammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="DeadlineExpiredScriptTask">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="CancelledScriptTask">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" 
+               resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="PerformerDataField">
+         <grammar
+               id="JavaScript"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider" 
+               resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider" >
+         </grammar>
+         <defaultGrammar
+               id="Unspecified" scriptInfoProvider="com.tico.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="ScheduleUserTask">
+         <grammar
+               id="JavaScript"
+               resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider">
+         </grammar>
+         <defaultGrammar
+               id="Unspecified"
+               scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+      <scriptContextGrammarBinding
+            scriptContextReference="RescheduleUserTask">
+         <grammar
+               id="JavaScript"
+               resourceMarkerAnnotationProvider="com.tibco.xpd.process.js.model.script.JavaScriptResourceMarkerAnnotationModelProvider"
+               scriptInfoProvider="com.tibco.xpd.process.js.model.script.ProcessJavaScriptInfoProvider">
+         </grammar>
+         <defaultGrammar
+               id="Unspecified"
+               scriptInfoProvider="com.tibco.xpd.processeditor.xpdl2.properties.script.UnspecifiedScriptInfoProvider">
+         </defaultGrammar>
+      </scriptContextGrammarBinding>
+   </destination>
+</extension>
+<extension
+      point="com.tibco.xpd.script.ui.scriptGrammarDestinationBinding">
+   <destination
+         destinationId="simulation1.2">
+      <scriptContribution
+            scriptContext="ScriptTask">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="PerformerDataField">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="TimerEvent">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="SequenceFlow">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="OpenUserTask">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="CloseUserTask">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="SubmitUserTask">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="JavaServiceTask">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="SubProcessTask">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="CatchSignalEventMapping">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="PerformerDataField">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="ScheduleUserTask">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+      <scriptContribution
+            scriptContext="RescheduleUserTask">
+         <classContributor
+               class="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               grammarId="JavaScript"
+               id="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader"
+               name="com.tibco.xpd.process.js.model.JScriptProcessDefinitionReader">
+         </classContributor>
+      </scriptContribution>
+   </destination>
+</extension>
+</plugin>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="com.tibco.xpd.rest.schema.internal.JsonSchemaResourceFactoryImpl"
+            type="jsd">
+      </parser>
+   </extension>
+   <extension
+         point="org.eclipse.team.core.fileTypes">
+      <fileTypes
+            extension="jsd"
+            type="text">
+      </fileTypes>
+   </extension>
+   <extension
+         point="com.tibco.xpd.resources.workingCopyFactory">
+      <factory
+            class="com.tibco.xpd.rest.schema.JsonSchemaWorkingCopyFactory"
+            filePattern=".*\.[jJ][sS][dD]">
+      </factory>
+   </extension>
+   <extension
+         point="com.tibco.xpd.resources.workingCopyIndexer">
+      <indexer
+            filePattern="jsd"
+            indexID="com.tibco.xpd.rest.schema.json.indexer"
+            indexerClass="com.tibco.xpd.rest.schema.internal.JsonSchemaIndexProvider">
+         <additionalAttributes>
+            <attribute
+                  maxLength="5"
+                  name="isRoot">
+            </attribute>
+            <attribute
+                  maxLength="64"
+                  name="typeId">
+            </attribute>
+         </additionalAttributes>
+      </indexer>
+   </extension>
+</plugin>

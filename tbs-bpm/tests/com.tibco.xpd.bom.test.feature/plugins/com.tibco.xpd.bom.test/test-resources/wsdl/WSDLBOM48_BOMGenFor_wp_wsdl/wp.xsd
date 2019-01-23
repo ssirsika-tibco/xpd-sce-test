@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2012 rel. 2 sp1 (x64) (http://www.altova.com) by Joe Humphries (Tibco Software Limited) -->
+<xs:schema xmlns="http://api.wp.n2.tibco.com" xmlns:base="http://base.api.wp.n2.tibco.com" xmlns:brm="http://api.brm.n2.tibco.com" xmlns:bs="http://base.api.bs.n2.tibco.com" xmlns:ct="http://channeltype.common.n2.tibco.com" xmlns:df="http://datafeed.common.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:pl="http://payloadModel.common.n2.tibco.com" xmlns:pm="http://presentationmodel.common.n2.tibco.com" xmlns:wp="http://service.archive.wp.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://api.wp.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://base.api.wp.n2.tibco.com" schemaLocation="wp-basetypes.xsd"/>
+	<xs:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="organisation.xsd"/>
+	<xs:import namespace="http://service.archive.wp.n2.tibco.com" schemaLocation="wpModel.xsd"/>
+	<xs:import namespace="http://presentationmodel.common.n2.tibco.com" schemaLocation="presentationmodel.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:import namespace="http://base.api.bs.n2.tibco.com" schemaLocation="bs-basetypes.xsd"/>
+	<xs:import namespace="http://datafeed.common.n2.tibco.com" schemaLocation="df-payload.xsd"/>
+	<xs:import namespace="http://api.brm.n2.tibco.com" schemaLocation="brm.xsd"/>
+	<xs:import namespace="http://channeltype.common.n2.tibco.com" schemaLocation="channeltype.xsd"/>
+	<xs:element name="workResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for cancelWorkItem, closeWorkItem, completeWorkItem, openWorkItem and openNextWorkItem operations.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="base:Success">
+					<xs:sequence>
+						<xs:element minOccurs="0" name="payloadModel" nillable="true" type="df:dataPayload">
+							<xs:annotation>
+								<xs:documentation>If the work item displays:
+
+- a form: payloadModel contains the data payload for the specified work item.
+
+- a pageflow: payloadModel is not used. (In this case, the data payload for the first page of the pageflow must be obtained separately by using a startPageFlow operation.)
+
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="workTypeDetail" nillable="true">
+							<xs:annotation>
+								<xs:documentation>Details of the work type associated with this work item.
+
+</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="base:WorkType">
+										<xs:sequence>
+											<xs:element minOccurs="0" name="dataModel" type="dm:DataModel">
+												<xs:annotation>
+													<xs:documentation>** PRIVATE API - Reserved for internal use **</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="typePiled" type="xs:boolean" use="required">
+											<xs:annotation>
+												<xs:documentation>Boolean value specifying whether this work type is a piled work type.</xs:documentation>
+											</xs:annotation>
+										</xs:attribute>
+										<xs:attribute name="pilingLimit" type="xs:int">
+											<xs:annotation>
+												<xs:documentation>Maximum number of piled work items of this work type (pecified only or a piled work type).</xs:documentation>
+											</xs:annotation>
+										</xs:attribute>
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="presentation" nillable="true">
+							<xs:annotation>
+								<xs:documentation>If the work item displays:
+
+- a form: presentation contains details of the form artifact associated with this work item.
+
+- a pageflow: presentation is not used. (In this case, the form artifact details for the pageflow are contained in thePageFlowDetail element.)
+
+</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:attribute name="type" use="required">
+									<xs:annotation>
+										<xs:documentation>Type of form artifact. One of:
+
+- GWT_FORM
+- GI_FORM
+- PAGEFLOW
+- CUSTOM_FORM
+- FORM
+										</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="GWT_FORM"/>
+											<xs:enumeration value="GI_FORM"/>
+											<xs:enumeration value="PAGEFLOW"/>
+											<xs:enumeration value="CUSTOM_FORM"/>
+											<xs:enumeration value="FORM"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+								<xs:attribute name="formIdenitifier" type="xs:string" use="required">
+									<xs:annotation>
+										<xs:documentation>Identifier for the JSON form artifact to be used to display the data for the work item.
+										</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="activityName" type="xs:string" use="optional">
+									<xs:annotation>
+										<xs:documentation>Name of the process activity from which the work item was generated.
+										</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="version" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>Version number of the form artifact.</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+						<xs:element minOccurs="0" name="workItem" nillable="true" type="base:WorkItem">
+							<xs:annotation>
+								<xs:documentation>In a response to a:
+
+- cancelWorkItem, closeWorkItem, openWorkItem or openNextWorkItem operation: Identifier of this work item.
+
+- completeWorkItem operation: Identifier of the next work item, if this work item is part of a chained group or is a piled work item. (If it is not, workItem is not returned.)
+
+</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="pageFlowDetail" type="wp:pageFlowType">
+							<xs:annotation>
+								<xs:documentation>Details of the pageflow (if the work item displays a pageflow).</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="workResponseType">
+		<xs:complexContent>
+			<xs:extension base="base:Success">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="payloadModel" nillable="true" type="df:dataPayload">
+						<xs:annotation>
+							<xs:documentation>If the work item displays:
+
+- a form: payloadModel contains the data payload for the specified work item.
+
+- a pageflow: payloadModel is not used. (In this case, the data payload for the first page of the pageflow must be obtained separately by using a startPageFlow operation.)
+
+</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="workTypeDetail" nillable="true">
+						<xs:annotation>
+							<xs:documentation>Details of the work type associated with this work item.
+
+</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="base:WorkType">
+									<xs:sequence>
+										<xs:element minOccurs="0" name="dataModel" type="dm:DataModel">
+											<xs:annotation>
+												<xs:documentation>** PRIVATE API - Reserved for internal use **</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="typePiled" type="xs:boolean" use="required">
+										<xs:annotation>
+											<xs:documentation>Boolean value specifying whether this work type is a piled work type.</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="pilingLimit" type="xs:int">
+										<xs:annotation>
+											<xs:documentation>Maximum number of piled work items of this work type (pecified only or a piled work type).</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element minOccurs="0" name="presentation" nillable="true">
+						<xs:annotation>
+							<xs:documentation>If the work item displays:
+
+- a form: presentation contains details of the form artifact associated with this work item.
+
+- a pageflow: presentation is not used. (In this case, the form artifact details for the pageflow are contained in thePageFlowDetail element.)
+
+</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:attribute name="type" use="required">
+								<xs:annotation>
+									<xs:documentation>Type of form artifact. One of:
+
+- GWT_FORM
+- GI_FORM
+- PAGEFLOW
+- CUSTOM_FORM
+- FORM
+										</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="GWT_FORM"/>
+										<xs:enumeration value="GI_FORM"/>
+										<xs:enumeration value="PAGEFLOW"/>
+										<xs:enumeration value="CUSTOM_FORM"/>
+										<xs:enumeration value="FORM"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+							<xs:attribute name="formIdenitifier" type="xs:string" use="required">
+								<xs:annotation>
+									<xs:documentation>Identifier for the JSON form artifact to be used to display the data for the work item.
+										</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="activityName" type="xs:string" use="optional">
+								<xs:annotation>
+									<xs:documentation>Name of the process activity from which the work item was generated.
+										</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="version" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Version number of the form artifact.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:complexType>
+					</xs:element>
+					<xs:element minOccurs="0" name="workItem" nillable="true" type="base:WorkItem">
+						<xs:annotation>
+							<xs:documentation>In a response to a:
+
+- cancelWorkItem, closeWorkItem, openWorkItem or openNextWorkItem operation: Identifier of this work item.
+
+- completeWorkItem operation: Identifier of the next work item, if this work item is part of a chained group or is a piled work item. (If it is not, workItem is not returned.)
+
+</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="pageFlowDetail" type="wp:pageFlowType">
+						<xs:annotation>
+							<xs:documentation>Details of the pageflow (if the work item displays a pageflow).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="successFailureResponse" type="base:Success">
+		<xs:annotation>
+			<xs:documentation>Response to indicate if a call was sucessful.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="baseRequest" type="base:BaseRequest">
+		<xs:annotation>
+			<xs:documentation>Request element for openNextWorkItem operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="baseWorkRequest" type="base:BaseWorkRequest">
+		<xs:annotation>
+			<xs:documentation>Request element for cancelWorkItem and openWorkItem operations.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="workRequest" type="base:WorkRequest">
+		<xs:annotation>
+			<xs:documentation>Request element for closeWorkItem and completeWorkItem operations.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="listChannelTypesRequest" type="base:ChannelTypeRequest">
+		<xs:annotation>
+			<xs:documentation>**PRIVATE API - Reserved for internal use**</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="listChannelTypesResponse">
+		<xs:annotation>
+			<xs:documentation>**PRIVATE API - Reserved for internal use**</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="channelTypes" type="base:ChannelTypeDetail"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPresentationChannelRequest" type="base:PresentationChannelRequest">
+		<xs:annotation>
+			<xs:documentation>**PRIVATE API - Reserved for internal use**</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getPresentationChannelResponse">
+		<xs:annotation>
+			<xs:documentation>**PRIVATE API - Reserved for internal use**</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded" minOccurs="0">
+				<xs:element name="presentationChannel" type="base:PresentationChannel"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPresentationArtifactRequest" type="base:PresentationArtifactRequest">
+		<xs:annotation>
+			<xs:documentation>**PRIVATE API - Reserved for internal use**</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="getPresentationArtifactResponse">
+		<xs:annotation>
+			<xs:documentation>**PRIVATE API - Reserved for internal use**</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded" minOccurs="0">
+				<xs:element name="presentationArtifact" type="base:WorkTypeArtifact"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="businessServiceDetailsResponse" type="wp:businessServiceType">
+		<xs:annotation>
+			<xs:documentation>Request element for getBusinessServiceDetailsByModule operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="businessServiceDetailsRequest">
+		<xs:annotation>
+			<xs:documentation>Response element for getBusinessServiceDetailsByModule operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="moduleName" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Module name of this pageflow process.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="processName" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Process name of this pageflow process.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="moduleVersion" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Version number of the module of this pageflow process.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="Channel" type="base:PresentationChannelRequest">
+					<xs:annotation>
+						<xs:documentation>Channel for which business services should be listed.
+
+If Channel is not specified, business services are listed for the default channel.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="previewWorkItemResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for previewing a workItem</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="previewData">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Presentation" type="base:PresentationArtifact"/>
+							<xs:element name="workItem" type="base:WorkItem"/>
+							<xs:element name="payload">
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="serializedPayload" type="xs:string"/>
+										<xs:element maxOccurs="unbounded" name="xmlPayload" type="dm:FieldType"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="responseType" type="df:payloadModeType"/>
+							<xs:element minOccurs="0" name="workType" type="dm:WorkTypeSpec"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element default="false" name="isSuccess" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="previewWorkItemRequest">
+		<xs:annotation>
+			<xs:documentation>Request element for previewing a workItem</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element default="JSON" name="payloadMode" type="df:payloadModeType">
+					<xs:annotation>
+						<xs:documentation>Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). If none is specified , it defaults to JSON
+
+If not specified, the default value is JSON.
+
+(RSS is currently not supported.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="previewWorkItemFromList">
+					<xs:annotation>
+						<xs:documentation>Request element for previewWorkItemFromList operation.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="entityID" type="orgdto:XmlModelEntityId">
+								<xs:annotation>
+									<xs:documentation>ID of the organization model entity for whom work items are to be previewed.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" name="workItemID" type="brm:ObjectID">
+								<xs:annotation>
+									<xs:documentation>ID of a work item to be previewed.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="requiredField" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Fieldname to be included in the returned data. This defines the set of fields for which preview data is to be to be returned:
+
+- If any fieldnames are specified, only those fields will be returned for each work item.
+
+- If no fieldnames are specified, all fields will be returned for each work item.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="channelId" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Identifier of the channel to which the requesting client application is bound.
+
+See "Identifying the Client Channel in a Service Call" in the BPM Developer Guide for more information.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="channelType" type="ct:ChannelType">
+					<xs:annotation>
+						<xs:documentation>Enumerated value defining the channel type (technology) associated with the specified channelId. One of:
+
+- openspaceChannel
+- MobileChannel
+- GIChannel
+- EmailChannel
+
+See "Identifying the Client Channel in a Service Call" in the BPM Developer Guide for more information.
+
+Note: JSPChannel, PageflowChannel and RssChannel are currently not supported.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

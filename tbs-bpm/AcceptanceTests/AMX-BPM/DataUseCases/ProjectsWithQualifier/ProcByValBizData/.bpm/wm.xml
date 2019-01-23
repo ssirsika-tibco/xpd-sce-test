@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workmodel:WorkModels xmlns:workmodel="http://workmodel.brm.n2.tibco.com" orgModelVersion="1" version="1.0.0.201311291227">
+  <workmodel:WorkModel workModelUID="WM__ybNkcFNrEeOUC7phQChPyQ">
+    <BaseModelInfo description="Enter Customer" name="EnterCustomer" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="customer" optional="true" type="Complex">
+        <complexSpec className="com.example.firstbizdataproj.Customer"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.201311291227,1.0.0.201311291227]" workTypeID="WT__ybNkcFNrEeOUC7phQChPyQ">
+        <WorkModelMapping>
+          <TypeParamName>customer</TypeParamName>
+          <ModelParamName>customer</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__zWkZcFNrEeOUC7phQChPyQ">
+    <BaseModelInfo description="Display Customer" name="DisplayCustomer" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="customer" optional="true" type="Complex">
+        <complexSpec className="com.example.firstbizdataproj.Customer"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.201311291227,1.0.0.201311291227]" workTypeID="WT__zWkZcFNrEeOUC7phQChPyQ">
+        <WorkModelMapping>
+          <TypeParamName>customer</TypeParamName>
+          <ModelParamName>customer</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+</workmodel:WorkModels>

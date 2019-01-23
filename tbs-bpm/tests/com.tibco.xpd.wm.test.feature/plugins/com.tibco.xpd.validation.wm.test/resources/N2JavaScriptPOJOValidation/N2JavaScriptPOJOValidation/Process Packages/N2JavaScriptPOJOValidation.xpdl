@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_pWw6ULDvEd-wU_gZrzCwug" xpdExt:DisplayName="N2JavaScriptPOJOValidation" Name="N2JavaScriptPOJOValidation">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-08-26</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>mtorres</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_rxWGYLDvEd-wU_gZrzCwug" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_pWxhYLDvEd-wU_gZrzCwug">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_rxWGYbDvEd-wU_gZrzCwug" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_M0dslbDxEd-wU_gZrzCwug" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_M0dFgLDxEd-wU_gZrzCwug">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_M0dslrDxEd-wU_gZrzCwug" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_pWxhYLDvEd-wU_gZrzCwug" xpdExt:DisplayName="Valid-N2JavaScriptPOJOValidation-Process" Name="ValidN2JavaScriptPOJOValidationProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_5qiDwLDvEd-wU_gZrzCwug" xpdExt:DisplayName="strField" Name="strField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_6o8z0LDvEd-wU_gZrzCwug" xpdExt:DisplayName="intField" Name="intField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_rxWGYrDvEd-wU_gZrzCwug" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_rxWGYbDvEd-wU_gZrzCwug" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rxWGY7DvEd-wU_gZrzCwug" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_rxWGYbDvEd-wU_gZrzCwug" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_uGq_ALDvEd-wU_gZrzCwug" Name="SimpleTypesString" xpdExt:Visibility="Private" xpdExt:DisplayName="Simple Types -  String">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Java" Implementation="Other">
+                <xpdl2:MessageIn Id="_zjLrALDvEd-wU_gZrzCwug">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.name1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">strField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_zjLrAbDvEd-wU_gZrzCwug">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_9JLU4LDvEd-wU_gZrzCwug" Name="RVString" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">RETURN_VALUE.charAt(1);&#xD;
+RETURN_VALUE.indexOf(1).toString();</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">strField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <eaijava:EAIJava project="EAIPOJO">
+                  <eaijava:Pojo name="com.tibco.mortgage.MortgageService">
+                    <eaijava:Method name="getName">
+                      <eaijava:Return className="java.lang.String" signature="QString;"/>
+                      <eaijava:Parameters>
+                        <eaijava:Parameter className="java.lang.String" signature="QString;"/>
+                      </eaijava:Parameters>
+                    </eaijava:Method>
+                  </eaijava:Pojo>
+                </eaijava:EAIJava>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_rxWGYbDvEd-wU_gZrzCwug" Width="135.0">
+              <xpdl2:Coordinates XCoordinate="168.0" YCoordinate="163.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VmzSwLHfEd-Cv6lCT1Gklg" Name="ComplexTypesAttributes" xpdExt:Visibility="Private" xpdExt:DisplayName="Complex Types - Attributes">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Java" Implementation="Other">
+                <xpdl2:MessageIn Id="_Y6pCELHfEd-Cv6lCT1Gklg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.customer.person.firstName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">strField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_Y6pCEbHfEd-Cv6lCT1Gklg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_EgHCILHgEd-Cv6lCT1Gklg" Name="validMappedAttributes" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">RETURN_VALUE.ref;&#xD;
+RETURN_VALUE.ref.charAt(1);&#xD;
+RETURN_VALUE.refArr;&#xD;
+RETURN_VALUE.destAccount;&#xD;
+RETURN_VALUE.destAccount.sortCode;&#xD;
+RETURN_VALUE.destAccount.sortCode.concat(&quot;Str1&quot;, &quot;Str2&quot;);&#xD;
+RETURN_VALUE.destAccount.accountNo;&#xD;
+RETURN_VALUE.destAccount.balance;&#xD;
+RETURN_VALUE.destAccount.balance.valueOf();&#xD;
+RETURN_VALUE.srcAccount;&#xD;
+RETURN_VALUE.currencyAmnt;&#xD;
+RETURN_VALUE.currencyAmnt.amount;&#xD;
+RETURN_VALUE.currencyAmnt.amount.compareTo(ScriptUtil.createBigDecimal(122.212));&#xD;
+RETURN_VALUE.currencyAmnt.currencyCode;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">strField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_exQ3MLHfEd-Cv6lCT1Gklg" Name="validAttributes" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">RETURN_VALUE.ref;&#xD;
+RETURN_VALUE.ref.charAt(1);&#xD;
+RETURN_VALUE.refArr;&#xD;
+RETURN_VALUE.destAccount;&#xD;
+RETURN_VALUE.destAccount.sortCode;&#xD;
+RETURN_VALUE.destAccount.sortCode.concat(&quot;Str1&quot;, &quot;Str2&quot;);&#xD;
+RETURN_VALUE.destAccount.accountNo;&#xD;
+RETURN_VALUE.destAccount.balance;&#xD;
+RETURN_VALUE.destAccount.balance.valueOf();&#xD;
+RETURN_VALUE.srcAccount;&#xD;
+RETURN_VALUE.currencyAmnt;&#xD;
+RETURN_VALUE.currencyAmnt.amount;&#xD;
+RETURN_VALUE.currencyAmnt.amount.compareTo(ScriptUtil.createBigDecimal(122.212));&#xD;
+RETURN_VALUE.currencyAmnt.currencyCode;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">intField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <eaijava:EAIJava project="EAIPOJO">
+                  <eaijava:Pojo name="com.tibco.mortgage.MortgageService">
+                    <eaijava:Method name="makePayment">
+                      <eaijava:Return className="com.tibco.mortgage.PaymentRef" signature="QPaymentRef;"/>
+                      <eaijava:Parameters>
+                        <eaijava:Parameter className="com.tibco.mortgage.AccountHolder" signature="QAccountHolder;"/>
+                      </eaijava:Parameters>
+                    </eaijava:Method>
+                  </eaijava:Pojo>
+                </eaijava:EAIJava>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_rxWGYbDvEd-wU_gZrzCwug" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="327.0" YCoordinate="163.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_rxWGZLDvEd-wU_gZrzCwug" xpdExt:DisplayName="" Name="" From="_VmzSwLHfEd-Cv6lCT1Gklg" To="_rxWGY7DvEd-wU_gZrzCwug">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_uGvQcLDvEd-wU_gZrzCwug" xpdExt:DisplayName="" Name="" From="_rxWGYrDvEd-wU_gZrzCwug" To="_uGq_ALDvEd-wU_gZrzCwug">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Vm29ILHfEd-Cv6lCT1Gklg" xpdExt:DisplayName="" Name="" From="_uGq_ALDvEd-wU_gZrzCwug" To="_VmzSwLHfEd-Cv6lCT1Gklg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="RPCLiteral"/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_M0dFgLDxEd-wU_gZrzCwug" iProcessExt:MaxStepIndex="6" xpdExt:DisplayName="Invalid-N2JavaScriptPOJOValidation-Process" Name="InvalidN2JavaScriptPOJOValidationProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_M0dsk7DxEd-wU_gZrzCwug" xpdExt:DisplayName="strField" Name="strField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_M0dslLDxEd-wU_gZrzCwug" xpdExt:DisplayName="intField" Name="intField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_M0dFgbDxEd-wU_gZrzCwug" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_M0dslrDxEd-wU_gZrzCwug" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_M0dFgrDxEd-wU_gZrzCwug" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_M0dslrDxEd-wU_gZrzCwug" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_M0dFg7DxEd-wU_gZrzCwug" Name="SimpleTypesString" xpdExt:Visibility="Private" xpdExt:DisplayName="Simple Types -  String" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Java" Implementation="Other">
+                <xpdl2:MessageIn Id="_M0dFhLDxEd-wU_gZrzCwug">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.name1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">strField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_M0dFhbDxEd-wU_gZrzCwug">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_M0dskLDxEd-wU_gZrzCwug" Name="RVString" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">RETURN_VALUE.MAXVALUE;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">strField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <eaijava:EAIJava project="EAIPOJO">
+                  <eaijava:Pojo name="com.tibco.mortgage.MortgageService">
+                    <eaijava:Method name="getName">
+                      <eaijava:Return className="java.lang.String" signature="QString;"/>
+                      <eaijava:Parameters>
+                        <eaijava:Parameter className="java.lang.String" signature="QString;"/>
+                      </eaijava:Parameters>
+                    </eaijava:Method>
+                  </eaijava:Pojo>
+                </eaijava:EAIJava>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_M0dslrDxEd-wU_gZrzCwug" Width="135.0">
+              <xpdl2:Coordinates XCoordinate="168.0" YCoordinate="163.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eeB8sbHgEd-Cv6lCT1Gklg" Name="ComplexTypesAttributes" xpdExt:Visibility="Private" xpdExt:DisplayName="Complex Types - Attributes">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Java" Implementation="Other">
+                <xpdl2:MessageIn Id="_eeB8s7HgEd-Cv6lCT1Gklg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.customer.person.firstName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">strField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_eeB8tLHgEd-Cv6lCT1Gklg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_u6PQcLHgEd-Cv6lCT1Gklg" Name="invalidMappedAttributes" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">RETURN_VALUE.refa;&#xD;
+RETURN_VALUE.ref.chartAt(1);&#xD;
+RETURN_VALUE.refArra;&#xD;
+RETURN_VALUE.destgAccount;&#xD;
+RETURN_VALUE.destAccount.sortwCode;&#xD;
+RETURN_VALUE.destAccount.sortCode.concaat(&quot;Str1&quot;, &quot;Str2&quot;);&#xD;
+RETURN_VALUE.destAccount.accountNof;&#xD;
+RETURN_VALUE.destAccount.balancea;&#xD;
+RETURN_VALUE.destAccount.balance.valueOff();&#xD;
+RETURN_VALUE.srcAccounta;&#xD;
+RETURN_VALUE.currencfyAmnt;&#xD;
+RETURN_VALUE.currencyAmnt.amogunt;&#xD;
+RETURN_VALUE.currencyAmnt.amount.comphareTo(ScriptUtil.createBigDecimal(122.212));&#xD;
+RETURN_VALUE.currencyAmnt.currencyaCode;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">strField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_eeB8srHgEd-Cv6lCT1Gklg" Name="invalidAttributes" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">RETURN_VALUE.refa;&#xD;
+RETURN_VALUE.ref.chartAt(1);&#xD;
+RETURN_VALUE.refArra;&#xD;
+RETURN_VALUE.destgAccount;&#xD;
+RETURN_VALUE.destAccount.sortwCode;&#xD;
+RETURN_VALUE.destAccount.sortCode.concaat(&quot;Str1&quot;, &quot;Str2&quot;);&#xD;
+RETURN_VALUE.destAccount.accountNof;&#xD;
+RETURN_VALUE.destAccount.balancea;&#xD;
+RETURN_VALUE.destAccount.balance.valueOff();&#xD;
+RETURN_VALUE.srcAccounta;&#xD;
+RETURN_VALUE.currencfyAmnt;&#xD;
+RETURN_VALUE.currencyAmnt.amogunt;&#xD;
+RETURN_VALUE.currencyAmnt.amount.comphareTo(ScriptUtil.createBigDecimal(122.212));&#xD;
+RETURN_VALUE.currencyAmnt.currencyaCode;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">intField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <eaijava:EAIJava project="EAIPOJO">
+                  <eaijava:Pojo name="com.tibco.mortgage.MortgageService">
+                    <eaijava:Method name="makePayment">
+                      <eaijava:Return className="com.tibco.mortgage.PaymentRef" signature="QPaymentRef;"/>
+                      <eaijava:Parameters>
+                        <eaijava:Parameter className="com.tibco.mortgage.AccountHolder" signature="QAccountHolder;"/>
+                      </eaijava:Parameters>
+                    </eaijava:Method>
+                  </eaijava:Pojo>
+                </eaijava:EAIJava>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_M0dslrDxEd-wU_gZrzCwug" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="355.0" YCoordinate="163.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_M0dskbDxEd-wU_gZrzCwug" xpdExt:DisplayName="" Name="" From="_M0dFg7DxEd-wU_gZrzCwug" To="_eeB8sbHgEd-Cv6lCT1Gklg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_M0dskrDxEd-wU_gZrzCwug" xpdExt:DisplayName="" Name="" From="_M0dFgbDxEd-wU_gZrzCwug" To="_M0dFg7DxEd-wU_gZrzCwug">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_f5hDQLHgEd-Cv6lCT1Gklg" xpdExt:DisplayName="" Name="" From="_eeB8sbHgEd-Cv6lCT1Gklg" To="_M0dFgrDxEd-wU_gZrzCwug">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="RPCLiteral"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

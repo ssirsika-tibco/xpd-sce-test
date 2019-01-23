@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="XSDBOM_TLE20_SameNameComplexTypesWithAttributes" xmlns:tns1="XSDBOM_TLE20_SameNameComplexTypesWithAttributes"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="XSDBOM_TLE20_SameNameComplexTypesWithAttributes2"
+    xmlns:tns3="XSDBOM_TLE20_SameNameComplexTypesWithAttributes3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="XSDBOM_TLE20_SameNameComplexTypesWithAttributes">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD3877/Business Objects/XSDBOM_TLE20_SameNameComplexTypesWithAttributes.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="XSDBOM_TLE20_SameNameComplexTypesWithAttributes2" schemaLocation="XSDBOM_TLE20_SameNameComplexTypesWithAttributes2.xsd"/>
+  <xsd:import namespace="XSDBOM_TLE20_SameNameComplexTypesWithAttributes3" schemaLocation="XSDBOM_TLE20_SameNameComplexTypesWithAttributes3.xsd"/>
+  <xsd:complexType ecore:name="HotelSearchResults" id="XSDBOM_TLE20_SameNameComplexTypesWithAttributesHotelSearchResults"
+      abstract="false" mixed="false" name="HotelSearchResults">
+    <xsd:sequence>
+      <xsd:element ecore:name="hotels" id="HotelSearchResultshotelsType" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="hotels">
+        <xsd:complexType ecore:name="hotelsType" id="XSDBOM_TLE20_SameNameComplexTypesWithAttributeshotelsType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="hotel" form="unqualified" maxOccurs="1" minOccurs="1"
+                name="hotel" type="tns2:HotelDetails"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CarSearchResults" id="XSDBOM_TLE20_SameNameComplexTypesWithAttributesCarSearchResults"
+      abstract="false" mixed="false" name="CarSearchResults">
+    <xsd:sequence>
+      <xsd:element ecore:name="rentalAgencies" id="CarSearchResultsrentalAgenciesType"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="rentalAgencies">
+        <xsd:complexType ecore:name="rentalAgenciesType" id="XSDBOM_TLE20_SameNameComplexTypesWithAttributesrentalAgenciesType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="rentalAgency" form="unqualified" maxOccurs="unbounded"
+                minOccurs="0" name="rentalAgency" type="tns3:RentalAgencyDetails"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="topAddress" nillable="false">
+    <xsd:complexType ecore:name="topAddressType" id="XSDBOM_TLE20_SameNameComplexTypesWithAttributestopAddressType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="street" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="street" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

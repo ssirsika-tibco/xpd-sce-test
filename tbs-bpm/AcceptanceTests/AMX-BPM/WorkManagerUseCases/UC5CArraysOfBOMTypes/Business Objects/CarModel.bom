@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_ANxakCh1Ed-Evs1gX57bng" name="com.userauthored.uc5c.carmodel">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ANxakSh1Ed-Evs1gX57bng" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ANxakih1Ed-Evs1gX57bng" key="author" value="jaugusti"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ANxakyh1Ed-Evs1gX57bng" key="created" value="1267810483513"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d41PIJ2wEeGzk8e0K-SOMA" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CtQUwCh1Ed-Evs1gX57bng" name="Car">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_LUKgMCh1Ed-Evs1gX57bng" name="purchaseDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LUTqISh1Ed-Evs1gX57bng" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LUTqICh1Ed-Evs1gX57bng"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dgwzgCh1Ed-Evs1gX57bng" name="manufacturer" type="_M-iXUCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aManufacturer?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dgwzgih1Ed-Evs1gX57bng" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dgwzgSh1Ed-Evs1gX57bng"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_l2XzlCh1Ed-Evs1gX57bng" name="wheel" type="_IK30ACh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aWheel?" aggregation="composite" association="_l2XzkCh1Ed-Evs1gX57bng">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l2Xzlih1Ed-Evs1gX57bng" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l2XzlSh1Ed-Evs1gX57bng"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_IK30ACh1Ed-Evs1gX57bng" name="Wheel">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qVDlYCh1Ed-Evs1gX57bng" name="type">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qVDlYih1Ed-Evs1gX57bng" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qVDlYSh1Ed-Evs1gX57bng"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_M-iXUCh1Ed-Evs1gX57bng" name="Manufacturer">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_O4h-0Ch1Ed-Evs1gX57bng" name="BMW"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_SINm4Ch1Ed-Evs1gX57bng" name="HONDA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_l2XzkCh1Ed-Evs1gX57bng" memberEnd="_l2XzkSh1Ed-Evs1gX57bng?car? _l2XzlCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar%3a%3awheel?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_l2XzkSh1Ed-Evs1gX57bng" name="car" type="_CtQUwCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar?" association="_l2XzkCh1Ed-Evs1gX57bng">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l2Xzkyh1Ed-Evs1gX57bng" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l2Xzkih1Ed-Evs1gX57bng" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_B2gS8Ch1Ed-Evs1gX57bng">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_B2gS8Sh1Ed-Evs1gX57bng" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_AOEVgCh1Ed-Evs1gX57bng" type="Business Object Model" element="_ANxakCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel?" name="ItemModel.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_ATuRkCh1Ed-Evs1gX57bng" type="1007" element="_ANxakCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel?">
+      <children xmi:type="notation:Node" xmi:id="_ATuRlCh1Ed-Evs1gX57bng" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_ATuRlSh1Ed-Evs1gX57bng" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ATuRlih1Ed-Evs1gX57bng" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_ATuRlyh1Ed-Evs1gX57bng" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_ATuRmCh1Ed-Evs1gX57bng" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_ATuRmSh1Ed-Evs1gX57bng" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_ATuRmih1Ed-Evs1gX57bng" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_AT3bgCh1Ed-Evs1gX57bng" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_AT3bgSh1Ed-Evs1gX57bng" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_AT3bgih1Ed-Evs1gX57bng" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_AT3bgyh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_AT3bhCh1Ed-Evs1gX57bng" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_AT3bhSh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_AT3bhih1Ed-Evs1gX57bng"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_ATuRkSh1Ed-Evs1gX57bng" fontName="Segoe UI" fontHeight="10" fillColor="15532012"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_ATuRkih1Ed-Evs1gX57bng"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATuRkyh1Ed-Evs1gX57bng"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_CucnkCh1Ed-Evs1gX57bng" type="1002" element="_CtQUwCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar?">
+      <children xmi:type="notation:Node" xmi:id="_CucnlCh1Ed-Evs1gX57bng" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_CucnlSh1Ed-Evs1gX57bng" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_Cucnlih1Ed-Evs1gX57bng" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_Cucnlyh1Ed-Evs1gX57bng" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_LUTqIih1Ed-Evs1gX57bng" type="2001" element="_LUKgMCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar%3a%3apurchaseDate?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_LUTqIyh1Ed-Evs1gX57bng"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_dg59cCh1Ed-Evs1gX57bng" type="2001" element="_dgwzgCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar%3a%3amanufacturer?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_dg59cSh1Ed-Evs1gX57bng"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_CucnmCh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_CucnmSh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Cucnmih1Ed-Evs1gX57bng"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Cucnmyh1Ed-Evs1gX57bng" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_CucnnCh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_CucnnSh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Cucnnih1Ed-Evs1gX57bng"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_CucnkSh1Ed-Evs1gX57bng" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_Cucnkih1Ed-Evs1gX57bng" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Cucnkyh1Ed-Evs1gX57bng" x="205" y="190"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_IMztsCh1Ed-Evs1gX57bng" type="1002" element="_IK30ACh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aWheel?">
+      <children xmi:type="notation:Node" xmi:id="_IMzttCh1Ed-Evs1gX57bng" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_IMzttSh1Ed-Evs1gX57bng" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_IMzttih1Ed-Evs1gX57bng" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_IMzttyh1Ed-Evs1gX57bng" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_qVDlYyh1Ed-Evs1gX57bng" type="2001" element="_qVDlYCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aWheel%3a%3atype?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_qVDlZCh1Ed-Evs1gX57bng"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_IMztuCh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_IMztuSh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_IMztuih1Ed-Evs1gX57bng"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_IMztuyh1Ed-Evs1gX57bng" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_IMztvCh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_IMztvSh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_IMztvih1Ed-Evs1gX57bng"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_IMztsSh1Ed-Evs1gX57bng" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_IMztsih1Ed-Evs1gX57bng" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IMztsyh1Ed-Evs1gX57bng" x="490" y="190"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_M_R-MCh1Ed-Evs1gX57bng" type="1004" element="_M-iXUCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aManufacturer?">
+      <children xmi:type="notation:Node" xmi:id="_M_bIICh1Ed-Evs1gX57bng" type="4015"/>
+      <children xmi:type="notation:Node" xmi:id="_M_bIISh1Ed-Evs1gX57bng" type="4016"/>
+      <children xmi:type="notation:Node" xmi:id="_M_bIIih1Ed-Evs1gX57bng" type="4017"/>
+      <children xmi:type="notation:Node" xmi:id="_M_bIIyh1Ed-Evs1gX57bng" type="5004">
+        <children xmi:type="notation:Node" xmi:id="_O4h-0Sh1Ed-Evs1gX57bng" type="2003" element="_O4h-0Ch1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aManufacturer%3a%3aBMW?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_O4h-0ih1Ed-Evs1gX57bng"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SINm4Sh1Ed-Evs1gX57bng" type="2003" element="_SINm4Ch1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aManufacturer%3a%3aHONDA?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_SINm4ih1Ed-Evs1gX57bng"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_M_bIJCh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_M_bIJSh1Ed-Evs1gX57bng"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_M_bIJih1Ed-Evs1gX57bng"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_M_R-MSh1Ed-Evs1gX57bng" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_M_R-Mih1Ed-Evs1gX57bng" gradStartColor="8454143" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M_R-Myh1Ed-Evs1gX57bng" x="419" y="39"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_AOEVgSh1Ed-Evs1gX57bng"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_AOEVgih1Ed-Evs1gX57bng"/>
+    <edges xmi:type="notation:Edge" xmi:id="_l2hkkCh1Ed-Evs1gX57bng" type="3002" element="_l2XzkCh1Ed-Evs1gX57bng" source="_CucnkCh1Ed-Evs1gX57bng" target="_IMztsCh1Ed-Evs1gX57bng">
+      <children xmi:type="notation:Node" xmi:id="_l2hklCh1Ed-Evs1gX57bng" type="4010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_l2hklSh1Ed-Evs1gX57bng" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_l2hklih1Ed-Evs1gX57bng" type="4011" element="_l2XzkSh1Ed-Evs1gX57bng?car?">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_l2hklyh1Ed-Evs1gX57bng" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_l2hkmCh1Ed-Evs1gX57bng" type="4012">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_l2hkmSh1Ed-Evs1gX57bng" y="15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_l2qugCh1Ed-Evs1gX57bng" type="4013" element="_l2XzlCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar%3a%3awheel?">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_l2qugSh1Ed-Evs1gX57bng" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_l2qugih1Ed-Evs1gX57bng" type="4014">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_l2qugyh1Ed-Evs1gX57bng" y="15"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_l2hkkSh1Ed-Evs1gX57bng"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_l2hkkih1Ed-Evs1gX57bng" fontName="Segoe UI" fontHeight="10"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_l2hkkyh1Ed-Evs1gX57bng" points="[8, 2, -92, 2]$[101, 57, 1, 57]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_l2-QgCh1Ed-Evs1gX57bng" id="(0.959596,0.525)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_l2-QgSh1Ed-Evs1gX57bng" id="(0.016666668,0.525)"/>
+    </edges>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_B2gS8ih1Ed-Evs1gX57bng" displayLabel="com.userauthored.uc5c.carmodel" base_NamedElement="_ANxakCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DWKu4Ch1Ed-Evs1gX57bng" displayLabel="Car" base_NamedElement="_CtQUwCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_I7Eh4Ch1Ed-Evs1gX57bng" displayLabel="Wheel" base_NamedElement="_IK30ACh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aWheel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Md8ywCh1Ed-Evs1gX57bng" displayLabel="purchaseDate" base_NamedElement="_LUKgMCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar%3a%3apurchaseDate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ORP8YCh1Ed-Evs1gX57bng" displayLabel="Manufacturer" base_NamedElement="_M-iXUCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aManufacturer?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PcFX0Ch1Ed-Evs1gX57bng" displayLabel="BMW" base_NamedElement="_O4h-0Ch1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aManufacturer%3a%3aBMW?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_T4PaECh1Ed-Evs1gX57bng" displayLabel="HONDA" base_NamedElement="_SINm4Ch1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aManufacturer%3a%3aHONDA?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_fh49wCh1Ed-Evs1gX57bng" displayLabel="manufacturer" base_NamedElement="_dgwzgCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar%3a%3amanufacturer?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_mhz9QCh1Ed-Evs1gX57bng" displayLabel="wheel" base_NamedElement="_l2XzlCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aCar%3a%3awheel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_sRSBgCh1Ed-Evs1gX57bng" displayLabel="type" base_NamedElement="_qVDlYCh1Ed-Evs1gX57bng?com.userauthored.uc5c.carmodel%3a%3aWheel%3a%3atype?"/>
+</xmi:XMI>

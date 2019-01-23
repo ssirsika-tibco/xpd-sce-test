@@ -1,0 +1,212 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions name = "Untitled" targetNamespace = "http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns = "http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" xmlns:wsdl = "http://schemas.xmlsoap.org/wsdl/">    
+	<wsdl:types>
+		<xs:schema attributeFormDefault = "unqualified" elementFormDefault = "qualified" targetNamespace = "http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" version = "1.0" xmlns = "http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" xmlns:xs = "http://www.w3.org/2001/XMLSchema">     
+			<xs:complexType name = "RichiestaType">      
+				<xs:sequence>      
+					<xs:element minOccurs = "0" name = "sistemaRichiedente" type = "xs:string">      </xs:element>      
+					<xs:element minOccurs = "0" name = "canale" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "idRichiesta" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "tipoOperazione" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "causale" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "idProcessoBpm" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "commodity" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "flagDelibera40" type = "xs:boolean"/>      
+					<xs:element minOccurs = "0" name = "Ip" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "Profilo" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "Matricola" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "DataRichiesta" type = "xs:date"/>      
+					<xs:element minOccurs = "0" name = "IdMuti" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "IdDms" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "IdDmsReclamo" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "IdR2d" type = "tns:IdentificativiR2dType">      </xs:element>      
+					<xs:element minOccurs = "0" name = "dataDecorrenza" type = "xs:date"/>      
+					<xs:element minOccurs = "0" name = "tipoRichiesta" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "flagComplesso" type = "xs:boolean"/>      
+					<xs:element minOccurs = "0" name = "flagPreventivo" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "flagDocumentazione" type = "xs:string">      </xs:element>      
+					<xs:element minOccurs = "0" name = "idCRM" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "statoServizio" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "statoOrdine" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "statoFiCa" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "statoISU" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "statoR2D" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "statoSD" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "statoSempre" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "statoUDB" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "IdR2R" type = "tns:IdentificativiR2rType">      </xs:element>      
+					<xs:element minOccurs = "0" name = "IdAttivitaCrm" type = "xs:string"/>      
+				</xs:sequence>      
+			</xs:complexType>      
+     
+			<xs:complexType name = "IdentificativiR2dType">      
+				<xs:sequence>      
+					<xs:element minOccurs = "0" name = "IdDistr" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "IdDistr2" type = "xs:string"/>      
+					<xs:element minOccurs = "0" name = "IdR2d" type = "xs:string"/>      
+				</xs:sequence>      
+			</xs:complexType>    
+      
+			<xs:complexType name = "IdentificativiR2rType">      
+				<xs:sequence>      
+					<xs:element minOccurs = "0" name = "IdR2R" type = "xs:string"/>      
+				</xs:sequence>      
+			</xs:complexType>    
+      
+			<xs:complexType name = "EsitoType">      
+				<xs:sequence>      
+					<xs:element minOccurs = "0" name = "esito" type = "xs:string">      </xs:element>      
+					<xs:element minOccurs = "0" name = "codiceEsito" type = "xs:string">      </xs:element>      
+					<xs:element minOccurs = "0" name = "descrizione" type = "xs:string">      </xs:element>      
+					<xs:element minOccurs = "0" name = "tipoEsito" type = "xs:string">      </xs:element>      
+					<xs:element minOccurs = "1" name = "sistemaSorgenteEsito" type = "xs:string"/>      
+				</xs:sequence>      
+			</xs:complexType>            
+			<xs:element name = "AggiornaMercatoSapRequest">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" name = "Richiesta" type = "tns:RichiestaType"/>                        
+						<xs:element minOccurs = "0" name = "FatturazioneCDM" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "ClienteCDM" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "DataAggiornamentoMercato" type = "xs:string"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "AggiornaMercatoSapResponse">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element minOccurs = "0" name = "Esito" type = "tns:EsitoType"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ModificaDisalimentabilitaRequest">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element name = "Richiesta" type = "tns:RichiestaType"/>                        
+						<xs:element minOccurs = "0" name = "IdIsuFatturazioneCDM" type = "xs:string"/>                        
+						<xs:element minOccurs = "0" name = "FornituraCDM" type = "xs:string"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ModificaDisalimentabilitaResponse">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element name = "Esito" type = "tns:EsitoType"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ModificaIndirizzoFornituraRequest">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element name = "Richiesta" type = "tns:RichiestaType"/>                        
+						<xs:element name = "CDM_IdFatturazione" type = "xs:string"/>                        
+						<xs:element name = "CDM_Cliente" type = "xs:string"/>                        
+						<xs:element name = "CDM_Fornitura" type = "xs:string"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ModificaIndirizzoFornituraResponse">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element name = "Esito" type = "tns:EsitoType"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ModificaPodRequest">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element name = "Richiesta" type = "tns:RichiestaType"/>                        
+						<xs:element name = "CDM_Idfatturazione" type = "xs:string"/>                        
+						<xs:element name = "CDM_Cliente" type = "xs:string"/>                        
+						<xs:element name = "PodNuovo">                            
+							<xs:simpleType>                                
+								<xs:restriction base = "xs:string">                                    
+									<xs:maxLength value = "20"/>                                
+								</xs:restriction>                            
+							</xs:simpleType>                        
+						</xs:element>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ModificaPodResponse">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element name = "Esito" type = "tns:EsitoType"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ModificaTelegestioneRequest">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element name = "Richiesta" type = "tns:RichiestaType"/>                        
+						<xs:element name = "IdIsuFatturazioneCDM" type = "xs:string"/>                        
+						<xs:element name = "FornituraCDM" type = "xs:string"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>            
+			<xs:element name = "ModificaTelegestioneResponse">                
+				<xs:complexType>                    
+					<xs:sequence>                        
+						<xs:element name = "Esito" type = "tns:EsitoType"/>                    
+					</xs:sequence>                
+				</xs:complexType>            
+			</xs:element>        
+		</xs:schema>    
+	</wsdl:types>    
+	<wsdl:portType name = "FatturazioneMoteBpm">        
+		<wsdl:operation name = "ModificaIndirizzoFornitura">            
+			<wsdl:input message = "tns:ModificaIndirizzoFornituraRequest"/>            
+			<wsdl:output message = "tns:ModificaIndirizzoFornituraResponse"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "ModificaPod">            
+			<wsdl:input message = "tns:ModificaPodRequest"/>            
+			<wsdl:output message = "tns:ModificaPodResponse"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "ModificaTelegestione">            
+			<wsdl:input message = "tns:ModoficaTelegestioneRequest"/>            
+			<wsdl:output message = "tns:ModificaTelegestioneResponse"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "ModificaDisalimentabilita">            
+			<wsdl:input message = "tns:ModificaDisalimentabilitaRequest"/>            
+			<wsdl:output message = "tns:ModificaDisalimentabilitaResponse"/>        
+		</wsdl:operation>        
+		<wsdl:operation name = "AggiornamentoMercato">            
+			            
+			        
+			<wsdl:input message = "tns:AggiornamentoMercatoRequest"/>
+			<wsdl:output message = "tns:AggiornamentoMercatoResponse"/>
+		</wsdl:operation>    
+	</wsdl:portType>    
+	<wsdl:message name = "ModificaIndirizzoFornituraRequest">        
+		<wsdl:part element = "tns:ModificaIndirizzoFornituraRequest" name = "input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ModificaIndirizzoFornituraResponse">        
+		<wsdl:part element = "tns:ModificaIndirizzoFornituraResponse" name = "output"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ModificaPodRequest">        
+		<wsdl:part element = "tns:ModificaPodRequest" name = "input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ModificaPodResponse">        
+		<wsdl:part element = "tns:ModificaPodResponse" name = "output"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ModoficaTelegestioneRequest">        
+		<wsdl:part element = "tns:ModificaTelegestioneRequest" name = "input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ModificaTelegestioneResponse">        
+		<wsdl:part element = "tns:ModificaTelegestioneResponse" name = "output"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ModificaDisalimentabilitaRequest">        
+		<wsdl:part element = "tns:ModificaDisalimentabilitaRequest" name = "input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "ModificaDisalimentabilitaResponse">        
+		<wsdl:part element = "tns:ModificaDisalimentabilitaResponse" name = "output"/>    
+	</wsdl:message>    
+	<wsdl:message name = "AggiornamentoMercatoRequest">        
+		<wsdl:part element = "tns:AggiornaMercatoSapRequest" name = "input"/>    
+	</wsdl:message>    
+	<wsdl:message name = "AggiornamentoMercatoResponse">        
+		<wsdl:part element = "tns:AggiornaMercatoSapResponse" name = "output"/>    
+	</wsdl:message>
+</wsdl:definitions>

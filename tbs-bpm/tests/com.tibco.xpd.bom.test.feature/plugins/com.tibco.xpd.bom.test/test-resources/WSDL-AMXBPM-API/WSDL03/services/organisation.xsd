@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Adrian Hussey (Tibco Software Ltd) -->
+<xs:schema xmlns="http://api.organisation.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.organisation.common.n2.tibco.com" version="1.0">
+	<xs:simpleType name="OrganisationalEntityType">
+		<xs:annotation>
+			<xs:documentation>Definition of the available organizational entity types.
+
+IMPORTANT:Do not delete or re-position any of the enumeration values. If a value must be removed, simply replace it with a "dummy" value.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ORGANIZATION"/>
+			<xs:enumeration value="ORGANIZATIONAL_UNIT"/>
+			<xs:enumeration value="GROUP"/>
+			<xs:enumeration value="POSITION"/>
+			<xs:enumeration value="PRIVILEGE"/>
+			<xs:enumeration value="CAPABILITY"/>
+			<xs:enumeration value="RESOURCE"/>
+			<xs:enumeration value="LOCATION"/>
+			<xs:enumeration value="ORGANIZATION_TYPE"/>
+			<xs:enumeration value="ORGANIZATIONAL_UNIT_TYPE"/>
+			<xs:enumeration value="POSITION_TYPE"/>
+			<xs:enumeration value="LOCATION_TYPE"/>
+			<xs:enumeration value="ORGUNIT_RELATIONSHIP_TYPE"/>
+			<xs:enumeration value="POSITION_HELD"/>
+			<xs:enumeration value="ORGUNIT_RELATIONSHIP"/>
+			<xs:enumeration value="ORGUNIT_FEATURE"/>
+			<xs:enumeration value="POSITION_FEATURE"/>
+			<xs:enumeration value="PARAMETER_DESCRIPTOR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="XmlOrgModelVersion">
+		<xs:annotation>
+			<xs:documentation>Major version number of the organization model.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="model-version" type="xs:int" use="optional" default="-1">
+			<xs:annotation>
+				<xs:documentation>Major version number of the organization model in which an organization model entity resides. 
+
+If not specified, the default value will be the latest version of the organization model.
+
+(Version numbers must be compatible with, and conform to, the OSGi version number schema. For Directory Engine, only the major part of the version number is significant.)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="XmlModelEntityId">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for an organization model entity.
+
+Used, and extended, throughout Directory Engine to identify an organization model entity. Extends XmlOrgModelVersion, which provides the organization model version attribute.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="XmlOrgModelVersion">
+                <xs:sequence>
+                  <xs:element name="qualifierSet" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation>
+                        An optional collection of qualifying values. This overrides any qualifier attribute
+                        set on the parent element, allowing more than one value to be set. Multiple values
+                        will only be used for qualifiers of type "enumset".
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:attribute name="value" type="xs:string" use="required" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+				<xs:attribute name="entity-type" type="OrganisationalEntityType" use="required">
+					<xs:annotation>
+						<xs:documentation>Enumarated value defining the type of the organization model entity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="guid" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Globally unique ID of the organization model entity.
+
+(Although this value is unique across all entities, if the entity exists within more than one major version, it will share the same GUID.)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="qualifier" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>Only applicable in certain circumstances, and only to organization model entities whose entity-type is PRIVILEGE or CAPABILITY. These entities can have an association with other entities - for example, a resource may hold many capabilities, or a position may have many privileges. 
+
+These associations can have a qualifying value, according to their nature, to differentiate them. For example, the PRIVILEGE to sign off a purchase order may be qualified with the maximum amount that can be signed off.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="XmlParticipantId">
+		<xs:annotation>
+			<xs:documentation>Identifier for a participant, by either GUID or name. 
+
+Extension of XmlOrgModelVersion, which provides the organization model version in which the participant resides.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="XmlOrgModelVersion">
+				<xs:sequence maxOccurs="1">
+					<xs:element name="guid" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Globally unique identifier for the organization model entity. 
+
+This value is unique across all entities. However, if the entity exists within more than one major organization model version, it will share the same GUID.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Name of the organization model entity.
+
+An entity's name will be unique within its entity type and organization model version.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="entity-type" type="OrganisationalEntityType" use="optional">
+					<xs:annotation>
+						<xs:documentation>Category of this organization model entity (used to improve and validate the search).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="qualifier" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>Qualifier value. This is only applicable in certain circumstances, and only to entities of the entity-type PRIVILEGE or CAPABILITY. 
+
+These entities can have an association with other entities - for example, a resource may hold many capbilities a position may have many privileges. Those associations can have a qualifying value, according to their nature, to differentiate them. 
+
+For example, the privilege to sign off a purchase order may be qualified with the maximum amount for which the purchase order is made.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="XmlResourceQuery">
+		<xs:annotation>
+			<xs:documentation>Base type for the specification of a resource query.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="XmlOrgModelVersion">
+				<xs:sequence>
+					<xs:element name="query" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Resource query to be executed. The query must conform to the Resource Query Language (RQL) specification. See the product documentation for detailed information about RQL syntax.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="XmlExecuteQuery">
+		<xs:annotation>
+			<xs:documentation>Definition of an executable resource query, used to identify a collection of resources that match the criteria specified in the query.
+
+Extension of XmlOrgModelVersion, which provides the organization model version in which the resources to be queried reside.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="XmlResourceQuery">
+				<xs:attribute name="singleRandomResult" type="xs:boolean" use="optional">
+					<xs:annotation>
+						<xs:documentation>Boolean value specifying whether the query should return a single, randomly selected user from the result set (TRUE), or all the resources in the result set (FALSE).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

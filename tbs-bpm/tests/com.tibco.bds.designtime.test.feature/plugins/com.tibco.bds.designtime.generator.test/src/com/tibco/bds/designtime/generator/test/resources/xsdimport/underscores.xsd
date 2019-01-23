@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://underscores" xmlns:tns="http://underscores" targetNamespace="http://underscores" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Hello_World">
+		<xs:sequence>
+			<xs:element name="one" type="xs:int"/>
+			<xs:element name="ONE" type="xs:boolean"/>
+			<xs:element name="o_n_e" type="xs:date"/>
+			<xs:element name="O_N_E" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Helloworld">
+		<xs:sequence>
+			<xs:element name="two" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Helloworld_">
+		<xs:sequence>
+			<xs:element name="three" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="_Helloworld">
+		<xs:sequence>
+			<xs:element name="four" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MightyMeaty">
+		<xs:sequence>
+			<xs:element name="one" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Mighty_meaty">
+		<xs:sequence>
+			<xs:element name="two" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BagOfChoc">
+		<xs:sequence>
+			<xs:element name="one" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Bag_OfChoc">
+		<xs:sequence>
+			<xs:element name="two" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Bag_Of_Choc">
+		<xs:sequence>
+			<xs:element name="three" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="_Bag_Of_Choc_">
+		<xs:sequence>
+			<xs:element name="four" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="_Underscores_Everywhere_"/>
+	<xs:element name="Top_Level_Element">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Top_Level_Element_CONTENT" type="xs:int"/>
+			</xs:sequence>				
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TopLevelElement">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TopLevelElement_CONTENT" type="xs:int"/>
+			</xs:sequence>				
+		</xs:complexType>
+	</xs:element>
+	<xs:attribute name="TopLevelAttribute" type="xs:string"/>
+	<xs:attribute name="top_level_attribute" type="xs:int"/>
+	<xs:complexType name="TLAUser">
+		<xs:attribute ref="tns:TopLevelAttribute"/>
+		<xs:attribute ref="tns:top_level_attribute"/>
+	</xs:complexType>
+	<xs:simpleType name="helloworld">
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="hello_world">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="MyEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ENUM"/>
+			<xs:enumeration value="enum"/>
+			<xs:enumeration value="EN_um"/>
+			<xs:enumeration value="en_UM"/>
+			<xs:enumeration value="_enum"/>
+			<xs:enumeration value="ENUM_"/>
+			<xs:enumeration value="not_enum"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

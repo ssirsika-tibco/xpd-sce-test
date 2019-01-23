@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.xpdl2.edit" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.xpdl2.edit" id="fieldOrParamReferenceResolver" name="Data Field Or Formal Parameter Reference Resolver"/>
+      </appInfo>
+      <documentation>
+         &lt;p&gt;
+Some features of Business Studio need to resolve where Data Fields and Formal Parameters are referenced. 
+&lt;li&gt;
+&lt;i&gt;For example, when copy / paste is performed on a task in the process diagram editor and the task is pasted to a different process, then Studio needs to discover the fields / parameters that are referenced by that task in order to create them in the destination process.&lt;/i&gt;
+&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+Also, when data fields and formal parameters are renamed Studio will search for references made to the data field name and replace the reference with the new name.
+&lt;/p&gt;
+&lt;p&gt;
+Also, when data fields and formal parameters are deleted, Studio will give extenders of this extension point the opportunity to delete references to those fields.
+&lt;/p&gt;
+&lt;p&gt;
+It is possible to extend Studio in ways that add elements to the XPDL model (or use the standard XPDL elements) that the Studio features above cannot know about (for instance adding a new Service Task Implementation). This extension point allows a plug-in to extend Studio&apos;s standard &apos;resolve / rename references to data fields or formal parameters&apos; framework.
+&lt;/p&gt;
+&lt;p&gt;
+The extender need only supply a class that implements the interface com.tibco.xpd.xpdl2.resolvers.IDataReferenceResolver.java. Via this class, the extension will be given the opportunity to inform Studio of the fields it references in elements of a given clas type. It will also be given the opportunity to replace references to fields that are renamed or copied (when pasting a task into a different process, fields referenced by that object will also be created if they do not exist, any references to the field by its unique id will have to be replaced).
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <choice>
+               <element ref="DataReferenceResolver"/>
+               <element ref="FieldOrParamReferenceResolver"/>
+            </choice>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="FieldOrParamReferenceResolver">
+      <annotation>
+         <documentation>
+            Use when the data references you handle are in Activity / Transition scope.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  see API section for more detail.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.xpdl2.resolvers.IFieldResolverExtension"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="DataReferenceResolver">
+      <annotation>
+         <documentation>
+            Use when the data references you handle are OUTSIDE of Activity/Transition scope.
+&lt;p&gt;
+Each data reference resolver must implement the interface &lt;code&gt;com.tibco.xpd.xpdl2.resolvers.IDataReferenceResolverExtension&lt;/code&gt;. see API section for more detail.
+&lt;/p&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  see API section for more detail.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.xpdl2.resolvers.IDataReferenceResolver"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         Studio v2.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         &lt;p&gt;
+Let us say, for example that you have added a new service task implementation type (via the taskImplementation extension point). 
+&lt;li&gt;For this new type your plug-in stores references to data field, by Id, are stored in xpdl2:TaskService/xpdl2:MessageIn/xpdl2:ActualParameters.&lt;/li&gt;
+&lt;li&gt;The plug-in also has references to fields, by name, in its own xpdl2 extension element xpdl2:TaskService/myExtension:TextDescription&lt;/li&gt;
+&lt;li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+When Studio wants to copy the task to the clipboard, the plug-in&apos;s IFieldResolverExtension.getActivityDataReferences() will be called and passed an xpdl2:Activity and a set of fields to search for, the plug-in should...
+&lt;li&gt;Check whether the given activity is relevant to the plug-in (i.e. check that &lt;i&gt;it is&lt;/i&gt; a service task activity &lt;i&gt;and&lt;/i&gt; that it is the plug-ins own custom implementation type.&lt;/li&gt;
+&lt;li&gt;Search xpdl2:ActualParameter elements for references to any field in the given set (in our example this is by field Id).&lt;/li&gt;
+&lt;li&gt;Search the myExtension:TextDescription element for references to any field in the given set (in our example this is by field name).&lt;/li&gt;
+&lt;li&gt;Return a subset of the given set of data fields&lt;/li&gt;
+&lt;br/&gt;
+Studio then ensures that the fields returned by the plug-in are also added to the clipboard.
+&lt;/p&gt;
+&lt;p&gt;
+When Studio performs a paste from the clipboard to a different process, the plug-in&apos;s IFieldResolverExtension.getSwapActivityDataIdReferencesCommand method is called and passed an xpdl2:Activity element and a Map of data field id&apos;s (from the original data field Id to the newly created field&apos;s Id). The plug-in should...
+&lt;li&gt;Check whether the given activity is relevant to the plug-in (i.e. check that &lt;i&gt;it is&lt;/i&gt; a service task activity &lt;i&gt;and&lt;/i&gt; that it is the plug-ins own custom implementation type.&lt;/li&gt;
+&lt;li&gt;Check the xpdl2:ActualParameters for any reference to any of the old data field id&apos;s (the Map&apos;s keyset) and replace them with the new data field id (the Map&apos;s valueset).
+&lt;br/&gt;
+In this way, the plug-in&apos;s custom task type implementation will have been copied and all of its references to data fields in the original process will be replaced with the new data fields created in the paste destination
+ process.
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         &lt;p&gt;
+Some features of Business Studio need to resolve where Data Fields and Formal Parameters are referenced. 
+&lt;li&gt;
+&lt;i&gt;For example, when copy / paste is performed on a task in the process diagram editor and the task is pasted to a different process, then Studio needs to discover the fields / parameters that are referenced by that task in order to create them in the destination process.&lt;/i&gt;
+&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+Also, when data fields and formal parameters are renamed Studio will search for references made to the data field name and replace the reference with the new name.
+&lt;/p&gt;
+&lt;p&gt;
+Also, when data fields and formal parameters are deleted, Studio will give extenders of this extension point the opportunity to delete references to those fields.
+&lt;/p&gt;
+&lt;p&gt;
+It is possible to extend Studio in ways that add elements to the XPDL model (or use the standard XPDL elements) that the Studio features above cannot know about (for instance adding a new Service Task Implementation). This extension point allows a plug-in to extend Studio&apos;s standard &apos;resolve / rename references to data fields or formal parameters&apos; framework.
+&lt;/p&gt;
+&lt;p&gt;
+The extender need only supply a class that implements the interface com.tibco.xpd.xpdl2.resolvers.IDataReferenceResolverExtension.java. Via this class, the extension will be given the opportunity to inform Studio of the fields it references in elements of a given clas type. It will also be given the opportunity to replace references to fields that are renamed or copied (when pasting a task into a different process, fields referenced by that object will also be created if they do not exist, any references to the field by its unique id will have to be replaced).
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         None
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         TIBCO Software inc. (c) 2007-2013
+      </documentation>
+   </annotation>
+
+</schema>

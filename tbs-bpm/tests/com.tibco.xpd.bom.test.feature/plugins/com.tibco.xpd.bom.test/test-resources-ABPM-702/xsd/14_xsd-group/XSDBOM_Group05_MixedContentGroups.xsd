@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/XSDBOM_Group05_MixedContentGroups"
+	xmlns:tns="http://www.example.org/XSDBOM_Group05_MixedContentGroups"
+	elementFormDefault="qualified">
+
+	<group name="groupA">
+		<sequence>
+			<element name="groupAElem1" type="string"></element>			
+		</sequence>
+	</group>
+
+	<group name="groupB">
+		<sequence>
+			<element name="groupBElem1" type="string"></element>			
+			<sequence>
+				<element name="groupBElem2" type="string"></element>				
+				<sequence>
+					<element name="groupBElem4" type="string"></element>
+					<group ref="tns:groupD"></group>
+					<element name="groupBElem4" type="string"></element>
+				</sequence>
+			</sequence>
+		</sequence>
+	</group>
+
+	<group name="groupC">
+		<sequence>
+			<element name="groupCElem1" type="string"></element>						
+			<sequence>
+				<element name="groupCElem2" type="string"></element>			
+				<sequence>
+					<element name="groupCElem3" type="string"></element>			
+					<sequence>
+						<element name="groupCElem4" type="string"></element>
+						<element name="groupCElem5" type="string"></element>
+					</sequence>
+				</sequence>
+			</sequence>
+
+		</sequence>
+	</group>
+
+	<group name="groupD">
+		<sequence>
+			<element name="groupDElem1" type="string"></element>
+			<element name="groupDElem2" type="string"></element>
+		</sequence>
+	</group>
+
+	<complexType name="PersonDetails">
+		<sequence>
+			<group ref="tns:groupA"></group>
+			<element name="elem1" type="string"></element>
+			<element name="elem2" type="string"></element>
+			<group ref="tns:groupB"></group>
+			<element name="elem3" type="string"></element>
+			<element name="elem4" type="string"></element>
+			<group ref="tns:groupC"></group>
+			<element name="gdf" type="string"></element>
+		</sequence>
+		<attribute name="attr1" type="string"></attribute>
+	</complexType>
+
+
+
+
+</schema>

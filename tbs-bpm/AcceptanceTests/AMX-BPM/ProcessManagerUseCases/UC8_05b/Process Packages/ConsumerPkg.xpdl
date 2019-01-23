@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_-OqI0PFyEd-ws64IDkWdOA" xpdExt:DisplayName="ConsumerPkg" Name="ConsumerPkg">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-11-16</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>bharge</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_a95UcfFzEd-ws64IDkWdOA" xpdExt:DisplayName="Consumer Process As Service (API Activity EndPoint)" Name="ConsumerPkg_ConsumerProcessAsService">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="DocumentLiteral" SoapVersion="1.1" EndpointUrlPath="/ConsumerPkg/ConsumerProcessAsService/qualifier" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_a95UcfFzEd-ws64IDkWdOA_consumer" xpdExt:DisplayName="Consumer Process As Service (API Activity EndPoint)_consumer" Name="ConsumerPkg_ConsumerProcessAsService_consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_lsbTtPFzEd-ws64IDkWdOA" xpdExt:DisplayName="Consumer_Genric_WSDL_Define_Types StringGenerics" Name="Consumer_Genric_WSDL_Define_TypesStringGenerics">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_xX8zx_GAEd-ws64IDkWdOA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_xWwg8PGAEd-ws64IDkWdOA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_xX8zyPGAEd-ws64IDkWdOA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="__EiA5_FyEd-ws64IDkWdOA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_-OqI0fFyEd-ws64IDkWdOA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="__EiA6PFyEd-ws64IDkWdOA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Associations>
+    <xpdl2:Association Id="_lrua8PI1Ed-vR_zoNYSrVQ" Name="" AssociationDirection="None" Source="_fIuA8PI1Ed-vR_zoNYSrVQ" Target="_gr5ZEPFzEd-ws64IDkWdOA">
+      <xpdl2:Object Id="_lrua8fI1Ed-vR_zoNYSrVQ"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+        <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+          <xpdl2:Coordinates XCoordinate="72.32142857142857" YCoordinate="0.0"/>
+        </xpdl2:ConnectorGraphicsInfo>
+        <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+          <xpdl2:Coordinates XCoordinate="79.95495495495496" YCoordinate="0.0"/>
+        </xpdl2:ConnectorGraphicsInfo>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_m4BO8vI1Ed-vR_zoNYSrVQ" Name="" AssociationDirection="None" Source="_emcaUPI1Ed-vR_zoNYSrVQ" Target="_UlaaQPI1Ed-vR_zoNYSrVQ">
+      <xpdl2:Object Id="_m4BO8_I1Ed-vR_zoNYSrVQ"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+        <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+          <xpdl2:Coordinates XCoordinate="84.06113537117903" YCoordinate="0.0"/>
+        </xpdl2:ConnectorGraphicsInfo>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+  </xpdl2:Associations>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_emcaUPI1Ed-vR_zoNYSrVQ" ArtifactType="Annotation" TextAnnotation="This uses User Defined BOM">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="20.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="0.0">
+          <xpdl2:Coordinates XCoordinate="509.0" YCoordinate="35.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_fIuA8PI1Ed-vR_zoNYSrVQ" ArtifactType="Annotation" TextAnnotation="This uses Generated BOM">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="17.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="83.0">
+          <xpdl2:Coordinates XCoordinate="272.0" YCoordinate="35.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_-OqI0fFyEd-ws64IDkWdOA" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="Consumer Process As Service" xpdExt:ApiEndPointParticipant="_a95UcfFzEd-ws64IDkWdOA" iProcessExt:MaxStepIndex="13" Name="ConsumerProcessAsService">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_98PGr_FzEd-ws64IDkWdOA" xpdExt:DisplayName="testBoolean" Name="testBoolean">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_98PGqfFzEd-ws64IDkWdOA" xpdExt:DisplayName="testDate" Name="testDate">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_98PGrfFzEd-ws64IDkWdOA" xpdExt:DisplayName="testDateTime" Name="testDateTime">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_98PGq_FzEd-ws64IDkWdOA" xpdExt:DisplayName="testDecimal" Name="testDecimal">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_98PGsPFzEd-ws64IDkWdOA" xpdExt:DisplayName="testInteger" Name="testInteger">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_98PGsfFzEd-ws64IDkWdOA" xpdExt:DisplayName="testName" Name="testName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_98PGrPFzEd-ws64IDkWdOA" xpdExt:DisplayName="testString" Name="testString">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_98PGrvFzEd-ws64IDkWdOA" xpdExt:DisplayName="testTime" Name="testTime">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_98PGqvFzEd-ws64IDkWdOA" xpdExt:DisplayName="testToken" Name="testToken">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_iLr7YPF0Ed-ws64IDkWdOA" xpdExt:DisplayName="testOther" Name="testOther">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_T4GgAPF_Ed-ws64IDkWdOA" xpdExt:DisplayName="outField" Name="outField">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_jDzEgfI3Ed-vR_zoNYSrVQ" xpdExt:DisplayName="userDefinedBomField" Name="userDefinedBomField" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel1.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_vzgGwPI2Ed-vR_zoNYSrVQ"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="__EiA6fFyEd-ws64IDkWdOA" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_a95UcPFzEd-ws64IDkWdOA"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_a95UcfFzEd-ws64IDkWdOA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ConsumerPkg.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ConsumerProcessAsService" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="ConsumerPkg.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_a95UcfFzEd-ws64IDkWdOA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="__EiA6vFyEd-ws64IDkWdOA" Name="Fail2" iProcessExt:StepIndex="5" xpdExt:DisplayName="Fail2">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="255,0,0" FillColor="255,219,74" Height="45.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="915.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_gr5ZEPFzEd-ws64IDkWdOA" Name="ConsumerServTaskForProvtestAllTypes" xpdExt:Visibility="Private" xpdExt:DisplayName="Consumer Serv Task For Prov testAllTypes" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_lsbTsvFzEd-ws64IDkWdOA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testboolean">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testBoolean</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testdate">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testDate</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testtime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testdateTime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testDateTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testdecimal">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testDecimal</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testdouble">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testDecimal</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testfloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testDecimal</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testUnSignedLong">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testShort">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testInt">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testLong">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testUnSignedByte">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testUnSignedShort">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="UnSignedInt">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testByte">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testENTITY">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testENTITIES">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testIDREFS">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testID">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testpart1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testIDREF">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testNCName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testQName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testNMToken">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testlanguage">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testtoken">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testToken</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testnormalizedString">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testToken</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="teststring">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testToken</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testday">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testmonth">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testyear">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testyearMonth">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testmonthDay">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testPositiveInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testNegativeInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testnonPositiveInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testnonNegativeInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">testInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_lsbTs_FzEd-ws64IDkWdOA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="teststring">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">outField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_lsbTtPFzEd-ws64IDkWdOA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="Genric_WSDL_Define_Types.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="StringGenerics" OperationName="testAllTypes">
+                  <xpdExt:ExternalReference location="Genric_WSDL_Define_Types.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_lsbTtPFzEd-ws64IDkWdOA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="142.0">
+              <xpdl2:Coordinates XCoordinate="314.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nAx2gPF-Ed-ws64IDkWdOA" Name="InitializeProcessDataFields" xpdExt:Visibility="Private" xpdExt:DisplayName="Initialize Process Data Fields" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">testName=&quot;allTypes&quot;;&#xD;
+testBoolean=true;&#xD;
+testDate=DateTimeUtil.createDate();&#xD;
+testDateTime=DateTimeUtil.createDatetime();&#xD;
+testTime=DateTimeUtil.createTime();&#xD;
+testDecimal=11.11;&#xD;
+testInteger=15;&#xD;
+testOther=&quot;22&quot;;&#xD;
+testString=&quot;tibco&quot;;&#xD;
+testToken=&quot;token&quot;;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="157.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rBqSBPF-Ed-ws64IDkWdOA" iProcessExt:StepIndex="8">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="__EiA6_FyEd-ws64IDkWdOA"/>
+                  <xpdl2:TransitionRef Id="_rx2G4PGAEd-ws64IDkWdOA"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="841.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_sICEMPF-Ed-ws64IDkWdOA" Name="Pass" xpdExt:Visibility="Private" xpdExt:DisplayName="Pass" iProcessExt:StepIndex="9">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="841.0" YCoordinate="257.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UlaaQPI1Ed-vR_zoNYSrVQ" Name="ConsumerServTask2ForProvtestAllTypes" xpdExt:Visibility="Private" xpdExt:DisplayName="Consumer Serv Task 2 For Prov testAllTypes" iProcessExt:StepIndex="10">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_qU4-cvI1Ed-vR_zoNYSrVQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testboolean">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrBoolean</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testdate">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrDate</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testdateTime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrDateTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testdecimal">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrDecimal</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testdouble">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrDecimal</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testfloat">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrDecimal</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testnonNegativeInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testnonPositiveInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testNegativeInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testPositiveInteger">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testNCName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testQName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="teststring">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testnormalizedString">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testlanguage">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testtoken">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrToken</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testNMToken">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrToken</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testpart1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testByte">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testShort">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testInt">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testLong">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testUnSignedByte">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testUnSignedShort">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="UnSignedInt">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testUnSignedLong">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrInteger</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testtime">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrTime</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testday">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testmonth">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testyear">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testyearMonth">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testmonthDay">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrOther</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testID">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testIDREF">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testIDREFS">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testENTITY">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="testENTITIES">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">userDefinedBomField.attrString</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_qU4-c_I1Ed-vR_zoNYSrVQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="teststring">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">outField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_lsbTtPFzEd-ws64IDkWdOA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="Genric_WSDL_Define_Types.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="StringGenerics" OperationName="testAllTypes">
+                  <xpdExt:ExternalReference location="Genric_WSDL_Define_Types.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_lsbTtPFzEd-ws64IDkWdOA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="83.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="146.0">
+              <xpdl2:Coordinates XCoordinate="703.0" YCoordinate="147.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VjbsQPI2Ed-vR_zoNYSrVQ" iProcessExt:StepIndex="11">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_Xbs1cfI2Ed-vR_zoNYSrVQ"/>
+                  <xpdl2:TransitionRef Id="_ieIBEPI2Ed-vR_zoNYSrVQ"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="444.0" YCoordinate="147.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Xbs1cPI2Ed-vR_zoNYSrVQ" Name="InitializeBOMDataFields" xpdExt:Visibility="Private" xpdExt:DisplayName="Initialize BOM Data Fields" iProcessExt:StepIndex="12">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">userDefinedBomField = com_example_businessobjectmodel3_Factory.createAllSimpleTypes();&#xD;
+userDefinedBomField.attrBoolean=true;&#xD;
+userDefinedBomField.attrDate=DateTimeUtil.createDate();&#xD;
+userDefinedBomField.attrDateTime=DateTimeUtil.createDatetime();&#xD;
+userDefinedBomField.attrDecimal=22.23;&#xD;
+userDefinedBomField.attrInteger=55;&#xD;
+userDefinedBomField.attrName=&quot;user defined bom&quot;;&#xD;
+userDefinedBomField.attrOther=&quot;34&quot;;&#xD;
+userDefinedBomField.attrString=&quot;kembrey park&quot;;&#xD;
+userDefinedBomField.attrTime=DateTimeUtil.createTime();&#xD;
+userDefinedBomField.attrToken=&quot;Swindon&quot;;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="550.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hsDq8PI2Ed-vR_zoNYSrVQ" Name="Fail1" xpdExt:Visibility="Private" iProcessExt:StepIndex="13" xpdExt:DisplayName="Fail1">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="27.0" LaneId="__EiA6PFyEd-ws64IDkWdOA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="444.0" YCoordinate="249.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="__EiA6_FyEd-ws64IDkWdOA" xpdExt:DisplayName="" Name="" From="_rBqSBPF-Ed-ws64IDkWdOA" To="__EiA6vFyEd-ws64IDkWdOA">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_gr5ZE_FzEd-ws64IDkWdOA" xpdExt:DisplayName="" Name="" From="_nAx2gPF-Ed-ws64IDkWdOA" To="_gr5ZEPFzEd-ws64IDkWdOA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nA7ngPF-Ed-ws64IDkWdOA" xpdExt:DisplayName="" Name="" From="__EiA6fFyEd-ws64IDkWdOA" To="_nAx2gPF-Ed-ws64IDkWdOA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rB0DAPF-Ed-ws64IDkWdOA" xpdExt:DisplayName="" Name="" From="_UlaaQPI1Ed-vR_zoNYSrVQ" To="_rBqSBPF-Ed-ws64IDkWdOA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rx2G4PGAEd-ws64IDkWdOA" Name="" From="_rBqSBPF-Ed-ws64IDkWdOA" To="_sICEMPF-Ed-ws64IDkWdOA">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">outField.toString()==testName+testToken+testDate+testTime+testBoolean+testInteger+testDateTime+testString+testDecimal;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="75.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_UlaaQ_I1Ed-vR_zoNYSrVQ" xpdExt:DisplayName="" Name="" From="_Xbs1cPI2Ed-vR_zoNYSrVQ" To="_UlaaQPI1Ed-vR_zoNYSrVQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_VjbsQfI2Ed-vR_zoNYSrVQ" xpdExt:DisplayName="" Name="" From="_gr5ZEPFzEd-ws64IDkWdOA" To="_VjbsQPI2Ed-vR_zoNYSrVQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Xbs1cfI2Ed-vR_zoNYSrVQ" xpdExt:DisplayName="" Name="" From="_VjbsQPI2Ed-vR_zoNYSrVQ" To="_Xbs1cPI2Ed-vR_zoNYSrVQ">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">outField.toString()==testName+testToken+testDate+testTime+testBoolean+testInteger+testDateTime+testString+testDecimal;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ieIBEPI2Ed-vR_zoNYSrVQ" Name="" From="_VjbsQPI2Ed-vR_zoNYSrVQ" To="_hsDq8PI2Ed-vR_zoNYSrVQ">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="testDate"/>
+            <simulation:ParameterDistribution ParameterId="testToken"/>
+            <simulation:ParameterDistribution ParameterId="testDecimal"/>
+            <simulation:ParameterDistribution ParameterId="testString"/>
+            <simulation:ParameterDistribution ParameterId="testDateTime"/>
+            <simulation:ParameterDistribution ParameterId="testTime"/>
+            <simulation:ParameterDistribution ParameterId="testBoolean"/>
+            <simulation:ParameterDistribution ParameterId="testInteger"/>
+            <simulation:ParameterDistribution ParameterId="testName"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_xWwg8PGAEd-ws64IDkWdOA" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:XpdModelType="PageFlow" xpdExt:DisplayName="ConsumerPkg-Start Event" iProcessExt:MaxStepIndex="6" xpdExt:PublishAsBusinessService="true" xpdExt:BusinessServiceCategory="UC8_05b/ConsumerPkg" Name="ConsumerPkgStartEvent">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_xX8zyfGAEd-ws64IDkWdOA" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="27.0" LaneId="_xX8zyPGAEd-ws64IDkWdOA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="33.0" YCoordinate="72.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_xX8zyvGAEd-ws64IDkWdOA" Name="UserTask" xpdExt:Visibility="Private" xpdExt:DisplayName="User Task" iProcessExt:StepIndex="5">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_xX8zy_GAEd-ws64IDkWdOA"/>
+                <xpdl2:MessageOut Id="_xX8zzPGAEd-ws64IDkWdOA"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="64.0" LaneId="_xX8zyPGAEd-ws64IDkWdOA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="240.0" YCoordinate="72.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_xX8zzfGAEd-ws64IDkWdOA" Name="SendTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Send Task" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskSend xpdExt:ImplementationType="InvokeBusinessProcess" Implementation="WebService">
+                <xpdl2:Message Id="_xY_VkfGAEd-ws64IDkWdOA"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_a95UcfFzEd-ws64IDkWdOA_consumer" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ConsumerPkg.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ConsumerProcessAsService" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="ConsumerPkg.wsdl"/>
+                </xpdExt:PortTypeOperation>
+                <xpdExt:BusinessProcess BusinessProcessId="_-OqI0fFyEd-ws64IDkWdOA" ActivityId="__EiA6fFyEd-ws64IDkWdOA"/>
+              </xpdl2:TaskSend>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_a95UcfFzEd-ws64IDkWdOA_consumer</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="205,158,233" Height="64.0" LaneId="_xX8zyPGAEd-ws64IDkWdOA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="454.0" YCoordinate="73.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_xX8zz_GAEd-ws64IDkWdOA" xpdExt:DisplayName="" Name="" From="_xX8zyfGAEd-ws64IDkWdOA" To="_xX8zyvGAEd-ws64IDkWdOA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_xX8z0PGAEd-ws64IDkWdOA" xpdExt:DisplayName="" Name="" From="_xX8zyvGAEd-ws64IDkWdOA" To="_xX8zzfGAEd-ws64IDkWdOA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="10.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

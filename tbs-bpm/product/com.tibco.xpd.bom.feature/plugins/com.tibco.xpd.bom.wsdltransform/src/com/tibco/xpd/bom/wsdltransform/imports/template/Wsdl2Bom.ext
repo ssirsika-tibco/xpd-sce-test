@@ -1,0 +1,439 @@
+// author glewis
+
+import type;
+import xmlSchema;
+import wsdlSchema;
+import com::tibco::xpd::bom::xsdtransform::imports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension com::tibco::xpd::bom::xsdtransform::imports::template::Extensions reexport;
+extension com::tibco::xpd::bom::xsdtransform::imports::template::Xsd2Bom reexport;
+
+
+uml::Model transformDefinitionsToBom(ImportTransformationData data, TDefinitions definitions):
+	traceMe ("==> transformDefinitionsToBom") ->
+	(
+		// Sid XPD-1741: Cache a map of schemaType to import location so we can 
+		// pass schemalocation down to getTargetNamespacesFoprXMLSchema 
+		// (so it knows what the xsd's imported by the wsdl import xsd's are relative to.
+		
+		let schemaTypeToLocationMap = data.createObjectToStringMap() :
+		let rootSchema = getSchemaFromFeatureMap(definitions.types.first().any, definitions.targetNamespace) :
+	
+		// YOU SHOULD NOT USE <WSDL:IMPORT> TO IMPORT AN XSD!! See W3C specs! 
+		// But it's possible so we have to handle it
+					
+		let rootSchemas = {} :
+		data.ctx.wsdlDefinitions.select(wsdlDef|rootSchemas.addAll(getImportedAndInlineSchemas(data, wsdlDef, wsdlDef.types.first().any, schemaTypeToLocationMap)))->
+		
+		// Add location for all includes from inline and imported schemas.
+		rootSchemas.collect(schemaType | ( 
+			schemaType.include.typeSelect(IncludeType).collect(includeEntry | (
+				includeEntry.schemaLocation.endsWith(".xsd") ? (
+					let includedSchema = resolveAndReadXML(data, schemaType, includeEntry.schemaLocation, null) : 
+					schemaTypeToLocationMap.put(schemaType, includeEntry.schemaLocation)  
+				) : null
+			))  
+		))->	
+		traceMe("transformDefinitionsToBom(): WSDL2BOM.schemaTypeToLocationMap: "+schemaTypeToLocationMap)->
+					
+		rootSchemas.select(e | e.targetNamespace == null).collect(e | e.setTargetNamespace(definitions.targetNamespace)) -> 
+		(	 
+			let models = transformSchemaTypesToBom(data, rootSchemas, definitions.targetNamespace, schemaTypeToLocationMap) :
+			traceMe("ROOT Model = " + models.first()) ->
+			traceMe("root schema = "+rootSchema) ->
+			traceMe("root schemas = "+ rootSchemas) ->
+			traceMe("any type = " + definitions.types.first().any) ->
+			models.collect(e | traceMe("BOM created: " + e.name)) ->
+						
+			definitions.portType.collect(e|parsePortType(data, models, e, definitions, rootSchema)) ->	
+			models.first()
+		) ->		
+		traceMe ("<== transformDefinitionsToBom")
+	);
+	
+uml::Model transformWsdlToBom(WsdlSchemaDocumentRoot wsdlSchemaDocumentRoot, ImportTransformationData data) :
+	// ENTRY POINT FOR WSDL->BOM TRANSFORMATION
+	traceMeDebug("resetIndent") ->
+	traceMeDebug("==> transformWsdlToBom: STARTING WSDL TRANSFORMATION ...") ->
+	(
+		traceMe("STARTING TRANSFORMATION transformWsdlToBom...") ->
+		data.setParentPrefixMap(wsdlSchemaDocumentRoot.xMLNSPrefixMap) ->
+		
+		// XPD-5203: add root definition to data.wsdlDefinitions 
+		recursiveCacheWsdlImports(data, wsdlSchemaDocumentRoot.definitions) ->
+		traceMe("allDefinitions after recursing " + data.ctx.wsdlDefinitions)->
+		transformDefinitionsToBom(data, wsdlSchemaDocumentRoot.definitions) ->
+		traceMeDebug("<== transformWsdlToBom: END OF WSDL TRANSFORMATION ...")	
+	);
+
+// Recursive method to call readAndResolveXML for all WSDL imports so that when we look for 
+// messages / parts from imported resources we can go straight to them.  
+recursiveCacheWsdlImports(ImportTransformationData data, TDefinitions definitions) :
+	// Add to list of definitions so that we can easily look thru all for messages and parts etc.
+	data.ctx.wsdlDefinitions.contains(definitions) ? null :
+	( 
+		data.ctx.wsdlDefinitions.add(definitions)->
+			
+		// Process the imports and recurse for any we have not yet read.		
+		definitions.^import.select(imports|imports.location.endsWith(".wsdl")).collect(impt|
+			(
+				let cachedImportedWSDLDefinition = getCachedReadXML(data, definitions, impt.location) :
+				
+				traceMe("cachedImportedWSDLDefinition" + cachedImportedWSDLDefinition)->
+				cachedImportedWSDLDefinition != null ?
+				( 
+					// Already processed this WSDL
+					null
+				) : 
+				(
+					// Read imported schema and recurs. 
+					let importedWSDLDefinition = resolveAndReadXML(data, definitions, impt.location, impt.namespace) :
+					
+					traceMe("importedWSDLDefinition" + importedWSDLDefinition)->
+					
+					importedWSDLDefinition != null ? 
+					(
+						recursiveCacheWsdlImports(data, importedWSDLDefinition)
+					)
+					: (
+						traceMe("recursiveCacheWsdlImports: Cannot load imported WSDL: "+impt.location) ->
+						null
+					)
+				)	
+			)
+		)
+	);
+	
+// gets the cached wsdl definition 
+TDefinitions getCachedReadXML(ImportTransformationData data, TDefinitions definitions, String importLocation) :
+	
+	importLocation != null ? (
+		let importLocationURI = _createURIForSchemaLocation(data, importLocation) :
+		// Already Cached xs:schema or wsdl:definitions element for given baseURI and schemaLocation 
+		// or null if not cached.
+		getCachedReadXMLExt(data, definitions, importLocationURI)
+	) : (
+		//do nothing
+		null
+	);
+	
+cached List[SchemaType] getImportedAndInlineSchemas(ImportTransformationData data, TDefinitions definitions, XMLFeatureMap map, Object schemaTypeToLocationMap) :
+	let importedSchemas = ( 
+			let tmpList = {} :
+			definitions.^import.select(e|e.location.endsWith(".xsd")).collect(e| (
+					let schemaType = resolveAndReadXML(data, definitions, e.location, e.namespace) :  
+					schemaTypeToLocationMap.put(schemaType, e.location) -> 
+					tmpList.add(schemaType))) ->
+					
+			traceMe("getImportedAndInlineSchemas(): added a wsd:import xsd file to imported schemas ="+tmpList) ->
+			tmpList 
+	):
+	let rootSchemas = {} :
+	rootSchemas.addAll(importedSchemas) ->
+	traceMe("getImportedAndInlineSchemas(): rootSchemas after imports = " + rootSchemas )->
+	rootSchemas.addAll(getInlineSchemas(definitions.types.first().any)) ->
+	traceMe("getImportedAndInlineSchemas(): rootSchemas after includes = " + rootSchemas )->
+	rootSchemas;
+				
+	
+cached List[SchemaType] getInlineSchemas(XMLFeatureMap map) :
+	let schemas = map.toList().select(e|SchemaType.isInstance(e.value)).value :	
+	schemas == null ? {} : schemas;
+
+cached SchemaType getSchemaFromFeatureMap(XMLFeatureMap map, String targetNamespace) :
+	targetNamespace == null ? map.first().value : (		
+		let mainSchema = map.toList().select(e|SchemaType.isInstance(e.value) && ((SchemaType)e.value).targetNamespace == targetNamespace).first().value :
+		traceMe("main Schema = "+mainSchema) ->
+		mainSchema == null ? map.first().value : mainSchema
+	);
+	
+cached parsePortType(ImportTransformationData data, List[uml::Model] models, TPortType portType, TDefinitions definitions, SchemaType rootSchemaType) :
+	traceMeDebug("==>parsePortType(): " + portType.name) ->
+	(
+		let portTypeCls = (
+			// XPD-7553: findTargetClass method signature changed - last argument namespace uri to be passed. It's ok to pass null from the call here
+			let existingCls = findTargetClass(data, portType.name, models.first(), models.first(), null) :
+			existingCls != null ? (
+				addComment(data, existingCls, portType.documentation.any.text.first()) ->
+				existingCls
+			) : (
+				let newCls = new uml::Class :
+				newCls.setPackage(models.first()) ->
+				newCls.setName(portType.name) ->			
+				setUniqueId(data, newCls) ->
+				addComment(data, newCls, portType.documentation.any.text.first()) ->
+				newCls.setOwnedOperation({}) ->
+				// XPD-4386: modified this method in TransformHelper to support mixed construct
+				applyClassStereotypeValues(newCls, null, null, portType.name, null, null, null, null, null, null, false, false, false) ->
+				newCls
+			)
+		) :
+		portType.operation.collect(e|parseOperation(data, portTypeCls, models, e, definitions, rootSchemaType)) ->
+		traceMeDebug("<==parsePortType(): " + portType.name) 	
+	);	
+
+cached parseOperation(ImportTransformationData data, uml::Class portTypeCls, List[uml::Model] models, TOperation operation, TDefinitions definitions, SchemaType rootSchemaType) :
+	traceMeDebug("==>parseOperation(): " + operation.name) ->
+	(	
+		let bomOperation = new uml::Operation :
+		traceMe("parseOperation(): operation.input.message=" + operation.input.message.prefix) ->
+		traceMe("parseOperation(): operation.output.message=" + operation.output.message) ->		
+		bomOperation.setOwnedParameter({}) ->
+		bomOperation.setName(operation.name) ->
+		portTypeCls.ownedOperation.add(bomOperation) ->
+		operation.input != null && operation.input.message != null ?
+			parseInputMessage(data, models, operation.input.message, bomOperation, definitions, rootSchemaType) : null ->	
+		operation.output != null && operation.output.message != null ?
+			parseOutputMessage(data, models, operation.output.message, bomOperation, definitions, rootSchemaType) : null ->	
+		setUniqueId(data, bomOperation) ->
+		traceMeDebug("<==parseOperation(): " + operation.name)	
+	);		
+
+cached parseInputMessage(ImportTransformationData data, List[uml::Model] models, type::QName messageRef, uml::Operation operation, TDefinitions definitions, SchemaType rootSchemaType) :
+	traceMeDebug("==>parseInputMessage(): " + messageRef.localPart) ->
+	(
+		// This will look in the definitions of the current WSDL for messages that have the name of the QName
+		// BUT what happens if the messageRef is an imported WSDL?!
+		
+		// XPD-5203: use data.definitions set to find "definition" for messageRef.namespaceURI and get messageRef from that definition 
+		let inputMessage = getWSDLMessage(data, messageRef) :
+		traceMe("inputMessage" + inputMessage )->	
+
+		inputMessage != null ? (
+			traceMe("parseInputMessage(): Message matched in the map") ->
+			inputMessage.part.collect(e|parseInputPart(data, models, e, operation, definitions, rootSchemaType, messageRef))
+		) : null ->
+
+		traceMeDebug("<==parseInputMessage(): " + messageRef.localPart)
+	);
+
+
+cached parseOutputMessage(ImportTransformationData data, List[uml::Model] models, type::QName messageRef, uml::Operation operation, TDefinitions definitions, SchemaType rootSchemaType) :
+	traceMeDebug("==>parseOutputMessage()") ->
+	(
+		// XPD-5203: use data.definitions set to find "definition" for messageRef.namespaceURI and get messageRef from that definition 
+		let outputMessage = getWSDLMessage(data, messageRef) :
+
+		traceMe("outputMessage" + outputMessage )->	
+
+		outputMessage != null ? (
+			traceMe("parseOutputMessage(): Message matched in the map") ->
+			outputMessage.part.collect(e|parseOutputPart(data, models, e, operation, definitions, rootSchemaType, messageRef))
+		) : null ->
+
+		traceMeDebug("<==parseOutputMessage()")		
+	) 	
+	;
+
+//
+// Get correct WSDL message for given messageRef from any of teh WSDL Definitions cached in data.ctx.wsdlDefinitions at start of transform.
+// (looks for the first message with correct name in correctly namespaced set of WSDLs.
+//
+TMessage getWSDLMessage(ImportTransformationData data, type::QName messageRef) :
+	
+	// It seems that it is allowed to have multiple imported WSDLs with same namespace and same namespace as importing WSDL
+	// So select all WSDLs with correct namespace and look for message with correct name in those.
+	
+	data.ctx.wsdlDefinitions.select(def|def.targetNamespace == messageRef.namespaceURI)
+								.message.select(msg|msg.name == messageRef.localPart).first();
+
+// get qname for the given part
+type::QName getPartElementOrTypeRef(TPart part):
+	let elementPart = part.element :
+	let typePart = part.type :
+	traceMe("==>getPartElementOrTypeRef(): " + part.name)->
+	traceMe("==>elementPart = " + elementPart + " typePart = " + typePart)->
+	elementPart != null ? elementPart : typePart;
+
+String geElementOrTypeNamespaceURI(type::QName partQName, type::QName parentMessageQName) :
+	partQName.namespaceURI != null && partQName.namespaceURI.trim().length > 0 ? ( 
+				traceMe("partQName.namespaceURI is not null") -> 
+				partQName.namespaceURI
+		) : (
+			traceMe("partQName.namespaceURI is either null or empty so getting parent message namespace uri") -> 
+			parentMessageQName.namespaceURI
+		)
+	;
+
+cached parseInputPart(ImportTransformationData data, List[uml::Model] models, TPart part, uml::Operation operation, TDefinitions definitions, SchemaType rootSchemaType, type::QName parentMessage) :
+	traceMe("==>parseInputPart(): " + part.name) ->
+	(
+		// get qname for the given part so the namespace uri can be used for resolving bom package and 
+		// local part from the qname can be used to get the element type
+		
+		let elementOrTypeQName = getPartElementOrTypeRef(part) :
+		
+		let elementOrTypeNamespaceURI = geElementOrTypeNamespaceURI(elementOrTypeQName, parentMessage) :
+		
+		// Get the BOM name
+		let resolvedPackageNamespace = (data.getResolvedPackageNamespace(elementOrTypeNamespaceURI)):
+		
+		let containerPackage = findPackage(models, resolvedPackageNamespace) :
+		
+		traceMe("parseInputPart(): elementOrTypeNamespaceURI = " + elementOrTypeNamespaceURI + " resolvedPackageNamespace= " + resolvedPackageNamespace + " containerPackage=" + containerPackage) ->
+		 				
+		// From the UML Model get the data type (class) corresponding to the part.element.name	
+		containerPackage != null ? (
+			// Get the UML Model for the BOM name	
+			let type = getElementOrTypeReference(data, containerPackage, elementOrTypeQName.localPart, models) :
+			
+			traceMe("parseInputPart(): resolvedPackageNamespace= " + resolvedPackageNamespace + "containerPackage= " + containerPackage) ->
+			traceMe("parseInputPart(): elementOrTypeNamespaceURI:" + elementOrTypeNamespaceURI
+				 + " name:" + elementOrTypeQName.localPart
+				 + " resolvedPackageNamespace:" + resolvedPackageNamespace
+				 + " containerPackage:" + containerPackage
+				 + " type:" + type) ->
+			
+			// Create the operation input parameter
+			type != null ? createInputParameter(data, operation, part.name, type) : null ->	
+			traceMe("<==parseInputPart(): " + part.name+ " for type= " + type + " using namespaceURI= "
+				+elementOrTypeNamespaceURI + " and name= " +elementOrTypeQName.localPart+ " container= "+containerPackage.name)
+		) : (
+			traceMe("parseInputPart(): Namespace does not have corresponding UML Model. This namespace must originate for default xml schema primitive types") ->
+			(
+				let type = getElementOrTypeReference(data, containerPackage, elementOrTypeQName.localPart, models) :
+				type != null ? createInputParameter(data, operation, part.name, type) : null ->
+				traceMe("<==parseInputPart():: type= " + type)
+			)							
+		)			
+	)
+	;
+
+	
+cached parseOutputPart(ImportTransformationData data, List[uml::Model] models, TPart part, uml::Operation operation, TDefinitions definitions, SchemaType rootSchemaType, type::QName parentMessage) :
+	traceMe("==>parseOutputPart(): " + part.name) ->
+	(
+		// get qname for the given part so the namespace uri can be used for resolving bom package and 
+		// local part from the qname can be used to get the element type
+		
+		let elementOrTypeQName = getPartElementOrTypeRef(part) :
+		
+		let elementOrTypeNamespaceURI = geElementOrTypeNamespaceURI(elementOrTypeQName, parentMessage) :
+		
+		// Get the BOM name
+		let resolvedPackageNamespace = data.getResolvedPackageNamespace(elementOrTypeNamespaceURI) :	
+		
+		let containerPackage = findPackage(models, resolvedPackageNamespace) :	
+	
+		traceMe("parseOutputPart(): resolvedPackageNamespace= " + resolvedPackageNamespace + " containerPackage=" + containerPackage) ->
+
+		containerPackage != null ? (
+			// Get the UML Model for the BOM name
+			let type = getElementOrTypeReference(data, containerPackage, elementOrTypeQName.localPart, models) : 
+			type != null ? createOutputParameter(data, operation, part.name, type) : null ->
+			
+			traceMe("<==parseOutputPart(): " + part.name+ " for type= " + type + " using namespaceURI= "
+				+elementOrTypeNamespaceURI + " and name= " +elementOrTypeQName.localPart+ " container= "+containerPackage.name)		
+		) : (
+			traceMe("parseOutputPart(): Namespace does not have corresponding UML Model. This namespace must originate for default xml schema primitive types") ->
+			(
+				let type = getElementOrTypeReference(data, containerPackage, elementOrTypeQName.localPart, models) :
+				type != null ? createOutputParameter(data, operation, part.name, type) : null ->
+				traceMe("<==parseOutputPart():: type= " + type)
+			)		
+		)
+	);
+	
+cached createInputParameter(ImportTransformationData data, uml::Operation operation, String name, uml::Type type) :
+	let parameter = new uml::Parameter :
+	traceMe("==> createInputParameter ")->
+	traceMe("name = " + name + " type = " + type)->
+	parameter.setName(name) ->
+	parameter.setType(type) ->	
+	operation.ownedParameter.add(parameter) ->
+	setUniqueId(data, parameter);
+	
+cached createInputParameterForProxyType(ImportTransformationData data, uml::Operation operation, String proxyDetails) :
+	let parameter = new uml::Parameter :
+	traceMe("==> createInputParameterForProxyType ")->	
+	_setDetailsForProxy(data, parameter, proxyDetails) ->	
+	operation.ownedParameter.add(parameter) ->
+	setUniqueId(data, parameter);	
+
+cached createOutputParameter(ImportTransformationData data, uml::Operation operation, String name, uml::Type type) :
+	let parameter = new uml::Parameter :	
+	parameter.setName(name) ->
+	parameter.setType(type) ->
+	parameter.setDirection(uml::ParameterDirectionKind::return) ->
+	operation.ownedParameter.add(parameter) ->
+	setUniqueId(data, parameter);
+	
+cached createOutputParameterForProxyType(ImportTransformationData data, uml::Operation operation, String proxyDetails) :
+	let parameter = new uml::Parameter :	
+	_setDetailsForProxy(data, parameter, proxyDetails) ->
+	parameter.setDirection(uml::ParameterDirectionKind::return) ->
+	operation.ownedParameter.add(parameter) ->
+	setUniqueId(data, parameter);	
+
+cached uml::Type getTypeFromPackage(ImportTransformationData data, uml::Package package, String name) :
+	let bomPrimType = getBOMPrimitiveType(data, name) :
+	let primType = package.eAllContents.typeSelect(uml::PrimitiveType).select(e | getOriginalXSDName(e) == name).first() :	
+	let enumType = package.eAllContents.typeSelect(uml::Enumeration).select(e | getOriginalXSDName(e) == name).first() :
+	let classType = package.eAllContents.typeSelect(uml::Class).select(e | getOriginalXSDName(e) == name).first() :	
+	bomPrimType != null && uml::Property.isInstance(bomPrimType) == false ? bomPrimType : (
+		primType != null && uml::Property.isInstance(primType) == false ? primType : (
+			enumType != null && uml::Property.isInstance(enumType) == false ? enumType : (
+				classType != null && uml::Property.isInstance(enumType) == false ? classType : null
+			)
+		)
+	);
+
+// if not type is found then we can assume it is referencing a top level element with an anonymous 
+//complex type so we add the suffix Type to the name and try and fetch it again	
+cached uml::Type getElementOrTypeReference(ImportTransformationData data, uml::Package package, String name, List[uml::Model] models) :
+	traceMe("==>getElementOrTypeReference(): package=" + package + " name=" + name) ->
+	(
+		let tmpType = getTypeFromPackage(data, package, name) :
+		// if not type is found then we can assume it is referencing a top level element with an anonymous 
+		//complex type so we add the suffix Type to the name and try and fetch it again
+		tmpType != null ? tmpType : (
+			let type = getTypeFromPackage(data, package, name+"Type") :
+			traceMe("getElementOrTypeReference type = " + type) ->
+			type != null ? type : (
+				let packageTopLevelElems = (
+					// XPD-3738: fix for regression - BOM generated from user WSDL fails 
+					// to resolve schema primitive types (xsd:int, xsd:string etc.)
+					package != null ? getTopLevelElements(package.getModel()) : {}
+				) :
+				let topElemType = (
+					let tmpType = packageTopLevelElems.select(e | getElementName(e) == name).first() :
+					traceMe("1. tmpType = " + tmpType) ->
+					tmpType == null ? null : getElementType(tmpType)
+				) :
+				topElemType != null ? topElemType : (
+					let tmpElemTypeMatches = {} :
+					models.collect(e | (
+							 tmpElemTypeMatches.size == 0 ? (
+								 let packageTopLevelElems = getTopLevelElements(e) :					 
+								 let tmpType = packageTopLevelElems.select(h | getElementName(h) == name).first() :
+								 traceMe("2. tmpType = " + tmpType) ->
+								 tmpType == null ? null : tmpElemTypeMatches.add(getElementType(tmpType))
+							 ) : null
+						)
+					) ->
+					traceMe("tmpElemTypeMatches.size = " + tmpElemTypeMatches.size + " tmpElemTypeMatches.first() = " + tmpElemTypeMatches.first())->
+					tmpElemTypeMatches.size > 0 ? tmpElemTypeMatches.first() : null 
+				)
+			)
+		)
+	);
+	
+cached Boolean isTopLevelElementName(String name, List xsdElementsList) :	
+	xsdElementsList == null ? false : (
+		let element = xsdElementsList.select(e | getElementName(e) == name).first() :		
+		element == null ? false : true 
+	);			 
+	
+cached addComment(ImportTransformationData data, uml::Class tempClass, String source) :
+	let comment = new uml::Comment :	
+	source != null ? (
+		comment.setBody(source) ->		
+		tempClass.ownedComment.add(comment) ->
+		setUniqueId(data, comment)		
+	) : null;
+	
+uml::Package findPackage(List[uml::Package] packages, String packageNS) :
+	let foundPackage = packages.select(e|e.name == packageNS).first() :
+	traceMe("packages = " + packages + " packageNS = " + packageNS)->	
+	foundPackage;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.w3schools.com" xmlns:tns1="http://www.w3schools.com" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.w3schools.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gdf/Business Objects/XSDBOM_ExpGroups03_SimpleSequenceWithAny.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="com.w3schoolscomplexWithAnyInSequence" abstract="false" mixed="false"
+      name="complexWithAnyInSequence">
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:any ecore:name="any" id="complexWithAnyInSequenceany" namespace="##any"
+          processContents="strict" maxOccurs="5" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="topLevelElement" nillable="false">
+    <xsd:complexType id="com.w3schoolstopLevelElementType" mixed="false">
+      <xsd:sequence maxOccurs="8">
+        <xsd:any ecore:name="any" id="topLevelElementTypeany" namespace="##any" processContents="strict"
+            maxOccurs="unbounded" minOccurs="4"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

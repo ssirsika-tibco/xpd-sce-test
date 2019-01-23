@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/Unions"
+	targetNamespace="http://example.com/Unions">
+	
+	<xs:simpleType name="mySimple">
+		<xs:union memberTypes="xs:decimal xs:string xs:int">	
+			<xs:simpleType>
+				<xs:restriction base="mySimple2">				
+				</xs:restriction>
+			</xs:simpleType>		
+			<xs:simpleType>
+				<xs:restriction base="mySimple3">
+					<xs:enumeration value="myEnumLit"></xs:enumeration>					
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:union memberTypes="mySimple4"></xs:union>
+			</xs:simpleType>
+		</xs:union>	
+	</xs:simpleType>
+	
+	<xs:simpleType name="mySimple2">
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="mySimple3">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="myEnumLit"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="mySimple4">
+		<xs:union memberTypes="mySimple3"></xs:union>
+	</xs:simpleType>
+
+</xs:schema>

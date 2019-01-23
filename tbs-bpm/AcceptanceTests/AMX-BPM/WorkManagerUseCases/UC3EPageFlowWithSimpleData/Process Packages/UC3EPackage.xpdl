@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_ThcqwAf0Ed-9XdFoV0d0RQ" xpdExt:DisplayName="UC3E Package" Name="UC3EPackage">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-01-23</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>kupadhya</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_9LRdgAf0Ed-9XdFoV0d0RQ" xpdExt:DisplayName="Group" Name="Group">
+      <xpdl2:ExternalReference location="UC2AOrganizationModel.om" namespace="http://www.tibco.com/om/1.0" xref="_e1GjQFcOEd6ECemE0GiJmQ"/>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_e6E58GEXEd-hNJ83-BPSuw" xpdExt:DisplayName="UC3E Business Process (API Activity EndPoint)" Name="UC3EPackage_UC3EBusinessProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/UC3EPackage/UC3EBusinessProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_e6E58GEXEd-hNJ83-BPSuw_consumer" xpdExt:DisplayName="UC3E Business Process (API Activity EndPoint)_consumer" Name="UC3EPackage_UC3EBusinessProcess_consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_eX2MkQf0Ed-9XdFoV0d0RQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_TiM4sAf0Ed-9XdFoV0d0RQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_eX2Mkgf0Ed-9XdFoV0d0RQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_OvzR8Af6Ed-9XdFoV0d0RQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_AGzBMAf6Ed-9XdFoV0d0RQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_OvzR8Qf6Ed-9XdFoV0d0RQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="514.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_l2lZEGEXEd-hNJ83-BPSuw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_l2kyAGEXEd-hNJ83-BPSuw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_l2lZEWEXEd-hNJ83-BPSuw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="104.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_TiM4sAf0Ed-9XdFoV0d0RQ" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="UC3E Business Process" xpdExt:ApiEndPointParticipant="_e6E58GEXEd-hNJ83-BPSuw" iProcessExt:MaxStepIndex="7" Name="UC3EBusinessProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_wyhisAf1Ed-9XdFoV0d0RQ" Name="age" Mode="IN" Required="true" xpdExt:DisplayName="age">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_KDnMcAf2Ed-9XdFoV0d0RQ" Name="balanceAmt" Mode="IN" Required="true" xpdExt:DisplayName="balanceAmt">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ucNyoAf1Ed-9XdFoV0d0RQ" Name="custName" Mode="IN" Required="true" xpdExt:DisplayName="custName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_VCD3AAf2Ed-9XdFoV0d0RQ" Name="customerSince" Mode="IN" Required="true" xpdExt:DisplayName="customerSince">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_QjYsQAf2Ed-9XdFoV0d0RQ" Name="dateOfBirth" Mode="IN" Required="true" xpdExt:DisplayName="dateOfBirth">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_zbdT0Af1Ed-9XdFoV0d0RQ" Name="existingCustomer" Mode="IN" Required="true" xpdExt:DisplayName="existingCustomer">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_jzeyAAf4Ed-9XdFoV0d0RQ" xpdExt:DisplayName="lastCallDate" Name="lastCallDate">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nmqvwAf4Ed-9XdFoV0d0RQ" xpdExt:DisplayName="lastCallTime" Name="lastCallTime">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_QVxlsAgEEd-yoYX0IglVoA" xpdExt:DisplayName="promotionalMsg" Name="promotionalMsg">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>300</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_eX2Mkwf0Ed-9XdFoV0d0RQ" Name="StartEvent" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_e58-IGEXEd-hNJ83-BPSuw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="age">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">age</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="balanceAmt">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">balanceAmt</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="custName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">custName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="customerSince">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">customerSince</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="dateOfBirth">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateOfBirth</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="existingCustomer">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">existingCustomer</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_e6E58GEXEd-hNJ83-BPSuw" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC3EPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC3EBusinessProcess" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="UC3EPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_e6E58GEXEd-hNJ83-BPSuw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_eX2Mkgf0Ed-9XdFoV0d0RQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_eX2MlAf0Ed-9XdFoV0d0RQ" Name="EndEvent" xpdExt:DisplayName="End Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_eX2Mkgf0Ed-9XdFoV0d0RQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_mTE9wAf0Ed-9XdFoV0d0RQ" Name="InvokePageFlow" xpdExt:Visibility="Private" xpdExt:DisplayName="InvokePageFlow" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_mTE9wQf0Ed-9XdFoV0d0RQ"/>
+                <xpdl2:MessageOut Id="_mTE9wgf0Ed-9XdFoV0d0RQ"/>
+                <xpdExt:FormImplementation FormType="Pageflow" FormURI="UC3EPackage.xpdl#_AGzBMAf6Ed-9XdFoV0d0RQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_9LRdgAf0Ed-9XdFoV0d0RQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="bpmJspTask" Value="UC3EPackage.xpdl#_AGzBMAf6Ed-9XdFoV0d0RQ"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_eX2Mkgf0Ed-9XdFoV0d0RQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="239.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="promotionalMsg" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="dateOfBirth" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="balanceAmt" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="customerSince" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="existingCustomer" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="age" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="lastCallTime" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="custName" Mode="INOUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="lastCallDate" Mode="INOUT" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nAFNsAf0Ed-9XdFoV0d0RQ" Name="DisplayData" xpdExt:Visibility="Private" xpdExt:DisplayName="Display Data" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_nAFNsQf0Ed-9XdFoV0d0RQ"/>
+                <xpdl2:MessageOut Id="_nAFNsgf0Ed-9XdFoV0d0RQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_9LRdgAf0Ed-9XdFoV0d0RQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_eX2Mkgf0Ed-9XdFoV0d0RQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="471.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="existingCustomer" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="lastCallTime" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="lastCallDate" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="balanceAmt" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="dateOfBirth" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="customerSince" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="custName" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="age" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_eX2MlQf0Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_nAFNsAf0Ed-9XdFoV0d0RQ" To="_eX2MlAf0Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ligcewf0Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_eX2Mkwf0Ed-9XdFoV0d0RQ" To="_mTE9wAf0Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nAFNswf0Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_mTE9wAf0Ed-9XdFoV0d0RQ" To="_nAFNsAf0Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="age"/>
+            <simulation:ParameterDistribution ParameterId="balanceAmt"/>
+            <simulation:ParameterDistribution ParameterId="custName"/>
+            <simulation:ParameterDistribution ParameterId="customerSince"/>
+            <simulation:ParameterDistribution ParameterId="dateOfBirth"/>
+            <simulation:ParameterDistribution ParameterId="existingCustomer"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_AGzBMAf6Ed-9XdFoV0d0RQ" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:XpdModelType="PageFlow" xpdExt:DisplayName="UC3E Pageflow Process" iProcessExt:MaxStepIndex="13" Name="UC3EPageflowProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_OwGM4Af6Ed-9XdFoV0d0RQ" Name="custName" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="custName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_OwGM4Qf6Ed-9XdFoV0d0RQ" Name="age" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="age">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_OwGM4gf6Ed-9XdFoV0d0RQ" Name="existingCustomer" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="existingCustomer">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_OwGM4wf6Ed-9XdFoV0d0RQ" Name="balanceAmt" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="balanceAmt">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_OwGM5Af6Ed-9XdFoV0d0RQ" Name="dateOfBirth" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="dateOfBirth">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_OwGM5Qf6Ed-9XdFoV0d0RQ" Name="customerSince" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="customerSince">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_OwGM5gf6Ed-9XdFoV0d0RQ" Name="lastCallDate" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="lastCallDate">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_OwGM5wf6Ed-9XdFoV0d0RQ" Name="lastCallTime" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="lastCallTime">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_fsOLQAgEEd-yoYX0IglVoA" Name="promotionalMsg" IsArray="false" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="promotionalMsg">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>300</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_Y85QsAf9Ed-9XdFoV0d0RQ" xpdExt:DisplayName="basePromotionMsg" Name="basePromotionMsg">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>150</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_OwPW1wf6Ed-9XdFoV0d0RQ" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="27.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="33.0" YCoordinate="114.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_OwPW2Af6Ed-9XdFoV0d0RQ" Name="FirstPageActivity" xpdExt:Visibility="Private" xpdExt:DisplayName="FirstPageActivity" iProcessExt:StepIndex="5">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_OwPW2Qf6Ed-9XdFoV0d0RQ"/>
+                <xpdl2:MessageOut Id="_OwPW2gf6Ed-9XdFoV0d0RQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="64.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="136.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="customerSince" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="existingCustomer" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="custName" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="balanceAmt" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="age" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="lastCallTime" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="lastCallDate" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="dateOfBirth" Mode="IN" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_OwPW2wf6Ed-9XdFoV0d0RQ" Name="End" xpdExt:Visibility="Private" xpdExt:DisplayName="End" iProcessExt:StepIndex="6">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="47.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="830.0" YCoordinate="114.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_jv1gwAf7Ed-9XdFoV0d0RQ" iProcessExt:StepIndex="7">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_ECEckQf9Ed-9XdFoV0d0RQ"/>
+                  <xpdl2:TransitionRef Id="_F9luEgf9Ed-9XdFoV0d0RQ"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="45.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="370.0" YCoordinate="114.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oIuMkAf7Ed-9XdFoV0d0RQ" xpdExt:Visibility="Private" iProcessExt:StepIndex="8">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="31.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="637.0" YCoordinate="251.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tG3hkAf7Ed-9XdFoV0d0RQ" Name="DisplayPromotionMessage" xpdExt:Visibility="Private" xpdExt:DisplayName="Display Promotion Message" iProcessExt:StepIndex="9">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_tG3hkQf7Ed-9XdFoV0d0RQ"/>
+                <xpdl2:MessageOut Id="_tG3hkgf7Ed-9XdFoV0d0RQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="72.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="124.0">
+              <xpdl2:Coordinates XCoordinate="529.0" YCoordinate="252.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="promotionalMsg" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="existingCustomer" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="dateOfBirth" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="customerSince" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="age" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="lastCallDate" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="lastCallTime" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="balanceAmt" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="custName" Mode="IN" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ECEckAf9Ed-9XdFoV0d0RQ" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task" iProcessExt:StepIndex="10">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">promotionalMsg = basePromotionMsg + &quot;Get 1 month free&quot;;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="64.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="371.0" YCoordinate="252.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_F9luEQf9Ed-9XdFoV0d0RQ" Name="ScriptTask2" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task 2" iProcessExt:StepIndex="11">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">promotionalMsg = basePromotionMsg + &quot;Get 3 months free&quot;;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="64.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="529.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_snEYcwgBEd-9XdFoV0d0RQ" Name="DisplayYoungPersonPromotionMessage" xpdExt:Visibility="Private" xpdExt:DisplayName="Display Young Person Promotion Message" iProcessExt:StepIndex="12">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_snEYdAgBEd-9XdFoV0d0RQ"/>
+                <xpdl2:MessageOut Id="_snEYdQgBEd-9XdFoV0d0RQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="94.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="148.0">
+              <xpdl2:Coordinates XCoordinate="695.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="promotionalMsg" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="existingCustomer" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="dateOfBirth" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="customerSince" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="age" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="lastCallDate" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="lastCallTime" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="balanceAmt" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="custName" Mode="IN" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_3KudEAgEEd-yoYX0IglVoA" Name="Setbasepromotionalmessage" xpdExt:Visibility="Private" xpdExt:DisplayName="Set base promotional message" iProcessExt:StepIndex="13">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">basePromotionMsg = &quot;Hello &quot; + custName + &quot;.&quot;;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="88.0" LaneId="_OvzR8Qf6Ed-9XdFoV0d0RQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="268.0" YCoordinate="115.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_OwPW3Af6Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_OwPW1wf6Ed-9XdFoV0d0RQ" To="_OwPW2Af6Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_lvPMsQf7Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_3KudEAgEEd-yoYX0IglVoA" To="_jv1gwAf7Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rXtREAf7Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_tG3hkAf7Ed-9XdFoV0d0RQ" To="_oIuMkAf7Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_tG3hkwf7Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_ECEckAf9Ed-9XdFoV0d0RQ" To="_tG3hkAf7Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ECEckQf9Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_jv1gwAf7Ed-9XdFoV0d0RQ" To="_ECEckAf9Ed-9XdFoV0d0RQ">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_F9luEgf9Ed-9XdFoV0d0RQ" xpdExt:DisplayName="" Name="" From="_jv1gwAf7Ed-9XdFoV0d0RQ" To="_F9luEQf9Ed-9XdFoV0d0RQ">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">age &lt; 25;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_vQpCwAgBEd-9XdFoV0d0RQ" Name="" From="_F9luEQf9Ed-9XdFoV0d0RQ" To="_snEYcwgBEd-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="8.75" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_wPOx8AgBEd-9XdFoV0d0RQ" Name="" From="_snEYcwgBEd-9XdFoV0d0RQ" To="_OwPW2wf6Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_3KudEQgEEd-yoYX0IglVoA" xpdExt:DisplayName="" Name="" From="_OwPW2Af6Ed-9XdFoV0d0RQ" To="_3KudEAgEEd-yoYX0IglVoA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="promotionalMsg"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_l2kyAGEXEd-hNJ83-BPSuw" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:XpdModelType="PageFlow" xpdExt:DisplayName="UC3E Capture Data" xpdExt:PublishAsBusinessService="true" xpdExt:BusinessServiceCategory="UC3 Work Manager" iProcessExt:MaxStepIndex="6" Name="UC3ECaptureData">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_zB7ZAGEXEd-hNJ83-BPSuw" xpdExt:DisplayName="customerSince" Name="customerSince">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zB7ZAWEXEd-hNJ83-BPSuw" xpdExt:DisplayName="custName" Name="custName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zB7ZAmEXEd-hNJ83-BPSuw" xpdExt:DisplayName="balanceAmt" Name="balanceAmt">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zB7ZBGEXEd-hNJ83-BPSuw" xpdExt:DisplayName="age" Name="age">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zB7ZBWEXEd-hNJ83-BPSuw" xpdExt:DisplayName="existingCustomer" Name="existingCustomer">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zB7ZBmEXEd-hNJ83-BPSuw" xpdExt:DisplayName="dateOfBirth" Name="dateOfBirth">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_ligceAf0Ed-9XdFoV0d0RQ" Name="CaptureData" xpdExt:Visibility="Private" xpdExt:DisplayName="Capture Data" iProcessExt:StepIndex="4">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ligceQf0Ed-9XdFoV0d0RQ"/>
+                <xpdl2:MessageOut Id="_ligcegf0Ed-9XdFoV0d0RQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_l2lZEWEXEd-hNJ83-BPSuw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="176.0" YCoordinate="52.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_l2nOQGEXEd-hNJ83-BPSuw" Name="StartEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Start Event" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_l2lZEWEXEd-hNJ83-BPSuw" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="34.0" YCoordinate="51.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rO_oMGEXEd-hNJ83-BPSuw" Name="SendTask" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Send Task" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskSend xpdExt:ImplementationType="InvokeBusinessProcess" Implementation="WebService">
+                <xpdl2:Message Id="_QITSQWEYEd-hNJ83-BPSuw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="age">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">age</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="balanceAmt">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">balanceAmt</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="custName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">custName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="customerSince">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">customerSince</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="dateOfBirth">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateOfBirth</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="existingCustomer">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">existingCustomer</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_e6E58GEXEd-hNJ83-BPSuw_consumer" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC3EPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC3EBusinessProcess" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="UC3EPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+                <xpdExt:BusinessProcess BusinessProcessId="_TiM4sAf0Ed-9XdFoV0d0RQ" ActivityId="_eX2Mkwf0Ed-9XdFoV0d0RQ"/>
+              </xpdl2:TaskSend>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_e6E58GEXEd-hNJ83-BPSuw_consumer</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_l2lZEWEXEd-hNJ83-BPSuw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="353.0" YCoordinate="52.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_l2n1UGEXEd-hNJ83-BPSuw" Name="" From="_l2nOQGEXEd-hNJ83-BPSuw" To="_ligceAf0Ed-9XdFoV0d0RQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rO_oMWEXEd-hNJ83-BPSuw" Name="" From="_ligceAf0Ed-9XdFoV0d0RQ" To="_rO_oMGEXEd-hNJ83-BPSuw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="20"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

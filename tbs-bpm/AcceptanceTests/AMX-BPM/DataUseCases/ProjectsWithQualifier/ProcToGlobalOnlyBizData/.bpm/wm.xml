@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workmodel:WorkModels xmlns:workmodel="http://workmodel.brm.n2.tibco.com" orgModelVersion="1" version="1.0.0.201311291223">
+  <workmodel:WorkModel workModelUID="WM__grZlsFNpEeOUC7phQChPyQ">
+    <BaseModelInfo description="Enter Data" name="EnterData" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="global" optional="true" type="Complex">
+        <complexSpec className="com.example.globalonlybizdata.GlobalClassInGlobalOnlyBom"/>
+      </inouts>
+      <inouts name="local" optional="true" type="Complex">
+        <complexSpec className="com.example.proctoglobalonlybizdata.Local1"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.201311291223,1.0.0.201311291223]" workTypeID="WT__grZlsFNpEeOUC7phQChPyQ">
+        <WorkModelMapping>
+          <TypeParamName>global</TypeParamName>
+          <ModelParamName>global</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>local</TypeParamName>
+          <ModelParamName>local</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+  <workmodel:WorkModel workModelUID="WM__hlsDsFNpEeOUC7phQChPyQ">
+    <BaseModelInfo description="Display Data" name="DisplayData" priority="50"/>
+    <WorkModelSpecification>
+      <inouts name="global" optional="true" type="Complex">
+        <complexSpec className="com.example.globalonlybizdata.GlobalClassInGlobalOnlyBom"/>
+      </inouts>
+      <inouts name="local" optional="true" type="Complex">
+        <complexSpec className="com.example.proctoglobalonlybizdata.Local1"/>
+      </inouts>
+    </WorkModelSpecification>
+    <WorkModelEntities>
+      <WorkModelEntity distributionStrategy="OFFER">
+        <Entities model-version="1" entity-type="GROUP" guid="_e1GjQFcOEd6ECemE0GiJmQ"/>
+      </WorkModelEntity>
+    </WorkModelEntities>
+    <WorkModelTypes>
+      <WorkModelType version="[1.0.0.201311291223,1.0.0.201311291223]" workTypeID="WT__hlsDsFNpEeOUC7phQChPyQ">
+        <WorkModelMapping>
+          <TypeParamName>global</TypeParamName>
+          <ModelParamName>global</ModelParamName>
+        </WorkModelMapping>
+        <WorkModelMapping>
+          <TypeParamName>local</TypeParamName>
+          <ModelParamName>local</ModelParamName>
+        </WorkModelMapping>
+      </WorkModelType>
+    </WorkModelTypes>
+  </workmodel:WorkModel>
+</workmodel:WorkModels>

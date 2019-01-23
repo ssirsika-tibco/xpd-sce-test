@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF" name="com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_H2UQMQ93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_H2UQMg93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_H2UQMw93EeW3MruGqUCC5Q" key="created" value="1433947600691"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_H2UQNA93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_H5JhwA93EeW3MruGqUCC5Q" key="checksum" value="673022878"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVFOrdineOnlineVFPortType" name="OrdineOnlineVFPortType">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="OrdineOnlineVFPortTypeVerificaFattibilita" name="VerificaFattibilita">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="VerificaFattibilitarequest" name="request">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.presentation.OOLVF.bom#com.enel.xmlns.mercato.libero.schema.presentation.OOLVFVerificaFattibilitaRequestType?com.enel.xmlns.mercato.libero.schema.presentation.OOLVF%3a%3aVerificaFattibilitaRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="VerificaFattibilitaresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.presentation.OOLVF.bom#com.enel.xmlns.mercato.libero.schema.presentation.OOLVFVerificaFattibilitaResponseType?com.enel.xmlns.mercato.libero.schema.presentation.OOLVF%3a%3aVerificaFattibilitaResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="OrdineOnlineVFPortTypeVerificaFattibilitaOFF" name="VerificaFattibilitaOFF">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="VerificaFattibilitaOFFrequest" name="request">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.presentation.OOLVF.bom#com.enel.xmlns.mercato.libero.schema.presentation.OOLVFVerificaFattibilitaOFFRequestType?com.enel.xmlns.mercato.libero.schema.presentation.OOLVF%3a%3aVerificaFattibilitaOFFRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="VerificaFattibilitaOFFresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.presentation.OOLVF.bom#com.enel.xmlns.mercato.libero.schema.presentation.OOLVFVerificaFattibilitaOFFResponseType?com.enel.xmlns.mercato.libero.schema.presentation.OOLVF%3a%3aVerificaFattibilitaOFFResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HzyhJw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HzyhKA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HzyhKQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HzyhKg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_HzyhKw93EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF?com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF?" xsdTargetNamespace="http://xmlns.enel.com/mercato/libero/schema/presentation/OrdiniOnlineVF.xsd" xsdSchemaLocation="OOLVeirifcaFattibilitaAbstract.wsdl" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="OOLVeirifcaFattibilitaAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HzyhLQ93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVFOrdineOnlineVFPortType?com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF%3a%3aOrdineOnlineVFPortType?" xsdName="OrdineOnlineVFPortType" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_H2UQMA93EeW3MruGqUCC5Q" displayLabel="OrdineOnlineVFPortType" base_NamedElement="com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVFOrdineOnlineVFPortType?com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF%3a%3aOrdineOnlineVFPortType?"/>
+  <notation:Diagram xmi:id="_H2UQNQ93EeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF?com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF?" name="com.enel.xmlns.mercato.libero.schema.presentation.OrdiniOnlineVF" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_H2UQNg93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_H2UQNw93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

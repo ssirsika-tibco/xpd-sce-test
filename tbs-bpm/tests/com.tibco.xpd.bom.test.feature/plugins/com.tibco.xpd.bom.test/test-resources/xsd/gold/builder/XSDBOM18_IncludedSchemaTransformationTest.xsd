@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://businessobjectmodel" xmlns:tns1="http://businessobjectmodel" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://businessobjectmodel">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM18_IncludedSchema/Business Objects/businessobjectmodel.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="AccountType" id="businessobjectmodelAccountType" abstract="false"
+      mixed="false" name="AccountType">
+    <xsd:attribute ecore:name="customer" id="_--_XwPNsEd2xQIQfTfBKXw" form="unqualified"
+        name="Customer" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Customer" id="businessobjectmodelCustomer" abstract="false"
+      mixed="false" name="Customer"/>
+</xsd:schema>

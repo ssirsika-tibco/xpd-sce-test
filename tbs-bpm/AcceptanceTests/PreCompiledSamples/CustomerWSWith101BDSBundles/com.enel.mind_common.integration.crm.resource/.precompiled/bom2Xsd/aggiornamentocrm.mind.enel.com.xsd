@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://com.enel.mind.aggiornamentocrm" xmlns:tns6="http://com.enel.mind.aggiornamentocrm"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.enel.mind.aggiornamentocrm">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.integration.crm.resource/Generated Business Objects/aggiornamentocrm.mind.enel.com.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="AvanzamentoStatoBeneRequestType" id="aggiornamentocrm.mind.enel.comAvanzamentoStatoBeneRequestType"
+      abstract="false" mixed="false" name="AvanzamentoStatoBeneRequestType">
+    <xsd:sequence>
+      <xsd:element ecore:name="tipoEsito" id="AvanzamentoStatoBeneRequestTypeTipoEsito"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="TipoEsito" type="xsd:string"/>
+      <xsd:element ecore:name="esito" id="AvanzamentoStatoBeneRequestTypeEsito" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="Esito" type="xsd:string"/>
+      <xsd:element ecore:name="codiceEsito" id="AvanzamentoStatoBeneRequestTypeCodiceEsito"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="CodiceEsito" type="xsd:string"/>
+      <xsd:element ecore:name="descrizioneEsito" id="AvanzamentoStatoBeneRequestTypeDescrizioneEsito"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="DescrizioneEsito" type="xsd:string"/>
+      <xsd:element ecore:name="dataEvento" id="AvanzamentoStatoBeneRequestTypeDataEvento"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="DataEvento" type="xsd:string"/>
+      <xsd:element ecore:name="identificativoBene" id="AvanzamentoStatoBeneRequestTypeIdentificativoBene"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="IdentificativoBene"
+          type="xsd:string"/>
+      <xsd:element ecore:name="idGateway" id="AvanzamentoStatoBeneRequestTypeIdGateway"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="IdGateway" type="xsd:string"/>
+      <xsd:element ecore:name="causaleEsito" id="AvanzamentoStatoBeneRequestTypeCausaleEsito"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="CausaleEsito" type="xsd:string"/>
+      <xsd:element ecore:name="dataInstPostRip" id="AvanzamentoStatoBeneRequestTypeDataInstPostRip"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="DataInstPostRip" type="xsd:string"/>
+      <xsd:element ecore:name="idPraticaFinanziamento" id="AvanzamentoStatoBeneRequestTypeIdPraticaFinanziamento"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="IdPraticaFinanziamento"
+          type="xsd:string"/>
+      <xsd:element ecore:name="idBpm" id="AvanzamentoStatoBeneRequestTypeIdBpm" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="IdBpm" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="AvanzamentoStatoBeneResponseType" id="aggiornamentocrm.mind.enel.comAvanzamentoStatoBeneResponseType"
+      abstract="false" mixed="false" name="AvanzamentoStatoBeneResponseType">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="AvanzamentoStatoBeneResponseTypeEsito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="Esito" type="xsd:string"/>
+      <xsd:element ecore:name="codiceEsito" id="AvanzamentoStatoBeneResponseTypeCodiceEsito"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="CodiceEsito" type="xsd:string"/>
+      <xsd:element ecore:name="descrizioneEsito" id="AvanzamentoStatoBeneResponseTypeDescrizioneEsito"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="DescrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="AvanzamentoStatoBeneRequestElement" nillable="false"
+      type="AvanzamentoStatoBeneRequestType"/>
+  <xsd:element abstract="false" name="AvanzamentoStatoBeneResponseElement" nillable="false"
+      type="AvanzamentoStatoBeneResponseType"/>
+  <xsd:element abstract="false" name="AvanzamentoStatoBene" nillable="false">
+    <xsd:complexType ecore:name="AvanzamentoStatoBeneType" id="aggiornamentocrm.mind.enel.comAvanzamentoStatoBeneType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="in1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="in" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AvanzamentoStatoBeneResponse" nillable="false">
+    <xsd:complexType ecore:name="AvanzamentoStatoBeneResponseType1" id="aggiornamentocrm.mind.enel.comAvanzamentoStatoBeneResponseType2"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="out" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="out" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

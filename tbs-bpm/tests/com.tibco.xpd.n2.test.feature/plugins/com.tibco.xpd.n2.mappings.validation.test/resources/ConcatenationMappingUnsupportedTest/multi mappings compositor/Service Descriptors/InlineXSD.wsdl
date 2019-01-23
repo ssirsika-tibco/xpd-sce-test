@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/InlineXSD1/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InlineXSD" targetNamespace="http://www.example.org/InlineXSD1/">
+  <wsdl:types>  
+    <xsd:schema targetNamespace="http://www.example.org/InlineXSD1/">
+        <xsd:complexType name="NewOperation">
+          <xsd:sequence>
+          	<xsd:element name="in" type="xsd:string" />
+          	<xsd:element name="inStr" type="xsd:string"></xsd:element>
+          	<xsd:element name="inInt" type="xsd:string"></xsd:element>
+          	<xsd:element name="TestType" type="tns:TestType"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="NewOperationResponse">
+          <xsd:sequence>
+          	<xsd:element name="out" type="xsd:string" />
+          	<xsd:element name="el2" type="xsd:string"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+    
+        <xsd:complexType name="TestType">
+        	<xsd:attribute name="testAttrib" type="xsd:string"></xsd:attribute>
+        </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part type="tns:NewOperation" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part type="tns:NewOperationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperation_faultMsg">
+  	<wsdl:part name="fault" type="tns:NewOperation"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="InlineXSD">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:NewOperationResponse"/>
+            <wsdl:fault name="fault" message="tns:NewOperation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InlineXSDSOAP" type="tns:InlineXSD">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="NewOperation">
+      <soap:operation soapAction="http://www.example.org/InlineXSD1/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InlineXSD">
+    <wsdl:port binding="tns:InlineXSDSOAP" name="InlineXSDSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

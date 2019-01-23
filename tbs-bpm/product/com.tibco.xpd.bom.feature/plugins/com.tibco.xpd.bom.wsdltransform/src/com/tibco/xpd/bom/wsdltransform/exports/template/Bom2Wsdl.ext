@@ -1,0 +1,146 @@
+import wsdlSchema;
+import xmlSchema;
+import type;
+import uml;
+import com::tibco::xpd::bom::xsdtransform::exports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension org::openarchitectureware::xsd::lib::map;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::Bom2Xsd reexport;
+	
+String getWsdlFileNames(WsdlSchemaDocumentRoot docRoot) :
+	"" + docRoot.definitions.targetNamespace.replaceFirst("http://","") + ".wsdl";
+	
+// create a DocumentRoot for every sub-Epackage
+Object transformToWsdl(ExportTransformationData data, Model model, String bomFullPathUri) :
+	let wsdlSchemaRoot = new WsdlSchemaDocumentRoot :
+	let tDefin = new TDefinitions :
+	let ttypes = new TTypes :
+	let typesList = {} :	
+	let docRootList = transform(data, model, bomFullPathUri, true) :
+	let namespace = getNamespace(model, true) :	
+	docRootList.collect(e|e.schema.^import.setSchemaLocation(null)) ->
+	//docRootList.collect(e|e.schema.^import.setSchemaNamespace(null)) ->
+	wsdlSchemaRoot.xMLNSPrefixMap.put("xsd","http://www.w3.org/2001/XMLSchema") ->	
+	docRootList.typeSelect(XmlSchemaDocumentRoot).collect(e | addXSDSchemaToWsdl(data, ttypes, e.schema, wsdlSchemaRoot)) ->
+	typesList.add(ttypes) ->	
+	tDefin.setTypes(typesList) ->		
+	addPortTypes(data, model, tDefin, docRootList, wsdlSchemaRoot) ->
+	tDefin.setTargetNamespace(namespace) ->
+	wsdlSchemaRoot.setDefinitions(tDefin) ->
+	docRootList.add(wsdlSchemaRoot) ->	
+	wsdlSchemaRoot;
+
+addXSDSchemaToWsdl(ExportTransformationData data, TTypes ttypes, SchemaType schemaType, WsdlSchemaDocumentRoot wsdlSchemaRoot) :
+	let prefixForNamespace = data.getPrefixForNamespace(schemaType.targetNamespace) :		
+	wsdlSchemaRoot.xMLNSPrefixMap.put(prefixForNamespace, schemaType.targetNamespace) ->	
+	//schemaType.setTargetNamespace(null) ->
+	ttypes.any.addFrom(schemaType.eContainer);// -> // this is now used for oaw 4.3.1	
+	//addSchema(ttypes.any, schemaType) ->    // this is needed for oaw 4.3.0 or lower
+	//wsdlSchemaRoot.xMLNSPrefixMap.put(prefixForNamespace, schemaType.targetNamespace);	
+	//schemaType.setTargetNamespace(null);
+	
+addPortTypes(ExportTransformationData data, Model model, TDefinitions tDefin, List[XmlSchemaDocumentRoot] docRootList, WsdlSchemaDocumentRoot wsdlSchemaRoot) :	
+	tDefin.setPortType({}) ->
+	tDefin.setMessage({}) ->
+	model.eAllContents.typeSelect(Class).select(e | e.ownedOperation != null && e.ownedOperation.size > 0).collect(e | createPortType(data, e, tDefin, docRootList, wsdlSchemaRoot));
+	 
+createPortType(ExportTransformationData data, Class classWithOperations, TDefinitions tDefin, List[XmlSchemaDocumentRoot] docRootList, WsdlSchemaDocumentRoot wsdlSchemaRoot) :
+	let portType = new TPortType :
+	let operations = {} :	
+	portType.setName(classWithOperations.name) ->
+	portType.setOperation(operations) ->
+	classWithOperations.ownedOperation.collect(e | createOperation(data, classWithOperations, e, portType, tDefin, docRootList, wsdlSchemaRoot)) ->	
+	tDefin.portType.add(portType);
+	
+createOperation(ExportTransformationData data, Class classWithOperations, Operation ownedOperation, TPortType portType, TDefinitions tDefin, List[XmlSchemaDocumentRoot] docRootList, WsdlSchemaDocumentRoot wsdlSchemaRoot) :
+	let operation = new TOperation :	
+	let prefixForModel = data.getPrefixForNamespace(classWithOperations.getModel().name) :
+	let mainDocRoot = docRootList.select(e| e.xMLNSPrefixMap.get(prefixForModel) != null).first() :		
+	operation.setName(ownedOperation.name) ->	
+	ownedOperation.ownedParameter.select(e|e.direction != null && e.type != null && e.direction == ParameterDirectionKind::return).collect(e|createOutputMessagePart(data, classWithOperations,e, operation, tDefin, docRootList, wsdlSchemaRoot)) ->
+	ownedOperation.ownedParameter.select(e|e.direction == null || e.direction != ParameterDirectionKind::return).size > 0 ? (
+		let tParam = new TParam :
+		let message = new TMessage :
+		message.setPart({}) ->
+		tParam.setName(operation.name+"_inputMessage") ->
+		message.setName(classWithOperations.name+"_"+operation.name+"_inputMessage") ->
+		ownedOperation.ownedParameter.select(e|e.direction == null || e.direction != ParameterDirectionKind::return).collect(e|createInputParts(data, e, operation, tDefin, docRootList, message, wsdlSchemaRoot)) ->
+		tDefin.message.add(message) ->
+		tParam.setMessage(createQName(mainDocRoot.xMLNSPrefixMap.get(prefixForModel), message.name, prefixForModel)) ->	
+		operation.setInput(tParam)
+	) : (
+		null
+	) ->	
+	
+	portType.operation.add(operation);	
+	
+createOutputMessagePart(ExportTransformationData data, Class classWithOperations, Parameter parameter, TOperation operation, TDefinitions tDefin, List[XmlSchemaDocumentRoot] docRootList, WsdlSchemaDocumentRoot wsdlSchemaRoot) :	
+	let paramPackage = parameter.type.package :
+	let paramTypeName = (
+		isAnonymousTopLevelElement(parameter.type) ? (
+			let name = getAnonymousTopLevelElementName(parameter.type) :
+			name
+		) : parameter.type.name
+	) :
+	let xsdType = getQName(parameter.type, null) :
+	let prefixForPackage = data.getPrefixForNamespace(paramPackage.name) :
+	let prefixForModel = data.getPrefixForNamespace(classWithOperations.getModel().name) :	
+	let targetNamespaceForPackage = wsdlSchemaRoot.xMLNSPrefixMap.get(prefixForPackage) :
+	let targetNamespaceForModel = wsdlSchemaRoot.xMLNSPrefixMap.get(prefixForModel) :	
+	//let docRootWithParamType = docRootList.select(e| e.xMLNSPrefixMap.get(prefixForPackage) != null).first() :
+	//let mainDocRoot = docRootList.select(e| e.xMLNSPrefixMap.get(prefixForModel) != null).first() :
+	let docRootWithParamType = tDefin.types.eAllContents.typeSelect(SchemaType).select(e| e.targetNamespace == targetNamespaceForPackage).first() :
+	let mainDocRoot = docRootList.select(e| e.xMLNSPrefixMap.get(prefixForModel) != null).first() :
+	
+	let isElementType = docRootWithParamType.eAllContents.typeSelect(TopLevelElement).select(e|e.name==paramTypeName).first() : 	
+	let tParam = new TParam :
+	let message = new TMessage :
+	let tPart = new TPart :	
+	tParam.setName(operation.name+"_outputMessage") ->
+	message.setName(classWithOperations.name+"_"+operation.name+"_outputMessage") ->
+	tPart.setName(operation.name+"_outputPart") ->
+	xsdType != null ? (
+		traceMe("set type = " + xsdType) ->
+		tPart.setType(xsdType)
+	) : (
+		isElementType == null ? (
+			traceMe("set type 1 = " + prefixForPackage + " "+ createQName(wsdlSchemaRoot.xMLNSPrefixMap.get(prefixForPackage),paramTypeName,prefixForPackage)) ->
+			tPart.setType(createQName(targetNamespaceForPackage,paramTypeName,prefixForPackage))
+		) : (
+			tPart.setElement(createQName(targetNamespaceForPackage,paramTypeName,prefixForPackage))
+		)
+	) ->
+	message.setPart({tPart}) ->
+	tDefin.message.add(message) ->
+	//tParam.setMessage(createQName(targetNamespaceForPackage,message.name,prefixForModel)) ->
+	tParam.setMessage(createQName(mainDocRoot.xMLNSPrefixMap.get(prefixForModel), message.name, prefixForModel)) ->		
+	operation.setOutput(tParam);
+	
+createInputParts(ExportTransformationData data, Parameter parameter, TOperation operation, TDefinitions tDefin, List[XmlSchemaDocumentRoot] docRootList, TMessage message, WsdlSchemaDocumentRoot wsdlSchemaRoot) :
+	let paramPackage = parameter.type.package :	
+	let paramTypeName = (
+		isAnonymousTopLevelElement(parameter.type) ? (
+			let name = getAnonymousTopLevelElementName(parameter.type) :
+			name
+		) : parameter.type.name
+	) :
+	let xsdType = getQName(parameter.type, null) :
+	let prefixForPackage = data.getPrefixForNamespace(paramPackage.name) :
+	let targetNamespaceForPackage = wsdlSchemaRoot.xMLNSPrefixMap.get(prefixForPackage) :
+	//let docRootWithParamType = docRootList.select(e| e.xMLNSPrefixMap.get(prefixForPackage) != null).first() :
+	let docRootWithParamType = tDefin.types.eAllContents.typeSelect(SchemaType).select(e| e.targetNamespace == targetNamespaceForPackage).first() :
+	
+	let isElementType = docRootWithParamType.eAllContents.typeSelect(TopLevelElement).select(e|e.name==paramTypeName).first() : 		
+	let tPart = new TPart :	
+	tPart.setName(parameter.name) ->
+	xsdType != null ? (
+		tPart.setType(xsdType)
+	) : (
+		isElementType == null ? (			
+			tPart.setType(createQName(targetNamespaceForPackage,paramTypeName,prefixForPackage))
+		) : (
+			tPart.setElement(createQName(targetNamespaceForPackage,paramTypeName,prefixForPackage))
+		)
+	) ->
+	message.part.add(tPart);

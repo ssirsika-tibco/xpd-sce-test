@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:ns0="http://esb.siemens.net/PublicSchemas/Person/PersonService/PersonBase/2009/07" xmlns="http://esb.siemens.net/PublicSchemas/Person/PersonService/PersonBase/2009/07" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://esb.siemens.net/PublicSchemas/Person/PersonService/PersonBase/2009/07">
+			<xs:complexType name="AddressLocationType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="zipCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="street" type="xs:string"/>
+					<xs:element minOccurs="0" name="streetNumber" type="xs:string"/>
+					<xs:element minOccurs="0" name="postOffice" type="xs:string"/>
+					<xs:element minOccurs="0" name="zipPostOffice" type="xs:string"/>
+					<xs:element minOccurs="0" name="cityPostOffice" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="phone" type="ns0:PhoneType"/>
+					<xs:element minOccurs="0" name="LifeCycleInfo" type="ns0:LifeCycleType"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="additionalAttribute">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:string">
+									<xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="xs:string"/>
+			</xs:complexType>
+			<xs:complexType name="AddressType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="Country">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:State"/>
+							</xs:sequence>
+							<xs:attribute name="name" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ChangeRoleResponseType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" name="group">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded" name="role">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:extension base="xs:string">
+												<xs:attribute name="name" type="xs:string"/>
+												<xs:attribute name="oldValue" type="xs:string"/>
+											</xs:extension>
+										</xs:simpleContent>
+									</xs:complexType>
+								</xs:element>
+								<xs:element ref="ns0:status"/>
+							</xs:sequence>
+							<xs:attribute name="id" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ChangeRoleType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" name="group">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded" name="role">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:extension base="xs:string">
+												<xs:attribute name="name" type="xs:string"/>
+												<xs:attribute name="oldValue" type="xs:string"/>
+											</xs:extension>
+										</xs:simpleContent>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="value" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ContractType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="contract" type="xs:string"/>
+					<xs:element minOccurs="0" name="contractID" type="xs:string"/>
+					<xs:element minOccurs="0" name="sheet" type="xs:string"/>
+					<xs:element minOccurs="0" name="sheetID" type="xs:string"/>
+					<xs:element minOccurs="0" name="module" type="xs:string"/>
+					<xs:element minOccurs="0" name="moduleID" type="xs:string"/>
+					<xs:element minOccurs="0" name="element" type="xs:string"/>
+					<xs:element minOccurs="0" name="elementID" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LifeCycleQueryType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="validFrom" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="validTo" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="status">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="planned"/>
+								<xs:enumeration value="enabled"/>
+								<xs:enumeration value="disabled"/>
+								<xs:enumeration value="deleted"/>
+								<xs:enumeration value="all"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LifeCycleType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="modifiedDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="deleteDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="validFrom" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="validTo" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="status">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="planned"/>
+								<xs:enumeration value="enabled"/>
+								<xs:enumeration value="disabled"/>
+								<xs:enumeration value="deleted"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element minOccurs="0" name="serviceEndDate" type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LocationType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="additionalAttribute">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:string">
+									<xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="xs:string"/>
+			</xs:complexType>
+			<xs:complexType name="OrganisationQueryType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="companyName" type="xs:string"/>
+					<xs:element minOccurs="0" name="ou1" type="xs:string"/>
+					<xs:element minOccurs="0" name="ou2" type="xs:string"/>
+					<xs:element minOccurs="0" name="ou3" type="xs:string"/>
+					<xs:element minOccurs="0" name="ou4" type="xs:string"/>
+					<xs:element minOccurs="0" name="department" type="xs:string"/>
+					<xs:element minOccurs="0" name="orgUnitSupplier" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>e.g. DBAG, VDO, COLORADO</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="OrganisationType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="companyName" type="xs:string"/>
+					<xs:element minOccurs="0" name="ou1" type="xs:string"/>
+					<xs:element minOccurs="0" name="ou2" type="xs:string"/>
+					<xs:element minOccurs="0" name="ou3" type="xs:string"/>
+					<xs:element minOccurs="0" name="ou4" type="xs:string"/>
+					<xs:element minOccurs="0" name="department" type="xs:string"/>
+					<xs:element minOccurs="0" name="mandant" type="xs:string"/>
+					<xs:element minOccurs="0" name="orgUnitSupplier" type="xs:string"/>
+					<xs:element minOccurs="0" name="LifeCycleInfo" type="ns0:LifeCycleType"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="ContractInfo" type="ns0:ContractType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PersonBaseType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="title" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Mr., Ms., Herr, Frau, Mr. Prof.,</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="jobTitle" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>CEO</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="namePrefix" type="xs:string"/>
+					<xs:element minOccurs="0" name="peerage" type="xs:string"/>
+					<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+					<xs:element minOccurs="0" name="lastName" type="xs:string"/>
+					<xs:element minOccurs="0" name="nickName" type="xs:string"/>
+					<xs:element minOccurs="0" name="firstNameInt" type="xs:string"/>
+					<xs:element minOccurs="0" name="lastNameInt" type="xs:string"/>
+					<xs:element minOccurs="0" name="email" type="xs:string"/>
+					<xs:element minOccurs="0" name="cellPhone" type="xs:string"/>
+					<xs:element minOccurs="0" name="voip" type="xs:string"/>
+					<xs:element minOccurs="0" name="GID" type="xs:string"/>
+					<xs:element minOccurs="0" name="SGID" type="xs:string"/>
+					<xs:element minOccurs="0" name="EDID" type="xs:string"/>
+					<xs:element minOccurs="0" name="KDIDENT" type="xs:string"/>
+					<xs:element minOccurs="0" name="PERSIDENT" type="xs:string"/>
+					<xs:element minOccurs="0" name="APD" type="xs:string"/>
+					<xs:element minOccurs="0" name="PersonalNR" type="xs:string"/>
+					<xs:element minOccurs="0" name="vip">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="none"/>
+								<xs:enumeration value="basic"/>
+								<xs:enumeration value="standard"/>
+								<xs:enumeration value="premium"/>
+								<xs:enumeration value="dedicated"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element minOccurs="0" name="mandant" type="xs:string"/>
+					<xs:element minOccurs="0" name="language" type="ns0:languageType">
+						<xs:annotation>
+							<xs:documentation>ISO 639 2-letter language codes
+					http://www.w3.org/WAI/ER/IG/ert/iso639.htm
+               </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="userType" type="ns0:userTypeType"/>
+					<xs:element minOccurs="0" name="sex" type="xs:string"/>
+					<xs:element minOccurs="0" name="managerGID" type="xs:string"/>
+					<xs:element minOccurs="0" name="orgID" type="xs:string"/>
+					<xs:element minOccurs="0" name="ARE" type="xs:string"/>
+					<xs:element minOccurs="0" name="costCenter" type="xs:string"/>
+					<xs:element minOccurs="0" name="costCenterDescription" type="xs:string"/>
+					<xs:element minOccurs="0" name="SDCIdent" type="xs:string"/>
+					<xs:element minOccurs="0" name="mkTAXID" type="xs:string"/>
+					<xs:element minOccurs="0" name="lavaBKZ" type="xs:string"/>
+					<xs:element minOccurs="0" name="juper" type="xs:string"/>
+					<xs:element minOccurs="0" name="juperText" type="xs:string"/>
+					<xs:element minOccurs="0" name="dingoStatus" type="xs:string"/>
+					<xs:element minOccurs="0" name="dingoID" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="Workplace">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ns0:WorkplaceType"/>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element minOccurs="0" name="Organisation" type="ns0:OrganisationType"/>
+					<xs:element minOccurs="0" name="LifeCycleInfo" type="ns0:LifeCycleType"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="addElement" type="ns0:addElementType"/>
+				</xs:sequence>
+				<xs:attribute name="action">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="new"/>
+							<xs:enumeration value="update"/>
+							<xs:enumeration value="delete"/>
+							<xs:enumeration value="reference"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:complexType>
+			<xs:complexType name="PersonEntitlementType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+					<xs:element minOccurs="0" name="lastName" type="xs:string"/>
+					<xs:element minOccurs="0" name="email" type="xs:string"/>
+					<xs:element minOccurs="0" name="GID" type="xs:string"/>
+					<xs:element minOccurs="0" name="personalNo" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PersonKeyType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="email" type="xs:string"/>
+					<xs:element minOccurs="0" name="GID" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PersonQueryType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+					<xs:element minOccurs="0" name="lastName" type="xs:string"/>
+					<xs:element minOccurs="0" name="email" type="xs:string"/>
+					<xs:element minOccurs="0" name="GID" type="xs:string"/>
+					<xs:element minOccurs="0" name="KDIDENT" type="xs:string"/>
+					<xs:element minOccurs="0" name="vip">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="none"/>
+								<xs:enumeration value="basic"/>
+								<xs:enumeration value="standard"/>
+								<xs:enumeration value="premium"/>
+								<xs:enumeration value="dedicated"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element minOccurs="0" name="mandant" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>e.g. Client-DE, Client-UPM</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="language" type="ns0:languageType">
+						<xs:annotation>
+							<xs:documentation>ISO 639 2-letter language codes
+					http://www.w3.org/WAI/ER/IG/ert/iso639.htm
+               </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="userType" type="ns0:userTypeType"/>
+					<xs:element minOccurs="0" name="sex" type="xs:string"/>
+					<xs:element minOccurs="0" name="orgID" type="xs:string"/>
+					<xs:element minOccurs="0" name="ARE" type="xs:string"/>
+					<xs:element minOccurs="0" name="costCenter" type="xs:string"/>
+					<xs:element minOccurs="0" name="SDCIdent" type="xs:string"/>
+					<xs:element minOccurs="0" name="Workplace">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ns0:WorkplaceQueryType"/>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element minOccurs="0" name="Organisation" type="ns0:OrganisationQueryType"/>
+					<xs:element minOccurs="0" name="LifeCycleInfo" type="ns0:LifeCycleQueryType"/>
+					<xs:element minOccurs="0" name="Roles" type="ns0:RoleQueryType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PersonReplicationType">
+				<xs:complexContent>
+					<xs:extension base="ns0:PersonBaseType"/>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="PersonType">
+				<xs:complexContent>
+					<xs:extension base="ns0:PersonBaseType">
+						<xs:sequence>
+							<xs:element minOccurs="0" ref="ns0:Roles"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="PhoneType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="areaCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+					<xs:element minOccurs="0" name="extension" type="xs:string"/>
+				</xs:sequence>
+				<xs:attribute name="type">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="phone"/>
+							<xs:enumeration value="fax"/>
+							<xs:enumeration value="modem"/>
+							<xs:enumeration value="combi"/>
+							<xs:enumeration value="others"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:complexType>
+			<xs:complexType name="RemoveRoleResponseType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" name="group">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="role">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:extension base="xs:string">
+												<xs:attribute name="name" type="xs:string"/>
+											</xs:extension>
+										</xs:simpleContent>
+									</xs:complexType>
+								</xs:element>
+								<xs:element ref="ns0:status"/>
+							</xs:sequence>
+							<xs:attribute name="id" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RemoveRoleType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" name="group">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="role">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:extension base="xs:string">
+												<xs:attribute name="name" type="xs:string"/>
+											</xs:extension>
+										</xs:simpleContent>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="id" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RoleQueryType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" name="group">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded" name="role">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:extension base="xs:string">
+												<xs:attribute name="name" type="xs:string"/>
+											</xs:extension>
+										</xs:simpleContent>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="id" type="xs:string"/>
+							<xs:attribute default="false" name="withinSameGroup" type="xs:boolean"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RoleResponseType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" name="group">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded" name="role">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:extension base="xs:string">
+												<xs:attribute name="name" type="xs:string"/>
+											</xs:extension>
+										</xs:simpleContent>
+									</xs:complexType>
+								</xs:element>
+								<xs:element ref="ns0:status"/>
+							</xs:sequence>
+							<xs:attribute name="id" type="xs:string"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RoleType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" ref="ns0:group"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="WorkplaceKeyType">
+				<xs:sequence>
+					<xs:element name="country" type="xs:string"/>
+					<xs:element minOccurs="0" name="state" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>name of the state (e.g. California, Baveria)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="city" type="xs:string"/>
+					<xs:element minOccurs="0" name="location" type="xs:string"/>
+					<xs:element minOccurs="0" name="building" type="xs:string"/>
+					<xs:element minOccurs="0" name="floor" type="xs:string"/>
+					<xs:element minOccurs="0" name="room" type="xs:string"/>
+					<xs:element minOccurs="0" name="workplaceID" type="xs:string"/>
+				</xs:sequence>
+				<xs:attribute name="mainOffice" type="xs:boolean"/>
+			</xs:complexType>
+			<xs:complexType name="WorkplaceQueryType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="country" type="xs:string"/>
+					<xs:element minOccurs="0" name="state" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>name of the state (e.g. California, Baveria)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="city" type="xs:string"/>
+					<xs:element minOccurs="0" name="location" type="xs:string"/>
+					<xs:element minOccurs="0" name="building" type="xs:string"/>
+					<xs:element minOccurs="0" name="floor" type="xs:string"/>
+					<xs:element minOccurs="0" name="room" type="xs:string"/>
+					<xs:element minOccurs="0" name="LifeCycleInfo" type="ns0:LifeCycleType"/>
+					<xs:element minOccurs="0" name="ARE" type="xs:string"/>
+					<xs:element minOccurs="0" name="costCenter" type="xs:string"/>
+					<xs:element minOccurs="0" name="department" type="xs:string"/>
+					<xs:element minOccurs="0" name="SDCIdent" type="xs:string"/>
+					<xs:element minOccurs="0" name="workplaceID" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="WorkplaceType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="country" type="xs:string"/>
+					<xs:element minOccurs="0" name="state" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>name of the state (e.g. California, Baveria)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="zipCode" type="xs:string"/>
+					<xs:element minOccurs="0" name="city" type="xs:string"/>
+					<xs:element minOccurs="0" name="street" type="xs:string"/>
+					<xs:element minOccurs="0" name="streetNumber" type="xs:string"/>
+					<xs:element minOccurs="0" name="postOffice" type="xs:string"/>
+					<xs:element minOccurs="0" name="zipPostOffice" type="xs:string"/>
+					<xs:element minOccurs="0" name="cityPostOffice" type="xs:string"/>
+					<xs:element minOccurs="0" name="location" type="xs:string"/>
+					<xs:element minOccurs="0" name="building" type="xs:string"/>
+					<xs:element minOccurs="0" name="floor" type="xs:string"/>
+					<xs:element minOccurs="0" name="room" type="xs:string"/>
+					<xs:element minOccurs="0" name="surfaceArea" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="phone" type="ns0:PhoneType"/>
+					<xs:element minOccurs="0" name="remark" type="xs:string"/>
+					<xs:element minOccurs="0" name="LifeCycleInfo" type="ns0:LifeCycleType"/>
+					<xs:element minOccurs="0" name="ARE" type="xs:string"/>
+					<xs:element minOccurs="0" name="costCenter" type="xs:string"/>
+					<xs:element minOccurs="0" name="department" type="xs:string"/>
+					<xs:element minOccurs="0" name="SDCIdent" type="xs:string"/>
+					<xs:element minOccurs="0" name="companyShort" type="xs:string"/>
+					<xs:element minOccurs="0" name="division" type="xs:string"/>
+					<xs:element minOccurs="0" name="workplaceID" type="xs:string"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="addElement" type="ns0:addElementType"/>
+				</xs:sequence>
+				<xs:attribute name="mainOffice" type="xs:boolean"/>
+			</xs:complexType>
+			<xs:complexType name="addElementType">
+				<xs:simpleContent>
+					<xs:extension base="xs:string">
+						<xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+					</xs:extension>
+				</xs:simpleContent>
+			</xs:complexType>
+			<xs:complexType name="headerACKType">
+				<xs:sequence>
+					<xs:element ref="ns0:messageID"/>
+					<xs:element name="srcApplicationID" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>CRM name</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="dstApplicationID" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="headerPersonPropagateType">
+				<xs:sequence>
+					<xs:element ref="ns0:messageID"/>
+					<xs:element name="replicationID" type="xs:unsignedLong"/>
+					<xs:element name="srcApplicationID" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>CRM name</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="dstApplicationID" type="xs:string"/>
+					<xs:element minOccurs="0" name="lastSubset" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="headerPropagateResponseType">
+				<xs:sequence>
+					<xs:element ref="ns0:messageID"/>
+					<xs:element name="replicationID" type="xs:unsignedLong"/>
+					<xs:element name="srcApplicationID" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>CRM name</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="dstApplicationID" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="headerQueryResponseType">
+				<xs:sequence>
+					<xs:element ref="ns0:messageID"/>
+					<xs:element name="srcApplicationID" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>CRM name</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="dstApplicationID" type="xs:string"/>
+					<xs:element minOccurs="0" name="lastSubset" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="headerQueryType">
+				<xs:sequence>
+					<xs:element ref="ns0:messageID"/>
+					<xs:element name="srcApplicationID" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>CRM name</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="dstApplicationID" type="xs:string"/>
+					<xs:element minOccurs="0" name="maxRows" type="xs:positiveInteger"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="headerType">
+				<xs:sequence>
+					<xs:element ref="ns0:messageID"/>
+					<xs:element name="srcApplicationID" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>CRM name</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="dstApplicationID" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="languageType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="AA"/>
+					<xs:enumeration value="AB"/>
+					<xs:enumeration value="AF"/>
+					<xs:enumeration value="AM"/>
+					<xs:enumeration value="AR"/>
+					<xs:enumeration value="AS"/>
+					<xs:enumeration value="AY"/>
+					<xs:enumeration value="AZ"/>
+					<xs:enumeration value="BA"/>
+					<xs:enumeration value="BE"/>
+					<xs:enumeration value="BG"/>
+					<xs:enumeration value="BH"/>
+					<xs:enumeration value="BI"/>
+					<xs:enumeration value="BN"/>
+					<xs:enumeration value="BO"/>
+					<xs:enumeration value="BR"/>
+					<xs:enumeration value="CA"/>
+					<xs:enumeration value="CO"/>
+					<xs:enumeration value="CS"/>
+					<xs:enumeration value="CY"/>
+					<xs:enumeration value="DA"/>
+					<xs:enumeration value="DE"/>
+					<xs:enumeration value="DZ"/>
+					<xs:enumeration value="EL"/>
+					<xs:enumeration value="EN"/>
+					<xs:enumeration value="EO"/>
+					<xs:enumeration value="ES"/>
+					<xs:enumeration value="ET"/>
+					<xs:enumeration value="EU"/>
+					<xs:enumeration value="FA"/>
+					<xs:enumeration value="FI"/>
+					<xs:enumeration value="FJ"/>
+					<xs:enumeration value="FO"/>
+					<xs:enumeration value="FR"/>
+					<xs:enumeration value="FY"/>
+					<xs:enumeration value="GA"/>
+					<xs:enumeration value="GD"/>
+					<xs:enumeration value="GL"/>
+					<xs:enumeration value="GN"/>
+					<xs:enumeration value="GU"/>
+					<xs:enumeration value="HA"/>
+					<xs:enumeration value="HI"/>
+					<xs:enumeration value="HR"/>
+					<xs:enumeration value="HU"/>
+					<xs:enumeration value="HY"/>
+					<xs:enumeration value="IA"/>
+					<xs:enumeration value="IE"/>
+					<xs:enumeration value="IK"/>
+					<xs:enumeration value="IN"/>
+					<xs:enumeration value="IS"/>
+					<xs:enumeration value="IT"/>
+					<xs:enumeration value="IW"/>
+					<xs:enumeration value="JA"/>
+					<xs:enumeration value="JI"/>
+					<xs:enumeration value="JW"/>
+					<xs:enumeration value="KA"/>
+					<xs:enumeration value="KK"/>
+					<xs:enumeration value="KL"/>
+					<xs:enumeration value="KM"/>
+					<xs:enumeration value="KN"/>
+					<xs:enumeration value="KO"/>
+					<xs:enumeration value="KS"/>
+					<xs:enumeration value="KU"/>
+					<xs:enumeration value="KY"/>
+					<xs:enumeration value="LA"/>
+					<xs:enumeration value="LN"/>
+					<xs:enumeration value="LO"/>
+					<xs:enumeration value="LT"/>
+					<xs:enumeration value="LV"/>
+					<xs:enumeration value="MG"/>
+					<xs:enumeration value="MI"/>
+					<xs:enumeration value="MK"/>
+					<xs:enumeration value="ML"/>
+					<xs:enumeration value="MN"/>
+					<xs:enumeration value="MO"/>
+					<xs:enumeration value="MR"/>
+					<xs:enumeration value="MS"/>
+					<xs:enumeration value="MT"/>
+					<xs:enumeration value="MY"/>
+					<xs:enumeration value="NA"/>
+					<xs:enumeration value="NE"/>
+					<xs:enumeration value="NL"/>
+					<xs:enumeration value="NO"/>
+					<xs:enumeration value="OC"/>
+					<xs:enumeration value="OM"/>
+					<xs:enumeration value="OR"/>
+					<xs:enumeration value="PA"/>
+					<xs:enumeration value="PL"/>
+					<xs:enumeration value="PS"/>
+					<xs:enumeration value="PT"/>
+					<xs:enumeration value="QU"/>
+					<xs:enumeration value="RM"/>
+					<xs:enumeration value="RN"/>
+					<xs:enumeration value="RO"/>
+					<xs:enumeration value="RU"/>
+					<xs:enumeration value="RW"/>
+					<xs:enumeration value="SA"/>
+					<xs:enumeration value="SD"/>
+					<xs:enumeration value="SG"/>
+					<xs:enumeration value="SH"/>
+					<xs:enumeration value="SI"/>
+					<xs:enumeration value="SK"/>
+					<xs:enumeration value="SL"/>
+					<xs:enumeration value="SM"/>
+					<xs:enumeration value="SN"/>
+					<xs:enumeration value="SO"/>
+					<xs:enumeration value="SQ"/>
+					<xs:enumeration value="SR"/>
+					<xs:enumeration value="SS"/>
+					<xs:enumeration value="ST"/>
+					<xs:enumeration value="SU"/>
+					<xs:enumeration value="SV"/>
+					<xs:enumeration value="SW"/>
+					<xs:enumeration value="TA"/>
+					<xs:enumeration value="TE"/>
+					<xs:enumeration value="TG"/>
+					<xs:enumeration value="TH"/>
+					<xs:enumeration value="TI"/>
+					<xs:enumeration value="TK"/>
+					<xs:enumeration value="TL"/>
+					<xs:enumeration value="TN"/>
+					<xs:enumeration value="TO"/>
+					<xs:enumeration value="TR"/>
+					<xs:enumeration value="TS"/>
+					<xs:enumeration value="TT"/>
+					<xs:enumeration value="TW"/>
+					<xs:enumeration value="UK"/>
+					<xs:enumeration value="UR"/>
+					<xs:enumeration value="UZ"/>
+					<xs:enumeration value="VI"/>
+					<xs:enumeration value="VO"/>
+					<xs:enumeration value="WO"/>
+					<xs:enumeration value="XH"/>
+					<xs:enumeration value="YO"/>
+					<xs:enumeration value="ZH"/>
+					<xs:enumeration value="ZU"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="subscriptionType">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="replicationMode">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="scheduled"/>
+								<xs:enumeration value="realtime"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="intervall">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="hour"/>
+								<xs:enumeration value="day"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="factor">
+						<xs:simpleType>
+							<xs:restriction base="xs:positiveInteger">
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="8"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="startDay">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="monday"/>
+								<xs:enumeration value="tuesday"/>
+								<xs:enumeration value="wednesday"/>
+								<xs:enumeration value="thursday"/>
+								<xs:enumeration value="friday"/>
+								<xs:enumeration value="saturday"/>
+								<xs:enumeration value="sunday"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="startTime" type="xs:time"/>
+					<xs:element minOccurs="0" ref="ns0:filter"/>
+					<xs:element ref="ns0:target"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsubscriptionType">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="userTypeType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="internal"/>
+					<xs:enumeration value="external"/>
+					<xs:enumeration value="team"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="Address" type="ns0:AddressType"/>
+			<xs:element name="Building">
+				<xs:annotation>
+					<xs:documentation>name of the building</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="City">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Location" type="ns0:AddressLocationType"/>
+					</xs:sequence>
+					<xs:attribute name="name" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Country">
+				<xs:annotation>
+					<xs:documentation>country name (e.g. de, us, gb)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType/>
+			</xs:element>
+			<xs:element name="Floor">
+				<xs:annotation>
+					<xs:documentation>name of the floor</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Location" type="ns0:LocationType">
+				<xs:annotation>
+					<xs:documentation>location in short form (e.g. MCH P)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QRoles" type="ns0:RoleQueryType"/>
+			<xs:element name="Roles" type="ns0:RoleType"/>
+			<xs:element name="Room">
+				<xs:annotation>
+					<xs:documentation>room name</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="mainOffice" type="xs:boolean"/>
+					<xs:attribute name="name" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="State">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" ref="ns0:City"/>
+					</xs:sequence>
+					<xs:attribute name="name" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="addAttr">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="name" type="xs:NMTOKEN" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="assignRole">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element maxOccurs="unbounded" name="item">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="person" type="ns0:PersonKeyType"/>
+									<xs:element name="Roles" type="ns0:RoleType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="assignRoleResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element maxOccurs="unbounded" name="item">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="person" type="ns0:PersonKeyType"/>
+									<xs:element name="Roles">
+										<xs:complexType>
+											<xs:complexContent>
+												<xs:extension base="ns0:RoleResponseType"/>
+											</xs:complexContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="assignWorkplace">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+						<xs:element name="Workplace">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="ns0:WorkplaceKeyType"/>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="assignWorkplaceResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+						<xs:element name="Workplace">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="ns0:WorkplaceKeyType"/>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="changePerson">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="reference" type="ns0:PersonKeyType"/>
+						<xs:element name="person" type="ns0:PersonType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="changeRole">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element maxOccurs="unbounded" name="item">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="person" type="ns0:PersonKeyType"/>
+									<xs:element maxOccurs="unbounded" name="Roles" type="ns0:ChangeRoleType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="changeRoleResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element maxOccurs="unbounded" name="item">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="person" type="ns0:PersonKeyType"/>
+									<xs:element name="Roles" type="ns0:ChangeRoleResponseType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="createPerson">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dack">
+				<xs:annotation>
+					<xs:documentation>Delivery ACK</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerACKType"/>
+						<xs:element name="returnCode" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>!= 0 means negative deliveryACK</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="returnMessage" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Additional description</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="deletePerson">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="entitlePerson">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonEntitlementType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="entitlePersonResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="filter">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="ou1" type="xs:string"/>
+						<xs:element minOccurs="0" name="ou2" type="xs:string"/>
+						<xs:element minOccurs="0" name="companyName" type="xs:string"/>
+						<xs:element minOccurs="0" name="department" type="xs:string"/>
+						<xs:element minOccurs="0" name="country" type="xs:string"/>
+						<xs:element minOccurs="0" name="location" type="xs:string"/>
+						<xs:element minOccurs="0" name="state" type="xs:string"/>
+						<xs:element minOccurs="0" name="city" type="xs:string"/>
+						<xs:element minOccurs="0" name="costcenter" type="xs:string"/>
+						<xs:element minOccurs="0" name="are" type="xs:string"/>
+						<xs:element minOccurs="0" name="orgID" type="xs:string"/>
+						<xs:element minOccurs="0" name="sdcID" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getCertificates">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getCertificatesResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="cerificate">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="name" type="xs:string"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getPerson">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerQueryType"/>
+						<xs:element name="person" type="ns0:PersonQueryType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getPersonResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerQueryResponseType"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="person" type="ns0:PersonType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="group">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="role">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="name" type="xs:string"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="id" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="messageID" type="xs:unsignedLong"/>
+			<xs:element name="moveWorkplace">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+						<xs:element name="oldWorkplace" type="ns0:WorkplaceKeyType"/>
+						<xs:element name="newWorkplace" type="ns0:WorkplaceKeyType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="moveWorkplaceResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+						<xs:element name="oldWorkplace" type="ns0:WorkplaceKeyType"/>
+						<xs:element name="newWorkplace" type="ns0:WorkplaceKeyType"/>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="pack">
+				<xs:annotation>
+					<xs:documentation>Process ACK</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerPropagateResponseType"/>
+						<xs:element name="returnCode" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>!= 0 means negative deliveryACK</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="returnMessage" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Additional description</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="person" type="ns0:PersonType"/>
+			<xs:element name="propagatePersons">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerPersonPropagateType"/>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="person" type="ns0:PersonReplicationType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="removeRole">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element maxOccurs="unbounded" name="item">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="person" type="ns0:PersonKeyType"/>
+									<xs:element name="Roles" type="ns0:RemoveRoleType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="removeRoleResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element maxOccurs="unbounded" name="item">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="person" type="ns0:PersonKeyType"/>
+									<xs:element name="Roles" type="ns0:RemoveRoleResponseType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="removeWorkplace">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+						<xs:element name="Workplace" type="ns0:WorkplaceKeyType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="removeWorkplaceResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonKeyType"/>
+						<xs:element name="Workplace" type="ns0:WorkplaceKeyType"/>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="status">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="returnCode" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>!= 0 means negative ACKNOWLEDGEMENT</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="returnMessage" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Additional error description</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="subsribePersonReplication">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonEntitlementType"/>
+						<xs:element name="subsription" type="ns0:subscriptionType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="subsribePersonReplicationResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonEntitlementType"/>
+						<xs:element name="subsription" type="ns0:subscriptionType"/>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="target">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="format">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="xml"/>
+									<xs:enumeration value="csv"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="transportType">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="http"/>
+									<xs:enumeration value="https"/>
+									<xs:enumeration value="soap"/>
+									<xs:enumeration value="soaps"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="addresslocation" type="xs:string"/>
+						<xs:element minOccurs="0" name="action" type="xs:string"/>
+						<xs:element minOccurs="0" name="user" type="xs:string"/>
+						<xs:element minOccurs="0" name="passwd" type="xs:string"/>
+						<xs:element minOccurs="0" name="certificate" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="unsubsribePersonReplication">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonEntitlementType"/>
+						<xs:element name="subsription" type="ns0:unsubscriptionType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="unsubsribePersonReplicationResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="header" type="ns0:headerType"/>
+						<xs:element name="person" type="ns0:PersonEntitlementType"/>
+						<xs:element name="subsription" type="ns0:unsubscriptionType"/>
+						<xs:element ref="ns0:status"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>

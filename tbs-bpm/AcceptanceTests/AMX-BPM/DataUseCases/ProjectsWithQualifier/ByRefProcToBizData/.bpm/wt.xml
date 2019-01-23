@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worktype:WorkTypes xmlns:worktype="http://worktype.common.n2.tibco.com" version="1.0.0.201311291234">
+  <worktype:WorkType>
+    <workTypeUID>WT__a5Zy4FNeEeOUC7phQChPyQ</workTypeUID>
+    <workTypeDescription>EnterCustomerDetails</workTypeDescription>
+    <dataModel>
+      <inouts name="custBomType" optional="true" type="Complex">
+        <complexSpec className="com.example.firstbizdataproj.Customer"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__rHfmUFjpEeOujN6NvEd9_A</workTypeUID>
+    <workTypeDescription>DisplayCustomer</workTypeDescription>
+    <dataModel>
+      <inouts name="custBomType" optional="true" type="Complex">
+        <complexSpec className="com.example.firstbizdataproj.Customer"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+  <worktype:WorkType>
+    <workTypeUID>WT__IRV2IFNfEeOUC7phQChPyQ</workTypeUID>
+    <workTypeDescription>UpdateCustomerDetails</workTypeDescription>
+    <dataModel>
+      <inouts name="custBomType" optional="true" type="Complex">
+        <complexSpec className="com.example.firstbizdataproj.Customer"/>
+      </inouts>
+    </dataModel>
+    <typePiled>false</typePiled>
+    <ignoreIncomingData>true</ignoreIncomingData>
+    <reofferOnClose>true</reofferOnClose>
+    <reofferOnCancel>true</reofferOnCancel>
+  </worktype:WorkType>
+</worktype:WorkTypes>

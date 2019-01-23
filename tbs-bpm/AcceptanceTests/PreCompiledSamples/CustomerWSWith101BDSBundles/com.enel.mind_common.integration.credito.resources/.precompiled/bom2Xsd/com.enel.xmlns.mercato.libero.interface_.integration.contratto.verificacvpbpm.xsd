@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/libero/interface/integration/contratto/verificacvpbpm"
+    xmlns:tns11="http://xmlns.enel.com/mercato/libero/interface/integration/contratto/verificacvpbpm"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.enel.com/mercato/libero/interface/integration/contratto/verificacvpbpm">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.integration.credito.resources/Generated Business Objects/com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpm.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="CreditCheck" nillable="false">
+    <xsd:complexType ecore:name="CreditCheckType" id="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmCreditCheckType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="CVP" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="CVP" type="xsd:string"/>
+        <xsd:element ecore:name="CDM_Cliente" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="CDM_Cliente" type="xsd:string"/>
+        <xsd:element ecore:name="canale" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="canale" type="xsd:string"/>
+        <xsd:element ecore:name="idRichiesta" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="IdRichiesta" type="xsd:string"/>
+        <xsd:element ecore:name="causale" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="causale" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="CreditCheckResponse" nillable="false">
+    <xsd:complexType ecore:name="CreditCheckResponseType" id="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmCreditCheckResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="COD_ESITO_CVP" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="COD_ESITO_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="CAUSALE_ESITO_CVP" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="CAUSALE_ESITO_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="DESC_ESITO_CVP" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="DESC_ESITO_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="DATA_ESITO_CVP" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="DATA_ESITO_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="IMP_MOROSITA_CVP" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="IMP_MOROSITA_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="macroCausaleEsitoDescrizione" form="unqualified"
+            maxOccurs="1" minOccurs="0" name="MacroCausaleEsitoDescrizione" type="xsd:string"/>
+        <xsd:element ecore:name="temp1" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="temp1" type="xsd:string"/>
+        <xsd:element ecore:name="temp2" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="temp2" type="xsd:string"/>
+        <xsd:element ecore:name="CVPEsitoLight" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="CVPEsitoLight" type="xsd:string"/>
+        <xsd:element ecore:name="flagMorositaOnline" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="FlagMorositaOnline" type="xsd:string"/>
+        <xsd:element ecore:name="flagMorositaOffline" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="FlagMorositaOffline" type="xsd:string"/>
+        <xsd:element ecore:name="flagVBL" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="FlagVBL" type="xsd:string"/>
+        <xsd:element ecore:name="cfUscente" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="CfUscente" type="xsd:string"/>
+        <xsd:element ecore:name="pivaUscente" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="PivaUscente" type="xsd:string"/>
+        <xsd:element ecore:name="esito" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Esito">
+          <xsd:complexType ecore:name="EsitoType" id="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmEsitoType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="esito" form="unqualified" maxOccurs="1" minOccurs="0"
+                  name="esito" type="xsd:string"/>
+              <xsd:element ecore:name="codiceEsito" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="codiceEsito" type="xsd:string"/>
+              <xsd:element ecore:name="descrizione" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="descrizione" type="xsd:string"/>
+              <xsd:element ecore:name="tipoEsito" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="tipoEsito" type="xsd:string"/>
+              <xsd:element ecore:name="sistemaSorgenteEsito" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="sistemaSorgenteEsito" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="PostFirma" nillable="false">
+    <xsd:complexType ecore:name="PostFirmaType" id="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmPostFirmaType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="CVP" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="CVP" type="xsd:string"/>
+        <xsd:element ecore:name="CVPEsitoLight" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="CVPEsitoLight" type="xsd:string"/>
+        <xsd:element ecore:name="CDM_Cliente" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="CDM_Cliente" type="xsd:string"/>
+        <xsd:element ecore:name="CDM_Fatturazione" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="CDM_Fatturazione" type="xsd:string"/>
+        <xsd:element ecore:name="canale" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="canale" type="xsd:string"/>
+        <xsd:element ecore:name="idRichiesta" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="IdRichiesta" type="xsd:string"/>
+        <xsd:element ecore:name="causale" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="causale" type="xsd:string"/>
+        <xsd:element ecore:name="rateCategory" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="RateCategory" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="PostFirmaResponse" nillable="false">
+    <xsd:complexType ecore:name="PostFirmaResponseType" id="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmPostFirmaResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="COD_ESITO_CVP" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="COD_ESITO_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="CAUSALE_ESITO_CVP" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="CAUSALE_ESITO_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="DESC_ESITO_CVP" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="DESC_ESITO_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="DATA_ESITO_CVP" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="DATA_ESITO_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="IMP_MOROSITA_CVP" form="unqualified" maxOccurs="1"
+            minOccurs="0" name="IMP_MOROSITA_CVP" type="xsd:string"/>
+        <xsd:element ecore:name="macroCausaleEsitoDescrizione" form="unqualified"
+            maxOccurs="1" minOccurs="0" name="MacroCausaleEsitoDescrizione" type="xsd:string"/>
+        <xsd:element ecore:name="temp1" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="temp1" type="xsd:string"/>
+        <xsd:element ecore:name="temp2" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="temp2" type="xsd:string"/>
+        <xsd:element ecore:name="esito" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Esito">
+          <xsd:complexType ecore:name="EsitoType1" id="com.enel.xmlns.mercato.libero.interface_.integration.contratto.verificacvpbpmEsitoType2"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="esito" form="unqualified" maxOccurs="1" minOccurs="0"
+                  name="esito" type="xsd:string"/>
+              <xsd:element ecore:name="codiceEsito" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="codiceEsito" type="xsd:string"/>
+              <xsd:element ecore:name="descrizione" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="descrizione" type="xsd:string"/>
+              <xsd:element ecore:name="tipoEsito" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="tipoEsito" type="xsd:string"/>
+              <xsd:element ecore:name="sistemaSorgenteEsito" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="sistemaSorgenteEsito" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

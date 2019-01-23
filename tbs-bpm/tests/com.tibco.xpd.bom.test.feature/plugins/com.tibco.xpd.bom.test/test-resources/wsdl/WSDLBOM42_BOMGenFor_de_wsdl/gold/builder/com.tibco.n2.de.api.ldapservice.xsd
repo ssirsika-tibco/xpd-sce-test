@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://ldapservice.api.de.n2.tibco.com" xmlns:tns1="http://ldapservice.api.de.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://api.organisation.common.n2.tibco.com"
+    xmlns:tns3="http://api.de.n2.tibco.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ldapservice.api.de.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.de.api.ldapservice.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.organisation.api.xsd"/>
+  <xsd:import namespace="http://api.de.n2.tibco.com" schemaLocation="com.tibco.n2.de.api.xsd"/>
+  <xsd:element abstract="false" name="listLDAPSources" nillable="false">
+    <xsd:complexType ecore:name="listLDAPSourcesType" id="com.tibco.n2.de.api.ldapservicelistLDAPSourcesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="empty" default="0" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="empty" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listLDAPSourcesResponse" nillable="false">
+    <xsd:complexType ecore:name="listLDAPSourcesResponseType" id="com.tibco.n2.de.api.ldapservicelistLDAPSourcesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="ldapSource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="LdapSource">
+          <xsd:complexType ecore:name="LdapSourceType" id="com.tibco.n2.de.api.ldapserviceLdapSourceType"
+              mixed="false">
+            <xsd:attribute ecore:name="ldapalias" id="LdapSourceTypeldap-alias" form="unqualified"
+                name="ldap-alias" type="xsd:string" use="required">
+              <xsd:annotation>
+                <xsd:documentation>Alias by which the LDAP connection shared resource is registered with the AMX platform. </xsd:documentation>
+              </xsd:annotation>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listLDAPEntities" nillable="false">
+    <xsd:complexType ecore:name="listLDAPEntitiesType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns2:XmlOrgModelVersion">
+          <xsd:attribute ecore:name="containerid" id="listLDAPEntitiesTypecontainer-id"
+              form="unqualified" name="container-id" type="tns1:long_StudioGeneratedTemplate"
+              use="required">
+            <xsd:annotation>
+              <xsd:documentation>Identifier of the container whose LDAP entities are to be returned. </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute ecore:name="existingonly" id="listLDAPEntitiesTypeexisting-only"
+              default="false" form="unqualified" name="existing-only" type="xsd:boolean"
+              use="optional">
+            <xsd:annotation>
+              <xsd:documentation>Whether the response should include:
+
+- (true) only those LDAP resources that already exist in the organization model.
+
+- (false) all LDAP resources in the LDAP source. </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="listLDAPEntitiesResponse" nillable="false">
+    <xsd:complexType ecore:name="listLDAPEntitiesResponseType" id="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="ldapResource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="LdapResource" type="tns3:XmlResourceDetail"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listContainerResources" nillable="false">
+    <xsd:complexType ecore:name="listContainerResourcesType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns2:XmlOrgModelVersion">
+          <xsd:attribute ecore:name="containerid" id="listContainerResourcesTypecontainer-id"
+              form="unqualified" name="container-id" type="tns1:long_StudioGeneratedTemplate"
+              use="required">
+            <xsd:annotation>
+              <xsd:documentation>Identifier of the LDAP container for which human resources should be listed.
+If the LDAP Container ID is 0, the response will contain the resources created via the bootstrapping import (the administrative users).
+If the LDAP Container ID is not recognised, the response will contain no resources. </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listContainerResourcesResponse" nillable="false">
+    <xsd:complexType ecore:name="listContainerResourcesResponseType" id="com.tibco.n2.de.api.ldapservicelistContainerResourcesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="ldapResource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="LdapResource" type="tns3:XmlResourceDetail"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listLDAPAttributes" nillable="false">
+    <xsd:complexType ecore:name="listLDAPAttributesType" id="com.tibco.n2.de.api.ldapservicelistLDAPAttributesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="reqattributes" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="req-attributes" type="tns3:XmlLdapAttributeSimple"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="alias" id="listLDAPAttributesTypealias" form="unqualified"
+          name="alias" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>LDAP alias of the LDAP source from which attribute data should be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="dn" id="listLDAPAttributesTypedn" form="unqualified"
+          name="dn" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Distinguished Name of the LDAP entity for which attribute data should be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listLDAPAttributesResponse" nillable="false">
+    <xsd:complexType ecore:name="listLDAPAttributesResponseType" id="com.tibco.n2.de.api.ldapservicelistLDAPAttributesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="reqattributes" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="req-attributes" type="tns3:XmlLdapAttribute"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listLDAPAttributeNames" nillable="false">
+    <xsd:complexType ecore:name="listLDAPAttributeNamesType" id="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesType"
+        mixed="false">
+      <xsd:attribute ecore:name="alias" id="listLDAPAttributeNamesTypealias" form="unqualified"
+          name="alias" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>LDAP alias of the LDAP source from which attribute data should be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="filter" id="listLDAPAttributeNamesTypefilter" form="unqualified"
+          name="filter" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>LDAP filter expression that can be (optionally) used to limit the LDAP entries for which data should be returned.
+
+For example, this could be a simple expression such as &quot;uid=*&quot; to return data only for all LDAP entries that have a valid UID attribute. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="sampledatanumber" id="listLDAPAttributeNamesTypesample-data-number"
+          default="0" form="unqualified" name="sample-data-number" type="xsd:int"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>The number of random example entities to be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="basedn" id="listLDAPAttributeNamesTypebase-dn" form="unqualified"
+          name="base-dn" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Additional base DN that will be used to restrict the results. This base DN is relative and in addition to the base DN specified when creating the LDAP alias. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listLDAPAttributeNamesResponse" nillable="false">
+    <xsd:complexType ecore:name="listLDAPAttributeNamesResponseType" id="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="names" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="Names">
+          <xsd:complexType ecore:name="NamesType" id="com.tibco.n2.de.api.ldapserviceNamesType"
+              mixed="false">
+            <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+              <xsd:element ecore:name="attributeName" form="unqualified" maxOccurs="1"
+                  minOccurs="1" name="AttributeName" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="ldapEntry" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="LdapEntry">
+          <xsd:complexType ecore:name="LdapEntryType" id="com.tibco.n2.de.api.ldapserviceLdapEntryType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="ldapAttribute" form="unqualified" maxOccurs="unbounded"
+                  minOccurs="0" name="LdapAttribute" type="tns3:XmlLdapAttributeSimple"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="entitycount" id="listLDAPAttributeNamesResponseTypeentity-count"
+          form="unqualified" name="entity-count" type="xsd:int" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Count of the total number of rows this query would return from the LDAP source. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

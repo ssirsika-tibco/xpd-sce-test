@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_VsxXYGIzEd6R5bdmAbPrLQ" name="com.example.businessobjectmodel1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_WhEiIGIzEd6R5bdmAbPrLQ" name="Class1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WzP3QGIzEd6R5bdmAbPrLQ" name="attribute1">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_GVnpMGSOEd6aG7W2hGd31g" name="operation1">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Hp4tcGSOEd6aG7W2hGd31g" type="_O9ihQGSOEd6aG7W2hGd31g?com.example.businessobjectmodel1%3a%3aPrimitiveType1?" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_IBCpMGSOEd6aG7W2hGd31g" name="param1" type="_O9ihQGSOEd6aG7W2hGd31g?com.example.businessobjectmodel1%3a%3aPrimitiveType1?"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_O9ihQGSOEd6aG7W2hGd31g" name="PrimitiveType1">
+      <generalization xmi:type="uml:Generalization" xmi:id="_O9ihQWSOEd6aG7W2hGd31g">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_s_T2gGJDEd6e3-QPfF1vow">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_s_dngGJDEd6e3-QPfF1vow" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_Vtz5MGIzEd6R5bdmAbPrLQ" type="Business Object Model" element="_VsxXYGIzEd6R5bdmAbPrLQ?com.example.businessobjectmodel1?" name="BusinessObjectModel1.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_Wh0JAGIzEd6R5bdmAbPrLQ" type="1002" element="_WhEiIGIzEd6R5bdmAbPrLQ?com.example.businessobjectmodel1%3a%3aClass1?">
+      <children xmi:type="notation:Node" xmi:id="_Wh9S8GIzEd6R5bdmAbPrLQ" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_Wh9S8WIzEd6R5bdmAbPrLQ" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_Wh9S8mIzEd6R5bdmAbPrLQ" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_Wh9S82IzEd6R5bdmAbPrLQ" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_W1U64GIzEd6R5bdmAbPrLQ" type="2001" element="_WzP3QGIzEd6R5bdmAbPrLQ?com.example.businessobjectmodel1%3a%3aClass1%3a%3aattribute1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_W1U64WIzEd6R5bdmAbPrLQ"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_Wh9S9GIzEd6R5bdmAbPrLQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Wh9S9WIzEd6R5bdmAbPrLQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Wh9S9mIzEd6R5bdmAbPrLQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Wh9S92IzEd6R5bdmAbPrLQ" type="5003">
+        <children xmi:type="notation:Node" xmi:id="_GWhBEGSOEd6aG7W2hGd31g" type="2002" element="_GVnpMGSOEd6aG7W2hGd31g?com.example.businessobjectmodel1%3a%3aClass1%3a%3aoperation1?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_GWhBEWSOEd6aG7W2hGd31g"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_Wh9S-GIzEd6R5bdmAbPrLQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_Wh9S-WIzEd6R5bdmAbPrLQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_Wh9S-mIzEd6R5bdmAbPrLQ"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_Wh0JAWIzEd6R5bdmAbPrLQ" fontName="Arial Unicode MS" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_Wh0JAmIzEd6R5bdmAbPrLQ" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Wh0JA2IzEd6R5bdmAbPrLQ" x="245" y="110"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_O-SvMGSOEd6aG7W2hGd31g" type="1003" element="_O9ihQGSOEd6aG7W2hGd31g?com.example.businessobjectmodel1%3a%3aPrimitiveType1?">
+      <children xmi:type="notation:Node" xmi:id="_O-b5IGSOEd6aG7W2hGd31g" type="4006"/>
+      <children xmi:type="notation:Node" xmi:id="_O-lqIGSOEd6aG7W2hGd31g" type="4007"/>
+      <children xmi:type="notation:Node" xmi:id="_O-vbIGSOEd6aG7W2hGd31g" type="4008"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_O-SvMWSOEd6aG7W2hGd31g" fontName="Arial Unicode MS" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_O-SvMmSOEd6aG7W2hGd31g" gradStartColor="12632256" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O-SvM2SOEd6aG7W2hGd31g" x="531" y="25"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Vtz5MWIzEd6R5bdmAbPrLQ"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_Vtz5MmIzEd6R5bdmAbPrLQ"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_s_dngWJDEd6e3-QPfF1vow" textDefaultValue="invalidDefaultPattern" textPatternValue="defaultPattern" base_Property="_WzP3QGIzEd6R5bdmAbPrLQ?com.example.businessobjectmodel1%3a%3aClass1%3a%3aattribute1?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_RAuhAGSOEd6aG7W2hGd31g" textDefaultValue="badDefault" textPatternValue="patternNow" base_PrimitiveType="_O9ihQGSOEd6aG7W2hGd31g?com.example.businessobjectmodel1%3a%3aPrimitiveType1?"/>
+</xmi:XMI>

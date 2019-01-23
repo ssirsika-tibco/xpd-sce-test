@@ -1,0 +1,2110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="UC6TLEElemRefsAndSimpleTypeRefs" resourceRoot="" soapui-version="3.6" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="UsingRefsAndSimpTypes_EP" type="wsdl" bindingName="{urn:amx:BPMEnvironment/com.example.uc6tleelemrefsandsimpletyperefs.daa}UsingRefsAndSimpTypes_EP" soapVersion="1_1" anonymous="optional" definition="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=491&amp;svc_binding_name=UsingRefsAndSimpTypes_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=491&amp;svc_binding_name=UsingRefsAndSimpTypes_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode"><con:part><con:url>http://wolverine.na.tibco.com:8120/amxadministrator/generate_wsdl?svc_binding_id=491&amp;svc_binding_name=UsingRefsAndSimpTypes_EP&amp;svc_node_id=2&amp;svc_node_name=BPMNode</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="ProviderProcProcessFlow_1.0.0.201010291422_service_ProviderProc_ProviderProcProcess_ProviderProc_ProviderProcProcess" targetNamespace="urn:amx:BPMEnvironment/com.example.uc6tleelemrefsandsimpletyperefs.daa" xmlns:ns1="http://www.example.org/UsingRefsAndSimType/" xmlns:tns="urn:amx:BPMEnvironment/com.example.uc6tleelemrefsandsimpletyperefs.daa" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://example.com/References" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://example.com/References" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns="http://example.com/References" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Child">
+        <xs:sequence>
+          <xs:element ref="ns0:surname"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Person">
+        <xs:sequence>
+          <xs:element name="surname" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BusDriver">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ns0:PersonElem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PersonElem" type="ns0:Person"/>
+      <xs:element name="surname" type="xs:string"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.example.org/UsingRefsAndSimType/" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://example.com/References"/>
+      <xs:element name="OutputElement">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ns0:BusDriver"/>
+            <xs:element ref="ns0:PersonElem"/>
+            <xs:element ref="ns0:surname"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="PortTypeOpRequest">
+    <wsdl:part name="BusDriver" element="ns0:BusDriver"/>
+    <wsdl:part name="PersonEl" element="ns0:PersonElem"/>
+    <wsdl:part name="surname" element="ns0:surname"/>
+  </wsdl:message>
+  <wsdl:message name="PortTypeOpResponse">
+    <wsdl:part name="OutputElement" element="ns1:OutputElement"/>
+  </wsdl:message>
+  <wsdl:portType name="UsingRefsAndSimpTypes">
+    <wsdl:operation name="PortTypeOp">
+      <wsdl:input message="tns:PortTypeOpRequest"/>
+      <wsdl:output message="tns:PortTypeOpResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UsingRefsAndSimpTypes_EP" type="tns:UsingRefsAndSimpTypes">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="PortTypeOp">
+      <wsdl:documentation/>
+      <soap:operation style="rpc" soapAction="PortTypeOp"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="BusDriver PersonEl surname"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="OutputElement"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProviderProcProcessFlow_1.0.0.201010291422_service_ProviderProc_ProviderProcProcess_ProviderProc_ProviderProcProcess">
+    <wsdl:port name="UsingRefsAndSimpTypes_EP" binding="tns:UsingRefsAndSimpTypes_EP">
+      <soap:address location="https://0.0.0.0:8080/ProviderProc/ProviderProcProcess/201010291422"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://wolverine.na.tibco.com:8080/UC6TLEElemRefsAndSimpleTypeRefs/ProviderProcess</con:endpoint><con:endpoint>https://cyclops.na.tibco.com:8080/UC6TLEElemRefsAndSimpleTypeRefs/ProviderProcess</con:endpoint></con:endpoints><con:operation isOneWay="false" action="PortTypeOp" name="PortTypeOp" bindingOperationName="PortTypeOp" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://cyclops.na.tibco.com:8080/UC6TLEElemRefsAndSimpleTypeRefs/ProviderProcess</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="urn:amx:BPMEnvironment/com.example.uc6tleelemrefsandsimpletyperefs.daa" xmlns:ref="http://example.com/References">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-1" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">VdTA/o9yuwf0S/0HRrejWA==</wsse:Nonce>
+            <wsu:Created>2010-10-29T23:19:29.704Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <com:PortTypeOp>
+         <BusDriver>
+         <ref:BusDriver>
+            <ref:PersonElem>
+               <surname>Johnson</surname>
+            </ref:PersonElem>
+         </ref:BusDriver>
+         </BusDriver>
+         <PersonEl>
+         <ref:PersonElem>
+            <surname>Peterson</surname>
+         </ref:PersonElem>
+         </PersonEl>
+         <surname>
+         <ref:surname>Simpson</ref:surname>
+         </surname>
+      </com:PortTypeOp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="PortTypeOp"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface name="ProcessManagerBinding" bindingName="{http://www.tibco.com/bx/2009/management/process}ProcessManagerBinding" soapVersion="1_1" definition="file:C:\src\prj\n2pe\trunk\bx\runtime\daa\plugins\com.tibco.bx.daa\com.tibco.daa\com.tibco.bx.daa\Composites\pm\processManagement.wsdl" xsi:type="con:WsdlInterface" wsaVersion="NONE" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<con:settings/>
+		<con:endpoints>
+			
+			
+		<con:endpoint>https://cyclops.na.tibco.com:8080/bxEngine/node/processManagement/</con:endpoint><con:endpoint>https://wolverine.na.tibco.com:8080/bxEngine/node/processManagement/</con:endpoint></con:endpoints>
+		<con:operation isOneWay="false" action="createProcessInstance" name="createProcessInstance" bindingOperationName="createProcessInstance" inputName="" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+			<con:settings/>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		<con:call name="UC6TLEElemRefsAndSimpleTypeRefs"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://cyclops.na.tibco.com:8080/bxEngine/node/processManagement/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:proc="http://www.tibco.com/bx/2009/management/processManagerType" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-1" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">c/Z9EwDb3XEXsuysVk9lGw==</wsse:Nonce>
+            <wsu:Created>2010-11-05T03:39:07.036Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <proc:createProcessInstanceInput>
+         <proc:processQName>
+            <proc:moduleName>/UC6TLEElemRefsAndSimpleTypeRefs/Process Packages/ConsumerProc.xpdl</proc:moduleName>
+            <proc:processName>ConsumerProcProcess</proc:processName>
+         </proc:processQName>
+         <proc:operationName>StartEvent</proc:operationName>
+         <proc:parameterMap>
+            <!--Zero or more repetitions:-->
+         </proc:parameterMap>
+      </proc:createProcessInstanceInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>tibco-admin</con:username><con:password>secret</con:password></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="createProcessInstance"/><con:wsrmConfig version="1.2"/></con:call></con:operation>
+		<con:operation isOneWay="false" action="getProcessInstanceSummary" name="getProcessInstanceSummary" bindingOperationName="getProcessInstanceSummary" inputName="" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+			<con:settings/>
+			<con:call name="UC6TLEElemRefsAndSimpleTypeRefs">
+				<con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings>
+				<con:encoding>UTF-8</con:encoding>
+				<con:endpoint>https://cyclops.na.tibco.com:8080/bxEngine/node/processManagement/</con:endpoint>
+				<con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:proc="http://www.tibco.com/bx/2009/management/processManagerType">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-1" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>tibco-admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">c/Z9EwDb3XEXsuysVk9lGw==</wsse:Nonce>
+            <wsu:Created>2010-11-05T03:39:07.036Z</wsu:Created>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <proc:processID>pvm:0a122</proc:processID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+			<con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call>
+		</con:operation>
+		<con:operation isOneWay="false" action="getStarterOperationInfo" name="getStarterOperationInfo" bindingOperationName="getStarterOperationInfo" inputName="" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+			<con:settings/>
+			
+		</con:operation>
+		<con:operation isOneWay="false" action="listProcessInstances" name="listProcessInstances" bindingOperationName="listProcessInstances" inputName="" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+			<con:settings/>
+			
+		</con:operation>
+		<con:operation isOneWay="false" action="listProcessTemplates" name="listProcessTemplates" bindingOperationName="listProcessTemplates" inputName="" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+			<con:settings/>
+			
+		</con:operation>
+		<con:operation isOneWay="false" action="listStarterOperations" name="listStarterOperations" bindingOperationName="listStarterOperations" inputName="" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+			<con:settings/>
+			
+		</con:operation>
+		<con:operation isOneWay="false" action="purgeProcessInstances" name="purgeProcessInstances" bindingOperationName="purgeProcessInstances" inputName="" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+			<con:settings/>
+			
+		</con:operation>
+		<con:definitionCache rootPart="file:C:\src\prj\n2pe\trunk\bx\runtime\daa\plugins\com.tibco.bx.daa\com.tibco.daa\com.tibco.bx.daa\Composites\pm\processManagement.wsdl" type="TEXT">
+			<con:part>
+				<con:url>
+					file:C:\src\prj\n2pe\trunk\bx\runtime\daa\plugins\com.tibco.bx.daa\com.tibco.daa\com.tibco.bx.daa\Composites\pm\processManagement.wsdl
+				</con:url>
+				<con:content><![CDATA[<!--edited with XMLSpy v2009 sp1 (http://www.altova.com) by Alex Pham (TIBCO Software Inc)-->
+<wsdl:definitions name="processManagement" targetNamespace="http://www.tibco.com/bx/2009/management/process" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/bx/2009/management/process" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pm="http://www.tibco.com/bx/2009/management/processManagerType" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/bx/2009/management/processManagerType">
+      <xsd:include schemaLocation="processManagement.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="cancelProcessInstanceRequest">
+    <wsdl:part name="parameters" element="pm:processID"/>
+  </wsdl:message>
+  <wsdl:message name="cancelProcessInstancesRequest">
+    <wsdl:part name="parameters" element="pm:qualifiedProcessName"/>
+  </wsdl:message>
+  <wsdl:message name="cancelProcessInstancesResponse">
+    <wsdl:part name="parameters" element="pm:itemCount"/>
+  </wsdl:message>
+  <wsdl:message name="createProcessInstanceRequest">
+    <wsdl:part name="parameters" element="pm:createProcessInstanceInput"/>
+  </wsdl:message>
+  <wsdl:message name="createProcessInstanceResponse">
+    <wsdl:part name="parameters" element="pm:processID"/>
+  </wsdl:message>
+  <wsdl:message name="getActivityInstanceStatusRequest">
+    <wsdl:part name="parameters" element="pm:getActivityInstanceStatusInput"/>
+  </wsdl:message>
+  <wsdl:message name="getActivityInstanceStatusResponse">
+    <wsdl:part name="parameters" element="pm:activityInstanceStatus"/>
+  </wsdl:message>
+  <wsdl:message name="getParameterValueRequest">
+    <wsdl:part name="parameters" element="pm:getParameterValueInput"/>
+  </wsdl:message>
+  <wsdl:message name="getParameterValueResponse">
+    <wsdl:part name="parameters" element="pm:getParameterValueOutput"/>
+  </wsdl:message>
+  <wsdl:message name="getProcessInstanceStatusRequest">
+    <wsdl:part name="parameters" element="pm:processID"/>
+  </wsdl:message>
+  <wsdl:message name="getProcessInstanceStatusResponse">
+    <wsdl:part name="parameters" element="pm:getProcessInstanceStatusOutput"/>
+  </wsdl:message>
+  <wsdl:message name="getProcessInstanceSummaryRequest">
+    <wsdl:part name="parameters" element="pm:processID"/>
+  </wsdl:message>
+  <wsdl:message name="getProcessInstanceSummaryResponse">
+    <wsdl:part name="parameters" element="pm:processInstanceSummary"/>
+  </wsdl:message>
+  <wsdl:message name="getStarterOperationInfoRequest">
+    <wsdl:part name="parameters" element="pm:starterOperation"/>
+  </wsdl:message>
+  <wsdl:message name="getStarterOperationInfoResponse">
+    <wsdl:part name="parameters" element="pm:operationInfo"/>
+  </wsdl:message>
+  <wsdl:message name="listProcessInstanceAttributesRequest">
+    <wsdl:part name="parameters" element="pm:listProcessInstanceAttributesInput"/>
+  </wsdl:message>
+  <wsdl:message name="listProcessInstanceAttributesResponse">
+    <wsdl:part name="parameters" element="pm:instanceAttributes"/>
+  </wsdl:message>
+  <wsdl:message name="listProcessInstancesRequest">
+    <wsdl:part name="parameters" element="pm:qualifiedProcessName"/>
+  </wsdl:message>
+  <wsdl:message name="listProcessInstancesResponse">
+    <wsdl:part name="parameters" element="pm:processInstances"/>
+  </wsdl:message>
+  <wsdl:message name="listProcessTemplateAttributesRequest">
+    <wsdl:part name="parameters" element="pm:listProcessTemplateAttributesInput"/>
+  </wsdl:message>
+  <wsdl:message name="listProcessTemplateAttributesResponse">
+    <wsdl:part name="parameters" element="pm:templateAttributes"/>
+  </wsdl:message>
+  <wsdl:message name="listProcessTemplatesRequest">
+    <wsdl:part name="parameters" element="pm:qualifiedProcessName"/>
+  </wsdl:message>
+  <wsdl:message name="listProcessTemplatesResponse">
+    <wsdl:part name="parameters" element="pm:basicProcessTemplates"/>
+  </wsdl:message>
+  <wsdl:message name="listStarterOperationsRequest">
+    <wsdl:part name="parameters" element="pm:qualifiedProcessName"/>
+  </wsdl:message>
+  <wsdl:message name="listStarterOperationsResponse">
+    <wsdl:part name="parameters" element="pm:starterOperations"/>
+  </wsdl:message>
+  <wsdl:message name="purgeProcessInstancesRequest">
+    <wsdl:part name="parameters" element="pm:qualifiedProcessName"/>
+  </wsdl:message>
+  <wsdl:message name="purgeProcessInstancesResponse">
+    <wsdl:part name="parameters" element="pm:itemCount"/>
+  </wsdl:message>
+  <wsdl:message name="queryDoneRequest">
+    <wsdl:part name="parameters" element="pm:pagingID"/>
+  </wsdl:message>
+  <wsdl:message name="queryFirstPageRequest">
+    <wsdl:part name="parameters" element="pm:pagingID"/>
+  </wsdl:message>
+  <wsdl:message name="queryFirstPageResponse">
+    <wsdl:part name="parameters" element="pm:page"/>
+  </wsdl:message>
+  <wsdl:message name="queryLastPageRequest">
+    <wsdl:part name="parameters" element="pm:pagingID"/>
+  </wsdl:message>
+  <wsdl:message name="queryLastPageResponse">
+    <wsdl:part name="parameters" element="pm:page"/>
+  </wsdl:message>
+  <wsdl:message name="queryNextPageRequest">
+    <wsdl:part name="parameters" element="pm:pagingID"/>
+  </wsdl:message>
+  <wsdl:message name="queryNextPageResponse">
+    <wsdl:part name="parameters" element="pm:page"/>
+  </wsdl:message>
+  <wsdl:message name="queryPreviousPageRequest">
+    <wsdl:part name="parameters" element="pm:pagingID"/>
+  </wsdl:message>
+  <wsdl:message name="queryPreviousPageResponse">
+    <wsdl:part name="parameters" element="pm:page"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessInstanceCountRequest">
+    <wsdl:part name="parameters" element="pm:queryString"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessInstanceCountResponse">
+    <wsdl:part name="parameters" element="pm:itemCount"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessInstancesAltRequest">
+    <wsdl:part name="parameters" element="pm:queryProcessInstancesAltInput"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessInstancesAltResponse">
+    <wsdl:part name="parameters" element="pm:queryProcessInstancesOutput"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessInstancesRequest">
+    <wsdl:part name="parameters" element="pm:queryProcessInstancesInput"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessInstancesResponse">
+    <wsdl:part name="parameters" element="pm:queryProcessInstancesOutput"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessTemplateCountRequest">
+    <wsdl:part name="parameters" element="pm:queryString"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessTemplateCountResponse">
+    <wsdl:part name="parameters" element="pm:itemCount"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessTemplatesAltRequest">
+    <wsdl:part name="parameters" element="pm:queryProcessTemplatesAltInput"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessTemplatesAltResponse">
+    <wsdl:part name="parameters" element="pm:queryProcessTemplatesOutput"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessTemplatesRequest">
+    <wsdl:part name="parameters" element="pm:queryProcessTemplatesInput"/>
+  </wsdl:message>
+  <wsdl:message name="queryProcessTemplatesResponse">
+    <wsdl:part name="parameters" element="pm:queryProcessTemplatesOutput"/>
+  </wsdl:message>
+  <wsdl:message name="resumeProcessInstanceRequest">
+    <wsdl:part name="parameters" element="pm:processID"/>
+  </wsdl:message>
+  <wsdl:message name="resumeProcessInstancesRequest">
+    <wsdl:part name="parameters" element="pm:qualifiedProcessName"/>
+  </wsdl:message>
+  <wsdl:message name="resumeProcessInstancesResponse">
+    <wsdl:part name="parameters" element="pm:itemCount"/>
+  </wsdl:message>
+  <wsdl:message name="setDeadlineExpirationRequest">
+    <wsdl:part name="parameters" element="pm:setDeadlineExpirationInput"/>
+  </wsdl:message>
+  <wsdl:message name="setPriorityRequest">
+    <wsdl:part name="parameters" element="pm:setPriorityInput"/>
+  </wsdl:message>
+  <wsdl:message name="suspendProcessInstanceRequest">
+    <wsdl:part name="parameters" element="pm:processID"/>
+  </wsdl:message>
+  <wsdl:message name="suspendProcessInstancesRequest">
+    <wsdl:part name="parameters" element="pm:qualifiedProcessName"/>
+  </wsdl:message>
+  <wsdl:message name="suspendProcessInstancesResponse">
+    <wsdl:part name="parameters" element="pm:itemCount"/>
+  </wsdl:message>
+  <wsdl:message name="successMessage">
+    <wsdl:part name="parameters" element="pm:success"/>
+  </wsdl:message>
+  <wsdl:message name="illegalArgumentFault">
+    <wsdl:part name="fault" element="pm:illegalArgumentFault"/>
+  </wsdl:message>
+  <wsdl:message name="illegalStateFault">
+    <wsdl:part name="fault" element="pm:illegalStateFault"/>
+  </wsdl:message>
+  <wsdl:message name="operationFailedFault">
+    <wsdl:part name="fault" element="pm:operationFailedFault"/>
+  </wsdl:message>
+  <wsdl:portType name="processManagement">
+    <wsdl:documentation>Contain operations related to process management, including process listing, for the Process Manager. Unless otherwise noted, all operations are public.</wsdl:documentation>
+    <wsdl:operation name="cancelProcessInstance">
+      <wsdl:documentation>Cancel/Stop a process instance</wsdl:documentation>
+      <wsdl:input message="tns:cancelProcessInstanceRequest">
+        <wsdl:documentation>Request message: Takes the unique ID for the process instance.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:successMessage">
+        <wsdl:documentation>Response message: Static success response message, a work-around so WSDL 1.1 allows fault message(s) to be declared and thrown.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault" message="tns:illegalStateFault">
+        <wsdl:documentation>Error message: Records in its "reason" field why the target is in such state such that the operation can't be performed.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelProcessInstances">
+      <wsdl:documentation>Cancel/Stop possibly many process instances</wsdl:documentation>
+      <wsdl:input message="tns:cancelProcessInstancesRequest">
+        <wsdl:documentation>Request message: Specifies one or more processes whose instances are to be cancelled.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:cancelProcessInstancesResponse">
+        <wsdl:documentation>Response message: Includes the number of process instances cancelled.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault" message="tns:illegalStateFault">
+        <wsdl:documentation>Error message: Records in its "reason" field why the target is in such state such that the operation can't be performed.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createProcessInstance">
+      <wsdl:documentation>Create a process instance using a starter operation. See also listStarterOperations and getStarterOperationInfo.</wsdl:documentation>
+      <wsdl:input message="tns:createProcessInstanceRequest">
+        <wsdl:documentation>Request message: Specifies the operation and its associated parameter values.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:createProcessInstanceResponse">
+        <wsdl:documentation>Response message: Returns the ID assigned to the newly created process instance.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getActivityInstanceStatus">
+      <wsdl:documentation>Get the status of an activity for a particular process instance.</wsdl:documentation>
+      <wsdl:input message="tns:getActivityInstanceStatusRequest">
+        <wsdl:documentation>Request message: Specifies the activity (by name) in the process instance (by ID).</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:getActivityInstanceStatusResponse">
+        <wsdl:documentation>Response message: Contains the specified activity's status.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault" message="tns:illegalStateFault">
+        <wsdl:documentation>Error message: Records in the "reason" field why the target is in a state such that the operation can't be performed.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getParameterValue">
+      <wsdl:documentation>Get the value of a parameter for a particular process instance.</wsdl:documentation>
+      <wsdl:input message="tns:getParameterValueRequest">
+        <wsdl:documentation>Request message: Specifies the parameter (by name) in the process instance (by ID).</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:getParameterValueResponse">
+        <wsdl:documentation>Response message: Contains the specified parameter's value.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessInstanceStatus">
+      <wsdl:documentation>Get the status for a particular process instance. This is a convenience operation: queryProcessInstances can return the same information, but requires more input.</wsdl:documentation>
+      <wsdl:input message="tns:getProcessInstanceStatusRequest">
+        <wsdl:documentation>Request message: Returns the ID of the process instance.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:getProcessInstanceStatusResponse">
+        <wsdl:documentation>Response message: Contains the process instance whose ID was given, which includes information about its status.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessInstanceSummary">
+      <wsdl:documentation>Get a full summary report on a particular process instance. This operation is most useful for debugging.</wsdl:documentation>
+      <wsdl:input message="tns:getProcessInstanceSummaryRequest">
+        <wsdl:documentation>Request message: Specifies a process instance by its ID.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:getProcessInstanceSummaryResponse">
+        <wsdl:documentation>Response message: Contains, in a pretty-formatted string, all information relevant to the specified process instance, including snapshot of all process variables' values.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getStarterOperationInfo">
+      <wsdl:documentation>Get the metadata (for example, type information) of the parameters for a given starter operation. See also listStarterOperations and createProcessInstance.</wsdl:documentation>
+      <wsdl:input message="tns:getStarterOperationInfoRequest">
+        <wsdl:documentation>Request message: Specifies a starter operation. An entry in the list returned from listStarterOperations can be the input</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:getStarterOperationInfoResponse">
+        <wsdl:documentation>Response message: Contains the descriptions of the specified starter operation's parameters.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listProcessInstanceAttributes">
+      <wsdl:documentation>Get the list of attributes relevant to the specified process instances. Attributes can be process parameters and data fields, as well as pre-defined/system variables. These attributes can be used in query for process instances - see queryProcessInstances.</wsdl:documentation>
+      <wsdl:input message="tns:listProcessInstanceAttributesRequest">
+        <wsdl:documentation>Request message: Specifies the instances via input information about the processes. The result can be filtered to contain only attributes that can be filtered, sorted, or displayed.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:listProcessInstanceAttributesResponse">
+        <wsdl:documentation>Response message: Contains a list of attributes as name/type pairs.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listProcessInstances">
+      <wsdl:documentation>Get process instances that match the input criteria. This is a convenience operation: queryProcessInstances can return the same information, but requires more input.</wsdl:documentation>
+      <wsdl:input message="tns:listProcessInstancesRequest">
+        <wsdl:documentation>Request message: Specifies the instances via input information about the processes.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:listProcessInstancesResponse">
+        <wsdl:documentation>Response message: Contains a list of process instances</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listProcessTemplateAttributes">
+      <wsdl:documentation>Get the list of process template attributes. These attributes, which are pre-defined variables and are the same for all process templates, can be used in query for process templates - see queryProcessTemplates</wsdl:documentation>
+      <wsdl:input message="tns:listProcessTemplateAttributesRequest">
+        <wsdl:documentation>Request message: Takes filtering criteria so the result set only contains attributes of certain types (filterable, sortable or displayable).</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:listProcessTemplateAttributesResponse">
+        <wsdl:documentation>Response message: Contains a list of attributes as name/type pairs.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listProcessTemplates">
+      <wsdl:documentation>Get process templates that match the input criteria. This is a convenience operation: queryProcessTemplates can return the same information, but requires more input.</wsdl:documentation>
+      <wsdl:input message="tns:listProcessTemplatesRequest">
+        <wsdl:documentation>Request message: Allows wild cards in module and process name fields, and version.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:listProcessTemplatesResponse">
+        <wsdl:documentation>Response message: Contains a list of process templates.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listStarterOperations">
+      <wsdl:documentation>Get start operations for processes that match the input criteria. A starter operation is synthesized as a special way to create, from an application external to Process Manager (for example, RTC), process instances for any process with one and only one starter event, which must be a none starter event. See also createProcessInstance.</wsdl:documentation>
+      <wsdl:input message="tns:listStarterOperationsRequest">
+        <wsdl:documentation>Request message: Specifies the processes.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:listStarterOperationsResponse">
+        <wsdl:documentation>Response message: Contains a list of starter operations.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="purgeProcessInstances">
+      <wsdl:documentation>Permanently delete from Process Manager's store process instances. These instances must have reached their terminal state (for example COMPLETED, CANCELLED)</wsdl:documentation>
+      <wsdl:input message="tns:purgeProcessInstancesRequest">
+        <wsdl:documentation>Request message: Specifies the processes to delete.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:purgeProcessInstancesResponse">
+        <wsdl:documentation>Response message: Contains the number of process instances purged.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryDone">
+      <wsdl:documentation>Release all resources associated with a particular set of data being paged. It is important that an application calls this operation when it is done with paging.</wsdl:documentation>
+      <wsdl:input message="tns:queryDoneRequest">
+        <wsdl:documentation>Request message: Takes a paging ID, which identifies a certain set of data being paged. Paging IDs are returned from calls to any of the queryProcessTemplates or queryProcessInstances with paging flag set.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:successMessage">
+        <wsdl:documentation>Response message: Static success response message, a work-around so WSDL 1.1 allows fault message(s) to be declared and thrown.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryFirstPage">
+      <wsdl:documentation>Retrieve the first page of data from a particular result set.</wsdl:documentation>
+      <wsdl:input message="tns:queryFirstPageRequest">
+        <wsdl:documentation>Request message: Takes a paging ID that identifies a particular set of data.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryFirstPageResponse">
+        <wsdl:documentation>Response message: Contains a page of data. Currently this page can be a list of process templates or process instances, depending on whether queryProcessTemplates or queryProcessIinstances is the originating call.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryLastPage">
+      <wsdl:documentation>Retrieve the last page of data from a particular result set.</wsdl:documentation>
+      <wsdl:input message="tns:queryLastPageRequest">
+        <wsdl:documentation>Request message: Takes a paging ID that identifies a particular set of data.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryLastPageResponse">
+        <wsdl:documentation>Response message: Contains a page of data. Currently this page can be a list of process templates or process instances, depending on whether queryProcessTemplates or queryProcessIinstances is the originating call.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryNextPage">
+      <wsdl:documentation>Retrieve the next page of data from a particular result set.</wsdl:documentation>
+      <wsdl:input message="tns:queryNextPageRequest">
+        <wsdl:documentation>Request message: Takes a paging ID that identifies a particular set of data.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryNextPageResponse">
+        <wsdl:documentation>Response message: Contains a page of data. Currently this page can be a list of process templates or process instances, depending on whether queryProcessTemplates or queryProcessIinstances is the originating call.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryPreviousPage">
+      <wsdl:documentation>Retrieve the previous page of data from a particular result set.</wsdl:documentation>
+      <wsdl:input message="tns:queryPreviousPageRequest">
+        <wsdl:documentation>Request message: Takes a paging ID that identifies a particular set of data.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryPreviousPageResponse">
+        <wsdl:documentation>Response message: Contains a page of data. Currently this page can be a list of process templates or process instances, depending on whether queryProcessTemplates or queryProcessIinstances is the originating call.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessInstanceCount">
+      <wsdl:documentation>Count the number of process instances that match certain criteria.</wsdl:documentation>
+      <wsdl:input message="tns:queryProcessInstanceCountRequest">
+        <wsdl:documentation>Request message: Takes either a full SQL query string, or just the WHERE clause. In case of full query string, "FROM process" should be used - unlying code knows to cound process instances.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryProcessInstanceCountResponse">
+        <wsdl:documentation>Response message: Contains the number of qualified process instances found.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessInstances">
+      <wsdl:documentation>Get a list of process instances that match certain criteria.</wsdl:documentation>
+      <wsdl:input message="tns:queryProcessInstancesRequest">
+        <wsdl:documentation>Request message: Takes a query string, a page size, and an attribute name/type map. The query string should follow SQL syntax. "FROM process" should be used. If page size is 0, the whole result set is returned in the response; else it must be a positive integer, or -1 to use default page size. The attribute name/type map helps Process Manager to be more efficient in locating the attributes. See also listProcessInstanceAttributes.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryProcessInstancesResponse">
+        <wsdl:documentation>Response message: Contains a list qualified process instances, and also a paging ID in case paging mode is indicated by setting the page size to 0 in the request message.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessInstancesAlt">
+      <wsdl:documentation>A variation of queryProcessInstances that takes different input.</wsdl:documentation>
+      <wsdl:input message="tns:queryProcessInstancesAltRequest">
+        <wsdl:documentation>This is the same as queryProcessInstances's request message, except that the query string is divided into its constituent SELECT, WHERE, and SORT-BY clauses, each a separate parameter.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryProcessInstancesAltResponse">
+        <wsdl:documentation>Response message: Contains a list qualified process instances, and also a paging ID in case paging mode is indicated by setting the page size to 0 in the request message.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessTemplateCount">
+      <wsdl:documentation>Count the number of process templates that match certain criteria.</wsdl:documentation>
+      <wsdl:input message="tns:queryProcessTemplateCountRequest">
+        <wsdl:documentation>Request message: Takes either a full SQL query string, or just the WHERE clause. In case of full query string, "FROM process" should be used - unlying code knows to cound process templates.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryProcessTemplateCountResponse">
+        <wsdl:documentation>Response message: Contains the number of qualified process templates found.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessTemplates">
+      <wsdl:documentation>Get a list of process templates that match certain criteria.</wsdl:documentation>
+      <wsdl:input message="tns:queryProcessTemplatesRequest">
+        <wsdl:documentation>Request message: Takes a query string, and a page size. The query string should follow SQL syntax. "FROM process" should be used. If page size is 0, the whole result set is returned in the response; else it must be a positive integer, or -1 to use default page size.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryProcessTemplatesResponse">
+        <wsdl:documentation>Response message: Contains a list qualified process templates, and also a paging ID in case paging mode is indicated by setting the page size to 0 in the request message.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessTemplatesAlt">
+      <wsdl:documentation>A variation of queryProcessTemplates that takes different input.</wsdl:documentation>
+      <wsdl:input message="tns:queryProcessTemplatesAltRequest">
+        <wsdl:documentation>This is the same as queryProcessTemplates's request message, except that the query string is broken into its constituent SELECT, WHERE, and SORT-BY clauses, each a separate parameter.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:queryProcessTemplatesAltResponse">
+        <wsdl:documentation>Response message: Contains a list qualified process templates, and also a paging ID in case paging mode is indicated by setting the page size to 0 in the request message.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="resumeProcessInstance">
+      <wsdl:documentation>Resume/Re-start a process instance that was suspended. See suspendProcessInstance and suspendProcessInstances.</wsdl:documentation>
+      <wsdl:input message="tns:resumeProcessInstanceRequest">
+        <wsdl:documentation>Request message: Takes a unique ID to identify a process instance.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:successMessage">
+        <wsdl:documentation>Response message: Static success response message, a work-around so WSDL 1.1 allows fault message(s) to be declared and thrown.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault" message="tns:illegalStateFault">
+        <wsdl:documentation>Error message: Records in its "reason" field why the target is in such state such that the operation can't be performed.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="resumeProcessInstances">
+      <wsdl:documentation>Resume/Re-start possibly more than one process instance that were suspended. See suspendProcessInstance and suspendProcessInstances.</wsdl:documentation>
+      <wsdl:input message="tns:resumeProcessInstancesRequest">
+        <wsdl:documentation>Request message: Specifies the instances via information about processes.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:resumeProcessInstancesResponse">
+        <wsdl:documentation>Response message: Returns a count of the number of process instances that were successfully resumed.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault" message="tns:illegalStateFault">
+        <wsdl:documentation>Error message: Records in its "reason" field why the target is in such state such that the operation can't be performed.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setDeadlineExpiration">
+      <wsdl:documentation>Set/Change the deadline value for an activity.</wsdl:documentation>
+      <wsdl:input message="tns:setDeadlineExpirationRequest">
+        <wsdl:documentation>Request message: Takes the activity name and a deadline value.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:successMessage">
+        <wsdl:documentation>Response message: Static success response message, a work-around so WSDL 1.1 allows fault message(s) to be declared and thrown.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setPriority">
+      <wsdl:documentation>Change the scheduling priority for execution of a process instance.</wsdl:documentation>
+      <wsdl:input message="tns:setPriorityRequest">
+        <wsdl:documentation>Request message: Takes a unique ID that identifies a process instance, and a priority level.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:successMessage">
+        <wsdl:documentation>Response message: Static success response message, a work-around so WSDL 1.1 allows fault message(s) to be declared and thrown.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="suspendProcessInstance">
+      <wsdl:documentation>Suspend a process instance from being scheduled for execution. See also resumeProcessInstance and resumeProcessInstances.</wsdl:documentation>
+      <wsdl:input message="tns:suspendProcessInstanceRequest">
+        <wsdl:documentation>Request message: Takes a unique ID to identify a process instance.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:successMessage">
+        <wsdl:documentation>Response message: Static success response message, a work-around so WSDL 1.1 allows fault message(s) to be declared and thrown.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault" message="tns:illegalStateFault">
+        <wsdl:documentation>Error message: Records in its "reason" field why the target is in such state such that the operation can't be performed.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="suspendProcessInstances">
+      <wsdl:documentation>Suspend possibly more than one process instance from being scheduled for execution. See also resumeProcessInstance and resumeProcessInstances.</wsdl:documentation>
+      <wsdl:input message="tns:suspendProcessInstancesRequest">
+        <wsdl:documentation>Request message: Specifies the instances via information about processes.</wsdl:documentation>
+      </wsdl:input>
+      <wsdl:output message="tns:suspendProcessInstancesResponse">
+        <wsdl:documentation>Response message: Returns a count of the number of process instances that were successfully suspended.</wsdl:documentation>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault" message="tns:illegalArgumentFault">
+        <wsdl:documentation>Error message: Lists invalid argument(s) in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault" message="tns:illegalStateFault">
+        <wsdl:documentation>Error message: Records in its "reason" field why the target is in such state such that the operation can't be performed.</wsdl:documentation>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault" message="tns:operationFailedFault">
+        <wsdl:documentation>Error message: Records why the operation failed in the "reason" field.</wsdl:documentation>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProcessManagerBinding" type="tns:processManagement">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="cancelProcessInstance">
+      <soap:operation soapAction="cancelProcessInstance" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault">
+        <soap:fault name="illegalStateFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelProcessInstances">
+      <soap:operation soapAction="cancelProcessInstances" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault">
+        <soap:fault name="illegalStateFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createProcessInstance">
+      <soap:operation soapAction="createProcessInstance" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getActivityInstanceStatus">
+      <soap:operation soapAction="getActivityInstanceStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault">
+        <soap:fault name="illegalStateFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getParameterValue">
+      <soap:operation soapAction="getParameterValue" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessInstanceStatus">
+      <soap:operation soapAction="getProcessInstanceStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessInstanceSummary">
+      <soap:operation soapAction="getProcessInstanceSummary" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getStarterOperationInfo">
+      <soap:operation soapAction="getStarterOperationInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listProcessInstanceAttributes">
+      <soap:operation soapAction="listProcessInstanceAttributes" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listProcessInstances">
+      <soap:operation soapAction="listProcessInstances" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listProcessTemplateAttributes">
+      <soap:operation soapAction="listProcessTemplateAttributes" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listProcessTemplates">
+      <soap:operation soapAction="listProcessTemplates" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listStarterOperations">
+      <soap:operation soapAction="listStarterOperations" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="purgeProcessInstances">
+      <soap:operation soapAction="purgeProcessInstances" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryDone">
+      <soap:operation soapAction="queryDone" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryFirstPage">
+      <soap:operation soapAction="queryFirstPage" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryLastPage">
+      <soap:operation soapAction="queryLastPage" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryNextPage">
+      <soap:operation soapAction="queryNextPage" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryPreviousPage">
+      <soap:operation soapAction="queryPreviousPage" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessInstanceCount">
+      <soap:operation soapAction="queryProcessInstanceCount" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessInstances">
+      <soap:operation soapAction="queryProcessInstances" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessInstancesAlt">
+      <soap:operation soapAction="queryProcessInstancesAlt" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessTemplateCount">
+      <soap:operation soapAction="queryProcessTemplateCount" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessTemplates">
+      <soap:operation soapAction="queryProcessTemplates" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryProcessTemplatesAlt">
+      <soap:operation soapAction="queryProcessTemplatesAlt" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="resumeProcessInstance">
+      <soap:operation soapAction="resumeProcessInstance" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault">
+        <soap:fault name="illegalStateFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="resumeProcessInstances">
+      <soap:operation soapAction="resumeProcessInstances" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault">
+        <soap:fault name="illegalStateFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setDeadlineExpiration">
+      <soap:operation soapAction="setDeadlineExpiration" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setPriority">
+      <soap:operation soapAction="setPriority" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="suspendProcessInstance">
+      <soap:operation soapAction="suspendProcessInstance" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault">
+        <soap:fault name="illegalStateFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="suspendProcessInstances">
+      <soap:operation soapAction="suspendProcessInstances" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.tibco.com/bx/2009/management/process"/>
+      </wsdl:output>
+      <wsdl:fault name="illegalArgumentFault">
+        <soap:fault name="illegalArgumentFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="illegalStateFault">
+        <soap:fault name="illegalStateFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="operationFailedFault">
+        <soap:fault name="operationFailedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcessManagerService">
+    <wsdl:port name="ProcessManagerPort" binding="tns:ProcessManagerBinding">
+      <soap:address location="http://localhost:8080/bxEngine/node/processManagement/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+				<con:type>http://schemas.xmlsoap.org/wsdl/
+				</con:type>
+			</con:part>
+			<con:part>
+				<con:url>
+					file:C:\src\prj\n2pe\trunk\bx\runtime\daa\plugins\com.tibco.bx.daa\com.tibco.daa\com.tibco.bx.daa\Composites\pm\processManagement.xsd
+				</con:url>
+				<con:content><![CDATA[<!--edited with XMLSpy v2009 sp1 (http://www.altova.com) by Alex Pham (TIBCO Software Inc)-->
+<xsd:schema targetNamespace="http://www.tibco.com/bx/2009/management/processManagerType" elementFormDefault="qualified" xmlns:pm="http://www.tibco.com/bx/2009/management/processManagerType" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--GENERIC TYPES and ELEMENTS-->
+  <xsd:element name="itemCount" type="xsd:int">
+    <xsd:annotation>
+      <xsd:documentation>Element (mostly response) for many operations that return a count of certain items</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="success" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>Element (mostly response) for many operations that return a success indication</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="NameTypePair">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a name/type pair</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Name of the item</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="type" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Data type of the item</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="NameValuePair">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a name/value pair</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Name of the item</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="value" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Value of the item</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--BASIC PROCESS-RELATED TYPES and ELEMENTS-->
+  <xsd:element name="activityInstanceStatus" type="pm:ActivityInstanceStatus">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation getActivityInstanceStatus</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ActivityInstanceStatus">
+    <xsd:annotation>
+      <xsd:documentation>Type to summarize the current status of an instance of an activity in a process</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="activityID" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unique ID assigned to the activity, for example XPDL ID assigned by BusinessStudio's BPMN Process Editor.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="activityName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Optional name of the activity</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="activityState" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Current state of an activity instance, for example WAITING</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="startTime" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>When the activity instance starts execution</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="completionTime" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>When the activity instance finishes execution</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="deadlineExpirationTime" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>A timer intermediate event can be attached to any activity. This field keeps track of when time-out would occur if the activity did not complete.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="AttributeType">
+    <xsd:annotation>
+      <xsd:documentation>Enumeration values to tag process template and instance attributes into different categories. Do not delete or re-position any of the enumeration values. If a value must be removed, simply replace it with a "dummy" value.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="FILTERABLE"/>
+      <xsd:enumeration value="SORTABLE"/>
+      <xsd:enumeration value="DISPLAYABLE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="BasicProcessTemplate">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process template</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="processQName" type="pm:QualifiedProcessName">
+        <xsd:annotation>
+          <xsd:documentation>Fully qualified name of the process template</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="description" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Description of the process template</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="basicProcessTemplates">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation listProcessTemplates, returning a list of process templates</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="basicProcessTemplate" type="pm:BasicProcessTemplate" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="InstanceAttribute">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process instance attribute</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="pm:NameTypePair">
+        <xsd:sequence>
+          <xsd:element name="processQName" type="pm:QualifiedProcessName">
+            <xsd:annotation>
+              <xsd:documentation>Fully qualified name of the parent process template</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="instanceAttributes">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation listProcessInstanceAttributes, returning a list of process instance attributes</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="instanceAttribute" type="pm:InstanceAttribute" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="operationInfo" type="pm:OperationInfo">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation getStarterOperationInfo</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="OperationInfo">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe an operation</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="operationName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Name of the operation</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="parameters" type="pm:TemplateAttributes">
+        <xsd:annotation>
+          <xsd:documentation>List of parameters</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="page" type="pm:Page">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operations queryPreviousPage and queryNextPage</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Page">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a page of data</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element name="processTemplates" type="pm:ProcessTemplates">
+        <xsd:annotation>
+          <xsd:documentation>List of process templates</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="processInstances" type="pm:ProcessInstances">
+        <xsd:annotation>
+          <xsd:documentation>List of process instances</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:element name="pagingID" type="xsd:int">
+    <xsd:annotation>
+      <xsd:documentation>Element for many operations supporting paging of query result sets. A pagingID identifies a particular set of data that can be paged. Analogous to database cursor.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="processID" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>Request or response element to many operations. ProcessID is a unique ID assigned to a process instance.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ProcessInstance">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process instance</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="processQName" type="pm:QualifiedProcessName">
+        <xsd:annotation>
+          <xsd:documentation>Fully qualified name of the process template from which the instance was created</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="id" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Unique ID assigned to the process instance</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="state" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Current state of the process instance, for example ACTIVE, SUSPENDED</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="startTime" type="xsd:dateTime" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>When the process instance first became active</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="completionTime" type="xsd:dateTime" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>When the process instance reaches one of the terminal state</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="priority" type="xsd:int" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Priority for purpose of scheduling the execution of the process instance</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="waitingWorkCount" type="xsd:int" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Count of the number of User Task instances waiting for response from BRM, thus indirectly counting the number of outstanding work items associated with the process instance</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="parentProcessID" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>In case the instance was created via a sub-process call, this field keeps the id of the caller process instance</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="userID" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>ID of user who sent the request that results in the creation of the process instance. This ID is gleaned from the user/security-context.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="customAttributes" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>List of user-defined attributes</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customAttribute" type="pm:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="processInstances" type="pm:ProcessInstances">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operations listProcessInstances, queryProcessInstances, and queryProcessInstancesAlt</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ProcessInstances">
+    <xsd:annotation>
+      <xsd:documentation>Type for list of process instances</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="processInstance" type="pm:ProcessInstance" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="processInstanceSummary">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation getProcessInstanceSummary, to capture the summary information about a process instance. This operation is mainly used for debugging purpose</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="summary" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Summary information about the process instance as a pretty-formatted string</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ProcessTemplate">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process template</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="basicTemplate" type="pm:BasicProcessTemplate">
+        <xsd:annotation>
+          <xsd:documentation>Basic/Core attributes for the process template</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="state" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>State of the template, for example ACTIVE</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="priority" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Default scheduling priority to be assigned to process instances created from the template</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="creationTime" type="xsd:dateTime" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>When the template was created</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="processTemplates" type="pm:ProcessTemplates">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operations queryProcessTemplates and queryProcessTemplatesAlt</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ProcessTemplates">
+    <xsd:annotation>
+      <xsd:documentation>Type for list of process templates</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="processTemplate" type="pm:ProcessTemplate" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="qualifiedProcessName" type="pm:QualifiedProcessName">
+    <xsd:annotation>
+      <xsd:documentation>Element (mostly request) for many operations that require fully qualified name of a process template</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="QualifiedProcessName">
+    <xsd:annotation>
+      <xsd:documentation>Type to capture the fully qualified name of a process template</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="moduleName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Name of the module to which the process template belongs.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="processName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Name of the process template.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="version" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Process template's OSGi-style version which is one and the same as the module's</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="queryString" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>Request element for many operations that take for input a query string (in SQL syntax)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="starterOperation" type="pm:StarterOperation">
+    <xsd:annotation>
+      <xsd:documentation>Request element for any operation, such as getStarterOperationInfo, that needs starter operation information</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="StarterOperation">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a starter operation. A starter operation is derived from the none starter event of a process. To be qualified, the none starter must be the only starter event for that process.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="processQName" type="pm:QualifiedProcessName">
+        <xsd:annotation>
+          <xsd:documentation>Fully qualified name of the process template through whose none starter an instance is to be created</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="operation" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Name of the starter operation</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="starterOperations">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation listStarterOperations</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="starterOperation" type="pm:StarterOperation" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="TemplateAttribute">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process template attribute</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="pm:NameTypePair"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="templateAttributes" type="pm:TemplateAttributes">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation listProcessTemplateAttributes, returning a list of process template attributes</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="TemplateAttributes">
+    <xsd:annotation>
+      <xsd:documentation>Type for list of template attributes</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="templateAttribute" type="pm:TemplateAttribute" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--ELEMENTS SPECIFIC TO INDIVIDUAL OPERATIONS-->
+  <xsd:element name="createProcessInstanceInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation createProcessInstance. The input specifies the starter operation and its parameters to create a process instance. See also operation listStarterOperations.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="processQName" type="pm:QualifiedProcessName">
+          <xsd:annotation>
+            <xsd:documentation>A starter operation is derived from a process template's none starter event. This element names the module to which the process template belongs.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="operationName" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Name of the operation used to create a process instance</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="parameterMap">
+          <xsd:annotation>
+            <xsd:documentation>List of parameters as name/value pairs</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="parameter" type="pm:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="getActivityInstanceStatusInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation getActivityInstanceStatus</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="processID" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Unique ID assigned to a process instance</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="activityName" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Name of an activity</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="getParameterValueInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation getParameterValue</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="processID" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Unique ID assigned to a process instance</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="parameterName" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Name of a parameter whose value is to be retrieved</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="getParameterValueOutput">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation getParameterValue</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="parameterValue" type="xsd:anyType">
+          <xsd:annotation>
+            <xsd:documentation>The parameter value</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="getProcessInstanceStatusOutput" type="pm:ProcessInstance">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operation getProcessInstanceStatus, to summarize the current status of one process instance. getProcessInstanceStatus is a convenience operation; the same data can be obtained by calling queryProcessInstances with much more complex input. Note that type ProcessInstance is re-used, some elements (namely, customAttributes) would never contain any data for call to operation getProcessInstanceStatus.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="listProcessInstanceAttributesInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation listProcessInstanceAttributes</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="processQName" type="pm:QualifiedProcessName">
+          <xsd:annotation>
+            <xsd:documentation>Fully qualified name of the process template whose process instances' attributes are to be retrieved</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="attributeType" type="pm:AttributeType">
+          <xsd:annotation>
+            <xsd:documentation>Optional input. If specified, it helps filter the result set to include only attributes of certain category.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="listProcessTemplateAttributesInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation listProcessTemplateAttributes</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="attributeType" type="pm:AttributeType">
+          <xsd:annotation>
+            <xsd:documentation>Optional input. If specified, it helps filter the result set to include only attributes of certain category.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="queryProcessInstancesAltInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation queryProcessInstancesAlt. Works the same way as queryProcessInstances, except the query string is broken into multiple parts. See also listProcessInstanceAttributes.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="select" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specify which attributes to return for each process instance in the result set</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="where" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Filter criteria</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="orderBy" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Sorting/Grouping criteria</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="pageSize" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>If equal to 0, the whole list of qualified process instances is returned. If greater 0, it indicates the list is to paged in, each containing that many items.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="attributeMap" type="pm:TemplateAttributes">
+          <xsd:annotation>
+            <xsd:documentation>Optional input. To make the query efficient, the types of all user-defined attributes participating in the query should be specified.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="queryProcessInstancesInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation queryProcessInstances. See also listProcessInstanceAttributes.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="query" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Query string in SQL syntax</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="pageSize" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>If equal to 0, the whole list of qualified process instances is returned. If greater 0, it indicates the list is to paged in, each containing that many items.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="attributeMap" type="pm:TemplateAttributes">
+          <xsd:annotation>
+            <xsd:documentation>Optional input. To make the query efficient, the types of all user-defined attributes participating in the query should be specified.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="queryProcessInstancesOutput">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operations queryProcessInstances and queryProcessInstancesAlt</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="processInstances" type="pm:ProcessInstances">
+          <xsd:annotation>
+            <xsd:documentation>Full list of process instances is returned if request indicates non-paging mode. Or first page is returned if in paging mode.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="pagingID" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>In case the request indicates paging mode, use this ID to get the process instances page by page</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="queryProcessTemplatesAltInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation queryProcessTemplatesAlt. Works the same way as queryProcessTemplates, except the query string is broken into multiple parts. See also listProcessTemplateAttributes.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="select" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Specify which data fields to be returned for each process template in the result set</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="where" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Filter criteria</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="orderBy" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Sorting/Grouping criteria</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="pageSize" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>If equal to 0, the whole list of qualified process templates is returned. If greater 0, it indicates the list is to paged in, each containing that many items.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="queryProcessTemplatesInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation queryProcessTemplates. See also listProcessTemplateAttributes.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="query" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Query string in SQL syntax.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="pageSize" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>If equal to 0, the whole list of qualified process templates is returned. If greater 0, it indicates the list is to paged in, each containing that many items.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="queryProcessTemplatesOutput">
+    <xsd:annotation>
+      <xsd:documentation>Response element for operations queryProcessTemplates and queryProcessTemplatesAlt</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="processTemplates" type="pm:ProcessTemplates">
+          <xsd:annotation>
+            <xsd:documentation>Full list of process templates is returned if request indicates non-paging mode, or the first page in case of paging mode.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="pagingID" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>In case the request indicates paging mode, use this ID to get the process templates page by page</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="setDeadlineExpirationInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation setDeadlineExpiration</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="activityID" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Unique ID assigned to the activity, for example XPDL ID assigned by BusinessStudio's BPMN Process Editor.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="expirationTime" type="xsd:dateTime">
+          <xsd:annotation>
+            <xsd:documentation>New expiration time for the specified activity</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="setPriorityInput">
+    <xsd:annotation>
+      <xsd:documentation>Request element for operation setPriority</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="processID" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Unique ID assigned to a process instance</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="priority" type="xsd:short">
+          <xsd:annotation>
+            <xsd:documentation>New priority to affect instance-execution scheduling</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <!--FAULT ELEMENTS and TYPES-->
+  <xsd:complexType name="BasicFaultType">
+    <xsd:annotation>
+      <xsd:documentation>Type for all fault elements</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="reason" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Reason for the exception</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="illegalArgumentFault" type="pm:BasicFaultType">
+    <xsd:annotation>
+      <xsd:documentation>Fault element for illegal or missing input argument(s) exception</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="illegalStateFault" type="pm:BasicFaultType">
+    <xsd:annotation>
+      <xsd:documentation>Fault element for illegal state exception, i.e. the requested operation can not be carried out because the target is not in the right state</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="operationFailedFault" type="pm:BasicFaultType">
+    <xsd:annotation>
+      <xsd:documentation>Fault element for various exceptions</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>]]></con:content>
+				<con:type>http://www.w3.org/2001/XMLSchema
+				</con:type>
+			</con:part>
+		</con:definitionCache>
+	</con:interface><con:properties/><con:wssContainer/></con:soapui-project>

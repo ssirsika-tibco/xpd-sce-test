@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ep:policySetContainer xmlns:ep="http://xsd.tns.tibco.com/amf/models/externalpolicy" 
+   xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" 
+   xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions"  
+   xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"  
+   xmlns:tpa="http://xsd.tns.tibco.com/governance/policy/action/2009"
+   xmlns:tpc="http://xsd.tns.tibco.com/governance/policy/common/2009"
+   xmlns:jmsbt="http://xsd.tns.tibco.com/amf/models/sca/bindingtype/jms"
+   xmlns:soapbt="http://xsd.tns.tibco.com/amf/models/sca/binding/soap"
+   xmlns:webapp="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/webapp"
+   xmlns:wssp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+   targetNamespace="http://www.tibco.com/usernamecm">
+ 
+  <!-- add the policy sets here -->
+  <sca:policySet name="UsernameTokenCM" 
+    provides="scaext:credentialMapping.usernameToken" 
+    appliesTo="soapbt:binding.soap.reference">
+    
+    <wsp:Policy template="tpt:WssConsumer"
+			xmlns:wssp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+			xmlns:tpt="http://xsd.tns.tibco.com/governance/policy/template/2009"
+			xmlns:wss="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<!--
+            Maps the username and password to UsernameToken   
+            -->
+			<wsp:All>
+				<wsp:Policy>
+                   <tpa:CredentialMapping>
+                           <tpa:Fixed>
+                           		<tpa:IdentityProvider ResourceInstance="$$ResourceInstanceApp$$" RefreshInterval="600000" />
+                           </tpa:Fixed>
+                           <wssp:SupportingTokens>
+                                   <!-- Generate WSS UsernameToken for outbound requests -->
+                                   <wssp:UsernameToken />
+                           </wssp:SupportingTokens>
+                   </tpa:CredentialMapping>                                          
+				</wsp:Policy>
+			</wsp:All>
+		</wsp:Policy>
+    
+  </sca:policySet>
+
+</ep:policySetContainer>
+

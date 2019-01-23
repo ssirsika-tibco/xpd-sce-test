@@ -1,0 +1,89 @@
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Adrian Hussey (Tibco Software Ltd) -->
+<xs:schema xmlns="http://exception.api.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exception.api.common.n2.tibco.com" version="1.0">
+	<xs:complexType name="ErrorLine">
+		<xs:annotation>
+			<xs:documentation>Single error or warning message, containing an error code, message string and parameters.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="parameter" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Array of parameter values that can be applied to a foreign language message.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="code" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Code associated with this error.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="message" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Default English form of the error message.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="InternalServiceFault">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="error" type="ErrorLine"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeploymentParameterFault">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="error" type="ErrorLine" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="WorkTypeFault">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="error" type="ErrorLine"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InvalidWorkTypeFault">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="error" type="ErrorLine"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="DetailedErrorLine">
+		<xs:annotation>
+			<xs:documentation>Extension of ErrorLine, which adds a line number, column number and severity level.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ErrorLine">
+				<xs:attribute name="lineNumber" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>Line number on which the error occurred.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="columnNumber" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>Column number in which the error occurred.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="severity" use="required">
+					<xs:annotation>
+						<xs:documentation>Severity of the message - for example, ERROR, WARNING or INFORMATION.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="WARNING"/>
+							<xs:enumeration value="ERROR"/>
+							<xs:enumeration value="INFORMATION"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DetailedException">
+		<xs:sequence>
+			<xs:element name="error" type="ErrorLine" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

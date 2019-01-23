@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tibco.com/test/schema" targetNamespace="http://www.tibco.com/test/schema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="testAlone">
+	<xsd:restriction base="xsd:integer">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="test1">
+	<xsd:restriction base="xsd:integer">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="testComplex">
+	<xsd:sequence>
+	<xsd:element name="attr" type="xsd:integer">		
+	</xsd:element>
+	<xsd:element name="attr2" >
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:integer">				
+			</xsd:restriction>
+		</xsd:simpleType>	
+	</xsd:element>
+	</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="testMeSimpleContent">
+		<xsd:simpleContent>
+		<xsd:extension base="xsd:integer">		
+		<xsd:attribute name="ga" type="xsd:integer"></xsd:attribute>		
+		</xsd:extension>	
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="test2">
+		<xsd:restriction base="test1">			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="mountainbikesize">
+	  <xsd:restriction base="xsd:integer">
+	    <xsd:enumeration value="1"/>
+	    <xsd:enumeration value="2"/>
+	    <xsd:enumeration value="3"/>
+	  </xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="FamilyMountainBikeSizes">
+	   <xsd:simpleContent>
+	      <xsd:extension base="mountainbikesize">
+	         <xsd:attribute name="familyMember" type="xsd:integer" />
+	      </xsd:extension>
+	   </xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="testAlonePosInt">
+	<xsd:restriction base="xsd:positiveInteger">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="test1PosInt">
+	<xsd:restriction base="xsd:positiveInteger">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="testComplexPosInt">
+	<xsd:sequence>
+	<xsd:element name="attrPosInt" type="xsd:positiveInteger">		
+	</xsd:element>
+	<xsd:element name="attr2PosInt" >
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:positiveInteger">				
+			</xsd:restriction>
+		</xsd:simpleType>	
+	</xsd:element>
+	</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="testMeSimpleContentPosInt">
+		<xsd:simpleContent>
+		<xsd:extension base="xsd:positiveInteger">		
+		<xsd:attribute name="gaPosInt" type="xsd:positiveInteger"></xsd:attribute>		
+		</xsd:extension>	
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="test2PosInt">
+		<xsd:restriction base="test1PosInt">			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="mountainbikesizePosInt">
+	  <xsd:restriction base="xsd:positiveInteger">
+	    <xsd:enumeration value="1"/>
+	    <xsd:enumeration value="2"/>
+	    <xsd:enumeration value="3"/>
+	  </xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="FamilyMountainBikeSizesPosInt">
+	   <xsd:simpleContent>
+	      <xsd:extension base="mountainbikesizePosInt">
+	         <xsd:attribute name="familyMemberPosInt" type="xsd:positiveInteger" />
+	      </xsd:extension>
+	   </xsd:simpleContent>
+	</xsd:complexType>	
+	
+	<xsd:simpleType name="testAloneUnLong">
+	<xsd:restriction base="xsd:unsignedLong">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="test1UnLong">
+	<xsd:restriction base="xsd:unsignedLong">		
+	</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="testComplexUnLong">
+	<xsd:sequence>
+	<xsd:element name="attrUnLong" type="xsd:unsignedLong">		
+	</xsd:element>
+	<xsd:element name="attr2UnLong" >
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:unsignedLong">				
+			</xsd:restriction>
+		</xsd:simpleType>	
+	</xsd:element>
+	</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="testMeSimpleContentUnLong">
+		<xsd:simpleContent>
+		<xsd:extension base="xsd:unsignedLong">		
+		<xsd:attribute name="gaUnLong" type="xsd:unsignedLong"></xsd:attribute>		
+		</xsd:extension>	
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="test2UnLong">
+		<xsd:restriction base="test1UnLong">			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="mountainbikesizeUnLong">
+	  <xsd:restriction base="xsd:unsignedLong">
+	    <xsd:enumeration value="1"/>
+	    <xsd:enumeration value="2"/>
+	    <xsd:enumeration value="3"/>
+	  </xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="FamilyMountainBikeSizesUnLong">
+	   <xsd:simpleContent>
+	      <xsd:extension base="mountainbikesizeUnLong">
+	         <xsd:attribute name="familyMemberUnLong" type="xsd:unsignedLong" />
+	      </xsd:extension>
+	   </xsd:simpleContent>
+	</xsd:complexType>	
+	
+</xsd:schema>

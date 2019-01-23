@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2004 - 2015 TIBCO Software Inc. ALL RIGHTS RESERVED."
+    modelDirectory="/com.tibco.example.emfmodel.and.workingcopy/src" editDirectory="/com.tibco.example.emfmodel.and.workingcopy/src"
+    modelPluginID="com.tibco.example.emfmodel.and.workingcopy" modelName="ExampleModel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>exampleModel.xsd</foreignModel>
+  <genPackages prefix="Model" basePackage="com.tibco.example" resource="XML" disposableProviderFactory="true"
+      fileExtensions="exmp" ecorePackage="model.ecore#/">
+    <genClasses ecoreClass="model.ecore#//ChildType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ChildType/testElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ChildType/childAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//DocumentRoot/mainElement"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//MainElementType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//MainElementType/childElements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MainElementType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//MainElementType/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

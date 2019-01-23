@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.tibco.com/AFF/V4.0.0/classes/order" xmlns:tns6="http://www.tibco.com/AFF/V4.0.0/classes/order"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.tibco.com/AFF/V4.0.0/classes/order">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/junit8721/Generated Business Objects/com.tibco.AFF.V4._0._0.classes.order.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="Characteristic" nillable="false">
+    <xsd:complexType ecore:name="CharacteristicType" id="com.tibco.AFF.V4._0._0.classes.orderCharacteristicType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="name" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Name" type="xsd:string"/>
+        <xsd:element ecore:name="description" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Description" type="xsd:string"/>
+        <xsd:element ecore:name="values" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Values">
+          <xsd:complexType ecore:name="ValuesType" id="com.tibco.AFF.V4._0._0.classes.orderValuesType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="value" form="qualified" maxOccurs="unbounded"
+                  minOccurs="0" name="Value">
+                <xsd:complexType ecore:name="ValueType" id="com.tibco.AFF.V4._0._0.classes.orderValueType"
+                    mixed="false">
+                  <xsd:sequence>
+                    <xsd:element ecore:name="name" form="qualified" maxOccurs="1"
+                        minOccurs="1" name="Name" type="xsd:string"/>
+                    <xsd:element ecore:name="type" form="qualified" maxOccurs="1"
+                        minOccurs="1" name="Type" type="xsd:string"/>
+                    <xsd:element ecore:name="value" form="qualified" maxOccurs="1"
+                        minOccurs="0" name="Value" type="xsd:string"/>
+                    <xsd:element ecore:name="valueFrom" form="qualified" maxOccurs="1"
+                        minOccurs="0" name="ValueFrom" type="xsd:string"/>
+                    <xsd:element ecore:name="valueTo" form="qualified" maxOccurs="1"
+                        minOccurs="0" name="ValueTo" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="DeliveryAddress" nillable="false">
+    <xsd:complexType ecore:name="DeliveryAddressType" id="com.tibco.AFF.V4._0._0.classes.orderDeliveryAddressType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="addressLine1" form="qualified" maxOccurs="1" minOccurs="1"
+            name="AddressLine1" type="xsd:string"/>
+        <xsd:element ecore:name="addressLine2" form="qualified" maxOccurs="1" minOccurs="0"
+            name="AddressLine2" type="xsd:string"/>
+        <xsd:element ecore:name="locality" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Locality" type="xsd:string"/>
+        <xsd:element ecore:name="region" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Region" type="xsd:string"/>
+        <xsd:element ecore:name="postCode" form="qualified" maxOccurs="1" minOccurs="1"
+            name="PostCode" type="xsd:string"/>
+        <xsd:element ecore:name="country" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Country" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="InvoiceAddress" nillable="false">
+    <xsd:complexType ecore:name="InvoiceAddressType" id="com.tibco.AFF.V4._0._0.classes.orderInvoiceAddressType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="addressLine1" form="qualified" maxOccurs="1" minOccurs="1"
+            name="AddressLine1" type="xsd:string"/>
+        <xsd:element ecore:name="addressLine2" form="qualified" maxOccurs="1" minOccurs="0"
+            name="AddressLine2" type="xsd:string"/>
+        <xsd:element ecore:name="locality" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Locality" type="xsd:string"/>
+        <xsd:element ecore:name="region" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Region" type="xsd:string"/>
+        <xsd:element ecore:name="postCode" form="qualified" maxOccurs="1" minOccurs="1"
+            name="PostCode" type="xsd:string"/>
+        <xsd:element ecore:name="country" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Country" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="SLA" nillable="false">
+    <xsd:complexType ecore:name="SLAType" id="com.tibco.AFF.V4._0._0.classes.orderSLAType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="SLAID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="SLAID" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="OrderHeader" nillable="false">
+    <xsd:complexType ecore:name="OrderHeaderType" id="com.tibco.AFF.V4._0._0.classes.orderOrderHeaderType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="orderRef" form="qualified" maxOccurs="1" minOccurs="0"
+            name="OrderRef" type="xsd:string"/>
+        <xsd:element ecore:name="version" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Version" type="tns6:long_StudioGeneratedTemplate"/>
+        <xsd:element ecore:name="isLatestVersion" form="qualified" maxOccurs="1" minOccurs="0"
+            name="IsLatestVersion" type="xsd:boolean"/>
+        <xsd:element ecore:name="orderDescription" form="qualified" maxOccurs="1"
+            minOccurs="0" name="OrderDescription" type="xsd:string"/>
+        <xsd:element ecore:name="orderStatus" form="qualified" maxOccurs="1" minOccurs="0"
+            name="OrderStatus" type="xsd:string"/>
+        <xsd:element ecore:name="customerID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CustomerID" type="xsd:string"/>
+        <xsd:element ecore:name="subscriberID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="SubscriberID" type="xsd:string"/>
+        <xsd:element ecore:name="submittedDate" form="qualified" maxOccurs="1" minOccurs="0"
+            name="SubmittedDate" type="xsd:date"/>
+        <xsd:element ecore:name="submittedTime" form="qualified" maxOccurs="1" minOccurs="0"
+            name="SubmittedTime" type="xsd:time"/>
+        <xsd:element ecore:name="requiredByDate" form="qualified" maxOccurs="1" minOccurs="0"
+            name="RequiredByDate" type="xsd:dateTime"/>
+        <xsd:element ecore:name="expirationDate" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ExpirationDate" type="xsd:date"/>
+        <xsd:element ecore:name="expectedCompletionDate" form="qualified" maxOccurs="1"
+            minOccurs="0" name="ExpectedCompletionDate" type="xsd:dateTime"/>
+        <xsd:element ecore:name="invoiceAddress" maxOccurs="1" minOccurs="0" ref="tns6:InvoiceAddress"/>
+        <xsd:element ecore:name="deliveryAddress" maxOccurs="1" minOccurs="0" ref="tns6:DeliveryAddress"/>
+        <xsd:element ecore:name="notes" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Notes" type="xsd:string"/>
+        <xsd:element ecore:name="SLAs" form="qualified" maxOccurs="1" minOccurs="0"
+            name="SLAs">
+          <xsd:complexType ecore:name="SLAsType" id="com.tibco.AFF.V4._0._0.classes.orderSLAsType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="SLA" maxOccurs="unbounded" minOccurs="0" ref="tns6:SLA"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="UDFs" form="qualified" maxOccurs="1" minOccurs="0"
+            name="UDFs">
+          <xsd:complexType ecore:name="UDFsType" id="com.tibco.AFF.V4._0._0.classes.orderUDFsType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="UDF" form="qualified" maxOccurs="unbounded"
+                  minOccurs="0" name="UDF">
+                <xsd:complexType ecore:name="UDFType1" id="com.tibco.AFF.V4._0._0.classes.orderUDFType"
+                    mixed="false">
+                  <xsd:sequence>
+                    <xsd:element ecore:name="name" form="qualified" maxOccurs="1"
+                        minOccurs="1" name="Name" type="xsd:anyType"/>
+                    <xsd:element ecore:name="value" form="qualified" maxOccurs="1"
+                        minOccurs="1" name="Value" type="xsd:anyType"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="UDF" nillable="false">
+    <xsd:complexType ecore:name="UDFType" id="com.tibco.AFF.V4._0._0.classes.orderUDFType2"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="name" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Name" type="xsd:string"/>
+        <xsd:element ecore:name="value" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Value" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="OrderLine" nillable="false">
+    <xsd:complexType ecore:name="OrderLineType" id="com.tibco.AFF.V4._0._0.classes.orderOrderLineType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="lineNumber" form="qualified" maxOccurs="1" minOccurs="1"
+            name="LineNumber" type="xsd:string"/>
+        <xsd:element ecore:name="orderLineStatus" form="qualified" maxOccurs="1" minOccurs="0"
+            name="OrderLineStatus" type="xsd:string"/>
+        <xsd:element ecore:name="subscriberID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="SubscriberID" type="xsd:string"/>
+        <xsd:element ecore:name="productID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="ProductID" type="xsd:string"/>
+        <xsd:element ecore:name="quantity" form="qualified" maxOccurs="1" minOccurs="1"
+            name="Quantity" type="tns6:long_StudioGeneratedTemplate"/>
+        <xsd:element ecore:name="UOM" form="qualified" maxOccurs="1" minOccurs="1"
+            name="UOM" type="xsd:string"/>
+        <xsd:element ecore:name="invoiceAddress" maxOccurs="1" minOccurs="0" ref="tns6:InvoiceAddress"/>
+        <xsd:element ecore:name="deliveryAddress" maxOccurs="1" minOccurs="0" ref="tns6:DeliveryAddress"/>
+        <xsd:element ecore:name="orderLineAction" form="qualified" maxOccurs="1" minOccurs="1"
+            name="OrderLineAction" type="xsd:string"/>
+        <xsd:element ecore:name="orderLineActionMode" form="qualified" maxOccurs="1"
+            minOccurs="0" name="OrderLineActionMode" type="xsd:string"/>
+        <xsd:element ecore:name="requiredByDate" form="qualified" maxOccurs="1" minOccurs="0"
+            name="RequiredByDate" type="xsd:dateTime"/>
+        <xsd:element ecore:name="linkID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="LinkID" type="xsd:string"/>
+        <xsd:element ecore:name="inventoryID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="InventoryID" type="xsd:string"/>
+        <xsd:element ecore:name="notes" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Notes" type="xsd:string"/>
+        <xsd:element ecore:name="SLAs" form="qualified" maxOccurs="1" minOccurs="0"
+            name="SLAs">
+          <xsd:complexType ecore:name="SLAsType1" id="com.tibco.AFF.V4._0._0.classes.orderSLAsType2"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="SLA" maxOccurs="unbounded" minOccurs="0" ref="tns6:SLA"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="UDFs" form="qualified" maxOccurs="1" minOccurs="0"
+            name="UDFs">
+          <xsd:complexType ecore:name="UDFsType1" id="com.tibco.AFF.V4._0._0.classes.orderUDFsType2"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="UDF" maxOccurs="unbounded" minOccurs="0" ref="tns6:UDF"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="characteristics" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Characteristics">
+          <xsd:complexType ecore:name="CharacteristicsType" id="com.tibco.AFF.V4._0._0.classes.orderCharacteristicsType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="characteristic" maxOccurs="unbounded" minOccurs="0"
+                  ref="tns6:Characteristic"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="customerItemID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CustomerItemID" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="OrderDetails" nillable="false">
+    <xsd:complexType ecore:name="OrderDetailsType" id="com.tibco.AFF.V4._0._0.classes.orderOrderDetailsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="orderLines" form="qualified" maxOccurs="1" minOccurs="1"
+            name="OrderLines">
+          <xsd:complexType ecore:name="OrderLinesType" id="com.tibco.AFF.V4._0._0.classes.orderOrderLinesType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="orderLine" maxOccurs="unbounded" minOccurs="0"
+                  ref="tns6:OrderLine"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Order" nillable="false">
+    <xsd:complexType ecore:name="OrderType" id="com.tibco.AFF.V4._0._0.classes.orderOrderType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="orderID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="OrderID" type="xsd:string"/>
+        <xsd:element ecore:name="orderHeader" maxOccurs="1" minOccurs="1" ref="tns6:OrderHeader"/>
+        <xsd:element ecore:name="orderDetails" maxOccurs="1" minOccurs="0" ref="tns6:OrderDetails"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

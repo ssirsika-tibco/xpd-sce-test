@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/libero/schema/ReceiveEsitoCaricamentoOfferta_2014R1.xsd"
+    xmlns:tns15="http://xmlns.enel.com/mercato/libero/schema/ReceiveEsitoCaricamentoOfferta_2014R1.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.com/mercato/libero/schema/ReceiveEsitoCaricamentoOfferta_2014R1.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.presentation.resources/Generated Business Objects/com.enel.xmlns.mercato.libero.schema.ReceiveEsitoCaricamentoOfferta_2014R1.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="RicezioneEsitoCaricamentoResponse" nillable="false">
+    <xsd:complexType ecore:name="RicezioneEsitoCaricamentoResponseType" id="com.enel.xmlns.mercato.libero.schema.ReceiveEsitoCaricamentoOfferta_2014R1RicezioneEsitoCaricamentoResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="canale_Di_Vendita" form="qualified" maxOccurs="1"
+            minOccurs="0" name="Canale_Di_Vendita" type="xsd:string"/>
+        <xsd:element ecore:name="causale_Operazione" form="qualified" maxOccurs="1"
+            minOccurs="0" name="Causale_Operazione" type="xsd:string"/>
+        <xsd:element ecore:name="codice_Scarto" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Codice_Scarto" type="xsd:string"/>
+        <xsd:element ecore:name="descrizione_Scarto" form="qualified" maxOccurs="1"
+            minOccurs="0" name="Descrizione_Scarto" type="xsd:string"/>
+        <xsd:element ecore:name="esito_Caricamento" form="qualified" maxOccurs="1"
+            minOccurs="0" name="Esito_Caricamento" type="xsd:string"/>
+        <xsd:element ecore:name="id_Attivita_Scarto" form="qualified" maxOccurs="1"
+            minOccurs="0" name="Id_Attivita_Scarto" type="xsd:string"/>
+        <xsd:element ecore:name="id_BPM" form="qualified" maxOccurs="1" minOccurs="0"
+            name="Id_BPM" type="xsd:string"/>
+        <xsd:element ecore:name="id_Transazione_Canale" form="qualified" maxOccurs="1"
+            minOccurs="0" name="Id_Transazione_Canale" type="xsd:string"/>
+        <xsd:element ecore:name="tipoKO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TipoKO" type="xsd:string"/>
+        <xsd:element ecore:name="identificativoOfferta" form="qualified" maxOccurs="1"
+            minOccurs="0" name="IdentificativoOfferta" type="xsd:string"/>
+        <xsd:element ecore:name="identificativoLineaOfferta" form="qualified" maxOccurs="1"
+            minOccurs="0" name="identificativoLineaOfferta" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

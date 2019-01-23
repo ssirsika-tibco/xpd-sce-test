@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="generateDAA" basedir=".">
+
+	<!-- loading ant-contrib -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${basedir}/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+	
+	<taskdef classname="com.tibco.xpd.ant.tasks.BPMGenerateDAATask" name="bpm.generateDAA" classpath="../lib/bpm-antTaskDefinitions.jar"/>
+
+	<!-- location where projects has been checked out, could be read-only -->
+	<property name="projects.base.dir" location="C:/Users/mtorres/Downloads/temp/studioProjectsWindows" />
+
+	<!-- workspace used for building DAAs -->
+	<property name="workspace" location="C:/Users/mtorres/Downloads/temp/daaTestWS" />
+
+	<!-- location of the AMX installation -->
+	<property name="TIBCO_HOME" location="C:/src/eclipse-stuff/studio-bpm-3.5.0V21" />
+
+	<!-- daa output location -->
+	<property name="daaOutputLocation" location="C:\Users\mtorres\Downloads\temp\daaOutput-location" />
+
+	<target name="importProjects">
+		<echo>before importing...</echo>
+		<!-- import projects into current workspace -->
+		<for param="project">
+			<dirset dir="${projects.base.dir}">
+				<filename name="*" />
+			</dirset>
+			<sequential>				
+				<sds.importProject projectloc="@{project}" copyfiles="true" />
+			</sequential>
+		</for>
+		<echo>after importing...</echo>
+	</target>
+
+	<target name="generateDAA" depends="importProjects" description="generate daa for projects in sepcified location">
+		<echo>before generate daa task</echo>
+		<bpm.generateDAA daaOutputLocation="${daaOutputLocation}" /> 
+		<echo>after generate daa task</echo>
+	</target>
+
+</project>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://mind.enel.com.example.com/sevicecloudgateway" xmlns:tns17="http://mind.enel.com.example.com/sevicecloudgateway"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mind.enel.com.example.com/sevicecloudgateway">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.presentation.resources/Business Objects/com.enel.mind.sevicecloudgateway.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="NotificaStatoConsegnaRequest" id="_qZ5H8KLAEeOb3989fozZUw"
+      name="NotificaStatoConsegnaRequest">
+    <xsd:sequence>
+      <xsd:element ecore:name="sistema" id="_1VVh0KLAEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="sistema">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="orderId" id="__8dRgKLAEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="orderId">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="orderStatus" id="_Bugd8KLBEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="orderStatus">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codiceEsito" id="_C55TAKLBEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="codiceEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="esito" id="_G4P-8KLBEeOb3989fozZUw" maxOccurs="1" minOccurs="0"
+          name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="descrizioneEsito" id="_INZM8KLBEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="descrizioneEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="orderStatusTime" id="_JRIh4KLBEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="orderStatusTime" type="xsd:date"/>
+      <xsd:element ecore:name="idBpm" id="_MOFbMKLBEeOb3989fozZUw" maxOccurs="1" minOccurs="0"
+          name="idBpm">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="NotificaStatoConsegnaResponse" id="_ZI3PkKLBEeOb3989fozZUw"
+      name="NotificaStatoConsegnaResponse">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="_tv4W4KLBEeOb3989fozZUw" maxOccurs="1" minOccurs="0"
+          name="esito" type="tns17:EsitoSC"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="EsitoSC" id="_faUmkKLBEeOb3989fozZUw" name="EsitoSC">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="_hpDH8KLBEeOb3989fozZUw" maxOccurs="1" minOccurs="0"
+          name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codiceEsito" id="_iS2S4KLBEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="codiceEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="descrizioneEsito" id="_kb304KLBEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="descrizioneEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="sistemaSorgenteEsito" id="_k3uDYKLBEeOb3989fozZUw"
+          maxOccurs="1" minOccurs="0" name="sistemaSorgenteEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="NotificaDatiFatturaRequest" id="_HUahEKLCEeOb3989fozZUw"
+      name="NotificaDatiFatturaRequest">
+    <xsd:sequence>
+      <xsd:element ecore:name="sistema" id="_OcglIKLCEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="sistema">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="requestId" id="_P_ezwKLCEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="requestId">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="orderId" id="_REes8KLCEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="orderId">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="caseId" id="_SmCmUKLCEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="caseId">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="fiscalCode" id="_W4t8cKLCEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="fiscalCode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="16"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idFattura" id="_ZmmfAKLCEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="idFattura">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="esito" id="_ax50gKLCEeOb3989fozZUw" maxOccurs="1" minOccurs="0"
+          name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="dataFattura" id="_cJeEYKLCEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="dataFattura" type="xsd:date"/>
+      <xsd:element ecore:name="idFaro" id="_dom74KLCEeOb3989fozZUw" maxOccurs="1"
+          minOccurs="0" name="idFaro">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="idBpm" id="_gEZo4KLCEeOb3989fozZUw" maxOccurs="1" minOccurs="0"
+          name="idBpm">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="15"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="NotificaDatiFatturaResponse" id="_xs4tEKLDEeOb3989fozZUw"
+      name="NotificaDatiFatturaResponse">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="_0MBpAKLDEeOb3989fozZUw" maxOccurs="1" minOccurs="0"
+          name="esito" type="tns17:EsitoSC"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="NotificaStatoConsegnaRequestElement" type="NotificaStatoConsegnaRequest"/>
+  <xsd:element name="NotificaStatoConsegnaResponseElement" type="NotificaStatoConsegnaResponse"/>
+  <xsd:element name="EsitoSCElement" type="EsitoSC"/>
+  <xsd:element name="NotificaDatiFatturaRequestElement" type="NotificaDatiFatturaRequest"/>
+  <xsd:element name="NotificaDatiFatturaResponseElement" type="NotificaDatiFatturaResponse"/>
+</xsd:schema>

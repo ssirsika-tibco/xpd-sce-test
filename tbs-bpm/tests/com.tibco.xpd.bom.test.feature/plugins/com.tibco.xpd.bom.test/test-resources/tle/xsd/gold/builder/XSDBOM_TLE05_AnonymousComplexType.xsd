@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE05_AnonymousComplexType" xmlns:tns1="http://www.example.org/XSDBOM_TLE05_AnonymousComplexType"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE05_AnonymousComplexType">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_TLE05_AnonymousComplexType/Business Objects/org.example.XSDBOM_TLE05_AnonymousComplexType.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="topElement" nillable="false">
+    <xsd:complexType ecore:name="topElementType" id="org.example.XSDBOM_TLE05_AnonymousComplexTypetopElementType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="name" form="qualified" maxOccurs="1" minOccurs="1"
+            name="name" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

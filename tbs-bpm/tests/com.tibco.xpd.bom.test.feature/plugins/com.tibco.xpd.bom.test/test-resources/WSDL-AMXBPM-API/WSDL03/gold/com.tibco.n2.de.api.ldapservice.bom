@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.de.api.ldapservice2" name="com.tibco.n2.de.api.ldapservice">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_20Wm0RUfEeGeRrbRLAepWg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_20Wm0hUfEeGeRrbRLAepWg" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_20Wm0xUfEeGeRrbRLAepWg" key="created" value="1321979836477"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_20Wm1BUfEeGeRrbRLAepWg" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistLDAPSourcesType" name="listLDAPSourcesType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPSourcesTypeempty" name="empty">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0EWkYBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0EV9UhUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistLDAPSourcesResponseType" name="listLDAPSourcesResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPSourcesResponseTypeLdapSourceType" name="ldapSource" type="com.tibco.n2.de.api.ldapserviceLdapSourceType?com.tibco.n2.de.api.ldapservice%3a%3aLdapSourceType?" aggregation="composite" association="com.tibco.n2.de.api.ldapserviceComposition57?com.tibco.n2.de.api.ldapservice%3a%3aComposition57?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Fw5oxUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0Fw5ohUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapserviceLdapSourceType" name="LdapSourceType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="LdapSourceTypeldap-alias" name="ldapalias">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0FiQIBUfEeGeRrbRLAepWg" body="Alias by which the LDAP Connection Shared Resource is registered with the AMX platform. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Fga8BUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0Ffz4RUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.ldapserviceComposition57" name="Composition57" memberEnd="listLDAPSourcesResponseTypeLdapSourceType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType%3a%3aldapSource? Composition57listldapsourcesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition57%3a%3alistldapsourcesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition57listldapsourcesresponsetype" name="listldapsourcesresponsetype" type="com.tibco.n2.de.api.ldapservicelistLDAPSourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType?" association="com.tibco.n2.de.api.ldapserviceComposition57?com.tibco.n2.de.api.ldapservice%3a%3aComposition57?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0FxgsRUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0FxgsBUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesType" name="listLDAPEntitiesType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPEntitiesTypecontainer-id" name="containerid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0G47ABUfEeGeRrbRLAepWg" body="Identifier of the container whose LDAP entities are to be returned. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0G13shUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0G13sRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPEntitiesTypeexisting-only" name="existingonly">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0HqXEBUfEeGeRrbRLAepWg" body="Whether the response should include:&#xA;- (true) only those LDAP resources that already exist in the organization model.&#xA;- (false) all LDAP resources in the LDAP source. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0HnTwhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0HnTwRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesResponseType" name="listLDAPEntitiesResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPEntitiesResponseTypeLdapResource" name="ldapResource" aggregation="composite" association="com.tibco.n2.de.api.ldapserviceComposition58?com.tibco.n2.de.api.ldapservice%3a%3aComposition58?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.de.api.bom#com.tibco.n2.de.apiXmlResourceDetail?com.tibco.n2.de.api%3a%3aXmlResourceDetail?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0I-lsRUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0I-lsBUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.ldapserviceComposition58" name="Composition58" memberEnd="listLDAPEntitiesResponseTypeLdapResource?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType%3a%3aldapResource? Composition58listldapentitiesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition58%3a%3alistldapentitiesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition58listldapentitiesresponsetype" name="listldapentitiesresponsetype" type="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType?" association="com.tibco.n2.de.api.ldapserviceComposition58?com.tibco.n2.de.api.ldapservice%3a%3aComposition58?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0I-ltBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0I-lsxUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistContainerResourcesType" name="listContainerResourcesType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listContainerResourcesTypecontainer-id" name="containerid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0KJqYBUfEeGeRrbRLAepWg" body="Identifier of the LDAP container for which human resources should be listed.&#xA;If the LDAP Container ID is 0, the response will contain the resources created via the bootstrapping import (the administrative users).&#xA;If the LDAP Container ID is not recognised, the response will contain no resources. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0KGAAhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0KGAARUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistContainerResourcesResponseType" name="listContainerResourcesResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listContainerResourcesResponseTypeLdapResource" name="ldapResource" aggregation="composite" association="com.tibco.n2.de.api.ldapserviceComposition59?com.tibco.n2.de.api.ldapservice%3a%3aComposition59?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.de.api.bom#com.tibco.n2.de.apiXmlResourceDetail?com.tibco.n2.de.api%3a%3aXmlResourceDetail?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Lcq4BUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0LcD0hUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.ldapserviceComposition59" name="Composition59" memberEnd="listContainerResourcesResponseTypeLdapResource?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType%3a%3aldapResource? Composition59listcontainerresourcesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition59%3a%3alistcontainerresourcesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition59listcontainerresourcesresponsetype" name="listcontainerresourcesresponsetype" type="com.tibco.n2.de.api.ldapservicelistContainerResourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType?" association="com.tibco.n2.de.api.ldapserviceComposition59?com.tibco.n2.de.api.ldapservice%3a%3aComposition59?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Lcq4xUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0Lcq4hUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistLDAPAttributesType" name="listLDAPAttributesType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributesTypealias" name="alias">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0Mi3EBUfEeGeRrbRLAepWg" body="LDAP alias of the LDAP source from which attribute data should be returned. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Mga0hUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0Mga0RUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributesTypedn" name="dn">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0NNlcBUfEeGeRrbRLAepWg" body="Distinguished Name of the LDAP entity for which attribute data should be returned. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0NLwQhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0NLwQRUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributesTypereq-attributes" name="reqattributes" aggregation="composite" association="com.tibco.n2.de.api.ldapserviceComposition60?com.tibco.n2.de.api.ldapservice%3a%3aComposition60?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.de.api.bom#com.tibco.n2.de.apiXmlLdapAttributeSimple?com.tibco.n2.de.api%3a%3aXmlLdapAttributeSimple?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0N4T0xUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0N4T0hUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.ldapserviceComposition60" name="Composition60" memberEnd="listLDAPAttributesTypereq-attributes?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3areqattributes? Composition60listldapattributestype?com.tibco.n2.de.api.ldapservice%3a%3aComposition60%3a%3alistldapattributestype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition60listldapattributestype" name="listldapattributestype" type="com.tibco.n2.de.api.ldapservicelistLDAPAttributesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType?" association="com.tibco.n2.de.api.ldapserviceComposition60?com.tibco.n2.de.api.ldapservice%3a%3aComposition60?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0N464hUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0N464RUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistLDAPAttributesResponseType" name="listLDAPAttributesResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributesResponseTypereq-attributes" name="reqattributes" aggregation="composite" association="com.tibco.n2.de.api.ldapserviceComposition61?com.tibco.n2.de.api.ldapservice%3a%3aComposition61?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.de.api.bom#com.tibco.n2.de.apiXmlLdapAttribute?com.tibco.n2.de.api%3a%3aXmlLdapAttribute?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0O8DwxUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0O8DwhUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.ldapserviceComposition61" name="Composition61" memberEnd="listLDAPAttributesResponseTypereq-attributes?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType%3a%3areqattributes? Composition61listldapattributesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition61%3a%3alistldapattributesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition61listldapattributesresponsetype" name="listldapattributesresponsetype" type="com.tibco.n2.de.api.ldapservicelistLDAPAttributesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType?" association="com.tibco.n2.de.api.ldapserviceComposition61?com.tibco.n2.de.api.ldapservice%3a%3aComposition61?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0O8q0hUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0O8q0RUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesType" name="listLDAPAttributeNamesType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributeNamesTypealias" name="alias">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0QDeEBUfEeGeRrbRLAepWg" body="LDAP alias of the LDAP source from which attribute data should be returned. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0QBB0hUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0QBB0RUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributeNamesTypefilter" name="filter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0QwosBUfEeGeRrbRLAepWg" body="LDAP filter expression that can be (optionally) used to limit the LDAP resources to be returned.&#xA;&#xA;For example, this could be a simple expression such as &quot;uid=*&quot; to return all entries with a valid UID attribute. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0QuMcxUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0QuMchUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributeNamesTypesample-data-number" name="sampledatanumber">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0ReaYBUfEeGeRrbRLAepWg" body="The number of random example entities to be returned. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0Rb-IBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0RbXERUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributeNamesTypebase-dn" name="basedn">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0SNaMBUfEeGeRrbRLAepWg" body="Optionally provides an additional base DN that will be used to restrict the results. This base DN is relative and in additon to the base DN specified when creating the LDAP alias. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0SKW4RUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0SKW4BUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesResponseType" name="listLDAPAttributeNamesResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributeNamesResponseTypeentity-count" name="entitycount">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_0TWpsBUfEeGeRrbRLAepWg" body="Count of the total number of rows this query would return from the LDAP source. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0TUNchUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0TUNcRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributeNamesResponseTypeNamesType" name="names" type="com.tibco.n2.de.api.ldapserviceNamesType?com.tibco.n2.de.api.ldapservice%3a%3aNamesType?" aggregation="composite" association="com.tibco.n2.de.api.ldapserviceComposition62?com.tibco.n2.de.api.ldapservice%3a%3aComposition62?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0UbnwxUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0UbnwhUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listLDAPAttributeNamesResponseTypeLdapEntryType" name="ldapEntry" type="com.tibco.n2.de.api.ldapserviceLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType?" aggregation="composite" association="com.tibco.n2.de.api.ldapserviceComposition64?com.tibco.n2.de.api.ldapservice%3a%3aComposition64?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0VPgEhUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0VPgERUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapserviceNamesType" name="NamesType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NamesTypeAttributeName" name="attributeName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0UMXMhUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0UMXMRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.ldapserviceComposition62" name="Composition62" memberEnd="listLDAPAttributeNamesResponseTypeNamesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3anames? Composition62listldapattributenamesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition62%3a%3alistldapattributenamesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition62listldapattributenamesresponsetype" name="listldapattributenamesresponsetype" type="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType?" association="com.tibco.n2.de.api.ldapserviceComposition62?com.tibco.n2.de.api.ldapservice%3a%3aComposition62?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0UcO0hUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0UcO0RUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.de.api.ldapserviceLdapEntryType" name="LdapEntryType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="LdapEntryTypeLdapAttribute" name="ldapAttribute" aggregation="composite" association="com.tibco.n2.de.api.ldapserviceComposition63?com.tibco.n2.de.api.ldapservice%3a%3aComposition63?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.de.api.bom#com.tibco.n2.de.apiXmlLdapAttributeSimple?com.tibco.n2.de.api%3a%3aXmlLdapAttributeSimple?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0U-aUhUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0U-aURUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.ldapserviceComposition63" name="Composition63" memberEnd="LdapEntryTypeLdapAttribute?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType%3a%3aldapAttribute? Composition63ldapentrytype?com.tibco.n2.de.api.ldapservice%3a%3aComposition63%3a%3aldapentrytype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition63ldapentrytype" name="ldapentrytype" type="com.tibco.n2.de.api.ldapserviceLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType?" association="com.tibco.n2.de.api.ldapserviceComposition63?com.tibco.n2.de.api.ldapservice%3a%3aComposition63?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0U_BYRUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0U_BYBUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.de.api.ldapserviceComposition64" name="Composition64" memberEnd="listLDAPAttributeNamesResponseTypeLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aldapEntry? Composition64listldapattributenamesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition64%3a%3alistldapattributenamesresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition64listldapattributenamesresponsetype" name="listldapattributenamesresponsetype" type="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType?" association="com.tibco.n2.de.api.ldapserviceComposition64?com.tibco.n2.de.api.ldapservice%3a%3aComposition64?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0VQHIBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0VPgFBUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_0BNw0RUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0BNw0hUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_0BNw0xUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0BNw1BUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_0BOX4BUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.de.api.ldapservice2?com.tibco.n2.de.api.ldapservice?" xsdTargetNamespace="http://ldapservice.api.de.n2.tibco.com" xsdSchemaLocation="de.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0DlvYBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistLDAPSourcesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0EZnsBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0EV9URUfEeGeRrbRLAepWg" base_Property="listLDAPSourcesTypeempty?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType%3a%3aempty?" xsdName="empty" xsdForm="unqualified" xsdDefault="0" xsdType="int" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0EZnsBUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0EWkYRUfEeGeRrbRLAepWg" integerLength="-1" integerDefaultValue="0" base_Property="listLDAPSourcesTypeempty?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType%3a%3aempty?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_0EXygBUfEeGeRrbRLAepWg" base_Property="listLDAPSourcesTypeempty?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType%3a%3aempty?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_0EcD8BUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.de.api.ldapservice2?com.tibco.n2.de.api.ldapservice?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0EcD8RUfEeGeRrbRLAepWg" name="listLDAPSources" type="com.tibco.n2.de.api.ldapservicelistLDAPSourcesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0F1LEBUfEeGeRrbRLAepWg" name="listLDAPSourcesResponse" type="com.tibco.n2.de.api.ldapservicelistLDAPSourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0H8D4BUfEeGeRrbRLAepWg" name="listLDAPEntities" type="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0JCQEBUfEeGeRrbRLAepWg" name="listLDAPEntitiesResponse" type="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0KPxABUfEeGeRrbRLAepWg" name="listContainerResources" type="com.tibco.n2.de.api.ldapservicelistContainerResourcesType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0LgVQBUfEeGeRrbRLAepWg" name="listContainerResourcesResponse" type="com.tibco.n2.de.api.ldapservicelistContainerResourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0N8lQBUfEeGeRrbRLAepWg" name="listLDAPAttributes" type="com.tibco.n2.de.api.ldapservicelistLDAPAttributesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0PAVMBUfEeGeRrbRLAepWg" name="listLDAPAttributesResponse" type="com.tibco.n2.de.api.ldapservicelistLDAPAttributesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0SREkBUfEeGeRrbRLAepWg" name="listLDAPAttributeNames" type="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_0VUYkBUfEeGeRrbRLAepWg" name="listLDAPAttributeNamesResponse" type="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType?" isAnonymous="true" targetNamespace="http://ldapservice.api.de.n2.tibco.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0EwNABUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistLDAPSourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0FzV4BUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0Ez3YBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapserviceLdapSourceType?com.tibco.n2.de.api.ldapservice%3a%3aLdapSourceType?" xsdName="LdapSource" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0Ffz4BUfEeGeRrbRLAepWg" base_Property="LdapSourceTypeldap-alias?com.tibco.n2.de.api.ldapservice%3a%3aLdapSourceType%3a%3aldapalias?" xsdName="ldap-alias" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0Fga8RUfEeGeRrbRLAepWg" textLength="-1" base_Property="LdapSourceTypeldap-alias?com.tibco.n2.de.api.ldapservice%3a%3aLdapSourceType%3a%3aldapalias?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0FxgshUfEeGeRrbRLAepWg" base_Property="listLDAPSourcesResponseTypeLdapSourceType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType%3a%3aldapSource?" xsdName="LdapSource" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0FzV4BUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0GLJUBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType?" xsdName="listLDAPEntities" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0G13sBUfEeGeRrbRLAepWg" base_Property="listLDAPEntitiesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3acontainerid?" xsdName="container-id" xsdForm="unqualified" xsdUse="required" xsdType="long" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0G2ewBUfEeGeRrbRLAepWg" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listLDAPEntitiesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3acontainerid?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_0G3s4BUfEeGeRrbRLAepWg" base_Property="listLDAPEntitiesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3acontainerid?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0HnTwBUfEeGeRrbRLAepWg" base_Property="listLDAPEntitiesTypeexisting-only?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3aexistingonly?" xsdName="existing-only" xsdForm="unqualified" xsdDefault="false" xsdUse="optional" xsdType="boolean" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0Hn60BUfEeGeRrbRLAepWg" base_Property="listLDAPEntitiesTypeexisting-only?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3aexistingonly?" booleanDefaultValue="false"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0IRbEBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0JAa4BUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0I_MwBUfEeGeRrbRLAepWg" base_Property="listLDAPEntitiesResponseTypeLdapResource?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType%3a%3aldapResource?" xsdName="LdapResource" xsdForm="unqualified" xsdType="XmlResourceDetail" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0JAa4BUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0JaDgBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistContainerResourcesType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType?" xsdName="listContainerResources" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0KGAABUfEeGeRrbRLAepWg" base_Property="listContainerResourcesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType%3a%3acontainerid?" xsdName="container-id" xsdForm="unqualified" xsdUse="required" xsdType="long" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0KGnEBUfEeGeRrbRLAepWg" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listContainerResourcesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType%3a%3acontainerid?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_0KH1MBUfEeGeRrbRLAepWg" base_Property="listContainerResourcesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType%3a%3acontainerid?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0KoykBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistContainerResourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0LegEBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0LdR8BUfEeGeRrbRLAepWg" base_Property="listContainerResourcesResponseTypeLdapResource?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType%3a%3aldapResource?" xsdName="LdapResource" xsdForm="unqualified" xsdType="XmlResourceDetail" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0LegEBUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0L1scBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistLDAPAttributesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0N6wEBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0Mga0BUfEeGeRrbRLAepWg" base_Property="listLDAPAttributesTypealias?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3aalias?" xsdName="alias" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0MhB4BUfEeGeRrbRLAepWg" textLength="-1" base_Property="listLDAPAttributesTypealias?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3aalias?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0NLwQBUfEeGeRrbRLAepWg" base_Property="listLDAPAttributesTypedn?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3adn?" xsdName="dn" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0NMXUBUfEeGeRrbRLAepWg" textLength="-1" base_Property="listLDAPAttributesTypedn?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3adn?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0N5h8BUfEeGeRrbRLAepWg" base_Property="listLDAPAttributesTypereq-attributes?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3areqattributes?" xsdName="req-attributes" xsdForm="unqualified" xsdType="XmlLdapAttributeSimple" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0N6wEBUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0OR8cBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistLDAPAttributesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0O-gABUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0O9R4BUfEeGeRrbRLAepWg" base_Property="listLDAPAttributesResponseTypereq-attributes?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType%3a%3areqattributes?" xsdName="req-attributes" xsdForm="unqualified" xsdType="XmlLdapAttribute" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0O-gABUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0PWTcBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0QBB0BUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesTypealias?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3aalias?" xsdName="alias" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0QBo4BUfEeGeRrbRLAepWg" textLength="-1" base_Property="listLDAPAttributeNamesTypealias?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3aalias?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0QuMcRUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesTypefilter?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3afilter?" xsdName="filter" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0QuzgBUfEeGeRrbRLAepWg" textLength="-1" base_Property="listLDAPAttributeNamesTypefilter?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3afilter?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0RbXEBUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesTypesample-data-number?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3asampledatanumber?" xsdName="sample-data-number" xsdForm="unqualified" xsdDefault="0" xsdUse="optional" xsdType="int" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0Rb-IRUfEeGeRrbRLAepWg" integerLength="-1" integerDefaultValue="0" base_Property="listLDAPAttributeNamesTypesample-data-number?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3asampledatanumber?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_0RdMQBUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesTypesample-data-number?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3asampledatanumber?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0SJv0RUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesTypebase-dn?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3abasedn?" xsdName="base-dn" xsdForm="unqualified" xsdUse="optional" xsdType="string" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0SK98BUfEeGeRrbRLAepWg" textLength="-1" base_Property="listLDAPAttributeNamesTypebase-dn?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3abasedn?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0So4ABUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0VRVQBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0TUNcBUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesResponseTypeentity-count?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aentitycount?" xsdName="entity-count" xsdForm="unqualified" xsdUse="optional" xsdType="int" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0TU0gBUfEeGeRrbRLAepWg" integerLength="-1" base_Property="listLDAPAttributeNamesResponseTypeentity-count?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aentitycount?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_0TVbkBUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesResponseTypeentity-count?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aentitycount?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0TaUEBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapserviceNamesType?com.tibco.n2.de.api.ldapservice%3a%3aNamesType?" xsdName="Names" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0UOzcBUfEeGeRrbRLAepWg" name="MS1_1_1" minOccurs="0" maxOccurs="-1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0UMXMBUfEeGeRrbRLAepWg" base_Property="NamesTypeAttributeName?com.tibco.n2.de.api.ldapservice%3a%3aNamesType%3a%3aattributeName?" xsdName="AttributeName" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0UOzcBUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_0UM-QBUfEeGeRrbRLAepWg" textLength="-1" base_Property="NamesTypeAttributeName?com.tibco.n2.de.api.ldapservice%3a%3aNamesType%3a%3aattributeName?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0Uc14BUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesResponseTypeNamesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3anames?" xsdName="Names" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0VRVQBUfEeGeRrbRLAepWg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_0UfSIBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.de.api.ldapserviceLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType?" xsdName="LdapEntry" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_0VAPgBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0U_BYhUfEeGeRrbRLAepWg" base_Property="LdapEntryTypeLdapAttribute?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType%3a%3aldapAttribute?" xsdName="LdapAttribute" xsdForm="unqualified" xsdType="XmlLdapAttributeSimple" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0VAPgBUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_0VQHIRUfEeGeRrbRLAepWg" base_Property="listLDAPAttributeNamesResponseTypeLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aldapEntry?" xsdName="LdapEntry" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_0VRVQBUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YIcABUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistLDAPSourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YJDEBUfEeGeRrbRLAepWg" base_Element="Composition58listldapentitiesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition58%3a%3alistldapentitiesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YJDERUfEeGeRrbRLAepWg" base_Element="_0VPgEhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YJDEhUfEeGeRrbRLAepWg" base_Element="listContainerResourcesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType%3a%3acontainerid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YJDExUfEeGeRrbRLAepWg" base_Element="listLDAPAttributeNamesTypebase-dn?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3abasedn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YJqIBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceComposition61?com.tibco.n2.de.api.ldapservice%3a%3aComposition61?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YJqIRUfEeGeRrbRLAepWg" base_Element="_0NLwQhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YJqIhUfEeGeRrbRLAepWg" base_Element="_0VQHIBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YKRMBUfEeGeRrbRLAepWg" base_Element="listLDAPSourcesResponseTypeLdapSourceType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType%3a%3aldapSource?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YKRMRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YKRMhUfEeGeRrbRLAepWg" base_Element="listLDAPAttributesTypealias?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3aalias?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YK4QBUfEeGeRrbRLAepWg" base_Element="Composition62listldapattributenamesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition62%3a%3alistldapattributenamesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YK4QRUfEeGeRrbRLAepWg" base_Element="_0TUNchUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YK4QhUfEeGeRrbRLAepWg" base_Element="NamesTypeAttributeName?com.tibco.n2.de.api.ldapservice%3a%3aNamesType%3a%3aattributeName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YK4QxUfEeGeRrbRLAepWg" base_Element="_0Fga8BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YLfUBUfEeGeRrbRLAepWg" base_Element="_0O8q0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YLfURUfEeGeRrbRLAepWg" base_Element="_0I-lsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YLfUhUfEeGeRrbRLAepWg" base_Element="_0Mga0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YMGYBUfEeGeRrbRLAepWg" base_Element="_0NNlcBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YMGYRUfEeGeRrbRLAepWg" base_Element="listLDAPAttributeNamesResponseTypeNamesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3anames?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YMGYhUfEeGeRrbRLAepWg" base_Element="_0TWpsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YMtcBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceComposition57?com.tibco.n2.de.api.ldapservice%3a%3aComposition57?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YMtcRUfEeGeRrbRLAepWg" base_Element="_0TUNcRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YMtchUfEeGeRrbRLAepWg" base_Element="_0BNw0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YNUgBUfEeGeRrbRLAepWg" base_Element="_0I-ltBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YNUgRUfEeGeRrbRLAepWg" base_Element="listLDAPEntitiesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3acontainerid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YNUghUfEeGeRrbRLAepWg" base_Element="_0Ffz4RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YN7kBUfEeGeRrbRLAepWg" base_Element="_0UbnwhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YN7kRUfEeGeRrbRLAepWg" base_Element="_0HqXEBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YN7khUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistLDAPSourcesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YN7kxUfEeGeRrbRLAepWg" base_Element="_0UMXMRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YOioBUfEeGeRrbRLAepWg" base_Element="_0RbXERUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YOioRUfEeGeRrbRLAepWg" base_Element="_0G47ABUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YOiohUfEeGeRrbRLAepWg" base_Element="_0FxgsRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YPJsBUfEeGeRrbRLAepWg" base_Element="_0ReaYBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YPJsRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YPJshUfEeGeRrbRLAepWg" base_Element="_0LcD0hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YPwwBUfEeGeRrbRLAepWg" base_Element="_0Mi3EBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YPwwRUfEeGeRrbRLAepWg" base_Element="_0O8DwhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YPwwhUfEeGeRrbRLAepWg" base_Element="_0QuMcxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YPwwxUfEeGeRrbRLAepWg" base_Element="listLDAPAttributeNamesTypesample-data-number?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3asampledatanumber?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YQX0BUfEeGeRrbRLAepWg" base_Element="_0SKW4BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YQX0RUfEeGeRrbRLAepWg" base_Element="_0KGAAhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YQX0hUfEeGeRrbRLAepWg" base_Element="_0Lcq4BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YQ-4BUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceComposition60?com.tibco.n2.de.api.ldapservice%3a%3aComposition60?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YQ-4RUfEeGeRrbRLAepWg" base_Element="_0Fw5oxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YQ-4hUfEeGeRrbRLAepWg" base_Element="listLDAPSourcesTypeempty?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType%3a%3aempty?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YRl8BUfEeGeRrbRLAepWg" base_Element="_0I-lsxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YRl8RUfEeGeRrbRLAepWg" base_Element="_0QBB0hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YRl8hUfEeGeRrbRLAepWg" base_Element="listLDAPAttributeNamesTypealias?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3aalias?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YSNABUfEeGeRrbRLAepWg" base_Element="Composition57listldapsourcesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition57%3a%3alistldapsourcesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YSNARUfEeGeRrbRLAepWg" base_Element="_0QwosBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YSNAhUfEeGeRrbRLAepWg" base_Element="_0G13sRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YS0EBUfEeGeRrbRLAepWg" base_Element="_0Mga0hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YS0ERUfEeGeRrbRLAepWg" base_Element="_0FiQIBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YS0EhUfEeGeRrbRLAepWg" base_Element="_0VPgFBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YTbIBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistLDAPAttributesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YTbIRUfEeGeRrbRLAepWg" base_Element="_0NLwQRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YTbIhUfEeGeRrbRLAepWg" base_Element="_0N4T0hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YUCMBUfEeGeRrbRLAepWg" base_Element="_0QBB0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YUCMRUfEeGeRrbRLAepWg" base_Element="listLDAPAttributesTypereq-attributes?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3areqattributes?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YUCMhUfEeGeRrbRLAepWg" base_Element="_0SNaMBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YUpQBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistContainerResourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YUpQRUfEeGeRrbRLAepWg" base_Element="_0BNw0xUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YUpQhUfEeGeRrbRLAepWg" base_Element="_0N464hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YUpQxUfEeGeRrbRLAepWg" base_Element="_0UbnwxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YVQUBUfEeGeRrbRLAepWg" base_Element="LdapEntryTypeLdapAttribute?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType%3a%3aldapAttribute?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YVQURUfEeGeRrbRLAepWg" base_Element="Composition63ldapentrytype?com.tibco.n2.de.api.ldapservice%3a%3aComposition63%3a%3aldapentrytype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YVQUhUfEeGeRrbRLAepWg" base_Element="_0Lcq4hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YV3YBUfEeGeRrbRLAepWg" base_Element="_0O8q0hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YV3YRUfEeGeRrbRLAepWg" base_Element="listLDAPAttributesResponseTypereq-attributes?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType%3a%3areqattributes?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YWecBUfEeGeRrbRLAepWg" base_Element="listLDAPAttributeNamesResponseTypeentity-count?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aentitycount?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YWecRUfEeGeRrbRLAepWg" base_Element="_0N4T0xUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YWechUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YWecxUfEeGeRrbRLAepWg" base_Element="_0HnTwhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YXFgBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistContainerResourcesType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YXFgRUfEeGeRrbRLAepWg" base_Element="_0UcO0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YXFghUfEeGeRrbRLAepWg" base_Element="listContainerResourcesResponseTypeLdapResource?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType%3a%3aldapResource?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YXskBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistLDAPAttributesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YXskRUfEeGeRrbRLAepWg" base_Element="listLDAPAttributesTypedn?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3adn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YXskhUfEeGeRrbRLAepWg" base_Element="_0I-lsRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YYToBUfEeGeRrbRLAepWg" base_Element="Composition64listldapattributenamesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition64%3a%3alistldapattributenamesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YYToRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YYTohUfEeGeRrbRLAepWg" base_Element="_0G13shUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YY6sBUfEeGeRrbRLAepWg" base_Element="_0QuMchUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YY6sRUfEeGeRrbRLAepWg" base_Element="_0U-aUhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YY6shUfEeGeRrbRLAepWg" base_Element="listLDAPEntitiesResponseTypeLdapResource?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType%3a%3aldapResource?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YZhwBUfEeGeRrbRLAepWg" base_Element="_0U_BYBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YZhwRUfEeGeRrbRLAepWg" base_Element="listLDAPAttributeNamesTypefilter?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3afilter?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YZhwhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceComposition63?com.tibco.n2.de.api.ldapservice%3a%3aComposition63?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YaI0BUfEeGeRrbRLAepWg" base_Element="_0EV9UhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YaI0RUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceComposition62?com.tibco.n2.de.api.ldapservice%3a%3aComposition62?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YaI0hUfEeGeRrbRLAepWg" base_Element="_0Rb-IBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0Yav4BUfEeGeRrbRLAepWg" base_Element="_0SKW4RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0Yav4RUfEeGeRrbRLAepWg" base_Element="_0KJqYBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0Yav4hUfEeGeRrbRLAepWg" base_Element="_0UMXMhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0Yav4xUfEeGeRrbRLAepWg" base_Element="Composition61listldapattributesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition61%3a%3alistldapattributesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YbW8BUfEeGeRrbRLAepWg" base_Element="_0KGAARUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YbW8RUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceNamesType?com.tibco.n2.de.api.ldapservice%3a%3aNamesType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YbW8hUfEeGeRrbRLAepWg" base_Element="_0Fw5ohUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0Yb-ABUfEeGeRrbRLAepWg" base_Element="_0FxgsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0Yb-ARUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceLdapSourceType?com.tibco.n2.de.api.ldapservice%3a%3aLdapSourceType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0Yb-AhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YclEBUfEeGeRrbRLAepWg" base_Element="_0VPgERUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YclERUfEeGeRrbRLAepWg" base_Element="Composition60listldapattributestype?com.tibco.n2.de.api.ldapservice%3a%3aComposition60%3a%3alistldapattributestype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YclEhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceComposition58?com.tibco.n2.de.api.ldapservice%3a%3aComposition58?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YclExUfEeGeRrbRLAepWg" base_Element="_0QDeEBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YdMIBUfEeGeRrbRLAepWg" base_Element="listLDAPEntitiesTypeexisting-only?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3aexistingonly?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YdMIRUfEeGeRrbRLAepWg" base_Element="_0UcO0hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YdMIhUfEeGeRrbRLAepWg" base_Element="LdapSourceTypeldap-alias?com.tibco.n2.de.api.ldapservice%3a%3aLdapSourceType%3a%3aldapalias?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YdzMBUfEeGeRrbRLAepWg" base_Element="_0EWkYBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YdzMRUfEeGeRrbRLAepWg" base_Element="Composition59listcontainerresourcesresponsetype?com.tibco.n2.de.api.ldapservice%3a%3aComposition59%3a%3alistcontainerresourcesresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YdzMhUfEeGeRrbRLAepWg" base_Element="_0N464RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YeaQBUfEeGeRrbRLAepWg" base_Element="_0HnTwRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YeaQRUfEeGeRrbRLAepWg" base_Element="_0Lcq4xUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YeaQhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceComposition59?com.tibco.n2.de.api.ldapservice%3a%3aComposition59?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YeaQxUfEeGeRrbRLAepWg" base_Element="listLDAPAttributeNamesResponseTypeLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aldapEntry?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YfBUBUfEeGeRrbRLAepWg" base_Element="_0U-aURUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YfBURUfEeGeRrbRLAepWg" base_Element="_0U_BYRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YfBUhUfEeGeRrbRLAepWg" base_Element="_0O8DwxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0YfoYBUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.de.api.ldapserviceComposition64?com.tibco.n2.de.api.ldapservice%3a%3aComposition64?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2zrRYBUfEeGeRrbRLAepWg" displayLabel="listContainerResourcesType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistContainerResourcesType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2zsfgBUfEeGeRrbRLAepWg" displayLabel="listContainerResourcesResponseType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistContainerResourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2zuUsBUfEeGeRrbRLAepWg" displayLabel="listLDAPAttributeNamesType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2zwJ4BUfEeGeRrbRLAepWg" displayLabel="listLDAPAttributeNamesResponseType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistLDAPAttributeNamesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2zxYABUfEeGeRrbRLAepWg" displayLabel="listLDAPAttributesType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistLDAPAttributesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2zzNMBUfEeGeRrbRLAepWg" displayLabel="listLDAPAttributesResponseType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistLDAPAttributesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z0bUBUfEeGeRrbRLAepWg" displayLabel="listLDAPEntitiesType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z1pcBUfEeGeRrbRLAepWg" displayLabel="listLDAPEntitiesResponseType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistLDAPEntitiesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z23kBUfEeGeRrbRLAepWg" displayLabel="listLDAPSourcesType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistLDAPSourcesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z4swBUfEeGeRrbRLAepWg" displayLabel="listLDAPSourcesResponseType" base_NamedElement="com.tibco.n2.de.api.ldapservicelistLDAPSourcesResponseType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z564BUfEeGeRrbRLAepWg" displayLabel="container-id" base_NamedElement="listContainerResourcesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesType%3a%3acontainerid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z7JABUfEeGeRrbRLAepWg" displayLabel="LdapResource" base_NamedElement="listContainerResourcesResponseTypeLdapResource?com.tibco.n2.de.api.ldapservice%3a%3alistContainerResourcesResponseType%3a%3aldapResource?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z8XIBUfEeGeRrbRLAepWg" displayLabel="alias" base_NamedElement="listLDAPAttributeNamesTypealias?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3aalias?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z9lQBUfEeGeRrbRLAepWg" displayLabel="base-dn" base_NamedElement="listLDAPAttributeNamesTypebase-dn?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3abasedn?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2z-zYBUfEeGeRrbRLAepWg" displayLabel="filter" base_NamedElement="listLDAPAttributeNamesTypefilter?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3afilter?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20ABgBUfEeGeRrbRLAepWg" displayLabel="sample-data-number" base_NamedElement="listLDAPAttributeNamesTypesample-data-number?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesType%3a%3asampledatanumber?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20BPoBUfEeGeRrbRLAepWg" displayLabel="LdapEntry" base_NamedElement="listLDAPAttributeNamesResponseTypeLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aldapEntry?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20CdwBUfEeGeRrbRLAepWg" displayLabel="LdapEntryType" base_NamedElement="com.tibco.n2.de.api.ldapserviceLdapEntryType?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20ES8BUfEeGeRrbRLAepWg" displayLabel="LdapAttribute" base_NamedElement="LdapEntryTypeLdapAttribute?com.tibco.n2.de.api.ldapservice%3a%3aLdapEntryType%3a%3aldapAttribute?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20E6ABUfEeGeRrbRLAepWg" displayLabel="Names" base_NamedElement="listLDAPAttributeNamesResponseTypeNamesType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3anames?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20GvMBUfEeGeRrbRLAepWg" displayLabel="NamesType" base_NamedElement="com.tibco.n2.de.api.ldapserviceNamesType?com.tibco.n2.de.api.ldapservice%3a%3aNamesType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20H9UBUfEeGeRrbRLAepWg" displayLabel="AttributeName" base_NamedElement="NamesTypeAttributeName?com.tibco.n2.de.api.ldapservice%3a%3aNamesType%3a%3aattributeName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20JLcBUfEeGeRrbRLAepWg" displayLabel="entity-count" base_NamedElement="listLDAPAttributeNamesResponseTypeentity-count?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributeNamesResponseType%3a%3aentitycount?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20KZkBUfEeGeRrbRLAepWg" displayLabel="req-attributes" base_NamedElement="listLDAPAttributesTypereq-attributes?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3areqattributes?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20LnsBUfEeGeRrbRLAepWg" displayLabel="alias" base_NamedElement="listLDAPAttributesTypealias?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3aalias?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20M10BUfEeGeRrbRLAepWg" displayLabel="dn" base_NamedElement="listLDAPAttributesTypedn?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesType%3a%3adn?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20OD8BUfEeGeRrbRLAepWg" displayLabel="req-attributes" base_NamedElement="listLDAPAttributesResponseTypereq-attributes?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPAttributesResponseType%3a%3areqattributes?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20OrABUfEeGeRrbRLAepWg" displayLabel="container-id" base_NamedElement="listLDAPEntitiesTypecontainer-id?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3acontainerid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20P5IBUfEeGeRrbRLAepWg" displayLabel="existing-only" base_NamedElement="listLDAPEntitiesTypeexisting-only?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesType%3a%3aexistingonly?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20RHQBUfEeGeRrbRLAepWg" displayLabel="LdapResource" base_NamedElement="listLDAPEntitiesResponseTypeLdapResource?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPEntitiesResponseType%3a%3aldapResource?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20SVYBUfEeGeRrbRLAepWg" displayLabel="empty" base_NamedElement="listLDAPSourcesTypeempty?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesType%3a%3aempty?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20TjgBUfEeGeRrbRLAepWg" displayLabel="LdapSource" base_NamedElement="listLDAPSourcesResponseTypeLdapSourceType?com.tibco.n2.de.api.ldapservice%3a%3alistLDAPSourcesResponseType%3a%3aldapSource?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20VYsBUfEeGeRrbRLAepWg" displayLabel="LdapSourceType" base_NamedElement="com.tibco.n2.de.api.ldapserviceLdapSourceType?com.tibco.n2.de.api.ldapservice%3a%3aLdapSourceType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_20Wm0BUfEeGeRrbRLAepWg" displayLabel="ldap-alias" base_NamedElement="LdapSourceTypeldap-alias?com.tibco.n2.de.api.ldapservice%3a%3aLdapSourceType%3a%3aldapalias?"/>
+  <notation:Diagram xmi:id="_20Wm1RUfEeGeRrbRLAepWg" type="Business Object Model" element="com.tibco.n2.de.api.ldapservice2?com.tibco.n2.de.api.ldapservice?" name="com.tibco.n2.de.api.ldapservice" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_20Wm1hUfEeGeRrbRLAepWg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_20Wm1xUfEeGeRrbRLAepWg"/>
+  </notation:Diagram>
+</xmi:XMI>

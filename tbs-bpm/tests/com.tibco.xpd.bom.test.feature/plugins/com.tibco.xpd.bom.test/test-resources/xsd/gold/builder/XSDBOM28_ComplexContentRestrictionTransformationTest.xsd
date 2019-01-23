@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM28_ComplexContentRestrictionTransformationTest"
+    xmlns:tns1="http://www.example.org/XSDBOM28_ComplexContentRestrictionTransformationTest"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM28_ComplexContentRestrictionTransformationTest">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/abc/Business Objects/org.example.XSDBOM28_ComplexContentRestrictionTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="SuperType" id="org.example.XSDBOM28_ComplexContentRestrictionTransformationTestSuperType"
+      abstract="false" mixed="false" name="SuperType">
+    <xsd:sequence>
+      <xsd:element ecore:name="subEl1" id="SuperTypesubEl1" form="qualified" maxOccurs="1"
+          minOccurs="1" name="subEl1" type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="subAttrib1" id="SuperTypesubAttrib1" form="unqualified"
+        name="subAttrib1" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SubTypeRest" id="org.example.XSDBOM28_ComplexContentRestrictionTransformationTestSubTypeRest"
+      abstract="false" mixed="false" name="SubTypeRest">
+    <xsd:complexContent mixed="false">
+      <xsd:restriction base="tns1:SuperType">
+        <xsd:sequence>
+          <xsd:element ecore:name="subEl1" id="SubTypeRestsubEl1" default="Test" form="qualified"
+              maxOccurs="1" minOccurs="1" name="subEl1" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="subAttrib1" id="SubTypeRestsubAttrib1" form="unqualified"
+            name="subAttrib1" type="xsd:string" use="optional"/>
+      </xsd:restriction>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SubTypeExtension" id="org.example.XSDBOM28_ComplexContentRestrictionTransformationTestSubTypeExtension"
+      abstract="false" mixed="false" name="SubTypeExtension">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:SuperType">
+        <xsd:sequence>
+          <xsd:element ecore:name="extEl12" id="SubTypeExtensionextEl12" form="qualified"
+              maxOccurs="1" minOccurs="1" name="extEl12" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="extAttrib12" id="SubTypeExtensionextAttrib12" form="unqualified"
+            name="extAttrib12" type="xsd:string" use="optional"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="complexA" id="org.example.XSDBOM28_ComplexContentRestrictionTransformationTestcomplexA"
+      abstract="false" mixed="false" name="complexA">
+    <xsd:sequence>
+      <xsd:element ecore:name="elemA" id="complexAelemA" form="qualified" maxOccurs="1"
+          minOccurs="1" name="elemA" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="SampleOp" nillable="false">
+    <xsd:complexType ecore:name="SampleOpType" id="org.example.XSDBOM28_ComplexContentRestrictionTransformationTestSampleOpType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="elsubTypeRest" form="qualified" maxOccurs="1" minOccurs="1"
+            name="elsubTypeRest" type="SubTypeRest"/>
+        <xsd:element ecore:name="subtypeExt" form="qualified" maxOccurs="1" minOccurs="1"
+            name="subtypeExt" type="SubTypeExtension"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="SampleOpResponse" nillable="false">
+    <xsd:complexType ecore:name="SampleOpResponseType" id="org.example.XSDBOM28_ComplexContentRestrictionTransformationTestSampleOpResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="out" form="qualified" maxOccurs="1" minOccurs="1"
+            name="out" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="topElem" nillable="false">
+    <xsd:complexType ecore:name="topElemType">
+      <xsd:complexContent mixed="false">
+        <xsd:restriction base="complexA">
+          <xsd:sequence>
+            <xsd:element ecore:name="elemA" id="topElemTypeelemA" form="qualified"
+                maxOccurs="1" minOccurs="1" name="elemA" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,1746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_FaXtwEMJEeSRWef4qhq__A" xpdExt:DisplayName="CaseDocJunits" Name="CaseDocJunits">
+  <xpdl2:PackageHeader xpdExt:Language="en_IN">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-09-23</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>INR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aprasad</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_8ss3EE5NEeSrB6G1Qebwqw" xpdExt:DisplayName="Default EMail Sender" Name="DefaultEMailSender">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:Email InstanceName="EmailSender"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_I9JQ8EMJEeSRWef4qhq__A" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_FcVcoEMJEeSRWef4qhq__A">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_I9J4AEMJEeSRWef4qhq__A" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="1167.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_FcVcoEMJEeSRWef4qhq__A" xpdExt:DisplayName="CaseDocJunits-Process" Name="CaseDocJunitsProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_PkCFYEMJEeSRWef4qhq__A" xpdExt:DisplayName="docRef" Name="docRef" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Pl1cMEMJEeSRWef4qhq__A" xpdExt:DisplayName="docRefArry" Name="docRefArry" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Pn4DkEMJEeSRWef4qhq__A" xpdExt:DisplayName="custRef" Name="custRef" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="DataProject.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_KCxnwC3KEeSsTZQRYpdp4Q"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_PpLEEEMJEeSRWef4qhq__A" xpdExt:DisplayName="custRefArry" Name="custRefArry" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:RecordType>
+              <xpdl2:Member>
+                <xpdl2:ExternalReference location="DataProject.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_KCxnwC3KEeSsTZQRYpdp4Q"/>
+              </xpdl2:Member>
+            </xpdl2:RecordType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Pq4UQEMJEeSRWef4qhq__A" xpdExt:DisplayName="cust" Name="cust" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="DataProject.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_KCxnwC3KEeSsTZQRYpdp4Q"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_PsjvQEMJEeSRWef4qhq__A" xpdExt:DisplayName="fileName" Name="fileName" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_PuWfAEMJEeSRWef4qhq__A" xpdExt:DisplayName="docID" Name="docID" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_PwFkYEMJEeSRWef4qhq__A" xpdExt:DisplayName="fileNameAray" Name="fileNameAray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Y_JisEMOEeSRWef4qhq__A" xpdExt:DisplayName="boolVal" Name="boolVal" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ZBhhQEMOEeSRWef4qhq__A" xpdExt:DisplayName="dateVal" Name="dateVal" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ZDU4EEMOEeSRWef4qhq__A" xpdExt:DisplayName="dateTimeVal" Name="dateTimeVal" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ZFgpYEMOEeSRWef4qhq__A" xpdExt:DisplayName="decVal" Name="decVal" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ZHp-cEMOEeSRWef4qhq__A" xpdExt:DisplayName="intVal" Name="intVal" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ZJgYkEMOEeSRWef4qhq__A" xpdExt:DisplayName="performer" Name="performer" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_d3ysoEMOEeSRWef4qhq__A" xpdExt:DisplayName="timeVal" Name="timeVal" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_d8Gk4EMOEeSRWef4qhq__A" xpdExt:DisplayName="Field8" Name="Field8" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_I9J4AUMJEeSRWef4qhq__A" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="38.0" YCoordinate="171.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_I9J4AkMJEeSRWef4qhq__A" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="1155.0" YCoordinate="1133.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_EaH_MEOtEeSw4syuOv_d_A" Name="OperationNotSelected" xpdExt:Visibility="Private" xpdExt:DisplayName="Operation Not Selected">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_J_UGEEOtEeSw4syuOv_d_A"/>
+                <xpdl2:MessageOut Id="_J_UGEUOtEeSw4syuOv_d_A"/>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="155.0" YCoordinate="133.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PT0FkEOtEeSw4syuOv_d_A" Name="FindMissingCaseRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Missing CaseRef">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_SdfMQEOtEeSw4syuOv_d_A"/>
+                <xpdl2:MessageOut Id="_SdfMQUOtEeSw4syuOv_d_A"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="" CaseRefField="">
+                    <xpdExt:FindByFileNameOperation FileNameField=""/>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="283.0" YCoordinate="70.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Gg1u4EO_EeSKR8Sg8paz5Q" Name="FindMissingRetDocRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Missing Ret DocRef">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_Gg2V8EO_EeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_Gg2V8UO_EeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="" CaseRefField="custRef">
+                    <xpdExt:FindByFileNameOperation FileNameField=""/>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="397.0" YCoordinate="77.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Wo1GIEO_EeSKR8Sg8paz5Q" Name="FindMissingFileName" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Missing FileName">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_Wo1GIUO_EeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_Wo1GIkO_EeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByFileNameOperation FileNameField=""/>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="521.0" YCoordinate="70.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_d9JoUEO_EeSKR8Sg8paz5Q" Name="FindMissingQuery" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Missing Query">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_i5bVEEO_EeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_i5bVEUO_EeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation/>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="78.0" YCoordinate="330.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oNR0UEO_EeSKR8Sg8paz5Q" Name="FindInvalidQueryMissingValue" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid Query Missing Value">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_oNSbYEO_EeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_oNSbYUO_EeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" CMISQueryOperator="EQUAL"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="195.0" YCoordinate="330.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_zRQfIEO_EeSKR8Sg8paz5Q" Name="FindInvalidQueryMissingProperty" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid Query Missing Property">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_zRQfIUO_EeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_zRQfIkO_EeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISQueryOperator="EQUAL"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="302.0" YCoordinate="329.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_5gJqUEO_EeSKR8Sg8paz5Q" Name="FindInvalidQueryCMISPropertyTypeCompatibility" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid Query CMISProperty Type Compatibility">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_5gKRYEO_EeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_5gKRYUO_EeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" CMISQueryOperator="EQUAL" ProcessDataField="boolVal"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="154.0">
+              <xpdl2:Coordinates XCoordinate="454.0" YCoordinate="329.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ArkIIEPAEeSKR8Sg8paz5Q" Name="FindInvalidQueryMissingBrackets" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid Query  Missing Brackets">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_ArkIIUPAEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_ArkIIkPAEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression OpenBracketCount="2" CMISProperty="cmis:name" CMISQueryOperator="EQUAL" ProcessDataField="fileName"/>
+                      <xpdExt:CaseDocumentQueryExpression QueryExpressionJoinType="AND" CMISProperty="cmis:name" CMISQueryOperator="EQUAL" ProcessDataField="fileName" CloseBracketCount="1"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="78.0" YCoordinate="508.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_NgVbIEPAEeSKR8Sg8paz5Q" Name="FindInvalidQueryLogicalGroupingFirstExp" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid Query LogicalGroupingFirstExp">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_NgVbIUPAEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_NgVbIkPAEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression QueryExpressionJoinType="AND" CMISProperty="cmis:name" CMISQueryOperator="EQUAL"/>
+                      <xpdExt:CaseDocumentQueryExpression QueryExpressionJoinType="AND" OpenBracketCount="0" CMISProperty="cmis:name" CMISQueryOperator="EQUAL" CloseBracketCount="0"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="110.0">
+              <xpdl2:Coordinates XCoordinate="185.0" YCoordinate="506.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UiqOYEPAEeSKR8Sg8paz5Q" Name="FindInvalidQueryMissingLogicalGrouping" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid Query Missing Logical Grouping">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_UiqOYUPAEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_UiqOYkPAEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" CMISQueryOperator="EQUAL" ProcessDataField="fileName"/>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:creationDate" CMISQueryOperator="EQUAL" ProcessDataField="dateTimeVal"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="478.0" YCoordinate="506.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_cyn5cEPAEeSKR8Sg8paz5Q" Name="FieldParamDoesNotExist" xpdExt:Visibility="Private" xpdExt:DisplayName="FieldParamDoesNotExist">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_gQfugEPAEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_gQfugUPAEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations CaseRefField="notDefined">
+                    <xpdExt:FindByFileNameOperation/>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="766.0" YCoordinate="506.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ncs2gEPAEeSKR8Sg8paz5Q" Name="MoveSameSrcTarget" xpdExt:Visibility="Private" xpdExt:DisplayName="Move Same Src Target">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_rd-TkEPAEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_rd-TkUPAEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:MoveCaseDocOperation SourceCaseRefField="custRef" TargetCaseRefField="custRef"/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="605.0" YCoordinate="621.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vukwoEPBEeSKR8Sg8paz5Q" Name="MoveMissingDocref" xpdExt:Visibility="Private" xpdExt:DisplayName="Move Missing Doc ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_vulXsEPBEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_vulXsUPBEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="">
+                    <xpdExt:MoveCaseDocOperation SourceCaseRefField="custRef" TargetCaseRefField="custRef"/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="78.0" YCoordinate="621.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_W25agEPDEeSKR8Sg8paz5Q" Name="MoveMissingFromCaseref" xpdExt:Visibility="Private" xpdExt:DisplayName="Move Missing From Case ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_W25agUPDEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_W25agkPDEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:MoveCaseDocOperation SourceCaseRefField="" TargetCaseRefField="custRef"/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="95.0">
+              <xpdl2:Coordinates XCoordinate="206.0" YCoordinate="621.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hfr-IEPDEeSKR8Sg8paz5Q" Name="MoveMissingToCaseref" xpdExt:Visibility="Private" xpdExt:DisplayName="Move Missing To Case ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_hfr-IUPDEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_hfr-IkPDEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:MoveCaseDocOperation SourceCaseRefField="custRef" TargetCaseRefField=""/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="95.0">
+              <xpdl2:Coordinates XCoordinate="477.0" YCoordinate="623.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_uTiOoEPEEeSKR8Sg8paz5Q" Name="ArrayfieldNotAllowed" xpdExt:Visibility="Private" xpdExt:DisplayName="Array field Not Allowed">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_wj3SgEPEEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_wj3SgUPEEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByFileNameOperation FileNameField="docRefArry"/>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1110.0" YCoordinate="621.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_3ME8oEPEEeSKR8Sg8paz5Q" Name="DataTypewrong" xpdExt:Visibility="Private" xpdExt:DisplayName="Data Type wrong">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_5I3ZcEPEEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_5I3ZcUPEEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="" CaseRefField="docRef">
+                    <xpdExt:FindByFileNameOperation/>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1227.0" YCoordinate="621.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_-N6AoEPEEeSKR8Sg8paz5Q" Name="DataTypewrong2" xpdExt:Visibility="Private" xpdExt:DisplayName="Data Type wrong 2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_-N6AoUPEEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_-N6AokPEEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="custRef" CaseRefField="custRef">
+                    <xpdExt:FindByFileNameOperation/>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="78.0" YCoordinate="757.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_csN9MEPFEeSKR8Sg8paz5Q" Name="FindInvalidQueryOperationTypeCompatibility" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid Query OperationType Compatibility">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_csN9MUPFEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_csN9MkPFEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" CMISQueryOperator="LIKE" ProcessDataField="boolVal"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="154.0">
+              <xpdl2:Coordinates XCoordinate="1005.0" YCoordinate="336.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_qZpWgEPFEeSKR8Sg8paz5Q" Name="FindInvalidNULL" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid NULL">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_qZpWgUPFEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_qZpWgkPFEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" CMISQueryOperator="NOT_NULL" ProcessDataField="boolVal"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="103.0">
+              <xpdl2:Coordinates XCoordinate="640.0" YCoordinate="77.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_yvVPEEPFEeSKR8Sg8paz5Q" Name="FindInvalidCONTAINS" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid CONTAINS">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_yvV2IEPFEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_yvV2IUPFEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" CMISQueryOperator="NOT_CONTAINS" ProcessDataField="boolVal"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="154.0">
+              <xpdl2:Coordinates XCoordinate="787.0" YCoordinate="70.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_A6S48EPGEeSKR8Sg8paz5Q" Name="FindInvaliduseofArrayType" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid use of Array Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_A6S48UPGEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_A6S48kPGEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" ProcessDataField="fileNameAray"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="590.0" YCoordinate="330.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_CQvAEEPJEeSKR8Sg8paz5Q" Name="FindInvaliduseofNonArrayType" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid use of Non Array Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_CQvAEUPJEeSKR8Sg8paz5Q"/>
+                <xpdl2:MessageOut Id="_CQvAEkPJEeSKR8Sg8paz5Q"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" CMISQueryOperator="IN" ProcessDataField="fileName"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="720.0" YCoordinate="330.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1NHG0EPKEeSzMpblYuPmFA" Name="DeleteDocRefMissing" xpdExt:Visibility="Private" xpdExt:DisplayName="Delete DocRef Missing">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_JU1qEEPLEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_JU1qEUPLEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations>
+                    <xpdExt:DeleteCaseDocOperation/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="185.0" YCoordinate="757.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_27PckEPKEeSzMpblYuPmFA" Name="FindInvalidValuefield" xpdExt:Visibility="Private" xpdExt:DisplayName="Find Invalid Value field">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_27QDoEPKEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_27QDoUPKEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRefArry" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISProperty="cmis:name" CMISQueryOperator="IN" ProcessDataField="doesNotExist"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="848.0" YCoordinate="332.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_XTxqIEPLEeSzMpblYuPmFA" Name="DeleteDocRefTypeInvalid" xpdExt:Visibility="Private" xpdExt:DisplayName="Delete DocRef Type Invalid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_XTxqIUPLEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_XTxqIkPLEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="custRef">
+                    <xpdExt:DeleteCaseDocOperation/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="317.0" YCoordinate="757.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_gqp58EPLEeSzMpblYuPmFA" Name="DeleteDocRefUndefined" xpdExt:Visibility="Private" xpdExt:DisplayName="Delete DocRef Undefined">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_gqp58UPLEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_gqp58kPLEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="undefined">
+                    <xpdExt:DeleteCaseDocOperation/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="433.0" YCoordinate="757.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_kVl6oEPLEeSzMpblYuPmFA" Name="LinkMissingDocref" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Missing Doc ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_kzKAYEPLEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_kzKAYUPLEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations>
+                    <xpdExt:LinkCaseDocOperation/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="565.0" YCoordinate="757.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oGKCMEPLEeSzMpblYuPmFA" Name="LinkMissingCaseRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Missing Case Ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_oGKCMUPLEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_oGKCMkPLEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:LinkCaseDocOperation/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="684.0" YCoordinate="757.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rr6n80PLEeSzMpblYuPmFA" Name="LinkDocrefInvalidType" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Doc ref Invalid Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_rr6n9EPLEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_rr6n9UPLEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="custRef">
+                    <xpdExt:LinkCaseDocOperation/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="812.0" YCoordinate="754.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vmXEQEPLEeSzMpblYuPmFA" Name="LinkInvalidCustRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Invalid CustRef">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_vmXEQUPLEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_vmXEQkPLEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:LinkCaseDocOperation TargetCaseRefField="docRef"/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="940.0" YCoordinate="756.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1oN5AEPLEeSzMpblYuPmFA" Name="LinkundefinedDocref" xpdExt:Visibility="Private" xpdExt:DisplayName="Link undefined Doc ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_1oN5AUPLEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_1oN5AkPLEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="undefined">
+                    <xpdExt:LinkCaseDocOperation/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1045.0" YCoordinate="756.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ImKwwEPMEeSzMpblYuPmFA" Name="LinkundefinedCustRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Link undefined Cust Ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_ImKwwUPMEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_ImKwwkPMEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:LinkCaseDocOperation TargetCaseRefField="undefinedCust"/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1170.0" YCoordinate="757.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_NZ2iMEPMEeSzMpblYuPmFA" Name="LinkSysMissingDocID" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys Missing DocID">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_RpP60EPMEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_RpP60UPMEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="102.0" YCoordinate="971.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_bzrHcEPMEeSzMpblYuPmFA" Name="UnlinkMissingCaseRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Unlink Missing Case Ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_bzrHcUPMEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_bzrHckPMEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:UnlinkCaseDocOperation/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="207.0" YCoordinate="861.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_bzrHc0PMEeSzMpblYuPmFA" Name="UnlinkInvalidCustRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Unlink Invalid CustRef">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_bzrHdEPMEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_bzrHdUPMEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:UnlinkCaseDocOperation SourceCaseRefField="docRef"/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="103.0">
+              <xpdl2:Coordinates XCoordinate="466.0" YCoordinate="860.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_bzrHdkPMEeSzMpblYuPmFA" Name="UnlinkundefinedCustRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Unlink undefined Cust Ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_bzrHd0PMEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_bzrHeEPMEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocRefOperations CaseDocumentRefField="docRef">
+                    <xpdExt:UnlinkCaseDocOperation SourceCaseRefField="undefinedCust"/>
+                  </xpdExt:CaseDocRefOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="693.0" YCoordinate="861.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_D-zuoEPNEeSzMpblYuPmFA" Name="LinkSysMissingCaseRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys Missing Case Ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_D-0VsEPNEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_D-0VsUPNEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation DocumentId="docRef"/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="242.0" YCoordinate="973.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_G6cZUEPNEeSzMpblYuPmFA" Name="LinkSysMissingRetDocRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys Missing Ret Doc Ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_G6cZUUPNEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_G6cZUkPNEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation DocumentId="docRef" CaseRefField="custRef"/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="377.0" YCoordinate="972.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZaZGcEPNEeSzMpblYuPmFA" Name="LinkSysInvalidRetDocRefType" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys Invalid Ret Doc Ref Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_ZaZGcUPNEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_ZaZGckPNEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation DocumentId="docRef" ReturnCaseDocRefField="custRef" CaseRefField="custRef"/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="779.0" YCoordinate="972.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZaZGc0PNEeSzMpblYuPmFA" Name="LinkSysInvalidCaseRefType" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys Invalid Case Ref Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_ZaZGdEPNEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_ZaZGdUPNEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation DocumentId="docRef" CaseRefField="docRef"/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="644.0" YCoordinate="973.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZaZGdkPNEeSzMpblYuPmFA" Name="LinkSysInvalidDocIDType" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys Invalid DocID Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_ZaZGd0PNEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_ZaZGeEPNEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation DocumentId="custRef"/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="504.0" YCoordinate="971.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_aSLqEEPNEeSzMpblYuPmFA" Name="LinkSysMissingRetDocRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys Missing Ret Doc Ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_aSLqEUPNEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_aSLqEkPNEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation DocumentId="docRef" ReturnCaseDocRefField="notDef" CaseRefField="custRef"/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1227.0" YCoordinate="972.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_aSLqE0PNEeSzMpblYuPmFA" Name="LinkSysMissingCaseRef" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys Missing Case Ref">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_aSLqFEPNEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_aSLqFUPNEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation DocumentId="docRef" CaseRefField="notDef"/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="1092.0" YCoordinate="973.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_aSLqFkPNEeSzMpblYuPmFA" Name="LinkSysundefinedDocID" xpdExt:Visibility="Private" xpdExt:DisplayName="Link Sys undefined DocID">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_aSLqF0PNEeSzMpblYuPmFA"/>
+                <xpdl2:MessageOut Id="_aSLqGEPNEeSzMpblYuPmFA"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:LinkSystemDocumentOperation DocumentId="notDef"/>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="952.0" YCoordinate="971.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_KmdRoE5NEeSrB6G1Qebwqw" Name="cmisDocumentUseInvalid" xpdExt:Visibility="Private" xpdExt:DisplayName="cmisDocument Use Invalid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_LXY_UE5NEeSrB6G1Qebwqw"/>
+                <xpdl2:MessageOut Id="_LXY_UU5NEeSrB6G1Qebwqw"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRef" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISQueryOperator="NULL" CmisDocumentPropertySelected="true"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="161.0">
+              <xpdl2:Coordinates XCoordinate="152.0" YCoordinate="1086.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_3clBQE5NEeSrB6G1Qebwqw" Name="cmisDocumentUseInvalid" xpdExt:Visibility="Private" xpdExt:DisplayName="cmisDocument Use Invalid">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_3clBQU5NEeSrB6G1Qebwqw"/>
+                <xpdl2:MessageOut Id="_3clBQk5NEeSrB6G1Qebwqw"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docRef" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISQueryOperator="NULL" CmisDocumentPropertySelected="true"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="161.0">
+              <xpdl2:Coordinates XCoordinate="85.0" YCoordinate="37.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_8RkaQE5NEeSrB6G1Qebwqw" Name="InvalidCONTAINS" xpdExt:Visibility="Private" xpdExt:DisplayName="Invalid CONTAINS">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_8_epIE5NEeSrB6G1Qebwqw"/>
+                <xpdl2:MessageOut Id="_8_epIU5NEeSrB6G1Qebwqw"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docID" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISQueryOperator="CONTAINS" ProcessDataField="Field8" CmisDocumentPropertySelected="false"/>
+                      <xpdExt:CaseDocumentQueryExpression QueryExpressionJoinType="AND" CMISProperty="cmis:name" CMISQueryOperator="NOT_CONTAINS" ProcessDataField="cust"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_8ss3EE5NEeSrB6G1Qebwqw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="337.0" YCoordinate="1080.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_c3Pr8E5OEeSrB6G1Qebwqw" Name="ServiceTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Service Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="DocumentOperations" Implementation="Other">
+                <xpdl2:MessageIn Id="_dUEK0E5OEeSrB6G1Qebwqw"/>
+                <xpdl2:MessageOut Id="_dUEK0U5OEeSrB6G1Qebwqw"/>
+                <xpdExt:DocumentOperation>
+                  <xpdExt:CaseDocFindOperations ReturnCaseDocRefsField="docID" CaseRefField="custRef">
+                    <xpdExt:FindByQueryOperation>
+                      <xpdExt:CaseDocumentQueryExpression CMISQueryOperator="NOT_LIKE" CmisDocumentPropertySelected="true"/>
+                      <xpdExt:CaseDocumentQueryExpression QueryExpressionJoinType="AND" CMISProperty="cmis:name" CMISQueryOperator="NULL"/>
+                      <xpdExt:CaseDocumentQueryExpression QueryExpressionJoinType="AND" CMISQueryOperator="NOT_CONTAINS" CmisDocumentPropertySelected="false"/>
+                    </xpdExt:FindByQueryOperation>
+                  </xpdExt:CaseDocFindOperations>
+                </xpdExt:DocumentOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_I9J4AEMJEeSRWef4qhq__A" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="466.0" YCoordinate="1080.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_EaLCgEOtEeSw4syuOv_d_A" xpdExt:DisplayName="" Name="" From="_I9J4AUMJEeSRWef4qhq__A" To="_EaH_MEOtEeSw4syuOv_d_A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_PT2h0EOtEeSw4syuOv_d_A" xpdExt:DisplayName="" Name="" From="_EaH_MEOtEeSw4syuOv_d_A" To="_PT0FkEOtEeSw4syuOv_d_A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_GhiScEO_EeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_PT0FkEOtEeSw4syuOv_d_A" To="_Gg1u4EO_EeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_WqCnEEO_EeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_Gg1u4EO_EeSKR8Sg8paz5Q" To="_Wo1GIEO_EeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_d9MEkEO_EeSKR8Sg8paz5Q" Name="" From="_yvVPEEPFEeSKR8Sg8paz5Q" To="_d9JoUEO_EeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="39.678899082568805" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="84.375" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oNf2wEO_EeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_d9JoUEO_EeSKR8Sg8paz5Q" To="_oNR0UEO_EeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_zRgWwEO_EeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_oNR0UEO_EeSKR8Sg8paz5Q" To="_zRQfIEO_EeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_5gaJAEO_EeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_zRQfIEO_EeSKR8Sg8paz5Q" To="_5gJqUEO_EeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Arz_wEPAEeSKR8Sg8paz5Q" Name="" From="_csN9MEPFEeSKR8Sg8paz5Q" To="_ArkIIEPAEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="37.61467889908257" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="83.125" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_NgqLQEPAEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_ArkIIEPAEeSKR8Sg8paz5Q" To="_NgVbIEPAEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Ui5e8EPAEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_NgVbIEPAEeSKR8Sg8paz5Q" To="_UiqOYEPAEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_cypuoEPAEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_UiqOYEPAEeSKR8Sg8paz5Q" To="_cyn5cEPAEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ncvSwEPAEeSKR8Sg8paz5Q" Name="" From="_hfr-IEPDEeSKR8Sg8paz5Q" To="_ncs2gEPAEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_vu12YEPBEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_cyn5cEPAEeSKR8Sg8paz5Q" To="_vukwoEPBEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="83.75" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="40.3125" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_W3G14EPDEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_vukwoEPBEeSKR8Sg8paz5Q" To="_W25agEPDEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hf6noEPDEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_W25agEPDEeSKR8Sg8paz5Q" To="_hfr-IEPDEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_uTkD0EPEEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_ncs2gEPAEeSKR8Sg8paz5Q" To="_uTiOoEPEEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_3MHY4EPEEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_uTiOoEPEEeSKR8Sg8paz5Q" To="_3ME8oEPEEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_V_2L0EPFEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_3ME8oEPEEeSKR8Sg8paz5Q" To="_-N6AoEPEEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="33.75" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="78.4375" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_qZ4nEEPFEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_Wo1GIEO_EeSKR8Sg8paz5Q" To="_qZpWgEPFEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_5LokIEPFEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_qZpWgEPFEeSKR8Sg8paz5Q" To="_yvVPEEPFEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_A6ftQEPGEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_5gJqUEO_EeSKR8Sg8paz5Q" To="_A6S48EPGEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_8M-t4EPIEeSKR8Sg8paz5Q" Name="" From="_27PckEPKEeSzMpblYuPmFA" To="_csN9MEPFEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_CQ9pkEPJEeSKR8Sg8paz5Q" xpdExt:DisplayName="" Name="" From="_A6S48EPGEeSKR8Sg8paz5Q" To="_CQvAEEPJEeSKR8Sg8paz5Q">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_1NJjEEPKEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_-N6AoEPEEeSKR8Sg8paz5Q" To="_1NHG0EPKEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_27hJYEPKEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_CQvAEEPJEeSKR8Sg8paz5Q" To="_27PckEPKEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_XT93YEPLEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_1NHG0EPKEeSzMpblYuPmFA" To="_XTxqIEPLEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_gq1gIEPLEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_XTxqIEPLEeSzMpblYuPmFA" To="_gqp58EPLEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_kVoW4EPLEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_gqp58EPLEeSzMpblYuPmFA" To="_kVl6oEPLEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oGUaQEPLEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_kVl6oEPLEeSzMpblYuPmFA" To="_oGKCMEPLEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rr9rQEPLEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_oGKCMEPLEeSzMpblYuPmFA" To="_rr6n80PLEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_vmgOMEPLEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_rr6n80PLEeSzMpblYuPmFA" To="_vmXEQEPLEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_1o7DoEPLEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_vmXEQEPLEeSzMpblYuPmFA" To="_1oN5AEPLEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ImRecEPMEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_1oN5AEPLEeSzMpblYuPmFA" To="_ImKwwEPMEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Pq6l4EPMEeSzMpblYuPmFA" Name="" From="_bzrHcEPMEeSzMpblYuPmFA" To="_NZ2iMEPMEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="85.9375" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.375" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_bz4i0EPMEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_ImKwwEPMEeSzMpblYuPmFA" To="_bzrHdkPMEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="29.375" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="10.3125" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_gxoPMEPMEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_bzrHc0PMEeSzMpblYuPmFA" To="_bzrHcEPMEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_kvYeMEPMEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_bzrHdkPMEeSzMpblYuPmFA" To="_bzrHc0PMEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_D_Ai8EPNEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_NZ2iMEPMEeSzMpblYuPmFA" To="_D-zuoEPNEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_G6k8MEPNEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_D-zuoEPNEeSzMpblYuPmFA" To="_G6cZUEPNEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZaZGeUPNEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_ZaZGdkPNEeSzMpblYuPmFA" To="_ZaZGc0PNEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZaZGekPNEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_ZaZGc0PNEeSzMpblYuPmFA" To="_ZaZGcEPNEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZbmAUEPNEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_G6cZUEPNEeSzMpblYuPmFA" To="_ZaZGdkPNEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_aSLqGUPNEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_aSLqFkPNEeSzMpblYuPmFA" To="_aSLqE0PNEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_aSLqGkPNEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_aSLqE0PNEeSzMpblYuPmFA" To="_aSLqEEPNEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_aSyHAEPNEeSzMpblYuPmFA" xpdExt:DisplayName="" Name="" From="_ZaZGcEPNEeSzMpblYuPmFA" To="_aSLqFkPNEeSzMpblYuPmFA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_HjVCYE5OEeSrB6G1Qebwqw" xpdExt:DisplayName="" Name="" From="_KmdRoE5NEeSrB6G1Qebwqw" To="_8RkaQE5NEeSrB6G1Qebwqw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_KamxgE5OEeSrB6G1Qebwqw" xpdExt:DisplayName="" Name="" From="_aSLqEEPNEeSzMpblYuPmFA" To="_KmdRoE5NEeSrB6G1Qebwqw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="80.44444444444444" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="38.125" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_OiTmsE5OEeSrB6G1Qebwqw" xpdExt:DisplayName="" Name="" From="_c3Pr8E5OEeSrB6G1Qebwqw" To="_I9J4AkMJEeSRWef4qhq__A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_c3SIME5OEeSrB6G1Qebwqw" xpdExt:DisplayName="" Name="" From="_8RkaQE5NEeSrB6G1Qebwqw" To="_c3Pr8E5OEeSrB6G1Qebwqw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="17"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="17"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

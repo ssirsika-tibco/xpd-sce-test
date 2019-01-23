@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://com.enel.mind.integration.creditoaccelerazionedunning" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreditoAccelerazioneDunning" targetNamespace="http://com.enel.mind.integration.creditoaccelerazionedunning" tibex:src="file:/C:/Users/ESIAFEI/Desktop/AstrattoDunning.wsdl">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://com.enel.mind.integration.creditoaccelerazionedunning">
+    <xsd:element name="AccelerazioneDunningRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	
+			<xsd:element minOccurs="0" name="IdRichiesta" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="Canale" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="IdProcesso" type="xsd:string">
+          	</xsd:element>
+			
+			<xsd:element minOccurs="0" name="Pod" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="CodiceFiscale" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="BusinessPartner" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="ContractAccount" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="Contratto" type="xsd:string">
+          	</xsd:element>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AccelerazioneDunningResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	
+			<xsd:element minOccurs="0" name="Esito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="CodiceEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="DescrizioneEsito" type="xsd:string">
+      		</xsd:element>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+     
+    
+    </xsd:schema>
+  </wsdl:types>
+  
+ 
+  
+  <wsdl:message name="AccelerazioneDunningRequest">
+    <wsdl:part element="tns:AccelerazioneDunningRequest" name="input"/>
+  </wsdl:message>
+  <wsdl:message name="AccelerazioneDunningResponse">
+    <wsdl:part element="tns:AccelerazioneDunningResponse" name="output"/>
+  </wsdl:message>
+
+  
+	
+	 <wsdl:portType name="CreditoAccelerazioneDunning">
+	<wsdl:operation name="AccelerazioneDunning">
+      <wsdl:input message="tns:AccelerazioneDunningRequest"/>
+      <wsdl:output message="tns:AccelerazioneDunningResponse"/>
+    </wsdl:operation>
+ </wsdl:portType>
+
+</wsdl:definitions>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="CaricatoreUnicoOfferta.mind.enel.com" name="CaricatoreUnicoOfferta.mind.enel.com">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HiO2pQ93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HiO2pg93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HiO2pw93EeW3MruGqUCC5Q" key="created" value="1433947598585"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HiO2qA93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HkUhQA93EeW3MruGqUCC5Q" key="checksum" value="3424328819"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaType" name="InsOffertaVenditaType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InsOffertaVenditaTypeIdProcessoBpm" name="idProcessoBpm" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HeqlNQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HeqlNA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InsOffertaVenditaTypeSDM_VENDITA" name="SDM_VENDITA" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HeqlOg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HeqlOQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaResponseType" name="InsOffertaVenditaResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InsOffertaVenditaResponseTypeEsitoType" name="esito" type="CaricatoreUnicoOfferta.mind.enel.comEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType?" aggregation="composite" association="CaricatoreUnicoOfferta.mind.enel.comComposition0?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HezvOA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HezvNw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CaricatoreUnicoOfferta.mind.enel.comEsitoType" name="EsitoType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeEsito" name="esito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HeqlRg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HeqlRQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeCodiceEsito" name="codiceEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HezvIw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HezvIg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeDescrizione" name="descrizione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HezvKA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HezvJw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeTipoEsito" name="tipoEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HezvLQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HezvLA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeSistemaSorgente" name="sistemaSorgente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HezvMg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HezvMQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="CaricatoreUnicoOfferta.mind.enel.comComposition0" name="Composition0" memberEnd="InsOffertaVenditaResponseTypeEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType%3a%3aesito? Composition0insoffertavenditaresponsetype?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition0%3a%3ainsoffertavenditaresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0insoffertavenditaresponsetype" name="insoffertavenditaresponsetype" type="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType?" association="CaricatoreUnicoOfferta.mind.enel.comComposition0?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HezvOw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HezvOg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateType" name="InsOfferteAnnullateType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InsOfferteAnnullateTypeIdProcessoBpm" name="idProcessoBpm" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_He9gJg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_He9gJQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InsOfferteAnnullateTypeSDM_VENDITA" name="SDM_VENDITA" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_He9gKw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_He9gKg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateResponseType" name="InsOfferteAnnullateResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InsOfferteAnnullateResponseTypeEsitoType" name="esito" type="CaricatoreUnicoOfferta.mind.enel.comEsitoType2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1?" aggregation="composite" association="CaricatoreUnicoOfferta.mind.enel.comComposition1?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfQbEw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfQbEg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CaricatoreUnicoOfferta.mind.enel.comEsitoType2" name="EsitoType1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeEsito2" name="esito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_He9gNg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_He9gNQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeCodiceEsito2" name="codiceEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfHRIw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfHRIg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeDescrizione2" name="descrizione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfHRKA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfHRJw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeTipoEsito2" name="tipoEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfHRLQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfHRLA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeSistemaSorgente2" name="sistemaSorgente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfHRMg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfHRMQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="CaricatoreUnicoOfferta.mind.enel.comComposition1" name="Composition1" memberEnd="InsOfferteAnnullateResponseTypeEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType%3a%3aesito? Composition1insofferteannullateresponsetype?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition1%3a%3ainsofferteannullateresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1insofferteannullateresponsetype" name="insofferteannullateresponsetype" type="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType?" association="CaricatoreUnicoOfferta.mind.enel.comComposition1?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HfQbFg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HfQbFQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="CaricatoreUnicoOfferta.mind.enel.comCaricatoreUnicoOfferta" name="CaricatoreUnicoOfferta1">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_HhpAsQ93EeW3MruGqUCC5Q" body="&#xA;      "/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="CaricatoreUnicoOffertaServiceCall" name="ServiceCall">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ServiceCallrequest" name="request">
+          <type xmi:type="uml:Class" href="com.enel.mind.caricatoreunicoofferta.bom#com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaInput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaInput?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ServiceCallresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.mind.caricatoreunicoofferta.bom#com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaOutput?com.enel.mind.caricatoreunicoofferta%3a%3aCaricatoreUnicoOffertaOutput?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="CaricatoreUnicoOffertaInsOffertaVendita" name="InsOffertaVendita">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="InsOffertaVenditaparameters" name="parameters" type="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="InsOffertaVenditaparameters2" name="parameters" type="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="CaricatoreUnicoOffertaInsOfferteAnnullate" name="InsOfferteAnnullate">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="InsOfferteAnnullateparameters" name="parameters" type="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="InsOfferteAnnullateparameters2" name="parameters" type="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType?" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Heg0MQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Heg0Mg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Heg0Mw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Heg0NA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_Heg0NQ93EeW3MruGqUCC5Q" base_Package="CaricatoreUnicoOfferta.mind.enel.com?CaricatoreUnicoOfferta.mind.enel.com?" xsdTargetNamespace="http://com.enel.mind.CaricatoreUnicoOfferta" xsdSchemaLocation="CaricatoreUnicoOffertaServiceAbstract.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="CaricatoreUnicoOffertaServiceAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HeqlMQ93EeW3MruGqUCC5Q" base_Class="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HeqlPA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HeqlMw93EeW3MruGqUCC5Q" base_Property="InsOffertaVenditaTypeIdProcessoBpm?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType%3a%3aidProcessoBpm?" xsdName="IdProcessoBpm" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HeqlPA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HeqlNg93EeW3MruGqUCC5Q" textLength="-1" base_Property="InsOffertaVenditaTypeIdProcessoBpm?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType%3a%3aidProcessoBpm?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HeqlOA93EeW3MruGqUCC5Q" base_Property="InsOffertaVenditaTypeSDM_VENDITA?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType%3a%3aSDM_VENDITA?" xsdName="SDM_VENDITA" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HeqlPA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HeqlOw93EeW3MruGqUCC5Q" textLength="-1" base_Property="InsOffertaVenditaTypeSDM_VENDITA?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType%3a%3aSDM_VENDITA?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_HeqlPQ93EeW3MruGqUCC5Q" base_Package="CaricatoreUnicoOfferta.mind.enel.com?CaricatoreUnicoOfferta.mind.enel.com?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_HeqlPg93EeW3MruGqUCC5Q" name="InsOffertaVendita" type="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType?" isAnonymous="true" targetNamespace="http://com.enel.mind.CaricatoreUnicoOfferta" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_He9gIA93EeW3MruGqUCC5Q" name="InsOffertaVenditaResponse" type="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType?" isAnonymous="true" targetNamespace="http://com.enel.mind.CaricatoreUnicoOfferta" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_He9gLg93EeW3MruGqUCC5Q" name="InsOfferteAnnullate" type="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType?" isAnonymous="true" targetNamespace="http://com.enel.mind.CaricatoreUnicoOfferta" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_HfQbGQ93EeW3MruGqUCC5Q" name="InsOfferteAnnullateResponse" type="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType?" isAnonymous="true" targetNamespace="http://com.enel.mind.CaricatoreUnicoOfferta" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HeqlQA93EeW3MruGqUCC5Q" base_Class="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HezvPQ93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HeqlQg93EeW3MruGqUCC5Q" base_Class="CaricatoreUnicoOfferta.mind.enel.comEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType?" xsdName="Esito" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HezvNA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HeqlRA93EeW3MruGqUCC5Q" base_Property="EsitoTypeEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3aesito?" xsdName="Esito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HezvNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HeqlRw93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HezvIQ93EeW3MruGqUCC5Q" base_Property="EsitoTypeCodiceEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3acodiceEsito?" xsdName="CodiceEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HezvNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HezvJA93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeCodiceEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HezvJg93EeW3MruGqUCC5Q" base_Property="EsitoTypeDescrizione?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3adescrizione?" xsdName="Descrizione" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HezvNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HezvKQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeDescrizione?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HezvKw93EeW3MruGqUCC5Q" base_Property="EsitoTypeTipoEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3atipoEsito?" xsdName="TipoEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HezvNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HezvLg93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeTipoEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HezvMA93EeW3MruGqUCC5Q" base_Property="EsitoTypeSistemaSorgente?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3asistemaSorgente?" xsdName="SistemaSorgente" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HezvNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HezvMw93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeSistemaSorgente?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3asistemaSorgente?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HezvPA93EeW3MruGqUCC5Q" base_Property="InsOffertaVenditaResponseTypeEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType%3a%3aesito?" xsdName="Esito" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HezvPQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_He9gIg93EeW3MruGqUCC5Q" base_Class="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_He9gLQ93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_He9gJA93EeW3MruGqUCC5Q" base_Property="InsOfferteAnnullateTypeIdProcessoBpm?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType%3a%3aidProcessoBpm?" xsdName="IdProcessoBpm" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_He9gLQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_He9gJw93EeW3MruGqUCC5Q" textLength="-1" base_Property="InsOfferteAnnullateTypeIdProcessoBpm?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType%3a%3aidProcessoBpm?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_He9gKQ93EeW3MruGqUCC5Q" base_Property="InsOfferteAnnullateTypeSDM_VENDITA?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType%3a%3aSDM_VENDITA?" xsdName="SDM_VENDITA" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_He9gLQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_He9gLA93EeW3MruGqUCC5Q" textLength="-1" base_Property="InsOfferteAnnullateTypeSDM_VENDITA?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType%3a%3aSDM_VENDITA?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_He9gMA93EeW3MruGqUCC5Q" base_Class="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HfQbGA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_He9gMg93EeW3MruGqUCC5Q" base_Class="CaricatoreUnicoOfferta.mind.enel.comEsitoType2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1?" xsdName="Esito" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_HfHRNA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_He9gNA93EeW3MruGqUCC5Q" base_Property="EsitoTypeEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3aesito?" xsdName="Esito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfHRNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_He9gNw93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfHRIQ93EeW3MruGqUCC5Q" base_Property="EsitoTypeCodiceEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3acodiceEsito?" xsdName="CodiceEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfHRNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HfHRJA93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeCodiceEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfHRJg93EeW3MruGqUCC5Q" base_Property="EsitoTypeDescrizione2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3adescrizione?" xsdName="Descrizione" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfHRNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HfHRKQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeDescrizione2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfHRKw93EeW3MruGqUCC5Q" base_Property="EsitoTypeTipoEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3atipoEsito?" xsdName="TipoEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfHRNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HfHRLg93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeTipoEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3atipoEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfHRMA93EeW3MruGqUCC5Q" base_Property="EsitoTypeSistemaSorgente2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3asistemaSorgente?" xsdName="SistemaSorgente" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfHRNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_HfHRMw93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeSistemaSorgente2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3asistemaSorgente?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_HfQbFw93EeW3MruGqUCC5Q" base_Property="InsOfferteAnnullateResponseTypeEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType%3a%3aesito?" xsdName="Esito" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_HfQbGA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbGg93EeW3MruGqUCC5Q" base_Element="_HfHRLQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbGw93EeW3MruGqUCC5Q" base_Element="_HfQbFQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbHA93EeW3MruGqUCC5Q" base_Element="_HeqlOQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbHQ93EeW3MruGqUCC5Q" base_Element="InsOfferteAnnullateTypeSDM_VENDITA?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType%3a%3aSDM_VENDITA?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbHg93EeW3MruGqUCC5Q" base_Element="InsOffertaVenditaResponseTypeEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbHw93EeW3MruGqUCC5Q" base_Element="_HezvMg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbIA93EeW3MruGqUCC5Q" base_Element="EsitoTypeSistemaSorgente2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3asistemaSorgente?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbIQ93EeW3MruGqUCC5Q" base_Element="_HezvLA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbIg93EeW3MruGqUCC5Q" base_Element="Composition0insoffertavenditaresponsetype?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition0%3a%3ainsoffertavenditaresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbIw93EeW3MruGqUCC5Q" base_Element="_HezvNw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbJA93EeW3MruGqUCC5Q" base_Element="_He9gKw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbJQ93EeW3MruGqUCC5Q" base_Element="_HfHRIw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbJg93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOfferta.mind.enel.comEsitoType2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbJw93EeW3MruGqUCC5Q" base_Element="_HfHRMg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbKA93EeW3MruGqUCC5Q" base_Element="_He9gJg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbKQ93EeW3MruGqUCC5Q" base_Element="_HfHRIg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbKg93EeW3MruGqUCC5Q" base_Element="EsitoTypeSistemaSorgente?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3asistemaSorgente?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbKw93EeW3MruGqUCC5Q" base_Element="_He9gJQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbLA93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOfferta.mind.enel.comComposition0?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbLQ93EeW3MruGqUCC5Q" base_Element="_HeqlOg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbLg93EeW3MruGqUCC5Q" base_Element="_HezvOg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbLw93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbMA93EeW3MruGqUCC5Q" base_Element="_HezvOw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbMQ93EeW3MruGqUCC5Q" base_Element="_He9gNQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbMg93EeW3MruGqUCC5Q" base_Element="_HezvIg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbMw93EeW3MruGqUCC5Q" base_Element="_HezvJw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbNA93EeW3MruGqUCC5Q" base_Element="EsitoTypeEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbNQ93EeW3MruGqUCC5Q" base_Element="_HeqlNA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbNg93EeW3MruGqUCC5Q" base_Element="_Heg0MQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbNw93EeW3MruGqUCC5Q" base_Element="EsitoTypeDescrizione2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbOA93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbOQ93EeW3MruGqUCC5Q" base_Element="EsitoTypeDescrizione?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbOg93EeW3MruGqUCC5Q" base_Element="_HeqlRQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbOw93EeW3MruGqUCC5Q" base_Element="_HfQbEg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbPA93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOfferta.mind.enel.comComposition1?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbPQ93EeW3MruGqUCC5Q" base_Element="_HezvMQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbPg93EeW3MruGqUCC5Q" base_Element="EsitoTypeEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbPw93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOfferta.mind.enel.comEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbQA93EeW3MruGqUCC5Q" base_Element="_He9gKg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbQQ93EeW3MruGqUCC5Q" base_Element="_HfHRMQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbQg93EeW3MruGqUCC5Q" base_Element="InsOffertaVenditaTypeIdProcessoBpm?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType%3a%3aidProcessoBpm?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbQw93EeW3MruGqUCC5Q" base_Element="_He9gNg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbRA93EeW3MruGqUCC5Q" base_Element="_HfHRLA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbRQ93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbRg93EeW3MruGqUCC5Q" base_Element="_HfHRJw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbRw93EeW3MruGqUCC5Q" base_Element="EsitoTypeTipoEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbSA93EeW3MruGqUCC5Q" base_Element="_HezvOA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbSQ93EeW3MruGqUCC5Q" base_Element="_HezvLQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbSg93EeW3MruGqUCC5Q" base_Element="EsitoTypeCodiceEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbSw93EeW3MruGqUCC5Q" base_Element="_Heg0Mw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbTA93EeW3MruGqUCC5Q" base_Element="EsitoTypeTipoEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3atipoEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbTQ93EeW3MruGqUCC5Q" base_Element="_HeqlNQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbTg93EeW3MruGqUCC5Q" base_Element="InsOfferteAnnullateTypeIdProcessoBpm?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType%3a%3aidProcessoBpm?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbTw93EeW3MruGqUCC5Q" base_Element="InsOfferteAnnullateResponseTypeEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbUA93EeW3MruGqUCC5Q" base_Element="InsOffertaVenditaTypeSDM_VENDITA?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType%3a%3aSDM_VENDITA?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbUQ93EeW3MruGqUCC5Q" base_Element="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbUg93EeW3MruGqUCC5Q" base_Element="_HezvKA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbUw93EeW3MruGqUCC5Q" base_Element="_HfQbEw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbVA93EeW3MruGqUCC5Q" base_Element="_HeqlRg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbVQ93EeW3MruGqUCC5Q" base_Element="EsitoTypeCodiceEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbVg93EeW3MruGqUCC5Q" base_Element="_HfHRKA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbVw93EeW3MruGqUCC5Q" base_Element="_HezvIw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbWA93EeW3MruGqUCC5Q" base_Element="_HfQbFg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_HfQbWQ93EeW3MruGqUCC5Q" base_Element="Composition1insofferteannullateresponsetype?CaricatoreUnicoOfferta.mind.enel.com%3a%3aComposition1%3a%3ainsofferteannullateresponsetype?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_HhpAsg93EeW3MruGqUCC5Q" base_Class="CaricatoreUnicoOfferta.mind.enel.comCaricatoreUnicoOfferta?CaricatoreUnicoOfferta.mind.enel.com%3a%3aCaricatoreUnicoOfferta1?" xsdName="CaricatoreUnicoOfferta" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsug93EeW3MruGqUCC5Q" displayLabel="CaricatoreUnicoOfferta" base_NamedElement="CaricatoreUnicoOfferta.mind.enel.comCaricatoreUnicoOfferta?CaricatoreUnicoOfferta.mind.enel.com%3a%3aCaricatoreUnicoOfferta1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiFsuw93EeW3MruGqUCC5Q" displayLabel="InsOffertaVenditaType" base_NamedElement="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2kA93EeW3MruGqUCC5Q" displayLabel="InsOffertaVenditaResponseType" base_NamedElement="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2kQ93EeW3MruGqUCC5Q" displayLabel="InsOfferteAnnullateType" base_NamedElement="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2kg93EeW3MruGqUCC5Q" displayLabel="InsOfferteAnnullateResponseType" base_NamedElement="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateResponseType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2kw93EeW3MruGqUCC5Q" displayLabel="IdProcessoBpm" base_NamedElement="InsOffertaVenditaTypeIdProcessoBpm?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType%3a%3aidProcessoBpm?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2lA93EeW3MruGqUCC5Q" displayLabel="SDM_VENDITA" base_NamedElement="InsOffertaVenditaTypeSDM_VENDITA?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaType%3a%3aSDM_VENDITA?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2lQ93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="InsOffertaVenditaResponseTypeEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOffertaVenditaResponseType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2lg93EeW3MruGqUCC5Q" displayLabel="EsitoType" base_NamedElement="CaricatoreUnicoOfferta.mind.enel.comEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2lw93EeW3MruGqUCC5Q" displayLabel="CodiceEsito" base_NamedElement="EsitoTypeCodiceEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2mA93EeW3MruGqUCC5Q" displayLabel="Descrizione" base_NamedElement="EsitoTypeDescrizione?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3adescrizione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2mQ93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="EsitoTypeEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2mg93EeW3MruGqUCC5Q" displayLabel="SistemaSorgente" base_NamedElement="EsitoTypeSistemaSorgente?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3asistemaSorgente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2mw93EeW3MruGqUCC5Q" displayLabel="TipoEsito" base_NamedElement="EsitoTypeTipoEsito?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2nA93EeW3MruGqUCC5Q" displayLabel="IdProcessoBpm" base_NamedElement="InsOfferteAnnullateTypeIdProcessoBpm?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType%3a%3aidProcessoBpm?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2nQ93EeW3MruGqUCC5Q" displayLabel="SDM_VENDITA" base_NamedElement="InsOfferteAnnullateTypeSDM_VENDITA?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateType%3a%3aSDM_VENDITA?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2ng93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="InsOfferteAnnullateResponseTypeEsitoType?CaricatoreUnicoOfferta.mind.enel.com%3a%3aInsOfferteAnnullateResponseType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2nw93EeW3MruGqUCC5Q" displayLabel="EsitoType1" base_NamedElement="CaricatoreUnicoOfferta.mind.enel.comEsitoType2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2oA93EeW3MruGqUCC5Q" displayLabel="CodiceEsito" base_NamedElement="EsitoTypeCodiceEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3acodiceEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2oQ93EeW3MruGqUCC5Q" displayLabel="Descrizione" base_NamedElement="EsitoTypeDescrizione2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3adescrizione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2og93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="EsitoTypeEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2ow93EeW3MruGqUCC5Q" displayLabel="SistemaSorgente" base_NamedElement="EsitoTypeSistemaSorgente2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3asistemaSorgente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HiO2pA93EeW3MruGqUCC5Q" displayLabel="TipoEsito" base_NamedElement="EsitoTypeTipoEsito2?CaricatoreUnicoOfferta.mind.enel.com%3a%3aEsitoType1%3a%3atipoEsito?"/>
+  <notation:Diagram xmi:id="_HiO2qQ93EeW3MruGqUCC5Q" type="Business Object Model" element="CaricatoreUnicoOfferta.mind.enel.com?CaricatoreUnicoOfferta.mind.enel.com?" name="CaricatoreUnicoOfferta.mind.enel.com" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_HiO2qg93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_HiO2qw93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

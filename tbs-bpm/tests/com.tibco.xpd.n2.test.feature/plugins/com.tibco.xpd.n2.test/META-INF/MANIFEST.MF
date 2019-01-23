@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Export-Package: com.tibco.xpd.n2.test,
+ com.tibco.xpd.n2.test.general,
+ com.tibco.xpd.n2.test.generate,
+ com.tibco.xpd.n2.test.schemas,
+ com.tibco.xpd.n2.test.validations
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ com.tibco.xpd.core.test,
+ com.tibco.xpd.core.testutil,
+ com.tibco.xpd.n2.test.core;bundle-version="4.0.0",
+ com.tibco.xpd.core.xmlunit;bundle-version="3.3.0",
+ com.tibco.xpd.xpdl2.edit;bundle-version="3.5.600",
+ com.tibco.xpd.implementer.resources.xpdl2;bundle-version="3.3.900",
+ com.tibco.xpd.processeditor.xpdl2;bundle-version="3.5.600",
+ org.eclipse.jface.text,
+ com.tibco.xpd.scripteditors,
+ com.tibco.xpd.script.sourceviewer,
+ com.tibco.bx.validation,
+ com.tibco.xpd.bom.resources.ui,
+ com.tibco.xpd.bom.gen;bundle-version="3.9.0",
+ com.tibco.xpd.bom.modeler.diagram;bundle-version="3.9.0",
+ com.tibco.xpd.bom.test.util;bundle-version="3.9.0",
+ com.tibco.xpd.bom.xsdtransform,
+ com.tibco.xpd.n2.daa
+Bundle-Vendor: TIBCO
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 4.0.0.qualifier
+Bundle-Name: N2-Test Plug-in
+Bundle-Activator: com.tibco.xpd.n2.test.Activator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.tibco.xpd.n2.test
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

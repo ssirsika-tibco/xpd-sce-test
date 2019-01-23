@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksemprericezioneesiti" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.enel.com/mercato/libero/service/bpm/receivetasksemprericezioneesiti" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/service/bpm/receivetasksemprericezioneesiti" tibex:src="file:/C:/Users/egiusro/Desktop/AMX-ALLACCIO/ReceiveTaskSempreRicezioneEsitiServiceConcrete.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksemprericezioneesiti" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksemprericezioneesiti">
+            <xs:element name="SempreRicezioneEsitiRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="correlationID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="codiceEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="descrizioneEsito" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ReceiveTaskSempreRicezioneEsitiService">
+        <wsdl:port binding="tns:ReceiveTaskSempreRicezioneEsitiPortTypeEndpointBinding" name="ReceiveTaskSempreRicezioneEsitiPortTypeEndpoint">
+            <soap:address location="http://localhost:99999/mercato/libero/service/bpm/receivetasksemprericezioneesiti"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="ReceiveTaskSempreRicezioneEsitiPortType">
+        <wsdl:operation name="ReceiveTaskSempreRicezioneEsiti">
+            <wsdl:input message="tns:SempreRicezioneEsitiRequest"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ReceiveTaskSempreRicezioneEsitiPortTypeEndpointBinding" type="tns:ReceiveTaskSempreRicezioneEsitiPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ReceiveTaskSempreRicezioneEsiti">
+            <soap:operation soapAction="/Processes/ReceiveTaskSempreRicezioneEsiti/Service.serviceagent/ReceiveTaskSempreRicezioneEsitiPortTypeEndpoint1/ReceiveTaskSempreRicezioneEsiti" style="document"/>
+            <wsdl:input>
+                <soap:body parts="input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="SempreRicezioneEsitiRequest">
+        <wsdl:part element="ns0:SempreRicezioneEsitiRequest" name="input"/>
+    </wsdl:message>
+</wsdl:definitions>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/InvalidElements"
+	xmlns:tns="http://www.example.org/InvalidElements" elementFormDefault="qualified">
+
+	<!-- redefine -->
+	<redefine schemaLocation=""></redefine>
+
+	<!-- notation -->
+	<notation name="tempNot" public="fs"></notation>
+
+	<!--
+		This complex type tests: - mixed - duplicate names of element AND
+		attribute within a complex type - any - anySimpleType for an element -
+		anySimpleType for an attribute - anyAttribute
+	-->
+	<complexType name="testComplex" mixed="true" abstract="false">
+		<sequence>
+			<any></any>
+			<element name="anyAttr" type="anySimpleType"></element>
+		</sequence>
+		<attribute name="anyAttr" type="anySimpleType"></attribute>
+		<anyAttribute></anyAttribute>
+	</complexType>
+
+
+	<!-- list -->
+	<simpleType name="testSimple">
+		<list>
+			<simpleType>
+				<restriction base="string"></restriction>
+			</simpleType>
+		</list>
+	</simpleType>
+
+	
+	<!-- choice -->
+	<complexType name="Tournament2">
+		<choice>
+		</choice>
+	</complexType>
+
+	<!--
+		This complex type tests: - substitutionGroup - abstract - key - keyref
+	-->
+	<element name="Tournament" type="tns:Tournament2" abstract="true"
+		substitutionGroup="tns:root">
+		<key name="key_Participant">
+			<selector xpath="Participants/Participant" />
+			<field xpath="@id" />
+		</key>
+		<keyref name="ref_Participant" refer="tns:key_Participant">
+			<selector xpath="Teams/Team" />
+			<field xpath="Member" />
+		</keyref>
+	</element>
+
+	<!-- unique  -->
+	<element name="root" type="tns:Tournament2">
+		<unique name="myId">
+			<selector xpath="./a" />
+			<field xpath="id" />
+		</unique>
+	</element>
+
+
+</schema>
+
+
+

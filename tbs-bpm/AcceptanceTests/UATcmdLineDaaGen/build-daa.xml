@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Test DAA generation for UATs" default="run" basedir=".">
+	
+	<!-- Location where projects have been checked out.-->
+	<property name="parent.dir" location=".."/>
+	<property name="PMprojects.dir" location="${parent.dir}/AMX-BPM/ProcessManagerUseCases" />
+	<property name="WMprojects.dir" location="${parent.dir}/AMX-BPM/WorkManagerUseCases" />
+	<property name="daa.out.dir" location="${basedir}/CmdLineDAAOut" />	
+	<property name="studio.home" location="StudioHome" />
+	<property name="daagen.ws1" location="${studio.home}/ws1"/>
+	<property name="daagen.ws2" location="${studio.home}/ws2"/>
+	<property name="PMlogFile" value="${basedir}\ProcessManagerUseCase_log.txt"/>
+	<property name="WMlogFile" value="${basedir}\WorkManagerUseCase_log.txt"/>
+	<property name="reportFile" value="${basedir}\report.txt"/>
+	
+	<property name="lastBuildStudio" value="BpmStudio.zip"/> 
+    <property name="latestStudioBuildLocation" value="http://10.100.87.177/job/TargetPlatform-tbs-bpm-3.8/ws/lastBuild/${lastBuildStudio}" />
+	
+	<target name="importPMprojects">
+		<echo>Importing ProcessManagerUseCase Projects ...</echo>		
+		<tbs.importProjects dir="${PMprojects.dir}/com.example.addresslookup.lib"/>
+		<tbs.importProjects dir="${PMprojects.dir}/com.example.addresslookup.pojo"/>
+		<tbs.importProjects dir="${PMprojects.dir}/com.example.addresslookup.pojo2"/>
+		<tbs.importProjects dir="${PMprojects.dir}/com.example.hospitalbilling.pojo"/>
+		<tbs.importProjects dir="${PMprojects.dir}/com.sample.surgerylookup"/>
+		<tbs.importProjects dir="${PMprojects.dir}/com.tibco.processframework.pojo"/>
+		<tbs.importProjects dir="${PMprojects.dir}/mediation.soa"/>
+		<!-- UC2OrgModel from WM projects is referenced by SurgeryLookUp; 
+			hence present in both sets.-->
+		<tbs.importProjects dir="${WMprojects.dir}/UC2OrgModel"/>
+		<tbs.importProjects dir="${PMprojects.dir}/SurgeryLookUp"/>
+		<tbs.importProjects dir="${PMprojects.dir}/surgerylookup-saml.soa"/>
+		<tbs.importProjects dir="${PMprojects.dir}/surgerylookup.soa"/>			
+		<tbs.importProjects dir="${PMprojects.dir}/UC1AaNoneStartEventWithBOMParams"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1ANoneStartEventWithScriptTask"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1BaMsgStartEventSoapJmsProviderAbstractWsdl"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1BaSoapJmsConsumerForAbstractWsdl"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1BbMsgStartEventSoapJmsProviderAbstractOp"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1BbSoapJmsConsumerForAbstractOp"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1BcMsgStartEventSoapJmsProviderConcreteOp"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1BcSoapJmsConsumerForConcreteOp"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1BMsgStartEventWithScriptTask"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1CaWSInvoke"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1CbDocLiteralWSInvoke"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1CcWSInvokeJavaScript"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1CdRPCLiteralWSInvokeJavaScript"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1CfWSInvokeJavaScriptCDS"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1CgWSCorrelationSingleApplication"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1Ch-ProcessFramework"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1Ch-ProcessFrameworkWS"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1Ci-WSInvokeSaml"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1Cj-JmsWSInvoke-ServiceTask"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1CjWSInvokeMultOpsOnePorttype"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1Ck-JmsWsInvoke-IntermediateThrow"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1Cl-JmsInvoke_MessageEnd"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1DMsgStartEventWithIntermediateEvent"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1E-EarlyBoundDBTask-INSERT"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1F-EarlyBoundDBTask-UPDATE"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1GaCorrAndPickUsingBOM"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1GCorrelationAndPick"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1H-EarlyBoundDBTask-DELETE"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1IEnhancedPOJO"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1IPOJO"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1JEmail"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1KPOJOWithLibrary"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1LEarlyBoundDBTaskSELECT"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1M-SubProcessWithInPackage"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1N-SubProcessAcrossPackage"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1ODBTaskSTOREDPROC"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1PaTaskStandardLoop"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1PbMultiInstanceSequentialLoop"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1PcMultiInstanceParallelLoop"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1Qa-ActivityScripts"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1RaDynamicSubProc"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1RbInterfaceForCrossProjectDSP"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1RcDSPImplementCrossProjInterface"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1RdParentChildAssociationMappings"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1RMain-SubProcessAcrossProject"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1RSub-SubProcessAcrossProject"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1SSimpleDynamicSubProc"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1TaSignalEvents"/>		
+		<tbs.importProjects dir="${PMprojects.dir}/UC1TSignalEvents"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1UDynamicInstanceAdd"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1WaFaultHandlingWS"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC1WbFaultHandlingSubproc"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC4AMessageStarterWithBOM"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC4BIntermediateMessageWithBOM"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC4CReceiveTaskWithBOM"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC4DEmbedsS1S1IncX1S1X1DefineType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC4EEmbedsS1S1IncX1S1X1DefineType2"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC4FEmbedsSchemaSchemaDefinesType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC4HImportsX1X1DefinesTheType2"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC4IIncludesX1X1DefinesTheType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC6ATLEAnonComplexType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC6BTLECaseDifferenceMatch"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC6CTLEElementDeclaredTypes"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC6DTLEElemRefsAndSimpleTypeRefs"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC6ETLEMatchingElemAndComplex"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC6FTLEMultElemDiffComplexType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC6GTLENameClashes"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC6HXPathElemInheritance"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC7ADocLitProviderSuppliedWSDL"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC7BDocLitConsumerGeneratedWSDL"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC7CDocLitConsumerGeneratedWSDLandBOM"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC7DDocLitConsumerGeneratedWSDLandRefBOM"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC7DReferencedBom"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC7EDocLitSimpleTypes"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC7FBomNestedPackage"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC8_01"/>		
+		<tbs.importProjects dir="${PMprojects.dir}/UC8_02"/>		
+		<tbs.importProjects dir="${PMprojects.dir}/UC8_03"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC8_05b"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC8_07"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC9AChoiceAnonType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC9BChoiceComplexType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC9CXsdAnyAttribute"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC9DXsdAny"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC9EXsdAnyType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC9FXsdAnySimpleType"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC9GXsdUnion"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC10MsgStartEventImportedWsdlContainsSchema"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC10MsgStartEventImportedWsdlHasInlineSchema"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC10MsgStartEventImportedWsdlUsesImportedXsd"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC10MsgStartEventWsdlImportCase19"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC10MsgStartEventWsdlImportCase20"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC10MsgStartEventWsdlImportCase26"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC11_AXsdAnySimple"/>
+		<tbs.importProjects dir="${PMprojects.dir}/UC11_BMidOrderedAny"/>
+		<echo>Finished importing projects...</echo>
+	</target>
+		
+	<target name="importWMprojects">
+		<echo>Importing WorkManagerUseCase Projects...</echo>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2ANoneStartEventWithUserTasks"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2BTwoUserTasksChained"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2CSeparationOfDuties"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2DPiling"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2EWorkItemDeadline"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2FWorkItemScripts"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2GParticipantExpressions"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2HVersioning"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2ISubprocess"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC2OrgModel"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3ABasicPageFlow"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3BTwoStepPageFlow"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3CDataToPageflow"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3DScriptTask"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3EPageFlowWithSimpleData"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3FPageFlowWithBOM"/>
+		<!-- UC1CaWSInvoke from PM projects is referenced by UC3GPageFlowWSInvoke; 
+			hence present in both sets.-->
+		<tbs.importProjects dir="${PMprojects.dir}/UC1CaWSInvoke"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3GPageFlowWSInvoke"/>
+		<!-- com.example.addresslookup.pojo from PM projects is referenced by UC3HPageFlowPojo; 
+			hence present in both sets.-->
+		<tbs.importProjects dir="${PMprojects.dir}/com.example.addresslookup.pojo"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3HPageFlowPojo"/>		
+		<tbs.importProjects dir="${WMprojects.dir}/UC3IPageFlowEmail"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3JPageFlowDbInsert"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3KPageFlowDbUpdate"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3LPageFlowDbDelete"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3MPageFlowWithSoapJmsInSendTask"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC3NBusinessServiceWithSoapJms"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5ATwoUserTasksWithBOM"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5BCrossReferencingBOM"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5CArraysOfBOMTypes"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5DDerivedTypes"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5EWorkItemScripting"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5FMain-SubProcAcrossProjectWithUT"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5FSub-SubProcAcrossProjectWithUT"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5GMain-SubFlowAcrossProject"/>
+		<tbs.importProjects dir="${WMprojects.dir}/UC5GSub-SubFlowAcrossProject"/>
+		<echo>Finished importing projects...</echo>
+	</target>		
+					
+	<target name="generateDAA" description="generate daa for two project sets">
+		<antcall target="generateDaaPMprojects"/>
+		<antcall target="generateDaaWMprojects"/>		
+		<antcall target="prepareReport"/>	
+	</target>
+
+	<target name="generateDaaPMprojects" depends="cleanOut, importPMprojects" description="generate daa for process manager use case projects">
+		<echo>Before generate daa task for process manager use case projects</echo>
+		<bpm.generateDAA daalocation="${daa.out.dir}"/> 
+		<echo>After generate daa task for process manager use case projects</echo>
+	</target>
+		
+	<target name="generateDaaWMprojects" depends="cleanOut, importWMprojects" description="generate daa for work manager use case projects">
+		<echo>Before generate daa task for work manager use case projects</echo>
+		<bpm.generateDAA daalocation="${daa.out.dir}"/> 
+		<echo>After generate daa task for work manager use case projects</echo>	</target>
+		
+	<target name="cleanOut" description="">
+		<echo>Cleaning ${daa.out.dir}</echo>
+		<delete dir="${daa.out.dir}" failonerror="false">
+		</delete> 
+		<echo>Cleaning ${daa.out.dir} - done</echo>
+	</target>
+	
+	<target name="run" depends="prepareEnvironment">						
+		<antcall target="runPMSet"/>	
+		<antcall target="runWMSet"/>		
+		<antcall target="prepareReport"/>	
+	</target>	
+	
+	<target name="runPMSet" >		
+		<java		    	
+			jar="${studio.home}/plugins/org.eclipse.equinox.launcher_*.jar"
+	    	fork="true"	    	
+			failonerror="true">	    	    	    
+		    <arg value="-application"/>
+	    	<arg value="org.eclipse.ant.core.antRunner"/>  
+		    <arg value="-verbose"/>
+		    <arg value="-f"/>
+		    <arg file="${basedir}/build-daa.xml"/>    
+			<arg value="generateDaaPMprojects"/>				
+			<arg value="-data"/>
+	        <arg file="${daagen.ws1}"/>
+			<arg value="-logfile"/>
+			<arg file="${PMlogFile}"/>
+	        <jvmarg value="-Xms512m"/>
+	        <jvmarg value="-Xmx640m"/>
+	        <jvmarg value="-XX:MaxPermSize=256m"/>
+			<jvmarg value="-Dcom.tibco.target.platform.location=C:\DevTargetPlatform\devTargetPlatform.target"/>
+    	</java>		
+	</target>		
+	<target name="runWMSet" >
+	    <java		    	
+			jar="${studio.home}/plugins/org.eclipse.equinox.launcher_*.jar"
+	    	fork="true"	    	
+			failonerror="true">	    	    	    
+    	    <arg value="-application"/>
+	    	<arg value="org.eclipse.ant.core.antRunner"/>  
+    	    <arg value="-verbose"/>
+    	    <arg value="-f"/>
+    	    <arg file="${basedir}/build-daa.xml"/>    
+			<arg value="generateDaaWMprojects"/>				
+			<arg value="-data"/>
+            <arg file="${daagen.ws2}"/>
+	    	<arg value="-logfile"/>
+	    	<arg file="${WMlogFile}"/>
+	        <jvmarg value="-Xms512m"/>
+	        <jvmarg value="-Xmx640m"/>
+	        <jvmarg value="-XX:MaxPermSize=256m"/>
+	    	<jvmarg value="-Dcom.tibco.target.platform.location=C:\DevTargetPlatform\devTargetPlatform.target"/>
+	    </java>		
+	</target>					
+		
+	<target name="prepareReport">						
+		<echo>Start preparing build report</echo>
+		<script language="javascript">
+        	<![CDATA[
+				// import statements
+				importPackage(java.io);
+				importClass(java.io.File);
+				importClass(java.io.FileReader);
+				importClass(java.io.BufferedReader);
+				importClass(java.lang.StringBuilder);
+        		importClass(java.lang.System);        		
+				
+				//logFile = new File(basedir, "log.txt");
+				//reportFile = new File(basedir, "report.txt");
+				
+				logFileVarPM = new File(PMlogFile);
+				logFileVarWM = new File(WMlogFile);
+				reportFileVar = new File(reportFile);
+				
+				var failedProjects = 0;
+				var successfulProjects = 0;
+				var skippedProjects = 0;
+				var failedProjectsList = new StringBuilder();
+				var successfulProjectsList = new StringBuilder();
+				var skippedProjectsList = new StringBuilder();
+
+				//Parse through PM logfile to generate report 
+				println("\n--- Process Manager Projects ---\n");
+        		if (logFileVarPM.exists() && logFileVarPM.isFile()) {
+					br = new BufferedReader(new FileReader(logFileVarPM));
+					try {
+						while((line = br.readLine()) != null) {							
+							if(line.trim().match("Result:")) {		
+								line = line.trim().replaceAll("\\[java\\]", "")
+								line = line.trim().replaceAll("\\[bpm.generateDAA\\] \\|", "")
+								println(line+"\n");
+								if(line.trim().match("Success")) {		
+									
+									line = line.trim().replaceAll("-> Result: Success", "")									
+									successfulProjectsList.append(line+"\n");
+									successfulProjects++;
+								} else if(line.trim().match("Failure"))
+								{
+									line = line.trim().replaceAll("-> Result: Failure", "")									
+									failedProjectsList.append(line+"\n");
+									failedProjects++;
+								} else if(line.trim().match("Skipped"))
+								{
+									line = line.trim().replaceAll("-> Result: Skipped", "")									
+									skippedProjectsList.append(line+"\n");
+									skippedProjects++;
+								}									
+							}	        				
+						}
+					} finally {
+					   br.close();
+					}
+        		} else {
+					println("PM Log file is missing: " + PMlogFile);
+				}
+			
+				//Parse through WM logfile to generate report 
+				println("\n--- Work Manager Projects ---\n");
+        		if (logFileVarWM.exists() && logFileVarWM.isFile()) {
+					br = new BufferedReader(new FileReader(logFileVarWM));
+					try {
+						while((line = br.readLine()) != null) {							
+							if(line.trim().match("Result:")) {		
+								line = line.trim().replaceAll("\\[java\\]", "")
+								line = line.trim().replaceAll("\\[bpm.generateDAA\\] \\|", "")
+								println(line+"\n");
+								if(line.trim().match("Success")) {		
+									
+									line = line.trim().replaceAll("-> Result: Success", "")									
+									successfulProjectsList.append(line+"\n");
+									successfulProjects++;
+								} else if(line.trim().match("Failure"))
+								{
+									line = line.trim().replaceAll("-> Result: Failure", "")									
+									failedProjectsList.append(line+"\n");
+									failedProjects++;
+								} else if(line.trim().match("Skipped"))
+								{
+									line = line.trim().replaceAll("-> Result: Skipped", "")									
+									skippedProjectsList.append(line+"\n");
+									skippedProjects++;
+								}									
+							}	        				
+						}
+					} finally {
+					   br.close();
+					}
+        		} else {
+					println("WM Log file is missing: " + WMlogFile);
+				}				
+
+				projectsFound = failedProjects + successfulProjects + skippedProjects;
+				
+				var sb = new StringBuilder();
+				sb.append("------------Summary-------------\n\n");
+				sb.append("Total Projects:\t\t " + projectsFound.toString() + "\n");
+				sb.append("Successful Projects:\t " + successfulProjects.toString() + "\n");
+				sb.append("Failed Projects:\t " + failedProjects.toString() + "\n");
+				sb.append("Skipped Projects:\t " + skippedProjects.toString() + "\n\n");
+				
+				if(failedProjects > 0) {				
+					sb.append("----List of Failed Projects----\n\n");
+					sb.append(failedProjectsList);
+				}
+				
+				if(skippedProjects > 0) {				
+					sb.append("\n\n----List of Skipped Projects----\n\n");
+					sb.append(skippedProjectsList);
+				}
+				
+				if(successfulProjects > 0) {				
+					sb.append("\n\n----List of Successful Projects----\n\n");
+					sb.append(successfulProjectsList);
+				}
+				sb.append("\n--------------------------------");
+												
+				println("------------Summary-------------");
+													
+				println("projects found:" + projectsFound.toString());				        
+				println("projects failed:" + failedProjects.toString());				        
+				println("projects successful:" + successfulProjects.toString());		
+				println("projects skipped:" + skippedProjects.toString());		        
+				println("--------------------------------");				
+								
+				//Write to file.	
+        	    echo = project.createTask("echo");        		
+        		echo.setFile(reportFileVar);
+        	    echo.setMessage(sb.toString());
+        	    echo.perform();
+				
+				if(failedProjects > 0) {										
+					project.setProperty("build.fail.message", " DAA generation failed for " + failedProjects.toString() + " projects. See "+ reportFile + " for details.");
+				}						
+        	]]>
+        </script>
+		<echo>Finished preparing build report</echo>		
+		<fail if="build.fail.message" message="${build.fail.message}" />	
+	</target>	
+	
+	<!-- this will set up test envirnoment -->
+	<target name="prepareEnvironment" depends="-cleanStudioHome,-downloadStudio,-unzipStudio"/>
+		
+	<target name="-cleanStudioHome">
+		<!-- delete old studio destination directory & workspaces-->
+		<delete dir="${studio.home}"></delete>
+		<!-- create studio destination directory-->
+		<mkdir dir="${studio.home}"/>
+	</target>
+
+	<target name="-downloadStudio">
+		<!-- get the studio zip file from a known location-->
+		<get dest="${studio.home}\studioZip" src="${latestStudioBuildLocation}"/>		
+	</target>
+	
+	<target name="-unzipStudio">
+		<!-- unzip the studio zip file for latest build-->			
+		<unzip dest="${studio.home}" src="${studio.home}\studioZip"></unzip>
+     </target>
+	
+</project>

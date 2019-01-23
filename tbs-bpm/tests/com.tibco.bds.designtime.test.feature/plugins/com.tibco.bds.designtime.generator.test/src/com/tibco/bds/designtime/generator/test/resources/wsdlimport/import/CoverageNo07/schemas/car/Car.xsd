@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.xyzcorp/procureservice/Car" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.xyzcorp/procureservice/Car">
+
+	<xsd:complexType name="CarDetails">
+		<xsd:sequence>
+			<xsd:element name="carMake" type="xsd:string"></xsd:element>
+			<xsd:element name="carModel" type="xsd:string"></xsd:element>
+			<xsd:element name="year" type="xsd:int"></xsd:element>
+			<xsd:element name="mileage" type="xsd:int"></xsd:element>
+			<xsd:element name="carType" type="xsd:string"></xsd:element>
+			<xsd:element name="navigation" type="xsd:boolean"></xsd:element>
+			<xsd:element name="otherFeatures" type="xsd:string"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="avgCostPerDay" type="xsd:float"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="RentalAgencyDetails">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"></xsd:element>
+			<xsd:element name="address" type="tns:Address"></xsd:element>
+			<xsd:element name="comment" type="xsd:string"></xsd:element>
+			<xsd:element name="carOptions">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="carDetails"
+							type="tns:CarDetails" maxOccurs="unbounded" minOccurs="1">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="Address">
+		<xsd:sequence>
+			<xsd:element name="street" type="xsd:string"></xsd:element>
+			<xsd:element name="city" type="xsd:string"></xsd:element>
+			<xsd:element name="state" type="xsd:string"></xsd:element>
+			<xsd:element name="zip" type="xsd:string"></xsd:element>
+			<xsd:element name="country" type="xsd:string"></xsd:element>
+			<xsd:element name="airportCode" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

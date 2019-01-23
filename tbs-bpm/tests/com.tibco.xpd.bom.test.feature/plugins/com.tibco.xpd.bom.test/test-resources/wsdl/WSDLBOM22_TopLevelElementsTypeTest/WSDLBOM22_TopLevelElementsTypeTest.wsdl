@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example.org/NewWSDLFile/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewWSDLFile"
+	targetNamespace="http://www.example.org/NewWSDLFile/">
+	<wsdl:types>
+
+		<xsd:schema targetNamespace="urn:org:schema1" xmlns:tns1="urn:org:schema1">
+		
+			<xsd:element name="MyAnony">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="anonyelem1" type="tns1:BedragComponenten"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>				
+			</xsd:element>
+		
+			<xsd:complexType name="DienstBetrekkingInkomstenType">
+				<xsd:sequence>
+					<xsd:element name="e1" type="xsd:string"></xsd:element>
+					<xsd:element name="e2" type="tns1:BedragComponenten"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="BedragComponenten">
+				<xsd:sequence>
+					<xsd:element name="e2" type="xsd:string"></xsd:element>
+					<xsd:element minOccurs="0" name="NettoPerMaand" nillable="true" type="tns1:BedragType"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:simpleType name="SoortUitgavenType">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="LopendeLening"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            
+            <xsd:simpleType name="BedragType">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:fractionDigits value="4"/>
+                    <xsd:totalDigits value="18"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            
+             <xsd:complexType name="UitgaveType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="UitgaveId" nillable="true" type="xsd:int"/>
+                    <xsd:element name="SoortUitgaven" type="tns1:SoortUitgavenType"/>
+                    <xsd:element name="Bedrag" type="tns1:BedragComponenten"/>
+                    <xsd:element name="e2" type="tns1:BedragType"/>
+                    <xsd:element minOccurs="0" name="LopendeLening" nillable="true" type="tns1:LopendeLeningType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            
+             <xsd:complexType name="LopendeLeningType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="RestantLooptijd" nillable="true" type="xsd:integer"/>
+                    <xsd:element minOccurs="0" name="TermijnBedrag" nillable="true" type="tns1:BedragComponenten"/>
+                    <xsd:element name="LeningInlossen" type="xsd:boolean"/>
+                    <xsd:element name="e2" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="Maatschappij" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="ContractNummer" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="OpenstaandBedragDatum" nillable="true" type="xsd:date"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+			<xsd:element name="DienstBetrekkingInkomsten" type="tns1:DienstBetrekkingInkomstenType"></xsd:element>
+			<xsd:element name="BedragComponenten" type="tns1:BedragComponenten"></xsd:element>
+			<xsd:element name="LopendeLening" type="tns1:LopendeLeningType"/>
+		</xsd:schema>
+
+		<xsd:schema targetNamespace="http://www.example.org/NewWSDLFile/">
+			<xsd:element name="NewOperation">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="in" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NewOperationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="NewOperationRequest">
+		<wsdl:part element="tns:NewOperation" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="NewOperationResponse">
+		<wsdl:part element="tns:NewOperationResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="NewWSDLFile">
+		<wsdl:operation name="NewOperation">
+			<wsdl:input message="tns:NewOperationRequest" />
+			<wsdl:output message="tns:NewOperationResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="NewWSDLFileSOAP" type="tns:NewWSDLFile">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="NewOperation">
+			<soap:operation soapAction="http://www.example.org/NewWSDLFile/NewOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="NewWSDLFile">
+		<wsdl:port binding="tns:NewWSDLFileSOAP" name="NewWSDLFileSOAP">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

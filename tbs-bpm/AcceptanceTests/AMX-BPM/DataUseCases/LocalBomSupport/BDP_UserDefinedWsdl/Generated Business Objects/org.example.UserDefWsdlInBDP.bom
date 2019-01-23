@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.UserDefWsdlInBDP" name="org.example.UserDefWsdlInBDP">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KxRJUdebEeSgB5tFglqCNw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KxRwYNebEeSgB5tFglqCNw" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KxRwYdebEeSgB5tFglqCNw" key="created" value="1427805817062"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KxRwYtebEeSgB5tFglqCNw" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KyXVgNebEeSgB5tFglqCNw" key="checksum" value="999279777"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.UserDefWsdlInBDPNewOperationType" name="NewOperationType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewOperationTypein" name="in1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KotqQtebEeSgB5tFglqCNw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KotqQdebEeSgB5tFglqCNw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.UserDefWsdlInBDPNewOperationResponseType" name="NewOperationResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewOperationResponseTypeout" name="out" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Kq8e49ebEeSgB5tFglqCNw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Kq8e4tebEeSgB5tFglqCNw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.UserDefWsdlInBDPUserDefWsdlInBDP" name="UserDefWsdlInBDP">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="UserDefWsdlInBDPNewOperation" name="NewOperation">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="NewOperationparameters" name="parameters" type="org.example.UserDefWsdlInBDPNewOperationType?org.example.UserDefWsdlInBDP%3a%3aNewOperationType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="NewOperationparameters2" name="parameters" type="org.example.UserDefWsdlInBDPNewOperationResponseType?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType?" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KoirIdebEeSgB5tFglqCNw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KoirItebEeSgB5tFglqCNw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KoirI9ebEeSgB5tFglqCNw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KoirJNebEeSgB5tFglqCNw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_KojSMNebEeSgB5tFglqCNw" base_Package="org.example.UserDefWsdlInBDP?org.example.UserDefWsdlInBDP?" xsdTargetNamespace="http://www.example.org/UserDefWsdlInBDP/" xsdSchemaLocation="UserDefWsdlInBDP.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="UserDefWsdlInBDP.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_KooKsNebEeSgB5tFglqCNw" base_Class="org.example.UserDefWsdlInBDPNewOperationType?org.example.UserDefWsdlInBDP%3a%3aNewOperationType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_KpvlANebEeSgB5tFglqCNw" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_KotqQNebEeSgB5tFglqCNw" base_Property="NewOperationTypein?org.example.UserDefWsdlInBDP%3a%3aNewOperationType%3a%3ain1?" xsdName="in" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_KpvlANebEeSgB5tFglqCNw"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_KouRUNebEeSgB5tFglqCNw" textLength="-1" base_Property="NewOperationTypein?org.example.UserDefWsdlInBDP%3a%3aNewOperationType%3a%3ain1?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_Kq3mYNebEeSgB5tFglqCNw" base_Package="org.example.UserDefWsdlInBDP?org.example.UserDefWsdlInBDP?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_Kq40gNebEeSgB5tFglqCNw" name="NewOperation" type="org.example.UserDefWsdlInBDPNewOperationType?org.example.UserDefWsdlInBDP%3a%3aNewOperationType?" isAnonymous="true" targetNamespace="http://www.example.org/UserDefWsdlInBDP/" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_Kq_iMNebEeSgB5tFglqCNw" name="NewOperationResponse" type="org.example.UserDefWsdlInBDPNewOperationResponseType?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType?" isAnonymous="true" targetNamespace="http://www.example.org/UserDefWsdlInBDP/" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Kq6CoNebEeSgB5tFglqCNw" base_Class="org.example.UserDefWsdlInBDPNewOperationResponseType?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_Kq-UENebEeSgB5tFglqCNw" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Kq8e4debEeSgB5tFglqCNw" base_Property="NewOperationResponseTypeout?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType%3a%3aout?" xsdName="out" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_Kq-UENebEeSgB5tFglqCNw"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_Kq8e5NebEeSgB5tFglqCNw" textLength="-1" base_Property="NewOperationResponseTypeout?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrAJQNebEeSgB5tFglqCNw" base_Element="_KotqQtebEeSgB5tFglqCNw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrAJQdebEeSgB5tFglqCNw" base_Element="NewOperationTypein?org.example.UserDefWsdlInBDP%3a%3aNewOperationType%3a%3ain1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrAwUNebEeSgB5tFglqCNw" base_Element="org.example.UserDefWsdlInBDPNewOperationType?org.example.UserDefWsdlInBDP%3a%3aNewOperationType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrAwUdebEeSgB5tFglqCNw" base_Element="NewOperationResponseTypeout?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrAwUtebEeSgB5tFglqCNw" base_Element="org.example.UserDefWsdlInBDPNewOperationResponseType?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrAwU9ebEeSgB5tFglqCNw" base_Element="_KoirIdebEeSgB5tFglqCNw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrAwVNebEeSgB5tFglqCNw" base_Element="_KotqQdebEeSgB5tFglqCNw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrBXYNebEeSgB5tFglqCNw" base_Element="_KoirI9ebEeSgB5tFglqCNw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrBXYdebEeSgB5tFglqCNw" base_Element="_Kq8e4tebEeSgB5tFglqCNw"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_KrBXYtebEeSgB5tFglqCNw" base_Element="_Kq8e49ebEeSgB5tFglqCNw"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_KrDzoNebEeSgB5tFglqCNw" base_Class="org.example.UserDefWsdlInBDPUserDefWsdlInBDP?org.example.UserDefWsdlInBDP%3a%3aUserDefWsdlInBDP?" xsdName="UserDefWsdlInBDP" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_KxMQ0NebEeSgB5tFglqCNw" displayLabel="UserDefWsdlInBDP" base_NamedElement="org.example.UserDefWsdlInBDPUserDefWsdlInBDP?org.example.UserDefWsdlInBDP%3a%3aUserDefWsdlInBDP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_KxNe8NebEeSgB5tFglqCNw" displayLabel="NewOperationType" base_NamedElement="org.example.UserDefWsdlInBDPNewOperationType?org.example.UserDefWsdlInBDP%3a%3aNewOperationType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_KxOGANebEeSgB5tFglqCNw" displayLabel="NewOperationResponseType" base_NamedElement="org.example.UserDefWsdlInBDPNewOperationResponseType?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_KxP7MNebEeSgB5tFglqCNw" displayLabel="in" base_NamedElement="NewOperationTypein?org.example.UserDefWsdlInBDP%3a%3aNewOperationType%3a%3ain1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_KxRJUNebEeSgB5tFglqCNw" displayLabel="out" base_NamedElement="NewOperationResponseTypeout?org.example.UserDefWsdlInBDP%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <notation:Diagram xmi:id="_KxRwY9ebEeSgB5tFglqCNw" type="Business Object Model" element="org.example.UserDefWsdlInBDP?org.example.UserDefWsdlInBDP?" name="org.example.UserDefWsdlInBDP" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_KxRwZNebEeSgB5tFglqCNw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_KxRwZdebEeSgB5tFglqCNw"/>
+  </notation:Diagram>
+</xmi:XMI>

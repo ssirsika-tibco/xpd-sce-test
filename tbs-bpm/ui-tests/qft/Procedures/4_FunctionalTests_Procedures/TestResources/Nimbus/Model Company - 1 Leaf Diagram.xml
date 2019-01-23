@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmi.version="1.0" name="Model Company - Example" guid="1063BE44388C45B5855F60D221D1186E" timestamp="Thu Sep 25 10:16:35 2014" verified="false">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>TIBCO Nimbus Simplified XML</XMI.exporter>
+			<XMI.exporterVersion>9.4</XMI.exporterVersion>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<Diagram xmi.id="E72854D5F0B94058B5F270D86008BC9B">
+			<GUID>E72854D5F0B94058B5F270D86008BC9B</GUID>
+			<ParentGUID>22AE6069AE594D45BCECBD57469CECB7</ParentGUID>
+			<Level>1.15.8.3.1</Level>
+			<DiagramType>Simple</DiagramType>
+			<Title>Manage policies and procedures</Title>
+			<Date>03/11/2008</Date>
+			<Version>3</Version>
+			<Author>TIBCO Nimbus</Author>
+			<Owner>TIBCO Nimbus</Owner>
+			<Authorization>Update Pending</Authorization>
+			<Type>Draft</Type>
+			<URL>http://thall-lt.emea.tibco.com/TIBCONimbus_940/CtrlWebISAPI.dll/?__id=webDiagram.show&amp;map=0%3A1063BE44388C45B5855F60D221D1186E&amp;dgm=E72854D5F0B94058B5F270D86008BC9B</URL>
+			<Folder/>
+			<DefaultAccess>Read Only</DefaultAccess>
+			<AccessList>
+				<AccessItem>
+					<User>O:U:tony.hall:G::NU::NG::</User>
+					<Access>Read and Write</Access>
+				</AccessItem>
+			</AccessList>
+			<Keywords/>
+			<Activity>
+				<ID>1</ID>
+				<Text>Negotiate service level agreements</Text>
+				<Resource>Financial Mgr</Resource>
+				<Notes/>
+				<Commentary/>
+				<Input>
+					<ID>C05ADCF3CAD844EAA6D2686BCF598F53</ID>
+					<Text>Need for integrated financial systems</Text>
+					<Commentary/>
+					<Arrows>End Arrow Only</Arrows>
+					<LinkedToActivity/>
+					<LinkedToDiagram/>
+				</Input>
+				<Output>
+					<ID>7E3E43C86E104C0B874CACAD413E78B6</ID>
+					<Text>Service level agreements finalised</Text>
+					<Commentary/>
+					<Arrows>End Arrow Only</Arrows>
+					<LinkedToActivity>2</LinkedToActivity>
+					<LinkedToDiagram>E72854D5F0B94058B5F270D86008BC9B</LinkedToDiagram>
+				</Output>
+				<DrillDown/>
+				<Automation>
+					<TaskType>Manual</TaskType>
+				</Automation>
+			</Activity>
+			<Activity>
+				<ID>2</ID>
+				<Text>Establish accounting policies</Text>
+				<Resource>Financial Mgr</Resource>
+				<Notes/>
+				<Commentary/>
+				<Input>
+					<ID>7E3E43C86E104C0B874CACAD413E78B6</ID>
+					<Text>Service level agreements finalised</Text>
+					<Commentary/>
+					<Arrows>End Arrow Only</Arrows>
+					<LinkedToActivity>1</LinkedToActivity>
+					<LinkedToDiagram>E72854D5F0B94058B5F270D86008BC9B</LinkedToDiagram>
+				</Input>
+				<Output>
+					<ID>2E2C2BD121764F368ABD16F6AD2AC68D</ID>
+					<Text>Accounting policies set up</Text>
+					<Commentary/>
+					<Arrows>End Arrow Only</Arrows>
+					<LinkedToActivity>3</LinkedToActivity>
+					<LinkedToDiagram>E72854D5F0B94058B5F270D86008BC9B</LinkedToDiagram>
+				</Output>
+				<DrillDown/>
+				<Automation>
+					<TaskType>User</TaskType>
+				</Automation>
+			</Activity>
+			<Activity>
+				<ID>3</ID>
+				<Text>Set and enforce approval limits</Text>
+				<Resource>Financial Mgr</Resource>
+				<Notes/>
+				<Commentary/>
+				<Input>
+					<ID>2E2C2BD121764F368ABD16F6AD2AC68D</ID>
+					<Text>Accounting policies set up</Text>
+					<Commentary/>
+					<Arrows>End Arrow Only</Arrows>
+					<LinkedToActivity>2</LinkedToActivity>
+					<LinkedToDiagram>E72854D5F0B94058B5F270D86008BC9B</LinkedToDiagram>
+				</Input>
+				<Output>
+					<ID>45CCEAD2EFAF47978908B0A649F0D48E</ID>
+					<Text>Limits of authority defined</Text>
+					<Commentary/>
+					<Arrows>End Arrow Only</Arrows>
+					<LinkedToActivity>4</LinkedToActivity>
+					<LinkedToDiagram>E72854D5F0B94058B5F270D86008BC9B</LinkedToDiagram>
+				</Output>
+				<DrillDown/>
+				<Automation>
+					<TaskType>Service</TaskType>
+				</Automation>
+			</Activity>
+			<Activity>
+				<ID>4</ID>
+				<Text>Establish common financial systems</Text>
+				<Resource>Financial Mgr</Resource>
+				<Notes/>
+				<Commentary/>
+				<Input>
+					<ID>45CCEAD2EFAF47978908B0A649F0D48E</ID>
+					<Text>Limits of authority defined</Text>
+					<Commentary/>
+					<Arrows>End Arrow Only</Arrows>
+					<LinkedToActivity>3</LinkedToActivity>
+					<LinkedToDiagram>E72854D5F0B94058B5F270D86008BC9B</LinkedToDiagram>
+				</Input>
+				<Output>
+					<ID>963DF6909AC74081853672098EE3183E</ID>
+					<Text>Integrated financial systems in place</Text>
+					<Commentary/>
+					<Arrows>End Arrow Only</Arrows>
+					<LinkedToActivity>3</LinkedToActivity>
+					<LinkedToDiagram>22AE6069AE594D45BCECBD57469CECB7</LinkedToDiagram>
+				</Output>
+				<DrillDown/>
+				<Automation>
+					<TaskType>Receive</TaskType>
+				</Automation>
+			</Activity>
+		</Diagram>
+	</XMI.content>
+</XMI>

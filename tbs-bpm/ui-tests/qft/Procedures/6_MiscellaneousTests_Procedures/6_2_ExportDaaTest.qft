@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="1) Export DAA Test">
+      <comment>Procedure that ensures that the export DAA test works fine as mentioned http://confluence.tibco.com/display/BPM/6.2+DAA+Export+Test
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Q9"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:6_MiscellaneousTestArchivedFileLocation}/6_2_DaaExportTestProjects.zip</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Vg"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Vh"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">GsdProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Vi"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">OrgProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Vj"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">WlfProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Vk"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RM"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RN"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">WlfProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RO"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">RestProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RP"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">OrgProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RQ"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">GsdProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RR"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5"/>
+</RootStep>

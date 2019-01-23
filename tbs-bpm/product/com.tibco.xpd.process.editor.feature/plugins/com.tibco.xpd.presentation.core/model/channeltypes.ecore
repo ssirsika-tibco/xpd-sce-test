@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="channeltypes"
+    nsURI="http://www.tibco.com/xpd/presentation/channeltypes/1.0" nsPrefix="channeltypes">
+  <eClassifiers xsi:type="ecore:EClass" name="Target" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//ChannelType" changeable="false" eOpposite="#//ChannelType/target"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Presentation" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//ChannelType" eOpposite="#//ChannelType/presentation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Implementation" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//ChannelType" eOpposite="#//ChannelType/implementation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//NamedElement">
+    <eOperations name="getResolvedDefaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//AttributeType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumLiterals" upperBound="-1"
+        eType="#//EnumLiteral" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultEnumSet" upperBound="-1"
+        eType="#//EnumLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AttributeType">
+    <eLiterals name="Text"/>
+    <eLiterals name="Decimal" value="1"/>
+    <eLiterals name="Integer" value="2"/>
+    <eLiterals name="Boolean" value="3"/>
+    <eLiterals name="Enum" value="4"/>
+    <eLiterals name="EnumSet" value="5"/>
+    <eLiterals name="Resource" value="6" literal="Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumLiteral" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChannelType" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Target" eOpposite="#//Target/bindings"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="presentation" lowerBound="1"
+        eType="#//Presentation" eOpposite="#//Presentation/bindings"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" lowerBound="1"
+        eType="#//Implementation" eOpposite="#//Implementation/bindings"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="runtimeVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destinations" upperBound="-1"
+        eType="#//ChannelDestination" resolveProxies="false" eOpposite="#//ChannelDestination/channelTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChannelTypes">
+    <eOperations name="getChannelType" eType="#//ChannelType">
+      <eParameters name="channelTypeId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getTarget" eType="#//Target">
+      <eParameters name="targetId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getPresentation" eType="#//Presentation">
+      <eParameters name="presentationId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getImplementation" eType="#//Implementation">
+      <eParameters name="implementationId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getChannelTypes" ordered="false" upperBound="-1" eType="#//ChannelType">
+      <eParameters name="destinations" ordered="false" upperBound="-1" eType="#//ChannelDestination"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
+        eType="#//Target" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="presentations" upperBound="-1"
+        eType="#//Presentation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementations" upperBound="-1"
+        eType="#//Implementation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channelTypes" upperBound="-1"
+        eType="#//ChannelType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channelDestinations" upperBound="-1"
+        eType="#//ChannelDestination"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChannelDestination" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channelTypes" upperBound="-1"
+        eType="#//ChannelType" transient="true" derived="true" eOpposite="#//ChannelType/destinations"/>
+  </eClassifiers>
+</ecore:EPackage>

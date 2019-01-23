@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="om"
+    nsURI="http://www.tibco.com/om/1.0" nsPrefix="om">
+  <eClassifiers xsi:type="ecore:EClass" name="OrgUnit" eSuperTypes="#//OrgTypedElement #//Authorizable #//Allocable #//Locatable #//OrgNode">
+    <eOperations name="getSubUnits" upperBound="-1" eType="#//OrgUnit"/>
+    <eOperations name="getParentOrgUnit" eType="#//OrgUnit"/>
+    <eOperations name="getOutgoingHierachicalRelationships" upperBound="-1" eType="#//OrgUnitRelationship"/>
+    <eOperations name="getOutgoingNonHierachicalRelationships" upperBound="-1" eType="#//OrgUnitRelationship"/>
+    <eOperations name="getIncomingHierachicalRelationship" eType="#//OrgUnitRelationship"/>
+    <eOperations name="getIncomingNonHierachicalRelationships" upperBound="-1" eType="#//OrgUnitRelationship"/>
+    <eOperations name="getOrganization" eType="#//Organization"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="#//OrgUnitFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="positions" upperBound="-1"
+        eType="#//Position" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orgUnitType" eType="#//OrgUnitType"
+        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingRelationships"
+        upperBound="-1" eType="#//OrgUnitRelationship" eOpposite="#//OrgUnitRelationship/from"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingRelationships"
+        upperBound="-1" eType="#//OrgUnitRelationship" eOpposite="#//OrgUnitRelationship/to"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicOrgUnit" eSuperTypes="#//OrgUnit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dynamicOrganization" eType="#//DynamicOrgReference"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicOrgReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//DynamicOrgUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//Organization"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//OrgTypedElement #//Authorizable #//Capable #//Allocable #//AssociableWithResources #//Locatable #//OrgNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idealNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="#//PositionFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="positionType" eType="#//PositionType"
+        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Location" eSuperTypes="#//OrgTypedElement #//Allocable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locationType" eType="#//LocationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeZone" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgNode" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgElement" abstract="true" interface="true"
+      eSuperTypes="#//Namespace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//QualifiedOrgElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="category" eType="#//CapabilityCategory"
+        eOpposite="#//CapabilityCategory/members"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//OrgElement #//Capable #//Allocable #//Authorizable #//AssociableWithResources">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subGroups" upperBound="-1"
+        eType="#//Group" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Organization" eSuperTypes="#//OrgTypedElement #//Allocable #//Locatable #//OrgNode">
+    <eOperations name="getSubUnits" upperBound="-1" eType="#//OrgUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
+        eType="#//OrgUnit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="organizationType" eType="#//OrganizationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orgUnitRelationships" upperBound="-1"
+        eType="#//OrgUnitRelationship" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dynamic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dynamicOrgIdentifiers"
+        upperBound="-1" eType="#//DynamicOrgIdentifier" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DynamicOrgIdentifier" eSuperTypes="#//Namespace"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
+        eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumSetValues" ordered="false"
+        upperBound="-1" eType="#//EnumValue"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="setValues" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AttributeType"
+        changeable="false" volatile="true" transient="true" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Feature">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//AttributeType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//EnumValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultEnumSetValues" upperBound="-1"
+        eType="#//EnumValue" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrganizationType" eSuperTypes="#//OrgElementType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orgUnitFeatures" upperBound="-1"
+        eType="#//OrgUnitFeature" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgUnitType" eSuperTypes="#//OrgElementType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orgUnitFeatures" upperBound="-1"
+        eType="#//OrgUnitFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="positionFeatures" upperBound="-1"
+        eType="#//PositionFeature" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PositionType" eSuperTypes="#//OrgElementType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgUnitFeature" eSuperTypes="#//MultipleFeature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureType" lowerBound="1"
+        eType="#//OrgUnitType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextRelationshipType"
+        eType="#//OrgUnitRelationshipType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultipleFeature" abstract="true" interface="true"
+      eSuperTypes="#//Feature #//OrgElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PositionFeature" eSuperTypes="#//MultipleFeature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureType" lowerBound="1"
+        eType="#//PositionType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgElementType" abstract="true" eSuperTypes="#//Namespace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgUnitRelationship" eSuperTypes="#//OrgTypedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//OrgUnit"
+        eOpposite="#//OrgUnit/outgoingRelationships"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//OrgUnit"
+        eOpposite="#//OrgUnit/incomingRelationships"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationshipType" eType="#//OrgUnitRelationshipType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHierarchical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgUnitRelationshipType" eSuperTypes="#//OrgElementType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CapabilityCategory" eSuperTypes="#//Namespace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subCategories" upperBound="-1"
+        eType="#//CapabilityCategory" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//Capability" eOpposite="#//Capability/category"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AttributeType">
+    <eLiterals name="Text"/>
+    <eLiterals name="Integer" value="1"/>
+    <eLiterals name="Boolean" value="2"/>
+    <eLiterals name="Decimal" value="3"/>
+    <eLiterals name="DateTime" value="4"/>
+    <eLiterals name="Date" value="5"/>
+    <eLiterals name="Time" value="6"/>
+    <eLiterals name="Enum" value="7"/>
+    <eLiterals name="EnumSet" value="8"/>
+    <eLiterals name="Set" value="9" literal="Set"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationType" eSuperTypes="#//OrgElementType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//ModelElement">
+    <eOperations name="getLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="localize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namespace" eType="#//Namespace"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" defaultValueLiteral=""
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgModel" eSuperTypes="#//BaseOrgModel #//Authorizable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
+        eType="#//Group" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capabilityCategories" upperBound="-1"
+        eType="#//CapabilityCategory" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capabilities" upperBound="-1"
+        eType="#//Capability" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="organizations" upperBound="-1"
+        eType="#//Organization" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locations" upperBound="-1"
+        eType="#//Location" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="privileges" upperBound="-1"
+        eType="#//Privilege" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="privilegeCategories" upperBound="-1"
+        eType="#//PrivilegeCategory" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodels" upperBound="-1"
+        eType="#//OrgMetaModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="embeddedMetamodel" lowerBound="1"
+        eType="#//OrgMetaModel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="queries" upperBound="-1"
+        eType="#//OrgQuery" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="humanResourceType" eType="#//ResourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumableResourceType"
+        eType="#//ResourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="durableResourceType" eType="#//ResourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dynamicOrgReferences" upperBound="-1"
+        eType="#//DynamicOrgReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Privilege" eSuperTypes="#//QualifiedOrgElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="category" eType="#//PrivilegeCategory"
+        eOpposite="#//PrivilegeCategory/members"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QualifiedOrgElement" abstract="true"
+      eSuperTypes="#//OrgElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualifierAttribute" eType="#//Attribute"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Authorizable" abstract="true" interface="true"
+      eSuperTypes="#//AssociableWithPrivileges">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemActions" upperBound="-1"
+        eType="#//SystemAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" interface="true"
+      eSuperTypes="#//Namespace"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgTypedElement" abstract="true" interface="true"
+      eSuperTypes="#//OrgElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeValues" upperBound="-1"
+        eType="#//AttributeValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//OrgElementType"
+        volatile="true" transient="true" derived="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Namespace" abstract="true" interface="true"
+      eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CapabilityAssociation" eSuperTypes="#//QualifiedAssociation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capability" lowerBound="1"
+        eType="#//Capability"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgMetaModel" eSuperTypes="#//BaseOrgModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locationTypes" upperBound="-1"
+        eType="#//LocationType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orgUnitRelationshipTypes"
+        upperBound="-1" eType="#//OrgUnitRelationshipType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="organizationTypes" upperBound="-1"
+        eType="#//OrganizationType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orgUnitTypes" upperBound="-1"
+        eType="#//OrgUnitType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="positionTypes" upperBound="-1"
+        eType="#//PositionType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceTypes" upperBound="-1"
+        eType="#//ResourceType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="embedded" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" defaultValueLiteral="false" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseOrgModel" abstract="true" eSuperTypes="#//Namespace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateCreated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" defaultValueLiteral=""
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrivilegeAssociation" eSuperTypes="#//QualifiedAssociation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="privilege" lowerBound="1"
+        eType="#//Privilege"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Capable" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capabilitiesAssociations"
+        upperBound="-1" eType="#//CapabilityAssociation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QualifiedAssociation" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualifierValue" eType="#//AttributeValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrivilegeCategory" eSuperTypes="#//Namespace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subCategories" upperBound="-1"
+        eType="#//PrivilegeCategory" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//Privilege" eOpposite="#//Privilege/category"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Allocable" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allocationMethod" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="ANY" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceType" eSuperTypes="#//OrgElementType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="humanResourceType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" defaultValueLiteral="false" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="durableResourceType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" defaultValueLiteral="false" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="consumableResourceType"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" defaultValueLiteral="false"
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//OrgTypedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType" eType="#//ResourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceAssociation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="#//Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssociableWithResources" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceAssociation" upperBound="-1"
+        eType="#//ResourceAssociation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrgQuery" eSuperTypes="#//Namespace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grammar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Locatable" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemAction" eSuperTypes="#//AssociableWithPrivileges #//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="component" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssociableWithPrivileges" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="privilegeAssociations"
+        upperBound="-1" eType="#//PrivilegeAssociation" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

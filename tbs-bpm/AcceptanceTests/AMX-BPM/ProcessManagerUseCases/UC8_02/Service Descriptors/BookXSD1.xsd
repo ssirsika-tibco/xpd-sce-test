@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.amsbqa.com/Linda02/XSD1ImportsXSD2_Both_Define_types02/XSD1"
+	 xmlns:ns0="http://www.amsbqa.com/Linda02/XSD1ImportXSD2/XSD2"
+	 targetNamespace="http://www.amsbqa.com/Linda02/XSD1ImportsXSD2_Both_Define_types02/XSD1"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.amsbqa.com/Linda02/XSD1ImportXSD2/XSD2" schemaLocation="Book_importedSchema.xsd"/>
+	<xs:element name="bookInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ns0:Book"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Name" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://diagss.telekom.de/oss/v1/mycomplex" xmlns:tns1="http://diagss.telekom.de/oss/v1/mycomplex"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://diagss.telekom.de/oss/v1/mysimple"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://diagss.telekom.de/oss/v1/mycomplex">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/xpd-5138_jus/Generated Business Objects/de.telekom.diagss.oss.v1.mycomplex.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://diagss.telekom.de/oss/v1/mysimple" schemaLocation="de.telekom.diagss.oss.v1.mysimple.xsd"/>
+  <xsd:complexType ecore:name="AuftraggeberType" id="de.telekom.diagss.oss.v1.mycomplexAuftraggeberType"
+      abstract="false" mixed="false" name="AuftraggeberType">
+    <xsd:sequence>
+      <xsd:element ecore:name="auftraggebernummer" id="AuftraggeberTypeauftraggebernummer"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="auftraggebernummer"
+          type="tns2:AuftraggebernummerType"/>
+      <xsd:element ecore:name="leistungsnummer" id="AuftraggeberTypeleistungsnummer"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="leistungsnummer" type="tns2:LeistungsnummerType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GeschaeftsfallType" id="de.telekom.diagss.oss.v1.mycomplexGeschaeftsfallType"
+      abstract="true" mixed="false" name="GeschaeftsfallType"/>
+  <xsd:complexType ecore:name="MeldungspositionOhneAttributeType" id="de.telekom.diagss.oss.v1.mycomplexMeldungspositionOhneAttributeType"
+      abstract="false" mixed="false" name="MeldungspositionOhneAttributeType">
+    <xsd:sequence>
+      <xsd:element ecore:name="meldungscode" id="MeldungspositionOhneAttributeTypemeldungscode"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="meldungscode" type="tns2:MeldungscodeType"/>
+      <xsd:element ecore:name="meldungstext" id="MeldungspositionOhneAttributeTypemeldungstext"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="meldungstext" type="tns2:MeldungstextType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MessageTEQType" id="de.telekom.diagss.oss.v1.mycomplexMessageTEQType"
+      abstract="false" mixed="false" name="MessageTEQType">
+    <xsd:sequence>
+      <xsd:element ecore:name="externeAuftragsnummer" id="MessageTEQTypeexterneAuftragsnummer"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="externeAuftragsnummer"
+          type="tns2:ExterneAuftragsnummerType"/>
+      <xsd:element ecore:name="auftraggebernummer" id="MessageTEQTypeauftraggebernummer"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="auftraggebernummer"
+          type="tns2:AuftraggebernummerType"/>
+      <xsd:element ecore:name="meldungspositionen" id="MessageTEQTypemeldungspositionenType"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="meldungspositionen">
+        <xsd:complexType ecore:name="meldungspositionenType" id="de.telekom.diagss.oss.v1.mycomplexmeldungspositionenType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="position" form="unqualified" maxOccurs="1" minOccurs="1"
+                name="position" type="MeldungspositionOhneAttributeType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ServiceControlType" id="de.telekom.diagss.oss.v1.mycomplexServiceControlType"
+      abstract="false" mixed="false" name="ServiceControlType">
+    <xsd:sequence>
+      <xsd:element ecore:name="zeitstempelVersand" id="ServiceControlTypezeitstempelVersand"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="zeitstempelVersand"
+          type="xsd:time"/>
+      <xsd:element ecore:name="version" id="ServiceControlTypeversion" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="version" type="VersionType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="VersionType" id="de.telekom.diagss.oss.v1.mycomplexVersionType"
+      abstract="false" mixed="false" name="VersionType">
+    <xsd:sequence>
+      <xsd:element ecore:name="majorVersion" id="VersionTypemajorVersion" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="majorVersion" type="tns2:VersionType"/>
+      <xsd:element ecore:name="minorVersion" id="VersionTypeminorVersion" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="minorVersion" type="tns2:VersionType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="TEQ" nillable="false" type="MessageTEQType"/>
+  <xsd:element abstract="false" name="serviceControl" nillable="false" type="ServiceControlType"/>
+</xsd:schema>

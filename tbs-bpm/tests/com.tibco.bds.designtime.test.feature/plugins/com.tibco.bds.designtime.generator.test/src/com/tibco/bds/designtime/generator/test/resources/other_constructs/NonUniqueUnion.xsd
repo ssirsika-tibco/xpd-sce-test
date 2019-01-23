@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/NonUniqueUnion" targetNamespace="http://example.com/NonUniqueUnion" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:simpleType name="Brand" ecore:name="Brand">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Levis" ecore:name="LEVIS"/>
+			<xs:enumeration value="Wrangler" ecore:name="WRANGLER"/>
+			<xs:enumeration value="Next" ecore:name="NEXT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Shop" ecore:name="Shop">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Boots" ecore:name="BOOTS"/>
+			<xs:enumeration value="Halfords" ecore:name="HALFORDS"/>
+			<xs:enumeration value="Next" ecore:name="NEXT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="online" ecore:name="online">
+		<xs:union memberTypes="Brand Shop"/>
+	</xs:simpleType>
+	<xs:complexType name="HighStreet" ecore:name="HighStreet">
+		<xs:sequence>
+			<xs:element name="online" type="online" ecore:name="online"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

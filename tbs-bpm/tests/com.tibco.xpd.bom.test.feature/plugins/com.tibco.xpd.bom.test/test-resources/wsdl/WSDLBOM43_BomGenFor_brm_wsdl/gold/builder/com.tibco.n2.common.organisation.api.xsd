@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://api.organisation.common.n2.tibco.com" xmlns:tns7="http://api.organisation.common.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.organisation.common.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.common.organisation.api.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="OrganisationalEntityType" id="com.tibco.n2.common.organisation.apiOrganisationalEntityType"
+      name="OrganisationalEntityType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of the available organizational entity types.
+
+IMPORTANT:Do not delete or re-position any of the enumeration values. If a value must be removed, simply replace it with a &quot;dummy&quot; value.
+       </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="ORGANIZATION" value="ORGANIZATION"/>
+      <xsd:enumeration ecore:name="ORGANIZATIONALUNIT" value="ORGANIZATIONAL_UNIT"/>
+      <xsd:enumeration ecore:name="GROUP" value="GROUP"/>
+      <xsd:enumeration ecore:name="POSITION" value="POSITION"/>
+      <xsd:enumeration ecore:name="PRIVILEGE" value="PRIVILEGE"/>
+      <xsd:enumeration ecore:name="CAPABILITY" value="CAPABILITY"/>
+      <xsd:enumeration ecore:name="RESOURCE" value="RESOURCE"/>
+      <xsd:enumeration ecore:name="LOCATION" value="LOCATION"/>
+      <xsd:enumeration ecore:name="ORGANIZATIONTYPE" value="ORGANIZATION_TYPE"/>
+      <xsd:enumeration ecore:name="ORGANIZATIONALUNITTYPE" value="ORGANIZATIONAL_UNIT_TYPE"/>
+      <xsd:enumeration ecore:name="POSITIONTYPE" value="POSITION_TYPE"/>
+      <xsd:enumeration ecore:name="LOCATIONTYPE" value="LOCATION_TYPE"/>
+      <xsd:enumeration ecore:name="ORGUNITRELATIONSHIPTYPE" value="ORGUNIT_RELATIONSHIP_TYPE"/>
+      <xsd:enumeration ecore:name="POSITIONHELD" value="POSITION_HELD"/>
+      <xsd:enumeration ecore:name="ORGUNITRELATIONSHIP" value="ORGUNIT_RELATIONSHIP"/>
+      <xsd:enumeration ecore:name="ORGUNITFEATURE" value="ORGUNIT_FEATURE"/>
+      <xsd:enumeration ecore:name="POSITIONFEATURE" value="POSITION_FEATURE"/>
+      <xsd:enumeration ecore:name="PARAMETERDESCRIPTOR" value="PARAMETER_DESCRIPTOR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="XmlOrgModelVersion" id="com.tibco.n2.common.organisation.apiXmlOrgModelVersion"
+      abstract="false" mixed="false" name="XmlOrgModelVersion">
+    <xsd:annotation>
+      <xsd:documentation>Major version number of the organization model. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="modelversion" id="XmlOrgModelVersionmodel-version"
+        default="-1" form="unqualified" name="model-version" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Major version number of the organization model in which an organization model entity resides. 
+
+If not specified, the default value will be the latest version of the organization model.
+
+(Version numbers must be compatible with, and conform to, the OSGi version number schema. For Directory Engine, only the major part of the version number is significant.) </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlModelEntityId" id="com.tibco.n2.common.organisation.apiXmlModelEntityId"
+      abstract="false" mixed="false" name="XmlModelEntityId">
+    <xsd:annotation>
+      <xsd:documentation>Unique identifier for an organization model entity.
+
+Used, and extended, throughout Directory Engine to identify an organization model entity. Extends XmlOrgModelVersion, which provides the organization model version attribute.
+       </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns7:XmlOrgModelVersion">
+        <xsd:sequence>
+          <xsd:element ecore:name="qualifierSet" id="XmlModelEntityIdqualifierSetType"
+              form="unqualified" maxOccurs="unbounded" minOccurs="0" name="qualifierSet">
+            <xsd:complexType ecore:name="qualifierSetType" id="com.tibco.n2.common.organisation.apiqualifierSetType"
+                mixed="false">
+              <xsd:attribute ecore:name="value" id="qualifierSetTypevalue" form="unqualified"
+                  name="value" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="entitytype" id="XmlModelEntityIdentity-type" form="unqualified"
+            name="entity-type" type="OrganisationalEntityType" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Enumerated value defining the type of the organization model entity. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="guid" id="XmlModelEntityIdguid" form="unqualified"
+            name="guid" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Globally unique ID of the organization model entity.
+
+(Although this value is unique across all entities, if the entity exists within more than one major version, it will share the same GUID.) </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="qualifier" id="XmlModelEntityIdqualifier" form="unqualified"
+            name="qualifier" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Only applicable in certain circumstances, and only to organization model entities whose entity-type is PRIVILEGE or CAPABILITY. These entities can have an association with other entities - for example, a resource may hold many capabilities, or a position may have many privileges. 
+
+These associations can have a qualifying value, according to their nature, to differentiate them. For example, the PRIVILEGE to sign off a purchase order may be qualified with the maximum amount that can be signed off. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlParticipantId" id="com.tibco.n2.common.organisation.apiXmlParticipantId"
+      abstract="false" mixed="false" name="XmlParticipantId">
+    <xsd:annotation>
+      <xsd:documentation>Identifier for a participant, by either GUID or name. 
+
+Extension of XmlOrgModelVersion, which provides the organization model version in which the participant resides. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns7:XmlOrgModelVersion">
+        <xsd:sequence>
+          <xsd:element ecore:name="guid" id="XmlParticipantIdguid" form="unqualified"
+              maxOccurs="1" minOccurs="0" name="guid" type="xsd:string"/>
+          <xsd:element ecore:name="name" id="XmlParticipantIdname" form="unqualified"
+              maxOccurs="1" minOccurs="0" name="name" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="entitytype" id="XmlParticipantIdentity-type" form="unqualified"
+            name="entity-type" type="OrganisationalEntityType" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Category of this organization model entity (used to improve and validate the search). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="qualifier" id="XmlParticipantIdqualifier" form="unqualified"
+            name="qualifier" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Qualifier value. This is only applicable in certain circumstances, and only to entities of the entity-type PRIVILEGE or CAPABILITY. 
+
+These entities can have an association with other entities - for example, a resource may hold many capbilities a position may have many privileges. Those associations can have a qualifying value, according to their nature, to differentiate them. 
+
+For example, the privilege to sign off a purchase order may be qualified with the maximum amount for which the purchase order is made. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlCalendarRef" id="com.tibco.n2.common.organisation.apiXmlCalendarRef"
+      abstract="false" mixed="false" name="XmlCalendarRef">
+    <xsd:annotation>
+      <xsd:documentation>Identifies the assignment of a calendar to an organizational entity (group, position, organization unit, or organization). </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns7:XmlOrgModelVersion">
+        <xsd:attribute ecore:name="calendaralias" id="XmlCalendarRefcalendar-alias"
+            form="unqualified" name="calendar-alias" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>The alias by which the calendar is referenced by the organization model entity. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="entitytype" id="XmlCalendarRefentity-type" form="unqualified"
+            name="entity-type" type="OrganisationalEntityType" use="required">
+          <xsd:annotation>
+            <xsd:documentation>The type identifier of the organization model entity to which the calendar reference belongs. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="entityguid" id="XmlCalendarRefentity-guid" form="unqualified"
+            name="entity-guid" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>The unique identifier of the organization model entity to which the calendar reference belongs. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="entityname" id="XmlCalendarRefentity-name" form="unqualified"
+            name="entity-name" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>The name of the organization model entity to which the calendar reference belongs. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="entitylabel" id="XmlCalendarRefentity-label" form="unqualified"
+            name="entity-label" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>The display name of the organization model entity to which the calendar reference belongs. If this is not present, the entity-name value is used for display. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlCalendarAssignment" id="com.tibco.n2.common.organisation.apiXmlCalendarAssignment"
+      abstract="false" mixed="false" name="XmlCalendarAssignment">
+    <xsd:annotation>
+      <xsd:documentation>Identifies the assignment of the given calendar alias to the identified organization model entity. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns7:XmlOrgModelVersion">
+        <xsd:attribute ecore:name="calendaralias" id="XmlCalendarAssignmentcalendar-alias"
+            form="unqualified" name="calendar-alias" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>The calendar alias to be assigned to the organization model entity. If not specified, or an empty string, any existing calendar assignment will be removed. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="entityguid" id="XmlCalendarAssignmententity-guid"
+            form="unqualified" name="entity-guid" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>The unique identifier of the organization model entity to which the calendar reference is to be assigned. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlResourceQuery" id="com.tibco.n2.common.organisation.apiXmlResourceQuery"
+      abstract="false" mixed="false" name="XmlResourceQuery">
+    <xsd:annotation>
+      <xsd:documentation>Base type for the specification of a resource query. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns7:XmlOrgModelVersion">
+        <xsd:sequence>
+          <xsd:element ecore:name="query" id="XmlResourceQueryquery" form="unqualified"
+              maxOccurs="1" minOccurs="1" name="query" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlExecuteQuery" id="com.tibco.n2.common.organisation.apiXmlExecuteQuery"
+      abstract="false" mixed="false" name="XmlExecuteQuery">
+    <xsd:annotation>
+      <xsd:documentation>Definition of an executable resource query, used to identify a collection of resources that match the criteria specified in the query.
+
+Extension of XmlOrgModelVersion, which provides the organization model version in which the resources to be queried reside. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns7:XmlResourceQuery">
+        <xsd:attribute ecore:name="implementation" id="XmlExecuteQueryimplementation"
+            default="1" form="unqualified" name="implementation" type="xsd:int" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Identifies the implementation version, and governs what style of response will be generated. This allows for the XML schema of the response to vary but remain backward compatible. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="singleRandomResult" id="XmlExecuteQuerysingleRandomResult"
+            form="unqualified" name="singleRandomResult" type="xsd:boolean" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Boolean value specifying whether the query should return a single, randomly selected user from the result set (TRUE), or all the resources in the result set (FALSE). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

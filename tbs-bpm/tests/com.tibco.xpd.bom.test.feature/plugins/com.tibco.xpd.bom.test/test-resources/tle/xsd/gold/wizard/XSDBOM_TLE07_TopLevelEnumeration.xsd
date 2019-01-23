@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE07_topLevelEnumeration" xmlns:tns1="http://www.example.org/XSDBOM_TLE07_topLevelEnumeration"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE07_topLevelEnumeration">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfsdfdsfsd/Business Objects/XSDBOM_TLE07_TopLevelEnumeration.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType id="org.example.xsdbo.m.tle0._7Top.level.enumeration_NoValues2"
+      name="NoValues">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType id="org.example.xsdbo.m.tle0._7Top.level.enumeration_SubAccountType"
+      name="SubAccountType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Cash"/>
+      <xsd:enumeration value="Margin"/>
+      <xsd:enumeration value="Income"/>
+      <xsd:enumeration value="Short"/>
+      <xsd:enumeration value="DVP/RVP"/>
+      <xsd:enumeration value="Dividend"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrString">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:attribute>
+  <xsd:attribute name="attrGDay">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:gDay">
+        <xsd:pattern value="\-\-\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+  <xsd:attribute name="attrGMonth">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:gMonth">
+        <xsd:pattern value="\-\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+  <xsd:element abstract="false" name="element" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="NoValues"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="topElement" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="SubAccountType"/>
+    </xsd:simpleType>
+  </xsd:element>
+</xsd:schema>

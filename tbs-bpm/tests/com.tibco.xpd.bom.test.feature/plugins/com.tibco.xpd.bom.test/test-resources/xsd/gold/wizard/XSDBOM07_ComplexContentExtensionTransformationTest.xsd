@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://businessobjectmodel" xmlns:tns1="http://businessobjectmodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://businessobjectmodel">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/tes/Business Objects/ComplexContentExtensionTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="businessobjectmodel_file2" abstract="false" mixed="false" name="file2">
+    <xsd:sequence>
+      <xsd:element id="file2_description" form="unqualified" maxOccurs="1" minOccurs="1"
+          name="description">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="file2_contents" form="unqualified" maxOccurs="1" minOccurs="1"
+          name="contents">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="businessobjectmodel_extFile2" abstract="false" mixed="false"
+      name="extFile2">
+    <xsd:complexContent>
+      <xsd:extension base="tns1:file2">
+        <xsd:sequence>
+          <xsd:element id="extFile2_moredetails" form="unqualified" maxOccurs="1"
+              minOccurs="1" name="moredetails">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,1334 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="1) Create Business Service from Case Classes">
+      <comment>Procedure that ensures that the business service generation from case classes tests works fine as mentioned http://confluence.tibco.com/pages/viewpage.action?pageId=67373935
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Q9"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_5_1_BizServiceFromCaseClassTestProject.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1QF" name="Open BOM in editor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject"
+                        event="MOUSE_MPRC" id="_uu1QG" modifiers="16" x="-32"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Business Objects"
+                        event="MOUSE_MPRC" id="_uu1QH" modifiers="16" x="-31"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Business Objects/BizDataProject.bom"
+                        event="MOUSE_MPRC" id="_uu1QI" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-group.openWith" event="SELECTION"
+                            id="_uu1QJ"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemBOM_Diagram_Editing"
+                            event="SELECTION" id="_uu1QK"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Qa" name="Generate Biz Services">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1Qb" modifiers="16" x="38"
+                        y="14"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1Qc" modifiers="4"
+                        popup="true" x="35" y="13"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.bizservice"
+                            event="SELECTION" id="_uu1Qd"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.createCaseData"
+                            event="SELECTION" id="_uu1Qe"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="CaseDataProcessGenerationWizard"
+                         id="_uu1Qf"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Creating_Case_Data_Object@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1Qg" modifiers="16" x="-32"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Creating_Case_Data_Object@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1Qh" modifiers="16" x="-27"
+                        y="6"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Creating_Case_Data_Object@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1Qi" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1Qj" modifiers="16"/>
+        <ProcedureCall id="_uu1SZ"
+                       procedure="business_studio_operations.insertDelay">
+          <variable name="delayTime">5000</variable>
+        </ProcedureCall>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-Editor@BizDataProject.bom"
+                            event="SELECTION" id="_uu1Ql"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas" event="MOUSE_MPRC"
+                        id="_uu1Qm" modifiers="16" x="429" y="223"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1Qn" modifiers="16" x="50"
+                        y="14"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1Qo" modifiers="4"
+                        popup="true" x="29" y="12"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.bizservice"
+                            event="SELECTION" id="_uu1Qp"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.updateCaseData"
+                            event="SELECTION" id="_uu1Qq"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="CaseDataProcessGenerationWizard"
+                         id="_uu1Qr"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Updating_Case_Data_Object@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1Qs" modifiers="16" x="-31"
+                        y="12"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Updating_Case_Data_Object@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1Qt" modifiers="16" x="-27"
+                        y="12"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Updating_Case_Data_Object@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1Qu" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1Qv" modifiers="16"/>
+        <ProcedureCall id="_uu1Sa"
+                       procedure="business_studio_operations.insertDelay">
+          <variable name="delayTime">5000</variable>
+        </ProcedureCall>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-Editor@BizDataProject.bom"
+                            event="SELECTION" id="_uu1Qx"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas" event="MOUSE_MPRC"
+                        id="_uu1Qy" modifiers="16" x="20" y="20"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1Qz" modifiers="16" x="44"
+                        y="18"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1Q+" modifiers="4"
+                        popup="true" x="42" y="17"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.bizservice"
+                            event="SELECTION" id="_uu1Q-"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.deleteCaseData"
+                            event="SELECTION" id="_uu1R0"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="CaseDataProcessGenerationWizard"
+                         id="_uu1R1"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Deleting_Case_Data_Object@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1R2" modifiers="16" x="-22"
+                        y="12"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Deleting_Case_Data_Object@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1R3" modifiers="16" x="-30"
+                        y="7"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Deleting_Case_Data_Object@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1R4" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1R5" modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1LZ"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1UF" name="inspectModel">
+        <ProcedureCall id="_uu1UL"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1CreateCaseData",xpdExt:XpdModelType="PageFlow",xpdExt:PublishAsBusinessService="true",xpdExt:BusinessServiceCategory="ProcessProject/ProcessProject"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UW"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1CreateCaseData"].activities[Name="StartEvent"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UX"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1CreateCaseData"].activities[Name="EnterDataToCreateCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UY"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1CreateCaseData"].activities[Name="DuplicateCaseIdentifier"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UZ"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1CreateCaseData"].activities[Name="CreateCaseData"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ua"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1CreateCaseData"].activities[Name="NonUniqueError"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ub"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1CreateCaseData"].activities[Name="EndEvent"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ud"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData",xpdExt:XpdModelType="PageFlow",xpdExt:PublishAsBusinessService="true",xpdExt:BusinessServiceCategory="ProcessProject/ProcessProject"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ue"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].activities[Name="Start"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uf"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].activities[Name="IdentifyCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ug"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].activities[Name="LookupCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uh"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].activities[Name="DisplayDataToBeDeleted"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ui"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].activities[Name="DeleteCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uj"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].activities[Name="DeleteError"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uk"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].activities[Name="ErrorEvent"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ul"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].activities[Name="End"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Um"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].transitions[Name="lookupfailed"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Un"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1DeleteCaseData"].transitions[Name="deletecancelledbyuser"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uo"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData",xpdExt:XpdModelType="PageFlow",xpdExt:PublishAsBusinessService="true",xpdExt:BusinessServiceCategory="ProcessProject/ProcessProject"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Up"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="Start"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uq"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="IdentifyCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ur"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="LookupCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Us"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="ModifyData"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Ut"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="UpdateCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uu"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="CaseOutOfSynchError"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uv"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="UpdateFailed"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uw"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="End"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu1Vb"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Vc"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RL"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1RM"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1RN" name="2) Create Case Action from Case Classes">
+      <comment>Procedure that ensures that the case action generation from case classes tests works fine as mentioned http://confluence.tibco.com/pages/viewpage.action?pageId=67373935
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1RO"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_5_2_CaseActionFromCaseClassTestProject.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1RP" name="Open BOM in editor">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject"
+                        event="MOUSE_MPRC" id="_uu1RQ" modifiers="16" x="-32"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Business Objects"
+                        event="MOUSE_MPRC" id="_uu1RR" modifiers="16" x="-31"
+                        y="5"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Business Objects/BizDataProject.bom"
+                        event="MOUSE_MPRC" id="_uu1RS" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-group.openWith" event="SELECTION"
+                            id="_uu1RT"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemBOM_Diagram_Editing"
+                            event="SELECTION" id="_uu1RU"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1S8" name="Generate Case Action">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas" event="MOUSE_MPRC"
+                        id="_uu1S9" modifiers="16" x="274" y="277"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1SA" modifiers="16" x="27"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1SB" modifiers="4"
+                        popup="true" x="27" y="10"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.caseservice"
+                            event="SELECTION" id="_uu1SC"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.caseservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.viewCaseData"
+                            event="SELECTION" id="_uu1SD"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="CaseDataProcessGenerationWizard"
+                         id="_uu1SE"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Case_Action_To_View_Case_Data_Object@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1SF" modifiers="16" x="-24"
+                        y="11"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Case_Action_To_View_Case_Data_Object@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1SG" modifiers="16" x="-30"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Case_Action_To_View_Case_Data_Object@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1SH" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1SI" modifiers="16"/>
+        <ProcedureCall id="_uu1OI"
+                       procedure="business_studio_operations.insertDelay">
+          <variable name="delayTime">5000</variable>
+        </ProcedureCall>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-Editor@BizDataProject.bom"
+                            event="SELECTION" id="_uu1SY"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas" event="MOUSE_MPRC"
+                        id="_uu1SL" modifiers="16" x="385" y="263"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1SM" modifiers="16" x="5"
+                        y="21"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas@/Diagram/Case1"
+                        event="MOUSE_MPRC" id="_uu1SN" modifiers="4"
+                        popup="true" x="13" y="10"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.caseservice"
+                            event="SELECTION" id="_uu1SO"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-caseclass.generate.caseservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.updateCaseData"
+                            event="SELECTION" id="_uu1SP"/>
+        <ComponentWaiter client="BusinessStudio"
+                         component="CaseDataProcessGenerationWizard"
+                         id="_uu1SQ"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Case_Action_To_Update_Case_Data_Object@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1SR" modifiers="16" x="-26"
+                        y="4"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Case_Action_To_Update_Case_Data_Object@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1SS" modifiers="16" x="-34"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="CaseDataProcessGenerationWizard.treeGenerate_Case_Action_To_Update_Case_Data_Object@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1ST" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1SU" modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1R-"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1Ux" name="inspectModel">
+        <ProcedureCall id="_uu1Uy"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData",xpdExt:PublishAsBusinessService="true",xpdExt:BusinessServiceCategory="ProcessProject/ProcessProject",xpdExt:IsCaseService="true",xpdExt:XpdModelType="PageFlow"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Uz"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="Start"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VN"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="LookupCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VO"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="LookupFailed"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VP"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="EndEvent"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VQ"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="ModifyData"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VR"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="UpdateCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VS"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="CaseOutOfSynchError"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VT"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="UpdateFailed"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VU"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1UpdateCaseData"].activities[Name="End"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VV"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1ViewCaseData",xpdExt:PublishAsBusinessService="true",xpdExt:BusinessServiceCategory="ProcessProject/ProcessProject",xpdExt:IsCaseService="true",xpdExt:XpdModelType="PageFlow"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VW"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1ViewCaseData"].activities[Name="Start"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VX"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1ViewCaseData"].activities[Name="LookupCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VY"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1ViewCaseData"].activities[Name="LookupFailed"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1VZ"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1ViewCaseData"].activities[Name="ViewCase"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1Va"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="Case1ViewCaseData"].activities[Name="End"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu1Vd"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1Ve"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1S0"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1S1"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+    <Procedure id="_uu1Sb" name="3) Process As A Service Test">
+      <comment>Procedure that ensures that the PaaS tests works fine as mentioned http://confluence.tibco.com/pages/viewpage.action?pageId=67373935
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Sc"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_5_3_PaaSTestProject.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1Sd" name="Open Process Packages">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject"
+                        event="MOUSE_MPRC" id="_uu1Se" modifiers="16" x="-25"
+                        y="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages"
+                        event="MOUSE_MPRC" id="_uu1Sf" modifiers="16" x="-28"
+                        y="1"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl"
+                        event="MOUSE_MPRC" id="_uu1Sg" modifiers="16" x="-31"
+                        y="7"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes"
+                        event="MOUSE_MPRC" id="_uu1Sh" modifiers="16" x="-30"
+                        y="8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1Si" modifiers="16"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1Wi"
+                     name="Generate Paas , Biz Service, Service Process">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1Wj" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1Wk" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process (ProcessProjectProcess)"
+                        event="MOUSE_MPRC" id="_uu1Wl" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane/StartEvent"
+                        event="MOUSE_MPRC" id="_uu1Wm" modifiers="16" x="24"
+                        y="-8"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane/StartEvent"
+                        event="MOUSE_MPRC" id="_uu1Wn" modifiers="4"
+                        popup="true" x="23" y="5"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.startEventTypeMenu"
+                            event="SELECTION" id="_uu1Wo"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                            event="SELECTION" id="_uu1Wp"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="labelREST_Service_Details" disabled="true"
+                        event="MOUSE_MPRC" id="_uu1Wq" modifiers="16" x="54"
+                        y="9"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonpublishREST" disabled="true"
+                        event="MOUSE_MPRC" id="_uu1Wr" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="labelREST_Service_Details2" disabled="true"
+                        event="MOUSE_MPRC" id="_uu1Ws" modifiers="16" x="16"
+                        y="6"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane"
+                        event="MOUSE_MPRC" id="_uu1Wt" modifiers="16" x="99"
+                        y="77"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane/StartEvent"
+                        event="MOUSE_MPRC" id="_uu1Wu" modifiers="4"
+                        popup="true" x="24" y="11"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-starteventPageflowMenu"
+                            event="SELECTION" id="_uu1Wv"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.generateBizSvcFromStartTypeNoneAction"
+                            event="SELECTION" id="_uu1Ww"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="tabfolder-Editor@ProcessProject-Process (ProcessProjectProcess)"
+                            event="SELECTION" id="_uu1Wx"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane"
+                        event="MOUSE_MPRC" id="_uu1Wy" modifiers="16" x="73"
+                        y="84"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane/StartEvent"
+                        event="MOUSE_MPRC" id="_uu1Wz" modifiers="16" x="36"
+                        y="25"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane/StartEvent"
+                        event="MOUSE_MPRC" id="_uu1W+" modifiers="4"
+                        popup="true" x="30" y="11"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.startEventTypeMenu"
+                            event="SELECTION" id="_uu1W-"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.startEventTypeMenu"
+                            detail="close" event="SELECTION" id="_uu1X0"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-starteventPageflowMenu"
+                            event="SELECTION" id="_uu1X1"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.generateServiceProcessFomStartTypeNoneAction"
+                            event="SELECTION" id="_uu1X2"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process2 (ProcessProjectProcess2)"
+                        event="MOUSE_MPRC" id="_uu1X3" modifiers="16"/>
+        <MouseEventStep clicks="2" client="BusinessStudio"
+                        component="Project_Explorer@/ProcessProject/Process Packages/ProcessProject.xpdl/ProcessProject (ProcessProject)/Processes/ProcessProject-Process2 (ProcessProjectProcess2)"
+                        event="MOUSE_MPRC" id="_uu1X4" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane/StartEvent"
+                        event="MOUSE_MPRC" id="_uu1X5" modifiers="4"
+                        popup="true" x="37" y="13"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.startEventTypeMenu"
+                            event="SELECTION" id="_uu1X6"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.startEventTypeMenu-com.tibco.xpd.processwidget.setObjectType.start_event_message"
+                            event="SELECTION" id="_uu1X7"/>
+        <SelectionEventStep client="BusinessStudio" component="tool-saveAll"
+                            event="SELECTION" id="_uu1X8"/>
+        <ProcedureCall id="_uu1X9"
+                       procedure="business_studio_operations.waitForBuildToComplete"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Editor.canvas3@/Diagram/Pool/Lane/CatchMessageEvent"
+                        event="MOUSE_MPRC" id="_uu1XA" modifiers="4"
+                        popup="true" x="27" y="6"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.startEventTypeMenu"
+                            event="SELECTION" id="_uu1XB"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-com.tibco.xpd.processwidget.startEventTypeMenu"
+                            detail="close" event="SELECTION" id="_uu1XC"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-starteventPageflowMenu"
+                            event="SELECTION" id="_uu1XD"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.starteventpageflow.generate"
+                            event="SELECTION" id="_uu1XE"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1TE"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu1Ts" name="inspectModel">
+        <ProcedureCall id="_uu1Tt"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess2CatchMessageEvent"].activities[name="Start"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U0"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess2CatchMessageEvent"].activities[name="UserTask"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U1"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess2CatchMessageEvent"].activities[name="InvokeCatchMessageEvent"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U2"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess2CatchMessageEvent"].activities[name="InvokeCatchMessageEvent"].implementation.taskSend.message.dataMappings[Direction="IN",Formal="Parameter2"].actual[Text="Parameter2"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U3"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcess2CatchMessageEvent"].activities[name="InvokeCatchMessageEvent"].implementation.taskSend.message.dataMappings[Direction="IN",Formal="Parameter"].actual[Text="Parameter"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U8"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent",xpdExt:XpdModelType="PageFlow",xpdExt:PublishAsBusinessService="true",xpdExt:BusinessServiceCategory="ProcessProject/ProcessProject"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U4"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent"].activities[name="Start"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U5"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent"].activities[name="CallProcessProjectProcess"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U6"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent"].activities[name="UserTask"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U7"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent"].activities[name="CallProcessProjectProcess"].implementation[Execution="ASYNCHR",xpdExt:AsyncExecutionMode="Detached",xpdExt:StartStrategy="ScheduleStart",xpdExt:SuspendResumeWithParent="false"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1U9"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent2",xpdExt:XpdModelType="ServiceProcess"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UA"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent2"].activities[name="Start"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UB"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent2"].activities[name="CallProcessProjectProcess"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UC"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent2"].activities[name="Task"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UD"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent2"].activities[name="End"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1UE"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">ProcessProject/Process Packages/ProcessProject.xpdl</variable>
+          <variable name="elementToFind">Package.processes[name="ProcessProjectProcessStartEvent2"].activities[name="CallProcessProjectProcess"].implementation[Execution="ASYNCHR",xpdExt:AsyncExecutionMode="Detached",xpdExt:StartStrategy="ScheduleStart",xpdExt:SuspendResumeWithParent="false"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu1Vg"
+                     procedure="business_studio_operations.exportDAA">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+      <ProcedureCall id="_uu1TF"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">ProcessProject</variable>
+      </ProcedureCall>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - TIBCO Business Studio" height="1056"
+                id="WorkbenchWindow" name="WorkbenchWindow" uid="_uu1QA"
+                width="1932">
+      <ComponentStep class="Tree" classcount="2" classindex="1" height="598"
+                     id="Project_Explorer" name="Project Explorer"
+                     uid="_uu1QB" width="244" x="15" y="133">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="MenuBar"
+                     feature="Popup InvokerName: Project Explorer"
+                     height="466" id="popup-Project_Explorer"
+                     name="popup-Project Explorer" uid="_uu1QC" width="235">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="28" classindex="3"
+                       feature="Open With" height="19"
+                       id="menu-group.openWith" name="menu-group.openWith"
+                       uid="_uu1QD" width="231" x="2" y="49">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Open With</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="BOM Diagram Editing"
+                         height="19" id="menuitemBOM_Diagram_Editing"
+                         uid="_uu1QE" width="176" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">881031978</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">BOM Diagram Editing</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">MenuItem:RadioButtonMenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="24" classindex="21"
+                     height="644" id="Editor" name="Editor" uid="_uu1QL"
+                     width="1649" x="268" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.gef.ui.palette.FlyoutPaletteComposite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="7" classindex="6"
+                       height="644" id="Editor.canvas" uid="_uu1QM"
+                       width="1521" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="6" classindex="5"
+                       height="628" id="Editor.canvas2" uid="_uu1TG"
+                       width="1521" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="Panel" classcount="3" classindex="2"
+                       height="644" id="Editor.canvas3" uid="_uu1W7"
+                       width="1636" x="0" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.draw2d.FigureCanvas</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="MenuBar" feature="Popup InvokerClass: Canvas"
+                     height="447" id="menuPopup_InvokerClass:_Canvas"
+                     uid="_uu1QN" width="200">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="27" classindex="20"
+                       feature="Generate Business Service" height="19"
+                       id="menu-caseclass.generate.bizservice"
+                       name="menu-caseclass.generate.bizservice" uid="_uu1QO"
+                       width="196" x="2" y="332">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">170771072</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Generate Business Service</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="To Create Case Data"
+                         height="22"
+                         id="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.createCaseData"
+                         name="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.createCaseData"
+                         uid="_uu1QP" width="194" x="2" y="2">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">To Create Case Data</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="To Update Case Data"
+                         height="22"
+                         id="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.updateCaseData"
+                         name="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.updateCaseData"
+                         uid="_uu1QV" width="194" x="2" y="24">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">To Update Case Data</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="To Delete Case Data"
+                         height="22"
+                         id="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.deleteCaseData"
+                         name="menu-caseclass.generate.bizservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.deleteCaseData"
+                         uid="_uu1QX" width="194" x="2" y="46">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">To Delete Case Data</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="27" classindex="21"
+                       feature="Generate Case Action" height="19"
+                       id="menu-caseclass.generate.caseservice"
+                       name="menu-caseclass.generate.caseservice" uid="_uu1S2"
+                       width="196" x="2" y="351">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">862893002</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Generate Case Action</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="To View Case Data"
+                         height="22"
+                         id="menu-caseclass.generate.caseservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.viewCaseData"
+                         name="menu-caseclass.generate.caseservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.viewCaseData"
+                         uid="_uu1S3" width="194" x="2" y="2">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">To View Case Data</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="To Update Case Data"
+                         height="22"
+                         id="menu-caseclass.generate.caseservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.updateCaseData"
+                         name="menu-caseclass.generate.caseservice-com.tibco.xpd.implementer.resources.xpdl2.caseClass.updateCaseData"
+                         uid="_uu1S5" width="194" x="2" y="24">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">To Update Case Data</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" feature="Show Properties View"
+                       height="19"
+                       id="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                       name="menu-ShowViewActionorg.eclipse.ui.views.PropertySheet"
+                       uid="_uu1So" width="180" x="2" y="238">
+          <extrafeature name="imagehash" negate="false" regexp="false"
+                        state="1">2146591693</extrafeature>
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Show Properties View</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="21" classindex="1"
+                       feature="Generate" height="19"
+                       id="menu-starteventPageflowMenu"
+                       name="menu-starteventPageflowMenu" uid="_uu1Sy"
+                       width="180" x="2" y="21">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Generate</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="Business Service"
+                         height="22"
+                         id="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.generateBizSvcFromStartTypeNoneAction"
+                         name="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.generateBizSvcFromStartTypeNoneAction"
+                         uid="_uu1Sz" width="155" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">170771072</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Business Service</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Service Process"
+                         height="22"
+                         id="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.generateServiceProcessFomStartTypeNoneAction"
+                         name="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.generateServiceProcessFomStartTypeNoneAction"
+                         uid="_uu1S+" width="155" x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">639760181</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Service Process</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+          <ComponentStep class="MenuItem" feature="Business Service"
+                         height="22"
+                         id="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.starteventpageflow.generate"
+                         name="menu-starteventPageflowMenu-com.tibco.xpd.implementer.resources.xpdl2.starteventpageflow.generate"
+                         uid="_uu1TN" width="155" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">170771072</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Business Service</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+        <ComponentStep class="MenuItem" classcount="21" classindex="2"
+                       feature="Trigger Type" height="19"
+                       id="menu-com.tibco.xpd.processwidget.startEventTypeMenu"
+                       name="menu-com.tibco.xpd.processwidget.startEventTypeMenu"
+                       uid="_uu1TI" width="180" x="2" y="40">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Trigger Type</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="Message Trigger"
+                         height="22"
+                         id="menu-com.tibco.xpd.processwidget.startEventTypeMenu-com.tibco.xpd.processwidget.setObjectType.start_event_message"
+                         name="menu-com.tibco.xpd.processwidget.startEventTypeMenu-com.tibco.xpd.processwidget.setObjectType.start_event_message"
+                         uid="_uu1TJ" width="173" x="2" y="24">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">538795888</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Message Trigger</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:type" negate="false" regexp="false"
+                          state="0">MenuItem:CheckBoxMenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="TabPanel" classcount="4" classindex="0"
+                     feature="ToolTip: BizDataProject/Business Objects/BizDataProject.bom"
+                     height="673" id="tabfolder-Editor"
+                     name="tabfolder-Editor" uid="_uu1QU" width="1655" x="265"
+                     y="83">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">TabPanel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.custom.CTabFolder</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Panel" classcount="24" classindex="12"
+                     height="230" id="Properties2" name="Properties"
+                     uid="_uu1Sp" width="1649" x="268" y="769">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.ui.part.PageBook</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="Panel" classcount="16" classindex="15"
+                       height="200" id="Properties2.scroll" uid="_uu1Sq"
+                       width="1518" x="131" y="30">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">Panel</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+          <extrafeature name="qfs:type" negate="false" regexp="false"
+                        state="0">Panel:ScrollPanel</extrafeature>
+          <ComponentStep class="Panel" classcount="12" classindex="11"
+                         height="190" id="Properties2.book" uid="_uu1Sr"
+                         width="752" x="767" y="5">
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.ui.part.PageBook</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">Panel</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+            <ComponentStep class="Panel" classcount="2" classindex="1"
+                           height="190" id="Properties2.scroll2" uid="_uu1Ss"
+                           width="752" x="0" y="0">
+              <extrafeature name="qfs:class" negate="false" regexp="false"
+                            state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+              <extrafeature name="qfs:genericclass" negate="false"
+                            regexp="false" state="0">Panel</extrafeature>
+              <extrafeature name="qfs:systemclass" negate="false"
+                            regexp="false" state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+              <extrafeature name="qfs:type" negate="false" regexp="false"
+                            state="0">Panel:ScrollPanel</extrafeature>
+              <ComponentStep class="Panel" classcount="2" classindex="1"
+                             height="190" id="Properties2.scroll3"
+                             uid="_uu1St" width="752" x="0" y="0">
+                <extrafeature name="qfs:class" negate="false" regexp="false"
+                              state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+                <extrafeature name="qfs:genericclass" negate="false"
+                              regexp="false" state="0">Panel</extrafeature>
+                <extrafeature name="qfs:systemclass" negate="false"
+                              regexp="false" state="0">org.eclipse.swt.custom.ScrolledComposite</extrafeature>
+                <extrafeature name="qfs:type" negate="false" regexp="false"
+                              state="0">Panel:ScrollPanel</extrafeature>
+                <ComponentStep class="Panel" classcount="3" classindex="2"
+                               feature="REST Service Details" height="24"
+                               id="sectionREST_Service_Details" uid="_uu1Su"
+                               width="734" x="8" y="5">
+                  <extrafeature name="qfs:class" negate="false" regexp="false"
+                                state="0">org.eclipse.ui.forms.widgets.Section</extrafeature>
+                  <extrafeature name="qfs:genericclass" negate="false"
+                                regexp="false" state="0">Panel</extrafeature>
+                  <extrafeature name="qfs:label" negate="false" regexp="false"
+                                state="1">REST Service Details</extrafeature>
+                  <extrafeature name="qfs:systemclass" negate="false"
+                                regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+                  <ComponentStep class="Label" classcount="1" classindex="0"
+                                 feature="REST Service Details" height="15"
+                                 id="labelREST_Service_Details" uid="_uu1Sv"
+                                 width="114" x="21" y="3">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Label</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">Label</extrafeature>
+                    <extrafeature name="qfs:label" negate="false"
+                                  regexp="false" state="1">REST Service Details</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Label</extrafeature>
+                  </ComponentStep>
+                  <ComponentStep class="CheckBox" classcount="1"
+                                 classindex="0"
+                                 feature="Publish as REST Service" height="16"
+                                 id="buttonpublishREST"
+                                 name="buttonpublishREST" uid="_uu1Sw"
+                                 width="143" x="21" y="24">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Button</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">CheckBox</extrafeature>
+                    <extrafeature name="qfs:label" negate="false"
+                                  regexp="false" state="1">Publish as REST Service</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Button</extrafeature>
+                  </ComponentStep>
+                  <ComponentStep class="Link" classcount="1" classindex="0"
+                                 height="11"
+                                 id="sectionREST_Service_Details.toggleStart_Event"
+                                 uid="_uu1Sx" width="11" x="6" y="6">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.ui.forms.widgets.Twistie</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">Link</extrafeature>
+                    <extrafeature name="qfs:label" negate="false"
+                                  regexp="false" state="1">Start Event</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Canvas</extrafeature>
+                  </ComponentStep>
+                  <ComponentStep class="Label" classcount="5" classindex="0"
+                                 feature="REST Service Details" height="15"
+                                 id="labelREST_Service_Details2" uid="_uu1TH"
+                                 width="114" x="21" y="3">
+                    <extrafeature name="qfs:class" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Label</extrafeature>
+                    <extrafeature name="qfs:genericclass" negate="false"
+                                  regexp="false" state="0">Label</extrafeature>
+                    <extrafeature name="qfs:label" negate="false"
+                                  regexp="false" state="1">REST Service Details</extrafeature>
+                    <extrafeature name="qfs:systemclass" negate="false"
+                                  regexp="false" state="0">org.eclipse.swt.widgets.Label</extrafeature>
+                  </ComponentStep>
+                </ComponentStep>
+              </ComponentStep>
+            </ComponentStep>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="ToolBar" classcount="9" classindex="0" height="22"
+                     id="WorkbenchWindow.coolbar" uid="_uu1TK" width="1714"
+                     x="10" y="56">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">ToolBar</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.CoolBar</extrafeature>
+        <ComponentStep class="ToolBar" classcount="10" classindex="3"
+                       height="22" id="WorkbenchWindow.toolbar" uid="_uu1TL"
+                       width="138" x="11" y="0">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">ToolBar</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.ToolBar</extrafeature>
+          <ComponentStep class="ToolBarItem" classcount="6" classindex="2"
+                         feature="ToolTip: Save All (Ctrl+Shift+S)"
+                         height="22" id="tool-saveAll" name="tool-saveAll"
+                         uid="_uu1TM" width="23" x="61" y="0">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1727541200</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">ToolBarItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Save All (Ctrl+Shift+S)</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.ToolItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt"
+                feature="Generate Business Service" height="558"
+                id="CaseDataProcessGenerationWizard" modal="true"
+                name="CaseDataProcessGenerationWizard" uid="_uu1QQ"
+                width="525">
+      <ComponentStep class="Tree" classcount="1" classindex="0" height="278"
+                     id="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Creating_Case_Data_Object"
+                     uid="_uu1QR" width="485" x="18" y="130">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Generate Business Service For Creating Case Data Object</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="2" classindex="0"
+                     feature="Finish" height="25" id="buttonFinish"
+                     name="buttonFinish" uid="_uu1QS" width="92" x="316"
+                     y="512">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Tree" classcount="1" classindex="0" height="278"
+                     id="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Updating_Case_Data_Object"
+                     uid="_uu1QW" width="485" x="18" y="130">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Generate Business Service For Updating Case Data Object</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Tree" classcount="1" classindex="0" height="278"
+                     id="CaseDataProcessGenerationWizard.treeGenerate_Business_Service_For_Deleting_Case_Data_Object"
+                     uid="_uu1QY" width="485" x="18" y="130">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Generate Business Service For Deleting Case Data Object</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Tree" classcount="1" classindex="0" height="278"
+                     id="CaseDataProcessGenerationWizard.treeGenerate_Case_Action_To_View_Case_Data_Object"
+                     uid="_uu1S4" width="485" x="18" y="130">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Generate Case Action To View Case Data Object</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="Tree" classcount="1" classindex="0" height="278"
+                     id="CaseDataProcessGenerationWizard.treeGenerate_Case_Action_To_Update_Case_Data_Object"
+                     uid="_uu1S6" width="485" x="18" y="130">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Generate Case Action To Update Case Data Object</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Window" engine="swt"
+                feature="Generate Business Service" height="233"
+                id="shellGenerate_Business_Service" uid="_uu1QT" width="532"/>
+    <WindowStep class="Window" engine="swt"
+                feature="Generate Business Service" height="233"
+                id="ProgressMonitorFocusJobDialog"
+                name="ProgressMonitorFocusJobDialog" uid="_uu1QZ"
+                width="532"/>
+    <WindowStep class="Window" engine="swt" feature="Generate Case Action"
+                height="233" id="shellGenerate_Case_Action" uid="_uu1S7"
+                width="532"/>
+  </WindowList>
+</RootStep>

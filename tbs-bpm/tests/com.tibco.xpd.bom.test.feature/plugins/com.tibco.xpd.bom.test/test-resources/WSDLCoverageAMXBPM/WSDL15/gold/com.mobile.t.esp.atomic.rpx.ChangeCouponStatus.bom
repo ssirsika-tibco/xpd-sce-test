@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.mobile.t.esp.atomic.rpx.ChangeCouponStatus" name="com.mobile.t.esp.atomic.rpx.ChangeCouponStatus">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9wNs8k1lEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9wNs801lEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9wNs9E1lEeSLJZkJre4IDg" key="created" value="1412609705919"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9wNs9U1lEeSLJZkJre4IDg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_97GHQE1lEeSLJZkJre4IDg" key="checksum" value="2471063010"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusRequestType" name="changeCouponStatusRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusRequestTyperequestInfo" name="requestInfo" aggregation="composite" association="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition6?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition6?">
+        <type xmi:type="uml:Class" href="com.mobile.t.esp.atomic.rpx.types.bom#com.mobile.t.esp.atomic.rpx.typesrequestInfoType?com.mobile.t.esp.atomic.rpx.types%3a%3arequestInfoType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9ui5A01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9ui5Ak1lEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusRequestTypemsisdn" name="msisdn" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="com.mobile.t.esp.atomic.rpx.types.bom#com.mobile.t.esp.atomic.rpx.typesmsisdnType2?com.mobile.t.esp.atomic.rpx.types%3a%3amsisdnType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9ul8U01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9ul8Uk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusRequestTypeban" name="ban" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="com.mobile.t.esp.atomic.rpx.types.bom#com.mobile.t.esp.atomic.rpx.typesbanType2?com.mobile.t.esp.atomic.rpx.types%3a%3abanType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9uoYk01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9uoYkk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusRequestTypecouponPin" name="couponPin" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="com.mobile.t.esp.atomic.rpx.types.bom#com.mobile.t.esp.atomic.rpx.typescouponPinType2?com.mobile.t.esp.atomic.rpx.types%3a%3acouponPinType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9urb4k1lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9urb4U1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusRequestTypecouponIssuerAndSerialNumber" name="couponIssuerAndSerialNumber" aggregation="composite" association="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition7?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition7?">
+        <type xmi:type="uml:Class" href="com.mobile.t.esp.atomic.rpx.types.bom#com.mobile.t.esp.atomic.rpx.typescouponIssuerAndSerialType?com.mobile.t.esp.atomic.rpx.types%3a%3acouponIssuerAndSerialType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9uufMU1lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9uufME1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusRequestTypecouponStatus" name="couponStatus" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9uxig01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9uxigk1lEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusRequestTypeexternalUserID" name="externalUserID" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9u0l001lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9u0l0k1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition6" name="Composition6" memberEnd="changeCouponStatusRequestTyperequestInfo?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3arequestInfo? Composition6changecouponstatusrequesttype?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition6%3a%3achangecouponstatusrequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition6changecouponstatusrequesttype" name="changecouponstatusrequesttype" type="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusRequestType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType?" association="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition6?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition6?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9ui5Bk1lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9ui5BU1lEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition7" name="Composition7" memberEnd="changeCouponStatusRequestTypecouponIssuerAndSerialNumber?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponIssuerAndSerialNumber? Composition7changecouponstatusrequesttype?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition7%3a%3achangecouponstatusrequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition7changecouponstatusrequesttype" name="changecouponstatusrequesttype" type="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusRequestType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType?" association="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition7?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9uufNE1lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9uufM01lEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusResponseType" name="changeCouponStatusResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusResponseTypecorrelationId" name="correlationId" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="com.mobile.t.esp.atomic.rpx.types.bom#com.mobile.t.esp.atomic.rpx.typescorrelationIdType2?com.mobile.t.esp.atomic.rpx.types%3a%3acorrelationIdType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9u76k01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9u76kk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="changeCouponStatusResponseTypecouponInfoType" name="couponInfo" type="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuscouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType?" aggregation="composite" association="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition9?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition9?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9vJ9A01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9vJ9Ak1lEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuscouponInfoType" name="couponInfoType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="couponInfoTypeerrorCode" name="errorCode" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9vAMA01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9vAMAk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="couponInfoTypeerrorMessage" name="errorMessage" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9vDPU01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9vDPUk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="couponInfoTypecouponDetails2" name="couponDetails" aggregation="composite" association="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition8?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition8?">
+        <type xmi:type="uml:Class" href="com.mobile.t.esp.atomic.rpx.types.bom#com.mobile.t.esp.atomic.rpx.typescouponDetailsType?com.mobile.t.esp.atomic.rpx.types%3a%3acouponDetailsType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9vG5s01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9vG5sk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition8" name="Composition8" memberEnd="couponInfoTypecouponDetails2?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3acouponDetails? Composition8couponinfotype?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition8%3a%3acouponinfotype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition8couponinfotype" name="couponinfotype" type="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuscouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType?" association="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition8?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition8?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9vG5tk1lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9vG5tU1lEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition9" name="Composition9" memberEnd="changeCouponStatusResponseTypecouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType%3a%3acouponInfo? Composition9changecouponstatusresponsetype?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition9%3a%3achangecouponstatusresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition9changecouponstatusresponsetype" name="changecouponstatusresponsetype" type="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusResponseType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType?" association="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition9?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition9?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9vJ9Bk1lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9vJ9BU1lEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9ueAgU1lEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9ueAgk1lEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9ueAg01lEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9ueAhE1lEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_9ueAhU1lEeSLJZkJre4IDg" base_Package="com.mobile.t.esp.atomic.rpx.ChangeCouponStatus?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus?" xsdTargetNamespace="http://www.t-mobile.com/esp/atomic/rpx/ChangeCouponStatus" xsdSchemaLocation="AtomicRPX.wsdl" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.9.0.qualifier" bomWsdlSources="AtomicRPX.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_9uf1sU1lEeSLJZkJre4IDg" base_Class="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusRequestType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_9u1M4E1lEeSLJZkJre4IDg" name="MS1_1_1"/>
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_9u2bAE1lEeSLJZkJre4IDg" name="MS2_1_4" parent="_9u1M4E1lEeSLJZkJre4IDg" isChoice="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9ui5B01lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTyperequestInfo?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3arequestInfo?" xsdName="requestInfo" xsdForm="qualified" xsdType="requestInfoType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9u1M4E1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9ul8UU1lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTypemsisdn?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3amsisdn?" xsdName="msisdn" xsdForm="qualified" xsdType="msisdnType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9u1M4E1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9uoYkU1lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTypeban?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3aban?" xsdName="ban" xsdForm="qualified" xsdType="banType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9u1M4E1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9urb4E1lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTypecouponPin?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponPin?" xsdName="couponPin" xsdForm="qualified" xsdType="couponPinType" xsdExplicitGroupHierarchy="S1:C1" xsdParentSequence="_9u2bAE1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9uufNU1lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTypecouponIssuerAndSerialNumber?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponIssuerAndSerialNumber?" xsdName="couponIssuerAndSerialNumber" xsdForm="qualified" xsdType="couponIssuerAndSerialType" xsdExplicitGroupHierarchy="S1:C1" xsdParentSequence="_9u2bAE1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9uxigU1lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTypecouponStatus?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponStatus?" xsdName="couponStatus" xsdForm="qualified" xsdType="normalizedString" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9u1M4E1lEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_9uxihE1lEeSLJZkJre4IDg" textLength="-1" textPatternValue="[^&#x9;&#xA;&#xD;]*" base_Property="changeCouponStatusRequestTypecouponStatus?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponStatus?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_9uxihU1lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTypecouponStatus?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponStatus?" xsdPatternValue="[^&#x9;&#xA;&#xD;]*"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9u0l0U1lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTypeexternalUserID?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3aexternalUserID?" xsdName="externalUserID" xsdForm="qualified" xsdType="normalizedString" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9u1M4E1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_9u0l1E1lEeSLJZkJre4IDg" textLength="-1" textPatternValue="[^&#x9;&#xA;&#xD;]*" base_Property="changeCouponStatusRequestTypeexternalUserID?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3aexternalUserID?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_9u0l1U1lEeSLJZkJre4IDg" base_Property="changeCouponStatusRequestTypeexternalUserID?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3aexternalUserID?" xsdPatternValue="[^&#x9;&#xA;&#xD;]*"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_9u4QME1lEeSLJZkJre4IDg" base_Package="com.mobile.t.esp.atomic.rpx.ChangeCouponStatus?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_9u43QE1lEeSLJZkJre4IDg" name="changeCouponStatusRequest" type="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusRequestType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType?" isAnonymous="true" targetNamespace="http://www.t-mobile.com/esp/atomic/rpx/ChangeCouponStatus" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_9vLLIE1lEeSLJZkJre4IDg" name="changeCouponStatusResponse" type="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusResponseType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType?" isAnonymous="true" targetNamespace="http://www.t-mobile.com/esp/atomic/rpx/ChangeCouponStatus" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_9u43Qk1lEeSLJZkJre4IDg" base_Class="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusResponseType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_9vKkEE1lEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9u76kU1lEeSLJZkJre4IDg" base_Property="changeCouponStatusResponseTypecorrelationId?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType%3a%3acorrelationId?" xsdName="correlationId" xsdForm="qualified" xsdType="correlationIdType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9vKkEE1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_9u9IsE1lEeSLJZkJre4IDg" base_Class="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuscouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType?" xsdName="couponInfo" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_9vHgwE1lEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9vAMAU1lEeSLJZkJre4IDg" base_Property="couponInfoTypeerrorCode?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorCode?" xsdName="errorCode" xsdForm="qualified" xsdType="nonNegativeInteger" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9vHgwE1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_9vAMBE1lEeSLJZkJre4IDg" base_Property="couponInfoTypeerrorCode?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorCode?" xsdMinExclusiveValue="" xsdMinInclusiveValue="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_9vAMBU1lEeSLJZkJre4IDg" integerLower="0" integerSubType="fixedLength" base_Property="couponInfoTypeerrorCode?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorCode?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9vDPUU1lEeSLJZkJre4IDg" base_Property="couponInfoTypeerrorMessage?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorMessage?" xsdName="errorMessage" xsdForm="qualified" xsdType="normalizedString" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9vHgwE1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_9vDPVE1lEeSLJZkJre4IDg" textLength="-1" textPatternValue="[^&#x9;&#xA;&#xD;]*" base_Property="couponInfoTypeerrorMessage?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorMessage?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_9vD2YE1lEeSLJZkJre4IDg" base_Property="couponInfoTypeerrorMessage?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorMessage?" xsdPatternValue="[^&#x9;&#xA;&#xD;]*"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9vG5t01lEeSLJZkJre4IDg" base_Property="couponInfoTypecouponDetails2?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3acouponDetails?" xsdName="couponDetails" xsdForm="qualified" xsdType="couponDetailsType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9vHgwE1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_9vJ9B01lEeSLJZkJre4IDg" base_Property="changeCouponStatusResponseTypecouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType%3a%3acouponInfo?" xsdName="couponInfo" xsdForm="qualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_9vKkEE1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vWxUE1lEeSLJZkJre4IDg" base_Element="Composition8couponinfotype?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition8%3a%3acouponinfotype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vWxUU1lEeSLJZkJre4IDg" base_Element="Composition9changecouponstatusresponsetype?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition9%3a%3achangecouponstatusresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vWxUk1lEeSLJZkJre4IDg" base_Element="_9vG5tU1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vWxU01lEeSLJZkJre4IDg" base_Element="_9urb4U1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vWxVE1lEeSLJZkJre4IDg" base_Element="_9uufM01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vWxVU1lEeSLJZkJre4IDg" base_Element="_9ueAg01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vWxVk1lEeSLJZkJre4IDg" base_Element="_9vAMA01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vWxV01lEeSLJZkJre4IDg" base_Element="_9u76k01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYYE1lEeSLJZkJre4IDg" base_Element="_9vG5s01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYYU1lEeSLJZkJre4IDg" base_Element="_9uxig01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYYk1lEeSLJZkJre4IDg" base_Element="changeCouponStatusRequestTypecouponPin?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponPin?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYY01lEeSLJZkJre4IDg" base_Element="_9ui5Bk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYZE1lEeSLJZkJre4IDg" base_Element="_9uufNE1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYZU1lEeSLJZkJre4IDg" base_Element="_9uoYkk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYZk1lEeSLJZkJre4IDg" base_Element="_9vJ9BU1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYZ01lEeSLJZkJre4IDg" base_Element="changeCouponStatusRequestTypemsisdn?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3amsisdn?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYaE1lEeSLJZkJre4IDg" base_Element="_9vJ9A01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vXYaU1lEeSLJZkJre4IDg" base_Element="changeCouponStatusRequestTypeexternalUserID?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3aexternalUserID?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_cE1lEeSLJZkJre4IDg" base_Element="_9vAMAk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_cU1lEeSLJZkJre4IDg" base_Element="_9vJ9Bk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_ck1lEeSLJZkJre4IDg" base_Element="_9ul8Uk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_c01lEeSLJZkJre4IDg" base_Element="Composition7changecouponstatusrequesttype?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition7%3a%3achangecouponstatusrequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_dE1lEeSLJZkJre4IDg" base_Element="_9vDPUk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_dU1lEeSLJZkJre4IDg" base_Element="_9u0l001lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_dk1lEeSLJZkJre4IDg" base_Element="_9ui5Ak1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_d01lEeSLJZkJre4IDg" base_Element="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusRequestType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_eE1lEeSLJZkJre4IDg" base_Element="_9u76kk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vX_eU1lEeSLJZkJre4IDg" base_Element="_9ui5BU1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmgE1lEeSLJZkJre4IDg" base_Element="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition8?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition8?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmgU1lEeSLJZkJre4IDg" base_Element="_9uoYk01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmgk1lEeSLJZkJre4IDg" base_Element="changeCouponStatusRequestTypeban?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3aban?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmg01lEeSLJZkJre4IDg" base_Element="_9vJ9Ak1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmhE1lEeSLJZkJre4IDg" base_Element="_9ueAgU1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmhU1lEeSLJZkJre4IDg" base_Element="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusResponseType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmhk1lEeSLJZkJre4IDg" base_Element="changeCouponStatusRequestTypecouponStatus?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponStatus?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmh01lEeSLJZkJre4IDg" base_Element="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition6?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition6?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmiE1lEeSLJZkJre4IDg" base_Element="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition9?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition9?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vYmiU1lEeSLJZkJre4IDg" base_Element="_9uufME1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNkE1lEeSLJZkJre4IDg" base_Element="changeCouponStatusResponseTypecouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType%3a%3acouponInfo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNkU1lEeSLJZkJre4IDg" base_Element="_9vG5tk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNkk1lEeSLJZkJre4IDg" base_Element="couponInfoTypeerrorCode?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorCode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNk01lEeSLJZkJre4IDg" base_Element="_9urb4k1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNlE1lEeSLJZkJre4IDg" base_Element="_9vG5sk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNlU1lEeSLJZkJre4IDg" base_Element="changeCouponStatusRequestTyperequestInfo?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3arequestInfo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNlk1lEeSLJZkJre4IDg" base_Element="_9ul8U01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNl01lEeSLJZkJre4IDg" base_Element="_9uufMU1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNmE1lEeSLJZkJre4IDg" base_Element="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuscouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZNmU1lEeSLJZkJre4IDg" base_Element="_9vDPU01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0oE1lEeSLJZkJre4IDg" base_Element="changeCouponStatusRequestTypecouponIssuerAndSerialNumber?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponIssuerAndSerialNumber?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0oU1lEeSLJZkJre4IDg" base_Element="com.mobile.t.esp.atomic.rpx.ChangeCouponStatusComposition7?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition7?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0ok1lEeSLJZkJre4IDg" base_Element="changeCouponStatusResponseTypecorrelationId?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType%3a%3acorrelationId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0o01lEeSLJZkJre4IDg" base_Element="couponInfoTypeerrorMessage?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorMessage?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0pE1lEeSLJZkJre4IDg" base_Element="couponInfoTypecouponDetails2?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3acouponDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0pU1lEeSLJZkJre4IDg" base_Element="Composition6changecouponstatusrequesttype?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3aComposition6%3a%3achangecouponstatusrequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0pk1lEeSLJZkJre4IDg" base_Element="_9u0l0k1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0p01lEeSLJZkJre4IDg" base_Element="_9uxigk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_9vZ0qE1lEeSLJZkJre4IDg" base_Element="_9ui5A01lEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wKCkE1lEeSLJZkJre4IDg" displayLabel="changeCouponStatusRequestType" base_NamedElement="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusRequestType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wKCkU1lEeSLJZkJre4IDg" displayLabel="changeCouponStatusResponseType" base_NamedElement="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuschangeCouponStatusResponseType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wKpoE1lEeSLJZkJre4IDg" displayLabel="ban" base_NamedElement="changeCouponStatusRequestTypeban?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3aban?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wKpoU1lEeSLJZkJre4IDg" displayLabel="couponIssuerAndSerialNumber" base_NamedElement="changeCouponStatusRequestTypecouponIssuerAndSerialNumber?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponIssuerAndSerialNumber?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wLQsE1lEeSLJZkJre4IDg" displayLabel="couponPin" base_NamedElement="changeCouponStatusRequestTypecouponPin?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponPin?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wLQsU1lEeSLJZkJre4IDg" displayLabel="couponStatus" base_NamedElement="changeCouponStatusRequestTypecouponStatus?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3acouponStatus?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wLQsk1lEeSLJZkJre4IDg" displayLabel="externalUserID" base_NamedElement="changeCouponStatusRequestTypeexternalUserID?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3aexternalUserID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wL3wE1lEeSLJZkJre4IDg" displayLabel="msisdn" base_NamedElement="changeCouponStatusRequestTypemsisdn?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3amsisdn?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wL3wU1lEeSLJZkJre4IDg" displayLabel="requestInfo" base_NamedElement="changeCouponStatusRequestTyperequestInfo?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusRequestType%3a%3arequestInfo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wMe0E1lEeSLJZkJre4IDg" displayLabel="correlationId" base_NamedElement="changeCouponStatusResponseTypecorrelationId?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType%3a%3acorrelationId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wMe0U1lEeSLJZkJre4IDg" displayLabel="couponInfo" base_NamedElement="changeCouponStatusResponseTypecouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3achangeCouponStatusResponseType%3a%3acouponInfo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wNF4E1lEeSLJZkJre4IDg" displayLabel="couponInfoType" base_NamedElement="com.mobile.t.esp.atomic.rpx.ChangeCouponStatuscouponInfoType?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wNF4U1lEeSLJZkJre4IDg" displayLabel="couponDetails" base_NamedElement="couponInfoTypecouponDetails2?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3acouponDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wNs8E1lEeSLJZkJre4IDg" displayLabel="errorCode" base_NamedElement="couponInfoTypeerrorCode?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorCode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9wNs8U1lEeSLJZkJre4IDg" displayLabel="errorMessage" base_NamedElement="couponInfoTypeerrorMessage?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus%3a%3acouponInfoType%3a%3aerrorMessage?"/>
+  <notation:Diagram xmi:id="_9wNs9k1lEeSLJZkJre4IDg" type="Business Object Model" element="com.mobile.t.esp.atomic.rpx.ChangeCouponStatus?com.mobile.t.esp.atomic.rpx.ChangeCouponStatus?" name="com.mobile.t.esp.atomic.rpx.ChangeCouponStatus" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_9wNs901lEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_9wNs-E1lEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

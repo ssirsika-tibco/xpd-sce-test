@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/root"
+	xmlns:tns="http://www.example.org/root" elementFormDefault="qualified"
+	xmlns:pref="http://www.example.org/referenced">
+
+	<import namespace="http://www.example.org/referenced"
+		schemaLocation="XSDBOM_TLE14_ElementsWithTypeOutsideSchema2.xsd"></import>
+
+	<complexType name="rootComplex">
+		<sequence>
+			<element name="elem" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<simpleType name="rootSimple">
+		<restriction base="string"></restriction>
+	</simpleType>
+
+	<simpleType name="rootEnum">
+		<restriction base="string">
+			<enumeration value="ENUMLIT"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<element name="rootElem" type="pref:referencedComplex"></element>
+	<element name="rootElem2" type="pref:referencedSimple"></element>
+	<element name="rootElem3" type="pref:referencedEnum"></element>
+</schema>

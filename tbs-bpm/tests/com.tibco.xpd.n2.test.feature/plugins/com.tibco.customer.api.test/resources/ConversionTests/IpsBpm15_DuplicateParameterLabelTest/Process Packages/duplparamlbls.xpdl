@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_geJJUAvjEeSvqdYV3x9lcg" xpdExt:DisplayName="duplparamlbls" Name="duplparamlbls">
+  <xpdl2:PackageHeader xpdExt:Language="en_US">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-07-15</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>USD</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>sajain</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_nHqbAgvjEeSvqdYV3x9lcg" xpdExt:DisplayName="Default Pool" Name="DefaultPool" BoundaryVisible="true" Process="_nHqbCAvjEeSvqdYV3x9lcg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_nHqbAwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="Default Lane" Name="DefaultLane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="637.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_nHqbAAvjEeSvqdYV3x9lcg" ArtifactType="Annotation" TextAnnotation="I/O PARAMETERS&#xA;&#xA;Descriptions of the Input/Output fields are&#xA;listed in the Annotations of the README &#xA;router step at the beginning of the workflow.&#xA;&#xA;&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="_nHqbAwvjEeSvqdYV3x9lcg">
+          <xpdl2:Coordinates XCoordinate="837.0" YCoordinate="34.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_nHqbAQvjEeSvqdYV3x9lcg" ArtifactType="Annotation" TextAnnotation="TO DO:&#xA;1) Add this sub-procedure to the beginning of a &#xA;procedure or sub-procedure.&#xA;2) Value the input fields. Auto-Map the output&#xA;fields to ensure all required fields are created &#xA;properly.&#xA;3) If used on a main procedure, 17START is the&#xA;Start step used to start the workflow. In this &#xA;case, subscriptions for each qualifying start&#xA;event are required. For examples of Start step&#xA;subscriptions, see 9TEMPLAT.&#xA;&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="_nHqbAwvjEeSvqdYV3x9lcg">
+          <xpdl2:Coordinates XCoordinate="429.0" YCoordinate="35.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_nHqbBAvjEeSvqdYV3x9lcg" ArtifactType="Annotation" TextAnnotation=" &#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="_nHqbAwvjEeSvqdYV3x9lcg">
+          <xpdl2:Coordinates XCoordinate="1232.0" YCoordinate="37.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_nHqbBQvjEeSvqdYV3x9lcg" ArtifactType="Annotation" TextAnnotation="START STEP&#xA;&#xA;This sub-procedure is the first step in any &#xA;procedure used with Soarian. It sets the &#xA;global variables used by the rest of the model &#xA;sub-procedure library.&#xA;&#xA;For examples, see 9TEMPLAT and&#xA;8TEMPLAT.&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="_nHqbAwvjEeSvqdYV3x9lcg">
+          <xpdl2:Coordinates XCoordinate="32.0" YCoordinate="32.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_nHqbBgvjEeSvqdYV3x9lcg" ArtifactType="Annotation" TextAnnotation="Revision; Date; Author; Reason for Change&#xA;---------------------------------------------------------&#xA; 1.0; 01Jan2006; SIEMENS;  Model Definition&#xA; 2.0; 01Aug2006; SIEMENS; No changes&#xA;---------------------------------------------------------&#xA;Copyright © 2006 Siemens Medical Solutions Health Services&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="_nHqbAwvjEeSvqdYV3x9lcg">
+          <xpdl2:Coordinates XCoordinate="95.0" YCoordinate="527.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_nHqbBwvjEeSvqdYV3x9lcg" ArtifactType="Annotation" TextAnnotation="Workflow Disclaimer&#xA;-------------------------------------------------------&#xA;Author: Siemens&#xA;&#xA;The workflow engine is used to sequence and&#xA;coordinate tasks between health care providers.&#xA;It calls on the rules engine to perform clinical&#xA;logic for alerts and reminders.&#xA;&#xA;In making this process definition available to&#xA;users of the System, Siemens is not prescribing&#xA;the use of any drug or any treatment or&#xA;procedure described herein.  This process&#xA;definition is not intended to replace current&#xA;medical practices, sound professional judgment&#xA;or individualized patient care.&#xA;&#xA;Siemens disclaims all responsibility for the&#xA;consequences of using the information and ALL&#xA;WARRANTIES, WHETHER EXPRESSED OR&#xA;IMPLIED, INCLUDING ALL WARRANTIES AS&#xA;TO THE MERCHANTABILITY, QUALITY,&#xA;ACCURACY OR FITNESS FOR A PARTICULAR&#xA;PURPOSE OF THIS INFORMATION ARE&#xA;EXCLUDED AND DISCLAIMED.&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="_nHqbAwvjEeSvqdYV3x9lcg">
+          <xpdl2:Coordinates XCoordinate="498.0" YCoordinate="529.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_nHqbCAvjEeSvqdYV3x9lcg" iProcessExt:MaxStepIndex="9" iProcessExt:NextParamSequenceNum="16" xpdExt:DisplayName="17START" Name="17START" AccessLevel="PRIVATE">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Created></xpdl2:Created>
+        <xpdl2:Description>Start Step</xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_nHqbFAvjEeSvqdYV3x9lcg" Name="PARI__2" IsArray="false" Mode="IN" Required="false" iProcessExt:SequenceNum="1" xpdExt:DisplayName="Case Description Override">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbFQvjEeSvqdYV3x9lcg" Name="PARI__3" IsArray="false" Mode="IN" Required="false" iProcessExt:SequenceNum="2" xpdExt:DisplayName="Case Start Time">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbFgvjEeSvqdYV3x9lcg" Name="PARI__4" IsArray="false" Mode="IN" Required="false" iProcessExt:SequenceNum="3" xpdExt:DisplayName="Case Start Date">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbFwvjEeSvqdYV3x9lcg" Name="PARI__5" IsArray="false" Mode="IN" Required="false" iProcessExt:SequenceNum="4" xpdExt:DisplayName="Testing - Role Code">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbGAvjEeSvqdYV3x9lcg" Name="PARI__6" IsArray="false" Mode="IN" Required="false" iProcessExt:SequenceNum="5" xpdExt:DisplayName="Testing - Use Census (0/1)">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbGQvjEeSvqdYV3x9lcg" Name="PARI__7" IsArray="false" Mode="IN" Required="false" iProcessExt:SequenceNum="6" xpdExt:DisplayName="Testing - Use Test Delays (0/1)">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbGgvjEeSvqdYV3x9lcg" Name="PARI__8" IsArray="false" Mode="IN" Required="false" iProcessExt:SequenceNum="7" xpdExt:DisplayName="SubProcedure Active (0/1)">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbGwvjEeSvqdYV3x9lcg" Name="PARO__1" IsArray="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="8" xpdExt:DisplayName="Case Description">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbHAvjEeSvqdYV3x9lcg" Name="PARO__2" IsArray="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="9" xpdExt:DisplayName="Case Start Time">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbHQvjEeSvqdYV3x9lcg" Name="PARO__3" IsArray="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="10" xpdExt:DisplayName="Case Start Date">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbHgvjEeSvqdYV3x9lcg" Name="PARO__4" IsArray="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="11" xpdExt:DisplayName="Testing - Role Code">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbHwvjEeSvqdYV3x9lcg" Name="PARO__5" IsArray="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="12" xpdExt:DisplayName="Testing - Use Census (0/1)">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbIAvjEeSvqdYV3x9lcg" Name="PARO__6" IsArray="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="13" xpdExt:DisplayName="Testing - Use Test Delays (0/1)">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbIQvjEeSvqdYV3x9lcg" Name="PARO__7" IsArray="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="14" xpdExt:DisplayName="SubProcedure Active (0/1)">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nHqbIgvjEeSvqdYV3x9lcg" Name="PARO__8" IsArray="false" Mode="OUT" Required="false" iProcessExt:SequenceNum="15" xpdExt:DisplayName="Discharge Flag (0/1/2)">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_nHqbIwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_CASEDESC" Name="SW_CASEDESC" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbJAvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_CP_INCPERIOD" Name="SW_CP_INCPERIOD" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>4</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbJQvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_CP_INCREMENT" Name="SW_CP_INCREMENT" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>4</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbJgvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_CP_NUMINC" Name="SW_CP_NUMINC" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbJwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_CP_PERIODTYP" Name="SW_CP_PERIODTYP" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>1</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbKAvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_CP_VALUE" Name="SW_CP_VALUE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>3</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbKQvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_GEN_IDX" Name="SW_GEN_IDX" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>6</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbKgvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_MAINCASE" Name="SW_MAINCASE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbKwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_MAINHOST" Name="SW_MAINHOST" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbLAvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_MAINPROC" Name="SW_MAINPROC" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>8</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbLQvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_PARENTCASE" Name="SW_PARENTCASE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbLgvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_PARENTHOST" Name="SW_PARENTHOST" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbLwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_PARENTPROC" Name="SW_PARENTPROC" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>8</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbMAvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_PARENTREF" Name="SW_PARENTREF" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>64</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbMQvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_QPARAM1" Name="SW_QPARAM1" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbMgvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_QPARAM2" Name="SW_QPARAM2" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>24</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbMwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_QPARAM3" Name="SW_QPARAM3" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>12</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbNAvjEeSvqdYV3x9lcg" xpdExt:DisplayName="SW_QPARAM4" Name="SW_QPARAM4" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>12</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbNQvjEeSvqdYV3x9lcg" xpdExt:DisplayName="S_ACTIVE" Name="S_ACTIVE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbNgvjEeSvqdYV3x9lcg" xpdExt:DisplayName="S_DISCHARGE" Name="S_DISCHARGE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbNwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="S_STARTDATE" Name="S_STARTDATE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbOAvjEeSvqdYV3x9lcg" xpdExt:DisplayName="S_STARTTIME" Name="S_STARTTIME" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbOQvjEeSvqdYV3x9lcg" xpdExt:DisplayName="S_TESTDELAYS" Name="S_TESTDELAYS" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbOgvjEeSvqdYV3x9lcg" xpdExt:DisplayName="S_TESTROLE" Name="S_TESTROLE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nHqbOwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="S_USECENSUS" Name="S_USECENSUS" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>1</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_nHqbCQvjEeSvqdYV3x9lcg" Name="SETVARS" iProcessExt:StepIndex="4" xpdExt:DisplayName="Set Startup Variables">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="iProcessScript">;Set Start Date/Time
+if S_STARTDATE = SW_NA or S_STARTTIME = SW_NA
+	S_STARTDATE := SW_DATE
+	S_STARTTIME := SW_TIME
+endif
+
+;Set Test Flag Defaults
+if S_USECENSUS &lt;> 0 and S_USECENSUS &lt;> 1
+	S_USECENSUS := 1
+endif
+if S_TESTDELAYS &lt;> 0 and S_TESTDELAYS &lt;> 1
+	S_TESTDELAYS := 0
+endif
+if S_ACTIVE&lt;> 0 and S_ACTIVE&lt;> 1
+	S_ACTIVE:= 1
+endif
+
+S_DISCHARGE := 0
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="4"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_nHqbAwvjEeSvqdYV3x9lcg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="399.0" YCoordinate="314.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:TaskProperties NoDeleteOnWithdraw="false" IgnoreCaseSuspend="false">
+            <iProcessExt:Prediction UseDeadlineForDuration="false" DontIncludeAsFutureWorkItem="false"/>
+            <iProcessExt:EAIStepTask DelayedReleaseType="Never"/>
+          </iProcessExt:TaskProperties>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nHqbCgvjEeSvqdYV3x9lcg" iProcessExt:StepIndex="6">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_nHqbAwvjEeSvqdYV3x9lcg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="624.0" YCoordinate="314.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nHqbCwvjEeSvqdYV3x9lcg" Name="1README" iProcessExt:StepIndex="5" xpdExt:DisplayName="README">
+          <xpdl2:Description>FIELD DESCRIPTIONS
+
+CASE DESCRIPTION: The description seen in 
+Case Administrator. 17START on 9TEMPLAT 
+values this field with the patient's Medical 
+Record Number (MRN).
+
+CASE START TIME: Time the case starts.
+
+CASE START DATE: Date the case starts.
+
+TESTING - ROLE CODE: If this is valued, alerts
+are sent to the Role Code specified instead
+of the ROLES defined for the alerts.
+
+TESTING - USE CENSUS (0/1): Use to turn
+the Use Census feature on and off. 
+Default = 1 (Use Census = On)
+
+TESTING - USE TEST DELAYS (0/1): If set
+to 1, it uses the test delay settings of 17TIMER
+instead of the actual wait intervals.
+
+SUBPROCEDURE ACTIVE: When combined
+with a decision point following 17START, can
+be used to turn off sub-procedures from the
+main procedure.
+
+DISCHARGE FLAG: This field is set to 1 within 
+the sub-procedure when a patient is discharged.
+It is set to 2 when a discharge is cancelled.
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:No/>
+          </xpdl2:Implementation>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="5"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="181,254,150" Height="48.0" LaneId="_nHqbAwvjEeSvqdYV3x9lcg" Width="48.0">
+              <xpdl2:Coordinates XCoordinate="225.0" YCoordinate="314.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nHqbDAvjEeSvqdYV3x9lcg" Name="Start" iProcessExt:StepIndex="7" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_nHqbAwvjEeSvqdYV3x9lcg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="89.0" YCoordinate="313.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nHqbDQvjEeSvqdYV3x9lcg" Name="IP4ASGN" iProcessExt:StepIndex="8" xpdExt:DisplayName="IP4ASGN">
+          <xpdl2:Description>Assign Data From Input Parameters</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="iProcessScript">// Assign template formal parameter data to data fields 
+SW_CASEDESC := PARI__2; // Case Description Override
+S_STARTTIME := PARI__3; // Case Start Time
+S_STARTDATE := PARI__4; // Case Start Date
+S_TESTROLE := PARI__5; // Testing - Role Code
+S_USECENSUS := PARI__6; // Testing - Use Census (0/1)
+S_TESTDELAYS := PARI__7; // Testing - Use Test Delays (0/1)
+S_ACTIVE := PARI__8; // SubProcedure Active (0/1)
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="60.0" LaneId="_nHqbAwvjEeSvqdYV3x9lcg" Width="70.0">
+              <xpdl2:Coordinates XCoordinate="169.0" YCoordinate="310.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nHqbDgvjEeSvqdYV3x9lcg" Name="OP2ASGN" iProcessExt:StepIndex="9" xpdExt:DisplayName="OP2ASGN">
+          <xpdl2:Description>Assign Data To Output Parameters</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="iProcessScript">// Assign template formal parameter data to data fields 
+PARO__1 := SW_CASEDESC; // Case Description
+PARO__2 := S_STARTTIME; // Case Start Time
+PARO__3 := S_STARTDATE; // Case Start Date
+PARO__4 := S_TESTROLE; // Testing - Role Code
+PARO__5 := S_USECENSUS; // Testing - Use Census (0/1)
+PARO__6 := S_TESTDELAYS; // Testing - Use Test Delays (0/1)
+PARO__7 := S_ACTIVE; // SubProcedure Active (0/1)
+PARO__8 := S_DISCHARGE; // Discharge Flag (0/1/2)
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="60.0" LaneId="_nHqbAwvjEeSvqdYV3x9lcg" Width="70.0">
+              <xpdl2:Coordinates XCoordinate="554.0" YCoordinate="311.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <iProcessExt:TaskProperties/>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_nHqbDwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_nHqbDAvjEeSvqdYV3x9lcg" To="_nHqbDQvjEeSvqdYV3x9lcg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nHqbEAvjEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_nHqbCQvjEeSvqdYV3x9lcg" To="_nHqbDgvjEeSvqdYV3x9lcg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nHqbEQvjEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_nHqbCwvjEeSvqdYV3x9lcg" To="_nHqbCQvjEeSvqdYV3x9lcg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nHqbEgvjEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_nHqbDQvjEeSvqdYV3x9lcg" To="_nHqbCwvjEeSvqdYV3x9lcg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nHqbEwvjEeSvqdYV3x9lcg" xpdExt:DisplayName="" Name="" From="_nHqbDgvjEeSvqdYV3x9lcg" To="_nHqbCgvjEeSvqdYV3x9lcg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="iProcess"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <iProcessExt:ProcessProperties UseWorkingDays="false" IgnoreBlankAddressees="false" EnableCasePrediction="false" NormaliseCaseData="true" CaseDescOnStart="Optional" AutoPurge="false"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="10"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_SQmrAIuAEeCcLplVHA3buw" name="com.example.businessobjectmodel">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SQmrAYuAEeCcLplVHA3buw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SQmrAouAEeCcLplVHA3buw" key="author" value="rgreen"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SQmrA4uAEeCcLplVHA3buw" key="created" value="1306847991840"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SQmrBIuAEeCcLplVHA3buw" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_wEd6YIuWEeCcLplVHA3buw" name="DadsWardrobe">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wvFksIuWEeCcLplVHA3buw" name="jeans" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="org.example.UnionWSDL.bom#org.example.UnionWSDLsizebyno2?org.example.UnionWSDL%3a%3asizebyno?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wvPVsIuWEeCcLplVHA3buw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wvFksouWEeCcLplVHA3buw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_yJn7sIwoEeC67tNmpDsyfA" name="shoes" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yJn7s4woEeC67tNmpDsyfA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yJn7sowoEeC67tNmpDsyfA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_1bk0oIwoEeC67tNmpDsyfA" name="shirts" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1bk0o4woEeC67tNmpDsyfA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1bk0oowoEeC67tNmpDsyfA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="__M7HQIuWEeCcLplVHA3buw" name="MumsWardrobe">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_DtHU84uXEeCcLplVHA3buw" name="jeans" aggregation="composite">
+        <type xmi:type="uml:Enumeration" href="org.example.UnionWSDL.bom#org.example.UnionWSDLsizebystring?org.example.UnionWSDL%3a%3asizebystring?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DtHU9IuXEeCcLplVHA3buw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DtHU9YuXEeCcLplVHA3buw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_AZXFMIuXEeCcLplVHA3buw" name="SonsWardrobe">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_D3jDVYuXEeCcLplVHA3buw" name="jeans" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="org.example.UnionWSDL.bom#org.example.UnionWSDLjeans_size?org.example.UnionWSDL%3a%3ajeans_size?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_D3jDVouXEeCcLplVHA3buw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_D3jDV4uXEeCcLplVHA3buw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BxlcYIuXEeCcLplVHA3buw" name="DaughtersWardrobe">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ECa2lYuXEeCcLplVHA3buw" name="jeans" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="org.example.UnionWSDL.bom#org.example.UnionWSDLjeans_size?org.example.UnionWSDL%3a%3ajeans_size?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ECa2louXEeCcLplVHA3buw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ECa2l4uXEeCcLplVHA3buw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ntnuwIuXEeCcLplVHA3buw" name="BasicSizes">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_o304EIuXEeCcLplVHA3buw" name="byNumber" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="org.example.UnionWSDL.bom#org.example.UnionWSDLsizebyno2?org.example.UnionWSDL%3a%3asizebyno?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o304E4uXEeCcLplVHA3buw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o304EouXEeCcLplVHA3buw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pEy9EIuXEeCcLplVHA3buw" name="byString" aggregation="composite">
+        <type xmi:type="uml:Enumeration" href="org.example.UnionWSDL.bom#org.example.UnionWSDLsizebystring?org.example.UnionWSDL%3a%3asizebystring?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pEy9E4uXEeCcLplVHA3buw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pEy9EouXEeCcLplVHA3buw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_TzUyQIuREeCcLplVHA3buw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TzUyQYuREeCcLplVHA3buw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_SQmrBYuAEeCcLplVHA3buw" type="Business Object Model" element="_SQmrAIuAEeCcLplVHA3buw?com.example.businessobjectmodel?" name="BusinessObjectModel.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_ST4ogIuAEeCcLplVHA3buw" type="1007" element="_SQmrAIuAEeCcLplVHA3buw?com.example.businessobjectmodel?">
+      <children xmi:type="notation:Node" xmi:id="_ST4ohIuAEeCcLplVHA3buw" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_ST4ohYuAEeCcLplVHA3buw" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ST4ohouAEeCcLplVHA3buw" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_ST4oh4uAEeCcLplVHA3buw" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_ST4oiIuAEeCcLplVHA3buw" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_ST4oiYuAEeCcLplVHA3buw" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_ST4oiouAEeCcLplVHA3buw" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_ST4oi4uAEeCcLplVHA3buw" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_ST4ojIuAEeCcLplVHA3buw" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_ST4ojYuAEeCcLplVHA3buw" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_ST4ojouAEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_ST4oj4uAEeCcLplVHA3buw" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_ST4okIuAEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_ST4okYuAEeCcLplVHA3buw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_ST4ogYuAEeCcLplVHA3buw" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_ST4ogouAEeCcLplVHA3buw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ST4og4uAEeCcLplVHA3buw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_wEnrYIuWEeCcLplVHA3buw" type="1002" element="_wEd6YIuWEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aDadsWardrobe?">
+      <children xmi:type="notation:Node" xmi:id="_wEnrZIuWEeCcLplVHA3buw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_wEnrZYuWEeCcLplVHA3buw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_wEnrZouWEeCcLplVHA3buw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_wEnrZ4uWEeCcLplVHA3buw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_wvZGsIuWEeCcLplVHA3buw" type="2001" element="_wvFksIuWEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aDadsWardrobe%3a%3ajeans?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_wvZGsYuWEeCcLplVHA3buw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJxssIwoEeC67tNmpDsyfA" type="2001" element="_yJn7sIwoEeC67tNmpDsyfA?com.example.businessobjectmodel%3a%3aDadsWardrobe%3a%3ashoes?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_yJxssYwoEeC67tNmpDsyfA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1bk0pIwoEeC67tNmpDsyfA" type="2001" element="_1bk0oIwoEeC67tNmpDsyfA?com.example.businessobjectmodel%3a%3aDadsWardrobe%3a%3ashirts?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_1bk0pYwoEeC67tNmpDsyfA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_wEnraIuWEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_wEnraYuWEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_wEnraouWEeCcLplVHA3buw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_wEnra4uWEeCcLplVHA3buw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_wEnrbIuWEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_wEnrbYuWEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_wEnrbouWEeCcLplVHA3buw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_wEnrYYuWEeCcLplVHA3buw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_wEnrYouWEeCcLplVHA3buw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wEnrY4uWEeCcLplVHA3buw" x="95" y="150"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__NOCMIuWEeCcLplVHA3buw" type="1002" element="__M7HQIuWEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aMumsWardrobe?">
+      <children xmi:type="notation:Node" xmi:id="__NOCNIuWEeCcLplVHA3buw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="__NOCNYuWEeCcLplVHA3buw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="__NOCNouWEeCcLplVHA3buw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="__NOCN4uWEeCcLplVHA3buw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_DtHU8YuXEeCcLplVHA3buw" type="2001" element="_DtHU84uXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aMumsWardrobe%3a%3ajeans?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_DtHU8ouXEeCcLplVHA3buw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="__NOCOIuWEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="__NOCOYuWEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="__NOCOouWEeCcLplVHA3buw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__NOCO4uWEeCcLplVHA3buw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="__NOCPIuWEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="__NOCPYuWEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="__NOCPouWEeCcLplVHA3buw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="__NOCMYuWEeCcLplVHA3buw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="__NOCMouWEeCcLplVHA3buw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__NOCM4uWEeCcLplVHA3buw" x="248" y="150"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_AZqnMIuXEeCcLplVHA3buw" type="1002" element="_AZXFMIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aSonsWardrobe?">
+      <children xmi:type="notation:Node" xmi:id="_AZqnNIuXEeCcLplVHA3buw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_AZqnNYuXEeCcLplVHA3buw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_AZqnNouXEeCcLplVHA3buw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_AZqnN4uXEeCcLplVHA3buw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_D3jDU4uXEeCcLplVHA3buw" type="2001" element="_D3jDVYuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aSonsWardrobe%3a%3ajeans?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_D3jDVIuXEeCcLplVHA3buw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_AZqnOIuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_AZqnOYuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_AZqnOouXEeCcLplVHA3buw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_AZqnO4uXEeCcLplVHA3buw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_AZqnPIuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_AZqnPYuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_AZqnPouXEeCcLplVHA3buw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_AZqnMYuXEeCcLplVHA3buw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_AZqnMouXEeCcLplVHA3buw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AZqnM4uXEeCcLplVHA3buw" x="410" y="150"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Bx4XUIuXEeCcLplVHA3buw" type="1002" element="_BxlcYIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aDaughtersWardrobe?">
+      <children xmi:type="notation:Node" xmi:id="_Bx4XVIuXEeCcLplVHA3buw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_Bx4XVYuXEeCcLplVHA3buw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_Bx4XVouXEeCcLplVHA3buw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_ByBhQIuXEeCcLplVHA3buw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_ECa2k4uXEeCcLplVHA3buw" type="2001" element="_ECa2lYuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aDaughtersWardrobe%3a%3ajeans?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ECa2lIuXEeCcLplVHA3buw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_ByBhQYuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_ByBhQouXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_ByBhQ4uXEeCcLplVHA3buw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ByBhRIuXEeCcLplVHA3buw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_ByBhRYuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_ByBhRouXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_ByBhR4uXEeCcLplVHA3buw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_Bx4XUYuXEeCcLplVHA3buw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_Bx4XUouXEeCcLplVHA3buw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bx4XU4uXEeCcLplVHA3buw" x="565" y="150"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_nt6psIuXEeCcLplVHA3buw" type="1002" element="_ntnuwIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aBasicSizes?">
+      <children xmi:type="notation:Node" xmi:id="_nt6ptIuXEeCcLplVHA3buw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_nt6ptYuXEeCcLplVHA3buw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_nt6ptouXEeCcLplVHA3buw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_nt6pt4uXEeCcLplVHA3buw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_o304FIuXEeCcLplVHA3buw" type="2001" element="_o304EIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aBasicSizes%3a%3abyNumber?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_o304FYuXEeCcLplVHA3buw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_pEy9FIuXEeCcLplVHA3buw" type="2001" element="_pEy9EIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aBasicSizes%3a%3abyString?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_pEy9FYuXEeCcLplVHA3buw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_nt6puIuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_nt6puYuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_nt6puouXEeCcLplVHA3buw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_nt6pu4uXEeCcLplVHA3buw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_nt6pvIuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_nt6pvYuXEeCcLplVHA3buw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_nt6pvouXEeCcLplVHA3buw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_nt6psYuXEeCcLplVHA3buw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_nt6psouXEeCcLplVHA3buw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nt6ps4uXEeCcLplVHA3buw" x="747" y="149"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_SQmrBouAEeCcLplVHA3buw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_SQmrB4uAEeCcLplVHA3buw"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_wEd6YYuWEeCcLplVHA3buw" displayLabel="Dads Wardrobe" base_NamedElement="_wEd6YIuWEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aDadsWardrobe?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_wvFksYuWEeCcLplVHA3buw" displayLabel="jeans" base_NamedElement="_wvFksIuWEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aDadsWardrobe%3a%3ajeans?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="__M7HQYuWEeCcLplVHA3buw" displayLabel="Mums Wardrobe" base_NamedElement="__M7HQIuWEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aMumsWardrobe?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_AZXFMYuXEeCcLplVHA3buw" displayLabel="Sons Wardrobe" base_NamedElement="_AZXFMIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aSonsWardrobe?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_BxumUIuXEeCcLplVHA3buw" displayLabel="Daughters Wardrobe" base_NamedElement="_BxlcYIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aDaughtersWardrobe?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_DtHU8IuXEeCcLplVHA3buw" displayLabel="jeans" base_NamedElement="_DtHU84uXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aMumsWardrobe%3a%3ajeans?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_D3jDUouXEeCcLplVHA3buw" displayLabel="jeans" base_NamedElement="_D3jDVYuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aSonsWardrobe%3a%3ajeans?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ECa2kouXEeCcLplVHA3buw" displayLabel="jeans" base_NamedElement="_ECa2lYuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aDaughtersWardrobe%3a%3ajeans?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ntnuwYuXEeCcLplVHA3buw" displayLabel="Basic Sizes" base_NamedElement="_ntnuwIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aBasicSizes?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_o304EYuXEeCcLplVHA3buw" displayLabel="byNumber" base_NamedElement="_o304EIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aBasicSizes%3a%3abyNumber?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_pEy9EYuXEeCcLplVHA3buw" displayLabel="byString" base_NamedElement="_pEy9EIuXEeCcLplVHA3buw?com.example.businessobjectmodel%3a%3aBasicSizes%3a%3abyString?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_yJn7sYwoEeC67tNmpDsyfA" displayLabel="shoes" base_NamedElement="_yJn7sIwoEeC67tNmpDsyfA?com.example.businessobjectmodel%3a%3aDadsWardrobe%3a%3ashoes?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_1bk0oYwoEeC67tNmpDsyfA" displayLabel="shirts" base_NamedElement="_1bk0oIwoEeC67tNmpDsyfA?com.example.businessobjectmodel%3a%3aDadsWardrobe%3a%3ashirts?"/>
+</xmi:XMI>

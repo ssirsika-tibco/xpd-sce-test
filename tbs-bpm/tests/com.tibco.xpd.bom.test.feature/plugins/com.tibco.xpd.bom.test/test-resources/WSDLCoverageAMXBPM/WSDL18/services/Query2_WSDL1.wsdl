@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.amsbqa.com/Linda18/WSDL1ImportWSDL2/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" xmlns:ns="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" targetNamespace="http://www.amsbqa.com/Linda18/WSDL1ImportWSDL2/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl">
+    <import namespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" location="Query_wsdlEmbedSchema1_Schema1ImportXSD2.wsdl"/>
+    <portType name="Query">
+        <operation name="searchCar">
+            <input message="ns:searchCarRequest"/>
+            <output message="ns:searchCarResponse"/>
+            <fault name="fault1" message="ns:searchCar_faultMsg"/>
+        </operation>
+        <operation name="searchHotel">
+            <input message="ns:searchHotelRequest"/>
+            <output message="ns:searchHotelResponse"/>
+            <fault name="fault1" message="ns:searchHotel_faultMsg"/>
+        </operation>
+        <operation name="searchAirline">
+            <input message="ns:searchAirlineRequest"/>
+            <output message="ns:searchAirlineResponse"/>
+            <fault name="fault1" message="ns:searchAirline_faultMsg"/>
+        </operation>
+    </portType>
+</definitions>

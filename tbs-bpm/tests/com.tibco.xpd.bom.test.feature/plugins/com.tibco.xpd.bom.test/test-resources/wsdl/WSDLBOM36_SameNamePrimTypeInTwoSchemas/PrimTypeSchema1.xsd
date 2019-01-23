@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/PrimSchema1" xmlns:tns="http://www.example.org/PrimSchema1"
+	xmlns:tns2="http://www.example.org/PrimSchema2" elementFormDefault="qualified">
+
+	<xs:import namespace="http://www.example.org/PrimSchema2" schemaLocation="PrimTypeSchema2.xsd"></xs:import> 
+
+	<xs:simpleType name="MyString">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ComplexWithPrimTypeInSameSchema">
+		<xs:sequence>
+			<xs:element name="myprimtype" type="tns:MyString"></xs:element>
+		</xs:sequence>	
+	</xs:complexType>
+
+	<xs:complexType name="ComplexWithPrimTypeInOtherSchema">
+		<xs:sequence>
+			<xs:element name="otherprimtype" type="tns2:MyString"></xs:element>
+		</xs:sequence>	
+	</xs:complexType>
+
+</xs:schema>
