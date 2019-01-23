@@ -1,1 +1,0 @@
-ant -f get-product-assembly-build.xml
