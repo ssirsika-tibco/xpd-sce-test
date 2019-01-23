@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_9pjf0BoaEd-KR4rH3IKjZA" xpdExt:DisplayName="ProcIfcNoParams" Name="ProcIfcNoParams">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-02-15</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>rsomayaj</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:ExternalPackages>
+    <xpdl2:ExternalPackage Id="_G0PHDxobEd-KR4rH3IKjZA" href="SimpleTypesProcIfcTest">
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="location" Value="/SimpleTypesProcIfcTest.xpdl"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:ExternalPackage>
+  </xpdl2:ExternalPackages>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_Jm6pshobEd-KR4rH3IKjZA" xpdExt:DisplayName="a. Implementing Proc With No Params (API Activity EndPoint)" Name="ProcIfcNoParams_aImplementingProcWithNoParams">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:SharedResource Type="WebService" URI="/ProcIfcNoParams/aImplementingProcWithNoParams"/>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_ovvukBr6Ed-hCtUFoT1B4A" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_kKKqkBr6Ed-hCtUFoT1B4A">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_ovvukRr6Ed-hCtUFoT1B4A" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="587.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_kKKqkBr6Ed-hCtUFoT1B4A" xpdExt:DisplayName="ProcIfcNoParams-Process" Name="ProcIfcNoParamsProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_owyQYBr6Ed-hCtUFoT1B4A" Name="cStartMsgEventWithoutError" xpdExt:DisplayName="c. Start Msg Event Without Error" xpdExt:Implements="_BtvHBRobEd-KR4rH3IKjZA" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_owyQYRr6Ed-hCtUFoT1B4A"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="aInterfaceWithoutParams" OperationName="cStartMsgEventWithoutError">
+                  <xpdExt:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="71.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="71.0">
+              <xpdl2:Coordinates XCoordinate="255.0" YCoordinate="190.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oxroQBr6Ed-hCtUFoT1B4A" Name="bStartNoneEventWithError" xpdExt:DisplayName="b. StartNoneEventWithError" xpdExt:Implements="_BtvHCBobEd-KR4rH3IKjZA" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="27.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="300.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oxroQRr6Ed-hCtUFoT1B4A" Name="ThrowErrorError" xpdExt:Implements="_BtvHCRobEd-KR4rH3IKjZA" xpdExt:Visibility="Public" xpdExt:DisplayName="Throw Error: Error">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError ErrorCode="Error"/>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="58.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="63.0">
+              <xpdl2:Coordinates XCoordinate="223.0" YCoordinate="377.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oxroQhr6Ed-hCtUFoT1B4A">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="155.0" YCoordinate="300.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ox1ZQhr6Ed-hCtUFoT1B4A" Name="dStartMsgEventWithError" xpdExt:DisplayName="d. Start Msg Event With Error" xpdExt:Implements="_BtvHChobEd-KR4rH3IKjZA" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_ox1ZQxr6Ed-hCtUFoT1B4A"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="aInterfaceWithoutParams" OperationName="dStartMsgEventWithError">
+                  <xpdExt:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="27.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="420.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ox-jMBr6Ed-hCtUFoT1B4A" Name="ThrowErrorError" xpdExt:Implements="_BtvHDBobEd-KR4rH3IKjZA" xpdExt:Visibility="Public" xpdExt:DisplayName="Throw Error: Error">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError xpdExt:RequestActivityId="_ox1ZQhr6Ed-hCtUFoT1B4A" ErrorCode="Error">
+                <xpdExt:FaultMessage Id="_oylAIBr6Ed-hCtUFoT1B4A" FaultName="Error"/>
+              </xpdl2:ResultError>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="27.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="155.0" YCoordinate="520.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oylAIRr6Ed-hCtUFoT1B4A">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_oylAIxr6Ed-hCtUFoT1B4A"/>
+                  <xpdl2:TransitionRef Id="_oyuKExr6Ed-hCtUFoT1B4A"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="155.0" YCoordinate="420.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oyuKEBr6Ed-hCtUFoT1B4A" Name="ThrowErrorError2" xpdExt:Implements="_BtvHDRobEd-KR4rH3IKjZA" xpdExt:Visibility="Public" xpdExt:DisplayName="Throw Error: Error2">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError xpdExt:RequestActivityId="_ox1ZQhr6Ed-hCtUFoT1B4A" ErrorCode="Error2">
+                <xpdExt:FaultMessage Id="_oyuKERr6Ed-hCtUFoT1B4A" FaultName="Error2"/>
+              </xpdl2:ResultError>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="27.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="255.0" YCoordinate="559.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oyuKEhr6Ed-hCtUFoT1B4A">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="255.0" YCoordinate="459.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozBsERr6Ed-hCtUFoT1B4A" Name="ThrowErrorError" xpdExt:Implements="_BtvHEBobEd-KR4rH3IKjZA" xpdExt:Visibility="Public" xpdExt:DisplayName="Throw Error: Error">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError ErrorCode="Error"/>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="27.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="421.0" YCoordinate="253.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozBsEhr6Ed-hCtUFoT1B4A">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_ozK2ARr6Ed-hCtUFoT1B4A"/>
+                  <xpdl2:TransitionRef Id="_ozUnARr6Ed-hCtUFoT1B4A"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="421.0" YCoordinate="153.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozK2Ahr6Ed-hCtUFoT1B4A" Name="ThrowErrorError2" xpdExt:Implements="_BtvHERobEd-KR4rH3IKjZA" xpdExt:Visibility="Public" xpdExt:DisplayName="Throw Error: Error2">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError ErrorCode="Error2"/>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="58.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="63.0">
+              <xpdl2:Coordinates XCoordinate="568.0" YCoordinate="247.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozUnABr6Ed-hCtUFoT1B4A">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="521.0" YCoordinate="153.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozeYABr6Ed-hCtUFoT1B4A" Name="dIntermediateMsgEventWithErr" xpdExt:DisplayName="d. IntermediateMsgEventWithErr" xpdExt:Implements="_BtvHEhobEd-KR4rH3IKjZA" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_ozeYARr6Ed-hCtUFoT1B4A"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="aInterfaceWithoutParams" OperationName="dIntermediateMsgEventWithErr">
+                  <xpdExt:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="58.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="147.0">
+              <xpdl2:Coordinates XCoordinate="439.0" YCoordinate="71.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozeYAhr6Ed-hCtUFoT1B4A" Name="ThrowErrorError" xpdExt:Implements="_BtvHFBobEd-KR4rH3IKjZA" xpdExt:Visibility="Public" xpdExt:DisplayName="Throw Error: Error">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError xpdExt:RequestActivityId="_ozeYABr6Ed-hCtUFoT1B4A" ErrorCode="Error">
+                <xpdExt:FaultMessage Id="_ozeYAxr6Ed-hCtUFoT1B4A" FaultName="Error"/>
+              </xpdl2:ResultError>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="58.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="63.0">
+              <xpdl2:Coordinates XCoordinate="521.0" YCoordinate="318.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozeYBBr6Ed-hCtUFoT1B4A">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_oznh8Rr6Ed-hCtUFoT1B4A"/>
+                  <xpdl2:TransitionRef Id="_ozxS8hr6Ed-hCtUFoT1B4A"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="521.0" YCoordinate="153.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_oznh8hr6Ed-hCtUFoT1B4A" Name="ThrowErrorError2" xpdExt:Implements="_BtvHFRobEd-KR4rH3IKjZA" xpdExt:Visibility="Public" xpdExt:DisplayName="Throw Error: Error2">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError xpdExt:RequestActivityId="_ozeYABr6Ed-hCtUFoT1B4A" ErrorCode="Error2">
+                <xpdExt:FaultMessage Id="_ozxS8Br6Ed-hCtUFoT1B4A" FaultName="Error2"/>
+              </xpdl2:ResultError>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="58.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="63.0">
+              <xpdl2:Coordinates XCoordinate="669.0" YCoordinate="268.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozxS8Rr6Ed-hCtUFoT1B4A">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="621.0" YCoordinate="153.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ozxS9Br6Ed-hCtUFoT1B4A" Name="cIntermediateMsgEventWithoutErr" xpdExt:DisplayName="c. IntermediateMsgEventWithoutErr" xpdExt:Implements="_BtvHFhobEd-KR4rH3IKjZA" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_ozxS9Rr6Ed-hCtUFoT1B4A"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="aInterfaceWithoutParams" OperationName="cIntermediateMsgEventWithoutErr">
+                  <xpdExt:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="58.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="163.0">
+              <xpdl2:Coordinates XCoordinate="626.0" YCoordinate="71.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_aXP60BsBEd-WMPC8tM1AFw" Name="aIntermediateNoneEventWithoutErr" xpdExt:DisplayName="a. IntermediateNoneEventWithoutErr" xpdExt:Implements="_BtvHDhobEd-KR4rH3IKjZA" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="27.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="120.0" YCoordinate="60.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_aaYHUBsBEd-WMPC8tM1AFw" Name="bIntermediateNoneEventWithErr" xpdExt:DisplayName="b. IntermediateNoneEventWithErr" xpdExt:Implements="_BtvHDxobEd-KR4rH3IKjZA" xpdExt:Visibility="Public">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="192,192,192" Height="58.0" LaneId="_ovvukRr6Ed-hCtUFoT1B4A" Width="153.0">
+              <xpdl2:Coordinates XCoordinate="251.0" YCoordinate="51.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_ox1ZQBr6Ed-hCtUFoT1B4A" Name="" From="_oxroQBr6Ed-hCtUFoT1B4A" To="_oxroQhr6Ed-hCtUFoT1B4A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ox1ZQRr6Ed-hCtUFoT1B4A" Name="" From="_oxroQhr6Ed-hCtUFoT1B4A" To="_oxroQRr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression/></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oylAIhr6Ed-hCtUFoT1B4A" Name="" From="_ox1ZQhr6Ed-hCtUFoT1B4A" To="_oylAIRr6Ed-hCtUFoT1B4A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oylAIxr6Ed-hCtUFoT1B4A" Name="" From="_oylAIRr6Ed-hCtUFoT1B4A" To="_ox-jMBr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression/></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oyuKExr6Ed-hCtUFoT1B4A" Name="" From="_oylAIRr6Ed-hCtUFoT1B4A" To="_oyuKEhr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oyuKFBr6Ed-hCtUFoT1B4A" Name="" From="_oyuKEhr6Ed-hCtUFoT1B4A" To="_oyuKEBr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression/></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ozK2ARr6Ed-hCtUFoT1B4A" Name="" From="_ozBsEhr6Ed-hCtUFoT1B4A" To="_ozBsERr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression/></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ozUnARr6Ed-hCtUFoT1B4A" Name="" From="_ozBsEhr6Ed-hCtUFoT1B4A" To="_ozUnABr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ozUnAhr6Ed-hCtUFoT1B4A" Name="" From="_ozUnABr6Ed-hCtUFoT1B4A" To="_ozK2Ahr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression/></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oznh8Br6Ed-hCtUFoT1B4A" Name="" From="_ozeYABr6Ed-hCtUFoT1B4A" To="_ozeYBBr6Ed-hCtUFoT1B4A">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oznh8Rr6Ed-hCtUFoT1B4A" Name="" From="_ozeYBBr6Ed-hCtUFoT1B4A" To="_ozeYAhr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression/></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ozxS8hr6Ed-hCtUFoT1B4A" Name="" From="_ozeYBBr6Ed-hCtUFoT1B4A" To="_ozxS8Rr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ozxS8xr6Ed-hCtUFoT1B4A" Name="" From="_ozxS8Rr6Ed-hCtUFoT1B4A" To="_oznh8hr6Ed-hCtUFoT1B4A">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression/></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ImplementedInterface xpdExt:ProcessInterfaceId="_BtvHBBobEd-KR4rH3IKjZA"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_BtvHBBobEd-KR4rH3IKjZA" xpdExt:DisplayName="a. InterfaceWithoutParams" Name="aInterfaceWithoutParams">
+      <xpdl2:Description>Process Interface with only start events of type message and type none, with errors and no errors. Contains no parameters.&#xD;
+&#xD;
+Used to test WSDL, and validations when processes implementing these are created.</xpdl2:Description>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_BtvHBRobEd-KR4rH3IKjZA" xpdExt:DisplayName="c. Start Msg Event Without Error" Name="cStartMsgEventWithoutError" Trigger="Message" Visibility="Public">
+          <xpdExt:TriggerResultMessage>
+            <xpdl2:Message Id="_BtvHBhobEd-KR4rH3IKjZA"/>
+            <xpdExt:PortTypeOperation PortTypeName="aInterfaceWithoutParams" OperationName="cStartMsgEventWithoutError">
+              <xpdExt:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+            </xpdExt:PortTypeOperation>
+          </xpdExt:TriggerResultMessage>
+        </xpdExt:StartMethod>
+        <xpdExt:StartMethod Id="_BtvHBxobEd-KR4rH3IKjZA" xpdExt:DisplayName="a. StartNoneEventWithoutError" Name="aStartNoneEventWithoutError" Visibility="Public"/>
+        <xpdExt:StartMethod Id="_BtvHCBobEd-KR4rH3IKjZA" xpdExt:DisplayName="b. StartNoneEventWithError" Name="bStartNoneEventWithError" Visibility="Public">
+          <xpdExt:ErrorMethods>
+            <xpdExt:ErrorMethod Id="_BtvHCRobEd-KR4rH3IKjZA" ErrorCode="Error"/>
+          </xpdExt:ErrorMethods>
+        </xpdExt:StartMethod>
+        <xpdExt:StartMethod Id="_BtvHChobEd-KR4rH3IKjZA" xpdExt:DisplayName="d. Start Msg Event With Error" Name="dStartMsgEventWithError" Trigger="Message" Visibility="Public">
+          <xpdExt:TriggerResultMessage>
+            <xpdl2:Message Id="_BtvHCxobEd-KR4rH3IKjZA"/>
+            <xpdExt:PortTypeOperation PortTypeName="aInterfaceWithoutParams" OperationName="dStartMsgEventWithError">
+              <xpdExt:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+            </xpdExt:PortTypeOperation>
+          </xpdExt:TriggerResultMessage>
+          <xpdExt:ErrorMethods>
+            <xpdExt:ErrorMethod Id="_BtvHDBobEd-KR4rH3IKjZA" ErrorCode="Error"/>
+            <xpdExt:ErrorMethod Id="_BtvHDRobEd-KR4rH3IKjZA" ErrorCode="Error2"/>
+          </xpdExt:ErrorMethods>
+        </xpdExt:StartMethod>
+      </xpdExt:StartMethods>
+      <xpdExt:IntermediateMethods>
+        <xpdExt:IntermediateMethod Id="_BtvHDhobEd-KR4rH3IKjZA" xpdExt:DisplayName="a. IntermediateNoneEventWithoutErr" Name="aIntermediateNoneEventWithoutErr" Visibility="Public"/>
+        <xpdExt:IntermediateMethod Id="_BtvHDxobEd-KR4rH3IKjZA" xpdExt:DisplayName="b. IntermediateNoneEventWithErr" Name="bIntermediateNoneEventWithErr" Visibility="Public">
+          <xpdExt:ErrorMethods>
+            <xpdExt:ErrorMethod Id="_BtvHEBobEd-KR4rH3IKjZA" ErrorCode="Error"/>
+            <xpdExt:ErrorMethod Id="_BtvHERobEd-KR4rH3IKjZA" ErrorCode="Error2"/>
+          </xpdExt:ErrorMethods>
+        </xpdExt:IntermediateMethod>
+        <xpdExt:IntermediateMethod Id="_BtvHEhobEd-KR4rH3IKjZA" xpdExt:DisplayName="d. IntermediateMsgEventWithErr" Name="dIntermediateMsgEventWithErr" Trigger="Message" Visibility="Public">
+          <xpdExt:TriggerResultMessage>
+            <xpdl2:Message Id="_BtvHExobEd-KR4rH3IKjZA"/>
+            <xpdExt:PortTypeOperation PortTypeName="aInterfaceWithoutParams" OperationName="dIntermediateMsgEventWithErr">
+              <xpdExt:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+            </xpdExt:PortTypeOperation>
+          </xpdExt:TriggerResultMessage>
+          <xpdExt:ErrorMethods>
+            <xpdExt:ErrorMethod Id="_BtvHFBobEd-KR4rH3IKjZA" ErrorCode="Error"/>
+            <xpdExt:ErrorMethod Id="_BtvHFRobEd-KR4rH3IKjZA" ErrorCode="Error2"/>
+          </xpdExt:ErrorMethods>
+        </xpdExt:IntermediateMethod>
+        <xpdExt:IntermediateMethod Id="_BtvHFhobEd-KR4rH3IKjZA" xpdExt:DisplayName="c. IntermediateMsgEventWithoutErr" Name="cIntermediateMsgEventWithoutErr" Trigger="Message" Visibility="Public">
+          <xpdExt:TriggerResultMessage>
+            <xpdl2:Message Id="_BtvHFxobEd-KR4rH3IKjZA"/>
+            <xpdExt:PortTypeOperation PortTypeName="aInterfaceWithoutParams" OperationName="cIntermediateMsgEventWithoutErr">
+              <xpdExt:ExternalReference location="SimpleTypesProcIfcTest.wsdl"/>
+            </xpdExt:PortTypeOperation>
+          </xpdExt:TriggerResultMessage>
+        </xpdExt:IntermediateMethod>
+      </xpdExt:IntermediateMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

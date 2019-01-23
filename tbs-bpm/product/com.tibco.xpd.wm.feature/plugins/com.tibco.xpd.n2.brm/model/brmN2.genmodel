@@ -1,0 +1,1271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.tibco.xpd.n2.brm/src" editDirectory="/com.tibco.xpd.n2.brm.edit/src"
+    modelPluginID="com.tibco.xpd.n2.brm" modelName="BrmN2" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.4">
+  <foreignModel>brm.xsd</foreignModel>
+  <foreignModel>brmdto.xsd</foreignModel>
+  <foreignModel>brmworkmodel.xsd</foreignModel>
+  <foreignModel>datamodel.xsd</foreignModel>
+  <foreignModel>organisation.xsd</foreignModel>
+  <foreignModel>worktype.xsd</foreignModel>
+  <foreignModel>pfeactivitymodel.xsd</foreignModel>
+  <foreignModel>common-facade.xsd</foreignModel>
+  <genPackages prefix="N2BRM" basePackage="com.tibco.n2.brm" resource="XML" disposableProviderFactory="true"
+      ecorePackage="brm.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//ColumnCapability">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnCapability/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnCapability/ORDER"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnCapability/FILTER"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnCapability/BOTHORDERFILTER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//ColumnType">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnType/COLUNSPECIFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnType/COLNUMERIC"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnType/COLSTRING"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnType/COLDATETIME"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnType/COLBOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnType/COLSTATE"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ColumnType/COLDISTSTRATEGY"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//DistributionStrategy">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//DistributionStrategy/OFFER"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//DistributionStrategy/ALLOCATE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//MethodAuthorisationAction">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/scheduleWorkItem"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/cancelWorkItem"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/suspendWorkItem"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/viewWorkList"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/setResourceOrderFilterCriteria"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/openOtherResourcesItems"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/closeOtherResourcesItems"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/skipWorkItem"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/reallocateWorkItemToWorld"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/reallocateToOfferSet"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/pendWorkItem"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/workItemAllocation"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/autoOpenNextWorkItem"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/rescheduleWorkItem"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/enableWorkItem"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/changeAllocatedWorkItemPriority"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/changeAnyWorkItemPriority"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationAction/viewGlobalWorkList"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//MethodAuthorisationComponent">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//MethodAuthorisationComponent/BRM"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//ResourcesRequiredType">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ResourcesRequiredType/ALL"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ResourcesRequiredType/MINE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//ScheduleStatus">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ScheduleStatus/NOSCHEDULE"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ScheduleStatus/BEFORE"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ScheduleStatus/DURING"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//ScheduleStatus/AFTER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//WorkGroupType">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkGroupType/CHAINING"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkGroupType/SEPARATIONOFCONCERNS"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkGroupType/RETAINMOSTFAMILIAR"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkGroupType/RETAINFAMILIAR"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkGroupType/CASEHANDLING"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkGroupType/NOGROUP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//WorkItemScriptOperation">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptOperation/OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptOperation/CLOSE"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptOperation/COMPLETE"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptOperation/PEND"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptOperation/SCHEDULE"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptOperation/RESCHEDULE"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptOperation/SYSAPPEND"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//WorkItemScriptType">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptType/JSCRIPT"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemScriptType/JYTHON"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="brm.ecore#//WorkItemState">
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/CREATED"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/OFFERED"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/ALLOCATED"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/OPENED"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/PENDED"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/PENDHIDDEN"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/SUSPENDED"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/COMPLETED"/>
+      <genEnumLiterals ecoreEnumLiteral="brm.ecore#//WorkItemState/CANCELLED"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute10Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute11Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute12Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute13Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute14Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute21Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute22Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute23Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute24Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute25Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute26Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute27Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute28Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute29Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute2Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute30Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute31Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute32Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute33Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute34Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute35Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute36Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute37Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute38Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute39Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute3Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute40Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute4Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute8Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//Attribute9Type"/>
+    <genDataTypes ecoreDataType="brm.ecore#//ColumnCapabilityObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//ColumnTypeObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//DescriptionType"/>
+    <genDataTypes ecoreDataType="brm.ecore#//DistributionStrategyObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//LockerType"/>
+    <genDataTypes ecoreDataType="brm.ecore#//MethodAuthorisationActionObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//MethodAuthorisationComponentObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//NameType"/>
+    <genDataTypes ecoreDataType="brm.ecore#//OwnerType"/>
+    <genDataTypes ecoreDataType="brm.ecore#//ResourcesRequiredTypeObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//ScheduleStatusObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//ScriptOperationType"/>
+    <genDataTypes ecoreDataType="brm.ecore#//WorkGroupTypeObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//WorkItemScriptOperationObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//WorkItemScriptTypeObject"/>
+    <genDataTypes ecoreDataType="brm.ecore#//WorkItemStateObject"/>
+    <genClasses ecoreClass="brm.ecore#//AddCurrentResourceToViewResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AddCurrentResourceToViewResponseType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AddCurrentResourceToViewType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AddCurrentResourceToViewType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AllocateAndOpenNextWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AllocateAndOpenNextWorkItemResponseType/workItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AllocateAndOpenNextWorkItemType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AllocateAndOpenNextWorkItemType/resource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AllocateAndOpenNextWorkItemType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AllocateAndOpenWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//AllocateAndOpenWorkItemResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//AllocateAndOpenWorkItemResponseType/workItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AllocateAndOpenWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//AllocateAndOpenWorkItemType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//AllocateAndOpenWorkItemType/workItemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AllocateAndOpenWorkItemType/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AllocateWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//AllocateWorkItemResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//AllocateWorkItemResponseType/workItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AllocateWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//AllocateWorkItemType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//AllocateWorkItemType/workItemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AllocateWorkItemType/resource"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="brm.ecore#//AllocationHistory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AllocationHistory/resourceID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AllocationHistory/allocationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AllocationHistory/allocationID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncCancelWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncCancelWorkItemResponseType/messageDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncCancelWorkItemResponseType/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncCancelWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncCancelWorkItemType/messageDetails"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncEndGroupResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncEndGroupResponseType/activityID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncEndGroupResponseType/groupID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncEndGroupResponseType/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncEndGroupType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncEndGroupType/activityID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncEndGroupType/endGroup"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncRescheduleWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncRescheduleWorkItemResponseType/messageDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncRescheduleWorkItemResponseType/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncRescheduleWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncRescheduleWorkItemType/itemSchedule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncRescheduleWorkItemType/messageDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncRescheduleWorkItemType/itemBody"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncResumeWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncResumeWorkItemResponseType/messageDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncResumeWorkItemResponseType/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncResumeWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncResumeWorkItemType/messageDetails"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncScheduleWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncScheduleWorkItemResponseType/messageDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncScheduleWorkItemResponseType/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncScheduleWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncScheduleWorkItemType/scheduleWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncScheduleWorkItemType/messageDetails"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncScheduleWorkItemWithModelResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncScheduleWorkItemWithModelResponseType/messageDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncScheduleWorkItemWithModelResponseType/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncScheduleWorkItemWithModelType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncScheduleWorkItemWithModelType/scheduleWorkItemWithModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncScheduleWorkItemWithModelType/messageDetails"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncStartGroupResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncStartGroupResponseType/activityID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncStartGroupResponseType/groupID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncStartGroupResponseType/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncStartGroupType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncStartGroupType/activityID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncStartGroupType/groupID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncStartGroupType/startGroup"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncSuspendWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncSuspendWorkItemResponseType/messageDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncSuspendWorkItemResponseType/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncSuspendWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncSuspendWorkItemType/messageDetails"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncSuspendWorkItemType/forceSuspend"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AsyncWorkItemDetails">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AsyncWorkItemDetails/workItemId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncWorkItemDetails/activityID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncWorkItemDetails/uaSequenceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//AsyncWorkItemDetails/brmSequenceId"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//AttributeAliasListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//AttributeAliasListType/attributeAlias"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="brm.ecore#//BaseItemInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//BaseItemInfo/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//BaseItemInfo/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//BaseItemInfo/distributionStrategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//BaseItemInfo/groupID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//BaseItemInfo/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//BaseModelInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//BaseModelInfo/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//BaseModelInfo/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//BaseModelInfo/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//CancelWorkItemResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//CancelWorkItemResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//CancelWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//CancelWorkItemType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ChainedWorkItemNotificationType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ChainedWorkItemNotificationType/groupID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ChainedWorkItemNotificationType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//CloseWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//CloseWorkItemResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//CloseWorkItemResponseType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//CloseWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//CloseWorkItemType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//CloseWorkItemType/workItemID"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//CloseWorkItemType/workItemPayload"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//CloseWorkItemType/hiddenPeriod"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ColumnDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ColumnDefinition/capability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ColumnDefinition/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ColumnDefinition/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ColumnDefinition/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ColumnDefinition/type"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ColumnOrder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ColumnOrder/columnDef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ColumnOrder/ascending"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//CompleteWorkItemResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//CompleteWorkItemResponseType/groupID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//CompleteWorkItemResponseType/nextWorkItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//CompleteWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//CompleteWorkItemType/workItemID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//CompleteWorkItemType/workItemPayload"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//CompleteWorkItemType/getNextPiledItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//CreateWorkListViewResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//CreateWorkListViewResponseType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//DeleteCurrentResourceFromViewResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//DeleteCurrentResourceFromViewResponseType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//DeleteCurrentResourceFromViewType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//DeleteCurrentResourceFromViewType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//DeleteOrgEntityConfigAttributesResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//DeleteOrgEntityConfigAttributesResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//DeleteOrgEntityConfigAttributesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//DeleteOrgEntityConfigAttributesType/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//DeleteOrgEntityConfigAttributesType/attributeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//DeleteOrgEntityConfigAttributesType/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//DeleteWorkListViewResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//DeleteWorkListViewResponseType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//DeleteWorkListViewType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//DeleteWorkListViewType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/addCurrentResourceToView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/addCurrentResourceToViewResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/allocateAndOpenNextWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/allocateAndOpenNextWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/allocateAndOpenWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/allocateAndOpenWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/allocateWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/allocateWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncCancelWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncCancelWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncEndGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncEndGroupResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncRescheduleWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncRescheduleWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncResumeWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncResumeWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncScheduleWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncScheduleWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncScheduleWorkItemWithModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncScheduleWorkItemWithModelResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncStartGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncStartGroupResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncSuspendWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/asyncSuspendWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/cancelWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/cancelWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/chainedWorkItemNotification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/closeWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/closeWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/completeWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/completeWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/createWorkListView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/createWorkListViewResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/deleteCurrentResourceFromView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/deleteCurrentResourceFromViewResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/deleteOrgEntityConfigAttributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/deleteOrgEntityConfigAttributesResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/deleteWorkListView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/deleteWorkListViewResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/editWorkListView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/editWorkListViewResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/enableWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/enableWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/endGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/endGroupResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getAllocatedWorkListItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getBatchGroupIds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getBatchGroupIdsResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getBatchWorkItemIds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getBatchWorkItemIdsResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getEditableWorkListViews"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getEditableWorkListViewsResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getOfferSet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getOfferSetResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getOrgEntityConfigAttributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getOrgEntityConfigAttributesAvailable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getOrgEntityConfigAttributesAvailableResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getOrgEntityConfigAttributesResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getPublicWorkListViews"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getPublicWorkListViewsResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getResourceOrderFilterCriteria"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getResourceOrderFilterCriteriaResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getViewsForResource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getViewsForResourceResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkItemHeader"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkItemHeaderResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkItemOrderFilter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkItemOrderFilterResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkListItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkListItemsForGlobalData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkListItemsForGlobalDataResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkListItemsForView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkListItemsForViewResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkListItemsResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkListViewDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkListViewDetailsResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkModelResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkModels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkModelsResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkTypeResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/getWorkTypesResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/onNotification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/onNotificationResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/openWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/openWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/pendWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/pendWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/previewWorkItemFromList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/previewWorkItemFromListResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/pushNotification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/reallocateWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/reallocateWorkItemData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/reallocateWorkItemDataResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/reallocateWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/rescheduleWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/rescheduleWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/resumeWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/resumeWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/saveOpenWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/saveOpenWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/scheduleWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/scheduleWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/scheduleWorkItemWithModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/scheduleWorkItemWithModelResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/setOrgEntityConfigAttributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/setOrgEntityConfigAttributesResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/setResourceOrderFilterCriteria"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/setResourceOrderFilterCriteriaResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/setWorkItemPriority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/setWorkItemPriorityResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/skipWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/skipWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/startGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/startGroupResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/suspendWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/suspendWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/unallocateWorkItem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/unallocateWorkItemResponse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/unlockWorkListView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//DocumentRoot/unlockWorkListViewResponse"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//EditWorkListViewResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//EditWorkListViewResponseType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//EditWorkListViewType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//EditWorkListViewType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//EnableWorkItemResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//EnableWorkItemResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//EnableWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//EnableWorkItemType/workItemID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//EnableWorkItemType/itemBody"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//EndGroupResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//EndGroupResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//EndGroupType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//EndGroupType/groupID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetAllocatedWorkListItemsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetAllocatedWorkListItemsType/entityID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetAllocatedWorkListItemsType/orderFilterCriteria"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetAllocatedWorkListItemsType/getTotalCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetAllocatedWorkListItemsType/numberOfItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetAllocatedWorkListItemsType/startPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetBatchGroupIdsResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//GetBatchGroupIdsResponseType/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetBatchGroupIdsResponseType/groupID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetBatchWorkItemIdsResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//GetBatchWorkItemIdsResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//GetBatchWorkItemIdsResponseType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetEditableWorkListViewsResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetEditableWorkListViewsResponseType/workListViews"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetEditableWorkListViewsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetEditableWorkListViewsType/apiVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetEditableWorkListViewsType/numberOfItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetEditableWorkListViewsType/startPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetOfferSetResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetOfferSetResponseType/entityGuid"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetOfferSetResponseType/entityId"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetOfferSetType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetOfferSetType/workItemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetOfferSetType/apiVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetOrgEntityConfigAttributesAvailableResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//GetOrgEntityConfigAttributesAvailableResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//GetOrgEntityConfigAttributesAvailableResponseType/orgEntityConfigAttributesAvailable"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetOrgEntityConfigAttributesAvailableType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetOrgEntityConfigAttributesAvailableType/startAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetOrgEntityConfigAttributesAvailableType/numToReturn"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetOrgEntityConfigAttributesResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//GetOrgEntityConfigAttributesResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//GetOrgEntityConfigAttributesResponseType/orgEntityConfigAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetOrgEntityConfigAttributesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetOrgEntityConfigAttributesType/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetPublicWorkListViewsResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetPublicWorkListViewsResponseType/workListViews"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetPublicWorkListViewsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetPublicWorkListViewsType/apiVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetPublicWorkListViewsType/numberOfItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetPublicWorkListViewsType/startPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetResourceOrderFilterCriteriaResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetResourceOrderFilterCriteriaResponseType/orderFilterCriteria"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetResourceOrderFilterCriteriaType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetResourceOrderFilterCriteriaType/resourceID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetViewsForResourceResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetViewsForResourceResponseType/workListViews"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetViewsForResourceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetViewsForResourceType/apiVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetViewsForResourceType/numberOfItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetViewsForResourceType/startPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkItemHeaderResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkItemHeaderResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//GetWorkItemHeaderResponseType/workItemHeader"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkItemHeaderType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkItemHeaderType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//GetWorkItemHeaderType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkItemOrderFilterResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkItemOrderFilterResponseType/columnData"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkItemOrderFilterType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkItemOrderFilterType/limitColumns"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkListItemsForGlobalDataResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForGlobalDataResponseType/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForGlobalDataResponseType/endPosition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkListItemsForGlobalDataResponseType/workItems"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkListItemsForGlobalDataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForGlobalDataType/globalDataRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkListItemsForGlobalDataType/orderFilterCriteria"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForGlobalDataType/numberOfItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForGlobalDataType/startPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkListItemsForViewResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewResponseType/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewResponseType/endPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewResponseType/totalItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkListItemsForViewResponseType/workItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewResponseType/customData"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkListItemsForViewType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewType/getAllocatedItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewType/getTotalCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewType/numberOfItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewType/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsForViewType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkListItemsResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsResponseType/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsResponseType/endPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsResponseType/totalItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkListItemsResponseType/workItems"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkListItemsResponseType1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsResponseType1/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsResponseType1/endPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsResponseType1/totalItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkListItemsResponseType1/workItems"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkListItemsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsType/resourcesRequired"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkListItemsType/entityID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkListItemsType/orderFilterCriteria"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsType/getTotalCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsType/numberOfItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListItemsType/startPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkListViewDetailsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListViewDetailsType/apiVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListViewDetailsType/lockView"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkListViewDetailsType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkModelResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkModelResponseType/workModel"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkModelsResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkModelsResponseType/workModelList"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkModelsType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkModelsType/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkModelsType/numberOfItems"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkModelType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkModelType/workModelID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkTypeResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkTypeResponseType/workType"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkTypesResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//GetWorkTypesResponseType/workTypelList"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkTypesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkTypesType/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkTypesType/numberOfItems"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//GetWorkTypeType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//GetWorkTypeType/workTypeID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//HiddenPeriod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//HiddenPeriod/hiddenDuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//HiddenPeriod/visibleDate"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//Item">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//Item/entities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference brm.ecore#//Item/entityQuery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//Item/workTypeUID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//Item/workTypeVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ItemBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemBody/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ItemContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemContext/activityID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemContext/activityName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemContext/appInstance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemContext/appName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemContext/appID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemContext/appInstanceDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ItemDuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemDuration/days"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemDuration/hours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemDuration/minutes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemDuration/months"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemDuration/weeks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemDuration/years"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ItemPrivilege">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemPrivilege/suspend"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemPrivilege/statelessRealloc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemPrivilege/statefulRealloc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemPrivilege/dellocate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemPrivilege/delegate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemPrivilege/skip"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemPrivilege/piling"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ItemSchedule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemSchedule/startDate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ItemSchedule/maxDuration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ItemSchedule/targetDate"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ManagedObjectID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ManagedObjectID/version"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//NextWorkItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//NextWorkItem/nextItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ObjectID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ObjectID/id"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//OnNotificationResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OnNotificationResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//OnNotificationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//OnNotificationType/messageDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//OnNotificationType/itemBody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//OnNotificationType/allocationHistory"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//OpenWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//OpenWorkItemResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//OpenWorkItemResponseType/workItemBody"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//OpenWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//OpenWorkItemType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//OpenWorkItemType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//OrderFilterCriteria">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrderFilterCriteria/order"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrderFilterCriteria/filter"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//OrgEntityConfigAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrgEntityConfigAttribute/attributeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrgEntityConfigAttribute/attributeValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrgEntityConfigAttribute/readOnly"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//OrgEntityConfigAttributesAvailable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrgEntityConfigAttributesAvailable/attributeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrgEntityConfigAttributesAvailable/readOnly"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//OrgEntityConfigAttributeSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrgEntityConfigAttributeSet/attributeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//OrgEntityConfigAttributeSet/attributeValue"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ParameterType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ParameterType/complexValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ParameterType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ParameterType/array"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ParameterType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//PendWorkItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//PendWorkItem/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//PendWorkItem/workItemID"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//PendWorkItem/hiddenPeriod"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//PendWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//PendWorkItemResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//PendWorkItemResponseType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//PreviewWorkItemFromListResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//PreviewWorkItemFromListResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//PreviewWorkItemFromListResponseType/workItemPreview"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//PreviewWorkItemFromListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//PreviewWorkItemFromListType/entityID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//PreviewWorkItemFromListType/workItemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//PreviewWorkItemFromListType/requiredField"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//PreviewWorkItemFromListType/requireWorkType"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//Privilege">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//Privilege/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//Privilege/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//PushNotificationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//PushNotificationType/workItemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference brm.ecore#//PushNotificationType/workTypeID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//PushNotificationType/resourceIDs"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ReallocateWorkItemData">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//ReallocateWorkItemData/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//ReallocateWorkItemData/workItemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ReallocateWorkItemData/resource"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//ReallocateWorkItemData/workItemPayload"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ReallocateWorkItemDataResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//ReallocateWorkItemDataResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//ReallocateWorkItemDataResponseType/workItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ReallocateWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//ReallocateWorkItemResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//ReallocateWorkItemResponseType/workItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ReallocateWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//ReallocateWorkItemType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//ReallocateWorkItemType/workItemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ReallocateWorkItemType/resource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ReallocateWorkItemType/revertData"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//RescheduleWorkItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//RescheduleWorkItem/workItemID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//RescheduleWorkItem/itemSchedule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//RescheduleWorkItem/itemBody"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//RescheduleWorkItemResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//RescheduleWorkItemResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ResumeWorkItemResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ResumeWorkItemResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ResumeWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ResumeWorkItemType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SaveOpenWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//SaveOpenWorkItemResponseType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SaveOpenWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//SaveOpenWorkItemType/workItemID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//SaveOpenWorkItemType/workItemPayload"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ScheduleWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemResponseType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ScheduleWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemType/item"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemType/itemSchedule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemType/itemContext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemType/itemBody"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ScheduleWorkItemWithModelResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemWithModelResponseType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//ScheduleWorkItemWithModelType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemWithModelType/itemSchedule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemWithModelType/itemContext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemWithModelType/itemBody"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference brm.ecore#//ScheduleWorkItemWithModelType/entityQuery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ScheduleWorkItemWithModelType/groupID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ScheduleWorkItemWithModelType/workModelUID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//ScheduleWorkItemWithModelType/workModelVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SetOrgEntityConfigAttributesResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//SetOrgEntityConfigAttributesResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SetOrgEntityConfigAttributesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//SetOrgEntityConfigAttributesType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//SetOrgEntityConfigAttributesType/orgEntityConfigAttributeSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//SetOrgEntityConfigAttributesType/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SetResourceOrderFilterCriteriaResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//SetResourceOrderFilterCriteriaResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SetResourceOrderFilterCriteriaType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//SetResourceOrderFilterCriteriaType/orderFilterCriteria"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//SetResourceOrderFilterCriteriaType/resourceID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SetWorkItemPriority">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//SetWorkItemPriority/workItemIDandPriority"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SetWorkItemPriorityResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//SetWorkItemPriorityResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//SetWorkItemPriorityResponseType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SkipWorkItemResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//SkipWorkItemResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SkipWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//SkipWorkItemType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//SkipWorkItemType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//StartGroupResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//StartGroupResponseType/groupID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//StartGroupType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//StartGroupType/groupType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//StartGroupType/description"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SuspendWorkItemResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//SuspendWorkItemResponseType/success"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//SuspendWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//SuspendWorkItemType/workItemID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//SuspendWorkItemType/forceSuspend"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//UnallocateWorkItemResponseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//UnallocateWorkItemResponseType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//UnallocateWorkItemResponseType/workItem"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//UnallocateWorkItemType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute brm.ecore#//UnallocateWorkItemType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference brm.ecore#//UnallocateWorkItemType/workItemID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//UnlockWorkListViewResponseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//UnlockWorkListViewResponseType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//UnlockWorkListViewType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//UnlockWorkListViewType/workListViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkItem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItem/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItem/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItem/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItem/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItem/workType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItem/state"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItem/visible"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkItemAttributes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute10"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute11"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute12"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute13"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute14"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute15"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute16"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute17"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute18"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute19"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute20"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute21"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute22"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute23"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute24"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute25"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute26"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute27"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute28"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute29"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute30"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute31"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute32"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute33"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute34"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute35"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute36"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute37"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute38"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute39"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute4"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute40"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute5"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute6"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute7"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute8"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemAttributes/attribute9"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkItemBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItemBody/dataModel"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkItemFlags">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemFlags/scheduleStatus"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkItemHeader">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItemHeader/flags"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItemHeader/itemContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemHeader/endDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemHeader/startDate"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkItemIDandPriorityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItemIDandPriorityType/workItemID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItemIDandPriorityType/workItemPriority"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkItemPreview">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItemPreview/fieldPreview"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkItemPreview/workType"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkItemPriorityType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemPriorityType/absPriority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkItemPriorityType/offsetPriority"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkListView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListView/creationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListView/locker"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListView/modificationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListView/workViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkListViewCommon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkListViewCommon/entityID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewCommon/resourcesRequired"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkListViewCommon/orderFilterCriteria"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewCommon/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewCommon/getAllocatedItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewCommon/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewCommon/owner"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewCommon/public"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkListViewEdit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkListViewEdit/authors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkListViewEdit/users"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewEdit/customData"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkListViewPageItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewPageItem/creationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewPageItem/modificationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkListViewPageItem/workViewID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModel/baseModelInfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModel/workModelSpecification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModel/workModelEntities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModel/workModelTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModel/itemPrivileges"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModel/workModelScripts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModel/attributeAliasList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModel/workModelUID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModelEntities">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModelEntities/workModelEntity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelEntities/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModelEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference brm.ecore#//WorkModelEntity/entityQuery"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModelEntity/entities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelEntity/distributionStrategy"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModelList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelList/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelList/endPosition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModelList/type"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModelMapping">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelMapping/typeParamName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelMapping/modelParamName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelMapping/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModelScript">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelScript/scriptBody"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelScript/scriptLanguage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelScript/scriptLanguageExtension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelScript/scriptLanguageVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelScript/scriptOperation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelScript/scriptTypeID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModelScripts">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModelScripts/workModelScript"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModelSpecification"/>
+    <genClasses ecoreClass="brm.ecore#//WorkModelType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModelType/workModelMapping"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelType/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelType/workTypeID"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkModelTypes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkModelTypes/workModelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkModelTypes/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="brm.ecore#//WorkTypeList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkTypeList/startPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute brm.ecore#//WorkTypeList/endPosition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference brm.ecore#//WorkTypeList/types"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Datamodel" basePackage="com.tibco.n2.common" resource="XML"
+      disposableProviderFactory="true" ecorePackage="datamodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="datamodel.ecore#//AliasTypeType">
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//AliasTypeType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//AliasTypeType/DecimalNumber"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//AliasTypeType/IntegerNumber"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//AliasTypeType/DateTime"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="datamodel.ecore#//TypeType">
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/DecimalNumber"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/IntegerNumber"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/Date"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/Time"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/DateTime"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/Performer"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/Complex"/>
+      <genEnumLiterals ecoreEnumLiteral="datamodel.ecore#//TypeType/DataReference"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="datamodel.ecore#//AliasDescriptionType"/>
+    <genDataTypes ecoreDataType="datamodel.ecore#//AliasNameType"/>
+    <genDataTypes ecoreDataType="datamodel.ecore#//AliasTypeTypeObject"/>
+    <genDataTypes ecoreDataType="datamodel.ecore#//FacadeNameType"/>
+    <genDataTypes ecoreDataType="datamodel.ecore#//TypeTypeObject"/>
+    <genClasses ecoreClass="datamodel.ecore#//AliasType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//AliasType/aliasDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//AliasType/aliasName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//AliasType/aliasType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//AliasType/facadeName"/>
+    </genClasses>
+    <genClasses ecoreClass="datamodel.ecore#//ComplexSpecType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datamodel.ecore#//ComplexSpecType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//ComplexSpecType/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//ComplexSpecType/goRefId"/>
+    </genClasses>
+    <genClasses ecoreClass="datamodel.ecore#//DataModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datamodel.ecore#//DataModel/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datamodel.ecore#//DataModel/outputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datamodel.ecore#//DataModel/inouts"/>
+    </genClasses>
+    <genClasses ecoreClass="datamodel.ecore#//FieldType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datamodel.ecore#//FieldType/simpleSpec"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datamodel.ecore#//FieldType/complexSpec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//FieldType/array"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//FieldType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//FieldType/optional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//FieldType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="datamodel.ecore#//SimpleSpecType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//SimpleSpecType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//SimpleSpecType/decimal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//SimpleSpecType/length"/>
+    </genClasses>
+    <genClasses ecoreClass="datamodel.ecore#//WorkType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkType/workTypeID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkType/workTypeUID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkType/workTypeDescription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datamodel.ecore#//WorkType/dataModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkType/typePiled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkType/pilingLimit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkType/ignoreIncomingData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkType/reofferOnClose"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkType/reofferOnCancel"/>
+    </genClasses>
+    <genClasses ecoreClass="datamodel.ecore#//WorkTypeSpec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkTypeSpec/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkTypeSpec/workTypeDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datamodel.ecore#//WorkTypeSpec/workTypeID"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Exception" basePackage="com.tibco.n2.common.api" resource="XML"
+      disposableProviderFactory="true" ecorePackage="exception.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="exception.ecore#//SeverityType">
+      <genEnumLiterals ecoreEnumLiteral="exception.ecore#//SeverityType/WARNING"/>
+      <genEnumLiterals ecoreEnumLiteral="exception.ecore#//SeverityType/ERROR"/>
+      <genEnumLiterals ecoreEnumLiteral="exception.ecore#//SeverityType/INFORMATION"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="exception.ecore#//SeverityTypeObject"/>
+    <genClasses ecoreClass="exception.ecore#//DeploymentParameterFaultType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//DeploymentParameterFaultType/error"/>
+    </genClasses>
+    <genClasses ecoreClass="exception.ecore#//DetailedErrorLine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exception.ecore#//DetailedErrorLine/columnNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exception.ecore#//DetailedErrorLine/lineNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exception.ecore#//DetailedErrorLine/severity"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exception.ecore#//DetailedException">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//DetailedException/error"/>
+    </genClasses>
+    <genClasses ecoreClass="exception.ecore#//ErrorLine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exception.ecore#//ErrorLine/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exception.ecore#//ErrorLine/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exception.ecore#//ErrorLine/message"/>
+    </genClasses>
+    <genClasses ecoreClass="exception.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute exception.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference exception.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference exception.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//DocumentRoot/deploymentParameterFault"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//DocumentRoot/internalServiceFault"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//DocumentRoot/invalidWorkTypeFault"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//DocumentRoot/workTypeFault"/>
+    </genClasses>
+    <genClasses ecoreClass="exception.ecore#//InternalServiceFaultType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//InternalServiceFaultType/error"/>
+    </genClasses>
+    <genClasses ecoreClass="exception.ecore#//InvalidWorkTypeFaultType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//InvalidWorkTypeFaultType/error"/>
+    </genClasses>
+    <genClasses ecoreClass="exception.ecore#//WorkTypeFaultType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exception.ecore#//WorkTypeFaultType/error"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Organisation" basePackage="com.tibco.n2.common.organisation"
+      resource="XML" disposableProviderFactory="true" ecorePackage="organisation.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="organisation.ecore#//OrganisationalEntityType">
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/ORGANIZATION"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/ORGANIZATIONALUNIT"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/GROUP"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/POSITION"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/PRIVILEGE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/CAPABILITY"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/RESOURCE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/LOCATION"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/ORGANIZATIONTYPE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/ORGANIZATIONALUNITTYPE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/POSITIONTYPE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/LOCATIONTYPE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/ORGUNITRELATIONSHIPTYPE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/POSITIONHELD"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/ORGUNITRELATIONSHIP"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/ORGUNITFEATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/POSITIONFEATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="organisation.ecore#//OrganisationalEntityType/PARAMETERDESCRIPTOR"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="organisation.ecore#//OrganisationalEntityTypeObject"/>
+    <genClasses ecoreClass="organisation.ecore#//QualifierSetType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//QualifierSetType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="organisation.ecore#//XmlCalendarAssignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlCalendarAssignment/calendarAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlCalendarAssignment/entityGuid"/>
+    </genClasses>
+    <genClasses ecoreClass="organisation.ecore#//XmlCalendarRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlCalendarRef/calendarAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlCalendarRef/entityGuid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlCalendarRef/entityLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlCalendarRef/entityName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlCalendarRef/entityType"/>
+    </genClasses>
+    <genClasses ecoreClass="organisation.ecore#//XmlExecuteQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlExecuteQuery/implementation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlExecuteQuery/singleRandomResult"/>
+    </genClasses>
+    <genClasses ecoreClass="organisation.ecore#//XmlModelEntityId">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference organisation.ecore#//XmlModelEntityId/qualifierSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlModelEntityId/entityType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlModelEntityId/guid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlModelEntityId/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="organisation.ecore#//XmlOrgModelVersion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlOrgModelVersion/modelVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="organisation.ecore#//XmlParticipantId">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlParticipantId/guid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlParticipantId/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlParticipantId/entityType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlParticipantId/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="organisation.ecore#//XmlResourceQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute organisation.ecore#//XmlResourceQuery/query"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Workmodel" basePackage="com.tibco.n2.brm" resource="XML" disposableProviderFactory="true"
+      ecorePackage="workmodel.ecore#/">
+    <genClasses ecoreClass="workmodel.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute workmodel.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference workmodel.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference workmodel.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workmodel.ecore#//DocumentRoot/workModels"/>
+    </genClasses>
+    <genClasses ecoreClass="workmodel.ecore#//WorkModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workmodel.ecore#//WorkModel/workModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workmodel.ecore#//WorkModel/orgModelVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workmodel.ecore#//WorkModel/version"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Worktype" basePackage="com.tibco.n2.common" resource="XML"
+      disposableProviderFactory="true" ecorePackage="worktype.ecore#/">
+    <genClasses ecoreClass="worktype.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute worktype.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference worktype.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference worktype.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference worktype.ecore#//DocumentRoot/workTypes"/>
+    </genClasses>
+    <genClasses ecoreClass="worktype.ecore#//WorkType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference worktype.ecore#//WorkType/workType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute worktype.ecore#//WorkType/version"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Pageactivitymodel" basePackage="com.tibco.n2.common" resource="XML"
+      disposableProviderFactory="true" ecorePackage="pageactivitymodel.ecore#/">
+    <genClasses ecoreClass="pageactivitymodel.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute pageactivitymodel.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pageactivitymodel.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pageactivitymodel.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pageactivitymodel.ecore#//DocumentRoot/pageActivities"/>
+    </genClasses>
+    <genClasses ecoreClass="pageactivitymodel.ecore#//PageActivities">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pageactivitymodel.ecore#//PageActivities/pageActivity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pageactivitymodel.ecore#//PageActivities/version"/>
+    </genClasses>
+    <genClasses ecoreClass="pageactivitymodel.ecore#//PageActivity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pageactivitymodel.ecore#//PageActivity/activityModelID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pageactivitymodel.ecore#//PageActivity/activityDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pageactivitymodel.ecore#//PageActivity/moduleName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pageactivitymodel.ecore#//PageActivity/moduleVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pageactivitymodel.ecore#//PageActivity/processName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pageactivitymodel.ecore#//PageActivity/dataModel"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Attributefacade" basePackage="com.tibco.n2.common" resource="XML"
+      disposableProviderFactory="true" ecorePackage="attributefacade.ecore#/">
+    <genClasses ecoreClass="attributefacade.ecore#//AttributeAliasType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute attributefacade.ecore#//AttributeAliasType/attributeAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute attributefacade.ecore#//AttributeAliasType/attributeName"/>
+    </genClasses>
+    <genClasses ecoreClass="attributefacade.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute attributefacade.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference attributefacade.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference attributefacade.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference attributefacade.ecore#//DocumentRoot/workListAttributeFacade"/>
+    </genClasses>
+    <genClasses ecoreClass="attributefacade.ecore#//WorkListAttributeFacadeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference attributefacade.ecore#//WorkListAttributeFacadeType/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute attributefacade.ecore#//WorkListAttributeFacadeType/version"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

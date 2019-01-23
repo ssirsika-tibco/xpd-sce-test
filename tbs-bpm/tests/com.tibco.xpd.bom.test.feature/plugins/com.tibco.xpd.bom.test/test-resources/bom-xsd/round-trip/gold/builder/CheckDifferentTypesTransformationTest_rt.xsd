@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://different.example.org/types" xmlns:tns1="http://different.example.org/types"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://different.example.org/types">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gdfgdf/Business Objects/DifferentTypes_rt.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType id="__sZg8FH3Ed-HLt1xUvD9Rw" name="Integer">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType id="_BrzM4FH4Ed-HLt1xUvD9Rw" name="Text">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType id="_DG1ngFH4Ed-HLt1xUvD9Rw" name="Boolean">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ENUMLIT1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType id="org.example.different.types_tmpItem" name="TmpItem">
+    <xsd:sequence>
+      <xsd:element id="tmpItem_anySimpleTypeX" maxOccurs="1" minOccurs="1" name="anySimpleTypeX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_anyURIX" maxOccurs="1" minOccurs="1" name="anyURIX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:anyURI"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_booleanX" default="false" maxOccurs="1" minOccurs="1"
+          name="booleanX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_byteX" maxOccurs="1" minOccurs="1" name="byteX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_dateX" maxOccurs="1" minOccurs="1" name="dateX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:date"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_dateTimeX" maxOccurs="1" minOccurs="1" name="dateTimeX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:dateTime"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_decimalX" maxOccurs="1" minOccurs="1" name="decimalX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_doubleX" maxOccurs="1" minOccurs="1" name="doubleX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_durationX" maxOccurs="1" minOccurs="1" name="durationX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:duration"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_entitiesX" maxOccurs="1" minOccurs="1" name="entitiesX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_entityX" maxOccurs="1" minOccurs="1" name="entityX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_floatX" maxOccurs="1" minOccurs="1" name="floatX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_gDayX" maxOccurs="1" minOccurs="1" name="gdayX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_gMonthX" maxOccurs="1" minOccurs="1" name="gmonthX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_gMonthDayX" maxOccurs="1" minOccurs="1" name="gmonthDayX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_gYearX" maxOccurs="1" minOccurs="1" name="gyearX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_gYearMonthX" maxOccurs="1" minOccurs="1" name="gyearMonthX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_idX" maxOccurs="1" minOccurs="1" name="idX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_idhrefX" maxOccurs="1" minOccurs="1" name="idhrefX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_idhrefsX" maxOccurs="1" minOccurs="1" name="idhrefsX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_intX" maxOccurs="1" minOccurs="1" name="intX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_integerX" maxOccurs="1" minOccurs="1" name="integerX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_languageX" maxOccurs="1" minOccurs="1" name="languageX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_longX" maxOccurs="1" minOccurs="1" name="longX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_nameX" maxOccurs="1" minOccurs="1" name="nameX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_ncNameX" maxOccurs="1" minOccurs="1" name="ncNameX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_negativeIntegerX" maxOccurs="1" minOccurs="1" name="negativeIntegerX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_nmTOKENX" maxOccurs="1" minOccurs="1" name="nmTOKENX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_nmTOKENSX" maxOccurs="1" minOccurs="1" name="nmTOKENSX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_nonNegativeIntegerX" maxOccurs="1" minOccurs="1" name="nonNegativeIntegerX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_nonPositiveIntegerX" maxOccurs="1" minOccurs="1" name="nonPositiveIntegerX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_normalizedStringX" maxOccurs="1" minOccurs="1" name="normalizedStringX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_positiveIntegerX" maxOccurs="1" minOccurs="1" name="positiveIntegerX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_qNameX" maxOccurs="1" minOccurs="1" name="qnameX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+            <xsd:pattern value="\i\c*"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_shortX" maxOccurs="1" minOccurs="1" name="shortX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_stringX" maxOccurs="1" minOccurs="1" name="stringX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_timeX" maxOccurs="1" minOccurs="1" name="timeX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:time"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_tokenX" maxOccurs="1" minOccurs="1" name="tokenX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_unsignedByteX" maxOccurs="1" minOccurs="1" name="unsignedByteX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_unsignedIntX" maxOccurs="1" minOccurs="1" name="unsignedIntX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_unsignedLongX" maxOccurs="1" minOccurs="1" name="unsignedLongX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tmpItem_unsignedShortX" maxOccurs="1" minOccurs="1" name="unsignedShortX">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:totalDigits value="10"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_9kNFYFH3Ed-HLt1xUvD9Rw" name="Date">
+    <xsd:sequence>
+      <xsd:element id="_tuFEwFH4Ed-HLt1xUvD9Rw" maxOccurs="1" minOccurs="0" name="attribute1">
+        <xsd:simpleType>
+          <xsd:restriction base="Integer"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_1p4oQFH5Ed-HLt1xUvD9Rw" maxOccurs="1" minOccurs="0" name="attribute2">
+        <xsd:simpleType>
+          <xsd:restriction base="Text"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_284hMFH5Ed-HLt1xUvD9Rw" maxOccurs="1" minOccurs="0" name="attribute3">
+        <xsd:simpleType>
+          <xsd:restriction base="Boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_OC3QMFH4Ed-HLt1xUvD9Rw" name="Class1">
+    <xsd:sequence>
+      <xsd:element id="_dwMrxFH4Ed-HLt1xUvD9Rw" maxOccurs="1" minOccurs="1" name="date"
+          type="Date"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

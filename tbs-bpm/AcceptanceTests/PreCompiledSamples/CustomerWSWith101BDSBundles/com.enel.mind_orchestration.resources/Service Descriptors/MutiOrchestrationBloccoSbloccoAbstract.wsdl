@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://com.enel.mind.orchestration.bloccosblocco" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MutiOrchestrationBloccoSbloccoAbstract" targetNamespace="http://com.enel.mind.orchestration.bloccosblocco" tibex:src="file:/C:/Users/egiusro/Desktop/MIGRAZIONE_AMX_BPM/RVC/MutiOrchestrationBloccoSbloccoAbstract.wsdl">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://com.enel.mind.orchestration.bloccosblocco">
+      <xsd:element name="BloccoSbloccoRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="0" name="Richiesta" type="tns:RichiestaType"/>
+			<xsd:element minOccurs="0" name="Cliente" type="tns:ClienteType"/>
+			<xsd:element minOccurs="0" name="IdFatturazione" type="tns:IdFatturazioneType"/>
+			<xsd:element minOccurs="0" name="Fornitura" type="tns:FornituraType"/>
+          	<xsd:element minOccurs="0" name="modalita" type="xsd:string">
+          	</xsd:element>
+			<xsd:element minOccurs="0" name="motivoBlocco" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="flag_Gs124" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="ClienteCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="IdFatturazioneCDM" type="xsd:string">
+          	</xsd:element>
+          	<xsd:element minOccurs="0" name="FornituraCDM" type="xsd:string">
+          	</xsd:element>
+			
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BloccoSbloccoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element minOccurs="1" name="Esito" type="tns:EsitoType"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+
+      <xsd:complexType name="ClienteType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="numeroUtente" type="xsd:string">
+      		</xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+	
+      <xsd:complexType name="IdFatturazioneType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="businessPartner" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="contoContrattuale" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="contrattoSap" type="xsd:string">
+      		</xsd:element>
+
+			</xsd:sequence>
+      </xsd:complexType>
+	  
+      <xsd:complexType name="FornituraType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="podpdr" type="xsd:string">
+      		</xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>	  
+	  
+      <xsd:complexType name="RichiestaType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="sistemaRichiedente" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="canale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="idRichiesta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="tipoOperazione" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="causale" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="idProcessoBpm" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="commodity" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagDelibera40" type="xsd:boolean"/>
+      		<xsd:element minOccurs="0" name="Ip" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Profilo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Matricola" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="DataRichiesta" type="xsd:date"/>
+      		<xsd:element minOccurs="0" name="IdMuti" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDms" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDmsReclamo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2d" type="tns:IdentificativiR2dType">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="dataDecorrenza" type="xsd:date"/>
+      		<xsd:element minOccurs="0" name="tipoRichiesta" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagComplesso" type="xsd:boolean"/>
+      		<xsd:element minOccurs="0" name="flagPreventivo" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="flagDocumentazione" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="idCRM" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoServizio" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoOrdine" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoFiCa" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoISU" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoR2D" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoSD" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoSempre" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="statoUDB" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2R" type="tns:IdentificativiR2rType">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="IdAttivitaCrm" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+
+
+     <xsd:complexType name="EsitoUdbType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="TitolareConto" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="CFTitolare" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="NumConto" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="CodicePaese" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="CinIban" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Cin" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Cab" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="Abi" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="MetodoPagamento" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+
+	  
+      <xsd:complexType name="IdentificativiR2dType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="IdDistr" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdDistr2" type="xsd:string"/>
+      		<xsd:element minOccurs="0" name="IdR2d" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="IdentificativiR2rType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="IdR2R" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="EsitoType">
+      	<xsd:sequence>
+      		<xsd:element minOccurs="0" name="esito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="codiceEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="descrizione" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="0" name="tipoEsito" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element minOccurs="1" name="sistemaSorgenteEsito" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  
+  
+  <wsdl:message name="BloccoSbloccoRequest">
+    <wsdl:part element="tns:BloccoSbloccoRequest" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="BloccoSbloccoResponse">
+    <wsdl:part element="tns:BloccoSbloccoResponse" name="response"/>
+  </wsdl:message>
+
+
+  
+  
+  <wsdl:portType name="MutiOrchestrationBloccoSbloccoAbstract">
+    <wsdl:operation name="BloccoSblocco">
+      <wsdl:input message="tns:BloccoSbloccoRequest"/>
+      <wsdl:output message="tns:BloccoSbloccoResponse"/>
+    </wsdl:operation>
+
+	
+	
+	</wsdl:portType>
+
+
+</wsdl:definitions>

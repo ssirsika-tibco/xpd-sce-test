@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="calendar.xsd#/"
+    outputs="com.tibco.xpd.scheduling.calendar.ecore#/" topToBottom="true">
+  <nested inputs="bundleentry://316/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=7"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="bundleentry://316/cache/www.w3.org/2001/XMLSchema.xsd#//int;XSDSimpleTypeDefinition=42"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  <nested inputs="bundleentry://316/cache/www.w3.org/2001/XMLSchema.xsd#//time;XSDSimpleTypeDefinition=14"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Time"/>
+  <nested inputs="calendar.xsd#//TimeSlot;XSDComplexTypeDefinition=5" outputs="com.tibco.xpd.scheduling.calendar.ecore#//TimeSlot">
+    <nested inputs="calendar.xsd#//TimeSlot;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//TimeSlot/startTime"/>
+    <nested inputs="calendar.xsd#//TimeSlot;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//TimeSlot/endTime"/>
+  </nested>
+  <nested inputs="calendar.xsd#//WorkingTime;XSDComplexTypeDefinition=4" outputs="com.tibco.xpd.scheduling.calendar.ecore#//WorkingTime">
+    <nested inputs="calendar.xsd#//WorkingTime;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//WorkingTime/timeSlot"/>
+  </nested>
+  <nested inputs="calendar.xsd#//WorkingDay;XSDComplexTypeDefinition=3" outputs="com.tibco.xpd.scheduling.calendar.ecore#//WorkingDay">
+    <nested inputs="calendar.xsd#//WorkingDay;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//WorkingDay/dayOfWeek"/>
+    <nested inputs="calendar.xsd#//WorkingDay;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//WorkingDay/workingTime"/>
+  </nested>
+  <nested inputs="calendar.xsd#//WorkingSchedule;XSDComplexTypeDefinition=2" outputs="com.tibco.xpd.scheduling.calendar.ecore#//WorkingSchedule">
+    <nested inputs="calendar.xsd#//WorkingSchedule;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//WorkingSchedule/workingDay"/>
+    <nested inputs="calendar.xsd#//WorkingSchedule;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//WorkingSchedule/defaultWorkingTime"/>
+  </nested>
+  <nested inputs="bundleentry://316/cache/www.w3.org/2001/XMLSchema.xsd#//date;XSDSimpleTypeDefinition=15"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Date"/>
+  <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/SingleHoliday;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="com.tibco.xpd.scheduling.calendar.ecore#//SingleHolidayType">
+    <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/SingleHoliday;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//SingleHolidayType/name"/>
+    <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/SingleHoliday;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//SingleHolidayType/startDate"/>
+    <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/SingleHoliday;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//SingleHolidayType/endDate"/>
+  </nested>
+  <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/CalculatedHoliday;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="com.tibco.xpd.scheduling.calendar.ecore#//CalculatedHolidayType">
+    <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/CalculatedHoliday;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//CalculatedHolidayType/name"/>
+    <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/CalculatedHoliday;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//CalculatedHolidayType/script"/>
+  </nested>
+  <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition" outputs="com.tibco.xpd.scheduling.calendar.ecore#//PublicHoliday">
+    <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//PublicHoliday/singleHoliday"/>
+    <nested inputs="calendar.xsd#//PublicHoliday;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//PublicHoliday/calculatedHoliday"/>
+  </nested>
+  <nested inputs="calendar.xsd#//Calendar;XSDComplexTypeDefinition=1" outputs="com.tibco.xpd.scheduling.calendar.ecore#//Calendar">
+    <nested inputs="calendar.xsd#//Calendar;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//Calendar/locale"/>
+    <nested inputs="calendar.xsd#//Calendar;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//Calendar/defaultWorkingSchedule"/>
+    <nested inputs="calendar.xsd#//Calendar;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="com.tibco.xpd.scheduling.calendar.ecore#//Calendar/publicHoliday"/>
+  </nested>
+  <nested inputs="calendar.xsd#//Calendar;XSDElementDeclaration" outputs="com.tibco.xpd.scheduling.calendar.ecore#//DocumentRoot/calendar"/>
+</xsd2ecore:XSD2EcoreMappingRoot>

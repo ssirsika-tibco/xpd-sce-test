@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.example.org/XSDBOM_TLE10_RootElementReference" xmlns:tns1="http://www.example.org/XSDBOM_TLE10_RootElementReference" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.example.org/XSDBOM_TLE10_RootElementReference">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/testre/Business Objects/XSDBOM_TLE10B_RootElementReference.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType abstract="false" id="org.example.xsdbo.m.tle1._0.root.element.reference_Person" mixed="false" name="Person">
+    <xsd:sequence>
+      <xsd:element id="_TLJTktHnEd-wRoL9KaHo9A" maxOccurs="1" minOccurs="1" ref="surname"/>
+      <xsd:element id="_TLc1ldHnEd-wRoL9KaHo9A" maxOccurs="1" minOccurs="1" ref="id"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="id" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:ID">
+        <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="nextElement" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="surname" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="200"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="myElement" nillable="false">
+    <xsd:complexType id="org.example.xsdbo.m.tle1._0.root.element.reference_myElementType" mixed="false">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="nextElement"/>
+        <xsd:element maxOccurs="1" minOccurs="0" ref="nextElement2"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="nextElement2" nillable="false">
+    <xsd:complexType id="org.example.xsdbo.m.tle1._0.root.element.reference_nextElement2Type" mixed="false">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="myElement"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

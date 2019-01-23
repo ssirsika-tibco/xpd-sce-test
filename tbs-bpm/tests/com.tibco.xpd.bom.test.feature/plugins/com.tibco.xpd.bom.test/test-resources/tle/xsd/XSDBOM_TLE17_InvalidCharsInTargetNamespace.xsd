@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/xml/DOMM%20Cambio%20Prodotto%20Input"
+	xmlns:tns="http://www.tibco.com/xml/DOMM%20Cambio%20Prodotto%20Input"
+	elementFormDefault="qualified">
+
+	<xsd:element name="GenericOutputIO" type="tns:GenericOutputIO" />
+	<xsd:complexType name="GenericOutputIOTopElmt">
+		<xsd:sequence>
+			<xsd:element name="GenericOutputIO" maxOccurs="1"
+				minOccurs="1" type="tns:GenericOutputIO" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GenericOutputIO">
+		<xsd:sequence>
+			<xsd:element name="GenericOutputIC" maxOccurs="unbounded"
+				minOccurs="0" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

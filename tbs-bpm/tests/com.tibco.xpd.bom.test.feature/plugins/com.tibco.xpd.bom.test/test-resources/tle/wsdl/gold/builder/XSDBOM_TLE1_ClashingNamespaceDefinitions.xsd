@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.tibco.com/schemas/CreateExamples/Schema.xsd" xmlns:tns2="http://www.tibco.com/schemas/CreateExamples/Schema.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns3="http://XSDBOM_TLE1_ClashingNamespaceDefinitions2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.tibco.com/schemas/CreateExamples/Schema.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD3877/Generated Business Objects/com.tibco.schemas.CreateExamples.Schema.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://XSDBOM_TLE1_ClashingNamespaceDefinitions2" schemaLocation="XSDBOM_TLE1_ClashingNamespaceDefinitions2.xsd"/>
+  <xsd:element abstract="false" name="int1" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="str1" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="root" nillable="false">
+    <xsd:complexType ecore:name="rootType" id="com.tibco.schemas.CreateExamples.SchemarootType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="str1" maxOccurs="1" minOccurs="1" ref="tns2:str1"/>
+        <xsd:element ecore:name="int1" maxOccurs="1" minOccurs="1" ref="tns2:int1"/>
+        <xsd:element ecore:name="dec1" maxOccurs="1" minOccurs="1" ref="tns3:dec1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

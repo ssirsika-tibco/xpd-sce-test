@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (x64) (http://www.altova.com) by GVS (Tibco Software Limited) -->
+<xs:schema xmlns="http://business.api.busserv.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bsbase="http://base.api.bs.n2.tibco.com" xmlns:data="http://data.pfe.n2.tibco.com" xmlns:ctxt="http://context.pfe.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:pfecom="http://common.api.pfe.n2.tibco.com" xmlns:df="http://datafeed.common.n2.tibco.com" targetNamespace="http://business.api.busserv.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://common.api.pfe.n2.tibco.com" schemaLocation="pfe-common.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:import namespace="http://datafeed.common.n2.tibco.com" schemaLocation="df-payload.xsd"/>
+	<xs:element name="listBusinessServices">
+		<xs:annotation>
+			<xs:documentation>Request element for listBusinessServices operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities
+          associated with the identified Resource.
+        </xs:documentation>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="pfecom:ListingRequest">
+					<xs:sequence>
+						<xs:element name="channelId" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>ID of a specific channel for which business services should be listed.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listBusinessServicesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listBusinessServices operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+          The collection of Resources with the given name.
+        </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="startPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the list of the first item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="endPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the list of the last item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="totalItems" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Total number of items in the list. (If this value is -1 PFEdid not build the count of total number of items.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="businessCategory" type="pfecom:BusinessCategory" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Array describing deployed business services that match the criteria specified  in the request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listCategories">
+		<xs:annotation>
+			<xs:documentation>Request element for listCategories operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities
+          associated with the identified Resource.
+        </xs:documentation>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="pfecom:ListingRequest">
+					<xs:sequence>
+						<xs:element name="channelId" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>ID of a specific channel for which business services should be listed.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listCategoriesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listCategories operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+          The collection of Resources with the given name.
+        </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="startPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the list of the first item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="endPosition" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Position in the list of the last item on this page.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="totalItems" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>Total number of items in the list. (If this value is -1 PFEdid not build the count of total number of items.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Category" type="pfecom:Category" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Array all categories for deployed business services that match the criteria specified in the response.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="queryBusinessServices">
+		<xs:annotation>
+			<xs:documentation>Request element for queryBusinessServices operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities
+          associated with the identified Resource.
+        </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="category" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Category name to use for this query.				</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="channelId" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Channel ID to use for this query.			</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="includeFormalParameters" type="xs:boolean" minOccurs="0" maxOccurs="1">
+  	          <xs:annotation>
+						<xs:documentation>Boolean value defining whether the query should return business services that have formal parameters.</xs:documentation>
+					</xs:annotation>                               
+</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="queryBusinessServicesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for queryBusinessServices operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+          The collection of Resources with the given name.
+        </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="businessServiceTemplate" type="pfecom:BusinessServiceTemplate" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Details of business services that match the specified query.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="queryCategories">
+		<xs:annotation>
+			<xs:documentation>Request element for queryCategories operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities
+          associated with the identified Resource.
+        </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="category" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Category name to use for this query.				</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="channelId" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Channel ID to use for this query.			</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="includeFormalParameters" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Boolean value defining whether the query should return business services that have formal parameters.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="queryCategoriesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for queryCategories operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+          The collection of Resources with the given name.
+        </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="businessCategory" type="pfecom:BusinessCategory" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Details of categories for business services that match the specified query.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="startBusinessService">
+		<xs:annotation>
+			<xs:documentation>Request element for startBusinessService operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="businessServiceDefinition" type="pfecom:BaseBusinessServiceTemplate">
+					<xs:annotation>
+						<xs:documentation>Unique identifier for the business service to be started.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="formalParams" type="df:dataPayload" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Data for the formal parameters associated with the business service start event.
+
+Note: You cannot determine the names of these formal parameters programmatically. Instead, you must obtain them by examining the business service in TIBCO Business Studio.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="responsePayloadMode" type="df:payloadModeType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). 
+
+If not specified, the default value is JSON.
+
+(RSS is currently not supported.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="cacheTimeout" type="xs:long" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Timeout value (in minutes) for the business service.</xs:documentation>
+					</xs:annotation>
+				</xs:element>				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="startBusinessServiceResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for startBusinessService operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pageResponse" type="pfecom:PageResponse">
+					<xs:annotation>
+						<xs:documentation>Business service execution state, context and page data.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateBusinessService">
+		<xs:annotation>
+			<xs:documentation>Request element for updateBusinessService operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="context" type="pfecom:RequestContext">
+					<xs:annotation>
+						<xs:documentation>Unique identifier for the business service to be updated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pageFields" type="df:dataPayload" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Page data to be used to update the business service.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="responsePayloadMode" type="df:payloadModeType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). 
+
+If not specified, the default value is JSON.
+
+(RSS is currently not supported.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="updateBusinessServiceResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for updateBusinessService operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pageResponse" type="pfecom:PageResponse">
+					<xs:annotation>
+						<xs:documentation>Business service execution state, context and page data.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="injectBusinessServiceEvent">
+		<xs:annotation>
+			<xs:documentation>Request element for injectBusinessServiceEvent operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="eventDefinition" type="pfecom:EventDefinitionType">
+					<xs:annotation>
+						<xs:documentation>Definition of the event to be injected and the business service instance into which it should be injected.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="formalParams" type="df:dataPayload" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Page data for the formal parameters associated with the eventDefinition.eventName event.
+
+Note: You cannot determine the names of these formal parameters programmatically. Instead, you must obtain them by examining the process in TIBCO Business Studio.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="responsePayloadMode" type="df:payloadModeType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). 
+
+If not specified, the default value is JSON.
+
+(RSS is currently not supported.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="injectBusinessServiceEventResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for injectBusinessServiceEvent operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pageResponse" type="pfecom:PageResponse">
+					<xs:annotation>
+						<xs:documentation>Business service execution state, context and page data.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancelBusinessService">
+		<xs:annotation>
+			<xs:documentation>Request element for cancelBusinessService operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="processInstanceId" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>ID of the business service (pageflow) process instance that is to be cancelled.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancelBusinessServiceResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for cancelBusinessService operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Status of the specified business service instance.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

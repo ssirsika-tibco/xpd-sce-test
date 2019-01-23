@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.bds.services" name="com.tibco.bds.services">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2nDb4drqEeW45YZmXhrjgQ" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2nDb4trqEeW45YZmXhrjgQ" key="author" value="sajain"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2nDb49rqEeW45YZmXhrjgQ" key="created" value="1456313792670"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2nDb5NrqEeW45YZmXhrjgQ" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2zG64NrqEeW45YZmXhrjgQ" key="checksum" value="3053203054"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.bds.servicesBusinessDataServicesAdminService" name="BusinessDataServicesAdminService">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_2WyLQNrqEeW45YZmXhrjgQ" body="BDS Service that provides access to DDLs corresponding to Case DataStore Tables"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesAdminServicegetCaseModelBasicInfo" name="getCaseModelBasicInfo">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseModelBasicInfogetCaseModelBasicInfoRequest" name="getCaseModelBasicInfoRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseModelBasicInfoRequestType?com.tibco.bds.api%3a%3aGetCaseModelBasicInfoRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseModelBasicInfogetCaseModelBasicInfoResponse" name="getCaseModelBasicInfoResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseModelBasicInfoResponseType?com.tibco.bds.api%3a%3aGetCaseModelBasicInfoResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesAdminServicegetCaseModel" name="getCaseModel">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseModelgetCaseModelRequest" name="getCaseModelRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseModelRequestType?com.tibco.bds.api%3a%3aGetCaseModelRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseModelgetCaseModelResponse" name="getCaseModelResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseModelResponseType?com.tibco.bds.api%3a%3aGetCaseModelResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesAdminServicegetCaseClassInfo" name="getCaseClassInfo">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseClassInfogetCaseClassInfoRequest" name="getCaseClassInfoRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseClassInfoRequestType?com.tibco.bds.api%3a%3aGetCaseClassInfoRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseClassInfogetCaseClassInfoResponse" name="getCaseClassInfoResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseClassInfoResponseType?com.tibco.bds.api%3a%3aGetCaseClassInfoResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesAdminServicegetAuditInfo" name="getAuditInfo">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getAuditInfogetAuditInfoRequest" name="getAuditInfoRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetAuditInfoRequestType?com.tibco.bds.api%3a%3aGetAuditInfoRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getAuditInfogetAuditInfoResponse" name="getAuditInfoResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetAuditInfoResponseType?com.tibco.bds.api%3a%3aGetAuditInfoResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesAdminServicenotifyDDLExecution" name="notifyDDLExecution">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="notifyDDLExecutionnotifyDDLExecutionRequest" name="notifyDDLExecutionRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiNotifyDDLExecutionRequestType?com.tibco.bds.api%3a%3aNotifyDDLExecutionRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="notifyDDLExecutionnotifyDDLExecutionResponse" name="notifyDDLExecutionResponse" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="com.tibco.bds.api.bom#com.tibco.bds.apiNotifyDDLExecutionResponse?com.tibco.bds.api%3a%3aNotifyDDLExecutionResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesAdminServiceupdateDBScripts" name="updateDBScripts">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="updateDBScriptsupdateDBScriptsRequest" name="updateDBScriptsRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiUpdateDBScriptsRequestType?com.tibco.bds.api%3a%3aUpdateDBScriptsRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="updateDBScriptsupdateDBScriptsResponse" name="updateDBScriptsResponse" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="com.tibco.bds.api.bom#com.tibco.bds.apiUpdateDBScriptsResponse?com.tibco.bds.api%3a%3aUpdateDBScriptsResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.bds.servicesBusinessDataServices" name="BusinessDataServices">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_2aSLMdrqEeW45YZmXhrjgQ" body="Business Data Services Service.&#xA; Note:  This Service is intended primarily for external (i.e. outside AMX BPM) clients "/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicescreateCase" name="createCase">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="createCasecreateCaseRequest" name="createCaseRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiCreateCaseRequestType?com.tibco.bds.api%3a%3aCreateCaseRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="createCasecreateCaseResponse" name="createCaseResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiCreateCaseResponseType?com.tibco.bds.api%3a%3aCreateCaseResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesreadCase" name="readCase">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="readCasereadCaseRequest" name="readCaseRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiReadCaseRequestType?com.tibco.bds.api%3a%3aReadCaseRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="readCasereadCaseResponse" name="readCaseResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiReadCaseResponseType?com.tibco.bds.api%3a%3aReadCaseResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesupdateCase" name="updateCase">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="updateCaseupdateCaseRequest" name="updateCaseRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiUpdateCaseRequestType?com.tibco.bds.api%3a%3aUpdateCaseRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="updateCaseupdateCaseRequest2" name="updateCaseRequest" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiUpdateCaseResponseType?com.tibco.bds.api%3a%3aUpdateCaseResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesdeleteCaseByCID" name="deleteCaseByCID">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteCaseByCIDdeleteCaseByCIDRequest" name="deleteCaseByCIDRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiDeleteCaseByCIDRequestType?com.tibco.bds.api%3a%3aDeleteCaseByCIDRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteCaseByCIDdeleteCaseByCIDResponse" name="deleteCaseByCIDResponse" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="com.tibco.bds.api.bom#com.tibco.bds.apiDeleteCaseByCIDResponse?com.tibco.bds.api%3a%3aDeleteCaseByCIDResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesdeleteCaseByRef" name="deleteCaseByRef">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteCaseByRefdeleteCaseByRefRequest" name="deleteCaseByRefRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiDeleteCaseByRefRequestType?com.tibco.bds.api%3a%3aDeleteCaseByRefRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteCaseByRefdeleteCaseByRefResponse" name="deleteCaseByRefResponse" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="com.tibco.bds.api.bom#com.tibco.bds.apiDeleteCaseByRefResponse?com.tibco.bds.api%3a%3aDeleteCaseByRefResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesfindCaseByCID" name="findCaseByCID">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findCaseByCIDfindCaseByCIDRequest" name="findCaseByCIDRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiFindCaseByCIDRequestType?com.tibco.bds.api%3a%3aFindCaseByCIDRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findCaseByCIDfindCaseByCIDResponse" name="findCaseByCIDResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiFindCaseByCIDResponseType?com.tibco.bds.api%3a%3aFindCaseByCIDResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesfindCaseByCriteria" name="findCaseByCriteria">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findCaseByCriteriafindCaseByCriteriaRequest" name="findCaseByCriteriaRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiFindCaseByCriteriaRequestType?com.tibco.bds.api%3a%3aFindCaseByCriteriaRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findCaseByCriteriafindCaseByCriteriaResponse" name="findCaseByCriteriaResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiSearchResults?com.tibco.bds.api%3a%3aSearchResults?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesgetCaseReferencesForDataView" name="getCaseReferencesForDataView">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseReferencesForDataViewgetCaseReferencesForDataViewRequest" name="getCaseReferencesForDataViewRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseReferencesForDataViewRequestType?com.tibco.bds.api%3a%3aGetCaseReferencesForDataViewRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseReferencesForDataViewgetCaseReferencesForDataViewResponse" name="getCaseReferencesForDataViewResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiSearchResults?com.tibco.bds.api%3a%3aSearchResults?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesfindAllCases" name="findAllCases">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findAllCasesfindAllCasesRequest" name="findAllCasesRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiFindAllCasesRequestType?com.tibco.bds.api%3a%3aFindAllCasesRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findAllCasesfindAllCasesResponse" name="findAllCasesResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiSearchResults?com.tibco.bds.api%3a%3aSearchResults?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesfindCaseByExample" name="findCaseByExample">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findCaseByExamplefindCaseByExampleRequest" name="findCaseByExampleRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiFindCaseByExampleRequestType?com.tibco.bds.api%3a%3aFindCaseByExampleRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findCaseByExamplefindCaseByExampleResponse" name="findCaseByExampleResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiSearchResults?com.tibco.bds.api%3a%3aSearchResults?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicescreateDataView" name="createDataView">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="createDataViewcreateDataViewRequest" name="createDataViewRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiCreateDataViewRequestType?com.tibco.bds.api%3a%3aCreateDataViewRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="createDataViewcreateDataViewResponse" name="createDataViewResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiCreateDataViewResponseType?com.tibco.bds.api%3a%3aCreateDataViewResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesgetDataViewDetails" name="getDataViewDetails">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getDataViewDetailsgetDataViewDetailsRequest" name="getDataViewDetailsRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetDataViewDetailsRequestType?com.tibco.bds.api%3a%3aGetDataViewDetailsRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getDataViewDetailsgetDataViewDetailsResponse" name="getDataViewDetailsResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetDataViewDetailsResponseType?com.tibco.bds.api%3a%3aGetDataViewDetailsResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServiceseditDataView" name="editDataView">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="editDataVieweditDataViewRequest" name="editDataViewRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiEditDataViewRequestType?com.tibco.bds.api%3a%3aEditDataViewRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="editDataVieweditDataViewResponse" name="editDataViewResponse" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="com.tibco.bds.api.bom#com.tibco.bds.apiEditDataViewResponse?com.tibco.bds.api%3a%3aEditDataViewResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesdeleteDataView" name="deleteDataView">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteDataViewdeleteDataViewRequest" name="deleteDataViewRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiDeleteDataViewRequestType?com.tibco.bds.api%3a%3aDeleteDataViewRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteDataViewdeleteDataViewResponse" name="deleteDataViewResponse" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="com.tibco.bds.api.bom#com.tibco.bds.apiDeleteDataViewResponse?com.tibco.bds.api%3a%3aDeleteDataViewResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesgetDataViewCategories" name="getDataViewCategories">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getDataViewCategoriesgetDataViewCategoriesRequest" name="getDataViewCategoriesRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetDataViewCategoriesRequestType?com.tibco.bds.api%3a%3aGetDataViewCategoriesRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getDataViewCategoriesgetDataViewCategoriesResponse" name="getDataViewCategoriesResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetDataViewCategoriesResponseType?com.tibco.bds.api%3a%3aGetDataViewCategoriesResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesnavigateCase" name="navigateCase">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="navigateCasenavigateCaseRequest" name="navigateCaseRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiNavigateCaseRequestType?com.tibco.bds.api%3a%3aNavigateCaseRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="navigateCasenavigateCaseResponse" name="navigateCaseResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiSearchResults?com.tibco.bds.api%3a%3aSearchResults?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesnavigateCaseByCriteria" name="navigateCaseByCriteria">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="navigateCaseByCriterianavigateCaseByCriteriaRequest" name="navigateCaseByCriteriaRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiNavigateCaseByCriteriaRequestType?com.tibco.bds.api%3a%3aNavigateCaseByCriteriaRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="navigateCaseByCriterianavigateCaseByCriteriaResponse" name="navigateCaseByCriteriaResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiSearchResults?com.tibco.bds.api%3a%3aSearchResults?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServiceslinkCase" name="linkCase">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="linkCaselinkCaseRequest" name="linkCaseRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiLinkCaseRequestType?com.tibco.bds.api%3a%3aLinkCaseRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="linkCaselinkCaseResponse" name="linkCaseResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiLinkResponseType?com.tibco.bds.api%3a%3aLinkResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesunlinkCase" name="unlinkCase">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="unlinkCaseunlinkCaseRequest" name="unlinkCaseRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiUnlinkCaseRequestType?com.tibco.bds.api%3a%3aUnlinkCaseRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="unlinkCaseunlinkCaseResponse" name="unlinkCaseResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiLinkResponseType?com.tibco.bds.api%3a%3aLinkResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessDataServicesgetCaseSummary" name="getCaseSummary">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseSummarygetCaseSummaryRequest" name="getCaseSummaryRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseSummaryRequestType?com.tibco.bds.api%3a%3aGetCaseSummaryRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getCaseSummarygetCaseSummaryResponse" name="getCaseSummaryResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.bom#com.tibco.bds.apiGetCaseSummaryResponseType?com.tibco.bds.api%3a%3aGetCaseSummaryResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.bds.servicesDocumentService" name="DocumentService">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_2kFncdrqEeW45YZmXhrjgQ" body="A service for manipulating documents."/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicecreateDocument" name="createDocument">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="createDocumentcreateDocumentRequest" name="createDocumentRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentCreateDocumentRequestType?com.tibco.bds.api.document%3a%3aCreateDocumentRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="createDocumentcreateCaseResponse" name="createCaseResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentCreateDocumentResponseType?com.tibco.bds.api.document%3a%3aCreateDocumentResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicegetDocumentMetadata" name="getDocumentMetadata">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getDocumentMetadatagetDocumentRequest" name="getDocumentRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentGetDocumentMetadataRequestType?com.tibco.bds.api.document%3a%3aGetDocumentMetadataRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getDocumentMetadatagetDocumentResponse" name="getDocumentResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentGetDocumentMetadataResponseType?com.tibco.bds.api.document%3a%3aGetDocumentMetadataResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicegetDocumentContent" name="getDocumentContent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getDocumentContentgetDocumentContentRequest" name="getDocumentContentRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentGetDocumentContentRequestType?com.tibco.bds.api.document%3a%3aGetDocumentContentRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getDocumentContentgetDocumentContentResponse" name="getDocumentContentResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentGetDocumentContentResponseType?com.tibco.bds.api.document%3a%3aGetDocumentContentResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicedeleteDocument" name="deleteDocument">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteDocumentdeleteDocumentRequest" name="deleteDocumentRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentDeleteDocumentRequestType?com.tibco.bds.api.document%3a%3aDeleteDocumentRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteDocumentdeleteDocumentResponse" name="deleteDocumentResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentDeleteDocumentResponseType?com.tibco.bds.api.document%3a%3aDeleteDocumentResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicemoveDocument" name="moveDocument">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="moveDocumentmoveDocumentRequest" name="moveDocumentRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentMoveDocumentRequestType?com.tibco.bds.api.document%3a%3aMoveDocumentRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="moveDocumentmoveDocumentResponse" name="moveDocumentResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentMoveDocumentResponseType?com.tibco.bds.api.document%3a%3aMoveDocumentResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicelinkDocument" name="linkDocument">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="linkDocumentlinkDocumentRequest" name="linkDocumentRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentLinkDocumentRequestType?com.tibco.bds.api.document%3a%3aLinkDocumentRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="linkDocumentlinkDocumentResponse" name="linkDocumentResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentLinkDocumentResponseType?com.tibco.bds.api.document%3a%3aLinkDocumentResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServiceunlinkDocument" name="unlinkDocument">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="unlinkDocumentunlinkDocumentRequest" name="unlinkDocumentRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentUnlinkDocumentRequestType?com.tibco.bds.api.document%3a%3aUnlinkDocumentRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="unlinkDocumentunlinkDocumentResponse" name="unlinkDocumentResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentUnlinkDocumentResponseType?com.tibco.bds.api.document%3a%3aUnlinkDocumentResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicefindDocuments" name="findDocuments">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findDocumentsfindDocumentsRequest" name="findDocumentsRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentFindDocumentsRequestType?com.tibco.bds.api.document%3a%3aFindDocumentsRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="findDocumentsfindDocumentsResponse" name="findDocumentsResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentFindDocumentsResponseType?com.tibco.bds.api.document%3a%3aFindDocumentsResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicegetFolderContent" name="getFolderContent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getFolderContentgetFolderContentRequest" name="getFolderContentRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentGetFolderContentRequestType?com.tibco.bds.api.document%3a%3aGetFolderContentRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="getFolderContentgetFolderContentResponse" name="getFolderContentResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentGetFolderContentResponseType?com.tibco.bds.api.document%3a%3aGetFolderContentResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="DocumentServicedeleteOrphanedFolders" name="deleteOrphanedFolders">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteOrphanedFoldersdeleteOrphanedFoldersRequest" name="deleteOrphanedFoldersRequest">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentDeleteOrphanedFoldersRequestType?com.tibco.bds.api.document%3a%3aDeleteOrphanedFoldersRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="deleteOrphanedFoldersdeleteOrphanedFoldersResponse" name="deleteOrphanedFoldersResponse" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.bds.api.document.bom#com.tibco.bds.api.documentDeleteOrphanedFoldersResponseType?com.tibco.bds.api.document%3a%3aDeleteOrphanedFoldersResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2WvH8drqEeW45YZmXhrjgQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2WvH8trqEeW45YZmXhrjgQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2WvH89rqEeW45YZmXhrjgQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2WvH9NrqEeW45YZmXhrjgQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_2WvH9drqEeW45YZmXhrjgQ" base_Package="com.tibco.bds.services?com.tibco.bds.services?" xsdTargetNamespace="http://services.bds.tibco.com" xsdSchemaLocation="bds.wsdl" xsdStudioVersion="3.11.0.qualifier" bomWsdlSources="bds.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_2WyLQdrqEeW45YZmXhrjgQ" base_Class="com.tibco.bds.servicesBusinessDataServicesAdminService?com.tibco.bds.services%3a%3aBusinessDataServicesAdminService?" xsdName="BusinessDataServicesAdminService" xsdIsComplexType="false"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_2aSLMtrqEeW45YZmXhrjgQ" base_Class="com.tibco.bds.servicesBusinessDataServices?com.tibco.bds.services%3a%3aBusinessDataServices?" xsdName="BusinessDataServices" xsdIsComplexType="false"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_2kFnctrqEeW45YZmXhrjgQ" base_Class="com.tibco.bds.servicesDocumentService?com.tibco.bds.services%3a%3aDocumentService?" xsdName="DocumentService" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2nC00NrqEeW45YZmXhrjgQ" displayLabel="BusinessDataServices" base_NamedElement="com.tibco.bds.servicesBusinessDataServices?com.tibco.bds.services%3a%3aBusinessDataServices?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2nC00drqEeW45YZmXhrjgQ" displayLabel="BusinessDataServicesAdminService" base_NamedElement="com.tibco.bds.servicesBusinessDataServicesAdminService?com.tibco.bds.services%3a%3aBusinessDataServicesAdminService?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2nDb4NrqEeW45YZmXhrjgQ" displayLabel="DocumentService" base_NamedElement="com.tibco.bds.servicesDocumentService?com.tibco.bds.services%3a%3aDocumentService?"/>
+  <notation:Diagram xmi:id="_2nDb5drqEeW45YZmXhrjgQ" type="Business Object Model" element="com.tibco.bds.services?com.tibco.bds.services?" name="com.tibco.bds.services" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_2nDb5trqEeW45YZmXhrjgQ"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_2nDb59rqEeW45YZmXhrjgQ"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.vietinbank.com/tama/1.0" xmlns:tns3="http://www.vietinbank.com/tama/1.0"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.vietinbank.com/tama/1.0">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD7553/Generated Business Objects/com.vietinbank.tama._1.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="AccountBalanceInqReqType" id="com.vietinbank.tama._1AccountBalanceInqReqType"
+      abstract="false" mixed="false" name="AccountBalanceInqReqType">
+    <xsd:sequence>
+      <xsd:element ecore:name="requestPayLoadAccountInq" id="AccountBalanceInqReqTypeRequestPayLoadAccountInq"
+          maxOccurs="1" minOccurs="1" ref="tns3:RequestPayLoadAccountInq"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="RequestPayLoadAccountInqType" id="com.vietinbank.tama._1RequestPayLoadAccountInqType"
+      abstract="false" mixed="false" name="RequestPayLoadAccountInqType">
+    <xsd:sequence>
+      <xsd:element ecore:name="bankAccount" id="RequestPayLoadAccountInqTypeBankAccount"
+          form="qualified" maxOccurs="1" minOccurs="1" name="BankAccount" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="RequestPayLoadAccountInq" nillable="false" type="RequestPayLoadAccountInqType"/>
+</xsd:schema>

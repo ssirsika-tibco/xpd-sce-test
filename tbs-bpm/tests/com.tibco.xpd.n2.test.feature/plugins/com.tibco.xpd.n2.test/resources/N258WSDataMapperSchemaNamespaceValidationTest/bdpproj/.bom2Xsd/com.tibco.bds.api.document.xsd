@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://document.api.bds.tibco.com" xmlns:tns6="http://document.api.bds.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://document.api.bds.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/bdpproj/Generated Business Objects/com.tibco.bds.api.document.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="FolderReference" id="com.tibco.bds.api.documentFolderReference2"
+      name="FolderReference">
+    <xsd:annotation>
+      <xsd:documentation>A reference to a folder in the document store </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="DocumentReference" id="com.tibco.bds.api.documentDocumentReference2"
+      name="DocumentReference">
+    <xsd:annotation>
+      <xsd:documentation>A reference to a document in the document store </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="VersioningStateEnum" id="com.tibco.bds.api.documentVersioningStateEnum"
+      name="VersioningStateEnum">
+    <xsd:annotation>
+      <xsd:documentation>Enum reflecting CMIS 'versioning states' </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="MAJOR" value="MAJOR"/>
+      <xsd:enumeration ecore:name="MINOR" value="MINOR"/>
+      <xsd:enumeration ecore:name="NONE" value="NONE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="OwnerReference" id="com.tibco.bds.api.documentOwnerReference"
+      abstract="false" mixed="false" name="OwnerReference">
+    <xsd:annotation>
+      <xsd:documentation>Existing owner for the document. Once the operation is complete, the document will no longer reside in this owner's folder. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="caseReference" id="OwnerReferencecaseReference" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="caseReference" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DocumentReferenceAndOptionalMetadata" id="com.tibco.bds.api.documentDocumentReferenceAndOptionalMetadata"
+      abstract="false" mixed="false" name="DocumentReferenceAndOptionalMetadata">
+    <xsd:annotation>
+      <xsd:documentation>A document reference and, optionally, metadata </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reference" id="DocumentReferenceAndOptionalMetadatareference"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="reference" type="tns6:DocumentReference"/>
+      <xsd:element ecore:name="metadata" id="DocumentReferenceAndOptionalMetadatametadata"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="metadata" type="DocumentMetadata"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DocumentMetadata" id="com.tibco.bds.api.documentDocumentMetadata"
+      abstract="false" mixed="false" name="DocumentMetadata">
+    <xsd:annotation>
+      <xsd:documentation>Metadata describing a document </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="specifier" id="DocumentMetadataspecifier" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="specifier" type="DocumentSpecifier"/>
+      <xsd:element ecore:name="name" id="DocumentMetadataname" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+      <xsd:element ecore:name="version" id="DocumentMetadataversion" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="version" type="xsd:string"/>
+      <xsd:element ecore:name="mimeType" id="DocumentMetadatamimeType" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="mimeType" type="xsd:string"/>
+      <xsd:element ecore:name="createdDateTime" id="DocumentMetadatacreatedDateTime"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="createdDateTime" type="xsd:dateTime"/>
+      <xsd:element ecore:name="createdBy" id="DocumentMetadatacreatedBy" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="createdBy" type="xsd:string"/>
+      <xsd:element ecore:name="lastModifiedDateTime" id="DocumentMetadatalastModifiedDateTime"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="lastModifiedDateTime"
+          type="xsd:dateTime"/>
+      <xsd:element ecore:name="lastModifiedBy" id="DocumentMetadatalastModifiedBy"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="lastModifiedBy" type="xsd:string"/>
+      <xsd:element ecore:name="byteSize" id="DocumentMetadatabyteSize" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="byteSize" type="tns6:long_StudioGeneratedTemplate"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DocumentSpecifier" id="com.tibco.bds.api.documentDocumentSpecifier"
+      abstract="false" mixed="false" name="DocumentSpecifier">
+    <xsd:annotation>
+      <xsd:documentation>The constituent variable parts of a document reference presented separately. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="DocumentSpecifierid" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="id" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="FolderMetadata" id="com.tibco.bds.api.documentFolderMetadata"
+      abstract="false" mixed="false" name="FolderMetadata">
+    <xsd:annotation>
+      <xsd:documentation>Metadata describing a folder </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="FolderMetadataid" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="id" type="xsd:string"/>
+      <xsd:element ecore:name="name" id="FolderMetadataname" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="name" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="FolderReferenceAndOptionalMetadata" id="com.tibco.bds.api.documentFolderReferenceAndOptionalMetadata"
+      abstract="false" mixed="false" name="FolderReferenceAndOptionalMetadata">
+    <xsd:annotation>
+      <xsd:documentation>A folder reference and, optionally, metadata </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reference" id="FolderReferenceAndOptionalMetadatareference"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="reference" type="tns6:FolderReference"/>
+      <xsd:element ecore:name="metadata" id="FolderReferenceAndOptionalMetadatametadata"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="metadata" type="FolderMetadata"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DocumentContent" id="com.tibco.bds.api.documentDocumentContent"
+      abstract="false" mixed="false" name="DocumentContent">
+    <xsd:annotation>
+      <xsd:documentation>The actual content of a document to be passed to or from the document repository </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="content" id="DocumentContentcontent" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="content" type="tns6:base64binary_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="mimetype" id="DocumentContentmime-type" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="mime-type" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="RepositoryItem" id="com.tibco.bds.api.documentRepositoryItem"
+      abstract="true" mixed="false" name="RepositoryItem">
+    <xsd:annotation>
+      <xsd:documentation>Abstract base type for items returned by GetFolderContent </xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="FolderItem" id="com.tibco.bds.api.documentFolderItem"
+      abstract="false" mixed="false" name="FolderItem">
+    <xsd:annotation>
+      <xsd:documentation>(extends RepositoryItem) </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns6:RepositoryItem">
+        <xsd:sequence>
+          <xsd:element ecore:name="folder" id="FolderItemfolder" form="unqualified"
+              maxOccurs="1" minOccurs="1" name="folder" type="FolderReferenceAndOptionalMetadata"/>
+          <xsd:element ecore:name="content" id="FolderItemcontent" form="unqualified"
+              maxOccurs="unbounded" minOccurs="0" name="content" type="RepositoryItem"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DocumentItem" id="com.tibco.bds.api.documentDocumentItem"
+      abstract="false" mixed="false" name="DocumentItem">
+    <xsd:annotation>
+      <xsd:documentation>(extends RepositoryItem) </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns6:RepositoryItem">
+        <xsd:choice>
+          <xsd:element ecore:name="document" id="DocumentItemdocument" form="unqualified"
+              maxOccurs="1" minOccurs="1" name="document" type="DocumentReferenceAndOptionalMetadata"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="QueryAndDocumentType" id="com.tibco.bds.api.documentQueryAndDocumentType"
+      abstract="false" mixed="false" name="QueryAndDocumentType">
+    <xsd:annotation>
+      <xsd:documentation>Structure combining a CMISQL query string and optional document type </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="string" id="QueryAndDocumentTypestring" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="string" type="xsd:string"/>
+      <xsd:element ecore:name="documentType" id="QueryAndDocumentTypedocumentType"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="documentType" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CreateDocumentRequestType" id="com.tibco.bds.api.documentCreateDocumentRequestType"
+      abstract="false" mixed="false" name="CreateDocumentRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for CreateDocument </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="owner" id="CreateDocumentRequestTypeowner" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="owner" type="OwnerReference"/>
+      <xsd:element ecore:name="name" id="CreateDocumentRequestTypename" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+      <xsd:element ecore:name="versioningState" id="CreateDocumentRequestTypeversioningState"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="versioningState" type="tns6:VersioningStateEnum"/>
+      <xsd:element ecore:name="mimeType" id="CreateDocumentRequestTypemimeType" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="mimeType" type="xsd:string"/>
+      <xsd:choice>
+        <xsd:element ecore:name="content" id="CreateDocumentRequestTypecontent" form="unqualified"
+            maxOccurs="1" minOccurs="1" name="content" type="tns6:base64binary_StudioGeneratedTemplate"/>
+        <xsd:element ecore:name="contentURL" id="CreateDocumentRequestTypecontentURL"
+            form="unqualified" maxOccurs="1" minOccurs="1" name="contentURL" type="xsd:anyURI"/>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="returnMetadata" id="CreateDocumentRequestTypereturnMetadata"
+        form="unqualified" name="returnMetadata" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>The response will contain a document reference.  If this boolean attribute is set true, it will also include document metadata. (Assumed false if omitted) </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CreateDocumentResponseType" id="com.tibco.bds.api.documentCreateDocumentResponseType"
+      abstract="false" mixed="false" name="CreateDocumentResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for CreateDocument </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reference" id="CreateDocumentResponseTypereference"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="reference" type="tns6:DocumentReference"/>
+      <xsd:element ecore:name="metadata" id="CreateDocumentResponseTypemetadata" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="metadata" type="DocumentMetadata"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GetDocumentMetadataRequestType" id="com.tibco.bds.api.documentGetDocumentMetadataRequestType"
+      abstract="false" mixed="false" name="GetDocumentMetadataRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for GetDocumentMetadata </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reference" id="GetDocumentMetadataRequestTypereference"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="reference" type="tns6:DocumentReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GetDocumentMetadataResponseType" id="com.tibco.bds.api.documentGetDocumentMetadataResponseType"
+      abstract="false" mixed="false" name="GetDocumentMetadataResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for GetDocumentMetadata </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="metadata" id="GetDocumentMetadataResponseTypemetadata"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="metadata" type="DocumentMetadata"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GetDocumentContentRequestType" id="com.tibco.bds.api.documentGetDocumentContentRequestType"
+      abstract="false" mixed="false" name="GetDocumentContentRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for GetDocumentContent </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reference" id="GetDocumentContentRequestTypereference"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="reference" type="tns6:DocumentReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GetDocumentContentResponseType" id="com.tibco.bds.api.documentGetDocumentContentResponseType"
+      abstract="false" mixed="false" name="GetDocumentContentResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for ReadDocumentContent </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="content" id="GetDocumentContentResponseTypecontent"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="content" type="tns6:base64binary_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="mimetype" id="GetDocumentContentResponseTypemime-type"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="mime-type" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeleteDocumentRequestType" id="com.tibco.bds.api.documentDeleteDocumentRequestType"
+      abstract="false" mixed="false" name="DeleteDocumentRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for DeleteDocument API </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reference" id="DeleteDocumentRequestTypereference"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="reference" type="tns6:DocumentReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeleteDocumentResponseType" id="com.tibco.bds.api.documentDeleteDocumentResponseType"
+      abstract="false" mixed="false" name="DeleteDocumentResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for DeleteDocumentI.  No content. </xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MoveDocumentRequestType" id="com.tibco.bds.api.documentMoveDocumentRequestType"
+      abstract="false" mixed="false" name="MoveDocumentRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request type for MoveDocument </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="sourceOwner" id="MoveDocumentRequestTypesourceOwner"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="sourceOwner" type="OwnerReference"/>
+      <xsd:element ecore:name="targetOwner" id="MoveDocumentRequestTypetargetOwner"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="targetOwner" type="OwnerReference"/>
+      <xsd:element ecore:name="documentReference" id="MoveDocumentRequestTypedocumentReference"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="documentReference"
+          type="tns6:DocumentReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MoveDocumentResponseType" id="com.tibco.bds.api.documentMoveDocumentResponseType"
+      abstract="false" mixed="false" name="MoveDocumentResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for MoveDocument  </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reference" id="MoveDocumentResponseTypereference" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="reference" type="tns6:DocumentReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="LinkDocumentRequestType" id="com.tibco.bds.api.documentLinkDocumentRequestType"
+      abstract="false" mixed="false" name="LinkDocumentRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for LinkDocument  </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="targetOwner" id="LinkDocumentRequestTypetargetOwner"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="targetOwner" type="OwnerReference"/>
+      <xsd:choice>
+        <xsd:element ecore:name="documentReference" id="LinkDocumentRequestTypedocumentReference"
+            form="unqualified" maxOccurs="1" minOccurs="1" name="documentReference"
+            type="tns6:DocumentReference"/>
+        <xsd:element ecore:name="documentSpecifier" id="LinkDocumentRequestTypedocumentSpecifier"
+            form="unqualified" maxOccurs="1" minOccurs="1" name="documentSpecifier"
+            type="DocumentSpecifier"/>
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="LinkDocumentResponseType" id="com.tibco.bds.api.documentLinkDocumentResponseType"
+      abstract="false" mixed="false" name="LinkDocumentResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for LinkDocument </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reference" id="LinkDocumentResponseTypereference" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="reference" type="tns6:DocumentReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="UnlinkDocumentRequestType" id="com.tibco.bds.api.documentUnlinkDocumentRequestType"
+      abstract="false" mixed="false" name="UnlinkDocumentRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for UnlinkDocument </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="sourceOwner" id="UnlinkDocumentRequestTypesourceOwner"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="sourceOwner" type="OwnerReference"/>
+      <xsd:element ecore:name="documentReference" id="UnlinkDocumentRequestTypedocumentReference"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="documentReference"
+          type="tns6:DocumentReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="UnlinkDocumentResponseType" id="com.tibco.bds.api.documentUnlinkDocumentResponseType"
+      abstract="false" mixed="false" name="UnlinkDocumentResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for UnlinkDocument </xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="FindDocumentsRequestType" id="com.tibco.bds.api.documentFindDocumentsRequestType"
+      abstract="false" mixed="false" name="FindDocumentsRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for FindDocuments  </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="owner" id="FindDocumentsRequestTypeowner" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="owner" type="OwnerReference"/>
+      <xsd:choice>
+        <xsd:element ecore:name="name" id="FindDocumentsRequestTypename" form="unqualified"
+            maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+        <xsd:element ecore:name="query" id="FindDocumentsRequestTypequery" form="unqualified"
+            maxOccurs="1" minOccurs="1" name="query" type="QueryAndDocumentType"/>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="returnMetadata" id="FindDocumentsRequestTypereturnMetadata"
+        form="unqualified" name="returnMetadata" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>The response will contain zero or more document references.  If this boolean attribute is set true, it will also include document metadata. (Assumed false if omitted) </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="FindDocumentsResponseType" id="com.tibco.bds.api.documentFindDocumentsResponseType"
+      abstract="false" mixed="false" name="FindDocumentsResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for FindDocuments </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="result" id="FindDocumentsResponseTyperesult" form="unqualified"
+          maxOccurs="unbounded" minOccurs="0" name="result" type="DocumentReferenceAndOptionalMetadata"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GetFolderContentRequestType" id="com.tibco.bds.api.documentGetFolderContentRequestType"
+      abstract="false" mixed="false" name="GetFolderContentRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for GetFolderContent </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element ecore:name="owner" id="GetFolderContentRequestTypeowner" form="unqualified"
+            maxOccurs="1" minOccurs="1" name="owner" type="OwnerReference"/>
+        <xsd:element ecore:name="folderReference" id="GetFolderContentRequestTypefolderReference"
+            form="unqualified" maxOccurs="1" minOccurs="1" name="folderReference"
+            type="tns6:FolderReference"/>
+      </xsd:choice>
+      <xsd:element ecore:name="depth" id="GetFolderContentRequestTypedepth" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="depth" type="xsd:int"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="returnMetadata" id="GetFolderContentRequestTypereturnMetadata"
+        form="unqualified" name="returnMetadata" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>The response will contain document/folder references.  If this boolean attribute is set true, it will also include corresponding metadata. (Assumed false if omitted) </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="GetFolderContentResponseType" id="com.tibco.bds.api.documentGetFolderContentResponseType"
+      abstract="false" mixed="false" name="GetFolderContentResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for GetFolderContent </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="item" id="GetFolderContentResponseTypeitem" form="unqualified"
+          maxOccurs="unbounded" minOccurs="0" name="item" type="RepositoryItem"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeleteOrphanedFoldersRequestType" id="com.tibco.bds.api.documentDeleteOrphanedFoldersRequestType"
+      abstract="false" mixed="false" name="DeleteOrphanedFoldersRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Request for DeleteOrphanedFolders.   </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="orphanedDateTime" id="DeleteOrphanedFoldersRequestTypeorphanedDateTime"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="orphanedDateTime" type="xsd:dateTime"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="returnFailures" id="DeleteOrphanedFoldersRequestTypereturnFailures"
+        default="true" form="unqualified" name="returnFailures" type="xsd:boolean"
+        use="optional">
+      <xsd:annotation>
+        <xsd:documentation>If set true, then the response will include details of folders for which deletion failed. (default: true) </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeleteOrphanedFoldersResponseType" id="com.tibco.bds.api.documentDeleteOrphanedFoldersResponseType"
+      abstract="false" mixed="false" name="DeleteOrphanedFoldersResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Response for DeleteOrphanedFolders </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="successCount" id="DeleteOrphanedFoldersResponseTypesuccessCount"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="successCount" type="xsd:int"/>
+      <xsd:element ecore:name="failureCount" id="DeleteOrphanedFoldersResponseTypefailureCount"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="failureCount" type="xsd:int"/>
+      <xsd:element ecore:name="failurePath" id="DeleteOrphanedFoldersResponseTypefailurePath"
+          form="unqualified" maxOccurs="unbounded" minOccurs="0" name="failurePath"
+          type="tns6:FolderReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="base64binary_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?)*(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/])|([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[AEIMQUYcgkosw048] ?=)|([A-Za-z0-9+/] ?[AQgw] ?= ?=)))?"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="CreateDocumentRequest" nillable="false" type="CreateDocumentRequestType"/>
+  <xsd:element abstract="false" name="CreateDocumentResponse" nillable="false" type="CreateDocumentResponseType"/>
+  <xsd:element abstract="false" name="GetDocumentMetadataRequest" nillable="false"
+      type="GetDocumentMetadataRequestType"/>
+  <xsd:element abstract="false" name="GetDocumentMetadataResponse" nillable="false"
+      type="GetDocumentMetadataResponseType"/>
+  <xsd:element abstract="false" name="GetDocumentContentRequest" nillable="false"
+      type="GetDocumentContentRequestType"/>
+  <xsd:element abstract="false" name="GetDocumentContentResponse" nillable="false"
+      type="GetDocumentContentResponseType"/>
+  <xsd:element abstract="false" name="DeleteDocumentRequest" nillable="false" type="DeleteDocumentRequestType"/>
+  <xsd:element abstract="false" name="DeleteDocumentResponse" nillable="false" type="DeleteDocumentResponseType"/>
+  <xsd:element abstract="false" name="MoveDocumentRequest" nillable="false" type="MoveDocumentRequestType"/>
+  <xsd:element abstract="false" name="MoveDocumentResponse" nillable="false" type="MoveDocumentResponseType"/>
+  <xsd:element abstract="false" name="LinkDocumentRequest" nillable="false" type="LinkDocumentRequestType"/>
+  <xsd:element abstract="false" name="LinkDocumentResponse" nillable="false" type="LinkDocumentResponseType"/>
+  <xsd:element abstract="false" name="UnlinkDocumentRequest" nillable="false" type="UnlinkDocumentRequestType"/>
+  <xsd:element abstract="false" name="UnlinkDocumentResponse" nillable="false" type="UnlinkDocumentResponseType"/>
+  <xsd:element abstract="false" name="FindDocumentsRequest" nillable="false" type="FindDocumentsRequestType"/>
+  <xsd:element abstract="false" name="FindDocumentsResponse" nillable="false" type="FindDocumentsResponseType"/>
+  <xsd:element abstract="false" name="GetFolderContentRequest" nillable="false" type="GetFolderContentRequestType"/>
+  <xsd:element abstract="false" name="GetFolderContentResponse" nillable="false" type="GetFolderContentResponseType"/>
+  <xsd:element abstract="false" name="DeleteOrphanedFoldersRequest" nillable="false"
+      type="DeleteOrphanedFoldersRequestType"/>
+  <xsd:element abstract="false" name="DeleteOrphanedFoldersResponse" nillable="false"
+      type="DeleteOrphanedFoldersResponseType"/>
+</xsd:schema>

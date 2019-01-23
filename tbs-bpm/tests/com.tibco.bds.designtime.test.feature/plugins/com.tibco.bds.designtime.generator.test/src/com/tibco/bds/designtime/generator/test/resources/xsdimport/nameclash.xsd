@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://nameclash" targetNamespace="http://nameclash" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- Complicated nesting of apples and bananas. Their names will clash with each other and named top-level types -->
+	<xs:complexType name="Apple">
+		<xs:sequence>
+			<xs:element name="Apple">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Apple">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="banana">
+										<xs:complexType>
+											<xs:sequence>
+												<!-- case-insensitive clash between attributes -->
+												<xs:element name="attr1" type="xs:string"/>
+												<xs:element name="Attr1" type="xs:int"/>
+												<xs:element name="Banana">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="deepNestedBananaName" type="xs:string"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="AppleType">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Granny Smith"/>
+															<xs:enumeration value="GrannySmith"/>
+															<xs:enumeration value="GRANNYSMITH"/>
+															<xs:enumeration value="GRANNY_SMITH"/>
+															<!-- Clash between enum literals -->
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Cause a case-insensitive clash with the existing Apple class -->
+	<xs:complexType name="apple">
+		<xs:sequence>
+			<xs:element name="topLevelAppleAttr" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Clash between top-level simple type names (when case ignored) -->
+	<xs:simpleType name="banana">
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="Banana">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+	<!-- Force an anonymous type naturally resolving to 'AppleType' to become 'AppleType1' -->
+	<xs:complexType name="AppleType"/>
+	<!-- Top-level entities that will leave 'BananaType' available for anonymous use, but a second anonymous
+          entity would need to use 'BananaType3' to clear these -->
+	<xs:complexType name="BananaType1">
+		<xs:sequence>
+			<xs:element name="AttrInBananaType1" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="BananaType2">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Curvy"/>
+			<xs:enumeration value="Straight"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Top-level complex/simple/enum trio that all naturally resolve to name 'Cherry' -->
+	<xs:complexType name="Cherry"/>
+	<xs:simpleType name="cherry">
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<xs:simpleType name="_cherry">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GLACE"/>
+			<xs:enumeration value="MORELLO"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

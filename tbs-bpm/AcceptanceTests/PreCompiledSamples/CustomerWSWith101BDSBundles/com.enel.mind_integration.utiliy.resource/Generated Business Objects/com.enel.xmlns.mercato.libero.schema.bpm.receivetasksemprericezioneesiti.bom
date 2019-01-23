@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti" name="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_scYOMQ93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_scYOMg93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_scYOMw93EeW3MruGqUCC5Q" key="created" value="1433947846274"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_scYONA93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sdav8A93EeW3MruGqUCC5Q" key="checksum" value="2148217888"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesitiSempreRicezioneEsitiRequestType" name="SempreRicezioneEsitiRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SempreRicezioneEsitiRequestTypecorrelationID" name="correlationID" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_scOdJQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_scOdJA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SempreRicezioneEsitiRequestTypeesito" name="esito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_scOdKg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_scOdKQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SempreRicezioneEsitiRequestTypecodiceEsito" name="codiceEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_scOdLw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_scOdLg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SempreRicezioneEsitiRequestTypedescrizioneEsito" name="descrizioneEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_scOdNA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_scOdMw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_scFTMQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_scFTMg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_scFTMw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_scFTNA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_scFTNQ93EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti?" xsdTargetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksemprericezioneesiti" xsdSchemaLocation="ReceiveTaskSempreRicezioneEsitiServiceConcrete.wsdl" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="ReceiveTaskSempreRicezioneEsitiServiceConcrete.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_scOdIQ93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesitiSempreRicezioneEsitiRequestType?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_scOdNg93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_scOdIw93EeW3MruGqUCC5Q" base_Property="SempreRicezioneEsitiRequestTypecorrelationID?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3acorrelationID?" xsdName="correlationID" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_scOdNg93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_scOdJg93EeW3MruGqUCC5Q" textLength="-1" base_Property="SempreRicezioneEsitiRequestTypecorrelationID?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3acorrelationID?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_scOdKA93EeW3MruGqUCC5Q" base_Property="SempreRicezioneEsitiRequestTypeesito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3aesito?" xsdName="esito" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_scOdNg93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_scOdKw93EeW3MruGqUCC5Q" textLength="-1" base_Property="SempreRicezioneEsitiRequestTypeesito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_scOdLQ93EeW3MruGqUCC5Q" base_Property="SempreRicezioneEsitiRequestTypecodiceEsito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3acodiceEsito?" xsdName="codiceEsito" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_scOdNg93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_scOdMA93EeW3MruGqUCC5Q" textLength="-1" base_Property="SempreRicezioneEsitiRequestTypecodiceEsito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_scOdMg93EeW3MruGqUCC5Q" base_Property="SempreRicezioneEsitiRequestTypedescrizioneEsito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3adescrizioneEsito?" xsdName="descrizioneEsito" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_scOdNg93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_scOdNQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="SempreRicezioneEsitiRequestTypedescrizioneEsito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3adescrizioneEsito?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_scOdNw93EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_scOdOA93EeW3MruGqUCC5Q" name="SempreRicezioneEsitiRequest" type="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesitiSempreRicezioneEsitiRequestType?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksemprericezioneesiti" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdOQ93EeW3MruGqUCC5Q" base_Element="_scFTMw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdOg93EeW3MruGqUCC5Q" base_Element="_scOdLg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdOw93EeW3MruGqUCC5Q" base_Element="SempreRicezioneEsitiRequestTypeesito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdPA93EeW3MruGqUCC5Q" base_Element="_scOdMw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdPQ93EeW3MruGqUCC5Q" base_Element="_scFTMQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdPg93EeW3MruGqUCC5Q" base_Element="_scOdNA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdPw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesitiSempreRicezioneEsitiRequestType?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdQA93EeW3MruGqUCC5Q" base_Element="_scOdKg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdQQ93EeW3MruGqUCC5Q" base_Element="_scOdKQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdQg93EeW3MruGqUCC5Q" base_Element="SempreRicezioneEsitiRequestTypedescrizioneEsito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3adescrizioneEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdQw93EeW3MruGqUCC5Q" base_Element="_scOdJA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdRA93EeW3MruGqUCC5Q" base_Element="_scOdLw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdRQ93EeW3MruGqUCC5Q" base_Element="_scOdJQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdRg93EeW3MruGqUCC5Q" base_Element="SempreRicezioneEsitiRequestTypecorrelationID?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3acorrelationID?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_scOdRw93EeW3MruGqUCC5Q" base_Element="SempreRicezioneEsitiRequestTypecodiceEsito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3acodiceEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_scYOLA93EeW3MruGqUCC5Q" displayLabel="SempreRicezioneEsitiRequestType" base_NamedElement="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesitiSempreRicezioneEsitiRequestType?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_scYOLQ93EeW3MruGqUCC5Q" displayLabel="codiceEsito" base_NamedElement="SempreRicezioneEsitiRequestTypecodiceEsito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3acodiceEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_scYOLg93EeW3MruGqUCC5Q" displayLabel="correlationID" base_NamedElement="SempreRicezioneEsitiRequestTypecorrelationID?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3acorrelationID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_scYOLw93EeW3MruGqUCC5Q" displayLabel="descrizioneEsito" base_NamedElement="SempreRicezioneEsitiRequestTypedescrizioneEsito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3adescrizioneEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_scYOMA93EeW3MruGqUCC5Q" displayLabel="esito" base_NamedElement="SempreRicezioneEsitiRequestTypeesito?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti%3a%3aSempreRicezioneEsitiRequestType%3a%3aesito?"/>
+  <notation:Diagram xmi:id="_scYONQ93EeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti?com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti?" name="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_scYONg93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_scYONw93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

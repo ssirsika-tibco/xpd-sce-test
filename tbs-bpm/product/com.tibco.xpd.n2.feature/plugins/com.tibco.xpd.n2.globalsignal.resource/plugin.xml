@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+ 
+ 	<extension
+        point="com.tibco.xpd.resources.projectAsset">
+     
+      <!-- Define Global Signal Definition Asset -->
+     <asset               
+           configuration="com.tibco.xpd.n2.globalsignal.resource.newproject.GsdAssetConfiguration"
+           configurator="com.tibco.xpd.n2.globalsignal.resource.newproject.GsdAssetConfigurator"
+           icon="icons/obj16/Gsd_SpecialFolder.png"
+           id="com.tibco.xpd.asset.globalSignalDefinition"
+           name="%projectAsset.gsd.name"
+           visible="false"
+           showConfigPageWhenInvisible="true">
+          <customParam
+            		name="notAppliedByDefault"
+            		value="true">
+     	  </customParam>
+        <description>
+           %projectAsset.gsd.description
+        </description>
+        <!--Declare Creation Wizard Page for Global Signal Definition Asset-->
+        <wizardpage
+              page="com.tibco.xpd.n2.globalsignal.resource.wizards.GsdAssetWizardPage">
+        </wizardpage> 
+        <!-- TODO To revisit The MigrationFactory for required changes -->
+      <assetMigration 
+            class="com.tibco.xpd.resources.projectconfig.projectassets.util.AssetWorkingCopyMigrationFactory: -kind gsd -fileExt gsd">
+      </assetMigration>
+      <dynamicVersion
+            versionProvider="com.tibco.xpd.n2.globalsignal.resource.newproject.GsdAssetConfigurator">
+      </dynamicVersion>     
+     </asset>
+     
+     <!-- Define hidden GSD asset -->
+     <asset
+         configurator="com.tibco.xpd.n2.globalsignal.resource.newproject.HiddenGsdAssetConfigurator"
+         icon="icons/obj16/Gsd_SpecialFolder.png"
+         id="com.tibco.xpd.project.asset.globalSignalDefinition"
+         name="%hiddenProjectAsset.gsd.name"
+         visible="false">
+      <dependsOn
+            assetId="com.tibco.xpd.asset.globalSignalDefinition">
+      </dependsOn>
+      <customParam
+            name="notAppliedByDefault"
+            value="true">
+      </customParam>
+      <bindings>
+         <nature
+               id="com.tibco.xpd.n2.globalsignal.resource.gsdProjectNature">
+         </nature>
+      </bindings>
+   </asset>
+   </extension>
+  
+   <!-- Define Global Signal Definition nature -->
+   <extension
+         id="gsdProjectNature"
+         name="%gsd_nature_label"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.tibco.xpd.n2.globalsignal.resource.newproject.GsdProjectNature">
+         </run>
+      </runtime>
+      <requires-nature
+            id="com.tibco.xpd.resources.xpdNature">
+      </requires-nature>
+   </extension>
+   
+	<!-- Define Special Folder Asset Configuration-->
+ 	<extension
+         point="com.tibco.xpd.resources.specialFolders">
+      <folder
+            allowDuplicateResources="false"
+            icon="icons/obj16/Gsd_SpecialFolder.png"
+            kind="gsd"
+            multiple="true"
+            name="%folder.name.globalSignalDefinition"
+            navigatorContentId="com.tibco.xpd.projectExplorer.gsdContent"
+            projectAssetId="com.tibco.xpd.asset.globalSignalDefinition"
+            unsettable="false">
+      </folder>
+   	</extension>
+   
+	<!-- Define Special Folder to File Binding-->
+    <extension
+         point="com.tibco.xpd.resources.specialFolderFileBinding">
+      <binding
+            kind="gsd">
+         <filePatterns
+               match=".*\.[gG][sS][dD]">
+         </filePatterns>
+      </binding>
+   </extension>
+   
+   <!-- Bind Global Signal Definition Asset to Global Signal Definition projects to chain Global Signal Definition wizard page in the new Project Creation Wizard-->
+   <extension
+         point="com.tibco.xpd.resources.projectAssetBinding">
+      <projectAssetBinding
+            assetId="com.tibco.xpd.asset.globalSignalDefinition"
+            mandatory="true"
+            newProjectWizardId="com.tibco.xpd.newProject.GSDDeveloper">
+      </projectAssetBinding>
+      <projectAssetBinding
+            assetId="com.tibco.xpd.project.asset.globalSignalDefinition"
+            mandatory="true"
+            newProjectWizardId="com.tibco.xpd.newProject.GSDDeveloper">
+      </projectAssetBinding>
+   </extension>
+   
+   <!--Define New Global Signal Definition project Wizard -->
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <primaryWizard
+            id="com.tibco.xpd.newProject.GSDDeveloper">
+      </primaryWizard>
+      <wizard
+            category="com.tibco.xpd.newWizard.modeling.category"
+            finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+            preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+            icon="icons/obj16/gsdProject.png"
+            id="com.tibco.xpd.newProject.GSDDeveloper"
+            name="%developer_project_title"
+            project="true">
+          <class class="com.tibco.xpd.ui.wizards.newproject.XpdProjectWizardFactory">
+            <parameter name="hideAssetSelection" value="true"/>
+            <parameter name="title" value="%developer_project_wizard_title" />
+         </class> 
+         <description>
+            %developer_project_description
+         </description>
+      </wizard>
+   </extension>
+   
+   <!-- New GSD File Creation Wizard -->
+   <extension point="org.eclipse.ui.newWizards">
+      <?gmfgen generated="false"?>
+  	  <wizard
+  	     name="%newFileWizardName"
+  	     icon="icons/obj16/NewGsdFile.png"
+  	     category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.globalSignalDefinition.categoryGSD"
+  	     class="com.tibco.xpd.n2.globalsignal.resource.wizards.GsdCreationWizard"
+  	     finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+         preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+  	     id="com.tibco.xpd.gsd.GSDWizardID">
+  	  	 <description>%newFileWizardDesc</description>  
+      </wizard>
+     <category
+           id="com.tibco.xpd.globalSignalDefinition.categoryGSD"
+           name="%gsd.category.name"
+           parentCategory="com.tibco.xpd.newWizard.modeling.category">
+     </category>
+   </extension>
+   
+   <!--Define New Global Signal Wizard -->
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+  	     name="%newSignalWizardName"
+  	     icon="icons/obj16/NewGlobalSignal.png"
+  	     category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.globalSignalDefinition.categoryGSD"
+  	     class="com.tibco.xpd.n2.globalsignal.resource.wizards.NewGlobalSignalCreationWizard"
+  	     finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+         preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+  	     id="com.tibco.xpd.gsd.GlobalSignalWizardID">
+  	  	 <description>%newSignalWizardDesc</description>  
+      </wizard>
+     <category
+           id="com.tibco.xpd.globalSignalDefinition.categoryGSD"
+           name="%gsd.category.name"
+           parentCategory="com.tibco.xpd.newWizard.modeling.category">
+     </category>
+   </extension>
+   
+   <!--Define New Payload Data Wizard -->
+   <extension
+         point="org.eclipse.ui.newWizards">
+   	<wizard
+            category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.globalSignalDefinition.categoryGSD"
+            class="com.tibco.xpd.n2.globalsignal.resource.wizards.NewPayloadDataCreationWizard"
+            finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+            preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+            icon="icons/obj16/NewPayloadData.png"
+            id="com.tibco.xpd.gsd.PayloadDataWizardID"
+            name="%newPayloadWizardName">
+         <description>
+            %newPayloadWizardDesc
+         </description>
+      </wizard>
+      <category
+           id="com.tibco.xpd.globalSignalDefinition.categoryGSD"
+           name="%gsd.category.name"
+           parentCategory="com.tibco.xpd.newWizard.modeling.category">
+     </category>
+   </extension>
+   
+   <!--Add new wizard  to the perspective's "New" submenu of the "File" menu-->    
+    <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.tibco.modeling.perspective">
+         <newWizardShortcut
+               id="com.tibco.xpd.newProject.GSDDeveloper">
+         </newWizardShortcut>        
+      </perspectiveExtension>
+   </extension>
+   
+     <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <!--Add new Project wizard menu to New menu -->       
+         
+     <navigatorContent
+          activeByDefault="true"          
+          icon="icons/obj16/Gsd_SpecialFolder.png"
+          contentProvider="com.tibco.xpd.n2.globalsignal.resource.ui.navigator.GsdContentProvider"
+          labelProvider="com.tibco.xpd.n2.globalsignal.resource.ui.GsdLabelProvider"
+          id="com.tibco.xpd.projectExplorer.gsdContent"         
+          name="%navigatorContent_name"
+          priority="high"
+          providesSaveables="true">
+       <triggerPoints>
+       		<or>
+				<and>
+					<instanceof value="org.eclipse.core.resources.IProject"/>
+						<test
+							property="org.eclipse.core.resources.projectNature"
+	                        value="com.tibco.xpd.resources.xpdNature"/>
+	                    <test
+	                        property="org.eclipse.core.resources.open"
+	                        value="true"/>
+				</and>
+				<and>
+					<instanceof value="org.eclipse.core.resources.IFolder"/>
+					<test
+						property="com.tibco.xpd.resources.specialfolder.containsSpecialFolder"
+						value="gsd"/>
+				</and>
+				<and>
+					<instanceof value="com.tibco.xpd.resources.projectconfig.SpecialFolder"/>
+					<test
+						property="com.tibco.xpd.resources.specialfolder.isOfKind"
+						value="gsd"/>
+				</and>
+				<and>
+	               	<instanceof
+	                     value="org.eclipse.core.resources.IFile">
+	               	</instanceof>
+	               	<test
+	                     property="org.eclipse.core.resources.extension"
+	                     value="gsd">
+	               	</test>
+                	<test
+                      property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                      value="gsd">
+                	</test>
+            	</and>
+			</or>
+       </triggerPoints>
+       <possibleChildren>
+            <or>
+            	<and>
+                	 <instanceof value="com.tibco.xpd.resources.projectconfig.SpecialFolder"/>
+                 	<test
+                       property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                       value="gsd"/>
+             	</and>             	
+              	<instanceof
+                    value="org.eclipse.core.resources.IFile">
+              	</instanceof>
+              	<instanceof
+                    value="org.eclipse.core.resources.IFolder">
+              	</instanceof>   
+              	<instanceof
+                    value="org.eclipse.emf.ecore.EObject">
+              	</instanceof>          
+            </or>
+       </possibleChildren>
+       <override
+             policy="InvokeAlwaysRegardlessOfSuppressedExt"
+             suppressedExtensionId="org.eclipse.ui.navigator.resourceContent">
+       </override>
+       
+       <commonWizard
+            menuGroupId="additions.xpdproject"
+            type="new"
+            wizardId="com.tibco.xpd.newProject.GSDDeveloper">
+         <enablement>
+            <or>
+               <instanceof
+                     value="org.eclipse.core.resources.IWorkspaceRoot">
+               </instanceof>
+               <and>
+                  <instanceof
+                        value="java.util.Collection">
+                  </instanceof>
+                  <count
+                        value="0">
+                  </count>
+               </and>
+            </or></enablement>
+      </commonWizard> 
+    
+    <commonWizard
+            associatedExtensionId="com.tibco.xpd.projectExplorer.gsdContent"
+            menuGroupId="group.gsd"
+            type="new"
+            wizardId="com.tibco.xpd.gsd.GSDWizardID">
+         <enablement>
+            
+            <or>
+            	<and>
+                  <instanceof
+                        value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                  </instanceof>
+                  <test
+                        property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                        value="gsd">
+                  </test>
+               	</and>
+               	<and>
+                  <instanceof
+                        value="org.eclipse.core.resources.IFolder">
+                  </instanceof> 
+              	  <test
+                        property= "com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                        value= "gsd">
+                  </test>              	
+            	</and>
+            	<and>
+            		<instanceof
+                    	  value="org.eclipse.core.resources.IFile">
+                	</instanceof>
+                	<test
+                    	  property="org.eclipse.core.resources.extension"
+                      	value="gsd">
+                	</test>
+                </and>
+            </or>
+               
+               
+            </enablement>
+      </commonWizard>
+      
+       <!--  Wizard for New Global Signal option on GSD file and on a Global Signal-->
+      <commonWizard
+            associatedExtensionId="com.tibco.xpd.projectExplorer.gsdContent"
+            menuGroupId="group.gsd"
+            type="new"
+            wizardId="com.tibco.xpd.gsd.GlobalSignalWizardID">
+         <enablement>
+            
+            <or>            
+            	<and>
+            		<instanceof
+                    	  value="org.eclipse.core.resources.IFile">
+                	</instanceof>
+                	<test
+                    	  property="org.eclipse.core.resources.extension"
+                      	value="gsd">
+               		</test>
+              	</and>
+                 
+                <instanceof
+                     	value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+                </instanceof>
+                
+                <instanceof
+                     	value="com.tibco.xpd.n2.globalsignal.resource.ui.GlobalSignalsGroup">
+                </instanceof>
+            </or>
+                    
+         </enablement>
+      </commonWizard>
+      
+      <!--  Wizard for New Payload Data option on a Global Signal and on a Payload Data-->
+      <commonWizard
+            associatedExtensionId="com.tibco.xpd.projectExplorer.gsdContent"
+            menuGroupId="group.gsd"
+            type="new"
+            wizardId="com.tibco.xpd.gsd.PayloadDataWizardID">
+         <enablement>
+            
+            <or>
+            	<instanceof
+                      value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+               	</instanceof>
+               
+               	<instanceof
+                      value="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+               	</instanceof>  
+               	
+               	<instanceof
+                     	value="com.tibco.xpd.n2.globalsignal.resource.ui.PayloadDataGroup">
+                </instanceof>       
+            </or>
+ 
+            </enablement>
+      </commonWizard>
+      
+      <!-- Actions to be put on Global Signals and Payload Data --> 
+      <actionProvider
+               class="com.tibco.xpd.n2.globalsignal.resource.ui.GlobalSignalActions"
+               id="com.tibco.xpd.GlobalSignalActionProvider">
+            <enablement>
+            <or>
+             	<instanceof
+                      value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+                </instanceof>
+                <instanceof
+                      value="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+                </instanceof>
+                 <instanceof
+                     	value="com.tibco.xpd.n2.globalsignal.resource.ui.GlobalSignalsGroup">
+                </instanceof>
+                <instanceof
+                     	value="com.tibco.xpd.n2.globalsignal.resource.ui.PayloadDataGroup">
+                </instanceof>
+            </or>
+            </enablement>
+      </actionProvider>
+      
+      <!-- Action provider for the action to rename GSD elements (Global signal and payload data)-->
+      <actionProvider
+             class="com.tibco.xpd.n2.globalsignal.resource.ui.refactor.RenameGSDElementActionProvider"
+             id="com.tibco.xpd.n2.globalsignal.resource.ui.refactor.RenameGSDElementActionProvider">
+          <enablement>
+           <or>
+             	<instanceof
+                      value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+                </instanceof>
+                <instanceof
+                      value="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+                </instanceof>
+            </or>
+          </enablement>
+       </actionProvider>
+      
+      <actionProvider
+             class="com.tibco.xpd.n2.globalsignal.resource.ui.GSDUndoRedoActionProvider"
+             id="com.tibco.xpd.projectExplorer.action.gsd.undoRedoActionProvider"
+             overrides="org.eclipse.ui.navigator.resources.UndoRedoActionProvider">
+          <enablement>
+          	<or>
+             	<instanceof
+                      value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+                </instanceof>
+                <instanceof
+                      value="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+                </instanceof>
+                 <instanceof
+                     	value="com.tibco.xpd.n2.globalsignal.resource.ui.GlobalSignalsGroup">
+                </instanceof>
+                <instanceof
+                     	value="com.tibco.xpd.n2.globalsignal.resource.ui.PayloadDataGroup">
+                </instanceof>
+                <and>
+            		<instanceof
+                    	  value="org.eclipse.core.resources.IFile">
+                	</instanceof>
+                	<test
+                    	  property="org.eclipse.core.resources.extension"
+                      	value="gsd">
+               		</test>
+              	</and>
+            </or>
+          </enablement>
+       </actionProvider>
+       <dropAssistant
+             class="com.tibco.xpd.ui.projectexplorer.dropassist.SpecialFolderDropAssist"
+             id="com.tibco.xpd.n2.globalsignal.resource.specialFolder.dropAssistant">
+          <possibleDropTargets>
+           <or>
+                <and>
+                   <instanceof
+                         value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                   </instanceof>
+                   <test
+                         property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                         value="gsd">
+                   </test>
+                </and>
+                <and>
+                   <instanceof
+                         value="org.eclipse.core.resources.IFolder">
+                   </instanceof>
+                  <test
+                         property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                         value="gsd">
+                   </test>
+                </and>
+           </or>
+          </possibleDropTargets>
+       </dropAssistant>
+       <commonSorter
+             class="com.tibco.xpd.ui.projectexplorer.sorter.ResourceSorterWithIgnoredDirtyMarker">
+          <parentExpression>
+             <or>
+                <and>
+                   <instanceof
+                         value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+                   </instanceof>
+                   <test
+                         property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                         value="gsd">
+                   </test>
+                </and>             
+                <instanceof
+                      value="org.eclipse.core.resources.IFolder">
+                </instanceof>
+                <instanceof
+                      value="org.eclipse.core.resources.IFile">
+                </instanceof>
+             </or>
+          </parentExpression>
+       </commonSorter>       
+    </navigatorContent>
+  
+   </extension>
+   
+   <!-- General tab when PROJECT EXPLORER is the selection provider -->
+   <extension
+        name="Tabs contributed for when PROJECT EXPLORER is the selection provider."
+        point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+     <propertyTabs
+           contributorId="org.eclipse.ui.navigator.ProjectExplorer">
+        
+        <propertyTab
+              afterTab="top"
+              category="general"
+              id="com.tibco.xpd.n2.globalsignal.propertyTabs.general"
+              image="icons/tabGeneral.png"
+              indented="false"
+              label="%property_tab_general">
+        </propertyTab>
+        
+         <propertyTab
+              category="core"
+              id="com.tibco.xpd.n2.globalsignal.propertyTabs.payloadData"
+              image="icons/obj16/payloadData.png"
+              label="%property_tab_payloadData">
+        </propertyTab>
+        </propertyTabs>
+  </extension>
+   
+   <!-- Property sections for GSD file, Global signals and Payload Data-->
+   <extension
+        name="Property Sections Contributed to tabs when PROJECT EXPLORER is selection provider."
+        point="org.eclipse.ui.views.properties.tabbed.propertySections">
+        
+     <propertySections contributorId="org.eclipse.ui.navigator.ProjectExplorer">
+   		<propertySection
+               class="com.tibco.xpd.n2.globalsignal.resource.properties.general.GSDFileProperySection"
+               enablesFor="1"
+               filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.GSDFileProperySection"
+               id="GSDFileProperty"
+               tab="com.tibco.xpd.n2.globalsignal.propertyTabs.general">
+            <input
+                  type="org.eclipse.core.resources.IFile">
+            </input>
+         </propertySection>
+         
+         <propertySection
+               class="com.tibco.xpd.n2.globalsignal.resource.properties.general.GlobalSignalPropertySection"
+               enablesFor="1"
+               filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.GlobalSignalPropertySection"
+               id="GlobalSignalProperty"
+               tab="com.tibco.xpd.n2.globalsignal.propertyTabs.general">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+            </input>
+         </propertySection>
+         
+         <propertySection
+               class="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataPropertySection"
+               enablesFor="1"
+               filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataPropertySection"
+               id="PayloadDataProperty"
+               tab="com.tibco.xpd.n2.globalsignal.propertyTabs.general">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+            </input>
+         </propertySection>
+          <propertySection
+               class="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataFieldNameSection"
+               enablesFor="1"
+               filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataFieldNameSection"
+               id="payloadDataFieldNameSection"
+               tab="com.tibco.xpd.n2.globalsignal.propertyTabs.general">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+            </input>
+         </propertySection>
+         
+         <propertySection
+              class="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataSection"
+              enablesFor="1"
+              filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataSection$PayloadDataContainerFilter"
+              id="PayloadDataFolderSection"
+              tab="com.tibco.xpd.n2.globalsignal.propertyTabs.payloadData">
+           <input
+                 type="com.tibco.xpd.n2.globalsignal.resource.ui.PayloadDataGroup">
+           </input>
+        </propertySection>
+      </propertySections>
+      
+  </extension>
+
+   <extension
+         point= "com.tibco.xpd.resources.ui.pickerContent" >
+      <pickerContentProvider
+            id= "com.tibco.xpd.n2.globalsignal.resource.pickerContentProvider"
+            itemProvider= "com.tibco.xpd.n2.globalsignal.resource.ui.commonpicker.GsdPickerItemProvider"
+            labelProvider= "com.tibco.xpd.n2.globalsignal.resource.ui.commonpicker.GsdPickerLabelProvider" >
+      </pickerContentProvider>
+   </extension>
+   
+   
+   <!--Global Signal Definition Editor-->
+  <extension point="org.eclipse.ui.editors">
+      <editor
+            class="com.tibco.xpd.n2.globalsignal.resource.editor.GsdFormEditor"
+            contributorClass="com.tibco.xpd.n2.globalsignal.resource.ui.GsdEditorContributor"
+            extensions="gsd"
+            icon="icons/obj16/gsdFile.png"
+            id="com.tibco.xpd.globalsignaldefinition.presentation.GlobalSignalDefinitionEditorID"
+            name="%GlobalSignalDefinitionEditor_label">
+      </editor>
+   </extension>
+   
+   <!-- GSD Form Editor -->
+   <extension
+         point="com.tibco.xpd.resources.ui.objectEditor">
+      <editorInputFactory
+            editorID="com.tibco.xpd.globalsignaldefinition.presentation.GlobalSignalDefinitionEditorID"
+            factory="com.tibco.xpd.n2.globalsignal.resource.editor.GSDEditorInputFactory"
+            objectClass="org.eclipse.core.resources.IFile"
+            objectFilter="com.tibco.xpd.n2.globalsignal.resource.editor.GsdFileFilter">
+      </editorInputFactory>
+   </extension>
+   
+   <!-- Property contributor for Form editor, so that we can display appropriate property sheets for Global Signals and their Payloads-->
+   <extension
+      point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+   		<propertyContributor
+         	contributorId="com.tibco.xpd.n2.globalsignal.resource.propertyContributor"
+         	labelProvider="com.tibco.xpd.n2.globalsignal.resource.ui.GsdLabelProvider"
+         	typeMapper="com.tibco.xpd.n2.globalsignal.resource.editor.PropertyTypeMapper">
+      	<propertyCategory
+            category="general">
+      	</propertyCategory>
+      	<propertyCategory
+            category="core">
+      	</propertyCategory>
+      	<propertyCategory
+            category="appearance">
+      	</propertyCategory>
+      	<propertyCategory
+            category="advanced">
+      	</propertyCategory>
+   		</propertyContributor>
+	</extension>
+	
+	<!-- Property tabs when GSD EDITOR is the selection provider -->
+   <extension
+        name="Tabs contributed for when GSD EDITOR is the selection provider."
+        point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+     <propertyTabs
+           contributorId="com.tibco.xpd.n2.globalsignal.resource.propertyContributor">
+        
+        <propertyTab
+              afterTab="top"
+              category="general"
+              id="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.general"
+              image="icons/tabGeneral.png"
+              indented="false"
+              label="%property_tab_general">
+        </propertyTab>
+        <propertyTab
+              afterTab="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.general"
+              category="general"
+              id="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.description"
+              image="icons/tabDescription.png"
+              indented="false"
+              label="%property_tab_description">
+        </propertyTab>
+        <propertyTab
+              afterTab="top"
+              category="advanced"
+              id="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.extended"
+              image="icons/tabExtended.gif"
+              indented="false"
+              label="%property_tab_extended">
+        </propertyTab>
+        <propertyTab
+              afterTab="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.extended"
+              category="advanced"
+              id="com.tibco.xpd.n2.globalsignal.editor.xpdl2.advancedTab"
+              indented="false"
+              label="%property_tab_advanced">
+        </propertyTab>
+        
+        </propertyTabs>
+  </extension>
+	
+	<!-- Property sections for Global signals and Payload Data when selected in GSD Form editor-->
+   <extension
+        name="Property Sections Contributed to tabs when GSD EDITOR is selection provider."
+        point="org.eclipse.ui.views.properties.tabbed.propertySections">
+        
+     <propertySections contributorId="com.tibco.xpd.n2.globalsignal.resource.propertyContributor">
+         
+         <propertySection
+               class="com.tibco.xpd.n2.globalsignal.resource.properties.general.GSDFileProperySection"
+               enablesFor="1"
+               filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.GSDFileProperySection"
+               id="GSDFileProperty"
+               tab="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.general">
+            <input
+                  type="org.eclipse.core.resources.IFile">
+            </input>
+         </propertySection>
+         
+         <propertySection
+               class="com.tibco.xpd.n2.globalsignal.resource.properties.general.GlobalSignalPropertySection"
+               enablesFor="1"
+               filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.GlobalSignalPropertySection"
+               id="GlobalSignalProperty"
+               tab="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.general">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+            </input>
+         </propertySection>
+         
+          <propertySection
+               class="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataPropertySection"
+               enablesFor="1"
+               filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataPropertySection"
+               id="PayloadDataProperty"
+               tab="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.general">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+            </input>
+         </propertySection>
+         
+         <propertySection
+               class="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataFieldNameSection"
+               enablesFor="1"
+               id="payloadDataFieldNameSection"
+               filter="com.tibco.xpd.n2.globalsignal.resource.properties.general.PayloadDataFieldNameSection"
+               tab="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.general">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+            </input>
+         </propertySection>
+         
+          <propertySection
+               class="com.tibco.xpd.analyst.resources.xpdl2.properties.description.DescriptionSection"
+               enablesFor="1"
+               filter="com.tibco.xpd.analyst.resources.xpdl2.properties.description.DescriptionSection"
+               id="DescriptionSection"
+               tab="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.description">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+            </input>
+         </propertySection>
+         
+          <propertySection
+               afterSection="top"
+               class="org.eclipse.ui.views.properties.tabbed.AdvancedPropertySection"
+               enablesFor="1"
+               id="com.tibco.xpd.n2.globalsignal.editor.xpdl2.advancedSection"
+               tab="com.tibco.xpd.n2.globalsignal.editor.xpdl2.advancedTab">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+            </input>
+         </propertySection>
+         
+         <propertySection
+               class="com.tibco.xpd.xpdl.extended.ui.properties.ExtendedAttributeSection"
+               enablesFor="1"
+               filter="com.tibco.xpd.xpdl.extended.ui.properties.ExtendedAttributeSection"
+               id="ExtendedAttributesSection"
+               tab="com.tibco.xpd.n2.globalsignal.editor.propertyTabs.extended">
+            <input
+                  type="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+            </input>
+         </propertySection>
+        
+      </propertySections>
+      
+  </extension>
+  
+  <!--Global Signal Definition Validation-->
+  
+  <extension
+         id="com.tibco.gsd.validation.validationMarker"
+         name="%gsd.gsdValidation"
+         point="org.eclipse.core.resources.markers">
+      <persistent
+            value="true">
+      </persistent>
+      <super
+            type="com.tibco.xpd.validation.ValidationMarker">
+      </super>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+            class="com.tibco.xpd.validation.resolutions.GenericResolutionGenerator"
+            markerType="com.tibco.gsd.validation.validationMarker">
+      </markerResolutionGenerator>
+   </extension>
+  
+ 	<extension point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.xpd.n2.globalsignaldefinition.resource.provider"
+            markerType="com.tibco.gsd.validation.validationMarker"
+            name="com.tibco.xpd.n2.globalsignaldefinition.resource.provider"
+            scopeProvider="com.tibco.xpd.n2.globalsignal.resource.validation.GsdScopeProvider">
+            
+         <rule class="com.tibco.xpd.n2.globalsignal.resource.validation.GlobalSignalRule"/>
+         <rule class="com.tibco.xpd.n2.globalsignal.resource.validation.PayloadDataRule"/>
+    	   	
+      </provider>
+
+      <issue
+             id="gsd.globalSignalMustHaveTimeOutValueWhenTSA"
+             message="%gsd.globalSignalMustHaveTimeOutValueWhenTSA"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="gsd.globalSignalsMustBeUnique"
+             message="%gsd.globalSignalsMustBeUnique"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="gsd.globalSignalMustHaveCorrelationField"
+             message="%gsd.globalSignalMustHaveCorrelationField"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="gsd.correlationDataMustBeNonArrayBasicType"
+             message="%gsd.correlationDataMustBeNonArrayBasicType"
+             severity="ERROR">
+       </issue>
+       <issue
+            id="gsd.unsetDataExternalReference"
+            message="%gsd.unsetDataExternalReference"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.selectDataExternalRef">
+         </resolution>
+      </issue>
+       <issue
+            id="gsd.unresolvedDataExternalReference"
+            message="%gsd.unresolvedDataExternalReference"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.selectDataExternalRef">
+         </resolution>
+      </issue>
+      <issue
+            id="gsd.unresolvedDataExternalReferenceFor_Type"
+            message="%gsd.unresolvedDataExternalReferenceFor_Type"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="resolution.bpmn.repairExternalRef">
+         </resolution>
+      </issue>
+      <issue
+            id="gsd.unsetDataExternalReference"
+            message="%gsd.unsetDataExternalReference"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.selectDataExternalRef">
+         </resolution>
+      </issue>
+       <issue
+             id="gsd.globalSignalNameLengthMustBeLessThan255"
+             message="%gsd.globalSignalNameLengthMustBeLessThan255"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="gsd.globalSignalTimeoutMustBeLessThan24Hrs"
+             message="%gsd.globalSignalTimeoutMustBeLessThan24Hrs"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="gsd.globalSignalNameCannotBeEmpty"
+             message="%gsd.globalSignalNameCannotBeEmpty"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="gsd.payloadDataNameCannotBeEmpty"
+             message="%gsd.payloadDataNameCannotBeEmpty"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="gsd.invalidNameError"
+             message="%gsd.invalidNameError"
+             severity="ERROR">
+       </issue>
+   </extension>
+   
+   <!-- Global Signal Definition Workspace Resource Validator-->
+ <extension
+         point="com.tibco.xpd.validation.workspaceResourceValidationProvider">
+      <provider
+            id="com.tibco.xpd.gsd.workspaceValidatorProvider">        
+         <validator
+               class="com.tibco.xpd.n2.globalsignal.resource.validation.GsdProjectValidator"
+               id="com.tibco.xpd.gsd.validation.gsdAllowedAssets"
+               validateType="PROJECT">
+         </validator>        
+      </provider>
+      <issues>
+         <issue
+               id="gsdProject.other.assets.not.allowed.issue"
+               message="%gsdProject.other.assets.not.allowed.issue"
+               severity="ERROR">
+         </issue>
+         <issue
+               id="gsdAssetNotAllowedInNonGsdProject.issue"
+               message="%gsdAssetNotAllowedInNonGsdProject.issue"
+               severity="ERROR">
+         </issue>
+      </issues>
+   </extension>
+   
+    <extension
+         point="com.tibco.xpd.validation.resolution">
+      <resolution
+            class="com.tibco.xpd.n2.globalsignal.resource.resolution.RemoveGsdAssetResolution"
+            description="%resolution.removeGsdAsset"
+            id="gsdAssetNotAllowedInNonGsdProject.issue"
+            label="%resolution.removeGsdAsset">
+      </resolution>
+      <resolution
+            class="com.tibco.xpd.n2.globalsignal.resource.resolution.RemoveNonGsdAssetsResolution"
+            description="%resolution.gsdProject.removeNonGsdAssets"
+            id="gsdProject.other.assets.not.allowed.issue"
+            label="%resolution.gsdProject.removeNonGsdAssets">
+      </resolution>
+   </extension>
+   
+   <!--Destinations Validation & Resource-->                  
+  <extension
+       point="com.tibco.xpd.validation.destinations">       
+     <destination
+          id="com.tibco.xpd.globalsignaldefinition.resource.destination"
+          name="%destination.name"
+          selectable="false"
+          version="">
+       <filter
+             class="com.tibco.xpd.n2.globalsignal.resource.validation.GSDFileFilter">
+       </filter>
+       <validationProvider
+             id="com.tibco.xpd.n2.globalsignaldefinition.resource.provider">
+       </validationProvider>
+    </destination>
+    
+    <workspaceResourceDestination
+          id="gsd.workspaceResourceDestination"
+          name="%destination.name"
+          version="">
+         <validationProvider
+               id="com.tibco.xpd.gsd.workspaceValidatorProvider">
+         </validationProvider>
+      </workspaceResourceDestination>      
+  </extension>
+  
+  <!-- Link helper to link project explorer and GSD editor-->
+  <extension
+        point="org.eclipse.ui.navigator.linkHelper">
+     <linkHelper
+           class="com.tibco.xpd.n2.globalsignal.resource.linkhelper.GSDEditorProjectExplorerLinkHelper"
+           id="com.tibco.xpd.n2.projectExplorer.gsdLinkHelper">
+        <selectionEnablement>
+        	<or>
+        	<and>
+        		<test
+                     property="com.tibco.xpd.wm.tasklibrary.editor.isTaskLibraryContent">
+               	</test>
+        	</and>
+           	<and>
+              <instanceof
+	                value="org.eclipse.core.resources.IFile">
+	          </instanceof>
+	          <test
+	               property="org.eclipse.core.resources.extension"
+	               value="gsd">
+	          </test>
+              <test
+                   property="com.tibco.xpd.resources.specialfolder.isRootSpecialFolder"
+                   value="gsd">
+              </test>
+           </and>
+           </or>
+        </selectionEnablement>
+        <editorInputEnablement>
+           <instanceof
+                 value="org.eclipse.ui.part.FileEditorInput">
+           </instanceof>
+        </editorInputEnablement>
+     </linkHelper>
+  </extension>
+  
+  <!--Activity to Global Signal Indexer -->
+  <extension
+         point= "com.tibco.xpd.resources.workingCopyIndexer" >
+      <indexer
+            filePattern= "xpdl"
+            indexID= "com.tibco.xpd.n2.globalsignal.resource.indexer.ActivityToGSIndexerProvider"
+            indexerClass= "com.tibco.xpd.n2.globalsignal.resource.indexer.ActivityToGlobalSignalIndexer" >
+            <additionalAttributes>
+             <attribute
+                   maxLength="4096"
+                   name="globalSignalQualifiedName">
+             </attribute>        
+          </additionalAttributes>
+      </indexer>
+   </extension>
+  
+  <!-- Refactor participants for GSD elements (Global signal or Payload data)-->
+  <extension
+        point="org.eclipse.ltk.core.refactoring.renameParticipants">
+     <renameParticipant
+           class="com.tibco.xpd.n2.globalsignal.resource.ui.refactor.GSDElementRefactorParticipant"
+           id="com.tibco.xpd.n2.globalsignal.resource.ui.GSDElementRefactorParticipant"
+           name="%renameGsdElement">
+        <enablement>
+           <or>
+              	<instanceof
+                     value="com.tibco.xpd.globalSignalDefinition.GlobalSignal">
+               	</instanceof>
+              	<instanceof
+                     value="com.tibco.xpd.globalSignalDefinition.PayloadDataField">
+               	</instanceof>
+           </or>
+        </enablement>
+     </renameParticipant>
+  </extension>
+  
+  <!-- GSD File Export Documentation Wizard Contribution -->
+  <extension
+         point="com.tibco.xpd.resources.ui.documentViewerContribution">
+      <documentViewerContribution
+            documentGenerator="com.tibco.xpd.n2.globalsignal.doc.GsdDocXsltGeneration"
+            fileExtensions="gsd"
+            specialFolders="gsd">
+      </documentViewerContribution>
+   </extension>
+   <!-- GSD File Export Documentation File Contribution -->
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonWizard
+            associatedExtensionId="com.tibco.xpd.projectExplorer.gsdContent"
+            type="export"
+            wizardId="com.tibco.xpd.ui.importexport.exportwizard.documentation.DocExportWizard">
+            <enablement>
+          <or>
+             <and>
+                <instanceof
+                      value="org.eclipse.core.resources.IFile">
+                </instanceof>
+                <test
+                      property="org.eclipse.core.resources.extension"
+                      value="gsd">
+                </test>
+             </and>
+             <and>
+                 <instanceof
+                     value="com.tibco.xpd.resources.projectconfig.SpecialFolder">
+               	 </instanceof>
+               	 <test
+                      property="com.tibco.xpd.resources.specialfolder.isOfKind"
+                      value="gsd">
+                 </test>
+           	 </and>             
+          </or>
+       </enablement>
+      </commonWizard>
+   </extension>
+ 
+</plugin>

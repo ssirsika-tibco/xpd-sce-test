@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_par2kChvEd-goooJDru8iA" name="com.tibco.declaredtypemodel">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_par2kShvEd-goooJDru8iA" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_par2kihvEd-goooJDru8iA" key="author" value="jaugusti"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_par2kyhvEd-goooJDru8iA" key="created" value="1267808183033"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_37dmkCGyEeKlU8-DsEvJ_Q" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_rwWtcChvEd-goooJDru8iA" name="OrderType">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tJnmcChvEd-goooJDru8iA" name="RETAIL"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_uVfjsChvEd-goooJDru8iA" name="WHOLESALE"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_v5d34ChvEd-goooJDru8iA" name="PatientID">
+      <generalization xmi:type="uml:Generalization" xmi:id="_v5d34ShvEd-goooJDru8iA">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_2oqvsCG3EeKGa-nnotY94A" name="Order">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GC63MCG4EeKGa-nnotY94A" name="orderType" type="_rwWtcChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aOrderType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GC7eQiG4EeKGa-nnotY94A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GC7eQSG4EeKGa-nnotY94A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Se-vQCG4EeKGa-nnotY94A" name="Patient">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_T4pQ4CG4EeKGa-nnotY94A" name="patientID" type="_v5d34ChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aPatientID?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T4p38iG4EeKGa-nnotY94A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T4p38SG4EeKGa-nnotY94A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_qkewMChvEd-goooJDru8iA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qkewMShvEd-goooJDru8iA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_par2lChvEd-goooJDru8iA" type="Business Object Model" element="_par2kChvEd-goooJDru8iA?com.tibco.declaredtypemodel?" name="DeclaredTypeModel.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_pcLEUChvEd-goooJDru8iA" type="1007" element="_par2kChvEd-goooJDru8iA?com.tibco.declaredtypemodel?">
+      <children xmi:type="notation:Node" xmi:id="_pcLEVChvEd-goooJDru8iA" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_pcLEVShvEd-goooJDru8iA" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_pcLEVihvEd-goooJDru8iA" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_pcLEVyhvEd-goooJDru8iA" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_pcLEWChvEd-goooJDru8iA" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_pcLEWShvEd-goooJDru8iA" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_pcLEWihvEd-goooJDru8iA" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_pcLEWyhvEd-goooJDru8iA" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_pcLEXChvEd-goooJDru8iA" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_pcLEXShvEd-goooJDru8iA" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_pcLEXihvEd-goooJDru8iA"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_pcLEXyhvEd-goooJDru8iA" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_pcLEYChvEd-goooJDru8iA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_pcLEYShvEd-goooJDru8iA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_pcLEUShvEd-goooJDru8iA" fontName="Segoe UI" fontHeight="10" fillColor="15532012"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_pcLEUihvEd-goooJDru8iA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pcLEUyhvEd-goooJDru8iA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rxZPQChvEd-goooJDru8iA" type="1004" element="_rwWtcChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aOrderType?">
+      <children xmi:type="notation:Node" xmi:id="_rxZPRChvEd-goooJDru8iA" type="4015"/>
+      <children xmi:type="notation:Node" xmi:id="_rxZPRShvEd-goooJDru8iA" type="4016"/>
+      <children xmi:type="notation:Node" xmi:id="_rxZPRihvEd-goooJDru8iA" type="4017"/>
+      <children xmi:type="notation:Node" xmi:id="_rxZPRyhvEd-goooJDru8iA" type="5004">
+        <children xmi:type="notation:Node" xmi:id="_tJnmcShvEd-goooJDru8iA" type="2003" element="_tJnmcChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aOrderType%3a%3aRETAIL?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_tJnmcihvEd-goooJDru8iA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_uVfjsShvEd-goooJDru8iA" type="2003" element="_uVfjsChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aOrderType%3a%3aWHOLESALE?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uVfjsihvEd-goooJDru8iA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_rxZPSChvEd-goooJDru8iA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_rxZPSShvEd-goooJDru8iA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_rxZPSihvEd-goooJDru8iA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rxZPQShvEd-goooJDru8iA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_rxZPQihvEd-goooJDru8iA" gradStartColor="8454143" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rxZPQyhvEd-goooJDru8iA" x="450" y="162" width="131"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_v7ZxkChvEd-goooJDru8iA" type="1003" element="_v5d34ChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aPatientID?">
+      <children xmi:type="notation:Node" xmi:id="_v7ZxlChvEd-goooJDru8iA" type="4006"/>
+      <children xmi:type="notation:Node" xmi:id="_v7ZxlShvEd-goooJDru8iA" type="4007"/>
+      <children xmi:type="notation:Node" xmi:id="_v7ZxlihvEd-goooJDru8iA" type="4008"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_v7ZxkShvEd-goooJDru8iA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_v7ZxkihvEd-goooJDru8iA" gradStartColor="12632256" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v7ZxkyhvEd-goooJDru8iA" x="732" y="162"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_2pTo4CG3EeKGa-nnotY94A" type="1002" element="_2oqvsCG3EeKGa-nnotY94A?com.tibco.declaredtypemodel%3a%3aOrder?">
+      <children xmi:type="notation:Node" xmi:id="_2p6s4CG3EeKGa-nnotY94A" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_2p9wMCG3EeKGa-nnotY94A" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_2qDPwCG3EeKGa-nnotY94A" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_2qJ9cCG3EeKGa-nnotY94A" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_GDCL8CG4EeKGa-nnotY94A" type="2001" element="_GC63MCG4EeKGa-nnotY94A?com.tibco.declaredtypemodel%3a%3aOrder%3a%3aorderType?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_GDCL8SG4EeKGa-nnotY94A"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_2qJ9cSG3EeKGa-nnotY94A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_2qJ9ciG3EeKGa-nnotY94A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_2qJ9cyG3EeKGa-nnotY94A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_2qTucCG3EeKGa-nnotY94A" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_2qTucSG3EeKGa-nnotY94A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_2qTuciG3EeKGa-nnotY94A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_2qTucyG3EeKGa-nnotY94A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_2pTo4SG3EeKGa-nnotY94A" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_2pTo4iG3EeKGa-nnotY94A" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2pTo4yG3EeKGa-nnotY94A" x="396" y="55" width="227" height="75"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_SfMxsCG4EeKGa-nnotY94A" type="1002" element="_Se-vQCG4EeKGa-nnotY94A?com.tibco.declaredtypemodel%3a%3aPatient?">
+      <children xmi:type="notation:Node" xmi:id="_SfNYwCG4EeKGa-nnotY94A" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_SfNYwSG4EeKGa-nnotY94A" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_SfNYwiG4EeKGa-nnotY94A" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_SfNYwyG4EeKGa-nnotY94A" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_T4vXgCG4EeKGa-nnotY94A" type="2001" element="_T4pQ4CG4EeKGa-nnotY94A?com.tibco.declaredtypemodel%3a%3aPatient%3a%3apatientID?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_T4vXgSG4EeKGa-nnotY94A"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_SfNYxCG4EeKGa-nnotY94A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_SfNYxSG4EeKGa-nnotY94A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_SfNYxiG4EeKGa-nnotY94A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_SfNYxyG4EeKGa-nnotY94A" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_SfNYyCG4EeKGa-nnotY94A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_SfNYySG4EeKGa-nnotY94A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_SfNYyiG4EeKGa-nnotY94A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_SfMxsSG4EeKGa-nnotY94A" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_SfMxsiG4EeKGa-nnotY94A" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SfMxsyG4EeKGa-nnotY94A" x="690" y="58" height="69"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_par2lShvEd-goooJDru8iA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_par2lihvEd-goooJDru8iA"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_qkewMihvEd-goooJDru8iA" displayLabel="com.tibco.declaredtypemodel" base_NamedElement="_par2kChvEd-goooJDru8iA?com.tibco.declaredtypemodel?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_sY0boChvEd-goooJDru8iA" displayLabel="OrderType" base_NamedElement="_rwWtcChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aOrderType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_t5OecChvEd-goooJDru8iA" displayLabel="RETAIL" base_NamedElement="_tJnmcChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aOrderType%3a%3aRETAIL?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_vIqtEChvEd-goooJDru8iA" displayLabel="WHOLESALE" base_NamedElement="_uVfjsChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aOrderType%3a%3aWHOLESALE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_w131wChvEd-goooJDru8iA" displayLabel="PatientID" base_NamedElement="_v5d34ChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aPatientID?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x4E5oChvEd-goooJDru8iA" textLength="10" base_PrimitiveType="_v5d34ChvEd-goooJDru8iA?com.tibco.declaredtypemodel%3a%3aPatientID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_2o4LECG3EeKGa-nnotY94A" displayLabel="Order" base_NamedElement="_2oqvsCG3EeKGa-nnotY94A?com.tibco.declaredtypemodel%3a%3aOrder?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_GC7eQCG4EeKGa-nnotY94A" displayLabel="orderType" base_NamedElement="_GC63MCG4EeKGa-nnotY94A?com.tibco.declaredtypemodel%3a%3aOrder%3a%3aorderType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Se_WUCG4EeKGa-nnotY94A" displayLabel="Patient" base_NamedElement="_Se-vQCG4EeKGa-nnotY94A?com.tibco.declaredtypemodel%3a%3aPatient?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_T4p38CG4EeKGa-nnotY94A" displayLabel="patientID" base_NamedElement="_T4pQ4CG4EeKGa-nnotY94A?com.tibco.declaredtypemodel%3a%3aPatient%3a%3apatientID?"/>
+</xmi:XMI>

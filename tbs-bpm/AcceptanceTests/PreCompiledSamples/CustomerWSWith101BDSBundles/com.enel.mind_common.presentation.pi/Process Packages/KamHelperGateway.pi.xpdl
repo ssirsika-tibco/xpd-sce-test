@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_JSPJ4IQcEeO9yLARPSRlUQ" xpdExt:DisplayName="KamHelperGateway.pi" Name="KamHelperGatewaypi">
+  <xpdl2:PackageHeader xpdExt:Language="it_IT">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-01-23</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>EUR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>egiusro</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_OewSE4QcEeO9yLARPSRlUQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_JS-wwIQcEeO9yLARPSRlUQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_OewSFIQcEeO9yLARPSRlUQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_JS-wwIQcEeO9yLARPSRlUQ" xpdExt:DisplayName="KamHelperGatewaypi-Process" Name="KamHelperGatewaypiProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_OewSFYQcEeO9yLARPSRlUQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_OewSFIQcEeO9yLARPSRlUQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_OewSFoQcEeO9yLARPSRlUQ" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_OewSFIQcEeO9yLARPSRlUQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_OewSF4QcEeO9yLARPSRlUQ" xpdExt:DisplayName="" Name="" From="_OewSFYQcEeO9yLARPSRlUQ" To="_OewSFoQcEeO9yLARPSRlUQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="14"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_a80VQIQcEeO9yLARPSRlUQ" xpdExt:DisplayName="SESIKAMH_EsitiKamHelper.pi" Name="SESIKAMH_EsitiKamHelperpi" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_vGn8IIQcEeO9yLARPSRlUQ" Name="Causale" Mode="IN" Required="false" xpdExt:DisplayName="Causale">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_7m1UYIQcEeO9yLARPSRlUQ" Name="Commodity" Mode="IN" Required="false" xpdExt:DisplayName="Commodity">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_L38ycIQdEeO9yLARPSRlUQ" Name="I_Bloccante" Mode="IN" Required="false" xpdExt:DisplayName="I_Bloccante">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_P0s74IQdEeO9yLARPSRlUQ" Name="I_CausaleScarto" Mode="IN" Required="false" xpdExt:DisplayName="I_CausaleScarto">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>255</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_SkQSYIQdEeO9yLARPSRlUQ" Name="I_FORNITURA_MEMO" Mode="IN" Required="false" xpdExt:DisplayName="I_FORNITURA_MEMO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_VOTd0IQdEeO9yLARPSRlUQ" Name="I_IdTrnsCanale" Mode="IN" Required="false" xpdExt:DisplayName="I_IdTrnsCanale">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_XjE80IQdEeO9yLARPSRlUQ" Name="I_PREVCOMMERCIALE_MEMO" Mode="IN" Required="false" xpdExt:DisplayName="I_PREVCOMMERCIALE_MEMO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_bBfkcIQdEeO9yLARPSRlUQ" Name="I_PREVTECNICO_MEMO" Mode="IN" Required="false" xpdExt:DisplayName="I_PREVTECNICO_MEMO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_dqpYAIQdEeO9yLARPSRlUQ" Name="I_STATAVANZAMENTO" Mode="IN" Required="false" xpdExt:DisplayName="I_STATAVANZAMENTO">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_f7s0oIQdEeO9yLARPSRlUQ" Name="IdCrm" Mode="IN" Required="false" xpdExt:DisplayName="IdCrm">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>15</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_icO3sIQdEeO9yLARPSRlUQ" Name="IdMuti" Mode="IN" Required="false" xpdExt:DisplayName="IdMuti">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>15</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_lbQNkIQdEeO9yLARPSRlUQ" Name="O_CodEsito" Mode="OUT" Required="false" xpdExt:DisplayName="O_CodEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>15</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_pMRBEIQdEeO9yLARPSRlUQ" Name="O_Descrizione" Mode="OUT" Required="false" xpdExt:DisplayName="O_Descrizione">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>255</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ttCdkIQdEeO9yLARPSRlUQ" Name="O_Esito" Mode="OUT" Required="true" xpdExt:DisplayName="O_Esito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>2</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_wccDEIQdEeO9yLARPSRlUQ" Name="O_SorgenteEsito" Mode="OUT" Required="false" xpdExt:DisplayName="O_SorgenteEsito">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>10</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_zgEzMIQdEeO9yLARPSRlUQ" Name="TipoOperazione" Mode="IN" Required="false" xpdExt:DisplayName="TipoOperazione">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_ggFwkIQcEeO9yLARPSRlUQ" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

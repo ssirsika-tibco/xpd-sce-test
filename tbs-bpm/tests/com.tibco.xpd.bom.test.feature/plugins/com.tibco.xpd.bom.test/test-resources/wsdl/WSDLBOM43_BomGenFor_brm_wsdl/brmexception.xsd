@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (x64) (http://www.altova.com) by Kevin Gee (Tibco Software Limited) -->
+<xs:schema xmlns="http://exception.api.brm.n2.tibco.com" xmlns:comex="http://exception.api.common.n2.tibco.com" xmlns:ns1="http://api.brm.n2.tibco.com" xmlns:ns2="http://datamodel.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exception.api.brm.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://api.brm.n2.tibco.com" schemaLocation="brmdto.xsd"/>
+	<xs:import namespace="http://exception.api.common.n2.tibco.com" schemaLocation="comexception.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:element name="InvalidWorkTypeFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidWorkGroupFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidVersionFault" type="comex:DetailedException"/>
+	<xs:element name="WorkGroupFault" type="comex:DetailedException"/>
+	<xs:element name="WorkItemFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidWorkItemFault" type="comex:DetailedException"/>
+	<xs:element name="WorkTypeFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidEntityFault" type="comex:DetailedException"/>
+	<xs:element name="InternalServiceFault" type="comex:DetailedException"/>
+	<xs:element name="WorkItemOrderFault" type="comex:DetailedException"/>
+	<xs:element name="WorkItemFilterFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidWorkModelFault" type="comex:DetailedException"/>
+	<xs:element name="NotificationFault" type="comex:DetailedException"/>
+	<xs:element name="OpenWorkItemLimitFault" type="comex:DetailedException"/>
+	<xs:element name="ReadOnlyAttributeFault" type="comex:DetailedException"/>
+	<xs:element name="NoMoreWorkItemsFault" type="comex:DetailedException"/>
+	<xs:element name="DeploymentParameterFault" type="comex:DetailedException"/>
+	<xs:element name="WorkItemAPIScriptCancelFault" type="comex:DetailedException"/>
+	<xs:element name="WorkItemRescheduledFault">
+		<xs:annotation>
+			<xs:documentation>Exception thrown if the Work Item has been modified via an external event such as a reschedule.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="comex:DetailedException">
+					<xs:sequence>
+						<xs:element name="managedObjectId" type="ns1:ManagedObjectID">
+							<xs:annotation>
+								<xs:documentation>This is the ID of the new Work Item that was generated as the result of the reschedule.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element minOccurs="0" name="dataModel" type="ns2:DataModel">
+							<xs:annotation>
+								<xs:documentation>If specified this will be a complete set of all the Work Item data. This will allow a client to decide if user data has been overwritten, and possibly allow a merge of changed data and client local data.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InvalidWorkViewFault" type="comex:DetailedException">
+		<xs:annotation>
+			<xs:documentation>Exception thrown when an operation is requested on a work view that doesn't exist or has invalid content..</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ep:policySetContainer
+    xmlns:ep="http://xsd.tns.tibco.com/amf/models/externalpolicy"
+    xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions"
+    xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" 
+    xmlns:tpa="http://xsd.tns.tibco.com/governance/policy/action/2009"
+    xmlns:tpc="http://xsd.tns.tibco.com/governance/policy/common/2009"
+    xmlns:jmsbt="http://xsd.tns.tibco.com/amf/models/sca/bindingtype/jms"
+    xmlns:soapbt="http://xsd.tns.tibco.com/amf/models/sca/binding/soap"
+    xmlns:webapp="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/webapp"
+    xmlns:wssp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"
+
+    targetNamespace="http://www.tibco.com/wrm">
+
+    <!-- add the policy sets here -->
+    <sca:policySet name="WRMPolicySetsResource_authentication.usernameToken"
+               provides="scaext:clientAuthentication.usernameToken" 
+              appliesTo="soapbt:binding.soap.service|webapp:implementation.web">
+
+      <wsp:Policy template="tpt:WssProvider"
+          xmlns:tpt="http://xsd.tns.tibco.com/governance/policy/template/2009">
+            <wsp:All>
+
+                <!-- INBOUND -->
+                <wsp:Policy>
+                    <tpa:WssProcessor
+                      ResourceInstance="amx.bpm.auth.wss.asp" 
+                      SecurityCallback="WorkManager/implementation.de.saml">
+                        <tpa:ComponentExtensionLoginModule ResourceInstance="WorkManager/implementation.de.saml"/>                 
+                    </tpa:WssProcessor>
+                </wsp:Policy>
+
+                <wsp:Policy>
+		            <!-- Action to verify what has to be authenticated -->
+		            <tpa:VerifyAuthentication>                  
+		                <wsp:ExactlyOne>            
+		                    <wssp:SupportingTokens>
+		                        <wsp:ExactlyOne>
+		                            <wssp:UsernameToken />
+		                        </wsp:ExactlyOne>                           
+		                    </wssp:SupportingTokens>            
+		                    <wssp:SignedSupportingTokens>
+		                        <wsp:ExactlyOne>
+		                            <wssp:SamlToken />
+		                            <wssp:X509Token />                                  
+		                        </wsp:ExactlyOne>
+		                    </wssp:SignedSupportingTokens>
+		                </wsp:ExactlyOne>
+		            </tpa:VerifyAuthentication>
+                </wsp:Policy>
+
+            </wsp:All>
+        </wsp:Policy>
+
+    </sca:policySet>
+
+</ep:policySetContainer>

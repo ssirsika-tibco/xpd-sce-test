@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:tns="http://xmlns.enel.com/mercato/libero/abstract/integration/fatturazionemogebpm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionemogebpm" xmlns:ns1="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://schemas.xmlsoap.org/soap/encoding/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/fatturazionemogebpm">
+	<wsdl:types>
+		<xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionemogebpm" xmlns:tns="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionemogebpm" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionemogebpm" version="1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="RichiestaType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="sistemaRichiedente" type="xs:string">
+					</xs:element>
+					<xs:element minOccurs="0" name="canale" type="xs:string"/>
+					<xs:element minOccurs="0" name="idRichiesta" type="xs:string"/>
+					<xs:element minOccurs="0" name="tipoOperazione" type="xs:string"/>
+					<xs:element minOccurs="0" name="causale" type="xs:string"/>
+					<xs:element minOccurs="0" name="idProcessoBpm" type="xs:string"/>
+					<xs:element minOccurs="0" name="commodity" type="xs:string"/>
+					<xs:element minOccurs="0" name="flagDelibera40" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="Ip" type="xs:string"/>
+					<xs:element minOccurs="0" name="Profilo" type="xs:string"/>
+					<xs:element minOccurs="0" name="Matricola" type="xs:string"/>
+					<xs:element minOccurs="0" name="DataRichiesta" type="xs:date"/>
+					<xs:element minOccurs="0" name="IdMuti" type="xs:string"/>
+					<xs:element minOccurs="0" name="IdDms" type="xs:string"/>
+					<xs:element minOccurs="0" name="IdDmsReclamo" type="xs:string"/>
+					<xs:element minOccurs="0" name="IdR2d" type="tns:IdentificativiR2dType">
+					</xs:element>
+					<xs:element minOccurs="0" name="dataDecorrenza" type="xs:date"/>
+					<xs:element minOccurs="0" name="tipoRichiesta" type="xs:string"/>
+					<xs:element minOccurs="0" name="flagComplesso" type="xs:boolean"/>
+					<xs:element minOccurs="0" name="flagPreventivo" type="xs:string"/>
+					<xs:element minOccurs="0" name="flagDocumentazione" type="xs:string">
+					</xs:element>
+					<xs:element minOccurs="0" name="idCRM" type="xs:string"/>
+					<xs:element minOccurs="0" name="statoServizio" type="xs:string"/>
+					<xs:element minOccurs="0" name="statoOrdine" type="xs:string"/>
+					<xs:element minOccurs="0" name="statoFiCa" type="xs:string"/>
+					<xs:element minOccurs="0" name="statoISU" type="xs:string"/>
+					<xs:element minOccurs="0" name="statoR2D" type="xs:string"/>
+					<xs:element minOccurs="0" name="statoSD" type="xs:string"/>
+					<xs:element minOccurs="0" name="statoSempre" type="xs:string"/>
+					<xs:element minOccurs="0" name="statoUDB" type="xs:string"/>
+					<xs:element minOccurs="0" name="IdR2R" type="tns:IdentificativiR2rType">
+					</xs:element>
+					<xs:element minOccurs="0" name="IdAttivitaCrm" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="IdentificativiR2dType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="IdDistr" type="xs:string"/>
+					<xs:element minOccurs="0" name="IdDistr2" type="xs:string"/>
+					<xs:element minOccurs="0" name="IdR2d" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="IdentificativiR2rType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="IdR2R" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="EsitoType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="esito" type="xs:string">
+					</xs:element>
+					<xs:element minOccurs="0" name="codiceEsito" type="xs:string">
+					</xs:element>
+					<xs:element minOccurs="0" name="descrizione" type="xs:string">
+					</xs:element>
+					<xs:element minOccurs="0" name="tipoEsito" type="xs:string">
+					</xs:element>
+					<xs:element minOccurs="1" name="sistemaSorgenteEsito" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ModificaAnagraficaClienteRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Richiesta" type="tns:RichiestaType" minOccurs="0"/>
+						<xs:element name="CDM_FatturazioneIdFatturazione" type="xs:string" minOccurs="0"/>
+						<xs:element name="CDM_Cliente" type="xs:string" minOccurs="0"/>
+						<xs:element name="CDM_OutField" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ModificaAnagraficaClienteResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Esito" type="tns:EsitoType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ModificaStatoResidenteRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Richiesta" type="tns:RichiestaType"/>
+						<xs:element name="CDM_Idfaffurazione" type="xs:string" minOccurs="0"/>
+						<xs:element name="DataDecorrenza" type="xs:date" minOccurs="0"/>
+						<xs:element name="CDM_Fornitura" type="xs:string" minOccurs="0"/>
+						<xs:element name="SubProcedure" type="xs:string" minOccurs="0"/>
+						<xs:element name="ReleaseId" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="ModificaAnagraficaClienteRequest">
+		<wsdl:part name="input" element="ns:ModificaAnagraficaClienteRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ModificaAnagraficaClienteResponse">
+		<wsdl:part name="output" element="ns:ModificaAnagraficaClienteResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ModificaStatoResidenteRequest">
+		<wsdl:part name="input" element="ns:ModificaStatoResidenteRequest"/>
+	</wsdl:message>
+	<wsdl:portType name="FatturazioneMogeBpmPortType">
+		<wsdl:operation name="ModificaAnagraficaCliente">
+			<wsdl:input message="tns:ModificaAnagraficaClienteRequest"/>
+			<wsdl:output message="tns:ModificaAnagraficaClienteResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="ModificaStatoResidente">
+			<wsdl:input message="tns:ModificaStatoResidenteRequest"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

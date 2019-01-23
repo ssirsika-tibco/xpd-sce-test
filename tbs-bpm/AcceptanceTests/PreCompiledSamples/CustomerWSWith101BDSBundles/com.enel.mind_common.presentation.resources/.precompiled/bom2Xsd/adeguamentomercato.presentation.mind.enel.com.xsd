@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://com.enel.mind.presentation.adeguamentomercato" xmlns:tns14="http://com.enel.mind.presentation.adeguamentomercato"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.enel.mind.presentation.adeguamentomercato">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.presentation.resources/Generated Business Objects/adeguamentomercato.presentation.mind.enel.com.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="RichiestaType" id="adeguamentomercato.presentation.mind.enel.comRichiestaType"
+      abstract="false" mixed="false" name="RichiestaType">
+    <xsd:sequence>
+      <xsd:element ecore:name="sistemaRichiedente" id="RichiestaTypesistemaRichiedente"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="sistemaRichiedente"
+          type="xsd:string"/>
+      <xsd:element ecore:name="canale" id="RichiestaTypecanale" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="canale" type="xsd:string"/>
+      <xsd:element ecore:name="idRichiesta" id="RichiestaTypeidRichiesta" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="idRichiesta" type="xsd:string"/>
+      <xsd:element ecore:name="tipoOperazione" id="RichiestaTypetipoOperazione" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="tipoOperazione" type="xsd:string"/>
+      <xsd:element ecore:name="causale" id="RichiestaTypecausale" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="causale" type="xsd:string"/>
+      <xsd:element ecore:name="idProcessoBpm" id="RichiestaTypeidProcessoBpm" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="idProcessoBpm" type="xsd:string"/>
+      <xsd:element ecore:name="commodity" id="RichiestaTypecommodity" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="commodity" type="xsd:string"/>
+      <xsd:element ecore:name="flagDelibera40" id="RichiestaTypeflagDelibera40" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="flagDelibera40" type="xsd:boolean"/>
+      <xsd:element ecore:name="ip" id="RichiestaTypeIp" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="Ip" type="xsd:string"/>
+      <xsd:element ecore:name="profilo" id="RichiestaTypeProfilo" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="Profilo" type="xsd:string"/>
+      <xsd:element ecore:name="matricola" id="RichiestaTypeMatricola" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="Matricola" type="xsd:string"/>
+      <xsd:element ecore:name="dataRichiesta" id="RichiestaTypeDataRichiesta" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="DataRichiesta" type="xsd:date"/>
+      <xsd:element ecore:name="idMuti" id="RichiestaTypeIdMuti" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdMuti" type="xsd:string"/>
+      <xsd:element ecore:name="idDms" id="RichiestaTypeIdDms" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="IdDms" type="xsd:string"/>
+      <xsd:element ecore:name="idDmsReclamo" id="RichiestaTypeIdDmsReclamo" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdDmsReclamo" type="xsd:string"/>
+      <xsd:element ecore:name="idR2d" id="RichiestaTypeIdR2d" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="IdR2d" type="IdentificativiR2dType"/>
+      <xsd:element ecore:name="dataDecorrenza" id="RichiestaTypedataDecorrenza" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="dataDecorrenza" type="xsd:date"/>
+      <xsd:element ecore:name="tipoRichiesta" id="RichiestaTypetipoRichiesta" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="tipoRichiesta" type="xsd:string"/>
+      <xsd:element ecore:name="flagComplesso" id="RichiestaTypeflagComplesso" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="flagComplesso" type="xsd:boolean"/>
+      <xsd:element ecore:name="flagPreventivo" id="RichiestaTypeflagPreventivo" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="flagPreventivo" type="xsd:string"/>
+      <xsd:element ecore:name="flagDocumentazione" id="RichiestaTypeflagDocumentazione"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="flagDocumentazione"
+          type="xsd:string"/>
+      <xsd:element ecore:name="idCRM" id="RichiestaTypeidCRM" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="idCRM" type="xsd:string"/>
+      <xsd:element ecore:name="statoServizio" id="RichiestaTypestatoServizio" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="statoServizio" type="xsd:string"/>
+      <xsd:element ecore:name="statoOrdine" id="RichiestaTypestatoOrdine" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="statoOrdine" type="xsd:string"/>
+      <xsd:element ecore:name="statoFiCa" id="RichiestaTypestatoFiCa" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="statoFiCa" type="xsd:string"/>
+      <xsd:element ecore:name="statoISU" id="RichiestaTypestatoISU" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="statoISU" type="xsd:string"/>
+      <xsd:element ecore:name="statoR2D" id="RichiestaTypestatoR2D" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="statoR2D" type="xsd:string"/>
+      <xsd:element ecore:name="statoSD" id="RichiestaTypestatoSD" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="statoSD" type="xsd:string"/>
+      <xsd:element ecore:name="statoSempre" id="RichiestaTypestatoSempre" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="statoSempre" type="xsd:string"/>
+      <xsd:element ecore:name="statoUDB" id="RichiestaTypestatoUDB" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="statoUDB" type="xsd:string"/>
+      <xsd:element ecore:name="idR2R" id="RichiestaTypeIdR2R" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="IdR2R" type="IdentificativiR2rType"/>
+      <xsd:element ecore:name="idAttivitaCrm" id="RichiestaTypeIdAttivitaCrm" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdAttivitaCrm" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="IdentificativiR2dType" id="adeguamentomercato.presentation.mind.enel.comIdentificativiR2dType"
+      abstract="false" mixed="false" name="IdentificativiR2dType">
+    <xsd:sequence>
+      <xsd:element ecore:name="idDistr" id="IdentificativiR2dTypeIdDistr" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdDistr" type="xsd:string"/>
+      <xsd:element ecore:name="idDistr2" id="IdentificativiR2dTypeIdDistr2" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdDistr2" type="xsd:string"/>
+      <xsd:element ecore:name="idR2d" id="IdentificativiR2dTypeIdR2d" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdR2d" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="IdentificativiR2rType" id="adeguamentomercato.presentation.mind.enel.comIdentificativiR2rType"
+      abstract="false" mixed="false" name="IdentificativiR2rType">
+    <xsd:sequence>
+      <xsd:element ecore:name="idR2R" id="IdentificativiR2rTypeIdR2R" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdR2R" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Esito_R2D" id="adeguamentomercato.presentation.mind.enel.comEsito_R2D"
+      abstract="false" mixed="false" name="Esito_R2D">
+    <xsd:sequence>
+      <xsd:element ecore:name="idDistr" id="Esito_R2DIdDistr" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="IdDistr" type="xsd:string"/>
+      <xsd:element ecore:name="idDistr2" id="Esito_R2DIdDistr2" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdDistr2" type="xsd:string"/>
+      <xsd:element ecore:name="idR2D" id="Esito_R2DIdR2D" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="IdR2D" type="xsd:string"/>
+      <xsd:element ecore:name="dataAttivazioneTrasp" id="Esito_R2DDataAttivazioneTrasp"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="DataAttivazioneTrasp"
+          type="xsd:string"/>
+      <xsd:element ecore:name="descEsitoDT" id="Esito_R2DDescEsitoDT" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="DescEsitoDT" type="xsd:string"/>
+      <xsd:element ecore:name="codEsitoDT" id="Esito_R2DCodEsitoDT" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="CodEsitoDT" type="xsd:string"/>
+      <xsd:element ecore:name="tipoEsitoDT" id="Esito_R2DTipoEsitoDT" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="TipoEsitoDT" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="EsitoUdbType" id="adeguamentomercato.presentation.mind.enel.comEsitoUdbType"
+      abstract="false" mixed="false" name="EsitoUdbType">
+    <xsd:sequence>
+      <xsd:element ecore:name="titolareConto" id="EsitoUdbTypeTitolareConto" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="TitolareConto" type="xsd:string"/>
+      <xsd:element ecore:name="CFTitolare" id="EsitoUdbTypeCFTitolare" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="CFTitolare" type="xsd:string"/>
+      <xsd:element ecore:name="numConto" id="EsitoUdbTypeNumConto" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="NumConto" type="xsd:string"/>
+      <xsd:element ecore:name="codicePaese" id="EsitoUdbTypeCodicePaese" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="CodicePaese" type="xsd:string"/>
+      <xsd:element ecore:name="cinIban" id="EsitoUdbTypeCinIban" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="CinIban" type="xsd:string"/>
+      <xsd:element ecore:name="cin" id="EsitoUdbTypeCin" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="Cin" type="xsd:string"/>
+      <xsd:element ecore:name="cab" id="EsitoUdbTypeCab" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="Cab" type="xsd:string"/>
+      <xsd:element ecore:name="abi" id="EsitoUdbTypeAbi" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="Abi" type="xsd:string"/>
+      <xsd:element ecore:name="metodoPagamento" id="EsitoUdbTypeMetodoPagamento" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="MetodoPagamento" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="EsitoType" id="adeguamentomercato.presentation.mind.enel.comEsitoType"
+      abstract="false" mixed="false" name="EsitoType">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="EsitoTypeesito" form="unqualified" maxOccurs="1"
+          minOccurs="0" name="esito" type="xsd:string"/>
+      <xsd:element ecore:name="codiceEsito" id="EsitoTypecodiceEsito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="codiceEsito" type="xsd:string"/>
+      <xsd:element ecore:name="descrizione" id="EsitoTypedescrizione" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="descrizione" type="xsd:string"/>
+      <xsd:element ecore:name="tipoEsito" id="EsitoTypetipoEsito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="tipoEsito" type="xsd:string"/>
+      <xsd:element ecore:name="sistemaSorgenteEsito" id="EsitoTypesistemaSorgenteEsito"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="sistemaSorgenteEsito"
+          type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="AggiornaMercatoRiferimentoRequest" nillable="false">
+    <xsd:complexType ecore:name="AggiornaMercatoRiferimentoRequestType" id="adeguamentomercato.presentation.mind.enel.comAggiornaMercatoRiferimentoRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="richiesta" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="Richiesta" type="RichiestaType"/>
+        <xsd:element ecore:name="clienteCDM" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="ClienteCDM" type="xsd:string"/>
+        <xsd:element ecore:name="fornituraCDM" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="FornituraCDM" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AggiornaMercatoRiferimentoResponse" nillable="false">
+    <xsd:complexType ecore:name="AggiornaMercatoRiferimentoResponseType" id="adeguamentomercato.presentation.mind.enel.comAggiornaMercatoRiferimentoResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Esito" type="EsitoType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="CalcolaMercatoRiferimentoRequest" nillable="false">
+    <xsd:complexType ecore:name="CalcolaMercatoRiferimentoRequestType" id="adeguamentomercato.presentation.mind.enel.comCalcolaMercatoRiferimentoRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="richiesta" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="Richiesta" type="RichiestaType"/>
+        <xsd:element ecore:name="clienteCDM" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="ClienteCDM" type="xsd:string"/>
+        <xsd:element ecore:name="fornituraCDM" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="FornituraCDM" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="CalcolaMercatoRiferimentoResponse" nillable="false">
+    <xsd:complexType ecore:name="CalcolaMercatoRiferimentoResponseType" id="adeguamentomercato.presentation.mind.enel.comCalcolaMercatoRiferimentoResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="esito" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="Esito" type="EsitoType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

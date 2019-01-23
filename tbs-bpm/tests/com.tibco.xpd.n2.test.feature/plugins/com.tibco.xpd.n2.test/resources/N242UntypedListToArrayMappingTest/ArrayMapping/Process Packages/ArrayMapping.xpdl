@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_Tr1OcFLyEeS92q8GG4llXg" xpdExt:DisplayName="ArrayMapping" Name="ArrayMapping">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-10-13</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_S3DGEFLzEeS92q8GG4llXg" xpdExt:DisplayName="ArrayMapping_Consumer" Name="ArrayMapping_Consumer">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_8__BQFL0EeS92q8GG4llXg" xpdExt:DisplayName="tibco-admin" Name="tibco-admin">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name=&quot;tibco-admin&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_JGwYAISIEeSrOdvoYFiVdg" xpdExt:DisplayName="SecondArrayMapping_Provider" Name="SecondArrayMapping_Provider">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="DocumentLiteral" SoapVersion="1.1" EndpointUrlPath="/ArrayMapping/SecondArrayMapping" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_tIH8NYSCEeSrOdvoYFiVdg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_tIB1kISCEeSrOdvoYFiVdg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_tIH8NoSCEeSrOdvoYFiVdg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_vidt8IRREeSrOdvoYFiVdg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_viRgsIRREeSrOdvoYFiVdg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_vidt8YRREeSrOdvoYFiVdg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="342.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_m06PUIROEeSrOdvoYFiVdg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_mx7z0IROEeSrOdvoYFiVdg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_m06PUYROEeSrOdvoYFiVdg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_WDnlMFLyEeS92q8GG4llXg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_Tr1OcVLyEeS92q8GG4llXg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_WDnlMVLyEeS92q8GG4llXg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="474.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_YObTEFL2EeS92q8GG4llXg" ArtifactType="Annotation" TextAnnotation="Simple type Array Mapping Script: Validates OK but Does this work&#xD;&#xA;&#xD;&#xA;var myList = DataUtil.createList();&#xD;&#xA;myList.add(&quot;abc&quot;);&#xD;&#xA;myList.add(&quot;xyz&quot;);&#xD;&#xA;myList;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="94.0" LaneId="_WDnlMVLyEeS92q8GG4llXg" Width="420.0">
+          <xpdl2:Coordinates XCoordinate="65.0" YCoordinate="297.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_hPiHMFL2EeS92q8GG4llXg" ArtifactType="Annotation" TextAnnotation="Complex type array mapping script: We validate against BUT Does this actual work&#xD;&#xA;&#xD;&#xA;var myComplexList = DataUtil.createList();&#xD;&#xA;var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;&#xA;cmp1.newElement = &quot;abc1&quot;;&#xD;&#xA;cmp1.newElement2 = &quot;xyz1&quot;;&#xD;&#xA;myComplexList.add(cmp1);&#xD;&#xA;&#xD;&#xA;var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;&#xA;cmp2.newElement = &quot;abc2&quot;;&#xD;&#xA;cmp2.newElement2 = &quot;xyz2&quot;;&#xD;&#xA;myComplexList.add(cmp1);&#xD;&#xA;myComplexList;&#xD;&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="214.0" LaneId="_WDnlMVLyEeS92q8GG4llXg" Width="512.0">
+          <xpdl2:Coordinates XCoordinate="521.0" YCoordinate="357.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_Tr1OcVLyEeS92q8GG4llXg" xpdExt:DisplayName="WebServiceTask-Process" Name="WebServiceTaskProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_qx0O8YQ8EeS53vv0sbQMgQ" Name="singleText" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="singleText">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_q2TGUYQ8EeS53vv0sbQMgQ" Name="simpleTypeArray" IsArray="true" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="simpleTypeArray">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_q3iccYQ8EeS53vv0sbQMgQ" Name="complexTypeArray" IsArray="true" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="complexTypeArray">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_q4xykYQ8EeS53vv0sbQMgQ" Name="complexType" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="complexType">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_A8l2MFL0EeS92q8GG4llXg" xpdExt:DisplayName="complexTypeArrayField" Name="complexTypeArrayField" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_EMTeAFL1EeS92q8GG4llXg" xpdExt:DisplayName="Output From Service" Name="OutputFromService">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_WDnlMlLyEeS92q8GG4llXg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_WDnlMVLyEeS92q8GG4llXg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_WDnlM1LyEeS92q8GG4llXg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_WDnlMVLyEeS92q8GG4llXg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_S3DGEVLzEeS92q8GG4llXg" Name="Trytocreatearrayinmappingscript" xpdExt:Visibility="Private" xpdExt:DisplayName="Try to create array in mapping script">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_S3DGElLzEeS92q8GG4llXg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.singleInstanceString">
+                      <xpdExt:ScriptInformation Id="_YTxNcFLzEeS92q8GG4llXg" Name="return single value"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">&quot;abc&quot;;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.multiInstanceComplex">
+                      <xpdExt:ScriptInformation Id="_YJ-7IFL6EeS92q8GG4llXg" Name="Complex type array mapping script">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.multiInstanceString">
+                      <xpdExt:ScriptInformation Id="_5p254IQ_EeS53vv0sbQMgQ" Name="Complex type array mapping script2"/>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_S3DGE1LzEeS92q8GG4llXg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="parameters.out">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">OutputFromService</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_BcgNQIQ0EeSgz--ZWG7i8g" Name="Simple type array mapping script" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var mySimpleList = DataUtil.createList();&#xD;
+&#xD;
+mySimpleList.add(&quot;ABC&quot;);&#xD;
+mySimpleList.add(&quot;XYZ&quot;);&#xD;
+mySimpleList.add(&quot;NOW&quot;);&#xD;
+mySimpleList;&#xD;
+&#xD;
+</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">complexTypeArrayField</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_95XAMIQ_EeS53vv0sbQMgQ" Name="Complex type array mapping script2" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">complexTypeArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_-WfBEIQ_EeS53vv0sbQMgQ" Name="Complex type array mapping script" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">simpleTypeArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_S3DGEFLzEeS92q8GG4llXg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ArrayMapping.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ArrayMapping" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="ArrayMapping.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_S3DGEFLzEeS92q8GG4llXg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_WDnlMVLyEeS92q8GG4llXg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="164.0" YCoordinate="140.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Cd-7AFL1EeS92q8GG4llXg" Name="tibcoadmin" xpdExt:Visibility="Private" xpdExt:DisplayName="tibco-admin">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_Cd-7AVL1EeS92q8GG4llXg"/>
+                <xpdl2:MessageOut Id="_Cd-7AlL1EeS92q8GG4llXg"/>
+                <xpdExt:FormImplementation FormType="Form" FormURI="form://ArrayMapping/ArrayMappingProcess/tibcoadmin/tibcoadmin.form"/>
+                <xpdExt:UserTaskScripts>
+                  <xpdExt:ScheduleScript ScriptGrammar="JavaScript">var simpleList = DataUtil.createList();&#xD;
+simpleList.add(&quot;abc&quot;);&#xD;
+&#xD;
+simpleList;&#xD;
+</xpdExt:ScheduleScript>
+                </xpdExt:UserTaskScripts>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_8__BQFL0EeS92q8GG4llXg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="bpmJspTask" Value="form://ArrayMapping/ArrayMappingProcess/tibcoadmin/tibcoadmin.form"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_WDnlMVLyEeS92q8GG4llXg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="322.0" YCoordinate="140.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters>
+            <xpdExt:AssociatedParameter FormalParam="OutputFromService" Mode="IN" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">var complexList = DataUtil.createList();&#xD;
+var complex = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+complex.newElement = &quot;abc&quot;;&#xD;
+complex.newElement2 = &quot;def&quot;;&#xD;
+&#xD;
+complexList.add(complex);&#xD;
+&#xD;
+complexTypeArray = complexList;&#xD;
+&#xD;
+var simpleList = DataUtil.createList();&#xD;
+simpleList.add(&quot;abc&quot;);&#xD;
+&#xD;
+simpleTypeArray = simpleList;&#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_S3HXgFLzEeS92q8GG4llXg" xpdExt:DisplayName="" Name="" From="_WDnlMlLyEeS92q8GG4llXg" To="_S3DGEVLzEeS92q8GG4llXg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_mPX-goQ8EeS53vv0sbQMgQ" xpdExt:DisplayName="" Name="" From="_S3DGEVLzEeS92q8GG4llXg" To="_Cd-7AFL1EeS92q8GG4llXg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hCAP0oQ-EeS53vv0sbQMgQ" xpdExt:DisplayName="" Name="" From="_Cd-7AFL1EeS92q8GG4llXg" To="_WDnlM1LyEeS92q8GG4llXg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="singleText"/>
+            <simulation:ParameterDistribution ParameterId="simpleTypeArray"/>
+            <simulation:ParameterDistribution ParameterId="complexTypeArray"/>
+            <simulation:ParameterDistribution ParameterId="complexType"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_mx7z0IROEeSrOdvoYFiVdg" xpdExt:DisplayName="ReceiveTask Process" Name="ReceiveTaskProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_JMwCMIRPEeSrOdvoYFiVdg" Name="simpleTypeArray" IsArray="true" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="simpleTypeArray">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JMwpQIRPEeSrOdvoYFiVdg" Name="complexType" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="complexType">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JMwpQYRPEeSrOdvoYFiVdg" Name="complexTypeArray" IsArray="true" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="complexTypeArray">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_JMwpQoRPEeSrOdvoYFiVdg" Name="singleText" ReadOnly="false" Mode="INOUT" Required="false" xpdExt:DisplayName="singleText">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_LUU9QIRQEeSrOdvoYFiVdg" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_m06PUoROEeSrOdvoYFiVdg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_m06PUYROEeSrOdvoYFiVdg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_m062YIROEeSrOdvoYFiVdg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_m06PUYROEeSrOdvoYFiVdg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vtvRMIROEeSrOdvoYFiVdg" Name="ReceiveTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Receive Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_JGkKwYSIEeSrOdvoYFiVdg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_N_gPoISIEeSrOdvoYFiVdg" Name="Simple Type List" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">var simpleArr = DataUtil.createList();&#xD;
+&#xD;
+simpleArr.add(&quot;abc&quot;);&#xD;
+simpleArr.add(&quot;xyz&quot;);&#xD;
+&#xD;
+simpleArr;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">simpleTypeArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_OdaToISIEeSrOdvoYFiVdg" Name="Complex Type List" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">complexTypeArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="parameters.singleInstanceString">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_JGwYAISIEeSrOdvoYFiVdg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ArrayMapping.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SecondArrayMapping" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="ArrayMapping.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_JGwYAISIEeSrOdvoYFiVdg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_m06PUYROEeSrOdvoYFiVdg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="180.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;InScript_ABC&quot;;&#xD;
+cmp1.newElement2 = &quot;InScript_xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;InScript_abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;InScript_xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+complexTypeArray = myComplexList;&#xD;
+&#xD;
+&#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_P9oqsIRQEeSrOdvoYFiVdg" Name="ReplyToReceiveTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Reply To: Receive Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskSend xpdExt:ReplyToActivityId="_vtvRMIROEeSrOdvoYFiVdg" xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:Message Id="_JHibIISIEeSrOdvoYFiVdg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.multiInstanceComplex">
+                      <xpdExt:ScriptInformation Id="_SFgbsISIEeSrOdvoYFiVdg" Name="Complex Type List">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="parameters.out">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">singleText</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameters.multiInstanceString">
+                      <xpdExt:ScriptInformation Id="_UMvN8ISIEeSrOdvoYFiVdg" Name="Simple Type List">
+                        <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">var simpleArr = DataUtil.createList();&#xD;
+&#xD;
+simpleArr.add(&quot;abc&quot;);&#xD;
+simpleArr.add(&quot;xyz&quot;);&#xD;
+&#xD;
+simpleArr;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_JGwYAISIEeSrOdvoYFiVdg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ArrayMapping.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SecondArrayMapping" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="ArrayMapping.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskSend>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_m06PUYROEeSrOdvoYFiVdg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="381.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;InScript_ABC&quot;;&#xD;
+cmp1.newElement2 = &quot;InScript_xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;InScript_abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;InScript_xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+complexTypeArray = myComplexList;&#xD;
+simpleTypeArray = myComplexList;&#xD;
+&#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_m062YYROEeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_vtvRMIROEeSrOdvoYFiVdg" To="_P9oqsIRQEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_vtxGYIROEeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_m06PUoROEeSrOdvoYFiVdg" To="_vtvRMIROEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_R4-WAIRQEeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_P9oqsIRQEeSrOdvoYFiVdg" To="_m062YIROEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="simpleTypeArray"/>
+            <simulation:ParameterDistribution ParameterId="complexType"/>
+            <simulation:ParameterDistribution ParameterId="complexTypeArray"/>
+            <simulation:ParameterDistribution ParameterId="singleText"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_viRgsIRREeSrOdvoYFiVdg" xpdExt:DisplayName="Catch Process" Name="CatchProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_YI7UUoRUEeSrOdvoYFiVdg" xpdExt:DisplayName="complexType" Name="complexType" IsArray="false" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_YI7UUIRUEeSrOdvoYFiVdg" xpdExt:DisplayName="complexTypeArray" Name="complexTypeArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_YI7UU4RUEeSrOdvoYFiVdg" xpdExt:DisplayName="simpleTypeArray" Name="simpleTypeArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_YI7UUYRUEeSrOdvoYFiVdg" xpdExt:DisplayName="singleText" Name="singleText" IsArray="false" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Zf__gIRVEeSrOdvoYFiVdg" xpdExt:DisplayName="performer" Name="performer" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_zteV0YRREeSrOdvoYFiVdg">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_1UAOwIRREeSrOdvoYFiVdg" Name="StartEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="Start Event 2">
+              <xpdl2:Event>
+                <xpdl2:StartEvent Trigger="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="35.0" YCoordinate="76.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_UOXt0IRVEeSrOdvoYFiVdg" Name="ErrorEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Error Event">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="Error">
+                  <xpdl2:ResultError ErrorCode="Error1"/>
+                </xpdl2:EndEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="211.0" YCoordinate="40.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:Audit>
+                <xpdExt:AuditEvent Type="Initiated">
+                  <xpdExt:Information ScriptGrammar="JavaScript">var simpleList = DataUtil.createList();&#xD;
+&#xD;
+simpleList.add(&quot;abc&quot;);&#xD;
+simpleList.add(&quot;xyz&quot;);&#xD;
+&#xD;
+simpleTypeArray = simpleList;</xpdExt:Information>
+                </xpdExt:AuditEvent>
+              </xpdExt:Audit>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_UOXt0YRVEeSrOdvoYFiVdg" Name="" From="_1UAOwIRREeSrOdvoYFiVdg" To="_UOXt0IRVEeSrOdvoYFiVdg">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_vidt8oRREeSrOdvoYFiVdg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="37.0" YCoordinate="68.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vidt84RREeSrOdvoYFiVdg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="704.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_zteV0IRREeSrOdvoYFiVdg" Name="EmbeddedSubProcess" xpdExt:DisplayName="Embedded Sub-Process">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="false" ActivitySetId="_zteV0YRREeSrOdvoYFiVdg" View="EXPANDED"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="192.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="288.0">
+              <xpdl2:Coordinates XCoordinate="308.0" YCoordinate="185.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_CHXzkIRSEeSrOdvoYFiVdg" Name="CatchSignal1" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch: Signal1">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_YZV5cIRVEeSrOdvoYFiVdg" Trigger="Signal">
+              <xpdl2:TriggerResultSignal xpdExt:NonCancelling="true" CatchThrow="CATCH" Name="Signal1">
+                <xpdExt:SignalData>
+                  <xpdExt:DataMappings>
+                    <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_idLyYIRUEeSrOdvoYFiVdg" Name="Complex Type List" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">complexTypeArray</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                      <xpdExt:ScriptInformation Id="_idLyYIRUEeSrOdvoYFiVdg" Name="Simple type List" Direction="OUT">
+                        <xpdExt:Expression ScriptGrammar="JavaScript">var simpleArr = DataUtil.createList();&#xD;
+&#xD;
+simpleArr.add(&quot;abc&quot;);&#xD;
+simpleArr.add(&quot;xyz&quot;);&#xD;
+&#xD;
+simpleArr;</xpdExt:Expression>
+                      </xpdExt:ScriptInformation>
+                      <xpdl2:Actual ScriptGrammar="JavaScript">simpleTypeArray</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:DataMappings>
+                </xpdExt:SignalData>
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="40.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="31.874999999999996" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DN0eQIRSEeSrOdvoYFiVdg" Name="EndEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event 2">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="657.0" YCoordinate="305.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_YZV5cIRVEeSrOdvoYFiVdg" Name="UserTask" xpdExt:Visibility="Private" xpdExt:DisplayName="User Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_YZV5cYRVEeSrOdvoYFiVdg"/>
+                <xpdl2:MessageOut Id="_YZV5coRVEeSrOdvoYFiVdg"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zf__gIRVEeSrOdvoYFiVdg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="551.0" YCoordinate="68.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;InScript_ABC&quot;;&#xD;
+cmp1.newElement2 = &quot;InScript_xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;InScript_abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;InScript_xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+complexTypeArray = myComplexList;&#xD;
+&#xD;
+&#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_f5tTkIRVEeSrOdvoYFiVdg" Name="CatchErrorEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Error Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_zteV0IRREeSrOdvoYFiVdg" Trigger="Error">
+              <xpdl2:ResultError ErrorCode="">
+                <xpdExt:CatchErrorMappings>
+                  <xpdExt:Message Id="_81Y7wISBEeSrOdvoYFiVdg">
+                    <xpdl2:DataMappings>
+                      <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                        <xpdExt:ScriptInformation Id="_8dQIkISBEeSrOdvoYFiVdg" Name="Complex Type List" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">complexTypeArray</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="_SCRIPT_">
+                        <xpdExt:ScriptInformation Id="_9ISpoISBEeSrOdvoYFiVdg" Name="Simple Type list" Direction="OUT">
+                          <xpdExt:Expression ScriptGrammar="JavaScript">var simpleArr = DataUtil.createList();&#xD;
+&#xD;
+simpleArr.add(&quot;abc&quot;);&#xD;
+simpleArr.add(&quot;xyz&quot;);&#xD;
+&#xD;
+simpleArr;</xpdExt:Expression>
+                        </xpdExt:ScriptInformation>
+                        <xpdl2:Actual ScriptGrammar="JavaScript">simpleTypeArray</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                    </xpdl2:DataMappings>
+                  </xpdExt:Message>
+                </xpdExt:CatchErrorMappings>
+              </xpdl2:ResultError>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="61.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="36.770833333333336" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:Audit/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PgGxoYSGEeSrOdvoYFiVdg" Name="ThrowSignal1" xpdExt:Visibility="Private" xpdExt:DisplayName="Throw: Signal1">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="Signal1">
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="482.0" YCoordinate="318.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_2mJkIIT2EeSo8MGqtGpabw">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Parallel">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_ztjOUIRREeSrOdvoYFiVdg"/>
+                  <xpdl2:TransitionRef Id="_3YIasIT2EeSo8MGqtGpabw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_vidt8YRREeSrOdvoYFiVdg" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="103.0" YCoordinate="68.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_vidt9IRREeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_YZV5cIRVEeSrOdvoYFiVdg" To="_vidt84RREeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ztjOUIRREeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_2mJkIIT2EeSo8MGqtGpabw" To="_zteV0IRREeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_DN0eQYRSEeSrOdvoYFiVdg" Name="" From="_CHXzkIRSEeSrOdvoYFiVdg" To="_DN0eQIRSEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_LJpuwISGEeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_PgGxoYSGEeSrOdvoYFiVdg" To="_DN0eQIRSEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="32.040604428318524" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_PgGxooSGEeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_f5tTkIRVEeSrOdvoYFiVdg" To="_PgGxoYSGEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_2mJkIYT2EeSo8MGqtGpabw" xpdExt:DisplayName="" Name="" From="_vidt8oRREeSrOdvoYFiVdg" To="_2mJkIIT2EeSo8MGqtGpabw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_3YIasIT2EeSo8MGqtGpabw" xpdExt:DisplayName="" Name="" From="_2mJkIIT2EeSo8MGqtGpabw" To="_YZV5cIRVEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData/></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ValidationControl>
+        <xpdExt:ValidationIssueOverrides>
+          <xpdExt:ValidationIssueOverride ValidationIssueId="bx.processHasNoMigrationPoints" OverrideType="SuppressUntilManualReactivation"/>
+        </xpdExt:ValidationIssueOverrides>
+      </xpdExt:ValidationControl>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_tIB1kISCEeSrOdvoYFiVdg" xpdExt:DisplayName="SubProcess" Name="SubProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_yZ1mEYSFEeSrOdvoYFiVdg" xpdExt:DisplayName="complex" Name="complex" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_yh9nUYSFEeSrOdvoYFiVdg" xpdExt:DisplayName="complexArray" Name="complexArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.ArrayMapping.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="org.example.ArrayMappingAComplexType"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_yqeDEYSFEeSrOdvoYFiVdg" xpdExt:DisplayName="simple" Name="simple" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_yyAOcYSFEeSrOdvoYFiVdg" xpdExt:DisplayName="simpleArray" Name="simpleArray" IsArray="true" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_tIH8N4SCEeSrOdvoYFiVdg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_tIH8NoSCEeSrOdvoYFiVdg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_tIH8OISCEeSrOdvoYFiVdg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_tIH8NoSCEeSrOdvoYFiVdg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hOHWYISEEeSrOdvoYFiVdg" Name="CallSubProcess" FinishMode="Automatic" StartMode="Automatic" xpdExt:Visibility="Private" xpdExt:DisplayName="Call Sub-Process">
+          <xpdl2:Implementation>
+            <xpdl2:SubFlow Id="_Tr1OcVLyEeS92q8GG4llXg" xpdExt:StartStrategy="StartImmediately" xpdExt:SuspendResumeWithParent="true">
+              <xpdl2:DataMappings>
+                <xpdl2:DataMapping Direction="IN" Formal="simpleTypeArray">
+                  <xpdExt:ScriptInformation Id="_jgxVgISEEeSrOdvoYFiVdg" Name="Simple Type List"/>
+                  <xpdl2:Actual ScriptGrammar="JavaScript">var simpleArr = DataUtil.createList();&#xD;
+&#xD;
+simpleArr.add(&quot;abc&quot;);&#xD;
+simpleArr.add(&quot;xyz&quot;);&#xD;
+&#xD;
+simpleArr;</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="complexTypeArray">
+                  <xpdExt:ScriptInformation Id="_nmRyUISEEeSrOdvoYFiVdg" Name="Complex Type list">
+                    <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                  </xpdExt:ScriptInformation>
+                  <xpdl2:Actual ScriptGrammar="JavaScript">// Complex type array mapping script: We validate against BUT Does this actual work&#xD;
+&#xD;
+var myComplexList = DataUtil.createList();&#xD;
+var cmp1 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp1.newElement = &quot;abc1&quot;;&#xD;
+cmp1.newElement2 = &quot;xyz1&quot;;&#xD;
+myComplexList.add(cmp1);&#xD;
+&#xD;
+var cmp2 = org_example_ArrayMapping_Factory.createAComplexType();&#xD;
+cmp2.newElement = &quot;abc2&quot;;&#xD;
+cmp2.newElement2 = &quot;xyz2&quot;;&#xD;
+myComplexList.add(cmp2);&#xD;
+myComplexList;&#xD;
+</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="singleText">
+                  <xpdExt:ScriptInformation Id="_cROWQITfEeSMAbw1W4lJVA" Name="Script1">
+                    <xpdExt:Expression ScriptGrammar="JavaScript"/>
+                  </xpdExt:ScriptInformation>
+                  <xpdl2:Actual ScriptGrammar="JavaScript">simple;</xpdl2:Actual>
+                </xpdl2:DataMapping>
+              </xpdl2:DataMappings>
+            </xpdl2:SubFlow>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_tIH8NoSCEeSrOdvoYFiVdg" Width="128.0">
+              <xpdl2:Coordinates XCoordinate="270.0" YCoordinate="110.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_tIH8OYSCEeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_hOHWYISEEeSrOdvoYFiVdg" To="_tIH8OISCEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_hOHWYYSEEeSrOdvoYFiVdg" xpdExt:DisplayName="" Name="" From="_tIH8N4SCEeSrOdvoYFiVdg" To="_hOHWYISEEeSrOdvoYFiVdg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="17"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="17"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

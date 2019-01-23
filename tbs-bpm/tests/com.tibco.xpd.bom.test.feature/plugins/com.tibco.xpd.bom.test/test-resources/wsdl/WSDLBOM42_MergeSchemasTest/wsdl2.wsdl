@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example.org/wsdl2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wsdl2"
+	targetNamespace="http://www.example.org/wsdl2/">
+	<wsdl:types>
+
+		<xs:schema
+			xmlns:co="http://www.macquarietelecom/customerorder/customerorder_v1_0.xsd"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+			elementFormDefault="qualified"
+			targetNamespace="http://www.macquarietelecom/customerorder/customerorder_v1_0.xsd">
+			<xs:complexType name="BundleDetailsType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="OrderID" type="xs:int" />
+					<xs:element minOccurs="0" name="BundleName" type="xs:string" />
+					<xs:element minOccurs="0" name="ServiceBundles"
+						nillable="true" type="co:ServiceBundlesType" />
+					<xs:element minOccurs="0" name="LOB" type="xs:string" />
+					<xs:element minOccurs="0" name="BundleForecastDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="BundleOwner" nillable="true"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LOBBundlesType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0"
+						name="LOBDeliveryBundle" type="co:LOBDeliveryBundle" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LOBCode">
+				<xs:sequence>
+					<xs:element name="LOB" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LOBCodesType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="LOBCode"
+						type="co:LOBCode" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LOBDataType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="LOBCode" type="xs:string" />
+					<xs:element minOccurs="0" name="LineOfBusiness"
+						nillable="true" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LOBDeliveryBundle">
+				<xs:sequence>
+					<xs:element name="DeliveryBundleID" type="xs:int" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LOBDetailsType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="OrderID" type="xs:int" />
+					<xs:element minOccurs="0" name="LOB" type="xs:string" />
+					<xs:element minOccurs="0" name="LOBOwner" nillable="true"
+						type="co:RepType" />
+					<xs:element minOccurs="0" name="LOBReasonCCDMissed"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="LOBActualCompDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="LOBCustomerCommittedDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="LOBStage" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="LOBStatusReason"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="LOBOutstandingReason"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="LOBDelayReason"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="LOBCommonReason"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="LOBRejectReason"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="LOBDeliveryBundles"
+						nillable="true" type="co:LOBBundlesType" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="OrderBundleListType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0"
+						name="OrderBundle" type="co:OrderDetailsType" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="OrderDetailsType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="OrderID" type="xs:int" />
+					<xs:element minOccurs="0" name="LOBCodes" nillable="true"
+						type="co:LOBCodesType" />
+					<xs:element minOccurs="0" name="OrderType" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="CompanyID" nillable="true"
+						type="xs:int" />
+					<xs:element minOccurs="0" name="CompanyName" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="EnteredBy" nillable="true"
+						type="co:RepType" />
+					<xs:element minOccurs="0" name="LastOwner" nillable="true"
+						type="co:RepType" />
+					<xs:element minOccurs="0" name="OrderStatus" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="AssignedToRep" nillable="true"
+						type="co:RepType" />
+					<xs:element minOccurs="0" name="AssignedToGrp" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="CreationDate" nillable="true"
+						type="xs:dateTime" />
+					<xs:element minOccurs="0" name="BillingNotes" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="VersionNumber" nillable="true"
+						type="xs:int" />
+					<xs:element minOccurs="0" name="LastStatusChange"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="DateEnteredConv"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="DateEnteredProv"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="TechnicalConsultant"
+						nillable="true" type="co:RepType" />
+					<xs:element minOccurs="0" name="OrderDescription"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="MacBillID" nillable="true"
+						type="xs:int" />
+					<xs:element minOccurs="0" name="ContractDuration"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="ActualCompletionDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="SalesRep" nillable="true"
+						type="co:RepType" />
+					<xs:element minOccurs="0" name="CancelDate" nillable="true"
+						type="xs:dateTime" />
+					<xs:element minOccurs="0" name="DatePaperworkArrived"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="TerminationNoticeReceived"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="DateLeftOutstanding"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="AccountContact"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="DateReenteredConv"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="LastOwnershipChangeDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="OutstandingReason"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="OutstandingFlag"
+						nillable="true" type="xs:boolean" />
+					<xs:element minOccurs="0" name="MSAVariation" nillable="true"
+						type="xs:boolean" />
+					<xs:element minOccurs="0" name="HandoverAcceptedFlag"
+						nillable="true" type="xs:boolean" />
+					<xs:element minOccurs="0" name="HandoverAcceptedBy"
+						nillable="true" type="co:RepType" />
+					<xs:element minOccurs="0" name="HandoverAcceptedDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="FinalQuote" nillable="true"
+						type="xs:boolean" />
+					<xs:element minOccurs="0" name="SalesforceID" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="TellTheStory" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="CRISPURL" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="EnteredByRepGrp"
+						nillable="true" type="co:RepGroupType" />
+					<xs:element minOccurs="0" name="ShowInPortal" nillable="true"
+						type="xs:int" />
+					<xs:element minOccurs="0" name="ProjectID" nillable="true"
+						type="xs:int" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="OrderProductDetailsType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="OrderProdID" type="xs:int" />
+					<xs:element minOccurs="0" name="OrderID" type="xs:int" />
+					<xs:element minOccurs="0" name="CompanyID" nillable="true"
+						type="xs:int" />
+					<xs:element minOccurs="0" name="CompanyName" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="ServiceBundleID"
+						nillable="true" type="xs:int" />
+					<xs:element minOccurs="0" name="DeliveryBundleID"
+						nillable="true" type="xs:int" />
+					<xs:element minOccurs="0" name="LOB" type="xs:string" />
+					<xs:element minOccurs="0" name="ProdCode" type="xs:int" />
+					<xs:element minOccurs="0" name="Status" type="xs:string" />
+					<xs:element minOccurs="0" name="AssignedToRep" nillable="true"
+						type="co:RepType" />
+					<xs:element minOccurs="0" name="MacBillInvoicingEntity"
+						nillable="true" type="xs:int" />
+					<xs:element minOccurs="0" name="CompletionDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="StartBillingDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="LeadTime" nillable="true"
+						type="xs:decimal" />
+					<xs:element minOccurs="0" name="LeadTimeDate" nillable="true"
+						type="xs:dateTime" />
+					<xs:element minOccurs="0" name="ForecastDate" nillable="true"
+						type="xs:dateTime" />
+					<xs:element minOccurs="0" name="CreationDate" nillable="true"
+						type="xs:dateTime" />
+					<xs:element minOccurs="0" name="ServiceID" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="SentToBillingDate"
+						nillable="true" type="xs:dateTime" />
+					<xs:element minOccurs="0" name="Description" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="ElementCode" nillable="true"
+						type="xs:int" />
+					<xs:element minOccurs="0" name="ElementDescription"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="ChangeType" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="ForecastReason"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="UniqueElementID"
+						nillable="true" type="xs:int" />
+					<xs:element minOccurs="0" name="MTReference" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="FastTrackReason"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="CarrierGap" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="ReasonForCarrierGap"
+						nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="ProductType" nillable="true"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="OrderProductsBundleListType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0"
+						name="OrderProductsBundle" type="co:OrderProductDetailsType" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="OrderStatusDetailsType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="OrderStatus" type="xs:int" />
+					<xs:element minOccurs="0" name="Description" nillable="true"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="OrderTypeDetailsType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Type" type="xs:int" />
+					<xs:element minOccurs="0" name="Description" nillable="true"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RepGroup">
+				<xs:sequence>
+					<xs:element name="Group" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RepGroupType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="RepGroup"
+						type="co:RepGroup" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RepType">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="UserName" type="xs:string" />
+					<xs:element minOccurs="0" name="FirstName" nillable="true"
+						type="xs:string" />
+					<xs:element minOccurs="0" name="LastName" nillable="true"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ServiceBundle">
+				<xs:sequence>
+					<xs:element name="ServiceBundleID" type="xs:int" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ServiceBundlesType">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0"
+						name="ServiceBundle" type="co:ServiceBundle" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+
+		<xsd:schema targetNamespace="http://www.example.org/wsdl2/">
+			<xsd:element name="NewOperation">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="in" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NewOperationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="NewOperationRequest">
+		<wsdl:part element="tns:NewOperation" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="NewOperationResponse">
+		<wsdl:part element="tns:NewOperationResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="wsdl2">
+		<wsdl:operation name="NewOperation">
+			<wsdl:input message="tns:NewOperationRequest" />
+			<wsdl:output message="tns:NewOperationResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="wsdl2SOAP" type="tns:wsdl2">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="NewOperation">
+			<soap:operation soapAction="http://www.example.org/wsdl2/NewOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="wsdl2">
+		<wsdl:port binding="tns:wsdl2SOAP" name="wsdl2SOAP">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

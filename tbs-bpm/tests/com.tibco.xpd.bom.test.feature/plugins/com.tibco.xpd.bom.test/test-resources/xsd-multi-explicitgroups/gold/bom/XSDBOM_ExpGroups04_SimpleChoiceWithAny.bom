@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.w3schools2" name="com.w3schools">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3v-D4BUGEeGvy5vcBZd45A" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3v-D4RUGEeGvy5vcBZd45A" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3v-D4hUGEeGvy5vcBZd45A" key="created" value="1321969105310"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3v-D4xUGEeGvy5vcBZd45A" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.w3schoolscomplexWithAnyInChoice" name="complexWithAnyInChoice">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="complexWithAnyInChoiceany" name="any">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_w5Q_kB_WEeC4u6LGdGphwA?BomPrimitiveTypes%3a%3aObject?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3hkbghUGEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3hkbgRUGEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.w3schoolstopLevelElementType" name="topLevelElementType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="topLevelElementTypeany" name="any">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_w5Q_kB_WEeC4u6LGdGphwA?BomPrimitiveTypes%3a%3aObject?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3huMghUGEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3huMgRUGEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_3hdGwRUGEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3hdGwhUGEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_3hdt0BUGEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3hdt0RUGEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_3heU4BUGEeGvy5vcBZd45A" base_Package="com.w3schools2?com.w3schools?" xsdTargetNamespace="http://www.w3schools.com" xsdSchemaLocation="XSDBOM_ExpGroups04_SimpleChoiceWithAny.xsd" xsdAttributeForm="unqualified" xsdElementForm="qualified"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_3hhYMBUGEeGvy5vcBZd45A" base_Class="com.w3schoolscomplexWithAnyInChoice?com.w3schools%3a%3acomplexWithAnyInChoice?" xsdName="complexWithAnyInChoice" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_3hm3wBUGEeGvy5vcBZd45A" name="MS1_1_1" maxOccurs="-1" isChoice="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_3hkbgBUGEeGvy5vcBZd45A" base_Property="complexWithAnyInChoiceany?com.w3schools%3a%3acomplexWithAnyInChoice%3a%3aany?" xsdName="any*" xsdType="any" xsdExplicitGroupHierarchy="C1" xsdNamespace="##any" xsdProcessContents="strict" xsdParentSequence="_3hm3wBUGEeGvy5vcBZd45A" xsdMaxOccurs="10"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_3hlCkBUGEeGvy5vcBZd45A" base_Property="complexWithAnyInChoiceany?com.w3schools%3a%3acomplexWithAnyInChoice%3a%3aany?" objectSubType="xsdAny"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_3hrwQBUGEeGvy5vcBZd45A" base_Class="com.w3schoolstopLevelElementType?com.w3schools%3a%3atopLevelElementType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_3hwowBUGEeGvy5vcBZd45A" name="MS1_1_1" maxOccurs="3" isChoice="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_3huMgBUGEeGvy5vcBZd45A" base_Property="topLevelElementTypeany?com.w3schools%3a%3atopLevelElementType%3a%3aany?" xsdName="any**" xsdType="any" xsdExplicitGroupHierarchy="C1" xsdNamespace="##any" xsdProcessContents="strict" xsdParentSequence="_3hwowBUGEeGvy5vcBZd45A" xsdMaxOccurs="*"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_3huzkBUGEeGvy5vcBZd45A" base_Property="topLevelElementTypeany?com.w3schools%3a%3atopLevelElementType%3a%3aany?" objectSubType="xsdAny"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_3hyd8BUGEeGvy5vcBZd45A" base_Package="com.w3schools2?com.w3schools?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_3hzFABUGEeGvy5vcBZd45A" name="topLevelElement" type="com.w3schoolstopLevelElementType?com.w3schools%3a%3atopLevelElementType?" isAnonymous="true" targetNamespace="http://www.w3schools.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3hzFARUGEeGvy5vcBZd45A" base_Element="com.w3schoolscomplexWithAnyInChoice?com.w3schools%3a%3acomplexWithAnyInChoice?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3hzsEBUGEeGvy5vcBZd45A" base_Element="_3huMghUGEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3hzsERUGEeGvy5vcBZd45A" base_Element="_3huMgRUGEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3hzsEhUGEeGvy5vcBZd45A" base_Element="_3hkbgRUGEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3h0TIBUGEeGvy5vcBZd45A" base_Element="_3hdt0BUGEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3h0TIRUGEeGvy5vcBZd45A" base_Element="com.w3schoolstopLevelElementType?com.w3schools%3a%3atopLevelElementType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3h0TIhUGEeGvy5vcBZd45A" base_Element="_3hkbghUGEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3h06MBUGEeGvy5vcBZd45A" base_Element="complexWithAnyInChoiceany?com.w3schools%3a%3acomplexWithAnyInChoice%3a%3aany?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3h06MRUGEeGvy5vcBZd45A" base_Element="topLevelElementTypeany?com.w3schools%3a%3atopLevelElementType%3a%3aany?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_3h06MhUGEeGvy5vcBZd45A" base_Element="_3hdGwRUGEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_3v5ycBUGEeGvy5vcBZd45A" displayLabel="complexWithAnyInChoice" base_NamedElement="com.w3schoolscomplexWithAnyInChoice?com.w3schools%3a%3acomplexWithAnyInChoice?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_3v7AkBUGEeGvy5vcBZd45A" displayLabel="topLevelElementType" base_NamedElement="com.w3schoolstopLevelElementType?com.w3schools%3a%3atopLevelElementType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_3v8OsBUGEeGvy5vcBZd45A" displayLabel="any" base_NamedElement="complexWithAnyInChoiceany?com.w3schools%3a%3acomplexWithAnyInChoice%3a%3aany?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_3v9c0BUGEeGvy5vcBZd45A" displayLabel="any" base_NamedElement="topLevelElementTypeany?com.w3schools%3a%3atopLevelElementType%3a%3aany?"/>
+  <notation:Diagram xmi:id="_3v-D5BUGEeGvy5vcBZd45A" type="Business Object Model" element="com.w3schools2?com.w3schools?" name="com.w3schools" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_3v-D5RUGEeGvy5vcBZd45A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_3v-D5hUGEeGvy5vcBZd45A"/>
+  </notation:Diagram>
+</xmi:XMI>

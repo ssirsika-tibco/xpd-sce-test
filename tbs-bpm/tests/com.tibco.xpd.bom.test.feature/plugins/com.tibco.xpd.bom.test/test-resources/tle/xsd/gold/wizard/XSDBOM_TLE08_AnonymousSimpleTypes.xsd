@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE08_anonymousSimpleTypes" xmlns:tns1="http://www.example.org/XSDBOM_TLE08_anonymousSimpleTypes"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE08_anonymousSimpleTypes">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/p1/Business Objects/myTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="MyStrElement" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="200"/>
+        <xsd:pattern value=".*"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="MyNameElement" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:Name">
+        <xsd:maxLength value="150"/>
+        <xsd:pattern value="\i\c*"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="MyEntityElement" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:ENTITY">
+        <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="MyLongElement" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:long">
+        <xsd:minInclusive value="-9223372036854775808"/>
+        <xsd:maxInclusive value="9223372036854775807"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="MyDoubleElement" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:double">
+        <xsd:minInclusive value="-179.76931348623157E+306"/>
+        <xsd:maxInclusive value="179.76931348623157E+306"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="MyAnyURIElement" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:anyURI"/>
+    </xsd:simpleType>
+  </xsd:element>
+</xsd:schema>

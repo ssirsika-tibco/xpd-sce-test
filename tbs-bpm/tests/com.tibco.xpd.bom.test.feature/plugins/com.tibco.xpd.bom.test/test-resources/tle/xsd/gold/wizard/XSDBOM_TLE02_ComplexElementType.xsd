@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE2_ComplexElementType" xmlns:tns1="http://www.example.org/XSDBOM_TLE2_ComplexElementType"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE2_ComplexElementType">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfs/Business Objects/XSDBOM_TLE02_ComplexElementType.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="org.example.xsdbo.m.tle._2.complex.element.type_Person" abstract="false"
+      mixed="false" name="Person">
+    <xsd:sequence>
+      <xsd:element id="Person_name" form="qualified" maxOccurs="1" minOccurs="1" name="name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="PersonElement" nillable="false" type="Person"/>
+</xsd:schema>

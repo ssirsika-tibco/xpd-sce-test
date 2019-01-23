@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/AbstractComplex" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" targetNamespace="http://example.com/AbstractComplex">
+	<xs:complexType name="Car" ecore:name="Car">
+		<xs:complexContent>
+			<xs:extension base="Vehicle">
+				<xs:sequence>
+					<xs:element name="seats" type="xs:int" ecore:name="seats"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Vehicle" abstract="true" ecore:name="Vehicle">
+		<xs:sequence>
+			<xs:element name="colour" type="xs:string" ecore:name="colour"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CarPark">
+		<xs:complexType ecore:name="CarParkType">
+			<xs:sequence>
+				<xs:element name="parked" type="Vehicle" ecore:name="parked"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

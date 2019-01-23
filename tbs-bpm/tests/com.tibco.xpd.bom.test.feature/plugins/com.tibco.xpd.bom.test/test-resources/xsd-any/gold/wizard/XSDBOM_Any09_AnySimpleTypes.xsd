@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/NewXMLSchema2" xmlns:tns1="http://www.example.org/NewXMLSchema2"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/NewXMLSchema2">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fsdfsd/Business Objects/XSDBOM_Any09_AnySimpleTypes.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="org.example.NewXMLSchema2customer" abstract="false" mixed="false"
+      name="customer">
+    <xsd:sequence>
+      <xsd:element id="customeranyElem6" form="qualified" maxOccurs="1" minOccurs="1"
+          name="anyElem6" type="xsd:anySimpleType"/>
+    </xsd:sequence>
+    <xsd:attribute id="customeranyAttr8" form="unqualified" name="anyAttr8" type="xsd:anySimpleType"
+        use="optional"/>
+  </xsd:complexType>
+  <xsd:attribute name="topAttr" type="xsd:anySimpleType"/>
+  <xsd:element abstract="false" name="topCustomer" nillable="false">
+    <xsd:complexType id="org.example.NewXMLSchema2topCustomerType" mixed="false">
+      <xsd:sequence>
+        <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="anyElem2"
+            type="xsd:anySimpleType"/>
+      </xsd:sequence>
+      <xsd:attribute id="topCustomerTypeanyAttr4" form="unqualified" name="anyAttr4"
+          type="xsd:anySimpleType" use="optional"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

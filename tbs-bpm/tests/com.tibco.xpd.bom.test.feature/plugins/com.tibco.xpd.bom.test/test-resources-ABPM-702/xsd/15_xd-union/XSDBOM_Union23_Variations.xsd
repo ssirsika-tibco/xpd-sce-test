@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/UnionVariations"
+	targetNamespace="http://example.com/UnionVariations">
+	<xs:simpleType name="jeans_size">
+		<xs:union memberTypes="sizebyno sizebystring" />
+	</xs:simpleType>
+	<xs:simpleType name="sizebyno">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:maxInclusive value="42" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="sizebystring">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="small" />
+			<xs:enumeration value="medium" />
+			<xs:enumeration value="large" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="tmpComplex">
+		<xs:sequence>
+			<xs:element name="elem1" type="jeans_size"></xs:element>
+			<xs:element name="elem2" type="sizebyno"></xs:element>
+			<xs:element name="elem3" type="sizebystring"></xs:element>
+			<xs:element name="elem4">
+				<xs:simpleType>
+					<xs:union memberTypes="sizebyno sizebystring" />
+				</xs:simpleType>
+			</xs:element>			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="topElem">
+		<xs:simpleType>
+			<xs:union memberTypes="sizebyno sizebystring" />
+		</xs:simpleType>
+	</xs:element>
+
+</xs:schema>

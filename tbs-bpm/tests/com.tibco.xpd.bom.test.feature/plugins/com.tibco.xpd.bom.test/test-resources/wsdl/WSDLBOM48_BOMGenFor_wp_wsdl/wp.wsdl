@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2012 rel. 2 sp1 (x64) (http://www.altova.com) by Joe Humphries (Tibco Software Limited) -->
+<wsdl:definitions xmlns:base="http://base.api.wp.n2.tibco.com" xmlns:comex="http://exception.api.common.n2.tibco.com" xmlns:ct="http://channeltype.common.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:dto="http://api.wp.n2.tibco.com" xmlns:ex="http://exception.api.wp.n2.tibco.com" xmlns:impl="http://services.wp.n2.tibco.com" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://service.archive.wp.n2.tibco.com" xmlns:ns2="http://presentationmodel.common.n2.tibco.com" xmlns:ns3="http://base.api.bs.n2.tibco.com" xmlns:ns4="http://api.brm.n2.tibco.com" xmlns:ns5="http://api.organisation.common.n2.tibco.com" xmlns:ns6="http://datafeed.common.n2.tibco.com" xmlns:ns7="http://www.tibco.com/XPD/ScriptDescriptor/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="WorkPresentationService" targetNamespace="http://services.wp.n2.tibco.com" tibex:src="file:/C:/temp/WSDLContainerProject01%20(1)/WSDLContainerProject01/Service%20Descriptors/wp.wsdl">
+	<wsdl:types>
+		<!-- Exceptions -->
+		<xs:schema targetNamespace="http://exception.api.wp.n2.tibco.com">
+			<xs:include schemaLocation="wpexception.xsd"/>
+		</xs:schema>
+		<!-- Types -->
+		<xs:schema targetNamespace="http://api.wp.n2.tibco.com">
+			<xs:include schemaLocation="wp.xsd"/>
+		</xs:schema>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.wp.n2.tibco.com">
+			<xsd:element name="getBusinessServiceDetailsByModule">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="in" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getBusinessServiceDetailsByModuleResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getBusinessServiceDetailsByModuleFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="getBusinessServiceDetailsByModuleFault" type="xsd:string">
+        				</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="initiateWorkItemRequest">
+		<wsdl:part element="dto:baseWorkRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="initiateWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="closeWorkItemRequest">
+		<wsdl:part element="dto:workRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="closeWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="invalidWorkRequestFault">
+		<wsdl:part element="ex:InvalidWorkRequest" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="completeWorkItemRequest">
+		<wsdl:part element="dto:workRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="completeWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="initiateWorkItemFault">
+		<wsdl:part element="ex:InvalidWorkRequest" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="reallocateIgnoreWorkItemRequest">
+		<wsdl:part element="dto:workRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="reallocateIgnoreWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="reOfferWorkItemRequest">
+		<wsdl:part element="dto:workRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="reOfferWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="reallocateRevertWorkItemRequest">
+		<wsdl:part element="dto:workRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="reallocateRevertWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="reallocateDataWorkItemRequest">
+		<wsdl:part element="dto:workRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="reallocateDataWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="openNextWorkItemRequest">
+		<wsdl:part element="dto:baseRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="openNextWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="cancelWorkItemRequest">
+		<wsdl:part element="dto:baseWorkRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="cancelWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="workItemUnavailableFault">
+		<wsdl:part element="ex:WorkItemUnavailable" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="workProcessingFault">
+		<wsdl:part element="ex:WorkProcessingFault" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="openWorkItemRequest">
+		<wsdl:part element="dto:baseWorkRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="openWorkItemResponse">
+		<wsdl:part element="dto:workResponse" name="workResponse"/>
+	</wsdl:message>
+	<wsdl:message name="chainedTimeOutFault">
+		<wsdl:part element="ex:ChainedTimeOut" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="listChannelTypesRequest">
+		<wsdl:part element="dto:listChannelTypesRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="listChannelTypesResponse">
+		<wsdl:part element="dto:listChannelTypesResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="getPresentationChannelRequest">
+		<wsdl:part element="dto:getPresentationChannelRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="getPresentationChannelResponse">
+		<wsdl:part element="dto:getPresentationChannelResponse" name="response"/>
+	</wsdl:message>
+	<wsdl:message name="internalServiceFault">
+		<wsdl:part element="ex:InternalServiceFault" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="businessServiceRequestFault">
+		<wsdl:part element="ex:BusinessServiceRequestFault" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="channelUnavailableFault">
+		<wsdl:part element="ex:ChannelUnavailable" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="workTypeFault">
+		<wsdl:part element="ex:WorkTypeFault" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="getBusinessServiceDetailsByModuleFault">
+		<wsdl:part element="impl:getBusinessServiceDetailsByModuleFault" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="businessServiceDetailsRequest">
+		<wsdl:part element="dto:businessServiceDetailsRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="businessServiceDetailsResponse">
+		<wsdl:part element="dto:businessServiceDetailsResponse" name="workReponse"/>
+	</wsdl:message>
+	<wsdl:message name="dataOutOfSyncFault">
+		<wsdl:part element="ex:DataOutOfSyncFault" name="fault"/>
+	</wsdl:message>
+	<wsdl:message name="previewWorkItemRequest">
+		<wsdl:part element="dto:previewWorkItemRequest" name="request"/>
+	</wsdl:message>
+	<wsdl:message name="previewWorkItemResponse">
+		<wsdl:part element="dto:previewWorkItemResponse" name="workReponse"/>
+	</wsdl:message>
+	<wsdl:portType name="WorkPresentationService">
+		<wsdl:documentation>Get work presentation details for and perform actions on work items.</wsdl:documentation>
+		<wsdl:operation name="initiateWorkItem">
+			<wsdl:documentation>**PRIVATE API - Reserved for internal use**</wsdl:documentation>
+			<wsdl:input message="impl:initiateWorkItemRequest" name="initiateWorkItemRequest"/>
+			<wsdl:output message="impl:initiateWorkItemResponse" name="initiateWorkItemResponse"/>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault"/>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="closeWorkItem">
+			<wsdl:documentation>Close a work item (and update the associated input and output data).</wsdl:documentation>
+			<wsdl:input message="impl:closeWorkItemRequest" name="closeWorkItemRequest">
+				<wsdl:documentation>Request message (uses dto:workRequest element): Identifies the resource and channel making the request, and specifies details of and data payload for the work item to be closed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:closeWorkItemResponse" name="closeWorkItemResponse">
+				<wsdl:documentation>Response message (uses dto:workResponse element): Contains full presentation details for the specified work item, and (unless the work item opens a pageflow) its data payload.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidWorkRequest element): The specified work request is incorrect.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:workProcessingFault" name="workProcessingFault">
+				<wsdl:documentation>Error message (uses ex:WorkProcessingFault element): An error has occurred during processing of the specified work request.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault elelement): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:dataOutOfSyncFault" name="dataOutOfSyncFault">
+				<wsdl:documentation>Error message(uses ex:DataOutOfSync element): When the workitem has been rescheduled while this item was open.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="completeWorkItem">
+			<wsdl:documentation>Complete a work item (and update the associated input and output data).</wsdl:documentation>
+			<wsdl:input message="impl:completeWorkItemRequest" name="completeWorkItemRequest">
+				<wsdl:documentation>Request message (uses dto:workRequest element): Identifies the resource and channel making the request, and specifies details of and data payload for the work item to be completed.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:completeWorkItemResponse" name="completeWorkItemResponse">
+				<wsdl:documentation>Response message (uses dto:workResponse element): Contains full presentation details for the specified work item, and (unless the work item opens a pageflow) its data payload.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidWorkRequest element): The specified work request is incorrect.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:workProcessingFault" name="workProcessingFault">
+				<wsdl:documentation>Error message (uses ex:WorkProcessingFault element): An error has occurred during processing of the specified work request.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:chainedTimeOutFault" name="chainedTimeoutFault">
+				<wsdl:documentation>Error message (uses ex:ChainedTimeOut element): The timeout value for a chained work item has expired.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault elelement): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:dataOutOfSyncFault" name="dataOutOfSync"/>
+		</wsdl:operation>
+		<wsdl:operation name="reallocateIgnoreWorkItem">
+			<wsdl:documentation>**PRIVATE API - Reserved for internal use**</wsdl:documentation>
+			<wsdl:input message="impl:reallocateIgnoreWorkItemRequest" name="reallocateIgnoreWorkItemRequest"/>
+			<wsdl:output message="impl:reallocateIgnoreWorkItemResponse" name="reallocateIgnoreWorkItemResponse"/>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault"/>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="reOfferWorkItem">
+			<wsdl:documentation>**PRIVATE API - Reserved for internal use**</wsdl:documentation>
+			<wsdl:input message="impl:reOfferWorkItemRequest" name="reOfferWorkItemRequest"/>
+			<wsdl:output message="impl:reOfferWorkItemResponse" name="reOfferWorkItemResponse"/>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault"/>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="reallocateRevertWorkItem">
+			<wsdl:documentation>**PRIVATE API - Reserved for internal use**</wsdl:documentation>
+			<wsdl:input message="impl:reallocateRevertWorkItemRequest" name="reallocateRevertWorkItemRequest"/>
+			<wsdl:output message="impl:reallocateRevertWorkItemResponse" name="reallocateRevertWorkItem"/>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault"/>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="reallocateDataWorkItem">
+			<wsdl:documentation>**PRIVATE API - Reserved for internal use**</wsdl:documentation>
+			<wsdl:input message="impl:reallocateDataWorkItemRequest" name="reallocateDataWorkItemRequest"/>
+			<wsdl:output message="impl:reallocateDataWorkItemResponse" name="reallocateDataWorkItemResponse"/>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault"/>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="openNextWorkItem">
+			<wsdl:documentation>Open the next work item for a specified resource.</wsdl:documentation>
+			<wsdl:input message="impl:openNextWorkItemRequest" name="openNextWorkItemRequest">
+				<wsdl:documentation>Request message (uses dto:baseRequest element): Identifies the resource and channel making the request, and the format in which to return the work item data.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:openNextWorkItemResponse" name="openNextWorkItemResponse">
+				<wsdl:documentation>Response message (uses dto:workResponse element): Contains full presentation details for the specified work item, and (unless the work item opens a pageflow) its data payload.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidWorkRequest element): The specified work request is incorrect.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:workItemUnavailableFault" name="workItemUnavailable">
+				<wsdl:documentation>Error message (uses ex:WorkItemUnavailable element): The specified work item is not available.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault elelement): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="cancelWorkItem">
+			<wsdl:documentation>Cancel a work item (discarding any changes to the associated data).</wsdl:documentation>
+			<wsdl:input message="impl:cancelWorkItemRequest" name="cancelWorkItemRequest">
+				<wsdl:documentation>Request message (uses dto:baseworkRequest element): Identifies the resource and channel making the request, and specifies details of the work item to be cancelled.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:cancelWorkItemResponse" name="cancelWorkItemResponse">
+				<wsdl:documentation>Response message (uses dto:workResponse element): Contains full presentation details for the specified work item, and (unless the work item opens a pageflow) its data payload.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidWorkRequest element): The specified work request is incorrect.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:workProcessingFault" name="workProcessingFault">
+				<wsdl:documentation>Error message (uses ex:WorkProcessingFault element): An error has occurred during processing of the specified work request.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault elelement): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="openWorkItem">
+			<wsdl:documentation>Open a work item (to get work presentation details and  the associated input and output data).</wsdl:documentation>
+			<wsdl:input message="impl:openWorkItemRequest" name="openWorkItemRequest">
+				<wsdl:documentation>Request message (uses dto:baseworkRequest element): Identifies the resource and channel making the request, and specifies details of the work item to be opened.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:openWorkItemResponse" name="openWorkItemResponse">
+				<wsdl:documentation>Response message (uses dto:workResponse element): Contains full presentation details for the specified work item, and (unless the work item opens a pageflow) its data payload.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:workItemUnavailableFault" name="workItemUnavailableFault">
+				<wsdl:documentation>Error message (uses ex:WorkItemUnavailable element): The specified work item is not available.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault">
+				<wsdl:documentation>Error message (uses ex:InvalidWorkRequest element): The specified work request is incorrect.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault elelement): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBusinessServiceDetailsByModule">
+			<wsdl:documentation>Get the presentation details for a business service.</wsdl:documentation>
+			<wsdl:input message="impl:businessServiceDetailsRequest" name="businessServiceDetailsRequest">
+				<wsdl:documentation>Request message (uses dto:businessServiceDetailsRequest element): Identifies the business service (pageflow process) for which details are required.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="impl:businessServiceDetailsResponse" name="businessServiceDetailsResponse">
+				<wsdl:documentation>Response message (uses dto:businessServiceDetailsResponse element): Contains full presentation details for the specified business service.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="impl:businessServiceRequestFault" name="businessServiceRequestFault">
+				<wsdl:documentation>Error message (uses ex:BusinessServiceRequest elelement): A fault occurred on the specified request.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="previewWorkItem">
+			<wsdl:documentation>Get preview of a workItem</wsdl:documentation>
+			<wsdl:input message="impl:previewWorkItemRequest" name="previewWorkItemRequest"/>
+			<wsdl:output message="impl:previewWorkItemResponse" name="previewWorkItemResponse"/>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault elelement): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="impl:invalidWorkRequestFault" name="invalidWorkRequestFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="ChannelBusService">
+		<wsdl:documentation>**PRIVATE API - Reserved for internal use**</wsdl:documentation>
+		<wsdl:operation name="getPresentationChannel">
+			<wsdl:input message="impl:getPresentationChannelRequest" name="getPresentationChannelRequest"/>
+			<wsdl:output message="impl:getPresentationChannelResponse" name="getPresentationChannelResponse"/>
+			<wsdl:fault message="impl:channelUnavailableFault" name="channelUnavailableFault"/>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="listChannelTypes">
+			<wsdl:input message="impl:listChannelTypesRequest" name="listChannelTypesRequest"/>
+			<wsdl:output message="impl:listChannelTypesResponse" name="listChannelTypesResponse"/>
+			<wsdl:fault message="impl:internalServiceFault" name="internalServiceFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="WorkPresentationService_EP" type="impl:WorkPresentationService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="initiateWorkItem">
+			<soap:operation soapAction="initiateWorkItem" style="document"/>
+			<wsdl:input name="initiateWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="initiateWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="closeWorkItem">
+			<soap:operation soapAction="closeWorkItem" style="document"/>
+			<wsdl:input name="closeWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="closeWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="workProcessingFault">
+				<soap:fault name="workProcessingFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="dataOutOfSyncFault">
+				<soap:fault name="dataOutOfSyncFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="completeWorkItem">
+			<soap:operation soapAction="completeWorkItem" style="document"/>
+			<wsdl:input name="completeWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="completeWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="workProcessingFault">
+				<soap:fault name="workProcessingFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="chainedTimeoutFault">
+				<soap:fault name="chainedTimeoutFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="dataOutOfSync">
+				<soap:fault name="dataOutOfSync" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="reallocateIgnoreWorkItem">
+			<soap:operation soapAction="reallocateIgnoreWorkItem" style="document"/>
+			<wsdl:input name="reallocateIgnoreWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="reallocateIgnoreWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="reOfferWorkItem">
+			<soap:operation soapAction="reOfferWorkItem" style="document"/>
+			<wsdl:input name="reOfferWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="reOfferWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="reallocateRevertWorkItem">
+			<soap:operation soapAction="reallocateRevertWorkItem" style="document"/>
+			<wsdl:input name="reallocateRevertWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="reallocateRevertWorkItem">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="reallocateDataWorkItem">
+			<soap:operation soapAction="reallocateDataWorkItem" style="document"/>
+			<wsdl:input name="reallocateDataWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="reallocateDataWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="openNextWorkItem">
+			<soap:operation soapAction="openNextWorkItem" style="document"/>
+			<wsdl:input name="openNextWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="openNextWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="workItemUnavailable">
+				<soap:fault name="workItemUnavailable" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="cancelWorkItem">
+			<soap:operation soapAction="cancelWorkItem" style="document"/>
+			<wsdl:input name="cancelWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="cancelWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="workProcessingFault">
+				<soap:fault name="workProcessingFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="openWorkItem">
+			<soap:operation soapAction="openWorkItem" style="document"/>
+			<wsdl:input name="openWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="openWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="workItemUnavailableFault">
+				<soap:fault name="workItemUnavailableFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBusinessServiceDetailsByModule">
+			<soap:operation soapAction="getBusinessServiceDetailsByModule" style="document"/>
+			<wsdl:input name="businessServiceDetailsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="businessServiceDetailsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="businessServiceRequestFault">
+				<soap:fault name="businessServiceRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="previewWorkItem">
+			<soap:operation soapAction="previewWorkItem" style="document"/>
+			<wsdl:input name="previewWorkItemRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="previewWorkItemResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="invalidWorkRequestFault">
+				<soap:fault name="invalidWorkRequestFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ChannelBusService_EP" type="impl:ChannelBusService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getPresentationChannel">
+			<soap:operation soapAction="getPresentationChannel" style="document"/>
+			<wsdl:input name="getPresentationChannelRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getPresentationChannelResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="channelUnavailableFault">
+				<soap:fault name="channelUnavailableFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="listChannelTypes">
+			<soap:operation soapAction="listChannelTypes" style="document"/>
+			<wsdl:input name="listChannelTypesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="listChannelTypesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="internalServiceFault">
+				<soap:fault name="internalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WorkPresentationService">
+		<wsdl:port binding="impl:WorkPresentationService_EP" name="WorkPresentationService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/WorkPresentationService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="ChannelBusService">
+		<wsdl:port binding="impl:ChannelBusService_EP" name="ChannelBusService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/ChannelBusService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

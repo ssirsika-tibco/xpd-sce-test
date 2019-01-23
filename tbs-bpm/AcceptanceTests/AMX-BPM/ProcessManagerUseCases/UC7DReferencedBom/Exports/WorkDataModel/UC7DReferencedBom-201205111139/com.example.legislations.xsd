@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/legislations" xmlns:tns2="http://example.com/legislations"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/legislations">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/UC7DReferencedBom/Business Objects/Legislations.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="_QPY9kOEQEd-Watvve-g_vA" name="Legislation">
+    <xsd:sequence>
+      <xsd:element id="_RpGigOEQEd-Watvve-g_vA" maxOccurs="1" minOccurs="1" name="id"
+          type="xsd:int"/>
+      <xsd:element id="_TtHosOEQEd-Watvve-g_vA" maxOccurs="1" minOccurs="1" name="name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_amNAZOEQEd-Watvve-g_vA" maxOccurs="1" minOccurs="1" name="category"
+          type="Category"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="_VInWUOEQEd-Watvve-g_vA" name="Category">
+    <xsd:sequence>
+      <xsd:element id="_WWQOIOEQEd-Watvve-g_vA" maxOccurs="1" minOccurs="0" name="casual">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_YYMQsOEQEd-Watvve-g_vA" maxOccurs="1" minOccurs="0" name="serious">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_ZjSx4OEQEd-Watvve-g_vA" maxOccurs="1" minOccurs="0" name="dangerous">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="LegislationElement" type="Legislation"/>
+  <xsd:element name="CategoryElement" type="Category"/>
+</xsd:schema>

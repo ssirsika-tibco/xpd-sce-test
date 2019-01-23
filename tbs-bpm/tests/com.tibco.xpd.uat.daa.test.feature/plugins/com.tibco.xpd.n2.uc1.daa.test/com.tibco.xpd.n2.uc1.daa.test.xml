@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://www.tibco.com/studio_junits_configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.tibco.com/studio_junits_configuration studio_junits.xsd">	
+	<projects location="C:\src\jenkins-slave\workspace\test-10-uat-daa/AMX-BPM/ProcessManagerUseCases">	 
+
+		<!--
+			<projects location="C:\build-home\jobs\36-AcceptanceTests\AMX-BPM\ProcessManagerUseCases">
+			location attribute of the projects element is the folder where your Studio projects are located
+			daaOutputLocation attribute of the projects element is the folder where generated DAA should be copied 
+
+			include element (below) allows you control a sub set of projects that should  be imported in Studio workspace
+		-->			
+		
+ 		<include name="com.example.addresslookup.lib"/>
+		<include name="com.example.addresslookup.pojo"/>		
+		<include name="com.example.addresslookup.pojo2"/>
+		<include name="com.example.hospitalbilling.pojo"/>		
+
+		<include name="com.sample.surgerylookup"/>
+		<include name="com.tibco.processframework.pojo"/>
+		<include name="mediation.soa"/>
+		<include name="surgerylookup.soa"/>
+		<include name="surgerylookup-saml.soa"/>
+		<include name="UC2OrgModel"/>
+
+			
+
+	
+		<include name ="UC1AaNoneStartEventWithBOMParams"/>			
+		<include name="UC1ANoneStartEventWithScriptTask"/> 
+		<include name="UC1BaMsgStartEventSoapJmsProviderAbstractWsdl"/>			
+		<include name="UC1BaSoapJmsConsumerForAbstractWsdl"/>		
+		<include name="UC1BbMsgStartEventSoapJmsProviderAbstractOp"/>
+		<include name="UC1BbSoapJmsConsumerForAbstractOp"/>
+		<include name="UC1BcMsgStartEventSoapJmsProviderConcreteOp"/>
+		<include name="UC1BcSoapJmsConsumerForConcreteOp"/>
+		<include name="UC1BMsgStartEventWithScriptTask"/>
+		<include name="UC1CaWSInvoke"/>
+		<include name="UC1CbDocLiteralWSInvoke"/>
+		<include name="UC1CcWSInvokeJavaScript"/>		
+		<include name="UC1CdRPCLiteralWSInvokeJavaScript"/>
+		<include name="UC1CfWSInvokeJavaScriptCDS"/>
+		
+		<include name="UC1CgWSCorrelationSingleApplication"/>
+		
+		<include name="UC1Ch-ProcessFramework"/>
+		<include name="UC1Ch-ProcessFrameworkWS"/>
+		<include name="UC1Ci-WSInvokeSaml"/>	
+		<include name="UC1Cj-JmsWSInvoke-ServiceTask"/>	
+		<include name="UC1CjWSInvokeMultOpsOnePorttype"/>
+		<include name="UC1Ck-JmsWsInvoke-IntermediateThrow"/>
+		<include name="UC1Cl-JmsInvoke_MessageEnd"/>
+		<include name="UC1DMsgStartEventWithIntermediateEvent"/>
+		<include name="UC1E-EarlyBoundDBTask-INSERT"/>
+		<include name="UC1F-EarlyBoundDBTask-UPDATE"/>
+		<include name="UC1GCorrelationAndPick"/>
+		<include name="UC1GaCorrAndPickUsingBOM"/>
+		<include name="UC1H-EarlyBoundDBTask-DELETE"/>
+		<include name="UC1IEnhancedPOJO"/>
+		<include name="UC1IPOJO"/>
+		<include name="UC1JEmail"/>
+		
+		<include name="UC1KPOJOWithLibrary"/>
+		
+		<include name="UC1LEarlyBoundDBTaskSELECT"/>
+		<include name="UC1M-SubProcessWithInPackage"/>
+		<include name="UC1N-SubProcessAcrossPackage"/>
+		<include name="UC1ODBTaskSTOREDPROC"/>
+		<include name="UC1PaTaskStandardLoop"/>
+		<include name="UC1PbMultiInstanceSequentialLoop"/>
+		<include name="UC1PcMultiInstanceParallelLoop"/>
+		<include name="UC1Qa-ActivityScripts"/>
+		<include name="UC1RaDynamicSubProc"/>
+		<include name="UC1RbInterfaceForCrossProjectDSP"/>
+		<include name="UC1RcDSPImplementCrossProjInterface"/>
+		<include name="UC1RdParentChildAssociationMappings"/>
+		<include name="UC1RSub-SubProcessAcrossProject"/>
+		<include name="UC1RMain-SubProcessAcrossProject"/>				
+		<include name="UC1SSimpleDynamicSubProc"/>
+		<include name="UC1TSignalEvents"/>
+		<include name="UC1TaSignalEvents"/>
+		<include name="UC1UDynamicInstanceAdd"/>		
+		<include name="UC1WaFaultHandlingWS"/> 
+		<include name="UC1WbFaultHandlingSubproc"/>
+		<include name="UC10MsgStartEventImportedWsdlContainsSchema"/> 
+		<include name="UC10MsgStartEventImportedWsdlHasInlineSchema"/>
+		<include name="UC10MsgStartEventImportedWsdlUsesImportedXsd"/>
+		<include name="UC10MsgStartEventWsdlImportCase19"/>		
+		<include name="UC10MsgStartEventWsdlImportCase20"/>
+		<include name="UC10MsgStartEventWsdlImportCase26"/>
+		<include name="UC11_AXsdAnySimple"/>
+		<include name="UC11_BMidOrderedAny"/>
+		
+		<include name="UC12_RESTServiceForActivities"/>
+		<include name="UC12_UpdateWorkItemData"/>
+		<include name="UC13_BusinessServiceForEventHandlers"/>
+		<include name="UC14_SignalEventHandlers"/>
+		<include name="UC15A_AllowUnqualifiedDynamicSubProc"/>
+		<include name="UC15B_AllowUnqualifiedDynamicSubProc_OtherProject"/>
+		<include name="UC16_CompanyOrganisation"/>
+		<include name="UC16_Claims-Business-Data"/>
+		<include name="UC16_CaseService_UpdateCaseData"/>
+		<include name="UC17_AdhocActivity_ClaimSubmissionProject"/>
+		<include name="UC18A_EventSubProcess_OrderProcessingProject"/>
+		<include name="UC18B_EventSubProcess_OrderProcessingProject"/>
+		<include name="UC18C_EventSubProcess_OrderProcessingProject"/>
+		<include name="UC20_SampleBizDataProject"/>
+		<include name="UC20_CaseDataSignalUATProject"/>
+		<include name="UC21_GSDProject"/>
+		<include name="UC21_BPMProject"/>
+		<include name="UC21_GlobalBomProject"/>
+		<include name="UC21_GlobalSignalProject"/>
+		<include name="UC21_CatchingBpmDeveloperProject"/>
+		<include name="UC21_ThrowingBpmDeveloperProject"/>
+		<include name="UC22_BDSProject01"/>
+		<include name="UC22_BomFactoryInfoMissingForGDServiceTasks"/>
+		<include name="UC23_ABPM901AllocateToOfferSet"/>
+		<include name="UC24_ABPM897AsyncSubProcProject"/>
+		<include name="UC25_DataMapperForCSPCatchCSPAndCatchAll"/>
+		<include name="UC26_DataMapperForWSInOutAndFaultConsumer"/>
+		<include name="UC27_TestDataMapperOnAttachedIntermediateMsg"/>
+
+
+
+	</projects>
+
+</Configuration>

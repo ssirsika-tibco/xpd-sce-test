@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by Adrian Hussey (Tibco Software Limited) -->
+<xs:schema xmlns="http://common.api.pfe.n2.tibco.com" xmlns:ch="http://channeltype.common.n2.tibco.com" xmlns:df="http://datafeed.common.n2.tibco.com" xmlns:dm="http://datamodel.common.n2.tibco.com" xmlns:pl="http://payloadModel.common.n2.tibco.com" xmlns:pm="http://presentationmodel.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://common.api.pfe.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://channeltype.common.n2.tibco.com" schemaLocation="channeltype.xsd"/>
+	<xs:import namespace="http://presentationmodel.common.n2.tibco.com" schemaLocation="presentationmodel.xsd"/>
+	<xs:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="datamodel.xsd"/>
+	<xs:import namespace="http://datafeed.common.n2.tibco.com" schemaLocation="df-payload.xsd"/>
+	<xs:complexType name="ActivityReference">
+		<xs:annotation>
+			<xs:documentation>Reference details of a page activity.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseActivityReference">
+				<xs:attribute name="activityName" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Name of the page activity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="activityModelId" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Identity of the model associated with the page activity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="moduleName" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Name of the module associated with the page activity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="moduleVersion" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Version number of the module associated with the page activity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="processName" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Name of the pageflow process associated with the page activity.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseActivityReference">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for an in-progress page activity.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="activityId" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>ID of the page activity.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="BaseBusinessServiceTemplate">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for a business service.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PFETemplate"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseFeedType">
+		<xs:attribute name="feedMode" type="pm:FeedMode" use="required"/>
+		<xs:attribute name="feedFormat" type="pm:FeedFormat"/>
+	</xs:complexType>
+	<xs:complexType name="BasePageData">
+		<xs:sequence>
+			<xs:element name="pageReference" type="BasePageReference"/>
+			<xs:element minOccurs="0" name="payloadModel" type="df:dataPayload"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePageReference">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for a page reference.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseActivityReference"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseProcessReference">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for an instance of a pageflow or business process.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Unique ID of the process instance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseSessionContext">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for an in-progress process and page activity.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="processReference" type="BaseProcessReference">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for an in-progress process instance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityReference" type="BaseActivityReference">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for an in-progress activity instance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseTemplate">
+		<xs:annotation>
+			<xs:documentation>General definition of a pageflow process or business service.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="moduleName" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Module name that contains the pageflow process or business service.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="processName" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the pageflow process or business service.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="BusinessCategory">
+		<xs:annotation>
+			<xs:documentation>Collection of business categories and associated business services.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="BusinessServiceTemplate" type="BusinessServiceTemplate">
+				<xs:annotation>
+					<xs:documentation>Array of business service definitions.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ChildBusinessCategory" type="BusinessCategory">
+				<xs:annotation>
+					<xs:documentation>Array of child business categories.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the category.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="BusinessCategoryResponse">
+		<xs:annotation>
+			<xs:documentation>Collection of business categories and associated business services.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="BusinessServiceTemplate" type="BaseBusinessServiceTemplate">
+				<xs:annotation>
+					<xs:documentation>Array of business service definitions.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="ChildBusinessCategory" type="BusinessCategoryResponse">
+				<xs:annotation>
+					<xs:documentation>Array of child business categories.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the category.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="BusinessServiceTemplate">
+		<xs:annotation>
+			<xs:documentation>Definition of a business service or pageflow process.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseBusinessServiceTemplate">
+				<xs:attribute name="hasFormalParameters" type="xs:boolean" use="required">
+					<xs:annotation>
+						<xs:documentation>Boolean value defining whether the business service or pageflow process has formal parameters.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Category">
+		<xs:annotation>
+			<xs:documentation>Definition of a business category.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="ChildCategory" type="Category">
+				<xs:annotation>
+					<xs:documentation>Array of child business categories.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of business category.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="EventDefinitionType">
+		<xs:annotation>
+			<xs:documentation>Definition of a business event.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseTemplate">
+				<xs:attribute name="eventName" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Name of the catch intermediate event in the pageflow process that handles the business event (for example, UpdateExchangeRates).
+
+Note: You cannot obtain this name programmatically. You must obtain it by examining the process in TIBCO Business Studio.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="processInstanceId" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Unique ID of the process instance into which the event should be injected.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PageData">
+		<xs:annotation>
+			<xs:documentation>Complete data for the page.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="pageReference" type="PageReference">
+				<xs:annotation>
+					<xs:documentation>Reference details for the page.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="payload" type="df:dataPayload">
+				<xs:annotation>
+					<xs:documentation>Data payload for the page.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ListingRequest">
+		<xs:annotation>
+			<xs:documentation>Generic request description.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PagingAndSorting">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="includeFormalParameters" type="xs:boolean">
+						<xs:annotation>
+							<xs:documentation>Boolean value defining whether the response should include items that have formal parameters.
+
+If not specified the default value is FALSE.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OrderFilterCriteria">
+		<xs:annotation>
+			<xs:documentation>**PRIVATE API - Reserved for internal use**
+
+Specification of sort/filter criteria to be applied to a list.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="order" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>**PRIVATE API - Reserved for internal use**
+
+Expression defining the sort criteria to be applied to the list. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="filter" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>**PRIVATE API - Reserved for internal use**
+
+Expression defining the filter criteria to be applied to the list. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PageFlowParameters">
+		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="parameter" type="Parameter"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PageFlowProcessReference">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for an in-progress pageflow.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="instanceId" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Unique ID of the process instance.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Name of the pageflow process.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PageFlowTemplate">
+		<xs:annotation>
+			<xs:documentation>Definition of a pageflow.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PFETemplate">
+				<xs:attribute name="hasFormalParameters" type="xs:boolean" use="required">
+					<xs:annotation>
+						<xs:documentation>Boolean value defining whether the pageflow contains formal parameters.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PageReference">
+		<xs:annotation>
+			<xs:documentation>Definition of an in-progress page reference.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ActivityReference"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PageResponse">
+		<xs:annotation>
+			<xs:documentation>Generic container for a business service or pageflow operation response.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="context" type="ResponseContext">
+				<xs:annotation>
+					<xs:documentation>Reference to a pageflow or business service.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" name="pageData" type="PageData">
+				<xs:annotation>
+					<xs:documentation>Data for each page of the pageflow or business service.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="executionState" type="ExecutionState">
+			<xs:annotation>
+				<xs:documentation>Enumerated value defining the current status of the pageflow or business service. One of the following values:
+
+- NOT_STARTED: Unable to start.
+- STARTED: Started successfully.
+- IN_PROGRESS: In progress.
+- COMPLETED: Successfully conpleted.
+- UNKNOWN: Unknown status.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PagingAndSorting">
+		<xs:annotation>
+			<xs:documentation>Paging and sorting parameters to enable clients to manipulate the size of a response into manageable chunks of data.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="orderFilterCriteria" type="OrderFilterCriteria">
+				<xs:annotation>
+					<xs:documentation>**PRIVATE API - Reserved for internal use**
+
+Specification of sort/filter criteria to be applied to the list.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="startPosition" type="xs:long">
+			<xs:annotation>
+				<xs:documentation>Position in the list from which to start this page.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="numberOfItems" type="xs:long">
+			<xs:annotation>
+				<xs:documentation>Number of items (in the list) to include in this page.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute default="true" name="getTotalCount" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Boolean value defining whether the Page Flow Engine builds a count of the total number of items in the  list. (If 'false' the total is set to -1.)
+</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Parameter">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name of the paramerter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:anyType">
+				<xs:annotation>
+					<xs:documentation>Value of the parameter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PFETemplate">
+		<xs:annotation>
+			<xs:documentation>Unique definition of a pageflow or business service.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseTemplate">
+				<xs:attribute name="version" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>Version of the process.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProcessReference">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for an in-progress process.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseProcessReference">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="name" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Name of the process.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RequestContext">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for an in-progress pageflow or business service.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseSessionContext"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ResponseContext">
+		<xs:annotation>
+			<xs:documentation>Unique identifier for an in-progress pageflow or business service.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="pageFlowTemplate" type="PFETemplate">
+				<xs:annotation>
+					<xs:documentation>Description of the pageflow or business service.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="processReference" type="ProcessReference">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for an in-progress pageflow or business service.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseFeedType">
+		<xs:sequence>
+			<xs:element name="feedTypes" type="BaseFeedType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ExecutionState">
+		<xs:annotation>
+			<xs:documentation>Enumerated value defining the current status of the pageflow or business service. One of of:
+NOT_STARTED: Unable to start.
+STARTED: Started successfully.
+IN_PROGRESS: In progress.
+COMPLETED: Successfully conpleted.
+UNKNOWN: Unknown status.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NOT_STARTED"/>
+			<xs:enumeration value="STARTED"/>
+			<xs:enumeration value="IN_PROGRESS"/>
+			<xs:enumeration value="COMPLETED"/>
+			<xs:enumeration value="UNKNOWN"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FormType">
+		<xs:annotation>
+			<xs:documentation>Enumerated value defining the type of a form.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GI_FORM"/>
+			<xs:enumeration value="GWT_FORM"/>
+			<xs:enumeration value="CUSTOM_FORM"/>
+			<xs:enumeration value="PAGEFLOW"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

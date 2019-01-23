@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/PcStrictOtherNamespaceAny" targetNamespace="http://example.com/PcStrictOtherNamespaceAny" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:element name="Furniture" type="FurnitureType"/>
+	<xs:complexType name="FurnitureType" ecore:name="FurnitureType">
+		<xs:sequence>
+			<xs:element name="details" type="xs:string" ecore:name="details"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="House">
+		<xs:complexType ecore:name="HouseType">
+			<xs:sequence>
+				<xs:element name="town" type="xs:string" ecore:name="town"/>
+				<xs:any namespace="##other" processContents="strict" ecore:name="any"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

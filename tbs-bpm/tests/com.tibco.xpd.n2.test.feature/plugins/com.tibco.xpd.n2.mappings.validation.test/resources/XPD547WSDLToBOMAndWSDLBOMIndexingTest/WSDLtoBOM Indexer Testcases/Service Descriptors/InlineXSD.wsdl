@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/InlineXSD/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InlineXSD" targetNamespace="http://www.example.org/InlineXSD/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/InlineXSD/">
+        <xsd:complexType name="NewOperation">
+          <xsd:sequence>
+            <xsd:element name="definedInInlineSchema" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="NewOperationResponse">
+          <xsd:sequence>
+            <xsd:element name="definedInInlineSchema" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="InlineWsdlOperationRequest">
+    <wsdl:part type="tns:NewOperation" name="inlineWsdlParam"/>
+  </wsdl:message>
+  <wsdl:message name="InlineWsdlOperationResponse">
+    <wsdl:part type="tns:NewOperationResponse" name="inlineWsdlParam"/>
+  </wsdl:message>
+  <wsdl:portType name="InlineXSD">
+    <wsdl:operation name="InlineWsdlOperation">
+      <wsdl:input message="tns:InlineWsdlOperationRequest"/>
+      <wsdl:output message="tns:InlineWsdlOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InlineXSDSOAP" type="tns:InlineXSD">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="InlineWsdlOperation">
+      <soap:operation soapAction="http://www.example.org/InlineXSD/InlineWsdlOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InlineXSD">
+    <wsdl:port binding="tns:InlineXSDSOAP" name="InlineXSDSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

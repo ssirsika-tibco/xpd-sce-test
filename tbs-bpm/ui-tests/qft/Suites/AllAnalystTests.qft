@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../UtilProcedures/AnalystUtil.qft</include>
+  <include>../Procedures/7_AnalystTests_Procedures/7_1_NewMaaCreationTest.qft</include>
+  <comment>Test suite that groups all the Analyst test cases mentioned under the http://confluence.tibco.com/display/BPM/5.+Studio+for+Analyst+Tests together and executes them one by one.
+This is similar to the "AllTests" class that we have for junits which just basically groups all the Miscellaneous tests together and executes them.
+Please note that this suite should not actually contain any tests defined in them rather test cases should be defined separately in their own suite as procedures and 'AllAnalystTests' should only call them as procedures.
+
+A sample test structure example is availabe under the Extras node, new test cases should be added exactly in a similar fashion becauuse the sample test deals with exception handling as well.
+
+This suite does the following
+1. Loads the properties files 'ArchivedFileLocation.properties' and BusinessStudioProp.properties which contains info of the studio home and test resources resp.
+2. Starts studio for analyst.
+3. Runs Analyst test cases.
+4. Stops studio.
+
+@author 	kthombar
+@since 	TBS 4.1.0
+</comment>
+  <Test id="_ut-cP" name="BusinessStudioProperties">
+    <comment>Test that loads any properties which will be required during the execution of test cases eg: Studio home location, Workspace location, Test resource location etc...
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    <LoadPropertiesStep id="_uu0AI"
+                        propertyfile="../Properties/ArchivedFileLocation.properties"
+                        resourcename="ArchivedFileLocation">
+      <comment>Loads the properties that specify the location of the test resouces.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    </LoadPropertiesStep>
+    <LoadPropertiesStep id="_ut-cQ"
+                        propertyfile="../Properties/BusinessStudioProp.properties"
+                        resourcename="Prop">
+      <comment>Loads the properties that specify the studio home location, workspace location, swt jar location etc...
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    </LoadPropertiesStep>
+  </Test>
+  <Test id="_uu0B3" name="Start Studio">
+    <comment>This test is responsible to start analyst studio before the execution of test cases.
+
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    <ProcedureCall id="_uu0BA"
+                   procedure="analyst_lifecycle.setupBusinessStudio">
+      <comment>Calls procedure that sets up Environment before we can start business studio
+Does the following
+1. Instruments SWT
+2. Stops Business Studio if already running
+
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    </ProcedureCall>
+    <ProcedureCall id="_uu0B6"
+                   procedure="analyst_lifecycle.startBusinessStudioProc">
+      <variable name="studioHomeDir">${Prop:StudioHomeDirectory}</variable>
+      <variable name="executable">${Prop:ExecutableFile}</variable>
+      <comment>Calls procedure that starts the Business studio with the specicifed workspace
+Does the following
+1. Starts the studio for analyst.
+2. Waits for client to connect.
+4. Closes the studio welcome window
+5. Maximizes studio window.
+
+
+@param	studioHomeDir                    the studio home directory
+@param 	executable                           the executable name (i.e. TIBCOBusinessStudio.exe)
+
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    </ProcedureCall>
+  </Test>
+  <TestSet id="_uu1EG" name="7) Studio for Analyst Tests">
+    <comment>Test set that groups together all analyst tests mentioned under http://confluence.tibco.com/display/BPM/5.+Studio+for+Analyst+Tests
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    <SetupSequence id="_uu1Ei" name="Start Studio if already not running">
+      <comment>Setup that gets called before the execution of each test case mentioned under the test set.
+This setup checks if the studio is running, if not then it starts studio
+
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Ej"
+                     procedure="analyst_lifecycle.isBusinessStudioPresent"
+                     retvarname="isBSPresent">
+        <comment>Procedure that checks if the Studio is Running. Variable 'isBSPresent' will be true if the studio is running, else false
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      </ProcedureCall>
+      <IfSequence id="_uu1Ek" test="$(isBSPresent) == 0">
+        <ServerScriptStep id="_uu1El" name="Restarted Studio">
+          <code>'''
+@author kthombar
+@since 	TBS 4.0.1
+'''
+print  "Studio restarted..."</code>
+          <comment>Jython script that simply prints on the scrren that the studio is restarted.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+        </ServerScriptStep>
+        <ProcedureCall id="_uu1PB"
+                       procedure="analyst_lifecycle.startBusinessStudioProc">
+          <variable name="studioHomeDir">${Prop:StudioHomeDirectory}</variable>
+          <variable name="executable">${Prop:ExecutableFile}</variable>
+          <comment>Calls procedure that starts the Business studio with the specicifed workspace
+Does the following
+1. Starts the studio for analyst.
+2. Waits for client to connect.
+4. Closes the studio welcome window
+5. Maximizes studio window.
+
+
+@param	studioHomeDir                    the studio home directory
+@param 	executable                           the executable name (i.e. TIBCOBusinessStudio.exe)
+
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+        </ProcedureCall>
+      </IfSequence>
+    </SetupSequence>
+    <TestSet id="_uu1PR" name="1) Maa Creation and Import Tests">
+      <comment>Test set that groups together all analyst tests mentioned under http://confluence.tibco.com/display/BPM/5.+Studio+for+Analyst+Tests
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <SetupSequence id="_uu1PS" name="Start Studio if already not running">
+        <comment>Setup that gets called before the execution of each test case mentioned under the test set.
+This setup checks if the studio is running, if not then it starts studio
+
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+        <ProcedureCall id="_uu1PT"
+                       procedure="analyst_lifecycle.isBusinessStudioPresent"
+                       retvarname="isBSPresent">
+          <comment>Procedure that checks if the Studio is Running. Variable 'isBSPresent' will be true if the studio is running, else false
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+        </ProcedureCall>
+        <IfSequence id="_uu1PU" test="$(isBSPresent) == 0">
+          <ServerScriptStep id="_uu1PV" name="Restarted Studio">
+            <code>'''
+@author kthombar
+@since 	TBS 4.0.1
+'''
+print  "Studio restarted..."</code>
+            <comment>Jython script that simply prints on the scrren that the studio is restarted.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+          </ServerScriptStep>
+          <ProcedureCall id="_uu1PW"
+                         procedure="analyst_lifecycle.startBusinessStudioProc">
+            <variable name="studioHomeDir">${Prop:StudioHomeDirectory}</variable>
+            <variable name="executable">${Prop:ExecutableFile}</variable>
+            <comment>Calls procedure that starts the Business studio with the specicifed workspace
+Does the following
+1. Starts the studio for analyst.
+2. Waits for client to connect.
+4. Closes the studio welcome window
+5. Maximizes studio window.
+
+
+@param	studioHomeDir                    the studio home directory
+@param 	executable                           the executable name (i.e. TIBCOBusinessStudio.exe)
+
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+          </ProcedureCall>
+        </IfSequence>
+      </SetupSequence>
+      <TestCase id="_uu1PX" name="1) Create New Maa File">
+        <comment>Test case that creates new projets in studio for analyst
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+        <TryStep id="_uu1PY">
+          <ProcedureCall id="_uu1PZ" procedure="1) Create New Maa File"/>
+          <CatchSequence exception="TestException" id="_uu1Pa" maxerror="0">
+            <comment>Catch block that deals with the exceptions thrown by the called procedure.
+Does the following when an exception is thrown
+1. Saves the .maa files to the 'FailingProjectsAndLogs' folder so that we can check what went wrong
+2. Restarts analyst.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+            <TryStep id="_uu1Pb">
+              <ServerScriptStep id="_uu1Pc" name="Test failed alert!!">
+                <code>'''
+@author kthombar
+@since 	TBS 4.0.1
+'''
+print  "ALERT!! Test '${qftest:testcase.qname}' failed."</code>
+                <comment>Jython script that simply prints on the console  that a test has failed.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+              </ServerScriptStep>
+              <RethrowStep id="_uu1Pd">
+                <comment>Rethrow the exception so that qft has a screen-shot and trace of the exception.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+              </RethrowStep>
+              <FinallySequence id="_uu1Pe">
+                <TryStep id="_uu1Pf">
+                  <ProcedureCall id="_uu1Pg"
+                                 procedure="analyst_operations.cleanup.implicitExceptionHandler">
+                    <variable name="client">BusinessStudio</variable>
+                    <variable name="exportLocationWithTestName">${Prop:QFTProjectsLocation}\${Prop:FailingProjectLocation}\${qftest:testcase.qname}</variable>
+                    <comment>After this procedure is executed the studio should come back to its state where it can save the current projects as maa in the ''FailingProjectsAndLogs folder.
+This procedure does the following 
+1. Closes all open modal dialogs
+2. Saves failing projects as maa in 'FailingProjectsAndLogs' folder.
+
+
+@param	client	                                            The name of the SUT client.
+@param	exportLocationWithTestName 	The location of the folder where to export the failing maa files along with the name of the test case which will be the name of the maa file.
+
+
+
+@author	kthombar 
+@since	4.1.0</comment>
+                  </ProcedureCall>
+                  <FinallySequence id="_uu1Q6">
+                    <ServerScriptStep id="_uu1QB"
+                                      name="Studio Restarted Aleart">
+                      <code>'''
+@author kthombar
+@since 	TBS 4.0.1
+'''
+print  "ALERT!! Execution of test '${qftest:testcase.qname}' caused studio to go into not-responding state hence closing studio and restarting."</code>
+                      <comment>Jython script that simply prints on the console  that the studio is being stopped because 'xyz' test case threw wxception.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+                    </ServerScriptStep>
+                    <ProcedureCall id="_uu1QC"
+                                   procedure="analyst_lifecycle.stopBusinessStudio">
+                      <comment>Calls procedure that stops Business Studio if it is already running
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+                    </ProcedureCall>
+                  </FinallySequence>
+                </TryStep>
+              </FinallySequence>
+            </TryStep>
+          </CatchSequence>
+        </TryStep>
+      </TestCase>
+      <TestCase id="_uu1Pj" name="2) Import Maa File Test">
+        <comment>Test case that imports existing MAA file in analyst
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+        <TryStep id="_uu1Pk">
+          <ProcedureCall id="_uu1Pl" procedure="2) Import Maa File Test"/>
+          <CatchSequence exception="TestException" id="_uu1QD" maxerror="0">
+            <comment>Catch block that deals with the exceptions thrown by the called procedure.
+Does the following when an exception is thrown
+1. Saves the .maa files to the 'FailingProjectsAndLogs' folder so that we can check what went wrong
+2. Restarts analyst.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+            <TryStep id="_uu1QE">
+              <ServerScriptStep id="_uu1QF" name="Test failed alert!!">
+                <code>'''
+@author kthombar
+@since 	TBS 4.0.1
+'''
+print  "ALERT!! Test '${qftest:testcase.qname}' failed."</code>
+                <comment>Jython script that simply prints on the console  that a test has failed.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+              </ServerScriptStep>
+              <RethrowStep id="_uu1QG">
+                <comment>Rethrow the exception so that qft has a screen-shot and trace of the exception.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+              </RethrowStep>
+              <FinallySequence id="_uu1QH">
+                <TryStep id="_uu1QI">
+                  <ProcedureCall id="_uu1QJ"
+                                 procedure="analyst_operations.cleanup.implicitExceptionHandler">
+                    <variable name="client">BusinessStudio</variable>
+                    <variable name="exportLocationWithTestName">${Prop:QFTProjectsLocation}\${Prop:FailingProjectLocation}\${qftest:testcase.qname}</variable>
+                    <comment>After this procedure is executed the studio should come back to its state where it can save the current projects as maa in the ''FailingProjectsAndLogs folder.
+This procedure does the following 
+1. Closes all open modal dialogs
+2. Saves failing projects as maa in 'FailingProjectsAndLogs' folder.
+
+
+@param	client	                                            The name of the SUT client.
+@param	exportLocationWithTestName 	The location of the folder where to export the failing maa files along with the name of the test case which will be the name of the maa file.
+
+
+
+@author	kthombar 
+@since	4.1.0</comment>
+                  </ProcedureCall>
+                  <FinallySequence id="_uu1QK">
+                    <ServerScriptStep id="_uu1QL"
+                                      name="Studio Restarted Aleart">
+                      <code>'''
+@author kthombar
+@since 	TBS 4.0.1
+'''
+print  "ALERT!! Execution of test '${qftest:testcase.qname}' caused studio to go into not-responding state hence closing studio and restarting."</code>
+                      <comment>Jython script that simply prints on the console  that the studio is being stopped because 'xyz' test case threw wxception.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+                    </ServerScriptStep>
+                    <ProcedureCall id="_uu1QM"
+                                   procedure="analyst_lifecycle.stopBusinessStudio">
+                      <comment>Calls procedure that stops Business Studio if it is already running
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+                    </ProcedureCall>
+                  </FinallySequence>
+                </TryStep>
+              </FinallySequence>
+            </TryStep>
+          </CatchSequence>
+        </TryStep>
+      </TestCase>
+      <CleanupSequence id="_uu1Pv" name="Do Cleanup">
+        <comment>Cleanup that gets called after the execution of each test case mentioned under the test set.
+This setup checks if the analyst is running, if yes then it closes any open modal shells if any of them are still open.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+        <ProcedureCall id="_uu1Pw"
+                       procedure="analyst_lifecycle.isBusinessStudioPresent"
+                       retvarname="isBSPresent">
+          <comment>Procedure that checks if the Studio is Running. Variable 'isBSPresent' will be true if the studio is running, else false
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+        </ProcedureCall>
+        <IfSequence id="_uu1Px" test="$(isBSPresent) != 0">
+          <ProcedureCall id="_uu1Py"
+                         procedure="business_studio_operations.cleanup.closeAllDialogsAndModalShells">
+            <variable name="client">$(client)</variable>
+            <comment>Call the procedure that closes all modal shells and dialogs
+
+
+@author	kthombar
+@since	4.1.0</comment>
+          </ProcedureCall>
+        </IfSequence>
+      </CleanupSequence>
+    </TestSet>
+    <CleanupSequence id="_uu1En" name="Do Cleanup">
+      <comment>Cleanup that gets called after the execution of each test case mentioned under the test set.
+This setup checks if the analyst is running, if yes then it closes any open modal shells if any of them are still open.
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Eo"
+                     procedure="analyst_lifecycle.isBusinessStudioPresent"
+                     retvarname="isBSPresent">
+        <comment>Procedure that checks if the Studio is Running. Variable 'isBSPresent' will be true if the studio is running, else false
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      </ProcedureCall>
+      <IfSequence id="_uu1Ep" test="$(isBSPresent) != 0">
+        <ProcedureCall id="_3E2"
+                       procedure="business_studio_operations.cleanup.closeAllDialogsAndModalShells">
+          <variable name="client">$(client)</variable>
+          <comment>Call the procedure that closes all modal shells and dialogs
+
+
+@author	kthombar
+@since	4.1.0</comment>
+        </ProcedureCall>
+      </IfSequence>
+    </CleanupSequence>
+  </TestSet>
+  <Test id="_uu0uc" name="Stop Studio">
+    <comment>Stops Business Studio if it is already running
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    <ProcedureCall id="_uu0ud"
+                   procedure="analyst_lifecycle.stopBusinessStudio">
+      <comment>Calls procedure that stops Business Studio if it is already running
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+    </ProcedureCall>
+  </Test>
+  <PackageRoot id="_3"/>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5"/>
+</RootStep>

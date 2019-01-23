@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://complexTypeWithSimpleRestriction" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://complexTypeWithSimpleRestriction" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="MyInteger">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MyString">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-z]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ProductID">
+		<xs:restriction base="xs:integer">
+			<xs:pattern value="[0-9][0-9][0-9][0-9][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TypeWithRestrictions">
+		<xs:sequence>
+			<xs:element name="myInteger" type="MyInteger"/>
+			<xs:element name="myString" type="MyString"/>
+			<xs:element name="myProductID" type="ProductID"/>
+			<xs:element name="myStringWithPattern">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[a-zA-Z][a-zA-Z][a-zA-Z]"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="intWithRestriction">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:maxInclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

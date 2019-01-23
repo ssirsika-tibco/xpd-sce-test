@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://com.enel.mind.AttivazioneCVPRichiesta"  xmlns:ttns="http://mind.enel.com/attivazionecvp" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://com.enel.mind.AttivazioneCVPRichiesta" >
+  <wsdl:types>
+    <xsd:schema xmlns="http://com.enel.mind.AttivazioneCVPRichiesta" targetNamespace="http://com.enel.mind.AttivazioneCVPRichiesta"/>
+    <xsd:schema xmlns="http://mind.enel.com/attivazionecvp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/attivazionecvp" targetNamespace="http://mind.enel.com/attivazionecvp">
+      <xsd:annotation>
+
+      </xsd:annotation>
+      <xsd:complexType name="AttivazioneCVPInput">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="datiMasterAttivazioneCVP" type="DatiMasterAttivazioneCVP"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DatiMasterAttivazioneCVP">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="canale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="causale">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Client" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_ContoCorrente" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Fatturazione" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Fornitura" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_idFornitura" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Indirizzo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Pagamento" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Pratica" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CDM_Prodotto" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idCRM">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idMuti">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idProcessoBpm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idRichiesta">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="INSOFFERTA_MEMO" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="rateCategory">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaRichiedente">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AttivazioneCVPOutput">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="datiMasterEsito" type="DatiMasterEsito"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DatiMasterEsito">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="250"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="sistemaSorgenteEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AttivazioneCVPInputElement" type="AttivazioneCVPInput"/>
+      <xsd:element name="DatiMasterAttivazioneCVPElement" type="DatiMasterAttivazioneCVP"/>
+      <xsd:element name="AttivazioneCVPOutputElement" type="AttivazioneCVPOutput"/>
+      <xsd:element name="DatiMasterEsitoElement" type="DatiMasterEsito"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AttivazioneCVP_AttCVPRichiesta_INPUT">
+    <wsdl:part element="ttns:AttivazioneCVPInputElement" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="AttivazioneCVP_AttCVPRichiesta_OUTPUT">
+    <wsdl:part element="ttns:AttivazioneCVPOutputElement" name="response"/>
+  </wsdl:message>
+  <wsdl:portType name="AttivazioneCVP" >
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="AttCVPRichiesta">
+      <wsdl:input message="ns:AttivazioneCVP_AttCVPRichiesta_INPUT" />
+      <wsdl:output message="ns:AttivazioneCVP_AttCVPRichiesta_OUTPUT" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

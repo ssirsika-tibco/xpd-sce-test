@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema"
+	xmlns:es="http://www.example.org/NewXMLSchema" elementFormDefault="qualified">
+
+	<element name="substitutionGroup" type="string" />
+	<element name="substitutionElement" substitutionGroup="es:substitutionGroup" type="string" />
+	
+	<element name="substitutionElementNoType" substitutionGroup="es:substitutionGroup" />
+
+	<element name="echoSubstitutionGroup">
+		<complexType>
+			<sequence>
+				<element ref="es:substitutionGroup" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<complexType name="myComplex">
+		<sequence>
+		</sequence>
+	</complexType>
+	
+	<element name="substitutionGroup2" type="es:myComplex" />
+	<element name="substitutionElement2" substitutionGroup="es:substitutionGroup2" type="es:myComplex" />
+	
+	
+	
+</schema>

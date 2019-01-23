@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm" name="com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_arYioQ-AEeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_arYiog-AEeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_arYiow-AEeW3MruGqUCC5Q" key="created" value="1433951592522"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_arYipA-AEeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_a3qEEA-AEeW3MruGqUCC5Q" key="checksum" value="1357228659"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpmFatturazioneRecuperoDatiBpm" name="FatturazioneRecuperoDatiBpm">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="FatturazioneRecuperoDatiBpmRecuperaAcciseImposte" name="RecuperaAcciseImposte">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RecuperaAcciseImposteinput" name="input">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocess.bom#com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocessRecuperoAcciseImposteReqType?com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocess%3a%3aRecuperoAcciseImposteReqType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RecuperaAcciseImposteoutput" name="output" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocess.bom#com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocessRecuperoAcciseImposteRespType?com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocess%3a%3aRecuperoAcciseImposteRespType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="FatturazioneRecuperoDatiBpmRecuperaTriplettaSap" name="RecuperaTriplettaSap">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RecuperaTriplettaSapinput" name="input">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocess.bom#com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocessRecuperoTriplettaSAPRequestType?com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocess%3a%3aRecuperoTriplettaSAPRequestType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="RecuperaTriplettaSapoutput" name="output" direction="return">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocess.bom#com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocessRecuperoTriplettaSAPResponseType?com.enel.xmlns.mercato.libero.schema.integration._20100101.fatturazionerecuperodatiIprocess%3a%3aRecuperoTriplettaSAPResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_aqfKwQ-AEeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aqfKwg-AEeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_aqfKww-AEeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aqfKxA-AEeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_aqo7wA-AEeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm?com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm?" xsdTargetNamespace="http://xmlns.enel.com/mercato/libero/service/integration/FatturazioneRecuperoDatiBpm" xsdSchemaLocation="FatturazioneRecuperoDatiServiceAbstract.wsdl" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="FatturazioneRecuperoDatiServiceAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_aqo7wg-AEeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpmFatturazioneRecuperoDatiBpm?com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm%3a%3aFatturazioneRecuperoDatiBpm?" xsdName="FatturazioneRecuperoDatiBpm" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_arYioA-AEeW3MruGqUCC5Q" displayLabel="FatturazioneRecuperoDatiBpm" base_NamedElement="com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpmFatturazioneRecuperoDatiBpm?com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm%3a%3aFatturazioneRecuperoDatiBpm?"/>
+  <notation:Diagram xmi:id="_arYipQ-AEeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm?com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm?" name="com.enel.xmlns.mercato.libero.service.integration.FatturazioneRecuperoDatiBpm" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_arYipg-AEeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_arYipw-AEeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://www.wfmc.org/2002/XPDL1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sw="http://bpm.tibco.com/2004/SWSPDXML2.0" Id="PKG_N041B8A30.041A4930" Name="banksoap" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd">
+<PackageHeader>
+<XPDLVersion>1.0</XPDLVersion>
+<Vendor>TIBCO iProcess Workspace (Windows) - v11.4.1</Vendor>
+<Created>2014/05/08 16:49:37</Created>
+</PackageHeader>
+<ConformanceClass GraphConformance="NON_BLOCKED"/>
+<Script Type="StaffwareScript" Version="11.4.1" Grammar="Proprietary"/>
+<WorkflowProcesses>
+<WorkflowProcess Id="BANKSOAP" Name="BANKSOAP" AccessLevel="PUBLIC">
+<ProcessHeader>
+<Created/>
+<Description>SOAP/HTTP Bank</Description>
+</ProcessHeader>
+<DataFields>
+<DataField Id="ACCTNUM" Name="ACCTNUM" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="10">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="BALANCE" Name="BALANCE" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="10">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CASEDESC" Name="SW_CASEDESC" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_INCPERIOD" Name="SW_CP_INCPERIOD" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>4</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="4">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_INCREMENT" Name="SW_CP_INCREMENT" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>4</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="4">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_NUMINC" Name="SW_CP_NUMINC" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>3</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="3">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_PERIODTYP" Name="SW_CP_PERIODTYP" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="1">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_VALUE" Name="SW_CP_VALUE" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>3</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="3">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_GEN_IDX" Name="SW_GEN_IDX" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>6</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="6">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM1" Name="SW_QPARAM1" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM2" Name="SW_QPARAM2" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM3" Name="SW_QPARAM3" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>12</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="12">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM4" Name="SW_QPARAM4" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>12</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="12">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="USENAME" Name="USENAME" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="USERID" Name="USERID" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="USERNAME" Name="USERNAME" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+</DataFields>
+<Participants>
+<Participant Id="OUTPUT_Performer" Name="sw_starter">
+<ParticipantType Type="HUMAN"/>
+</Participant>
+<Participant Id="INPUT_Performer" Name="sw_starter">
+<ParticipantType Type="HUMAN"/>
+</Participant>
+<Participant Id="BANK_Performer" Name="EAI_WEBSERVICES">
+<ParticipantType Type="SYSTEM"/>
+</Participant>
+</Participants>
+<Applications>
+<Application Name="Tibco-Process-Suite-WorkItem" Id="OUTPUT">
+<FormalParameters>
+<FormalParameter Id="ACCTNUM.N041B8A30.041A55A8" Mode="IN">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+</FormalParameter>
+<FormalParameter Id="BALANCE.N041B8A30.041A5618" Mode="IN">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+</FormalParameter>
+</FormalParameters>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FormDef">
+<FormDef ObjectName="OUTPUT">
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>ACCT NUM:       </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="ACCTNUM">
+              <MarkType>Display</MarkType>
+              <FieldType>NUM</FieldType>
+            </FieldMark>
+          </LFg>
+        </Line>
+        <Line/>
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>BALANCE:        </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="BALANCE">
+              <MarkType>Display</MarkType>
+              <FieldType>NUM</FieldType>
+            </FieldMark>
+          </LFg>
+        </Line>
+      </FormDef>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Application>
+<Application Name="Tibco-Process-Suite-WorkItem" Id="INPUT">
+<FormalParameters>
+<FormalParameter Id="USERNAME.N041B8A30.041A56C0" Mode="INOUT">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+</FormalParameter>
+<FormalParameter Id="USERID.N041B8A30.041A5730" Mode="INOUT">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+</FormalParameter>
+</FormalParameters>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FormDef">
+<FormDef ObjectName="INPUT">
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>NAME:   </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="USERNAME">
+              <MarkType>Required</MarkType>
+              <FieldType>TEXT</FieldType>
+            </FieldMark>
+          </LFg>
+        </Line>
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>ID:     </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="USERID">
+              <MarkType>Required</MarkType>
+              <FieldType>TEXT</FieldType>
+            </FieldMark>
+          </LFg>
+        </Line>
+      </FormDef>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Application>
+<Application Name="EAI_WEBSERVICES" Id="BANK">
+<FormalParameters/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIRunType">
+<EAIRunType>EAI_WEBSERVICES</EAIRunType>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIData">
+<EAIData TypeDataIncomplete="false">
+            <EAIRunData>
+              <EAITypeData>
+                <EAIText>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;Web_Services_EAI_Plugin xmlns="http://www.staffware.com/2002/WebServicesEAIPlugin"&gt;
+    &lt;WSDL_Definition&gt;
+        &lt;WSDL_Content&gt;&amp;lt;?xml version="1.0" encoding="UTF-8"?&amp;gt;
+&amp;lt;!--Created by TIBCO WSDL--&amp;gt;
+&amp;lt;wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://new.webservice.namespace/getAccountDetailsImpl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://xmlns.example.com/unique/default/namespace/1116540284877" xmlns:ns1="http://xmlns.example.com/unique/default/namespace/1116540450519" xmlns:ns2="http://xmlns.example.com/unique/default/namespace/1116540645444" name="Untitled" targetNamespace="http://new.webservice.namespace/getAccountDetailsImpl"&amp;gt;
+    &amp;lt;wsdl:types&amp;gt;
+        &amp;lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.example.com/unique/default/namespace/1116540450519" elementFormDefault="qualified" attributeFormDefault="unqualified"&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540284877"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540645444"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540284877"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540645444"/&amp;gt;
+            &amp;lt;xs:element name="AccountBalance"&amp;gt;
+                &amp;lt;xs:complexType&amp;gt;
+                    &amp;lt;xs:sequence&amp;gt;
+                        &amp;lt;xs:element name="UserName" type="xs:string"/&amp;gt;
+                        &amp;lt;xs:element name="AccountNumber" type="xs:string"/&amp;gt;
+                        &amp;lt;xs:element name="CheckingBalance" type="xs:string"/&amp;gt;
+                    &amp;lt;/xs:sequence&amp;gt;
+                &amp;lt;/xs:complexType&amp;gt;
+            &amp;lt;/xs:element&amp;gt;
+        &amp;lt;/xs:schema&amp;gt;
+        &amp;lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.example.com/unique/default/namespace/1116540284877" elementFormDefault="qualified" attributeFormDefault="unqualified"&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540450519"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540645444"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540450519"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540645444"/&amp;gt;
+            &amp;lt;xs:element name="AccountInfo"&amp;gt;
+                &amp;lt;xs:complexType&amp;gt;
+                    &amp;lt;xs:sequence&amp;gt;
+                        &amp;lt;xs:element name="UserName" type="xs:string"/&amp;gt;
+                        &amp;lt;xs:element name="UserId" type="xs:string"/&amp;gt;
+                        &amp;lt;xs:element name="Address"&amp;gt;
+                            &amp;lt;xs:complexType&amp;gt;
+                                &amp;lt;xs:sequence&amp;gt;
+                                    &amp;lt;xs:element name="Street" type="xs:string"/&amp;gt;
+                                    &amp;lt;xs:element name="City" type="xs:string"/&amp;gt;
+                                    &amp;lt;xs:element name="State" type="xs:string"/&amp;gt;
+                                    &amp;lt;xs:element name="ZipCode" type="xs:string" maxOccurs="unbounded"/&amp;gt;
+                                &amp;lt;/xs:sequence&amp;gt;
+                            &amp;lt;/xs:complexType&amp;gt;
+                        &amp;lt;/xs:element&amp;gt;
+                    &amp;lt;/xs:sequence&amp;gt;
+                &amp;lt;/xs:complexType&amp;gt;
+            &amp;lt;/xs:element&amp;gt;
+        &amp;lt;/xs:schema&amp;gt;
+        &amp;lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.example.com/unique/default/namespace/1116540645444" elementFormDefault="qualified" attributeFormDefault="unqualified"&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540450519"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540284877"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540284877"/&amp;gt;
+            &amp;lt;xs:import namespace="http://xmlns.example.com/unique/default/namespace/1116540450519"/&amp;gt;
+            &amp;lt;xs:element name="AccountNotFound"&amp;gt;
+                &amp;lt;xs:complexType&amp;gt;
+                    &amp;lt;xs:sequence&amp;gt;
+                        &amp;lt;xs:element name="UserName" type="xs:string"/&amp;gt;
+                        &amp;lt;xs:element name="UserId" type="xs:string"/&amp;gt;
+                        &amp;lt;xs:element name="ErrorMessage" type="xs:string"/&amp;gt;
+                    &amp;lt;/xs:sequence&amp;gt;
+                &amp;lt;/xs:complexType&amp;gt;
+            &amp;lt;/xs:element&amp;gt;
+        &amp;lt;/xs:schema&amp;gt;
+    &amp;lt;/wsdl:types&amp;gt;
+    &amp;lt;wsdl:message name="customerDetails"&amp;gt;
+        &amp;lt;wsdl:part name="parameter" element="ns0:AccountInfo"/&amp;gt;
+    &amp;lt;/wsdl:message&amp;gt;
+    &amp;lt;wsdl:message name="accountDetails"&amp;gt;
+        &amp;lt;wsdl:part name="parameter" element="ns1:AccountBalance"/&amp;gt;
+    &amp;lt;/wsdl:message&amp;gt;
+    &amp;lt;wsdl:portType name="BankPort"&amp;gt;
+        &amp;lt;wsdl:operation name="getAccountDetails"&amp;gt;
+            &amp;lt;wsdl:input message="tns:customerDetails"/&amp;gt;
+            &amp;lt;wsdl:output message="tns:accountDetails"/&amp;gt;
+        &amp;lt;/wsdl:operation&amp;gt;
+    &amp;lt;/wsdl:portType&amp;gt;
+    &amp;lt;wsdl:binding name="SOAPEventSourceBinding" type="tns:BankPort"&amp;gt;
+        &amp;lt;soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/&amp;gt;
+        &amp;lt;wsdl:operation name="getAccountDetails"&amp;gt;
+            &amp;lt;soap:operation style="document" soapAction="/DEMO/Complex_SOAP"/&amp;gt;
+            &amp;lt;wsdl:input&amp;gt;
+                &amp;lt;soap:body use="literal" namespace="http://InputMessageNamespace" parts="parameter"/&amp;gt;
+            &amp;lt;/wsdl:input&amp;gt;
+            &amp;lt;wsdl:output&amp;gt;
+                &amp;lt;soap:body use="literal" namespace="http://OutputMessageNamespace" parts="parameter"/&amp;gt;
+            &amp;lt;/wsdl:output&amp;gt;
+        &amp;lt;/wsdl:operation&amp;gt;
+    &amp;lt;/wsdl:binding&amp;gt;
+    &amp;lt;wsdl:service name="Bank__SOAP"&amp;gt;
+        &amp;lt;wsdl:documentation&amp;gt;A simple Web Service involving SOAP/HTTP&amp;lt;/wsdl:documentation&amp;gt;
+        &amp;lt;wsdl:port name="SOAPEventSource" binding="tns:SOAPEventSourceBinding"&amp;gt;
+            &amp;lt;soap:address location="http://localhost:8002/DEMO/Bank_SOAP"/&amp;gt;
+        &amp;lt;/wsdl:port&amp;gt;
+    &amp;lt;/wsdl:service&amp;gt;
+&amp;lt;/wsdl:definitions&amp;gt;&lt;/WSDL_Content&gt;
+        &lt;DesignTime&gt;true&lt;/DesignTime&gt;
+        &lt;StaticWSDL&gt;true&lt;/StaticWSDL&gt;
+    &lt;/WSDL_Definition&gt;
+    &lt;Selected_Operation&gt;
+        &lt;ns1:Service_Name xmlns:ns1="http://www.staffware.com/2002/WebServicesEAIPlugin" xmlns="http://new.webservice.namespace/getAccountDetailsImpl"&gt;Bank__SOAP&lt;/ns1:Service_Name&gt;
+        &lt;Port_Name&gt;SOAPEventSource&lt;/Port_Name&gt;
+        &lt;ns2:Binding_Name xmlns:ns2="http://www.staffware.com/2002/WebServicesEAIPlugin" xmlns="http://new.webservice.namespace/getAccountDetailsImpl"&gt;SOAPEventSourceBinding&lt;/ns2:Binding_Name&gt;
+        &lt;ns3:PortType_Name xmlns:ns3="http://www.staffware.com/2002/WebServicesEAIPlugin" xmlns="http://new.webservice.namespace/getAccountDetailsImpl"&gt;BankPort&lt;/ns3:PortType_Name&gt;
+        &lt;Operation_Name&gt;getAccountDetails&lt;/Operation_Name&gt;
+        &lt;UseMapper&gt;true&lt;/UseMapper&gt;
+    &lt;/Selected_Operation&gt;
+    &lt;Inputs&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;ACCTNUM&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;10&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;System_Field&gt;false&lt;/System_Field&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;BALANCE&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;10&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;System_Field&gt;false&lt;/System_Field&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_CASEDESC&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_CASENUM&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;15&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_CASEREF&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;20&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_CP_INCPERIOD&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;4&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_CP_INCREMENT&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;4&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_CP_NUMINC&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;3&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_CP_PERIODTYP&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;1&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_CP_VALUE&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;3&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_DATE&lt;/Name&gt;
+            &lt;Type&gt;DATE&lt;/Type&gt;
+            &lt;Length&gt;10&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_GEN_IDX&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;6&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_HOSTNAME&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_NODENAME&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_PRODESC&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_PRONAME&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;8&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_QPARAM1&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_QPARAM2&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_QPARAM3&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;12&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_QPARAM4&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;12&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_QRETRYCOUNT&lt;/Name&gt;
+            &lt;Type&gt;NUMERIC&lt;/Type&gt;
+            &lt;Length&gt;15&lt;/Length&gt;
+            &lt;Decimal_Places&gt;0&lt;/Decimal_Places&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STARTER:DESCRIPTION&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STARTER:LANGUAGE&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STARTER:MENUNAME&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STARTER:NAME&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STARTER:QSUPERVISORS&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;48&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STARTER:SORTMAIL&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STARTER:SW_DOMAIN&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STARTER:USERFLAGS&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STEPDESC&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;24&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_STEPNAME&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;8&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;SW_TIME&lt;/Name&gt;
+            &lt;Type&gt;TIME&lt;/Type&gt;
+            &lt;Length&gt;5&lt;/Length&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;USERID&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;20&lt;/Length&gt;
+            &lt;System_Field&gt;false&lt;/System_Field&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+        &lt;Input&gt;
+            &lt;Name&gt;USERNAME&lt;/Name&gt;
+            &lt;Type&gt;TEXT&lt;/Type&gt;
+            &lt;Length&gt;20&lt;/Length&gt;
+            &lt;System_Field&gt;false&lt;/System_Field&gt;
+            &lt;Array&gt;false&lt;/Array&gt;
+        &lt;/Input&gt;
+    &lt;/Inputs&gt;
+    &lt;Advanced_Settings&gt;
+        &lt;Invocation_Style&gt;ASYNC_WITH_REPLY&lt;/Invocation_Style&gt;
+        &lt;Configuration_Key&gt;WS03&lt;/Configuration_Key&gt;
+    &lt;/Advanced_Settings&gt;
+    &lt;Translations&gt;
+        &lt;Translation_Input&gt;
+            &lt;File_Name/&gt;
+            &lt;Translation_File&gt;&amp;lt;?xml version="1.0" encoding="UTF-8"?&amp;gt;
+&amp;lt;xsl:stylesheet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://xmlns.example.com/unique/default/namespace/1116540284877" version="1.0" exclude-result-prefixes="xsd"&amp;gt;
+    &amp;lt;xsl:output method="xml"/&amp;gt;
+    &amp;lt;xsl:param name="SW_FIELDS"/&amp;gt;
+    &amp;lt;xsl:template match="/"&amp;gt;
+        &amp;lt;ns:AccountInfo&amp;gt;
+            &amp;lt;ns:UserName&amp;gt;
+                &amp;lt;xsl:value-of select="$SW_FIELDS/user_fields/USERNAME"/&amp;gt;
+            &amp;lt;/ns:UserName&amp;gt;
+            &amp;lt;ns:UserId&amp;gt;
+                &amp;lt;xsl:value-of select="$SW_FIELDS/user_fields/USERID"/&amp;gt;
+            &amp;lt;/ns:UserId&amp;gt;
+            &amp;lt;ns:Address&amp;gt;
+                &amp;lt;ns:Street&amp;gt;
+                    &amp;lt;xsl:value-of select="&amp;amp;quot;Apple Walk&amp;amp;quot;"/&amp;gt;
+                &amp;lt;/ns:Street&amp;gt;
+                &amp;lt;ns:City&amp;gt;
+                    &amp;lt;xsl:value-of select="&amp;amp;quot;Swindon&amp;amp;quot;"/&amp;gt;
+                &amp;lt;/ns:City&amp;gt;
+                &amp;lt;ns:State&amp;gt;
+                    &amp;lt;xsl:value-of select="&amp;amp;quot;Wilts&amp;amp;quot;"/&amp;gt;
+                &amp;lt;/ns:State&amp;gt;
+                &amp;lt;ns:ZipCode&amp;gt;
+                    &amp;lt;xsl:value-of select="&amp;amp;quot;SN1&amp;amp;quot;"/&amp;gt;
+                &amp;lt;/ns:ZipCode&amp;gt;
+            &amp;lt;/ns:Address&amp;gt;
+        &amp;lt;/ns:AccountInfo&amp;gt;
+    &amp;lt;/xsl:template&amp;gt;
+&amp;lt;/xsl:stylesheet&amp;gt;&lt;/Translation_File&gt;
+            &lt;Root_Element&gt;SW_FIELDS&lt;/Root_Element&gt;
+        &lt;/Translation_Input&gt;
+        &lt;Staffware_Inputs&gt;
+            &lt;Field_Name&gt;ACCTNUM&lt;/Field_Name&gt;
+            &lt;Field_Name&gt;BALANCE&lt;/Field_Name&gt;
+            &lt;Field_Name&gt;USERID&lt;/Field_Name&gt;
+            &lt;Field_Name&gt;USERNAME&lt;/Field_Name&gt;
+        &lt;/Staffware_Inputs&gt;
+        &lt;Translation_Output&gt;
+            &lt;File_Name/&gt;
+            &lt;Translation_File&gt;&amp;lt;?xml version="1.0" encoding="UTF-8"?&amp;gt;
+&amp;lt;xsl:stylesheet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.example.com/unique/default/namespace/1116540450519" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" exclude-result-prefixes="xsd ns"&amp;gt;
+    &amp;lt;xsl:output method="xml"/&amp;gt;
+    &amp;lt;xsl:param name="AccountBalance"/&amp;gt;
+    &amp;lt;xsl:template match="/"&amp;gt;
+        &amp;lt;SW_FIELDS&amp;gt;
+            &amp;lt;user_fields&amp;gt;
+                &amp;lt;ACCTNUM&amp;gt;
+                    &amp;lt;xsl:value-of select="$AccountBalance/ns:AccountNumber"/&amp;gt;
+                &amp;lt;/ACCTNUM&amp;gt;
+                &amp;lt;BALANCE&amp;gt;
+                    &amp;lt;xsl:value-of select="$AccountBalance/ns:CheckingBalance"/&amp;gt;
+                &amp;lt;/BALANCE&amp;gt;
+            &amp;lt;/user_fields&amp;gt;
+        &amp;lt;/SW_FIELDS&amp;gt;
+    &amp;lt;/xsl:template&amp;gt;
+&amp;lt;/xsl:stylesheet&amp;gt;&lt;/Translation_File&gt;
+            &lt;Root_Element&gt;http://xmlns.example.com/unique/default/namespace/1116540450519:AccountBalance&lt;/Root_Element&gt;
+        &lt;/Translation_Output&gt;
+    &lt;/Translations&gt;
+    &lt;Version&gt;5&lt;/Version&gt;
+    &lt;Transport&gt;
+        &lt;HTTP&gt;http&lt;/HTTP&gt;
+    &lt;/Transport&gt;
+&lt;/Web_Services_EAI_Plugin&gt;
+
+</EAIText>
+              </EAITypeData>
+            </EAIRunData>
+          </EAIData>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Application>
+</Applications>
+<Activities>
+<Activity Id="1" Name="BANK">
+<Description>Invoke Bank WS (SOAP)</Description>
+<Implementation>
+<Tool Type="APPLICATION" Id="BANK">
+<ActualParameters/>
+</Tool>
+</Implementation>
+<Performer>BANK_Performer</Performer>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="EAIObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="354"/>
+<ExtendedAttribute Name="YOffset" Value="80"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="3"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIStepFlags">
+<EAIStepFlags IgnoreCaseSuspend="false" NoDelOnWithdraw="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="DelayedRelease">
+<DelayedRelease>
+            <DelayedReleaseType>Never</DelayedReleaseType>
+          </DelayedRelease>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="2" Name="OUTPUT">
+<Implementation>
+<Tool Type="APPLICATION" Id="OUTPUT">
+<ActualParameters>
+<ActualParameter>ACCTNUM</ActualParameter>
+<ActualParameter>BALANCE</ActualParameter>
+</ActualParameters>
+</Tool>
+</Implementation>
+<Performer>OUTPUT_Performer</Performer>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Manual/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StepObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="515"/>
+<ExtendedAttribute Name="YOffset" Value="80"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="5"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepFlags">
+<StepFlags FormEnableClipboard="false" FormHasOnlyDisplayFields="true" IgnoreCaseSuspend="false" NoDelOnWithdraw="false" WorkItemForwardable="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Addressees">
+<Addressees>
+            <UserAddr>
+              <UserName>sw_starter</UserName>
+            </UserAddr>
+          </Addressees>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="3" Name="Stop">
+<Route/>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StopObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="646"/>
+<ExtendedAttribute Name="YOffset" Value="81"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="4" Name="INPUT">
+<Implementation>
+<Tool Type="APPLICATION" Id="INPUT">
+<ActualParameters>
+<ActualParameter>USERNAME</ActualParameter>
+<ActualParameter>USERID</ActualParameter>
+</ActualParameters>
+</Tool>
+</Implementation>
+<Performer>INPUT_Performer</Performer>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Manual/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StepObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="222"/>
+<ExtendedAttribute Name="YOffset" Value="77"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="4"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepFlags">
+<StepFlags FormEnableClipboard="false" FormHasOnlyDisplayFields="false" IgnoreCaseSuspend="false" NoDelOnWithdraw="false" WorkItemForwardable="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Addressees">
+<Addressees>
+            <UserAddr>
+              <UserName>sw_starter</UserName>
+            </UserAddr>
+          </Addressees>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="5" Name="Start">
+<Route/>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StartObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="76"/>
+<ExtendedAttribute Name="YOffset" Value="73"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+</Activities>
+<Transitions>
+<Transition From="1" To="2" Id="Trans_N041B8A30.041A5A78">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="2">
+          <LineType>curved</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="2" To="3" Id="Trans_N041B8A30.041A5B58">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="2">
+          <LineType>curved</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="4" To="1" Id="Trans_N041B8A30.041A5C38">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="2">
+          <LineType>curved</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="5" To="4" Id="Trans_N041B8A30.041A5D18">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="2">
+          <LineType>curved</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+</Transitions>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ProcProperties">
+<ProcProperties Author="swpro" AutoPurgeCases="false" DateCreated="29/06/2007 16:44" DateModified="14/04/2014 15:16" IgnoreBlankAddressees="false" MajorVersion="0" MaxStepNum="5" MinorVersion="0" NormalizeCaseData="true" PMO_ID="19" PredictInBackground="false" ProcDescription="SOAP/HTTP Bank" ReleaseID="" UsageURL="" UseWorkingDays="true">
+      <ProcType>MAIN</ProcType>
+      <ProcStatus>unreleased</ProcStatus>
+      <CaseDescOnStart>required</CaseDescOnStart>
+      <StartStep ObjectName="INPUT"/>
+      <DefinitionAccess>
+        <AllUsers>
+          <DefinitionAccessType>Edit</DefinitionAccessType>
+        </AllUsers>
+      </DefinitionAccess>
+      <ProcedureGUID>BBBDCE7A-C3A4-11E3-93D9-F04DA229848E</ProcedureGUID>
+    </ProcProperties>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LayoutOptions">
+<LayoutOptions AnimateLinks="true" DisplayDescText="true" DisplayExtDescText="false" DisplayLinkLabelText="true" DisplayNameText="true" FastAnimPoints="false" GridSize="0" MultiAnimPoints="true" RoundAnimPoints="true" Scale="1" ShowGrid="false" TopDown="false">
+      <LinkStyleFlags LineWidth="2">
+        <LineType>curved</LineType>
+        <StartCap>round</StartCap>
+        <EndCap>arrow1</EndCap>
+      </LinkStyleFlags>
+      <NormalLinkColor>
+        <ColorRef Blue="60" Green="60" Red="60"/>
+      </NormalLinkColor>
+      <IfYesLinkColor>
+        <ColorRef Blue="0" Green="160" Red="0"/>
+      </IfYesLinkColor>
+      <IfNoLinkColor>
+        <ColorRef Blue="0" Green="0" Red="160"/>
+      </IfNoLinkColor>
+      <DeadlineLinkColor>
+        <ColorRef Blue="200" Green="0" Red="0"/>
+      </DeadlineLinkColor>
+    </LayoutOptions>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLanes">
+<SwimLanes>
+      <LanesProperties>
+        <LanesType>None</LanesType>
+      </LanesProperties>
+    </SwimLanes>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</WorkflowProcess>
+</WorkflowProcesses>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="MadeBy" Value="Tibco-Process-Suite"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SchemaFormat">
+<SchemaFormat Version="3">
+<ComponentVersion Name="sw.xsd" Version="$Revision: 83819 $"/>
+<ComponentVersion Name="XPDLExtAttr.xsd" Version="$Revision: 83819 $"/>
+<ComponentVersion Name="TIBCO iProcess Workspace (Windows)" Version="11.4.1"/>
+<ComponentVersion Name="sw2xpdl.xslt" Version="$Revision: 81629 $"/>
+<ComponentVersion Name="Objects.xslt" Version="$Revision: 69039 $"/>
+<ComponentVersion Name="Participants.xslt" Version="$Revision: 80346 $"/>
+<ComponentVersion Name="SubProcParams.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="Links.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="Fields.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="FormAndEAIDefs.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="Utils.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="translations.xslt" Version="$Revision: 65867 $"/>
+</SchemaFormat>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Package>

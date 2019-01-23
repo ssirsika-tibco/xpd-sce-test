@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/XsdMain" xmlns:tns="http://www.example.org/XsdMain" elementFormDefault="qualified">
+
+	
+	<include schemaLocation="../../XsdMain.xsd"></include>
+
+
+    <complexType name="CompTypeInXSD1b">
+    	<sequence>
+    		<element name="e1" type="string"></element>
+    		<element name="e2" type="tns:CompTypeInXSDMain"></element>
+    	</sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://api.dac.n2.tibco.com" xmlns:tns4="http://api.dac.n2.tibco.com" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.dac.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.dac.api.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="XmlTimeZoneType" id="com.tibco.n2.dac.apiXmlTimeZoneType2"
+      name="XmlTimeZoneType">
+    <xsd:annotation>
+      <xsd:documentation>Java API defined Time Zone name. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="XmlGuidType" id="com.tibco.n2.dac.apiXmlGuidType2" name="XmlGuidType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of a unique ID. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="XmlDaylightSavingsType" id="com.tibco.n2.dac.apiXmlDaylightSavingsType2"
+      name="XmlDaylightSavingsType">
+    <xsd:annotation>
+      <xsd:documentation>Is daylight savings being observed in the associated time zone? </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="XmlRequiredDetailType" id="com.tibco.n2.dac.apiXmlRequiredDetailType"
+      name="XmlRequiredDetailType">
+    <xsd:annotation>
+      <xsd:documentation>Enumerated value describing the working time information to be returned. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="WORKINGWEEK" value="WORKING_WEEK"/>
+      <xsd:enumeration ecore:name="FREEBUSY" value="FREE_BUSY"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="XmlDayNameType" id="com.tibco.n2.dac.apiXmlDayNameType"
+      name="XmlDayNameType">
+    <xsd:annotation>
+      <xsd:documentation>Enumerated value of the short form of names of days of the week. Note: Order of elements to be preserved. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="SU" value="SU"/>
+      <xsd:enumeration ecore:name="MO" value="MO"/>
+      <xsd:enumeration ecore:name="TU" value="TU"/>
+      <xsd:enumeration ecore:name="WE" value="WE"/>
+      <xsd:enumeration ecore:name="TH" value="TH"/>
+      <xsd:enumeration ecore:name="FR" value="FR"/>
+      <xsd:enumeration ecore:name="SA" value="SA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="XmlFreeBusyType" id="com.tibco.n2.dac.apiXmlFreeBusyType"
+      name="XmlFreeBusyType">
+    <xsd:annotation>
+      <xsd:documentation>Enumerated value of working time status; FREE representing available for work and BUSY unavailable for work. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="FREE" value="FREE"/>
+      <xsd:enumeration ecore:name="BUSY" value="BUSY"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="XmlTimeSlotType" id="com.tibco.n2.dac.apiXmlTimeSlotType"
+      abstract="false" mixed="false" name="XmlTimeSlotType">
+    <xsd:annotation>
+      <xsd:documentation>Pairs of start and end working times. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="start" id="XmlTimeSlotTypestart" form="unqualified"
+        name="start" type="xsd:time" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Start time. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="end" id="XmlTimeSlotTypeend" form="unqualified" name="end"
+        type="xsd:time" use="required">
+      <xsd:annotation>
+        <xsd:documentation>End time. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlDayType" id="com.tibco.n2.dac.apiXmlDayType" abstract="false"
+      mixed="false" name="XmlDayType">
+    <xsd:annotation>
+      <xsd:documentation>Working day definition with pairs of start and end working times. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="timeslot" id="XmlDayTypetime-slot" form="unqualified"
+          maxOccurs="5" minOccurs="0" name="time-slot" type="XmlTimeSlotType"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="dayofweek" id="XmlDayTypeday-of-week" form="unqualified"
+        name="day-of-week" type="XmlDayNameType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Enumerated value of the short form of the day of the week. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlNewWorkingDayExceptionType" id="com.tibco.n2.dac.apiXmlNewWorkingDayExceptionType"
+      abstract="false" mixed="false" name="XmlNewWorkingDayExceptionType">
+    <xsd:annotation>
+      <xsd:documentation>Working day exception definition for creating a new exception. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="description" id="XmlNewWorkingDayExceptionTypedescription"
+        form="unqualified" name="description" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>User friendly name for this exception, e.g. Summer Holiday. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="allday" id="XmlNewWorkingDayExceptionTypeall-day" default="false"
+        form="unqualified" name="all-day" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Marker denoting if this exception lasts a full day. Note that this is represented for the benefit of the client only and is not correlated to the start or end time. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="start" id="XmlNewWorkingDayExceptionTypestart" form="unqualified"
+        name="start" type="xsd:dateTime" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Start date and time of this exception. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="end" id="XmlNewWorkingDayExceptionTypeend" form="unqualified"
+        name="end" type="xsd:dateTime" use="required">
+      <xsd:annotation>
+        <xsd:documentation>End date and time of this exception. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="freebusy" id="XmlNewWorkingDayExceptionTypefree-busy"
+        form="unqualified" name="free-busy" type="XmlFreeBusyType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Enumeration of whether this exception is available working time (FREE) or unavailable working time (BUSY). The only supported value is BUSY. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlExistingWorkingDayExceptionType" id="com.tibco.n2.dac.apiXmlExistingWorkingDayExceptionType"
+      abstract="false" mixed="false" name="XmlExistingWorkingDayExceptionType">
+    <xsd:annotation>
+      <xsd:documentation>Working day exception definition for updating an existing exception. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="guid" id="XmlExistingWorkingDayExceptionTypeguid" form="unqualified"
+        name="guid" type="XmlGuidType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>ID of exception. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="description" id="XmlExistingWorkingDayExceptionTypedescription"
+        form="unqualified" name="description" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Optional user friendly name for this exception, e.g. Summer Holiday. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="allday" id="XmlExistingWorkingDayExceptionTypeall-day"
+        default="false" form="unqualified" name="all-day" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Optional marker denoting if this exception lasts a full day. Note that this is represented for the benefit of the client only and is not correlated to the start or end time. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="start" id="XmlExistingWorkingDayExceptionTypestart"
+        form="unqualified" name="start" type="xsd:dateTime" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Optional start date and time of this exception. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="end" id="XmlExistingWorkingDayExceptionTypeend" form="unqualified"
+        name="end" type="xsd:dateTime" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Optional end date and time of this exception. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="freebusy" id="XmlExistingWorkingDayExceptionTypefree-busy"
+        form="unqualified" name="free-busy" type="XmlFreeBusyType" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Optional enumeration of whether this exception is available working time (FREE) or unavailable working time (BUSY). The only supported value is BUSY. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XmlCalendarEntriesType" id="com.tibco.n2.dac.apiXmlCalendarEntriesType"
+      abstract="false" mixed="false" name="XmlCalendarEntriesType">
+    <xsd:annotation>
+      <xsd:documentation>Calendar and working time details for a given entity. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="workingdays" id="XmlCalendarEntriesTypeworking-days"
+          form="unqualified" maxOccurs="7" minOccurs="0" name="working-days" type="XmlDayType"/>
+      <xsd:element ecore:name="workingdayexceptions" id="XmlCalendarEntriesTypeworking-day-exceptions"
+          form="unqualified" maxOccurs="unbounded" minOccurs="0" name="working-day-exceptions"
+          type="XmlExistingWorkingDayExceptionType"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="timezone" id="XmlCalendarEntriesTypetime-zone" form="unqualified"
+        name="time-zone" type="XmlTimeZoneType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Java API specified time zone for this calendar. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="daylightsavings" id="XmlCalendarEntriesTypedaylight-savings"
+        form="unqualified" name="daylight-savings" type="XmlDaylightSavingsType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Denotes if daylight savings is being being observed for the associated time zone for thie calendar. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+</xsd:schema>

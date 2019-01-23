@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ej="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2004/XPDL2.0alpha" xsi:schemaLocation="http://www.wfmc.org/2004/XPDL2.0alpha http://www.wfmc.org/standards/docs/TC-1025_bpmnxpdl_24.xsd" Id="_Rrx4gMK4Edyud_CjKGdKkw" Name="ProcessPackage">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.0</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>Mon Jan 14 16:49:04 GMT 2008</xpdl2:Created>
+    <xpdl2:Documentation></xpdl2:Documentation>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>NWilson</xpdl2:Author>
+    <xpdl2:Version>1.0</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_WOE_AMK4Edyud_CjKGdKkw" Name="Pool" BoundaryVisible="true" Process="_WD3TEMK4Edyud_CjKGdKkw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_WOE_AcK4Edyud_CjKGdKkw" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0" ToolId="XPD"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_WD3TEMK4Edyud_CjKGdKkw" Name="Process">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:RedefinableHeader/>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_U_J4UMK5Edyud_CjKGdKkw" Name="df1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_WW6VcMK5Edyud_CjKGdKkw" Name="df2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_XQHOUMK5Edyud_CjKGdKkw" Name="df3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_YynYUMK4Edyud_CjKGdKkw" Name="POJO1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Java" Implementation="Other">
+                <xpdl2:MessageIn Id="_bPsewMK4Edyud_CjKGdKkw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.in.field1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">parameter.in.field1=process.df1;
+parameter.in.field1;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.in.field2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">parameter.in.field2=process.df2 + process.df3;
+parameter.in.field2;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_bPsewcK4Edyud_CjKGdKkw"/>
+                <ej:EAIJava project="pojo">
+                  <ej:Pojo name="test.PojoTest">
+                    <ej:Method name="bean1Test">
+                      <ej:Return className="com.tibco.javascripttest.beans.Bean1" signature="QBean1;"/>
+                      <ej:Parameters>
+                        <ej:Parameter className="com.tibco.javascripttest.beans.Bean1" signature="QBean1;"/>
+                      </ej:Parameters>
+                    </ej:Method>
+                  </ej:Pojo>
+                </ej:EAIJava>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Assignments>
+            <xpdl2:Assignment AssignTime="End">
+              <xpdl2:Target>process.df1</xpdl2:Target>
+              <xpdl2:Expression ScriptGrammar="JavaScript">process.df1=response.RV.field1;
+process.df1;</xpdl2:Expression>
+            </xpdl2:Assignment>
+            <xpdl2:Assignment AssignTime="End">
+              <xpdl2:Target>process.df2</xpdl2:Target>
+              <xpdl2:Expression ScriptGrammar="JavaScript">process.df2=response.RV.field1 + response.RV.field2;
+process.df2;</xpdl2:Expression>
+            </xpdl2:Assignment>
+          </xpdl2:Assignments>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_WOE_AcK4Edyud_CjKGdKkw" ToolId="XPD" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="279.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_33ZCgMK5Edyud_CjKGdKkw" Name="POJO2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Java" Implementation="Other">
+                <xpdl2:MessageIn Id="_5LOo8MK5Edyud_CjKGdKkw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="parameter.in.field1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">parameter.in.field1=process.df1.substring(1,4);
+parameter.in.field1;</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_5LOo8cK5Edyud_CjKGdKkw"/>
+                <ej:EAIJava project="pojo">
+                  <ej:Pojo name="test.PojoTest">
+                    <ej:Method name="bean1Test">
+                      <ej:Return className="com.tibco.javascripttest.beans.Bean1" signature="QBean1;"/>
+                      <ej:Parameters>
+                        <ej:Parameter className="com.tibco.javascripttest.beans.Bean1" signature="QBean1;"/>
+                      </ej:Parameters>
+                    </ej:Method>
+                  </ej:Pojo>
+                </ej:EAIJava>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Assignments>
+            <xpdl2:Assignment AssignTime="End">
+              <xpdl2:Target>process.df1</xpdl2:Target>
+              <xpdl2:Expression ScriptGrammar="JavaScript">process.df1=response.RV.field1.substring(1,4);
+process.df1;</xpdl2:Expression>
+            </xpdl2:Assignment>
+          </xpdl2:Assignments>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_WOE_AcK4Edyud_CjKGdKkw" ToolId="XPD" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="420.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="3"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

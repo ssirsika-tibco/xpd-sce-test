@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://diagss.telekom.de/oss/v1/mysimple" xmlns:tns2="http://diagss.telekom.de/oss/v1/mysimple"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://diagss.telekom.de/oss/v1/mysimple">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/xpd-5138_jus/Generated Business Objects/de.telekom.diagss.oss.v1.mysimple.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="AuftraggebernummerType" id="de.telekom.diagss.oss.v1.mysimpleAuftraggebernummerType2"
+      name="AuftraggebernummerType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength fixed="false" value="1"/>
+      <xsd:maxLength fixed="false" value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="ExterneAuftragsnummerType" id="de.telekom.diagss.oss.v1.mysimpleExterneAuftragsnummerType2"
+      name="ExterneAuftragsnummerType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength fixed="false" value="1"/>
+      <xsd:maxLength fixed="false" value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="LeistungsnummerType" id="de.telekom.diagss.oss.v1.mysimpleLeistungsnummerType2"
+      name="LeistungsnummerType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength fixed="false" value="1"/>
+      <xsd:maxLength fixed="false" value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="MeldungscodeType" id="de.telekom.diagss.oss.v1.mysimpleMeldungscodeType2"
+      name="MeldungscodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength fixed="false" value="1"/>
+      <xsd:maxLength fixed="false" value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="MeldungstextType" id="de.telekom.diagss.oss.v1.mysimpleMeldungstextType2"
+      name="MeldungstextType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="VersionType" id="de.telekom.diagss.oss.v1.mysimpleVersionType2"
+      name="VersionType">
+    <xsd:restriction base="xsd:string">
+      <xsd:whiteSpace fixed="false" value="collapse"/>
+      <xsd:maxLength fixed="false" value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

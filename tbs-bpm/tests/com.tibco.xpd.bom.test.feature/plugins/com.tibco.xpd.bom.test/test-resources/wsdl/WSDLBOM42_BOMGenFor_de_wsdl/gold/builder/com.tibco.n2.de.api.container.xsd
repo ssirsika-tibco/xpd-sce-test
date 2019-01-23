@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://container.api.de.n2.tibco.com" xmlns:tns7="http://container.api.de.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns8="http://ldap.api.de.n2.tibco.com"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://container.api.de.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.de.api.container.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://ldap.api.de.n2.tibco.com" schemaLocation="com.tibco.n2.de.api.ldap.xsd"/>
+  <xsd:element abstract="false" name="getLDAPContainerDetailResponse" nillable="false"
+      type="tns8:XmlLdapContainer"/>
+  <xsd:element abstract="false" name="saveLDAPContainerDetail" nillable="false" type="tns8:XmlLdapContainer"/>
+  <xsd:element abstract="false" name="listLDAPContainers" nillable="false">
+    <xsd:complexType ecore:name="listLDAPContainersType" id="com.tibco.n2.de.api.containerlistLDAPContainersType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="empty" default="0" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="empty" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listLDAPContainersResponse" nillable="false">
+    <xsd:complexType ecore:name="listLDAPContainersResponseType" id="com.tibco.n2.de.api.containerlistLDAPContainersResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>A list of the configured LDAP Containers. </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="ldapcontainer" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="ldap-container" type="tns8:XmlLdapContainer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="getLDAPContainerDetail" nillable="false">
+    <xsd:complexType ecore:name="getLDAPContainerDetailType" id="com.tibco.n2.de.api.containergetLDAPContainerDetailType"
+        mixed="false">
+      <xsd:attribute ecore:name="containerid" id="getLDAPContainerDetailTypecontainer-id"
+          form="unqualified" name="container-id" type="tns7:long_StudioGeneratedTemplate"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Unique ID of the LDAP container for which details should be listed. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="saveLDAPContainerDetailResponse" nillable="false">
+    <xsd:complexType ecore:name="saveLDAPContainerDetailResponseType" id="com.tibco.n2.de.api.containersaveLDAPContainerDetailResponseType"
+        mixed="false">
+      <xsd:attribute ecore:name="containerid" id="saveLDAPContainerDetailResponseTypecontainer-id"
+          form="unqualified" name="container-id" type="tns7:long_StudioGeneratedTemplate"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Unique ID of the newly-created or updated LDAP container.
+
+(This value is returned only if the LDAP container was correectly saved.) </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteLDAPContainer" nillable="false">
+    <xsd:complexType ecore:name="deleteLDAPContainerType" id="com.tibco.n2.de.api.containerdeleteLDAPContainerType"
+        mixed="false">
+      <xsd:attribute ecore:name="containerid" id="deleteLDAPContainerTypecontainer-id"
+          form="unqualified" name="container-id" type="tns7:long_StudioGeneratedTemplate"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Unique ID of the LDAP container to be deleted. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="deleteresources" id="deleteLDAPContainerTypedelete-resources"
+          default="false" form="unqualified" name="delete-resources" type="xsd:boolean"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Indicates whether the resources derived from the LDAP container should also be deleted. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteLDAPContainerResponse" nillable="false">
+    <xsd:complexType ecore:name="deleteLDAPContainerResponseType" id="com.tibco.n2.de.api.containerdeleteLDAPContainerResponseType"
+        mixed="false">
+      <xsd:attribute ecore:name="successful" id="deleteLDAPContainerResponseTypesuccessful"
+          form="unqualified" name="successful" type="xsd:boolean" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Boolean value that indicates whether the LDAP container was successfully deleted (TRUE) or not (FALSE). </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

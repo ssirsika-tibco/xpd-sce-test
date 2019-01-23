@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_NMjR8DjkEeCi_fi7wn-i2w" name="com.example.trainline">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NMjR8TjkEeCi_fi7wn-i2w" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NMjR8jjkEeCi_fi7wn-i2w" key="author" value="rgreen"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NMjR8zjkEeCi_fi7wn-i2w" key="created" value="1297764961039"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NMjR9DjkEeCi_fi7wn-i2w" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_N44zgDjkEeCi_fi7wn-i2w" name="Address">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UTPAwDjkEeCi_fi7wn-i2w" name="contactname" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UT-nojjkEeCi_fi7wn-i2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UT-noTjkEeCi_fi7wn-i2w" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UoEoUDjkEeCi_fi7wn-i2w" name="firstline" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UoEoUzjkEeCi_fi7wn-i2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UoEoUjjkEeCi_fi7wn-i2w" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VH5-8DjkEeCi_fi7wn-i2w" name="town" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VH5-8zjkEeCi_fi7wn-i2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VH5-8jjkEeCi_fi7wn-i2w" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ouDfIDjkEeCi_fi7wn-i2w" name="county" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ouDfIzjkEeCi_fi7wn-i2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ouDfIjjkEeCi_fi7wn-i2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_puFYwDjkEeCi_fi7wn-i2w" name="postCode" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_puFYwzjkEeCi_fi7wn-i2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_puFYwjjkEeCi_fi7wn-i2w"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_N5oaYDjkEeCi_fi7wn-i2w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N5oaYTjkEeCi_fi7wn-i2w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_NMsb4DjkEeCi_fi7wn-i2w" type="Business Object Model" element="_NMjR8DjkEeCi_fi7wn-i2w?com.example.trainline?" name="TrainLine.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_NRKFIDjkEeCi_fi7wn-i2w" type="1007" element="_NMjR8DjkEeCi_fi7wn-i2w?com.example.trainline?">
+      <children xmi:type="notation:Node" xmi:id="_NRKFJDjkEeCi_fi7wn-i2w" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_NRKFJTjkEeCi_fi7wn-i2w" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_NRKFJjjkEeCi_fi7wn-i2w" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_NRKFJzjkEeCi_fi7wn-i2w" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_NRKFKDjkEeCi_fi7wn-i2w" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_NRKFKTjkEeCi_fi7wn-i2w" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_NRKFKjjkEeCi_fi7wn-i2w" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_NRKFKzjkEeCi_fi7wn-i2w" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_NRKFLDjkEeCi_fi7wn-i2w" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_NRKFLTjkEeCi_fi7wn-i2w" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_NRKFLjjkEeCi_fi7wn-i2w"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_NRKFLzjkEeCi_fi7wn-i2w" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_NRKFMDjkEeCi_fi7wn-i2w"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_NRKFMTjkEeCi_fi7wn-i2w"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_NRKFITjkEeCi_fi7wn-i2w" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_NRKFIjjkEeCi_fi7wn-i2w"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NRKFIzjkEeCi_fi7wn-i2w"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_N85w0DjkEeCi_fi7wn-i2w" type="1002" element="_N44zgDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress?">
+      <children xmi:type="notation:Node" xmi:id="_N85w1DjkEeCi_fi7wn-i2w" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_N85w1TjkEeCi_fi7wn-i2w" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_N85w1jjkEeCi_fi7wn-i2w" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_N85w1zjkEeCi_fi7wn-i2w" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_UT-nozjkEeCi_fi7wn-i2w" type="2001" element="_UTPAwDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3acontactname?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_UUIYoDjkEeCi_fi7wn-i2w"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_UoNyQDjkEeCi_fi7wn-i2w" type="2001" element="_UoEoUDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3afirstline?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_UoNyQTjkEeCi_fi7wn-i2w"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_VH5-9DjkEeCi_fi7wn-i2w" type="2001" element="_VH5-8DjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3atown?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_VH5-9TjkEeCi_fi7wn-i2w"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ouNQIDjkEeCi_fi7wn-i2w" type="2001" element="_ouDfIDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3acounty?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ouNQITjkEeCi_fi7wn-i2w"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_puFYxDjkEeCi_fi7wn-i2w" type="2001" element="_puFYwDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3apostCode?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_puPJwDjkEeCi_fi7wn-i2w"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_N85w2DjkEeCi_fi7wn-i2w"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_N85w2TjkEeCi_fi7wn-i2w"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_N85w2jjkEeCi_fi7wn-i2w"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_N85w2zjkEeCi_fi7wn-i2w" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_N85w3DjkEeCi_fi7wn-i2w"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_N85w3TjkEeCi_fi7wn-i2w"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_N85w3jjkEeCi_fi7wn-i2w"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_N85w0TjkEeCi_fi7wn-i2w" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_N85w0jjkEeCi_fi7wn-i2w" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_N85w0zjkEeCi_fi7wn-i2w" x="360" y="75" height="183"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_NMsb4TjkEeCi_fi7wn-i2w"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_NMsb4jjkEeCi_fi7wn-i2w"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_N5oaYjjkEeCi_fi7wn-i2w" displayLabel="Address" base_NamedElement="_N44zgDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_UT-noDjkEeCi_fi7wn-i2w" displayLabel="contact name" base_NamedElement="_UTPAwDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3acontactname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_UoEoUTjkEeCi_fi7wn-i2w" displayLabel="first line" base_NamedElement="_UoEoUDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3afirstline?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VH5-8TjkEeCi_fi7wn-i2w" displayLabel="town" base_NamedElement="_VH5-8DjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3atown?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ouDfITjkEeCi_fi7wn-i2w" displayLabel="county" base_NamedElement="_ouDfIDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3acounty?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_puFYwTjkEeCi_fi7wn-i2w" displayLabel="postCode" base_NamedElement="_puFYwDjkEeCi_fi7wn-i2w?com.example.trainline%3a%3aAddress%3a%3apostCode?"/>
+</xmi:XMI>

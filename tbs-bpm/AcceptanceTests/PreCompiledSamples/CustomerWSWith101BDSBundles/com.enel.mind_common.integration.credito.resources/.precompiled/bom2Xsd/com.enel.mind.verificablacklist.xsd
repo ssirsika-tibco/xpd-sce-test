@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://mind.enel.com/verificablacklist" xmlns:tns3="http://mind.enel.com/verificablacklist"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mind.enel.com/verificablacklist">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.integration.credito.resources/Generated Business Objects/com.enel.mind.verificablacklist.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="DatiMasterVerificaBL" id="com.enel.mind.verificablacklistDatiMasterVerificaBL"
+      abstract="false" mixed="false" name="DatiMasterVerificaBL">
+    <xsd:sequence>
+      <xsd:element ecore:name="idRichiesta" id="DatiMasterVerificaBLIdRichiesta" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdRichiesta">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="canale" id="DatiMasterVerificaBLCanale" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="Canale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="operazione" id="DatiMasterVerificaBLOperazione" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="Operazione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="sistema" id="DatiMasterVerificaBLSistema" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="Sistema">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="tipoFlusso" id="DatiMasterVerificaBLTipoFlusso" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="TipoFlusso" type="xsd:string"/>
+      <xsd:element ecore:name="CDM_Cliente" id="DatiMasterVerificaBLCDM_Cliente" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="CDM_Cliente" type="xsd:string"/>
+      <xsd:element ecore:name="SDM_VENDITA" id="DatiMasterVerificaBLSDM_VENDITA" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="SDM_VENDITA" type="xsd:string"/>
+      <xsd:element ecore:name="idLinea" id="DatiMasterVerificaBLIdLinea" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="IdLinea" type="xsd:string"/>
+      <xsd:element ecore:name="prodotto" id="DatiMasterVerificaBLProdotto" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="Prodotto" type="xsd:string"/>
+      <xsd:element ecore:name="modalitaPagamento" id="DatiMasterVerificaBLModalitaPagamento"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="ModalitaPagamento"
+          type="xsd:string"/>
+      <xsd:element ecore:name="idTransazioneCanale" id="DatiMasterVerificaBLIdTransazioneCanale"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="IdTransazioneCanale"
+          type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="VerificaBlackListInput" id="com.enel.mind.verificablacklistVerificaBlackListInput"
+      abstract="false" mixed="false" name="VerificaBlackListInput">
+    <xsd:sequence>
+      <xsd:element ecore:name="datiMasterVerficaBL" id="VerificaBlackListInputdatiMasterVerficaBL"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="datiMasterVerficaBL"
+          type="DatiMasterVerificaBL"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="VerificaBlackListOutput" id="com.enel.mind.verificablacklistVerificaBlackListOutput"
+      abstract="false" mixed="false" name="VerificaBlackListOutput">
+    <xsd:sequence>
+      <xsd:element ecore:name="esitoType" id="VerificaBlackListOutputesitoType" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="esitoType" type="EsitoType"/>
+      <xsd:element ecore:name="CDM_CLIENTE" id="VerificaBlackListOutputCDM_CLIENTE"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="CDM_CLIENTE" type="xsd:string"/>
+      <xsd:element ecore:name="macroCausale" id="VerificaBlackListOutputmacroCausale"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="macroCausale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="SDM_VENDITA" id="VerificaBlackListOutputSDM_VENDITA"
+          form="unqualified" maxOccurs="1" minOccurs="0" name="SDM_VENDITA" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="EsitoType" id="com.enel.mind.verificablacklistEsitoType"
+      abstract="false" mixed="false" name="EsitoType">
+    <xsd:sequence>
+      <xsd:element ecore:name="datiMasterEsito" id="EsitoTypedatiMasterEsito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="datiMasterEsito" type="DatiMasterEsito"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DatiMasterEsito" id="com.enel.mind.verificablacklistDatiMasterEsito"
+      abstract="false" mixed="false" name="DatiMasterEsito">
+    <xsd:sequence>
+      <xsd:element ecore:name="esito" id="DatiMasterEsitoesito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="esito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="codiceEsito" id="DatiMasterEsitocodiceEsito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="codiceEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="descrizione" id="DatiMasterEsitodescrizione" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="descrizione">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="sistemaSorgenteEsito" id="DatiMasterEsitosistemaSorgenteEsito"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="sistemaSorgenteEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="tipoEsito" id="DatiMasterEsitotipoEsito" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="tipoEsito">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="DatiMasterVerificaBLElement" nillable="false"
+      type="DatiMasterVerificaBL"/>
+  <xsd:element abstract="false" name="VerificaBlackListInputElement" nillable="false"
+      type="VerificaBlackListInput"/>
+  <xsd:element abstract="false" name="VerificaBlackListOutputElement" nillable="false"
+      type="VerificaBlackListOutput"/>
+  <xsd:element abstract="false" name="EsitoTypeElement" nillable="false" type="EsitoType"/>
+  <xsd:element abstract="false" name="DatiMasterEsitoElement" nillable="false" type="DatiMasterEsito"/>
+</xsd:schema>

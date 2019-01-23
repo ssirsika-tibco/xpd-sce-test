@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.analyst.qa.test.feature"
+      label="Feature Feature"
+      version="4.0.0.qualifier"
+      provider-name="TIBCO">
+
+   <description>
+      JUnit Process Analyst QA Test Release Unit
+   </description>
+
+   <copyright>
+      Copyright 2008 TIBCO Software Inc.
+   </copyright>
+
+   <license>
+      For internal use only.
+   </license>
+
+   <requires>
+      <import feature="com.tibco.xpd.core.test.feature" version="5.0.0" match="compatible"/>
+      <import feature="com.tibco.xpd.process.analyst.feature" version="4.0.0" match="compatible"/>
+      <import feature="com.tibco.xpd.process.developer.feature" version="4.0.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.xpd.analyst.qa.test"
+         download-size="0"
+         install-size="0"
+         version="4.0.0.qualifier"/>
+
+   <plugin
+         id="com.tibco.xpd.process.analyst.api.test"
+         download-size="0"
+         install-size="0"
+         version="4.0.0.qualifier"/>
+
+</feature>

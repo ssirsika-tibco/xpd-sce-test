@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.xpd.v2.xpdl1.downgrade"
+            name="XPDL1 Downgrade"
+            scopeProvider="com.tibco.xpd.validation.xpdl2.provider.Xpdl2ScopeProvider">
+         <rule class="com.tibco.xpd.v2.xpdl1.validation.MultiplePoolRule"/>
+      </provider>
+      <issue
+            id="xpdl1.multiplePools"
+            message="%xpdl1.multiplePools"
+            severity="ERROR"/>
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.resolution">
+      <resolution
+            class="com.tibco.xpd.validation.xpdl2.resolutions.ChangeActivityToUserResolution"
+            description="%resolution.description.xpdl1.taskType.toUser"
+            id="xpdl1.taskType"
+            label="%resolution.title.xpdl1.taskType.toUser"/>
+      <resolution
+            class="com.tibco.xpd.validation.xpdl2.resolutions.ChangeActivityToManualResolution"
+            description="%resolution.description.xpdl1.taskType.toManual"
+            id="xpdl1.taskType"
+            label="%resolution.title.xpdl1.taskType.toManual"/>
+      <resolution
+            class="com.tibco.xpd.validation.xpdl2.resolutions.ChangeActivityToServiceResolution"
+            description="%resolution.description.xpdl1.taskType.toService"
+            id="xpdl1.taskType"
+            label="%resolution.title.xpdl1.taskType.toService"/>
+      <resolution
+            class="com.tibco.xpd.validation.xpdl2.resolutions.ChangeActivityToSubFlowResolution"
+            description="%resolution.description.xpdl1.taskType.toSubFlow"
+            id="xpdl1.taskType"
+            label="%resolution.title.xpdl1.taskType.toSubFlow"/>
+   </extension>
+
+</plugin>

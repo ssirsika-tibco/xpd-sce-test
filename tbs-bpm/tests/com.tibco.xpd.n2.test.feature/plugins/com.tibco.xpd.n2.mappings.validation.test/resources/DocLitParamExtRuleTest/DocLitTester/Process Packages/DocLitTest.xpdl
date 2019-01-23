@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_CmrVQH0wEd-SL4t4UvITxQ" xpdExt:DisplayName="DocLitTest" Name="DocLitTest">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-06-21</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>rsomayaj</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_YtJAoH0xEd-SL4t4UvITxQ" xpdExt:DisplayName="DocLitTest-Process (API Activity EndPoint)" Name="DocLitTest_DocLitTestProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:SharedResource Type="WebService" URI="/DocLitTest/DocLitTestProcess"/>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_KNqUwX0wEd-SL4t4UvITxQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_Cn3oEH0wEd-SL4t4UvITxQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_KNqUwn0wEd-SL4t4UvITxQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_Cn3oEH0wEd-SL4t4UvITxQ" xpdExt:DisplayName="DocLitTest-Process" xpdExt:ApiEndPointParticipant="_YtJAoH0xEd-SL4t4UvITxQ" Name="DocLitTestProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_g1C74X0xEd-SL4t4UvITxQ" Name="Parameter" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_g3lSgX0xEd-SL4t4UvITxQ" Name="Parameter2" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_g4eDUX0xEd-SL4t4UvITxQ" Name="Parameter3" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_g6HCEX0xEd-SL4t4UvITxQ" Name="Parameter4" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_KNqUw30wEd-SL4t4UvITxQ" Name="StartEvent" xpdExt:DisplayName="Start Event" xpdExt:Visibility="Private">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_YpHcQH0xEd-SL4t4UvITxQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="Parameter2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="Parameter">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_YtJAoH0xEd-SL4t4UvITxQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="DocLitTest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="DocLitTestProcess" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="DocLitTest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_YtJAoH0xEd-SL4t4UvITxQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_KNqUwn0wEd-SL4t4UvITxQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters>
+            <xpdExt:AssociatedParameter FormalParam="Parameter2" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Parameter" Mode="INOUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_KNqUxH0wEd-SL4t4UvITxQ" Name="EndEvent" xpdExt:DisplayName="End Event" xpdExt:Visibility="Private">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_KNqUw30wEd-SL4t4UvITxQ" CatchThrow="THROW">
+                <xpdl2:Message Id="_aaXXcH0xEd-SL4t4UvITxQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="Parameter2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="Parameter">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_YtJAoH0xEd-SL4t4UvITxQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="DocLitTest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="DocLitTestProcess" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="DocLitTest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_KNqUwn0wEd-SL4t4UvITxQ" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters>
+            <xpdExt:AssociatedParameter FormalParam="Parameter2" Mode="INOUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Parameter" Mode="INOUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_kriaYH0zEd-ylf45x-pJyg" Name="ReceiveTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Receive Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" xpdExt:Generated="true" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_kriaYX0zEd-ylf45x-pJyg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="Parameter3">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_YtJAoH0xEd-SL4t4UvITxQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="DocLitTest.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="DocLitTestProcess" OperationName="ReceiveTask">
+                  <xpdExt:ExternalReference location="DocLitTest.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_YtJAoH0xEd-SL4t4UvITxQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_KNqUwn0wEd-SL4t4UvITxQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="125.0" YCoordinate="244.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters>
+            <xpdExt:AssociatedParameter FormalParam="Parameter3" Mode="INOUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_KNqUxX0wEd-SL4t4UvITxQ" xpdExt:DisplayName="" Name="" From="_KNqUw30wEd-SL4t4UvITxQ" To="_KNqUxH0wEd-SL4t4UvITxQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="Parameter"/>
+            <simulation:ParameterDistribution ParameterId="Parameter2"/>
+            <simulation:ParameterDistribution ParameterId="Parameter3"/>
+            <simulation:ParameterDistribution ParameterId="Parameter4"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="DocumentLiteral"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_no51UH0xEd-SL4t4UvITxQ" xpdExt:DisplayName="DocLitTest-Interface" Name="DocLitTestInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_ple2wX0xEd-SL4t4UvITxQ" Name="Parameter" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_pm06kX0xEd-SL4t4UvITxQ" Name="Parameter2" ReadOnly="false" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="DocumentLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_n-qp8H0xEd-SL4t4UvITxQ" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

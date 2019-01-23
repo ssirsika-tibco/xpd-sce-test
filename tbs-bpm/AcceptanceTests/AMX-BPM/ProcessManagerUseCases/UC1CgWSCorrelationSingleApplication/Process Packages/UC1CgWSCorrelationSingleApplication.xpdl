@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_2T5SwDv5Ed-8-NudvfXLRw" xpdExt:DisplayName="UC1CgWSCorrelationSingleApplication" Name="UC1CgWSCorrelationSingleApplication">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-03-30</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_vRejcDv6Ed-8-NudvfXLRw" xpdExt:DisplayName="UC1Cg Invoked Process (API Activity EndPoint)" Name="UC1CgWSCorrelationSingleApplication_UC1CgInvokedProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/UC1CgWSCorrelationSingleApplication/UC1CgInvokedProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_PZqswLJ8Ed-AXawnFzgB-g" xpdExt:DisplayName="UC1Cg Invoking Process (API Activity EndPoint)" Name="UC1CgWSCorrelationSingleApplication_UC1CgInvokingProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/UC1CgWSCorrelationSingleApplication/UC1CgInvokingProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_Zp8PJLPvEd-gvKAy4Qxnbg" xpdExt:DisplayName="UC1CgWSCorrelationSingleApplication UC1CgInvokedProcess" Name="UC1CgWSCorrelationSingleApplicationUC1CgInvokedProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_UbVs1TwNEd-8-NudvfXLRw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_TGidEDwNEd-8-NudvfXLRw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_UbVs1jwNEd-8-NudvfXLRw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_SdGZJzv6Ed-8-NudvfXLRw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_2T5SwTv5Ed-8-NudvfXLRw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_SdGZKDv6Ed-8-NudvfXLRw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="514.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Associations>
+    <xpdl2:Association Id="_L_UGRDwOEd-8-NudvfXLRw" Name="" AssociationDirection="None" Source="_SdGZKTv6Ed-8-NudvfXLRw" Target="_L_UGQzwOEd-8-NudvfXLRw">
+      <xpdl2:Object Id="_L_UGRTwOEd-8-NudvfXLRw"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+          <xpdl2:Coordinates XCoordinate="76.0" YCoordinate="-79.0"/>
+          <xpdl2:Coordinates XCoordinate="-165.0" YCoordinate="30.0"/>
+        </xpdl2:ConnectorGraphicsInfo>
+        <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+          <xpdl2:Coordinates XCoordinate="98.09479553903346" YCoordinate="0.0"/>
+        </xpdl2:ConnectorGraphicsInfo>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_P9H_oDwOEd-8-NudvfXLRw" Name="" AssociationDirection="None" Source="_L_UGQzwOEd-8-NudvfXLRw" Target="_dIFtcDwAEd-8-NudvfXLRw">
+      <xpdl2:Object Id="_P9H_oTwOEd-8-NudvfXLRw"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+        <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+          <xpdl2:Coordinates XCoordinate="86.80297397769516" YCoordinate="0.0"/>
+        </xpdl2:ConnectorGraphicsInfo>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+  </xpdl2:Associations>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_L_UGQzwOEd-8-NudvfXLRw" ArtifactType="Annotation" TextAnnotation="// In CancelTicketRequest we correlate on Name, PostCode (which are both initialised on start event) &#xD;&#xA;// and the RequestConfirmationId that is generated in a script and returned to caller.&#xD;&#xA;&#xD;&#xA;// But we have a separate value Invokers CrossCheck Id that we don't use for correlation&#xD;&#xA;// BUT the invoker puts the same in booth TicketRequest and CancelRequest. ">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="79.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="538.0">
+          <xpdl2:Coordinates XCoordinate="297.0" YCoordinate="44.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_2T5SwTv5Ed-8-NudvfXLRw" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="UC1Cg Invoked Process" xpdExt:ApiEndPointParticipant="_vRejcDv6Ed-8-NudvfXLRw" iProcessExt:MaxStepIndex="14" Name="UC1CgInvokedProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_w2DUkDv6Ed-8-NudvfXLRw" Name="TicketRequest" Mode="IN" Required="true" xpdExt:DisplayName="Ticket Request">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_UAe3cDv6Ed-8-NudvfXLRw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_D3AY0DwCEd-8-NudvfXLRw" Name="TicketConfirmation" Mode="OUT" Required="false" xpdExt:DisplayName="Ticket Confirmation">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_-JmxIDwBEd-8-NudvfXLRw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_bTRO8DwCEd-8-NudvfXLRw" Name="CancelRequest" Mode="IN" Required="true" xpdExt:DisplayName="Cancel Request">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_Se99VjwBEd-8-NudvfXLRw"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0VwX0DwJEd-8-NudvfXLRw" Name="CancelledOk" Mode="OUT" Required="false" xpdExt:DisplayName="Cancelled Ok">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_aNYpIDv7Ed-8-NudvfXLRw" xpdExt:DisplayName="Name Correlation" Name="NameCorrelation" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_hjOOQDv7Ed-8-NudvfXLRw" xpdExt:DisplayName="Postcode Correlation" Name="PostcodeCorrelation" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Jlwg0DwBEd-8-NudvfXLRw" xpdExt:DisplayName="Request Confirmation Id Correlation" Name="RequestConfirmationIdCorrelation" ReadOnly="false" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>400</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_SdGZKTv6Ed-8-NudvfXLRw" Name="TicketRequest" xpdExt:Visibility="Private" xpdExt:DisplayName="Ticket Request" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_vRUycDv6Ed-8-NudvfXLRw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="TicketRequest">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="TicketRequest.fullName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">NameCorrelation</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="TicketRequest.postCode">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">PostcodeCorrelation</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_vRejcDv6Ed-8-NudvfXLRw" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokedProcess" OperationName="TicketRequest">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_vRejcDv6Ed-8-NudvfXLRw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="44.0">
+              <xpdl2:Coordinates XCoordinate="56.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="TicketRequest" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="TicketConfirmation" Mode="OUT" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+          <xpdExt:AssociatedCorrelationFields>
+            <xpdExt:AssociatedCorrelationField Name="PostcodeCorrelation" CorrelationMode="Initialize"/>
+            <xpdExt:AssociatedCorrelationField Name="NameCorrelation" CorrelationMode="Initialize"/>
+          </xpdExt:AssociatedCorrelationFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_SdGZKjv6Ed-8-NudvfXLRw" Name="TicketCancelled" xpdExt:Visibility="Private" xpdExt:DisplayName="Ticket Cancelled" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="54.0">
+              <xpdl2:Coordinates XCoordinate="1011.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_RfQekTv_Ed-8-NudvfXLRw" Name="CreateRequestConfirmationId" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Create Request Confirmation Id" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">RequestConfirmationIdCorrelation = &#xD;
+	NameCorrelation+&quot;:&quot;+PostcodeCorrelation+&quot;:&quot;+TicketRequest.concertName;&#xD;
+&#xD;
+TicketConfirmation = com_example_uc1cgwscorrelationsingleapplication_Factory.createTicketConfirmation();									&#xD;
+TicketConfirmation.fullName = TicketRequest.fullName;&#xD;
+TicketConfirmation.concertName = TicketRequest.concertName;&#xD;
+TicketConfirmation.requestConfirmationId = RequestConfirmationIdCorrelation;&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="74.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="180.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_HRUOcTwAEd-8-NudvfXLRw" Name="ReplyToTicketRequest" IsATransaction="false" xpdExt:RequireNewTransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Reply To: Ticket Request" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskSend xpdExt:ReplyToActivityId="_SdGZKTv6Ed-8-NudvfXLRw" xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:Message Id="_I3YNUDwAEd-8-NudvfXLRw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="TicketConfirmation">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketConfirmation</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_vRejcDv6Ed-8-NudvfXLRw" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokedProcess" OperationName="TicketRequest">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskSend>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="74.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="110.0">
+              <xpdl2:Coordinates XCoordinate="349.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="TicketRequest" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="TicketConfirmation" Mode="OUT" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_dIFtcDwAEd-8-NudvfXLRw" Name="CancelTicketRequest" xpdExt:ActivityDeadlineEventId="_o3abUDwAEd-8-NudvfXLRw" xpdExt:Visibility="Private" xpdExt:DisplayName="Cancel Ticket Request" iProcessExt:StepIndex="8">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" xpdExt:Generated="true" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_dIFtcTwAEd-8-NudvfXLRw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="CancelRequest">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CancelRequest</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="CancelRequest.fullName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">NameCorrelation</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="CancelRequest.postCode">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">PostcodeCorrelation</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="CancelRequest.requestConfirmationId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">RequestConfirmationIdCorrelation</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_vRejcDv6Ed-8-NudvfXLRw" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokedProcess" OperationName="CancelTicketRequest">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_vRejcDv6Ed-8-NudvfXLRw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="118.0">
+              <xpdl2:Coordinates XCoordinate="518.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="CancelRequest" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="CancelledOk" Mode="OUT" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+          <xpdExt:AssociatedCorrelationFields>
+            <xpdExt:AssociatedCorrelationField Name="PostcodeCorrelation" CorrelationMode="Correlate"/>
+            <xpdExt:AssociatedCorrelationField Name="NameCorrelation" CorrelationMode="Correlate"/>
+            <xpdExt:AssociatedCorrelationField Name="RequestConfirmationIdCorrelation" CorrelationMode="Correlate"/>
+          </xpdExt:AssociatedCorrelationFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_o3abUDwAEd-8-NudvfXLRw" Name="YouHaveFiveMinutesToCancel" xpdExt:Visibility="Private" xpdExt:DisplayName="You Have Five Minutes To Cancel" iProcessExt:StepIndex="9">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_dIFtcDwAEd-8-NudvfXLRw" Trigger="Timer">
+              <xpdl2:TriggerTimer>
+                <xpdl2:TimeDate/>
+              </xpdl2:TriggerTimer>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Deadline>
+            <xpdl2:DeadlineDuration ScriptGrammar="ConstantPeriod">
+<xpdExt:ConstantPeriod Minutes="5"/>
+</xpdl2:DeadlineDuration>
+          </xpdl2:Deadline>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="31.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="22.68041237113402" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_xamkYDwAEd-8-NudvfXLRw" Name="TicketAllocated" xpdExt:Visibility="Private" xpdExt:DisplayName="Ticket  Allocated" iProcessExt:StepIndex="10">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="52.0">
+              <xpdl2:Coordinates XCoordinate="814.0" YCoordinate="272.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_6fly8TwAEd-8-NudvfXLRw" Name="ReplyToCancelTicketRequest" xpdExt:Visibility="Private" xpdExt:DisplayName="Reply To: Cancel Ticket Request" iProcessExt:StepIndex="11">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_dIFtcDwAEd-8-NudvfXLRw" CatchThrow="THROW">
+                <xpdl2:Message Id="_7W7qoDwAEd-8-NudvfXLRw">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelledOk">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CancelledOk</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_vRejcDv6Ed-8-NudvfXLRw" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokedProcess" OperationName="CancelTicketRequest">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="77.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="73.0">
+              <xpdl2:Coordinates XCoordinate="814.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="CancelRequest" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="CancelledOk" Mode="OUT" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_HCC30TwKEd-8-NudvfXLRw" Name="CheckCorrectInstance" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Check Correct Instance" iProcessExt:StepIndex="12">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// In CancelTicketRequest we correlate on Name, PostCode (which are both initialised on start event) &#xD;
+// and the RequestConfirmationId that is generated in a script and returned to caller.&#xD;
+&#xD;
+// But we have a separate value Invokers CrossCheck Id that we don't use for correlation&#xD;
+// BUT the invoker puts the same in booth TicketRequest and CancelRequest. &#xD;
+&#xD;
+// So if we correlated with the correct process instance then the InvokersCrossCheckId will&#xD;
+// be the same too!&#xD;
+CancelledOk = false;&#xD;
+if (CancelRequest.invokersCrossCheckId == TicketRequest.invokersCrossCheckId) {&#xD;
+    // May as well check the correlation has been done properly too.&#xD;
+    if (CancelRequest.fullName == NameCorrelation &amp;&amp; &#xD;
+         CancelRequest.postCode == PostcodeCorrelation &amp;&amp; &#xD;
+             CancelRequest.requestConfirmationId == RequestConfirmationIdCorrelation) {&#xD;
+        CancelledOk = true;&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="691.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Gpg7sTwNEd-8-NudvfXLRw" iProcessExt:StepIndex="13">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_C9QsYjwNEd-8-NudvfXLRw"/>
+                  <xpdl2:TransitionRef Id="_KIrxQzwNEd-8-NudvfXLRw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="916.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_KIrxQjwNEd-8-NudvfXLRw" Name="CancelFailed" xpdExt:Visibility="Private" xpdExt:DisplayName="Cancel Failed" iProcessExt:StepIndex="14">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_SdGZKDv6Ed-8-NudvfXLRw" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="1011.0" YCoordinate="243.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_RfaPkDv_Ed-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_SdGZKTv6Ed-8-NudvfXLRw" To="_RfQekTv_Ed-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_HRdYYDwAEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_RfQekTv_Ed-8-NudvfXLRw" To="_HRUOcTwAEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_dIPecDwAEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_HRUOcTwAEd-8-NudvfXLRw" To="_dIFtcDwAEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_xamkYTwAEd-8-NudvfXLRw" Name="" From="_o3abUDwAEd-8-NudvfXLRw" To="_xamkYDwAEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="16.0" YCoordinate="79.0"/>
+              <xpdl2:Coordinates XCoordinate="-233.0" YCoordinate="1.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_6fu84DwAEd-8-NudvfXLRw" Name="" From="_HCC30TwKEd-8-NudvfXLRw" To="_6fly8TwAEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_HCC30jwKEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_dIFtcDwAEd-8-NudvfXLRw" To="_HCC30TwKEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_C9QsYjwNEd-8-NudvfXLRw" Name="" From="_Gpg7sTwNEd-8-NudvfXLRw" To="_SdGZKjv6Ed-8-NudvfXLRw">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">CancelledOk == true;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Gpg7sjwNEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_6fly8TwAEd-8-NudvfXLRw" To="_Gpg7sTwNEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_KIrxQzwNEd-8-NudvfXLRw" Name="" From="_Gpg7sTwNEd-8-NudvfXLRw" To="_KIrxQjwNEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="20.0" YCoordinate="89.0"/>
+              <xpdl2:Coordinates XCoordinate="-75.0" YCoordinate="1.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="TicketRequest"/>
+            <simulation:ParameterDistribution ParameterId="TicketConfirmation"/>
+            <simulation:ParameterDistribution ParameterId="CancelRequest"/>
+            <simulation:ParameterDistribution ParameterId="CancelledOk"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_TGidEDwNEd-8-NudvfXLRw" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="UC1Cg Invoking Process" xpdExt:ApiEndPointParticipant="_PZqswLJ8Ed-AXawnFzgB-g" iProcessExt:MaxStepIndex="15" Name="UC1CgInvokingProcess">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_n-tT4DwPEd-8-NudvfXLRw" Name="BaseCaseId" Mode="INOUT" Required="true" xpdExt:DisplayName="Base Case Id">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_muun0DwREd-8-NudvfXLRw" Name="Request1CancelledOk" Mode="OUT" Required="true" xpdExt:DisplayName="Request 1 Cancelled Ok">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_owUFETwREd-8-NudvfXLRw" Name="Request2CancelledOk" Mode="OUT" Required="true" xpdExt:DisplayName="Request 2 Cancelled Ok">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_-_TXIDwOEd-8-NudvfXLRw" xpdExt:DisplayName="Ticket Request 1" Name="TicketRequest1">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_UAe3cDv6Ed-8-NudvfXLRw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Bkl-YDwPEd-8-NudvfXLRw" xpdExt:DisplayName="Ticket Confirmation 1" Name="TicketConfirmation1">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_-JmxIDwBEd-8-NudvfXLRw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ou4jgjwREd-8-NudvfXLRw" xpdExt:DisplayName="Ticket Confirmation 2" Name="TicketConfirmation2">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_-JmxIDwBEd-8-NudvfXLRw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Ou4jgzwREd-8-NudvfXLRw" xpdExt:DisplayName="Ticket Request 2" Name="TicketRequest2">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_UAe3cDv6Ed-8-NudvfXLRw"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_UbVs1zwNEd-8-NudvfXLRw" Name="StartEvent" xpdExt:DisplayName="Start Event" xpdExt:Visibility="Private" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_W2gHMLJ7Ed-AXawnFzgB-g">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="BaseCaseId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">BaseCaseId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_PZqswLJ8Ed-AXawnFzgB-g" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokingProcess" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_PZqswLJ8Ed-AXawnFzgB-g</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="57.0">
+              <xpdl2:Coordinates XCoordinate="163.0" YCoordinate="197.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UbVs2DwNEd-8-NudvfXLRw" Name="End" xpdExt:DisplayName="End" xpdExt:Visibility="Private" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_UbVs1zwNEd-8-NudvfXLRw" CatchThrow="THROW">
+                <xpdl2:Message Id="_wKPcULJ7Ed-AXawnFzgB-g">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="BaseCaseId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">BaseCaseId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Request1CancelledOk">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Request1CancelledOk</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Request2CancelledOk">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Request2CancelledOk</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_PZqswLJ8Ed-AXawnFzgB-g" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokingProcess" OperationName="StartEvent">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="1028.0" YCoordinate="197.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_VK_ysTwOEd-8-NudvfXLRw" iProcessExt:StepIndex="6">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Parallel">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_YeQTMzwOEd-8-NudvfXLRw"/>
+                  <xpdl2:TransitionRef Id="_LjNRsDwREd-8-NudvfXLRw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="268.0" YCoordinate="198.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_YeQTMjwOEd-8-NudvfXLRw" Name="SetupInvoke1" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Setup Invoke 1" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">TicketRequest1 = com_example_uc1cgwscorrelationsingleapplication_Factory.createTicketRequest();&#xD;
+&#xD;
+TicketRequest1.fullName = &quot;Mr One&quot; + BaseCaseId;&#xD;
+TicketRequest1.addressLine1 = &quot;1, One Street&quot;;&#xD;
+TicketRequest1.addressLine2 = &quot;Uno Province&quot;;&#xD;
+TicketRequest1.addressLine3= &quot;Einland&quot;;&#xD;
+TicketRequest1.postCode = &quot;ON1 E11&quot;;&#xD;
+TicketRequest1.concertName = &quot;U2 - 360 Tour&quot;;&#xD;
+TicketRequest1.invokersCrossCheckId = &quot;Invoke1: For: &quot;+BaseCaseId;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="392.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ytV2QjwOEd-8-NudvfXLRw" Name="InvokeRequest1" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Invoke Request 1" iProcessExt:StepIndex="8">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_iRQDMrPvEd-gvKAy4Qxnbg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="TicketRequest">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_iRQDM7PvEd-gvKAy4Qxnbg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="TicketConfirmation">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketConfirmation1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_Zp8PJLPvEd-gvKAy4Qxnbg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokedProcess" OperationName="TicketRequest">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zp8PJLPvEd-gvKAy4Qxnbg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="535.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_GHq2EjwREd-8-NudvfXLRw" iProcessExt:StepIndex="9">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Parallel"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="650.0" YCoordinate="198.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Li6WwDwREd-8-NudvfXLRw" Name="SetupInvoke2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Setup Invoke 2" iProcessExt:StepIndex="10">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">TicketRequest2 = com_example_uc1cgwscorrelationsingleapplication_Factory.createTicketRequest();&#xD;
+&#xD;
+TicketRequest2.fullName = &quot;Mr Two&quot; + BaseCaseId;&#xD;
+TicketRequest2.addressLine1 = &quot;2, Two Street&quot;;&#xD;
+TicketRequest2.addressLine2 = &quot;Dos Province&quot;;&#xD;
+TicketRequest2.addressLine3= &quot;Zweiland&quot;;&#xD;
+TicketRequest2.postCode = &quot;TW2 O22&quot;;&#xD;
+TicketRequest2.concertName = &quot;Pink Floyd - The Wall&quot;;&#xD;
+TicketRequest2.invokersCrossCheckId = &quot;Invoke2: For: &quot;+BaseCaseId;&#xD;
+&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="392.0" YCoordinate="198.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Li6WwTwREd-8-NudvfXLRw" Name="InvokeRequest2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Invoke Request 2" iProcessExt:StepIndex="11">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_ZEltErP0Ed-gvKAy4Qxnbg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="TicketRequest">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_ZEltE7P0Ed-gvKAy4Qxnbg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="TicketConfirmation">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketConfirmation2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_Zp8PJLPvEd-gvKAy4Qxnbg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokedProcess" OperationName="TicketRequest">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zp8PJLPvEd-gvKAy4Qxnbg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="535.0" YCoordinate="198.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_XhHOITwREd-8-NudvfXLRw" Name="CancelRequest1" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Cancel Request 1" iProcessExt:StepIndex="12">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_tWv-srP0Ed-gvKAy4Qxnbg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelRequest.requestConfirmationId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketConfirmation1.requestConfirmationId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelRequest.postCode">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest1.postCode</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelRequest.invokersCrossCheckId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest1.invokersCrossCheckId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelRequest.fullName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest1.fullName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_tWv-s7P0Ed-gvKAy4Qxnbg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="CancelledOk">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Request1CancelledOk</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_Zp8PJLPvEd-gvKAy4Qxnbg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokedProcess" OperationName="CancelTicketRequest">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zp8PJLPvEd-gvKAy4Qxnbg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="808.0" YCoordinate="112.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_8khPYTwREd-8-NudvfXLRw" iProcessExt:StepIndex="13">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Parallel">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_XhQ_IDwREd-8-NudvfXLRw"/>
+                  <xpdl2:TransitionRef Id="_PhWs0DwSEd-8-NudvfXLRw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="715.0" YCoordinate="197.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_AMA6gTwSEd-8-NudvfXLRw" iProcessExt:StepIndex="14">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Parallel"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="901.0" YCoordinate="197.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PhDx5zwSEd-8-NudvfXLRw" Name="CancelRequest2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Cancel Request 2" iProcessExt:StepIndex="15">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="__IkagrP0Ed-gvKAy4Qxnbg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelRequest.requestConfirmationId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketConfirmation2.requestConfirmationId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelRequest.fullName">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest2.fullName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelRequest.invokersCrossCheckId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest2.invokersCrossCheckId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="CancelRequest.postCode">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">TicketRequest2.postCode</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="__Ikag7P0Ed-gvKAy4Qxnbg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="CancelledOk">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Request2CancelledOk</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_Zp8PJLPvEd-gvKAy4Qxnbg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="UC1CgInvokedProcess" OperationName="CancelTicketRequest">
+                  <xpdExt:ExternalReference location="UC1CgWSCorrelationSingleApplication.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zp8PJLPvEd-gvKAy4Qxnbg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_UbVs1jwNEd-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="808.0" YCoordinate="198.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_YeQTMzwOEd-8-NudvfXLRw" Name="" From="_VK_ysTwOEd-8-NudvfXLRw" To="_YeQTMjwOEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="37.0" YCoordinate="-86.0"/>
+              <xpdl2:Coordinates XCoordinate="-86.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_aYGJsDwOEd-8-NudvfXLRw" Name="" From="_Li6WwTwREd-8-NudvfXLRw" To="_GHq2EjwREd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ytV2QzwOEd-8-NudvfXLRw" Name="" From="_YeQTMjwOEd-8-NudvfXLRw" To="_ytV2QjwOEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_GHq2EzwREd-8-NudvfXLRw" Name="" From="_ytV2QjwOEd-8-NudvfXLRw" To="_GHq2EjwREd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="9.375" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Li6WxDwREd-8-NudvfXLRw" Name="" From="_Li6WwDwREd-8-NudvfXLRw" To="_Li6WwTwREd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_LjNRsDwREd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_VK_ysTwOEd-8-NudvfXLRw" To="_Li6WwDwREd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_XhQ_IDwREd-8-NudvfXLRw" Name="" From="_8khPYTwREd-8-NudvfXLRw" To="_XhHOITwREd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.68750000000001" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_8khPYjwREd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_GHq2EjwREd-8-NudvfXLRw" To="_8khPYTwREd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_AMA6gjwSEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_XhHOITwREd-8-NudvfXLRw" To="_AMA6gTwSEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="10.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_KmZOsDwSEd-8-NudvfXLRw" Name="" From="_PhDx5zwSEd-8-NudvfXLRw" To="_AMA6gTwSEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_PhWs0DwSEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_8khPYTwREd-8-NudvfXLRw" To="_PhDx5zwSEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_vJ3kcLJ7Ed-AXawnFzgB-g" Name="" From="_AMA6gTwSEd-8-NudvfXLRw" To="_UbVs2DwNEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_UKsLwLJ8Ed-AXawnFzgB-g" Name="" From="_UbVs1zwNEd-8-NudvfXLRw" To="_VK_ysTwOEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="76.21914962273543" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="BaseCaseId"/>
+            <simulation:ParameterDistribution ParameterId="Request1CancelledOk"/>
+            <simulation:ParameterDistribution ParameterId="Request2CancelledOk"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

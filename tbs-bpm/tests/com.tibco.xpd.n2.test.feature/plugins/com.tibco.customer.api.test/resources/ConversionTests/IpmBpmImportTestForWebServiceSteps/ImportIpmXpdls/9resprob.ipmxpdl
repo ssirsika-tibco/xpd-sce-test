@@ -1,0 +1,2515 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Package xmlns="http://www.wfmc.org/2002/XPDL1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sw="http://bpm.tibco.com/2004/SWSPDXML2.0" Id="PKG_N12DE7CE8.12E50FF8" Name="9resprob" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd">
+<PackageHeader>
+<XPDLVersion>1.0</XPDLVersion>
+<Vendor>TIBCO iProcess Workspace (Windows) - v10.6.0</Vendor>
+<Created>2011/01/10 12:29:24</Created>
+</PackageHeader>
+<ConformanceClass GraphConformance="NON_BLOCKED"/>
+<Script Type="StaffwareScript" Version="10.6.0" Grammar="Proprietary"/>
+<WorkflowProcesses>
+<WorkflowProcess Id="9RESPROB" Name="9RESPROB" AccessLevel="PUBLIC">
+<ProcessHeader>
+<Created/>
+<Description>Resolve Probs Main Proc</Description>
+</ProcessHeader>
+<DataFields>
+<DataField Id="ACCOM_TYPE" Name="ACCOM_TYPE" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>64</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="64">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="ADMIT_DATE" Name="ADMIT_DATE" IsArray="FALSE">
+<DataType>
+<BasicType Type="DATETIME"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="10">
+          <FieldType>DATE</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="ADMIT_TIME" Name="ADMIT_TIME" IsArray="FALSE">
+<DataType>
+<BasicType Type="DATETIME"/>
+</DataType>
+<Length>5</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="5">
+          <FieldType>TIME</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="ADV_DIRECTIVE" Name="ADV_DIRECTIVE" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>3</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="3">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="ALT_VISIT_ID" Name="ALT_VISIT_ID" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>75</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="75">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="BED_NAME" Name="BED_NAME" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>75</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="75">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="CONTINUE" Name="CONTINUE" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="1">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="DEATH_IND" Name="DEATH_IND" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="1">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="ENTITY_ID" Name="ENTITY_ID" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="10">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="ENTITY_NAME" Name="ENTITY_NAME" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>255</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="255">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="ENTITY_OID" Name="ENTITY_OID" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="10">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="EXTRN_PT_ID" Name="EXTRN_PT_ID" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="IS_LIKE_IP" Name="IS_LIKE_IP" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="PT_ACCOUNT_ID" Name="PT_ACCOUNT_ID" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="PT_ACCT_ID" Name="PT_ACCT_ID" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="PT_CONDITION" Name="PT_CONDITION" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>64</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="64">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="PT_STS_CD" Name="PT_STS_CD" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>255</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="255">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="PUB_IND" Name="PUB_IND" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>64</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="64">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="START_DATE" Name="START_DATE" IsArray="FALSE">
+<DataType>
+<BasicType Type="DATETIME"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="10">
+          <FieldType>DATE</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="START_TIME" Name="START_TIME" IsArray="FALSE">
+<DataType>
+<BasicType Type="DATETIME"/>
+</DataType>
+<Length>5</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="5">
+          <FieldType>TIME</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="START_VISIT_OID" Name="START_VISIT_OID" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="10">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CASEDESC" Name="SW_CASEDESC" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_INCPERIOD" Name="SW_CP_INCPERIOD" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>4</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="4">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_INCREMENT" Name="SW_CP_INCREMENT" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>4</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="4">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_NUMINC" Name="SW_CP_NUMINC" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>3</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="3">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_PERIODTYP" Name="SW_CP_PERIODTYP" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="1">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_VALUE" Name="SW_CP_VALUE" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>3</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="3">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_GEN_IDX" Name="SW_GEN_IDX" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>6</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="6">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM1" Name="SW_QPARAM1" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM2" Name="SW_QPARAM2" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM3" Name="SW_QPARAM3" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>12</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="12">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM4" Name="SW_QPARAM4" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>12</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="12">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_ACTIVE" Name="S_ACTIVE" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="1">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_DISCHARGE" Name="S_DISCHARGE" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="1">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_DSCH_DT_TM" Name="S_DSCH_DT_TM" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>17</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="17">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_PTVISIT_OID" Name="S_PTVISIT_OID" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="10">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_PT_OID" Name="S_PT_OID" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="10">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_STARTDATE" Name="S_STARTDATE" IsArray="FALSE">
+<DataType>
+<BasicType Type="DATETIME"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="10">
+          <FieldType>DATE</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_STARTTIME" Name="S_STARTTIME" IsArray="FALSE">
+<DataType>
+<BasicType Type="DATETIME"/>
+</DataType>
+<Length>5</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="5">
+          <FieldType>TIME</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_TESTDELAYS" Name="S_TESTDELAYS" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="1">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_TESTROLE" Name="S_TESTROLE" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="S_USECENSUS" Name="S_USECENSUS" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="1">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="TESTING" Name="TESTING" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="1">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="UNIT_CNTC" Name="UNIT_CNTC" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>75</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="75">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="UNIT_CNTC_ABBR" Name="UNIT_CNTC_ABBR" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="UNIT_CNTC_OID" Name="UNIT_CNTC_OID" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>10</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="10">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="VISIT_ID" Name="VISIT_ID" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>30</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="30">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="VISIT_STS" Name="VISIT_STS" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="1">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="VISIT_TYPE" Name="VISIT_TYPE" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>30</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="30">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+</DataFields>
+<Participants>
+<Participant Id="MANSTART_Performer" Name="sw_starter">
+<ParticipantType Type="HUMAN"/>
+</Participant>
+<Participant Id="VSAUDIT_Performer" Name="EAISCRIPT">
+<ParticipantType Type="SYSTEM"/>
+</Participant>
+</Participants>
+<Applications>
+<Application Name="Tibco-Process-Suite-WorkItem" Id="MANSTART">
+<FormalParameters>
+<FormalParameter Id="S_PT_OID.N12DE7CE8.12DA1C70" Mode="INOUT">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+</FormalParameter>
+<FormalParameter Id="S_PTVISIT_OID.N12DE7CE8.12DA1CE0" Mode="INOUT">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+</FormalParameter>
+<FormalParameter Id="EXTRN_PT_ID.N12DE7CE8.12DA1D50" Mode="INOUT">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+</FormalParameter>
+<FormalParameter Id="S_TESTDELAYS.N12DE7CE8.12DA1DC0" Mode="INOUT">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+</FormalParameter>
+</FormalParameters>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FormDef">
+<FormDef ObjectName="MANSTART">
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>Manual Start of 9RESPROB (POC Resolve Problems Main Procedure)</Label>
+          </LFg>
+        </Line>
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>===============================================</Label>
+          </LFg>
+        </Line>
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>Soarian Pt Obj ID:     </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="S_PT_OID">
+              <MarkType>Required</MarkType>
+              <FieldType>NUM</FieldType>
+            </FieldMark>
+          </LFg>
+        </Line>
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>Soarian Visit Obj ID:  </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="S_PTVISIT_OID">
+              <MarkType>Required</MarkType>
+              <FieldType>NUM</FieldType>
+            </FieldMark>
+          </LFg>
+        </Line>
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>Patient External ID:   </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="EXTRN_PT_ID">
+              <MarkType>Optional</MarkType>
+              <FieldType>TEXT</FieldType>
+            </FieldMark>
+          </LFg>
+        </Line>
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>Test Delays:           </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="S_TESTDELAYS">
+              <MarkType>Required</MarkType>
+              <FieldType>NUM</FieldType>
+            </FieldMark>
+          </LFg>
+        </Line>
+        <Line/>
+        <Line LeadSpace="0">
+          <LFg>
+            <Label>===============================================</Label>
+          </LFg>
+        </Line>
+        <Line LeadSpace="25">
+          <LFg>
+            <Label>                         </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="$PANICFLD">
+              <MarkType>ProgramNoEdit</MarkType>
+              <FieldType>TEXT</FieldType>
+              <FieldCmd>
+                <Expression>
+                  <ExprStr>EXP,call("CONTINUE")</ExprStr>
+                </Expression>
+              </FieldCmd>
+              <FieldHelp>Start Process
+</FieldHelp>
+            </FieldMark>
+          </LFg>
+          <LFg>
+            <Label>     </Label>
+          </LFg>
+          <LFg>
+            <FieldMark fieldname="$PANICFLD">
+              <MarkType>ProgramNoEdit</MarkType>
+              <FieldType>TEXT</FieldType>
+              <FieldCmd>
+                <Expression>
+                  <ExprStr>EXP,call("CANCEL")</ExprStr>
+                </Expression>
+              </FieldCmd>
+              <FieldHelp>Cancel
+</FieldHelp>
+            </FieldMark>
+          </LFg>
+        </Line>
+        <Line/>
+      </FormDef>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Application>
+<Application Name="EAISCRIPT" Id="VSAUDIT">
+<FormalParameters/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIRunType">
+<EAIRunType>EAISCRIPT</EAIRunType>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIData">
+<EAIData TypeDataIncomplete="false">
+            <EAIRunData>
+              <EAITypeData>
+                <EAIText>;
+</EAIText>
+              </EAITypeData>
+            </EAIRunData>
+          </EAIData>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Application>
+</Applications>
+<Activities>
+<Activity Id="1" Name="MANSTART">
+<Description>Manual Start</Description>
+<Implementation>
+<Tool Type="APPLICATION" Id="MANSTART">
+<ActualParameters>
+<ActualParameter>S_PT_OID</ActualParameter>
+<ActualParameter>S_PTVISIT_OID</ActualParameter>
+<ActualParameter>EXTRN_PT_ID</ActualParameter>
+<ActualParameter>S_TESTDELAYS</ActualParameter>
+</ActualParameters>
+</Tool>
+</Implementation>
+<Performer>MANSTART_Performer</Performer>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Manual/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StepObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="172"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Annotation">
+<Annotation>
+          <AnnotText>Manual Start step allows you to start the 
+workflow in Staffware for testing purposes.  
+It can also be used to start workflows when 
+recovering from error situations or to start 
+cases for patients who have already been
+admitted when this procedure is first released. 
+Define the same fields on this form as are defined 
+in the start public step.
+</AnnotText>
+        </Annotation>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="3"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepFlags">
+<StepFlags FormEnableClipboard="false" FormHasOnlyDisplayFields="false" IgnoreCaseSuspend="false" NoDelOnWithdraw="false" WorkItemForwardable="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Addressees">
+<Addressees>
+            <UserAddr>
+              <UserName>sw_starter</UserName>
+            </UserAddr>
+          </Addressees>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="2" Name="Condition_Router">
+<Route/>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="ConditionObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="252"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="CondPredict">
+<CondPredict>FALSE</CondPredict>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Expression">
+<Expression>
+            <ExprStr>CONTINUE&lt;&gt;0</ExprStr>
+          </Expression>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="3" Name="START">
+<Description>Start</Description>
+<Implementation>
+<SubFlow Id="17START" Execution="SYNCHR">
+<ActualParameters>
+<ActualParameter>"MRN: " + EXTRN_PT_ID + ", " + Substr(SW_CASEDESC,8,10)</ActualParameter>
+<ActualParameter>S_TESTDELAYS</ActualParameter>
+<ActualParameter>SW_CASEDESC</ActualParameter>
+<ActualParameter>S_STARTTIME</ActualParameter>
+<ActualParameter>S_STARTDATE</ActualParameter>
+<ActualParameter>S_TESTROLE</ActualParameter>
+<ActualParameter>S_USECENSUS</ActualParameter>
+<ActualParameter>S_TESTDELAYS</ActualParameter>
+<ActualParameter>S_ACTIVE</ActualParameter>
+<ActualParameter>S_DISCHARGE</ActualParameter>
+</ActualParameters>
+</SubFlow>
+</Implementation>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="SubprocObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="328"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Annotation">
+<Annotation>
+          <AnnotText>This sub-procedure is the Start step. It calls 17START,
+which sets global variables required by the sub-
+procedures in the model library. 17START contains
+Test Mode variables. Open 17START to learn more.
+
+9TEMPLAT values the Input of 17START with a Case
+Description that includes the patient's Medical Record
+Number. The field EXTRN_PT_ID must be a public
+field under the Start Step public field.
+
+To start the procedure, this step needs a subscription
+in the Soarian Clinicals Administrative Desktop.
+
+If you use this main procedure as an Inpatient
+Admit procedure, you need 2 subscriptions, one
+for HL7_A01 (Inpatient Admission) and one for 
+HL7_A06 (Transfer from Outpatient to Inpatient). 
+</AnnotText>
+        </Annotation>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="31"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubPStepFlags">
+<SubPStepFlags IgnoreCaseSuspend="false" Incomplete="false" NoDelOnWithdraw="false" PredictIncludeSubSteps="false" PredictUseCallStepDuration="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubProcedureDetails">
+<SubProcedureDetails SubProcGuid="GUID" SubProcName="17START"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubProcCallParams">
+<SubProcCallParams>
+            <NewSubProcParams>
+              <Template Name="" Version=""/>
+              <InputMappings>
+                <InputParam ParamName="$IP2" SubProcField="SW_CASEDESC">
+                  <Expression>
+                    <ExprStr>"MRN: " + EXTRN_PT_ID + ", " + Substr(SW_CASEDESC,8,10)</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP7" SubProcField="S_TESTDELAYS">
+                  <Expression>
+                    <ExprStr>S_TESTDELAYS</ExprStr>
+                  </Expression>
+                </InputParam>
+              </InputMappings>
+              <OutputMappings>
+                <OutputParam ParamName="$OP1" SubProcField="SW_CASEDESC">
+                  <FieldRef fieldname="SW_CASEDESC">
+                    <FieldType>TEXT</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP2" SubProcField="S_STARTTIME">
+                  <FieldRef fieldname="S_STARTTIME">
+                    <FieldType>TIME</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP3" SubProcField="S_STARTDATE">
+                  <FieldRef fieldname="S_STARTDATE">
+                    <FieldType>DATE</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP4" SubProcField="S_TESTROLE">
+                  <FieldRef fieldname="S_TESTROLE">
+                    <FieldType>TEXT</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP5" SubProcField="S_USECENSUS">
+                  <FieldRef fieldname="S_USECENSUS">
+                    <FieldType>NUM</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP6" SubProcField="S_TESTDELAYS">
+                  <FieldRef fieldname="S_TESTDELAYS">
+                    <FieldType>NUM</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP7" SubProcField="S_ACTIVE">
+                  <FieldRef fieldname="S_ACTIVE">
+                    <FieldType>NUM</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP8" SubProcField="S_DISCHARGE">
+                  <FieldRef fieldname="S_DISCHARGE">
+                    <FieldType>NUM</FieldType>
+                  </FieldRef>
+                </OutputParam>
+              </OutputMappings>
+            </NewSubProcParams>
+          </SubProcCallParams>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="4" Name="WAITSTEP">
+<Description>Wait 1 Min</Description>
+<Implementation>
+<SubFlow Id="17TIMER" Execution="SYNCHR">
+<ActualParameters>
+<ActualParameter>1</ActualParameter>
+</ActualParameters>
+</SubFlow>
+</Implementation>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="SubprocObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="409"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="45"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubPStepFlags">
+<SubPStepFlags IgnoreCaseSuspend="false" Incomplete="false" NoDelOnWithdraw="false" PredictIncludeSubSteps="false" PredictUseCallStepDuration="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubProcedureDetails">
+<SubProcedureDetails SubProcGuid="GUID" SubProcName="17TIMER"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubProcCallParams">
+<SubProcCallParams>
+            <NewSubProcParams>
+              <Template Name="" Version=""/>
+              <InputMappings>
+                <InputParam ParamName="$IP7" SubProcField="EXPIRY_MINUTES">
+                  <Expression>
+                    <ExprStr>1</ExprStr>
+                  </Expression>
+                </InputParam>
+              </InputMappings>
+            </NewSubProcParams>
+          </SubProcCallParams>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="5" Name="JA13ADTV">
+<Description>Get Bed Status</Description>
+<Implementation>
+<SubFlow Id="13PTVSDC" Execution="SYNCHR">
+<ActualParameters>
+<ActualParameter>S_PT_OID</ActualParameter>
+<ActualParameter>S_PTVISIT_OID</ActualParameter>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter>PT_ACCOUNT_ID</ActualParameter>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter>BED_NAME</ActualParameter>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter>S_STARTDATE</ActualParameter>
+<ActualParameter>S_STARTTIME</ActualParameter>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+<ActualParameter/>
+</ActualParameters>
+</SubFlow>
+</Implementation>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="SubprocObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="494"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="52"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubPStepFlags">
+<SubPStepFlags IgnoreCaseSuspend="false" Incomplete="false" NoDelOnWithdraw="false" PredictIncludeSubSteps="false" PredictUseCallStepDuration="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubProcedureDetails">
+<SubProcedureDetails SubProcGuid="GUID" SubProcName="13PTVSDC"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubProcCallParams">
+<SubProcCallParams>
+            <NewSubProcParams>
+              <Template Name="" Version=""/>
+              <InputMappings>
+                <InputParam ParamName="$IP26" SubProcField="S_PT_OID">
+                  <Expression>
+                    <ExprStr>S_PT_OID</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP32" SubProcField="S_PTVISIT_OID">
+                  <Expression>
+                    <ExprStr>S_PTVISIT_OID</ExprStr>
+                  </Expression>
+                </InputParam>
+              </InputMappings>
+              <OutputMappings>
+                <OutputParam ParamName="$OP104" SubProcField="ENTITY_OID"/>
+                <OutputParam ParamName="$OP105" SubProcField="ENTITY_ID"/>
+                <OutputParam ParamName="$OP106" SubProcField="ENTITY_NAME"/>
+                <OutputParam ParamName="$OP107" SubProcField="PT_ACCT_ID">
+                  <FieldRef fieldname="PT_ACCOUNT_ID">
+                    <FieldType>TEXT</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP108" SubProcField="VISIT_ID"/>
+                <OutputParam ParamName="$OP109" SubProcField="ALT_VISIT_ID"/>
+                <OutputParam ParamName="$OP110" SubProcField="UNIT_CNTC_OID"/>
+                <OutputParam ParamName="$OP111" SubProcField="UNIT_CNTC_ABBR"/>
+                <OutputParam ParamName="$OP112" SubProcField="UNIT_CNTC"/>
+                <OutputParam ParamName="$OP113" SubProcField="BED_NAME">
+                  <FieldRef fieldname="BED_NAME">
+                    <FieldType>TEXT</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP114" SubProcField="VISIT_TYPE"/>
+                <OutputParam ParamName="$OP115" SubProcField="VISIT_STS"/>
+                <OutputParam ParamName="$OP116" SubProcField="IS_LIKE_IP"/>
+                <OutputParam ParamName="$OP117" SubProcField="S_PT_OID"/>
+                <OutputParam ParamName="$OP118" SubProcField="S_PTVISIT_OID"/>
+                <OutputParam ParamName="$OP119" SubProcField="START_DATE">
+                  <FieldRef fieldname="S_STARTDATE">
+                    <FieldType>DATE</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP137" SubProcField="START_TIME">
+                  <FieldRef fieldname="S_STARTTIME">
+                    <FieldType>TIME</FieldType>
+                  </FieldRef>
+                </OutputParam>
+                <OutputParam ParamName="$OP138" SubProcField="START_VISIT_OID"/>
+                <OutputParam ParamName="$OP139" SubProcField="ACCOM_TYPE"/>
+                <OutputParam ParamName="$OP140" SubProcField="PT_STS_CD"/>
+                <OutputParam ParamName="$OP141" SubProcField="PUB_IND"/>
+                <OutputParam ParamName="$OP142" SubProcField="PT_CONDITION"/>
+                <OutputParam ParamName="$OP143" SubProcField="ADV_DIRECTIVE"/>
+                <OutputParam ParamName="$OP145" SubProcField="DEATH_IND"/>
+              </OutputMappings>
+            </NewSubProcParams>
+          </SubProcCallParams>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="6" Name="PROBRES">
+<Description>Resolve Problems</Description>
+<Implementation>
+<SubFlow Id="8PROBRES" Execution="SYNCHR">
+<ActualParameters>
+<ActualParameter>S_PT_OID</ActualParameter>
+<ActualParameter>S_PTVISIT_OID</ActualParameter>
+<ActualParameter>S_TESTROLE</ActualParameter>
+<ActualParameter>S_USECENSUS</ActualParameter>
+<ActualParameter>S_TESTDELAYS</ActualParameter>
+<ActualParameter>S_ACTIVE</ActualParameter>
+<ActualParameter>S_STARTDATE</ActualParameter>
+<ActualParameter>S_STARTTIME</ActualParameter>
+</ActualParameters>
+</SubFlow>
+</Implementation>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions>
+<TransitionRestriction>
+<Join Type="XOR"/>
+</TransitionRestriction>
+</TransitionRestrictions>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="SubprocObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="802"/>
+<ExtendedAttribute Name="YOffset" Value="303"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="54"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubPStepFlags">
+<SubPStepFlags IgnoreCaseSuspend="false" Incomplete="false" NoDelOnWithdraw="false" PredictIncludeSubSteps="false" PredictUseCallStepDuration="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubProcedureDetails">
+<SubProcedureDetails SubProcGuid="GUID" SubProcName="8PROBRES"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SubProcCallParams">
+<SubProcCallParams>
+            <NewSubProcParams>
+              <Template Name="" Version=""/>
+              <InputMappings>
+                <InputParam ParamName="$IP1" SubProcField="S_PT_OID">
+                  <Expression>
+                    <ExprStr>S_PT_OID</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP2" SubProcField="S_PTVISIT_OID">
+                  <Expression>
+                    <ExprStr>S_PTVISIT_OID</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP3" SubProcField="S_TESTROLE">
+                  <Expression>
+                    <ExprStr>S_TESTROLE</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP4" SubProcField="S_USECENSUS">
+                  <Expression>
+                    <ExprStr>S_USECENSUS</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP5" SubProcField="S_TESTDELAYS">
+                  <Expression>
+                    <ExprStr>S_TESTDELAYS</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP6" SubProcField="S_ACTIVE">
+                  <Expression>
+                    <ExprStr>S_ACTIVE</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP7" SubProcField="S_STARTDATE">
+                  <Expression>
+                    <ExprStr>S_STARTDATE</ExprStr>
+                  </Expression>
+                </InputParam>
+                <InputParam ParamName="$IP8" SubProcField="S_STARTTIME">
+                  <Expression>
+                    <ExprStr>S_STARTTIME</ExprStr>
+                  </Expression>
+                </InputParam>
+              </InputMappings>
+            </NewSubProcParams>
+          </SubProcCallParams>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="7" Name="Stop">
+<Route/>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StopObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="934"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="8" Name="PTOIDCHG">
+<Description>S_Pt_OID Changed</Description>
+<Implementation>
+<No/>
+</Implementation>
+<StartMode>
+<Manual/>
+</StartMode>
+<FinishMode>
+<Manual/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="EventObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="94"/>
+<ExtendedAttribute Name="YOffset" Value="445"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Annotation">
+<Annotation>
+          <AnnotText>This event step is triggered when the Patient Object 
+Identifier assigned to the patient by Soarian changes. 
+The event subscription assigns the new value to 
+field S_PT_OID. 
+
+This event step exists to update the workflow with 
+the current Patient Object ID if patient visit data is 
+moved to the medical record of a different patient 
+(event HL7_A43), or if two patients are merged (HL7_A40).
+This event must exist on all procedures and 
+sub-procedures that utilize patient information.
+
+This event requires 2 subscriptions. Build and enable the 
+subscriptions in Soarian Clinicals Administration Desktop.
+See detailed instructions in the Annotations of the README 
+router step at the beginning of the workflow.
+</AnnotText>
+        </Annotation>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="20"/>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="9" Name="DUPCHECK">
+<Description>Duplicate Case Check</Description>
+<Implementation>
+<No/>
+</Implementation>
+<StartMode>
+<Manual/>
+</StartMode>
+<FinishMode>
+<Manual/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="EventObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="172"/>
+<ExtendedAttribute Name="YOffset" Value="445"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Annotation">
+<Annotation>
+          <AnnotText>This event step can be used in a 
+subscription to prevent starting a workflow 
+case for a patient if one already exisits.  This 
+is used in workflows that start on events that 
+can be created more than once for a patient.  
+
+As the subscription is custom for each 
+workflow, a subscription example is 
+not provided here.
+</AnnotText>
+        </Annotation>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="19"/>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="10" Name="1README">
+<Description>README</Description>
+<Route/>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="ComplexRouterObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="94"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Annotation">
+<Annotation>
+          <AnnotText>Subscriptions are needed for:
+--Event PTOIDCHG: Requires 2 subscriptions, defined below.
+--Event START Step: What event(s) will trigger this procedure?
+***Example: To start this procedure for all Inpatient admits, 
+create 2 subscriptions, one for HL7_A01 (Inpatient 
+Admission) and one for HL7_A06 (Transfer Outpatient to 
+Inpatient). Example subscriptions are defined below.***
+--Event DUPCHECK: If needed, create subscription. Example 
+not given.
+--OTHER Events: Create subscriptions for any other events 
+added to the procedure and Public Steps and Events.
+
+SUBSCRIPTION NAME - 
+**NAMEOFYOURPROCEDURE**:PTOIDCHG&lt;HL7_A40
+----------------------------------------------------------------------------------------
+Description: **DescriptionOfYourProcedure**: Patient 
+Records Merged
+
+On Event (triggering event in Soarian)
+----------------------------------------------
+-Event Name: HL7_A40
+
+Action (event above triggers a step in active case of the
+           Staffware procedure or triggers a new case of the 
+           procedure)
+-------------------------------------------------------------------------------
+-Procedure Name: **Select Your Procedure**
+-Trigger Event Step (check): PTOIDCHG
+
+     -If a procedure instance meets the following criteria: 
+                -S_PT_OID = SourcePatientObjectID
+
+     -Event Step Field Map
+
+          PROCEDURE FIELD  :  VALUE
+          -------------------------------------
+          S_PT_OID  :  TargetPatientObjectID
+____________________________________________
+
+SUBSCRIPTION NAME - 
+**NAMEOFYOURPROCEDURE**:PTOIDCHG&lt;HL7_A43
+----------------------------------------------------------------------------------------
+Description: **DescriptionOfYourProcedure**: Patient Visit 
+Data Moved
+
+On Event (triggering event in Soarian)
+----------------------------------------------
+-Event Name: HL7_A43
+
+Action (event above triggers a step in active case of the
+           Staffware procedure or triggers a new case of the 
+           procedure)
+---------------------------------------------------
+-Procedure Name: **Select Your Procedure**
+-Trigger Event Step (check): PTOIDCHG
+
+     -If a procedure instance meets the following criteria: 
+                -S_PTVISIT_OID = SourceVisitObjectID
+
+     -Event Step Field Map
+
+          PROCEDURE FIELD  :  VALUE
+          -------------------------------------
+          S_PT_OID  :  TargetPatientObjectID
+
+_____________________________________
+
+SUBSCRIPTION NAME - 
+**NAMEOFYOURPROCEDURE**:START&lt;HL7_A01
+----------------------------------------------------------------------------------------
+Description: **DescriptionOfYourProcedure**: Start on Inpatient 
+Admission
+
+On Event (triggering event in Soarian)
+----------------------------------------------
+-Event Name: HL7_A01
+
+Action (event above triggers a step in active case of the
+           Staffware procedure or triggers a new case of the 
+           procedure)
+-------------------------------------------------------------------------------
+-Procedure Name: **Select Your Procedure**
+-Start New Procedure Instance (check): START
+
+     -Start Step Field Map
+
+          PROCEDURE FIELD  :  VALUE
+          -------------------------------------
+          EXTRN_PT_ID  :  ExternalPatientID
+          S_PTVISIT_OID  :  VisitObjectID
+          S_PT_OID  :  PatientObjectID
+
+______________________________________
+
+SUBSCRIPTION NAME - 
+**NAMEOFYOURPROCEDURE**:START&lt;HL7_A06
+----------------------------------------------------------------------------------------
+Description: **DescriptionOfYourProcedure**: Start on 
+Outpatient Transferred to Inpatient
+
+On Event (triggering event in Soarian)
+----------------------------------------------
+-Event Name: HL7_A06
+
+Action (event above triggers a step in active case of the
+           Staffware procedure or triggers a new case of the 
+           procedure)
+-------------------------------------------------------------------------------
+-Procedure Name: **Select Your Procedure**
+-Start New Procedure Instance (check): START
+
+     -Start Step Field Map
+
+          PROCEDURE FIELD  :  VALUE
+          -------------------------------------
+          EXTRN_PT_ID  :  ExternalPatientID
+          S_PTVISIT_OID  :  VisitObjectID
+          S_PT_OID  :  PatientObjectID
+</AnnotText>
+        </Annotation>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="32"/>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="11" Name="VSAUDIT">
+<Description>Audit Visit Details</Description>
+<Implementation>
+<Tool Type="APPLICATION" Id="VSAUDIT">
+<ActualParameters/>
+</Tool>
+</Implementation>
+<Performer>VSAUDIT_Performer</Performer>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="EAIObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="587"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="48"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIStepFlags">
+<EAIStepFlags IgnoreCaseSuspend="false" NoDelOnWithdraw="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="AuditInitiated">
+<AuditInitiated>
+            <Expression>
+              <ExprStr>"Entity ID: " + ENTITY_ID + " ,Patient Ac ID: " + PT_ACCOUNT_ID + " ,Bed Name: " + BED_NAME</ExprStr>
+            </Expression>
+          </AuditInitiated>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="AuditComplete">
+<AuditComplete>
+            <Expression>
+              <ExprStr>"Admit Date:= " + DATESTR(S_STARTDATE) + " ,Admit Time:= " + TIMESTR(S_STARTTIME)</ExprStr>
+            </Expression>
+          </AuditComplete>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="DelayedRelease">
+<DelayedRelease>
+            <DelayedReleaseType>Never</DelayedReleaseType>
+          </DelayedRelease>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="12" Name="Condition_Router">
+<Description>Test Mode</Description>
+<Route/>
+<TransitionRestrictions>
+<TransitionRestriction>
+<Split Type="AND">
+<TransitionRefs>
+<TransitionRef Id="Trans_N12DE7CE8.111190E8"/>
+<TransitionRef Id="Trans_N12DE7CE8.11119388"/>
+</TransitionRefs>
+</Split>
+</TransitionRestriction>
+</TransitionRestrictions>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="ConditionObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="686"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="CondPredict">
+<CondPredict>FALSE</CondPredict>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Expression">
+<Expression>
+            <ExprStr>S_TESTDELAYS = 1</ExprStr>
+          </Expression>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="13" Name="Condition_Router">
+<Description>Is Bed Empty?</Description>
+<Route/>
+<TransitionRestrictions>
+<TransitionRestriction>
+<Split Type="AND">
+<TransitionRefs>
+<TransitionRef Id="Trans_N12DE7CE8.111191C8"/>
+<TransitionRef Id="Trans_N12DE7CE8.111192A8"/>
+</TransitionRefs>
+</Split>
+</TransitionRestriction>
+</TransitionRestrictions>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="ConditionObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="720"/>
+<ExtendedAttribute Name="YOffset" Value="406"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="CondPredict">
+<CondPredict>FALSE</CondPredict>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="Expression">
+<Expression>
+            <ExprStr>BED_NAME = "NULL"</ExprStr>
+          </Expression>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="14" Name="Stop">
+<Route/>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StopObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="721"/>
+<ExtendedAttribute Name="YOffset" Value="477"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="17" Name="Start">
+<Route/>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StartObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="33"/>
+<ExtendedAttribute Name="YOffset" Value="304"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="2"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+</Activities>
+<Transitions>
+<Transition From="1" To="2" Id="Trans_N12DE7CE8.12E26940">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="2" To="3" Id="Trans_N12DE7CE8.12E26A20">
+<Condition Type="CONDITION">CONTINUE&lt;&gt;0</Condition>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="0" Green="160" Red="0"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="3" To="4" Id="Trans_N12DE7CE8.12E26B00">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="4" To="5" Id="Trans_N12DE7CE8.12E26BE0">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="6" To="7" Id="Trans_N12DE7CE8.12E26CC0">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="10" To="1" Id="Trans_N12DE7CE8.12E26DA0">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="5" To="11" Id="Trans_N12DE7CE8.12E26E80">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="11" To="12" Id="Trans_N12DE7CE8.11119008">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="12" To="13" Id="Trans_N12DE7CE8.111190E8">
+<Condition Type="OTHERWISE"/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="false" ToPrimary="true">
+          <FromSide>bottom</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="0" Green="0" Red="160"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="13" To="14" Id="Trans_N12DE7CE8.111191C8">
+<Condition Type="OTHERWISE"/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="false" ToPrimary="true">
+          <FromSide>bottom</FromSide>
+          <ToSide>top</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="0" Green="0" Red="160"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="13" To="6" Id="Trans_N12DE7CE8.111192A8">
+<Condition Type="CONDITION">BED_NAME = "NULL"</Condition>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="0" Green="160" Red="0"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="12" To="6" Id="Trans_N12DE7CE8.11119388">
+<Condition Type="CONDITION">S_TESTDELAYS = 1</Condition>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="0" Green="160" Red="0"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="17" To="10" Id="Trans_N12DE7CE8.11119468">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="1">
+          <LineType>flowChart</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+</Transitions>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ProcProperties">
+<ProcProperties Author="swpro" AutoPurgeCases="false" DateCreated="02/03/2010 21:24" DateModified="03/03/2010 00:39" IgnoreBlankAddressees="false" MajorVersion="0" MaxStepNum="54" MinorVersion="3" NormalizeCaseData="true" PMO_ID="703" PredictInBackground="false" ProcDescription="Resolve Probs Main Proc" ReleaseID="" UsageURL="" UseWorkingDays="false">
+      <ProcType>MAIN</ProcType>
+      <ProcStatus>released</ProcStatus>
+      <CaseDescOnStart>optional</CaseDescOnStart>
+      <ProcPublicSteps>
+        <PublicSteps>
+          <PublicStep Description="START" ObjectName="START" URL="">
+            <PublicField Description="Soarian Pt Obj ID" Required="true">
+              <FieldRef fieldname="S_PT_OID">
+                <FieldType>NUM</FieldType>
+              </FieldRef>
+            </PublicField>
+            <PublicField Description="Soarian Pt Visit Obj ID" Required="true">
+              <FieldRef fieldname="S_PTVISIT_OID">
+                <FieldType>NUM</FieldType>
+              </FieldRef>
+            </PublicField>
+            <PublicField Description="MRN" Required="false">
+              <FieldRef fieldname="EXTRN_PT_ID">
+                <FieldType>TEXT</FieldType>
+              </FieldRef>
+            </PublicField>
+            <PublicField Description="" Required="false">
+              <FieldRef fieldname="S_DSCH_DT_TM">
+                <FieldType>TEXT</FieldType>
+              </FieldRef>
+            </PublicField>
+          </PublicStep>
+        </PublicSteps>
+        <PublicEvents>
+          <PublicStep Description="Duplicate Case Check" ObjectName="DUPCHECK" URL="">
+            <PublicField Description="Soarian Patient Obj ID" Required="false">
+              <FieldRef fieldname="S_PT_OID">
+                <FieldType>NUM</FieldType>
+              </FieldRef>
+            </PublicField>
+            <PublicField Description="Soarian Pt Visit Obj ID" Required="false">
+              <FieldRef fieldname="S_PTVISIT_OID">
+                <FieldType>NUM</FieldType>
+              </FieldRef>
+            </PublicField>
+          </PublicStep>
+          <PublicStep Description="S_Pt_OID Changed" ObjectName="PTOIDCHG" URL="">
+            <PublicField Description="Soarian Patient Obj ID" Required="true">
+              <FieldRef fieldname="S_PT_OID">
+                <FieldType>NUM</FieldType>
+              </FieldRef>
+            </PublicField>
+            <PublicField Description="Soarian Pt Visit Obj ID" Required="false">
+              <FieldRef fieldname="S_PTVISIT_OID">
+                <FieldType>NUM</FieldType>
+              </FieldRef>
+            </PublicField>
+          </PublicStep>
+        </PublicEvents>
+      </ProcPublicSteps>
+      <StartStep ObjectName="1README"/>
+      <DefinitionAccess>
+        <AllUsers>
+          <DefinitionAccessType>Edit</DefinitionAccessType>
+        </AllUsers>
+      </DefinitionAccess>
+      <ProcedureGUID>DBC71327-2613-11DF-B393-00188B4B922E</ProcedureGUID>
+    </ProcProperties>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LayoutOptions">
+<LayoutOptions AnimateLinks="true" DisplayDescText="true" DisplayExtDescText="false" DisplayLinkLabelText="true" DisplayNameText="false" FastAnimPoints="false" GridSize="0" MultiAnimPoints="true" RoundAnimPoints="true" Scale="1" ShowGrid="false" TopDown="false">
+      <LinkStyleFlags LineWidth="1">
+        <LineType>flowChart</LineType>
+        <StartCap>round</StartCap>
+        <EndCap>arrow1</EndCap>
+      </LinkStyleFlags>
+      <NormalLinkColor>
+        <ColorRef Blue="60" Green="60" Red="60"/>
+      </NormalLinkColor>
+      <IfYesLinkColor>
+        <ColorRef Blue="0" Green="160" Red="0"/>
+      </IfYesLinkColor>
+      <IfNoLinkColor>
+        <ColorRef Blue="0" Green="0" Red="160"/>
+      </IfNoLinkColor>
+      <DeadlineLinkColor>
+        <ColorRef Blue="200" Green="0" Red="0"/>
+      </DeadlineLinkColor>
+    </LayoutOptions>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLanes">
+<SwimLanes>
+      <LanesProperties>
+        <LanesType>Horizontal</LanesType>
+        <LanesStyles Border="true" ColorLaneHeaderOnly="false" Shadow="true">
+          <LanesStyle>Plain</LanesStyle>
+        </LanesStyles>
+      </LanesProperties>
+      <SwimLane Label="Description" Size="189" SwimLaneID="1">
+        <LaneBgColor BgFadePercent="10">
+          <ColorRef Blue="0" Green="0" Red="255"/>
+        </LaneBgColor>
+        <LaneTextColor>
+          <ColorRef Blue="0" Green="0" Red="0"/>
+        </LaneTextColor>
+      </SwimLane>
+      <SwimLane Label="Resolve Problems" Size="350" SwimLaneID="2">
+        <LaneBgColor BgFadePercent="10">
+          <ColorRef Blue="0" Green="255" Red="0"/>
+        </LaneBgColor>
+        <LaneTextColor>
+          <ColorRef Blue="0" Green="0" Red="0"/>
+        </LaneTextColor>
+      </SwimLane>
+      <SwimLane Label="Disclaimer" Size="249" SwimLaneID="3">
+        <LaneBgColor BgFadePercent="10">
+          <ColorRef Blue="255" Green="0" Red="0"/>
+        </LaneBgColor>
+        <LaneTextColor>
+          <ColorRef Blue="0" Green="0" Red="0"/>
+        </LaneTextColor>
+      </SwimLane>
+    </SwimLanes>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="NonFlowObject">
+<NonFlowObject ObjectNumber="15" SwimLaneID="2" X="172" Y="370">
+        <TextPosition>Automatic</TextPosition>
+        <Annotation>
+          <AnnotText>The Continue script is a button on the Manual Start form. If 
+selected, the procedure proceeds to the next step.
+</AnnotText>
+        </Annotation>
+        <ScriptObject ObjectName="CONTINUE" SelectedByRef="false">
+          <Description>Continue</Description>
+          <Script>
+            <ScriptText>CONTINUE := 1      ;TRUE
+FORMCONTROL(3) ;Close form
+</ScriptText>
+          </Script>
+        </ScriptObject>
+      </NonFlowObject>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="NonFlowObject">
+<NonFlowObject ObjectNumber="16" SwimLaneID="2" X="94" Y="370">
+        <TextPosition>Automatic</TextPosition>
+        <Annotation>
+          <AnnotText>The Cancel script is a button on the Manual Start form. If 
+selected, manual start is cancelled.
+</AnnotText>
+        </Annotation>
+        <ScriptObject ObjectName="CANCEL" SelectedByRef="false">
+          <Description>Cancel</Description>
+          <Script>
+            <ScriptText>CONTINUE := 0      ;FALSE
+FORMCONTROL(3) ;Close form
+
+</ScriptText>
+          </Script>
+        </ScriptObject>
+      </NonFlowObject>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="NonFlowObject">
+<NonFlowObject ObjectNumber="18" SwimLaneID="1" X="39" Y="49">
+        <TextPosition>Automatic</TextPosition>
+        <Annotation>
+          <AnnotText>POC Resolve Problems Main Procedure
+
+This procedure calls the Resolve Problems
+subprocedure to update a list of problems 
+to the Resolved status.
+</AnnotText>
+        </Annotation>
+        <AnnotationObject/>
+      </NonFlowObject>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="NonFlowObject">
+<NonFlowObject ObjectNumber="19" SwimLaneID="3" X="31" Y="566">
+        <TextPosition>Automatic</TextPosition>
+        <Annotation>
+          <AnnotText>Revision; Date; Author; Reason for Change
+---------------------------------------------------------
+ 1.0; 02Mar2010;
+---------------------------------------------------------
+Copyright © 2006 Siemens Medical Solutions Health Services
+</AnnotText>
+        </Annotation>
+        <AnnotationObject/>
+      </NonFlowObject>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="NonFlowObject">
+<NonFlowObject ObjectNumber="20" SwimLaneID="3" X="337" Y="566">
+        <TextPosition>Automatic</TextPosition>
+        <Annotation>
+          <AnnotText>Workflow Disclaimer
+-------------------------------------------------------
+Author: Siemens
+
+The workflow engine is used to sequence and
+coordinate tasks between health care providers.
+It calls on the rules engine to perform clinical
+logic for alerts and reminders.
+
+In making this process definition available to
+users of the System, Siemens is not prescribing
+the use of any drug or any treatment or
+procedure described herein.  This process
+definition is not intended to replace current
+medical practices, sound professional judgment
+or individualized patient care.
+
+Siemens disclaims all responsibility for the
+consequences of using the information and ALL
+WARRANTIES, WHETHER EXPRESSED OR
+IMPLIED, INCLUDING ALL WARRANTIES AS
+TO THE MERCHANTABILITY, QUALITY,
+ACCURACY OR FITNESS FOR A PARTICULAR
+PURPOSE OF THIS INFORMATION ARE
+EXCLUDED AND DISCLAIMED.
+</AnnotText>
+        </Annotation>
+        <AnnotationObject/>
+      </NonFlowObject>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</WorkflowProcess>
+</WorkflowProcesses>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="MadeBy" Value="Tibco-Process-Suite"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SchemaFormat">
+<SchemaFormat Version="3">
+<ComponentVersion Name="sw.xsd" Version="$Revision: 1.20 $"/>
+<ComponentVersion Name="XPDLExtAttr.xsd" Version="$Revision: 1.20 $"/>
+<ComponentVersion Name="TIBCO iProcess Workspace (Windows)" Version="10.6.0"/>
+<ComponentVersion Name="sw2xpdl.xslt" Version="$Revision: 1.18 $"/>
+<ComponentVersion Name="Objects.xslt" Version="$Revision: 1.6 $"/>
+<ComponentVersion Name="Participants.xslt" Version="$Revision: 1.9 $"/>
+<ComponentVersion Name="SubProcParams.xslt" Version="$Revision: 1.10 $"/>
+<ComponentVersion Name="Links.xslt" Version="$Revision: 1.14 $"/>
+<ComponentVersion Name="Fields.xslt" Version="$Revision: 1.13 $"/>
+<ComponentVersion Name="FormAndEAIDefs.xslt" Version="$Revision: 1.13 $"/>
+<ComponentVersion Name="Utils.xslt" Version="$Revision: 1.10 $"/>
+<ComponentVersion Name="translations.xslt" Version="$Revision: 1.3 $"/>
+</SchemaFormat>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Package>

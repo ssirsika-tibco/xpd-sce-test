@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="__YVhkAuPEd-wldUsHLKYtQ" xpdExt:DisplayName="UC3K_PageflowPP" Name="UC3K_PageflowPP">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-01-27</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>kupadhya</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_gujp-wuREd-wldUsHLKYtQ" xpdExt:DisplayName="dbSysParticipant_PF" Name="dbSysParticipant_PF">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:Jdbc InstanceName="DataSource_PF" JdbcProfileName="DataSource_PF"/>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_KjJ0MAuQEd-wldUsHLKYtQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_Iv0OUAuQEd-wldUsHLKYtQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_KjJ0MQuQEd-wldUsHLKYtQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="300.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_Iv0OUAuQEd-wldUsHLKYtQ" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:XpdModelType="PageFlow" xpdExt:DisplayName="UC3K_Pageflow_DbUpdate" iProcessExt:MaxStepIndex="8" Name="UC3K_Pageflow_DbUpdate">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_YbxUYAuREd-wldUsHLKYtQ" Name="pfCustName" IsArray="false" ReadOnly="false" Mode="OUT" Required="false" xpdExt:DisplayName="pfCustName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_YbxUYQuREd-wldUsHLKYtQ" Name="pfCustId" IsArray="false" ReadOnly="false" Mode="OUT" Required="false" xpdExt:DisplayName="pfCustId">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_gujp-QuREd-wldUsHLKYtQ" xpdExt:DisplayName="bpCustName" Name="bpCustName">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_gujp-guREd-wldUsHLKYtQ" xpdExt:DisplayName="bpCustId" Name="bpCustId">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_KjmgJwuQEd-wldUsHLKYtQ" Name="Start" xpdExt:Visibility="Private" xpdExt:DisplayName="Start" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="27.0" LaneId="_KjJ0MQuQEd-wldUsHLKYtQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="33.0" YCoordinate="72.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_KjmgKAuQEd-wldUsHLKYtQ" Name="CapturedatainPageflow" xpdExt:Visibility="Private" xpdExt:DisplayName="Capture data in Page flow" iProcessExt:StepIndex="5">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_KjmgKQuQEd-wldUsHLKYtQ"/>
+                <xpdl2:MessageOut Id="_KjmgKguQEd-wldUsHLKYtQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="64.0" LaneId="_KjJ0MQuQEd-wldUsHLKYtQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="133.0" YCoordinate="72.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="pfCustId" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="pfCustName" Mode="OUT" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_KjmgKwuQEd-wldUsHLKYtQ" Name="End" xpdExt:Visibility="Private" xpdExt:DisplayName="End" iProcessExt:StepIndex="6">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="45.0" LaneId="_KjJ0MQuQEd-wldUsHLKYtQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="508.0" YCoordinate="70.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_OlirkAuQEd-wldUsHLKYtQ" Name="DisplaydatainPageflow" xpdExt:Visibility="Private" xpdExt:DisplayName="Display data in Page flow" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_OlirkQuQEd-wldUsHLKYtQ"/>
+                <xpdl2:MessageOut Id="_OlirkguQEd-wldUsHLKYtQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="64.0" LaneId="_KjJ0MQuQEd-wldUsHLKYtQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="431.0" YCoordinate="70.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="pfCustId" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="pfCustName" Mode="IN" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_kNen4AuREd-wldUsHLKYtQ" Name="UpdateDatainDB" xpdExt:Visibility="Private" xpdExt:DisplayName="Update Data in DB" iProcessExt:StepIndex="8">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="Database" Implementation="Other">
+                <xpdl2:MessageIn Id="_oDWGMAuREd-wldUsHLKYtQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="Parameter 2">
+                      <xpdl2:Actual>pfCustName</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="IN" Formal="Parameter 1">
+                      <xpdl2:Actual>pfCustId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_oDWGMQuREd-wldUsHLKYtQ"/>
+                <database:Database>
+                  <database:Operation database:Type="Update">
+                    <database:Sql>UPDATE MyCustomer SET custName=? WHERE custId=?</database:Sql>
+                    <database:Parameters>
+                      <database:Parameter Name="Parameter 1"/>
+                      <database:Parameter Name="Parameter 2"/>
+                    </database:Parameters>
+                  </database:Operation>
+                </database:Database>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_gujp-wuREd-wldUsHLKYtQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="143,191,251" Height="64.0" LaneId="_KjJ0MQuQEd-wldUsHLKYtQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="283.0" YCoordinate="70.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_KjmgLAuQEd-wldUsHLKYtQ" xpdExt:DisplayName="" Name="" From="_KjmgJwuQEd-wldUsHLKYtQ" To="_KjmgKAuQEd-wldUsHLKYtQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_KjmgLQuQEd-wldUsHLKYtQ" xpdExt:DisplayName="" Name="" From="_OlirkAuQEd-wldUsHLKYtQ" To="_KjmgKwuQEd-wldUsHLKYtQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_gvAV4AuREd-wldUsHLKYtQ" xpdExt:DisplayName="" Name="" From="_kNen4AuREd-wldUsHLKYtQ" To="_OlirkAuQEd-wldUsHLKYtQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_kNen4wuREd-wldUsHLKYtQ" xpdExt:DisplayName="" Name="" From="_KjmgKAuQEd-wldUsHLKYtQ" To="_kNen4AuREd-wldUsHLKYtQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="pfCustName"/>
+            <simulation:ParameterDistribution ParameterId="pfCustId"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

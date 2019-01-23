@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.bx.composite.xpdl.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.bx.composite.xpdl.core" id="extensionDependencies" name="Extension Dependencies"/>
+      </appInfo>
+      <documentation>
+         [Enter description of this extension point.]
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="extensionDependencies"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="extensionDependencies">
+      <complexType>
+         <sequence>
+            <element ref="requiredCapability" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="importPackage" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="requiredBundle" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the identifier
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="objectClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a fully qualified name of the class or interface that all objects in the 
+selection must subclass or implement.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.emf.ecore.EObject"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="requiredBundle">
+      <complexType>
+         <attribute name="bundleId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a unique identifier used to reference this bundle
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="optional">
+            <annotation>
+               <documentation>
+                  optional or not
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="true">
+                  </enumeration>
+                  <enumeration value="false">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="minimum" type="string">
+            <annotation>
+               <documentation>
+                  minimum version, inclusive
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="maximum" type="string">
+            <annotation>
+               <documentation>
+                  miximum version, exclusive
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="importPackage">
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the name of imported package
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="minimum" type="string">
+            <annotation>
+               <documentation>
+                  minimum version, inclusive
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="maximum" type="string">
+            <annotation>
+               <documentation>
+                  miximum version, exclusive
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="optional">
+            <annotation>
+               <documentation>
+                  optional or not
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="true">
+                  </enumeration>
+                  <enumeration value="false">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="requiredCapability">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the id of required capability
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="version" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the version of required capability
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the type of required capability
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

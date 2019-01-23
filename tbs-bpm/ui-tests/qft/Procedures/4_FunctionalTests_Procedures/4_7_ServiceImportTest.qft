@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="7) Service Import Test">
+      <comment>Procedure that ensures that the Service import action works fine as mentioned http://confluence.tibco.com/display/BPM/4.7+Service+Import+Test
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Q9"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/4_7_ServiceImportTestProject.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1Qe" name="Import wsdl">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject"
+                        event="MOUSE_MPRC" id="_uu1Qf" modifiers="16" x="-26"
+                        y="13"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/BizDataProject/Service Descriptors"
+                        event="MOUSE_MPRC" id="_uu1Qg" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-common.import.menu"
+                            event="SELECTION" id="_uu1Qh"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-common.import.menu-new"
+                            event="SELECTION" id="_uu1Qi"/>
+        <ComponentWaiter client="BusinessStudio" component="WsdlImportWizard"
+                         id="_uu1Qj"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonDescriptor_for_XML_over_JMS"
+                        event="MOUSE_MPRC" id="_uu1Qk" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonImport_from_a_File"
+                        event="MOUSE_MPRC" id="_uu1Ql" modifiers="16"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonNext" event="MOUSE_MPRC" id="_uu1Qm"
+                        modifiers="16"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="WSDL_Selection2.textSource_Location:"
+                      event="KEY_PRESSED" id="_uu1Qn" keychar="65535"
+                      keycode="17" modifiers="0"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="WSDL_Selection2.textSource_Location:"
+                      event="KEY_PTR" id="_uu1Qo" keychar="1" keycode="65"
+                      modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="WSDL_Selection2.textSource_Location:"
+                      event="KEY_RELEASED" id="_uu1Qp" keychar="65535"
+                      keycode="17" modifiers="2"/>
+        <KeyEventStep client="BusinessStudio"
+                      component="WSDL_Selection2.textSource_Location:"
+                      event="KEY_PTR" id="_uu1Qq" keychar="8" keycode="8"
+                      modifiers="0"/>
+        <TextInputStep clear="true" client="BusinessStudio"
+                       component="WSDL_Selection2.textSource_Location:"
+                       id="_uu1Qr">
+          <text>${Prop:QFTProjectsLocation}/${ArchivedFileLocation:4_FunctionalTestArchivedFileLocation}/wsdl/4_7_ServiceImportTestResource/WSDL2.wsdl</text>
+        </TextInputStep>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish" event="MOUSE_MPRC"
+                        id="_uu1Q+" modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="WsdlImportWizard" id="_uu1R4"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu0Cr"
+                     procedure="business_studio_operations.waitForBuildToComplete"/>
+      <ProcedureCall id="_uu1LZ"
+                     procedure="business_studio_operations.validation.checkForNoErrorLevelProblemMarkersInStudio"/>
+      <TestStep id="_uu0lD" name="inspectModel">
+        <ProcedureCall id="_uu0lE"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">BizDataProject/Generated Business Objects/org.example.Schema1.bom</variable>
+          <variable name="elementToFind">Model.packagedElement[impl=PrimitiveTypeImpl,name="getBatchGroupIdsType"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1RN"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">BizDataProject/Generated Business Objects/org.example.Schema1.bom</variable>
+          <variable name="elementToFind">Model.packagedElement[impl=PrimitiveTypeImpl,name="getBatchWorkItemIdsType"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu0lO"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">BizDataProject/Generated Business Objects/org.example.WSDL2.bom</variable>
+          <variable name="elementToFind">Model.packagedElement[impl=classimpl,name="NewOperationType"].ownedAttribute[name="in1"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1RO"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">BizDataProject/Generated Business Objects/org.example.WSDL2.bom</variable>
+          <variable name="elementToFind">Model.packagedElement[impl=classimpl,name="NewOperationResponseType"].ownedAttribute[name="out"]</variable>
+        </ProcedureCall>
+        <ProcedureCall id="_uu1RP"
+                       procedure="business_studio_operations.inspectModel">
+          <variable name="resourceLocation">BizDataProject/Generated Business Objects/org.example.WSDL2.bom</variable>
+          <variable name="elementToFind">Model.packagedElement[impl=classimpl,name="WSDL2"].ownedOperation[name="NewOperation"].ownedParameter[name="parameters"]</variable>
+        </ProcedureCall>
+      </TestStep>
+      <ProcedureCall id="_uu1RM"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">BizDataProject</variable>
+      </ProcedureCall>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - TIBCO Business Studio" height="876"
+                id="WorkbenchWindow" name="WorkbenchWindow" uid="_uu1QR"
+                width="1616">
+      <ComponentStep class="Tree" classcount="3" classindex="2" height="496"
+                     id="Project_Explorer" name="Project Explorer"
+                     uid="_uu1QS" width="408" x="15" y="109">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Tree</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Tree</extrafeature>
+      </ComponentStep>
+      <ComponentStep class="MenuBar"
+                     feature="Popup InvokerName: Project Explorer"
+                     height="400" id="popup-Project_Explorer"
+                     name="popup-Project Explorer" uid="_uu1QT" width="253">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="24" classindex="10"
+                       feature="Import" height="19"
+                       id="menu-common.import.menu"
+                       name="menu-common.import.menu" uid="_uu1QU" width="249"
+                       x="2" y="172">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Import</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem" feature="Service Import Wizard"
+                         height="19" id="menu-common.import.menu-new"
+                         name="menu-common.import.menu-new" uid="_uu1QV"
+                         width="176" x="2" y="2">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">1106716854</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Service Import Wizard</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="WSDL Import Wizard"
+                height="433" id="WsdlImportWizard" modal="true"
+                name="WsdlImportWizard" uid="_uu1QW" width="525">
+      <ComponentStep class="Panel" classcount="8" classindex="4" height="215"
+                     id="WSDL_Selection" name="WSDL Selection" uid="_uu1QX"
+                     width="499" x="13" y="103">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="RadioButton" classcount="4" classindex="0"
+                       feature="Descriptor for XML over JMS" height="16"
+                       id="buttonDescriptor_for_XML_over_JMS" uid="_uu1QY"
+                       width="170" x="5" y="5">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Button</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">RadioButton</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Descriptor for XML over JMS</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        </ComponentStep>
+        <ComponentStep class="RadioButton" classcount="4" classindex="1"
+                       feature="Import from a File" height="16"
+                       id="buttonImport_from_a_File" uid="_uu1QZ" width="116"
+                       x="5" y="26">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Button</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">RadioButton</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Import from a File</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="4" classindex="1"
+                     feature="Next &gt;" height="25" id="buttonNext"
+                     name="buttonNext" uid="_uu1Qa" width="92" x="218"
+                     y="387">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Next &gt;</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt" feature="WSDL Import Wizard"
+                height="433" id="WsdlFileImportWizard" modal="true"
+                name="WsdlFileImportWizard" uid="_uu1Qb" width="525">
+      <ComponentStep class="Panel" classcount="8" classindex="4" height="215"
+                     id="WSDL_Selection2" name="WSDL Selection" uid="_uu1Qc"
+                     width="499" x="13" y="103">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Panel</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Composite</extrafeature>
+        <ComponentStep class="TextField" classcount="1" classindex="0"
+                       height="25" id="WSDL_Selection2.textSource_Location:"
+                       uid="_uu1Qd" width="370" x="98" y="5">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Text</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">TextField</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Source Location:</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.Text</extrafeature>
+        </ComponentStep>
+      </ComponentStep>
+      <ComponentStep class="Button" classcount="4" classindex="2"
+                     feature="Finish" height="25" id="buttonFinish"
+                     name="buttonFinish" uid="_uu1Qs" width="92" x="316"
+                     y="387">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>

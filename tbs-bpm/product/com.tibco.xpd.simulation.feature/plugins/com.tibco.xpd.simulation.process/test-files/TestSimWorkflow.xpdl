@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xpdl:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensions="http://www.tibco.com/xpd/XpdlExtensions" xmlns:simulation="http://www.tibco.com/xpd/Simulation" xmlns:xpdl="http://www.wfmc.org/2002/XPDL1.0" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd" Id="TestSimWorkflow" Name="TestSimWorkflow.xpdl">
+  <xpdl:PackageHeader>
+    <xpdl:XPDLVersion>1.0</xpdl:XPDLVersion>
+    <xpdl:Vendor>TIBCO</xpdl:Vendor>
+    <xpdl:Created>Mon Nov 21 14:05:12 GMT 2005</xpdl:Created>
+    <xpdl:Description></xpdl:Description>
+    <xpdl:Documentation></xpdl:Documentation>
+  </xpdl:PackageHeader>
+  <xpdl:RedefinableHeader PublicationStatus="UNDER_TEST">
+    <xpdl:Author>jarciuch</xpdl:Author>
+    <xpdl:Version>1.0</xpdl:Version>
+  </xpdl:RedefinableHeader>
+  <xpdl:Applications>
+    <xpdl:Application Id="0"/>
+  </xpdl:Applications>
+  <xpdl:WorkflowProcesses>
+    <xpdl:WorkflowProcess Id="1" Name="SimpleSimProcess">
+      <xpdl:ProcessHeader>
+        <xpdl:Description></xpdl:Description>
+      </xpdl:ProcessHeader>
+      <xpdl:RedefinableHeader/>
+      <xpdl:FormalParameters>
+        <xpdl:FormalParameter Id="simulation_temp" Mode="IN">
+          <xpdl:DataType>
+            <xpdl:BasicType Type="STRING"/>
+          </xpdl:DataType>
+        </xpdl:FormalParameter>
+      </xpdl:FormalParameters>
+      <xpdl:DataFields>
+        <xpdl:DataField Id="1" IsArray="FALSE" Name="value1">
+          <xpdl:DataType>
+            <xpdl:BasicType Type="STRING"/>
+          </xpdl:DataType>
+        </xpdl:DataField>
+        <xpdl:DataField Id="2" IsArray="FALSE" Name="value2">
+          <xpdl:DataType>
+            <xpdl:BasicType Type="STRING"/>
+          </xpdl:DataType>
+        </xpdl:DataField>
+      </xpdl:DataFields>
+      <xpdl:Participants>
+        <xpdl:Participant Id="2" Name="FirstParticipant">
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="ParticipantSimulationData"><simulation:ParticipantSimulationData>
+                <simulation:Instances>1</simulation:Instances>
+                <simulation:TimeUnitCost>
+                  <simulation:Cost>0.3333333333333333</simulation:Cost>
+                  <simulation:TimeDisplayUnit>HOUR</simulation:TimeDisplayUnit>
+                </simulation:TimeUnitCost>
+              </simulation:ParticipantSimulationData></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+          <xpdl:ParticipantType Type="HUMAN"/>
+        </xpdl:Participant>
+      </xpdl:Participants>
+      <xpdl:Activities>
+        <xpdl:Activity Id="1">
+          <xpdl:Route/>
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>82</extensions:XOffset>
+                  <extensions:YOffset>133</extensions:YOffset>
+                  <extensions:Width>29</extensions:Width>
+                  <extensions:Height>29</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>START</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Id="2">
+          <xpdl:Route/>
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>387</extensions:XOffset>
+                  <extensions:YOffset>132</extensions:YOffset>
+                  <extensions:Width>29</extensions:Width>
+                  <extensions:Height>29</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>END</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="FirstActivity" Id="3">
+          <xpdl:Implementation>
+            <xpdl:Tool Id="0" Type="APPLICATION">
+              <xpdl:ActualParameters>
+                <xpdl:ActualParameter>1</xpdl:ActualParameter>
+                <xpdl:ActualParameter>2</xpdl:ActualParameter>
+              </xpdl:ActualParameters>
+            </xpdl:Tool>
+          </xpdl:Implementation>
+          <xpdl:Performer>2</xpdl:Performer>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>179</extensions:XOffset>
+                  <extensions:YOffset>108</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="ActivitySimulationData"><simulation:ActivitySimulationData>
+                <simulation:Duration>
+                  <simulation:ConstantRealDistribution ConstantValue="5.0"/>
+                </simulation:Duration>
+                <simulation:DisplayTimeUnit>MINUTE</simulation:DisplayTimeUnit>
+              </simulation:ActivitySimulationData></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+      </xpdl:Activities>
+      <xpdl:Transitions>
+        <xpdl:Transition Id="1" From="1" To="3"/>
+        <xpdl:Transition Id="2" From="3" To="2"/>
+      </xpdl:Transitions>
+      <xpdl:ExtendedAttributes>
+        <xpdl:ExtendedAttribute Name="XPD"><extensions:Diagram>
+            <extensions:ZoomLevel>1.0</extensions:ZoomLevel>
+            <extensions:Pool Id="0">
+              <extensions:Name>Default Pool</extensions:Name>
+              <extensions:IsVisible>true</extensions:IsVisible>
+              <extensions:IsDefault>true</extensions:IsDefault>
+              <extensions:Lane Id="0">
+                <extensions:Name>Default Lane</extensions:Name>
+                <extensions:IsDefault>true</extensions:IsDefault>
+                <extensions:Size>300</extensions:Size>
+              </extensions:Lane>
+            </extensions:Pool>
+          </extensions:Diagram></xpdl:ExtendedAttribute>
+        <xpdl:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData/></xpdl:ExtendedAttribute>
+      </xpdl:ExtendedAttributes>
+    </xpdl:WorkflowProcess>
+  </xpdl:WorkflowProcesses>
+  <xpdl:ExtendedAttributes>
+    <xpdl:ExtendedAttribute Name="CreatedBy" Value="iProcess Studio v1.0.0"/>
+  </xpdl:ExtendedAttributes>
+</xpdl:Package>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/TLEWithComplexType" xmlns:tns1="http://www.example.org/TLEWithComplexType"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/TLEWithComplexType">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD4386/Business Objects/org.example.TLEWithComplexType.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Base" id="org.example.TLEWithComplexTypeBase" abstract="false"
+      mixed="true" name="Base">
+    <xsd:sequence>
+      <xsd:element ecore:name="baseele1" id="Basebaseele1" form="qualified" maxOccurs="1"
+          minOccurs="1" name="baseele1" type="xsd:anyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="MyTLE1" nillable="false">
+    <xsd:complexType ecore:name="MyTLE1Type" id="org.example.TLEWithComplexTypeMyTLE1Type"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="e1" form="qualified" maxOccurs="1" minOccurs="1"
+            name="e1" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="MyTLE3" nillable="false">
+    <xsd:complexType ecore:name="MyTLE3Type">
+      <xsd:complexContent mixed="true">
+        <xsd:extension base="Base">
+          <xsd:sequence>
+            <xsd:element ecore:name="subelem1" id="MyTLE3Typesubelem1" form="qualified"
+                maxOccurs="1" minOccurs="1" name="subelem1" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="MyTLE4" nillable="false">
+    <xsd:complexType ecore:name="MyTLE4Type">
+      <xsd:complexContent mixed="true">
+        <xsd:extension base="Base">
+          <xsd:sequence>
+            <xsd:element ecore:name="subelem1" id="MyTLE4Typesubelem1" form="qualified"
+                maxOccurs="1" minOccurs="1" name="subelem1" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="MyTLE2" nillable="false">
+    <xsd:complexType ecore:name="MyTLE2Type" id="org.example.TLEWithComplexTypeMyTLE2Type"
+        mixed="true">
+      <xsd:sequence>
+        <xsd:element ecore:name="e1" form="qualified" maxOccurs="1" minOccurs="1"
+            name="e1" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

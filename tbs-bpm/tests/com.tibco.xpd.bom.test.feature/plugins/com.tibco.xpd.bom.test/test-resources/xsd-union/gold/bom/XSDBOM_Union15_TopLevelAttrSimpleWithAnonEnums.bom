@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example.Unions2" name="com.example.Unions">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EZ3zwSZXEeG2FZos_tGJ9A" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EZ3zwiZXEeG2FZos_tGJ9A" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EZ3zwyZXEeG2FZos_tGJ9A" key="created" value="1323872719740"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EZ4a0CZXEeG2FZos_tGJ9A" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsmyTopAttr" name="myTopAttrType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_EX9IMCZXEeG2FZos_tGJ9A" name="memberType1" type="com.example.UnionsUnionStandardBaseType1?com.example.Unions%3a%3aUnionStandardBaseType1?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_EYCnwCZXEeG2FZos_tGJ9A" name="memberType2" type="com.example.UnionsUnionStandardBaseType2?com.example.Unions%3a%3aUnionStandardBaseType2?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_EYIHUCZXEeG2FZos_tGJ9A" name="memberType3" type="com.example.UnionsUnionStandardBaseType3?com.example.Unions%3a%3aUnionStandardBaseType3?"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsUnionStandardBaseType1" name="UnionStandardBaseType1">
+      <generalization xmi:type="uml:Generalization" xmi:id="_EX7TACZXEeG2FZos_tGJ9A">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsUnionStandardBaseType2" name="UnionStandardBaseType2">
+      <generalization xmi:type="uml:Generalization" xmi:id="_EYAykCZXEeG2FZos_tGJ9A">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsUnionStandardBaseType3" name="UnionStandardBaseType3">
+      <generalization xmi:type="uml:Generalization" xmi:id="_EYGSICZXEeG2FZos_tGJ9A">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="com.example.UnionsUnionSimpleType12" name="BooleanMember">
+      <generalization xmi:type="uml:Generalization" xmi:id="_EYZNECZXEeG2FZos_tGJ9A">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="com.example.UnionsUnionSimpleType22" name="TextMember">
+      <generalization xmi:type="uml:Generalization" xmi:id="_EYvLUCZXEeG2FZos_tGJ9A">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_EYxnkCZXEeG2FZos_tGJ9A" name="GARY"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_EYyOoCZXEeG2FZos_tGJ9A" name="FRED"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="com.example.UnionsUnionSimpleType32" name="TextMember1">
+      <generalization xmi:type="uml:Generalization" xmi:id="_EZGXsCZXEeG2FZos_tGJ9A">
+        <general xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+      </generalization>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_EZJbACZXEeG2FZos_tGJ9A" name="ONE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_EZKpICZXEeG2FZos_tGJ9A" name="TWO"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EXo_ISZXEeG2FZos_tGJ9A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EXo_IiZXEeG2FZos_tGJ9A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EXpmMCZXEeG2FZos_tGJ9A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EXpmMSZXEeG2FZos_tGJ9A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_EXq0UCZXEeG2FZos_tGJ9A" base_Package="com.example.Unions2?com.example.Unions?" xsdTargetNamespace="http://example.com/Unions" xsdSchemaLocation="XSDBOM_Union15_TopLevelAttrSimpleWithAnonEnums.xsd" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_EX3ooCZXEeG2FZos_tGJ9A" base_PrimitiveType="com.example.UnionsmyTopAttr?com.example.Unions%3a%3amyTopAttrType?" xsdSimpleTypeName="myTopAttr" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_EX76ECZXEeG2FZos_tGJ9A" base_PrimitiveType="com.example.UnionsUnionStandardBaseType1?com.example.Unions%3a%3aUnionStandardBaseType1?" xsdSimpleTypeName="UnionStandardBaseType1" xsdSimpleTypeId="" xsdRestrictionId="" xsdRestrictionBase="decimal" xsdIsStandardUnionSimpleType="true"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_EYBZoCZXEeG2FZos_tGJ9A" base_PrimitiveType="com.example.UnionsUnionStandardBaseType2?com.example.Unions%3a%3aUnionStandardBaseType2?" xsdSimpleTypeName="UnionStandardBaseType2" xsdSimpleTypeId="" xsdRestrictionId="" xsdRestrictionBase="string" xsdIsStandardUnionSimpleType="true"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_EYG5MCZXEeG2FZos_tGJ9A" base_PrimitiveType="com.example.UnionsUnionStandardBaseType3?com.example.Unions%3a%3aUnionStandardBaseType3?" xsdSimpleTypeName="UnionStandardBaseType3" xsdSimpleTypeId="" xsdRestrictionId="" xsdRestrictionBase="int" xsdIsStandardUnionSimpleType="true"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_EYON8CZXEeG2FZos_tGJ9A" base_PrimitiveType="com.example.UnionsUnionSimpleType12?com.example.Unions%3a%3aBooleanMember?" xsdSimpleTypeName="UnionSimpleType1" xsdRestrictionBase="boolean" xsdIsAnonUnionSimpleType="true" xsdIsAnonType="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_EYTtgCZXEeG2FZos_tGJ9A"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_EYVisCZXEeG2FZos_tGJ9A" base_PrimitiveType="com.example.UnionsUnionSimpleType12?com.example.Unions%3a%3aBooleanMember?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_EYWw0CZXEeG2FZos_tGJ9A" base_PrimitiveType="com.example.UnionsUnionSimpleType12?com.example.Unions%3a%3aBooleanMember?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_EYhv8CZXEeG2FZos_tGJ9A" base_Enumeration="com.example.UnionsUnionSimpleType22?com.example.Unions%3a%3aTextMember?" xsdSimpleTypeName="UnionSimpleType2" xsdRestrictionBase="string" xsdIsAnonUnionSimpleType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_EYxnkSZXEeG2FZos_tGJ9A" base_EnumerationLiteral="_EYxnkCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember%3a%3aGARY?" xsdValue="gary"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_EYyOoSZXEeG2FZos_tGJ9A" base_EnumerationLiteral="_EYyOoCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember%3a%3aFRED?" xsdValue="fred"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_EY5jYCZXEeG2FZos_tGJ9A" base_Enumeration="com.example.UnionsUnionSimpleType32?com.example.Unions%3a%3aTextMember1?" xsdSimpleTypeName="UnionSimpleType3" xsdRestrictionBase="string" xsdIsAnonUnionSimpleType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_EZJbASZXEeG2FZos_tGJ9A" base_EnumerationLiteral="_EZJbACZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember1%3a%3aONE?" xsdValue="one"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_EZLQMCZXEeG2FZos_tGJ9A" base_EnumerationLiteral="_EZKpICZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember1%3a%3aTWO?" xsdValue="two"/>
+  <XsdNotationProfile:XsdBasedUnion xmi:id="_EZNscCZXEeG2FZos_tGJ9A" base_PrimitiveType="com.example.UnionsmyTopAttr?com.example.Unions%3a%3amyTopAttrType?" xsdMemberTypes="[{http://www.w3.org/2001/XMLSchema}decimal, {http://www.w3.org/2001/XMLSchema}string, {http://www.w3.org/2001/XMLSchema}int, {http://example.com/Unions}UnionSimpleType1, {http://example.com/Unions}UnionSimpleType2, {http://example.com/Unions}UnionSimpleType3]"/>
+  <XsdNotationProfile:TopLevelAttributes xmi:id="_EZR94CZXEeG2FZos_tGJ9A" base_Package="com.example.Unions2?com.example.Unions?">
+    <attributes xmi:type="XsdNotationProfile:TopLevelAttribute" xmi:id="_EZUaICZXEeG2FZos_tGJ9A" name="myTopAttr" type="com.example.UnionsmyTopAttr?com.example.Unions%3a%3amyTopAttrType?" isAnonymous="true" targetNamespace="http://example.com/Unions"/>
+  </XsdNotationProfile:TopLevelAttributes>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZVoQCZXEeG2FZos_tGJ9A" base_Element="_EYvLUCZXEeG2FZos_tGJ9A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZVoQSZXEeG2FZos_tGJ9A" base_Element="_EYyOoCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember%3a%3aFRED?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZWPUCZXEeG2FZos_tGJ9A" base_Element="_EYxnkCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember%3a%3aGARY?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZWPUSZXEeG2FZos_tGJ9A" base_Element="_EX7TACZXEeG2FZos_tGJ9A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZW2YCZXEeG2FZos_tGJ9A" base_Element="_EZKpICZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember1%3a%3aTWO?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZXdcCZXEeG2FZos_tGJ9A" base_Element="_EZJbACZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember1%3a%3aONE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZXdcSZXEeG2FZos_tGJ9A" base_Element="_EZGXsCZXEeG2FZos_tGJ9A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZYEgCZXEeG2FZos_tGJ9A" base_Element="com.example.UnionsUnionSimpleType22?com.example.Unions%3a%3aTextMember?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZYEgSZXEeG2FZos_tGJ9A" base_Element="_EYCnwCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3amyTopAttrType%3a%3amemberType2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZYrkCZXEeG2FZos_tGJ9A" base_Element="com.example.UnionsUnionSimpleType32?com.example.Unions%3a%3aTextMember1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZYrkSZXEeG2FZos_tGJ9A" base_Element="com.example.UnionsUnionSimpleType12?com.example.Unions%3a%3aBooleanMember?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZZSoCZXEeG2FZos_tGJ9A" base_Element="com.example.UnionsUnionStandardBaseType1?com.example.Unions%3a%3aUnionStandardBaseType1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZZSoSZXEeG2FZos_tGJ9A" base_Element="com.example.UnionsUnionStandardBaseType3?com.example.Unions%3a%3aUnionStandardBaseType3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZZ5sCZXEeG2FZos_tGJ9A" base_Element="_EYGSICZXEeG2FZos_tGJ9A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZZ5sSZXEeG2FZos_tGJ9A" base_Element="_EYZNECZXEeG2FZos_tGJ9A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZagwCZXEeG2FZos_tGJ9A" base_Element="_EYIHUCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3amyTopAttrType%3a%3amemberType3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZagwSZXEeG2FZos_tGJ9A" base_Element="com.example.UnionsUnionStandardBaseType2?com.example.Unions%3a%3aUnionStandardBaseType2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZbH0CZXEeG2FZos_tGJ9A" base_Element="_EXo_ISZXEeG2FZos_tGJ9A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZbH0SZXEeG2FZos_tGJ9A" base_Element="_EYAykCZXEeG2FZos_tGJ9A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZbu4CZXEeG2FZos_tGJ9A" base_Element="_EX9IMCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3amyTopAttrType%3a%3amemberType1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZcV8CZXEeG2FZos_tGJ9A" base_Element="_EXpmMCZXEeG2FZos_tGJ9A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_EZcV8SZXEeG2FZos_tGJ9A" base_Element="com.example.UnionsmyTopAttr?com.example.Unions%3a%3amyTopAttrType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZfZQCZXEeG2FZos_tGJ9A" displayLabel="UnionStandardBaseType1" base_NamedElement="com.example.UnionsUnionStandardBaseType1?com.example.Unions%3a%3aUnionStandardBaseType1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZh1gCZXEeG2FZos_tGJ9A" displayLabel="UnionStandardBaseType2" base_NamedElement="com.example.UnionsUnionStandardBaseType2?com.example.Unions%3a%3aUnionStandardBaseType2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZjqsCZXEeG2FZos_tGJ9A" displayLabel="UnionStandardBaseType3" base_NamedElement="com.example.UnionsUnionStandardBaseType3?com.example.Unions%3a%3aUnionStandardBaseType3?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZmG8CZXEeG2FZos_tGJ9A" displayLabel="myTopAttr" base_NamedElement="com.example.UnionsmyTopAttr?com.example.Unions%3a%3amyTopAttrType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZojMCZXEeG2FZos_tGJ9A" displayLabel="BooleanMember" base_NamedElement="com.example.UnionsUnionSimpleType12?com.example.Unions%3a%3aBooleanMember?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZq_cCZXEeG2FZos_tGJ9A" displayLabel="TextMember" base_NamedElement="com.example.UnionsUnionSimpleType22?com.example.Unions%3a%3aTextMember?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZtbsCZXEeG2FZos_tGJ9A" displayLabel="TextMember1" base_NamedElement="com.example.UnionsUnionSimpleType32?com.example.Unions%3a%3aTextMember1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZwfACZXEeG2FZos_tGJ9A" displayLabel="fred" base_NamedElement="_EYyOoCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember%3a%3aFRED?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZyUMCZXEeG2FZos_tGJ9A" displayLabel="gary" base_NamedElement="_EYxnkCZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember%3a%3aGARY?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZ1XgCZXEeG2FZos_tGJ9A" displayLabel="one" base_NamedElement="_EZJbACZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember1%3a%3aONE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_EZ3zwCZXEeG2FZos_tGJ9A" displayLabel="two" base_NamedElement="_EZKpICZXEeG2FZos_tGJ9A?com.example.Unions%3a%3aTextMember1%3a%3aTWO?"/>
+  <notation:Diagram xmi:id="_EZ4a0SZXEeG2FZos_tGJ9A" type="Business Object Model" element="com.example.Unions2?com.example.Unions?" name="com.example.Unions" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_EZ4a0iZXEeG2FZos_tGJ9A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_EZ4a0yZXEeG2FZos_tGJ9A"/>
+  </notation:Diagram>
+</xmi:XMI>

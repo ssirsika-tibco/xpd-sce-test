@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.customer.api.feature"
+      label="%featureName_notrans"
+      version="1.7.0.qualifier"
+      provider-name="%providerName_notrans">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="com.tibco.xpd.n2.feature" version="4.0.0" match="compatible"/>
+      <import feature="com.tibco.xpd.process.ipm.model.feature" version="3.8.0"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.xpd.customer.api"
+         download-size="0"
+         install-size="0"
+         version="1.7.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.customer.api.doc"
+         download-size="0"
+         install-size="0"
+         version="1.7.0.qualifier"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_rSuaUAvwEeS1yPQQHR22DQ" xpdExt:DisplayName="MAINPRC" Name="MAINPRC">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2177-10-07</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>sajain</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="N66072" xpdExt:DisplayName="Péró" Name="Péró">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name = &quot;Péró&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="N66083" xpdExt:DisplayName="Administrator" Name="Administrator">
+      <xpdl2:ParticipantType Type="RESOURCE_SET">
+        <xpdExt:ParticipantQuery ScriptGrammar="RQL">resource(name = &quot;Administrator&quot;)</xpdExt:ParticipantQuery>
+      </xpdl2:ParticipantType>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="N66476" xpdExt:DisplayName="Default Pool" Name="DefaultPool" BoundaryVisible="true" Process="_rTOwoAvwEeS1yPQQHR22DQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="N66488" xpdExt:DisplayName="Default Lane" Name="DefaultLane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="316.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Associations>
+    <xpdl2:Association Id="N66114_FixMeAssociation" Name="" AssociationDirection="To" Source="N66114_FixMeAnnotation" Target="N66114">
+      <xpdl2:Object Id="N66114_FixMeAssociationObject"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="N66243_FixMeAssociation" Name="" AssociationDirection="To" Source="N66243_FixMeAnnotation" Target="N66243">
+      <xpdl2:Object Id="N66243_FixMeAssociationObject"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+  </xpdl2:Associations>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="N66494" ArtifactType="Annotation" TextAnnotation="What does this XPDL include?&#xA;&#xA;Procedure with 2 Steps, Start and a Simple User Task.&#xA;&#xA;Procedure with Some Data Fields defined of all types , having &#xA;default values&#xA;&#xA;Procedure with System Defined field types changed/updated.&#xA;&#xA;Procedure With Public Step/Event[User Task] containing Public &#xA;Fields.&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" LaneId="N66488">
+          <xpdl2:Coordinates XCoordinate="911.0" YCoordinate="101.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="N66114_FixMeAnnotation" ArtifactType="Annotation" TextAnnotation="FIXME: Original iProcess activity used the conditional deadline feature which has no direct equivalent in BPM. Conditions...&#xA;1>2&#xA;2>1">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="10.0" LaneId="N66488">
+          <xpdl2:Coordinates XCoordinate="323.0" YCoordinate="62.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="N66243_FixMeAnnotation" ArtifactType="Annotation" TextAnnotation="FIXME: Original iProcess activity used the conditional deadline feature which has no direct equivalent in BPM. Conditions...&#xA;1>2&#xA;2>1">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="10.0" LaneId="N66488">
+          <xpdl2:Coordinates XCoordinate="638.0" YCoordinate="125.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_rTOwoAvwEeS1yPQQHR22DQ" xpdExt:FlowRoutingStyle="MultiEntryExit" xpdExt:DisplayName="MAINPRC" Name="MAINPRC" AccessLevel="PUBLIC">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Created></xpdl2:Created>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="N65588" xpdExt:DisplayName="ARR" Name="ARR" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>9</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65616" xpdExt:DisplayName="COMNUM" Name="COMNUM" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>9</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65644" xpdExt:DisplayName="CUST" Name="CUST" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="REFERENCE"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65662" xpdExt:DisplayName="DATE1" Name="DATE1" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65705" xpdExt:DisplayName="MEM" Name="MEM" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65723" xpdExt:DisplayName="NUM" Name="NUM" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>9</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N66026" xpdExt:DisplayName="TIME1" Name="TIME1" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N66044" xpdExt:DisplayName="TXT" Name="TXT" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="N66114" Name="UT1" FinishMode="Manual" StartMode="Manual" xpdExt:ActivityDeadlineEventId="TimerExceptionEvent_N66114" xpdExt:DisplayName="My User Task Extended description UT">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="msgIn_N66114"/>
+                <xpdl2:MessageOut Id="msgOut_N66114"/>
+                <xpdExt:UserTaskScripts>
+                  <xpdExt:OpenScript ScriptGrammar="JavaScript">&quot;Initial command \n&quot;;</xpdExt:OpenScript>
+                  <xpdExt:CloseScript ScriptGrammar="JavaScript">&quot;Keep command \n&quot;;</xpdExt:CloseScript>
+                  <xpdExt:SubmitScript ScriptGrammar="JavaScript">&quot;Release command \n&quot;;</xpdExt:SubmitScript>
+                </xpdExt:UserTaskScripts>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>N66072</xpdl2:Performer>
+            <xpdl2:Performer>N66083</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="3"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="64.0" LaneId="N66488" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="371.0" YCoordinate="144.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="AllocateOne" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="TimerExceptionEvent_N66114">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="N66114" Trigger="Timer">
+              <xpdl2:TriggerTimer xpdExt:ContinueOnTimeout="false"/>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Deadline>
+            <xpdl2:DeadlineDuration ScriptGrammar="ConstantPeriod">
+<xpdExt:ConstantPeriod Days="4" Hours="5" Minutes="6" Months="2" Weeks="3" Years="1"/>
+</xpdl2:DeadlineDuration>
+          </xpdl2:Deadline>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66488" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="35.76" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66243" Name="UT2" FinishMode="Manual" StartMode="Manual" xpdExt:ActivityDeadlineEventId="TimerExceptionEvent_N66243" xpdExt:DisplayName="My User Task Extended description UT">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="msgIn_N66243"/>
+                <xpdl2:MessageOut Id="msgOut_N66243"/>
+                <xpdExt:UserTaskScripts>
+                  <xpdExt:OpenScript ScriptGrammar="JavaScript">&quot;Initial command \n&quot;;</xpdExt:OpenScript>
+                  <xpdExt:CloseScript ScriptGrammar="JavaScript">&quot;Keep command \n&quot;;</xpdExt:CloseScript>
+                  <xpdExt:SubmitScript ScriptGrammar="JavaScript">&quot;Release command \n&quot;;</xpdExt:SubmitScript>
+                </xpdExt:UserTaskScripts>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>N66072</xpdl2:Performer>
+            <xpdl2:Performer>N66083</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="4"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="64.0" LaneId="N66488" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="686.0" YCoordinate="207.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:DurationCalculation>
+            <xpdExt:Years>3</xpdExt:Years>
+            <xpdExt:Months>2</xpdExt:Months>
+            <xpdExt:Weeks>1</xpdExt:Weeks>
+            <xpdExt:Days>3</xpdExt:Days>
+            <xpdExt:Hours>2</xpdExt:Hours>
+            <xpdExt:Minutes>1</xpdExt:Minutes>
+            <xpdExt:Seconds>2</xpdExt:Seconds>
+            <xpdExt:Microseconds>1</xpdExt:Microseconds>
+          </xpdExt:DurationCalculation>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="AllocateOne" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="TimerExceptionEvent_N66243">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="N66243" Trigger="Timer">
+              <xpdl2:TriggerTimer xpdExt:ContinueOnTimeout="false"/>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Deadline>
+            <xpdl2:DeadlineDuration ScriptGrammar="ConstantPeriod">
+<xpdExt:ConstantPeriod/>
+</xpdl2:DeadlineDuration>
+          </xpdl2:Deadline>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66488" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="35.76" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66393" Name="Start" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66488" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="60.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="TimerExceptionEvent_N66114_EndEvent" Name="EndEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66488" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="369.0" YCoordinate="226.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="TimerExceptionEvent_N66243_EndEvent" Name="EndEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66488" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="684.0" YCoordinate="289.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="N66443" xpdExt:DisplayName="" Name="" From="N66114" To="N66243">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66448" xpdExt:DisplayName="" Name="" From="N66393" To="N66114">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="TimerExceptionEvent_N66114_Connect_EndEvent" xpdExt:DisplayName="" Name="" From="TimerExceptionEvent_N66114" To="TimerExceptionEvent_N66114_EndEvent">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="TimerExceptionEvent_N66243_Connect_EndEvent" xpdExt:DisplayName="" Name="" From="TimerExceptionEvent_N66243" To="TimerExceptionEvent_N66243_EndEvent">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

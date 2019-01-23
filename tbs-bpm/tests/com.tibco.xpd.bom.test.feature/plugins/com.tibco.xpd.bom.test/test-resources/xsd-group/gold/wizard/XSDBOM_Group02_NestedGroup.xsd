@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_Group02_NestedGroup" xmlns:tns1="http://www.example.org/XSDBOM_Group02_NestedGroup"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_Group02_NestedGroup">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfds/Business Objects/XSDBOM_Group02_NestedGroup.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="org.example.xsdbo.m.group02.nested.group_PersonDetails" abstract="false"
+      mixed="false" name="PersonDetails">
+    <xsd:sequence>
+      <xsd:element id="PersonDetails_firstname" form="qualified" maxOccurs="1" minOccurs="1"
+          name="firstname">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonDetails_surname" form="qualified" maxOccurs="1" minOccurs="1"
+          name="surname">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="PersonDetails_email" form="qualified" maxOccurs="1" minOccurs="1"
+          name="email">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:sequence>
+        <xsd:element id="PersonDetails_bankName" form="qualified" maxOccurs="1" minOccurs="1"
+            name="bankName">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element id="PersonDetails_accountNumber" form="qualified" maxOccurs="1"
+            minOccurs="1" name="accountNumber">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:integer"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

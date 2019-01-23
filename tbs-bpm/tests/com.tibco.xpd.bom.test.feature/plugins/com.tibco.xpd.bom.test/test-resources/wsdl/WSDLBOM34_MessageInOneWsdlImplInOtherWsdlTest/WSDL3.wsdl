@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/WSDL3/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WSDL3" targetNamespace="http://www.example.org/WSDL3/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/WSDL3/">
+        <xsd:complexType name="Cust">
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+        <xsd:complexType name="Addr">
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="InputMessage">
+        <wsdl:part name="request" type="tns:Cust"/>
+    </wsdl:message>
+    <wsdl:message name="OutPutMessage">
+        <wsdl:part name="response" type="tns:Addr"/>
+    </wsdl:message>
+  
+</wsdl:definitions>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:ns2="http://www.amsbqa.uc4d.com/linda08/WSDLEmbedSchema1/Schema1IncludesSchema2" xmlns:tns="http://www.amsbqa.uc4d.com/linda08/WSDLEmbedSchema1/Schema1IncludeSchema2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.amsbqa.uc4d.com/linda08/WSDLEmbedSchema1/Schema1IncludesSchema2">
+    <types>
+        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.amsbqa.uc4d.com/linda08/WSDLEmbedSchema1/Schema1IncludeSchema2">
+            <xsd:include schemaLocation="AirlineUserProfileL.xsd"/>
+            <xsd:complexType name="AirlinePreference">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="seating" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="mealType" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="specialRequest" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="frequentFlier" type="tns:FrequentFlier"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+    <message name="Message">
+        <part name="part1" type="tns:AirlinePreference"/>
+    </message>
+    <portType name="port1">
+        <operation name="opera">
+            <input message="ns2:Message"/>
+        </operation>
+    </portType>
+</definitions>

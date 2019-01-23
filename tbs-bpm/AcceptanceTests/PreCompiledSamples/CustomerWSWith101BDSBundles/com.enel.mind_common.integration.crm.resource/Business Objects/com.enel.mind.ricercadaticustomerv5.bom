@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_jhLbMEeQEeOL0sK2uXHbtA" name="com.enel.mind.ricercadaticustomerv5">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jhLbMUeQEeOL0sK2uXHbtA" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jhLbMkeQEeOL0sK2uXHbtA" key="author" value="F.Pinto"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jhLbM0eQEeOL0sK2uXHbtA" key="created" value="1383817193571"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jhLbNEeQEeOL0sK2uXHbtA" key="version" value="4"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_-r1OoEeQEeOL0sK2uXHbtA" name="RecuperodatiCliente_Request">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Hqgu8EeTEeOL0sK2uXHbtA" name="request" type="_4WUMIEeSEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HqjLMkeTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HqjLMUeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eQ-QYEeREeOL0sK2uXHbtA" name="RicercaDatiCustomer_V5_Output">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nWEFQEeUEeOL0sK2uXHbtA" name="recuperoDatiClienteResponse" type="_quyUkEeUEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Response?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nWEFQ0eUEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nWEFQkeUEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_4WUMIEeSEeOL0sK2uXHbtA" name="Request">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PjmLEEeTEeOL0sK2uXHbtA" name="tipoPratica" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PjmLE0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PjmLEkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PvpqEEeTEeOL0sK2uXHbtA" name="idAttivitaCRM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PvpqE0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PvpqEkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_P913EEeTEeOL0sK2uXHbtA" name="idOrdineCRM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P913E0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P913EkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QLClkEeTEeOL0sK2uXHbtA" name="numeroUtente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QLClk0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QLClkkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QY7QkEeTEeOL0sK2uXHbtA" name="praticaReclamo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QY7Qk0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QY7QkkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QllzkEeTEeOL0sK2uXHbtA" name="praticaTroubleTicket" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qllzk0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QllzkkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QzjXEEeTEeOL0sK2uXHbtA" name="idCorrispondenzaGDO" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QzjXE0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QzjXEkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RCvCkEeTEeOL0sK2uXHbtA" name="codiceFiscaleCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RCvCk0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RCvCkkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RRAIEEeTEeOL0sK2uXHbtA" name="partitaIVACliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RRAIE0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RRAIEkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RfzZEEeTEeOL0sK2uXHbtA" name="contoContrattualeSAPISU" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RfzZE0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RfzZEkeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vwMpkFLEEeOwtLMQnHCRHQ" name="idProcessoBpm" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vweWYVLEEeOwtLMQnHCRHQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vweWYFLEEeOwtLMQnHCRHQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_7MsG4EeTEeOL0sK2uXHbtA" name="RicercaDatiCustomer_V5_Input">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-1n8cEeTEeOL0sK2uXHbtA" name="recuperoDatiClienteRequest" type="_-r1OoEeQEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Request?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-1n8c0eTEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-1n8ckeTEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_quyUkEeUEeOL0sK2uXHbtA" name="RecuperodatiCliente_Response">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Px6pAEeVEeOL0sK2uXHbtA" name="esito_Response" type="_rdemkEeUEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Px6pA0eVEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Px6pAkeVEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rdemkEeUEeOL0sK2uXHbtA" name="Esito_Response">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_g2IX8EeVEeOL0sK2uXHbtA" name="esito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g2K0MUeVEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g2K0MEeVEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hBuj8EeVEeOL0sK2uXHbtA" name="codiceEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hBuj80eVEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hBuj8keVEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hM8VcEeVEeOL0sK2uXHbtA" name="descrizioneEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hM8Vc0eVEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hM8VckeVEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hahecEeVEeOL0sK2uXHbtA" name="masteAccount" type="_s_93kEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aMasterAccount?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hahec0eVEeOL0sK2uXHbtA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_haheckeVEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_rzJcgFamEeO6f8vdBmwSng" name="sorgenteEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rzPjIVamEeO6f8vdBmwSng" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rzPjIFamEeO6f8vdBmwSng"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_s_93kEeVEeOL0sK2uXHbtA" name="MasterAccount">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_NEx34EeWEeOL0sK2uXHbtA" name="businessPartnerSAPISU" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NEx340eWEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NEx34keWEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_NU4JYEeWEeOL0sK2uXHbtA" name="listOfCustomerAccount" type="_rFw_QEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NU4JY0eWEeOL0sK2uXHbtA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NU4JYkeWEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rFw_QEeWEeOL0sK2uXHbtA" name="ListOfCustomerAccount">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E4Kw4EeYEeOL0sK2uXHbtA" name="idCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_E4NNIkeYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_E4NNIUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FEfVoEeYEeOL0sK2uXHbtA" name="formaGiuridicaCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FEfVo0eYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FEfVokeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FOEIYEeYEeOL0sK2uXHbtA" name="telefonoCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FOGkokeYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FOGkoUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FYyKoEeYEeOL0sK2uXHbtA" name="cellulareCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FYyKo0eYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FYyKokeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GAwwoEeYEeOL0sK2uXHbtA" name="emailCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GAwwo0eYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GAwwokeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GPhlYEeYEeOL0sK2uXHbtA" name="PEC" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GPkBokeYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GPkBoUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ztM7cE9zEeOUEPyFM4YaHQ" name="faxCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ztTCEU9zEeOUEPyFM4YaHQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ztTCEE9zEeOUEPyFM4YaHQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Gdyq4EeYEeOL0sK2uXHbtA" name="referente" type="_rYTgwEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gd1HIkeYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gd1HIUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Gq1oYEeYEeOL0sK2uXHbtA" name="listOfServizio" type="_9-i7wEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gq4EokeYEeOL0sK2uXHbtA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gq4EoUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_G5o5YEeYEeOL0sK2uXHbtA" name="ordine" type="_sWGlwEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOrdine?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G5rVokeYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G5rVoUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HK9S4EeYEeOL0sK2uXHbtA" name="offerta" type="_atS0oEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOfferta?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HK_vIkeYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HK_vIUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Hbg3YEeYEeOL0sK2uXHbtA" name="reclamo" type="_a9nvoEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReclamo?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HbjTokeYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HbjToUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HoVycEeYEeOL0sK2uXHbtA" name="troubleTicket" type="_JuZ1IEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aTroubleTicket?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HoYOskeYEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HoYOsUeYEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_POAJoFOIEeOcsJqeMfvnhw" name="nomeCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_POCl4lOIEeOcsJqeMfvnhw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_POCl4VOIEeOcsJqeMfvnhw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PfosMFOIEeOcsJqeMfvnhw" name="cognomeCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PfpTQFOIEeOcsJqeMfvnhw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PfosMlOIEeOcsJqeMfvnhw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_S3JakFOIEeOcsJqeMfvnhw" name="ragioneSocialeCliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S3KBolOIEeOcsJqeMfvnhw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S3KBoVOIEeOcsJqeMfvnhw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rYTgwEeWEeOL0sK2uXHbtA" name="Referente">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3OtmsEeZEeOL0sK2uXHbtA" name="telefonoReferente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3Otms0eZEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3OtmskeZEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QAca8EeaEeOL0sK2uXHbtA" name="cellulareReferente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QAe3MkeaEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QAe3MUeaEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vCxMoE9zEeOUEPyFM4YaHQ" name="faxReferente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vFiMwk9zEeOUEPyFM4YaHQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vFiMwU9zEeOUEPyFM4YaHQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HisOUFOJEeOcsJqeMfvnhw" name="nomeReferente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_His1YlOJEeOcsJqeMfvnhw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_His1YVOJEeOcsJqeMfvnhw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Ml3NQFOJEeOcsJqeMfvnhw" name="cognomeReferente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ml30UlOJEeOcsJqeMfvnhw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ml30UVOJEeOcsJqeMfvnhw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_M2HPwFOJEeOcsJqeMfvnhw" name="ragioneSocialeReferente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M2H20lOJEeOcsJqeMfvnhw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M2H20VOJEeOcsJqeMfvnhw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_sWGlwEeWEeOL0sK2uXHbtA" name="Ordine">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8z1KMEebEeOL0sK2uXHbtA" name="idOrdineCRM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8z1KM0ebEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8z1KMkebEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_atS0oEeZEeOL0sK2uXHbtA" name="Offerta">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cn9qMEecEeOL0sK2uXHbtA" name="idOffertaCRM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cn9qM0ecEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cn9qMkecEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_a9nvoEeZEeOL0sK2uXHbtA" name="Reclamo">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vKaRsEecEeOL0sK2uXHbtA" name="idPraticaReclamo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vKaRs0ecEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vKaRskecEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9-i7wEeZEeOL0sK2uXHbtA" name="ListOfServizio">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QTjkMEeaEeOL0sK2uXHbtA" name="numeroUtente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QTjkM0eaEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QTjkMkeaEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QigmMEeaEeOL0sK2uXHbtA" name="statoServizio" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QigmM0eaEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QigmMkeaEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QxbL8EeaEeOL0sK2uXHbtA" name="contoContrattuale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QxdoMkeaEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QxdoMUeaEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RACPsEeaEeOL0sK2uXHbtA" name="contrattoSAP" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RACPs0eaEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RACPskeaEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_JuZ1IEeaEeOL0sK2uXHbtA" name="TroubleTicket">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vYJLsEecEeOL0sK2uXHbtA" name="idTroubleTicket" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vYJLs0ecEeOL0sK2uXHbtA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vYJLskecEeOL0sK2uXHbtA"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_-r1OoUeQEeOL0sK2uXHbtA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-r3q4EeQEeOL0sK2uXHbtA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_jhXocEeQEeOL0sK2uXHbtA" type="Business Object Model" element="_jhLbMEeQEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5?" name="com.enel.mind.recuperodaticlienteinesito.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_jzhIYEeQEeOL0sK2uXHbtA" type="1007" element="_jhLbMEeQEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5?">
+      <children xmi:type="notation:Node" xmi:id="_jzjkoEeQEeOL0sK2uXHbtA" type="4023">
+        <styles xmi:type="notation:FontStyle" xmi:id="_jzjkoUeQEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10" bold="true"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jzjkokeQEeOL0sK2uXHbtA" type="4024"/>
+      <children xmi:type="notation:Node" xmi:id="_jzjko0eQEeOL0sK2uXHbtA" type="4025"/>
+      <children xmi:type="notation:Node" xmi:id="_jzjkpEeQEeOL0sK2uXHbtA" type="4026"/>
+      <children xmi:type="notation:Node" xmi:id="_jzjkpUeQEeOL0sK2uXHbtA" type="4027"/>
+      <children xmi:type="notation:Node" xmi:id="_jzjkpkeQEeOL0sK2uXHbtA" type="4028"/>
+      <children xmi:type="notation:Node" xmi:id="_jzmA4EeQEeOL0sK2uXHbtA" type="4029"/>
+      <children xmi:type="notation:Node" xmi:id="_jzmA4UeQEeOL0sK2uXHbtA" type="4030"/>
+      <children xmi:type="notation:Node" xmi:id="_jzmA4keQEeOL0sK2uXHbtA" type="5007">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_jzmA40eQEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_jzmA5EeQEeOL0sK2uXHbtA" showTitle="true"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_jzmA5UeQEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_jzmA5keQEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_jzhIYUeQEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10" fillColor="16316150" lineColor="37120"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_jzhIYkeQEeOL0sK2uXHbtA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jzhIY0eQEeOL0sK2uXHbtA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_-sZ2YEeQEeOL0sK2uXHbtA" type="1002" element="_-r1OoEeQEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Request?">
+      <children xmi:type="notation:Node" xmi:id="_-sZ2ZEeQEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_-sZ2ZUeQEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_-sZ2ZkeQEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_-sZ2Z0eQEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_Hqqf8EeTEeOL0sK2uXHbtA" type="2001" element="_Hqgu8EeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Request%3a%3arequest?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Hqqf8UeTEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_-sZ2aEeQEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_-sZ2aUeQEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_-sZ2akeQEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_-sZ2a0eQEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_-sZ2bEeQEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_-sZ2bUeQEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_-sZ2bkeQEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_-sZ2YUeQEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_-sZ2YkeQEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-sZ2Y0eQEeOL0sK2uXHbtA" x="355" y="140" width="155" height="83"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_eSMYYEeREeOL0sK2uXHbtA" type="1002" element="_eQ-QYEeREeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRicercaDatiCustomer_V5_Output?">
+      <children xmi:type="notation:Node" xmi:id="_eSMYZEeREeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_eSMYZUeREeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_eSMYZkeREeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_eSMYZ0eREeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_nWLaAEeUEeOL0sK2uXHbtA" type="2001" element="_nWEFQEeUEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRicercaDatiCustomer_V5_Output%3a%3arecuperoDatiClienteResponse?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nWLaAUeUEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_eSMYaEeREeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_eSMYaUeREeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_eSMYakeREeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_eSMYa0eREeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_eSMYbEeREeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_eSMYbUeREeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_eSMYbkeREeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_eSMYYUeREeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_eSMYYkeREeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eSMYY0eREeOL0sK2uXHbtA" x="22" y="280" width="268"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_4Wi1oEeSEeOL0sK2uXHbtA" type="1002" element="_4WUMIEeSEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest?">
+      <children xmi:type="notation:Node" xmi:id="_4Wi1pEeSEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_4Wi1pUeSEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_4Wi1pkeSEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_4Wi1p0eSEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_PjrDkEeTEeOL0sK2uXHbtA" type="2001" element="_PjmLEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3atipoPratica?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_PjrDkUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Pvw-0EeTEeOL0sK2uXHbtA" type="2001" element="_PvpqEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidAttivitaCRM?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Pvw-0UeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_P96vkEeTEeOL0sK2uXHbtA" type="2001" element="_P913EEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidOrdineCRM?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_P96vkUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QLHeEEeTEeOL0sK2uXHbtA" type="2001" element="_QLClkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3anumeroUtente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QLHeEUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QZAJEEeTEeOL0sK2uXHbtA" type="2001" element="_QY7QkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apraticaReclamo?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QZAJEUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QlqsEEeTEeOL0sK2uXHbtA" type="2001" element="_QllzkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apraticaTroubleTicket?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QlqsEUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QzoPkEeTEeOL0sK2uXHbtA" type="2001" element="_QzjXEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidCorrispondenzaGDO?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QzoPkUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_RCz7EEeTEeOL0sK2uXHbtA" type="2001" element="_RCvCkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3acodiceFiscaleCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_RCz7EUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_RRFAkEeTEeOL0sK2uXHbtA" type="2001" element="_RRAIEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apartitaIVACliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_RRFAkUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Rf4RkEeTEeOL0sK2uXHbtA" type="2001" element="_RfzZEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3acontoContrattualeSAPISU?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Rf4RkUeTEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vw3_AFLEEeOwtLMQnHCRHQ" type="2001" element="_vwMpkFLEEeOwtLMQnHCRHQ?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidProcessoBpm?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vw3_AVLEEeOwtLMQnHCRHQ"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_4Wi1qEeSEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_4Wi1qUeSEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_4Wi1qkeSEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_4Wi1q0eSEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_4Wi1rEeSEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_4Wi1rUeSEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_4Wi1rkeSEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_4Wi1oUeSEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_4Wi1okeSEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4Wi1o0eSEeOL0sK2uXHbtA" x="565" y="138" width="201" height="130"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_7NG9oEeTEeOL0sK2uXHbtA" type="1002" element="_7MsG4EeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRicercaDatiCustomer_V5_Input?">
+      <children xmi:type="notation:Node" xmi:id="_7NG9pEeTEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_7NG9pUeTEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_7NG9pkeTEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_7NG9p0eTEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_-1s08EeTEeOL0sK2uXHbtA" type="2001" element="_-1n8cEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRicercaDatiCustomer_V5_Input%3a%3arecuperoDatiClienteRequest?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-1s08UeTEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_7NG9qEeTEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_7NG9qUeTEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_7NG9qkeTEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_7NG9q0eTEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_7NG9rEeTEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_7NG9rUeTEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_7NG9rkeTEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_7NG9oUeTEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_7NG9okeTEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7NG9o0eTEeOL0sK2uXHbtA" x="22" y="140" width="273" height="125"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_qvF2kEeUEeOL0sK2uXHbtA" type="1002" element="_quyUkEeUEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Response?">
+      <children xmi:type="notation:Node" xmi:id="_qvF2lEeUEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_qvF2lUeUEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_qvF2lkeUEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_qvF2l0eUEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_PyB9wEeVEeOL0sK2uXHbtA" type="2001" element="_Px6pAEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Response%3a%3aesito_Response?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_PyB9wUeVEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_qvF2mEeUEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_qvF2mUeUEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_qvF2mkeUEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_qvF2m0eUEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_qvF2nEeUEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_qvF2nUeUEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_qvF2nkeUEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_qvF2kUeUEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_qvF2kkeUEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qvF2k0eUEeOL0sK2uXHbtA" x="325" y="280"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rdyIkEeUEeOL0sK2uXHbtA" type="1002" element="_rdemkEeUEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response?">
+      <children xmi:type="notation:Node" xmi:id="_rdyIlEeUEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_rdyIlUeUEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_rdyIlkeUEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_rdyIl0eUEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_g2PssEeVEeOL0sK2uXHbtA" type="2001" element="_g2IX8EeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3aesito?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_g2PssUeVEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_hB4U8EeVEeOL0sK2uXHbtA" type="2001" element="_hBuj8EeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3acodiceEsito?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_hB4U8UeVEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_hNGGcEeVEeOL0sK2uXHbtA" type="2001" element="_hM8VcEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3adescrizioneEsito?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_hNGGcUeVEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_harPcEeVEeOL0sK2uXHbtA" type="2001" element="_hahecEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3amasteAccount?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_harPcUeVEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_rztdMFamEeO6f8vdBmwSng" type="2001" element="_rzJcgFamEeO6f8vdBmwSng?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3asorgenteEsito?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_rztdMVamEeO6f8vdBmwSng"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_rdyImEeUEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_rdyImUeUEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_rdyImkeUEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_rdyIm0eUEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_rdyInEeUEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_rdyInUeUEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_rdyInkeUEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rdyIkUeUEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_rdyIkkeUEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rdyIk0eUEeOL0sK2uXHbtA" x="570" y="283" width="170" height="113"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_tAdm0EeVEeOL0sK2uXHbtA" type="1002" element="_s_93kEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aMasterAccount?">
+      <children xmi:type="notation:Node" xmi:id="_tAdm1EeVEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_tAdm1UeVEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_tAdm1keVEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_tAdm10eVEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_NE7o4EeWEeOL0sK2uXHbtA" type="2001" element="_NEx34EeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aMasterAccount%3a%3abusinessPartnerSAPISU?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_NE7o4UeWEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_NVEWoEeWEeOL0sK2uXHbtA" type="2001" element="_NU4JYEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aMasterAccount%3a%3alistOfCustomerAccount?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_NVEWoUeWEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_tAdm2EeVEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_tAdm2UeVEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_tAdm2keVEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_tAdm20eVEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_tAdm3EeVEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_tAdm3UeVEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_tAdm3keVEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_tAdm0UeVEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_tAdm0keVEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tAdm00eVEeOL0sK2uXHbtA" x="22" y="440" width="268"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rGfYAEeWEeOL0sK2uXHbtA" type="1002" element="_rFw_QEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount?">
+      <children xmi:type="notation:Node" xmi:id="_rGfYBEeWEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_rGfYBUeWEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_rGfYBkeWEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_rGfYB0eWEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_E4Uh4EeYEeOL0sK2uXHbtA" type="2001" element="_E4Kw4EeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aidCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_E4Uh4UeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_FEpGoEeYEeOL0sK2uXHbtA" type="2001" element="_FEfVoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aformaGiuridicaCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_FEpGoUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_FON5YEeYEeOL0sK2uXHbtA" type="2001" element="_FOEIYEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3atelefonoCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_FON5YUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_FY77oEeYEeOL0sK2uXHbtA" type="2001" element="_FYyKoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3acellulareCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_FY77oUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_GA6hoEeYEeOL0sK2uXHbtA" type="2001" element="_GAwwoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aemailCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_GA6hoUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_GPrWYEeYEeOL0sK2uXHbtA" type="2001" element="_GPhlYEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aPEC?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_GPrWYUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_ztTCEk9zEeOUEPyFM4YaHQ" type="2001" element="_ztM7cE9zEeOUEPyFM4YaHQ?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3afaxCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ztTCE09zEeOUEPyFM4YaHQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Gd8b4EeYEeOL0sK2uXHbtA" type="2001" element="_Gdyq4EeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3areferente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Gd8b4UeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_GrB1oEeYEeOL0sK2uXHbtA" type="2001" element="_Gq1oYEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3alistOfServizio?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_GrB1oUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_G51GoEeYEeOL0sK2uXHbtA" type="2001" element="_G5o5YEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aordine?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_G51GoUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HLJgIEeYEeOL0sK2uXHbtA" type="2001" element="_HK9S4EeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aofferta?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_HLJgIUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_HbtEoEeYEeOL0sK2uXHbtA" type="2001" element="_Hbg3YEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3areclamo?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_HbtEoUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Hoh_sEeYEeOL0sK2uXHbtA" type="2001" element="_HoVycEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3atroubleTicket?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Hoh_sUeYEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_PObAYFOIEeOcsJqeMfvnhw" type="2001" element="_POAJoFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3anomeCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_PObAYVOIEeOcsJqeMfvnhw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Pf38wFOIEeOcsJqeMfvnhw" type="2001" element="_PfosMFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3acognomeCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Pf38wVOIEeOcsJqeMfvnhw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_S3bucFOIEeOcsJqeMfvnhw" type="2001" element="_S3JakFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aragioneSocialeCliente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_S3bucVOIEeOcsJqeMfvnhw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_rGfYCEeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_rGfYCUeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_rGfYCkeWEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_rGfYC0eWEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_rGfYDEeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_rGfYDUeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_rGfYDkeWEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rGfYAUeWEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_rGfYAkeWEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rGfYA0eWEeOL0sK2uXHbtA" x="311" y="445" width="219"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_rZOGwEeWEeOL0sK2uXHbtA" type="1002" element="_rYTgwEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente?">
+      <children xmi:type="notation:Node" xmi:id="_rZOGxEeWEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_rZOGxUeWEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_rZOGxkeWEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_rZOGx0eWEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_3O5z8EeZEeOL0sK2uXHbtA" type="2001" element="_3OtmsEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3atelefonoReferente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_3O5z8UeZEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QAooMEeaEeOL0sK2uXHbtA" type="2001" element="_QAca8EeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3acellulareReferente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QAooMUeaEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_hGoC8FOGEeOcsJqeMfvnhw" type="2001" element="_vCxMoE9zEeOUEPyFM4YaHQ?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3afaxReferente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_hGoC8VOGEeOcsJqeMfvnhw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Hi9UEFOJEeOcsJqeMfvnhw" type="2001" element="_HisOUFOJEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3anomeReferente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Hi9UEVOJEeOcsJqeMfvnhw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_MmHr8FOJEeOcsJqeMfvnhw" type="2001" element="_Ml3NQFOJEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3acognomeReferente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_MmHr8VOJEeOcsJqeMfvnhw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_M2YVgFOJEeOcsJqeMfvnhw" type="2001" element="_M2HPwFOJEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3aragioneSocialeReferente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_M2YVgVOJEeOcsJqeMfvnhw"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_rZOGyEeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_rZOGyUeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_rZOGykeWEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_rZOGy0eWEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_rZOGzEeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_rZOGzUeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_rZOGzkeWEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_rZOGwUeWEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_rZOGwkeWEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rZOGw0eWEeOL0sK2uXHbtA" x="575" y="440" width="160"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_sWrNgEeWEeOL0sK2uXHbtA" type="1002" element="_sWGlwEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOrdine?">
+      <children xmi:type="notation:Node" xmi:id="_sWrNhEeWEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_sWrNhUeWEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_sWrNhkeWEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_sWrNh0eWEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_80DzsEebEeOL0sK2uXHbtA" type="2001" element="_8z1KMEebEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOrdine%3a%3aidOrdineCRM?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_80DzsUebEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_sWrNiEeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_sWrNiUeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_sWrNikeWEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_sWtpwEeWEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_sWtpwUeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_sWtpwkeWEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_sWtpw0eWEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_sWrNgUeWEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_sWrNgkeWEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sWrNg0eWEeOL0sK2uXHbtA" x="276" y="580" width="214"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_at3cYEeZEeOL0sK2uXHbtA" type="1002" element="_atS0oEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOfferta?">
+      <children xmi:type="notation:Node" xmi:id="_at3cZEeZEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_at54oEeZEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_at54oUeZEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_at54okeZEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_coMTsEecEeOL0sK2uXHbtA" type="2001" element="_cn9qMEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOfferta%3a%3aidOffertaCRM?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_coMTsUecEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_at54o0eZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_at54pEeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_at54pUeZEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_at54pkeZEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_at54p0eZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_at54qEeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_at54qUeZEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_at3cYUeZEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_at3cYkeZEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_at3cY0eZEeOL0sK2uXHbtA" x="525" y="580" width="210" height="120"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_a-MXYEeZEeOL0sK2uXHbtA" type="1002" element="_a9nvoEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReclamo?">
+      <children xmi:type="notation:Node" xmi:id="_a-MXZEeZEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_a-MXZUeZEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_a-MXZkeZEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_a-MXZ0eZEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_vKme8EecEeOL0sK2uXHbtA" type="2001" element="_vKaRsEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReclamo%3a%3aidPraticaReclamo?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vKme8UecEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_a-MXaEeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_a-MXaUeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_a-MXakeZEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_a-MXa0eZEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_a-MXbEeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_a-MXbUeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_a-MXbkeZEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_a-MXYUeZEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_a-MXYkeZEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a-MXY0eZEeOL0sK2uXHbtA" x="35" y="710" width="203"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9_HjgEeZEeOL0sK2uXHbtA" type="1002" element="_9-i7wEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio?">
+      <children xmi:type="notation:Node" xmi:id="_9_HjhEeZEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_9_HjhUeZEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_9_HjhkeZEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_9_Hjh0eZEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_QTvxcEeaEeOL0sK2uXHbtA" type="2001" element="_QTjkMEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3anumeroUtente?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QTvxcUeaEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QiqXMEeaEeOL0sK2uXHbtA" type="2001" element="_QigmMEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3astatoServizio?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QiqXMUeaEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_QxnZMEeaEeOL0sK2uXHbtA" type="2001" element="_QxbL8EeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3acontoContrattuale?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_QxnZMUeaEeOL0sK2uXHbtA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_RAOc8EeaEeOL0sK2uXHbtA" type="2001" element="_RACPsEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3acontrattoSAP?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_RAOc8UeaEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_9_HjiEeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_9_HjiUeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_9_HjikeZEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9_Hji0eZEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_9_HjjEeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_9_HjjUeZEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_9_HjjkeZEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_9_HjgUeZEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_9_HjgkeZEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_Hjg0eZEeOL0sK2uXHbtA" x="22" y="584" width="223" height="112"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_JvDVYEeaEeOL0sK2uXHbtA" type="1002" element="_JuZ1IEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aTroubleTicket?">
+      <children xmi:type="notation:Node" xmi:id="_JvDVZEeaEeOL0sK2uXHbtA" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_JvDVZUeaEeOL0sK2uXHbtA" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_JvDVZkeaEeOL0sK2uXHbtA" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_JvDVZ0eaEeOL0sK2uXHbtA" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_vYVY8EecEeOL0sK2uXHbtA" type="2001" element="_vYJLsEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aTroubleTicket%3a%3aidTroubleTicket?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vYVY8UecEeOL0sK2uXHbtA"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_JvDVaEeaEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JvDVaUeaEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JvDVakeaEeOL0sK2uXHbtA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_JvDVa0eaEeOL0sK2uXHbtA" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_JvDVbEeaEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JvDVbUeaEeOL0sK2uXHbtA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JvDVbkeaEeOL0sK2uXHbtA"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_JvDVYUeaEeOL0sK2uXHbtA" fontName="Segoe UI" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_JvDVYkeaEeOL0sK2uXHbtA" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JvDVY0eaEeOL0sK2uXHbtA" x="276" y="710" width="214" height="115"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_jhXocUeQEeOL0sK2uXHbtA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_jhXockeQEeOL0sK2uXHbtA"/>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-r3q4UeQEeOL0sK2uXHbtA" displayLabel="RecuperodatiCliente_Request" base_NamedElement="_-r1OoEeQEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Request?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_eQ-QYUeREeOL0sK2uXHbtA" displayLabel="RicercaDatiCustomer_V5_Output" base_NamedElement="_eQ-QYEeREeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRicercaDatiCustomer_V5_Output?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_4WUMIUeSEeOL0sK2uXHbtA" displayLabel="Request" base_NamedElement="_4WUMIEeSEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FqSjoEeTEeOL0sK2uXHbtA" displayLabel="com.enel.mind.ricercadaticustomerv5" base_NamedElement="_jhLbMEeQEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HqjLMEeTEeOL0sK2uXHbtA" displayLabel="Request" base_NamedElement="_Hqgu8EeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Request%3a%3arequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PjmLEUeTEeOL0sK2uXHbtA" displayLabel="tipoPratica" base_NamedElement="_PjmLEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3atipoPratica?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PvpqEUeTEeOL0sK2uXHbtA" displayLabel="idAttivitaCRM" base_NamedElement="_PvpqEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidAttivitaCRM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_P913EUeTEeOL0sK2uXHbtA" displayLabel="idOrdineCRM" base_NamedElement="_P913EEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidOrdineCRM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QLClkUeTEeOL0sK2uXHbtA" displayLabel="numeroUtente" base_NamedElement="_QLClkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3anumeroUtente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QY7QkUeTEeOL0sK2uXHbtA" displayLabel="praticaReclamo" base_NamedElement="_QY7QkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apraticaReclamo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QllzkUeTEeOL0sK2uXHbtA" displayLabel="praticaTroubleTicket" base_NamedElement="_QllzkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apraticaTroubleTicket?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QzjXEUeTEeOL0sK2uXHbtA" displayLabel="idCorrispondenzaGDO" base_NamedElement="_QzjXEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidCorrispondenzaGDO?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RCvCkUeTEeOL0sK2uXHbtA" displayLabel="codiceFiscaleCliente" base_NamedElement="_RCvCkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3acodiceFiscaleCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RRAIEUeTEeOL0sK2uXHbtA" displayLabel="partitaIVACliente" base_NamedElement="_RRAIEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apartitaIVACliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RfzZEUeTEeOL0sK2uXHbtA" displayLabel="contoContrattualeSAPISU" base_NamedElement="_RfzZEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3acontoContrattualeSAPISU?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ig0qEEeTEeOL0sK2uXHbtA" textLength="15" base_Property="_PvpqEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidAttivitaCRM?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_siva8EeTEeOL0sK2uXHbtA" textLength="30" base_Property="_PjmLEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3atipoPratica?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_tBGx8EeTEeOL0sK2uXHbtA" textLength="15" base_Property="_P913EEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidOrdineCRM?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_tfFucEeTEeOL0sK2uXHbtA" textLength="9" base_Property="_QLClkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3anumeroUtente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_uPnMcEeTEeOL0sK2uXHbtA" textLength="64" base_Property="_QY7QkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apraticaReclamo?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_uwV68EeTEeOL0sK2uXHbtA" textLength="64" base_Property="_QllzkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apraticaTroubleTicket?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_vQid8EeTEeOL0sK2uXHbtA" textLength="15" base_Property="_QzjXEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidCorrispondenzaGDO?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_w6qdcEeTEeOL0sK2uXHbtA" textLength="11" base_Property="_RRAIEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3apartitaIVACliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x_8qgEeTEeOL0sK2uXHbtA" textLength="12" base_Property="_RfzZEEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3acontoContrattualeSAPISU?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_zuHcgEeTEeOL0sK2uXHbtA" textLength="16" base_Property="_RCvCkEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3acodiceFiscaleCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_7MsG4UeTEeOL0sK2uXHbtA" displayLabel="RicercaDatiCustomer_V5_Input" base_NamedElement="_7MsG4EeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRicercaDatiCustomer_V5_Input?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_-1n8cUeTEeOL0sK2uXHbtA" displayLabel="RecuperoDatiClienteRequest" base_NamedElement="_-1n8cEeTEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRicercaDatiCustomer_V5_Input%3a%3arecuperoDatiClienteRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_nWEFQUeUEeOL0sK2uXHbtA" displayLabel="RecuperoDatiClienteResponse" base_NamedElement="_nWEFQEeUEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRicercaDatiCustomer_V5_Output%3a%3arecuperoDatiClienteResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_qu0w0EeUEeOL0sK2uXHbtA" displayLabel="RecuperodatiCliente_Response" base_NamedElement="_quyUkEeUEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Response?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rdhC0EeUEeOL0sK2uXHbtA" displayLabel="Esito_Response" base_NamedElement="_rdemkEeUEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Px6pAUeVEeOL0sK2uXHbtA" displayLabel="Esito_Response" base_NamedElement="_Px6pAEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aRecuperodatiCliente_Response%3a%3aesito_Response?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_g2IX8UeVEeOL0sK2uXHbtA" displayLabel="Esito" base_NamedElement="_g2IX8EeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hBuj8UeVEeOL0sK2uXHbtA" displayLabel="CodiceEsito" base_NamedElement="_hBuj8EeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3acodiceEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hM8VcUeVEeOL0sK2uXHbtA" displayLabel="DescrizioneEsito" base_NamedElement="_hM8VcEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3adescrizioneEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_hahecUeVEeOL0sK2uXHbtA" displayLabel="MasteAccount" base_NamedElement="_hahecEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3amasteAccount?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_lfnEgEeVEeOL0sK2uXHbtA" textLength="2" base_Property="_g2IX8EeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3aesito?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_l_RcAEeVEeOL0sK2uXHbtA" textLength="10" base_Property="_hBuj8EeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3acodiceEsito?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_onW4kEeVEeOL0sK2uXHbtA" textLength="255" base_Property="_hM8VcEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3adescrizioneEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_s_93kUeVEeOL0sK2uXHbtA" displayLabel="MasterAccount" base_NamedElement="_s_93kEeVEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aMasterAccount?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NEx34UeWEeOL0sK2uXHbtA" displayLabel="businessPartnerSAPISU" base_NamedElement="_NEx34EeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aMasterAccount%3a%3abusinessPartnerSAPISU?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NU4JYUeWEeOL0sK2uXHbtA" displayLabel="ListOfCustomerAccount" base_NamedElement="_NU4JYEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aMasterAccount%3a%3alistOfCustomerAccount?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_nCUX8EeWEeOL0sK2uXHbtA" textLength="11" base_Property="_NEx34EeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aMasterAccount%3a%3abusinessPartnerSAPISU?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rFw_QUeWEeOL0sK2uXHbtA" displayLabel="ListOfCustomerAccount" base_NamedElement="_rFw_QEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rYTgwUeWEeOL0sK2uXHbtA" displayLabel="Referente" base_NamedElement="_rYTgwEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_sWGlwUeWEeOL0sK2uXHbtA" displayLabel="Ordine" base_NamedElement="_sWGlwEeWEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOrdine?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_E4NNIEeYEeOL0sK2uXHbtA" displayLabel="idCliente" base_NamedElement="_E4Kw4EeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aidCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FEfVoUeYEeOL0sK2uXHbtA" displayLabel="formaGiuridicaCliente" base_NamedElement="_FEfVoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aformaGiuridicaCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FOGkoEeYEeOL0sK2uXHbtA" displayLabel="telefonoCliente" base_NamedElement="_FOEIYEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3atelefonoCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_FYyKoUeYEeOL0sK2uXHbtA" displayLabel="cellulareCliente" base_NamedElement="_FYyKoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3acellulareCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_GAwwoUeYEeOL0sK2uXHbtA" displayLabel="emailCliente" base_NamedElement="_GAwwoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aemailCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_GPkBoEeYEeOL0sK2uXHbtA" displayLabel="PEC" base_NamedElement="_GPhlYEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aPEC?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Gd1HIEeYEeOL0sK2uXHbtA" displayLabel="Referente" base_NamedElement="_Gdyq4EeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3areferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Gq4EoEeYEeOL0sK2uXHbtA" displayLabel="ListOfServizio" base_NamedElement="_Gq1oYEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3alistOfServizio?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_G5rVoEeYEeOL0sK2uXHbtA" displayLabel="Ordine" base_NamedElement="_G5o5YEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aordine?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HK_vIEeYEeOL0sK2uXHbtA" displayLabel="Offerta" base_NamedElement="_HK9S4EeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aofferta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HbjToEeYEeOL0sK2uXHbtA" displayLabel="Reclamo" base_NamedElement="_Hbg3YEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3areclamo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_HoYOsEeYEeOL0sK2uXHbtA" displayLabel="TroubleTicket" base_NamedElement="_HoVycEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3atroubleTicket?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_RCHv0EeZEeOL0sK2uXHbtA" textLength="15" base_Property="_E4Kw4EeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aidCliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_RgaOUEeZEeOL0sK2uXHbtA" base_Property="_FEfVoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aformaGiuridicaCliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_R-i70EeZEeOL0sK2uXHbtA" textLength="40" base_Property="_FOEIYEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3atelefonoCliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_SzQ9UEeZEeOL0sK2uXHbtA" textLength="15" base_Property="_FYyKoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3acellulareCliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_TTdgUEeZEeOL0sK2uXHbtA" textLength="100" base_Property="_GAwwoEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aemailCliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_T4YyUEeZEeOL0sK2uXHbtA" textLength="100" base_Property="_GPhlYEeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aPEC?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_UTKp0EeZEeOL0sK2uXHbtA" textLength="-1" base_Property="_Gdyq4EeYEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3areferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_atVQ4EeZEeOL0sK2uXHbtA" displayLabel="Offerta" base_NamedElement="_atS0oEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOfferta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_a9qL4EeZEeOL0sK2uXHbtA" displayLabel="Reclamo" base_NamedElement="_a9nvoEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReclamo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_3OtmsUeZEeOL0sK2uXHbtA" displayLabel="telefonoReferente" base_NamedElement="_3OtmsEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3atelefonoReferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_9-i7wUeZEeOL0sK2uXHbtA" displayLabel="ListOfServizio" base_NamedElement="_9-i7wEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_JuZ1IUeaEeOL0sK2uXHbtA" displayLabel="TroubleTicket" base_NamedElement="_JuZ1IEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aTroubleTicket?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QAe3MEeaEeOL0sK2uXHbtA" displayLabel="cellulareReferente" base_NamedElement="_QAca8EeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3acellulareReferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QTjkMUeaEeOL0sK2uXHbtA" displayLabel="numeroUtente" base_NamedElement="_QTjkMEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3anumeroUtente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QigmMUeaEeOL0sK2uXHbtA" displayLabel="statoServizio" base_NamedElement="_QigmMEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3astatoServizio?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QxdoMEeaEeOL0sK2uXHbtA" displayLabel="contoContrattuale" base_NamedElement="_QxbL8EeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3acontoContrattuale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_RACPsUeaEeOL0sK2uXHbtA" displayLabel="contrattoSAP" base_NamedElement="_RACPsEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3acontrattoSAP?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_VK4fgEeaEeOL0sK2uXHbtA" textLength="-1" base_Property="_3OtmsEeZEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3atelefonoReferente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_VwE3QEeaEeOL0sK2uXHbtA" base_Property="_QAca8EeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3acellulareReferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_8z1KMUebEeOL0sK2uXHbtA" displayLabel="idOrdineCRM" base_NamedElement="_8z1KMEebEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOrdine%3a%3aidOrdineCRM?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="__B0EsEebEeOL0sK2uXHbtA" textLength="-1" base_Property="_QTjkMEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3anumeroUtente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="__WCBMEebEeOL0sK2uXHbtA" textLength="-1" base_Property="_QigmMEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3astatoServizio?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="__nztsEebEeOL0sK2uXHbtA" textLength="-1" base_Property="_QxbL8EeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3acontoContrattuale?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_AHLKQEecEeOL0sK2uXHbtA" textLength="-1" base_Property="_RACPsEeaEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aListOfServizio%3a%3acontrattoSAP?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_boysMEecEeOL0sK2uXHbtA" textLength="-1" base_Property="_8z1KMEebEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOrdine%3a%3aidOrdineCRM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_cn9qMUecEeOL0sK2uXHbtA" displayLabel="idOffertaCRM" base_NamedElement="_cn9qMEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOfferta%3a%3aidOffertaCRM?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_gnxusEecEeOL0sK2uXHbtA" textLength="-1" base_Property="_cn9qMEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aOfferta%3a%3aidOffertaCRM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_vKaRsUecEeOL0sK2uXHbtA" displayLabel="idPraticaReclamo" base_NamedElement="_vKaRsEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReclamo%3a%3aidPraticaReclamo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_vYJLsUecEeOL0sK2uXHbtA" displayLabel="idTroubleTicket" base_NamedElement="_vYJLsEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aTroubleTicket%3a%3aidTroubleTicket?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_zndEwEecEeOL0sK2uXHbtA" textLength="-1" base_Property="_vKaRsEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aReclamo%3a%3aidPraticaReclamo?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_6d-QoEecEeOL0sK2uXHbtA" textLength="-1" base_Property="_vYJLsEecEeOL0sK2uXHbtA?com.enel.mind.ricercadaticustomerv5%3a%3aTroubleTicket%3a%3aidTroubleTicket?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_vFiMwE9zEeOUEPyFM4YaHQ" displayLabel="faxReferente" base_NamedElement="_vCxMoE9zEeOUEPyFM4YaHQ?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3afaxReferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ztM7cU9zEeOUEPyFM4YaHQ" displayLabel="faxCliente" base_NamedElement="_ztM7cE9zEeOUEPyFM4YaHQ?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3afaxCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_vwXBoFLEEeOwtLMQnHCRHQ" displayLabel="idProcessoBpm" base_NamedElement="_vwMpkFLEEeOwtLMQnHCRHQ?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidProcessoBpm?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_xJFIEFLEEeOwtLMQnHCRHQ" textLength="-1" base_Property="_vwMpkFLEEeOwtLMQnHCRHQ?com.enel.mind.ricercadaticustomerv5%3a%3aRequest%3a%3aidProcessoBpm?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_MS8GsFOIEeOcsJqeMfvnhw" textLength="40" base_Property="_ztM7cE9zEeOUEPyFM4YaHQ?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3afaxCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_POCl4FOIEeOcsJqeMfvnhw" displayLabel="nomeCliente" base_NamedElement="_POAJoFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3anomeCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_PfosMVOIEeOcsJqeMfvnhw" displayLabel="cognomeCliente" base_NamedElement="_PfosMFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3acognomeCliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_STEdIFOIEeOcsJqeMfvnhw" textLength="100" base_Property="_POAJoFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3anomeCliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_SvsHsFOIEeOcsJqeMfvnhw" textLength="100" base_Property="_PfosMFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3acognomeCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_S3KBoFOIEeOcsJqeMfvnhw" displayLabel="ragioneSocialeCliente" base_NamedElement="_S3JakFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aragioneSocialeCliente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_TSUToFOIEeOcsJqeMfvnhw" textLength="100" base_Property="_S3JakFOIEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aListOfCustomerAccount%3a%3aragioneSocialeCliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_His1YFOJEeOcsJqeMfvnhw" displayLabel="nomeReferente" base_NamedElement="_HisOUFOJEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3anomeReferente?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_LjX1gFOJEeOcsJqeMfvnhw" textLength="40" base_Property="_vCxMoE9zEeOUEPyFM4YaHQ?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3afaxReferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Ml30UFOJEeOcsJqeMfvnhw" displayLabel="cognomeReferente" base_NamedElement="_Ml3NQFOJEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3acognomeReferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_M2H20FOJEeOcsJqeMfvnhw" displayLabel="ragioneSocialeReferente" base_NamedElement="_M2HPwFOJEeOcsJqeMfvnhw?com.enel.mind.ricercadaticustomerv5%3a%3aReferente%3a%3aragioneSocialeReferente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_rzO8EFamEeO6f8vdBmwSng" displayLabel="SorgenteEsito" base_NamedElement="_rzJcgFamEeO6f8vdBmwSng?com.enel.mind.ricercadaticustomerv5%3a%3aEsito_Response%3a%3asorgenteEsito?"/>
+</xmi:XMI>

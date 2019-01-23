@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.example.org/UC9CXsdAnyAttributeAbstract/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="UC9CXsdAnyAttributeAbstract" targetNamespace="http://www.example.org/UC9CXsdAnyAttributeAbstract/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.example.org/UC9CXsdAnyAttributeAbstract/">
+			<xsd:complexType name="CustomerCredentials">
+				<xsd:sequence>
+					<xsd:element name="email" type="xsd:string" />
+				</xsd:sequence>
+				<xsd:anyAttribute processContents="lax" />
+			</xsd:complexType>
+			<xsd:element name="CheckAnyAttributeRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="customerDetails" type="tns:CustomerCredentials" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CheckAnyAttributeResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="result" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="CheckAnyAttributeRequest">
+		<wsdl:part element="tns:CheckAnyAttributeRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="CheckAnyAttributeResponse">
+		<wsdl:part element="tns:CheckAnyAttributeResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="UC9CXsdAnyAttributeAbstract">
+		<wsdl:operation name="CheckAnyAttribute">
+			<wsdl:input message="tns:CheckAnyAttributeRequest" />
+			<wsdl:output message="tns:CheckAnyAttributeResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UC9CXsdAnyAttributeAbstractSOAP" type="tns:UC9CXsdAnyAttributeAbstract">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="CheckAnyAttribute">
+			<soap:operation
+				soapAction="http://www.example.org/UC9CXsdAnyAttributeAbstract/CheckAnyAttribute" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UC9CXsdAnyAttributeAbstract">
+		<wsdl:port binding="tns:UC9CXsdAnyAttributeAbstractSOAP"
+			name="UC9CXsdAnyAttributeAbstractSOAP">
+			<soap:address location="http://www.example.org/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

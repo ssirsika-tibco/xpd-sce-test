@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://getternouns" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<!-- Three things result in a getA_B_C() method on the package, so two require renaming -->
+	<xs:complexType name="A_b">
+		<xs:sequence>
+			<xs:element name="c" type="xs:int" /> <!-- 3rd priority, renamed c2 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A">
+		<xs:sequence>
+			<xs:element name="b_c" type="xs:int" /> <!-- 2nd priority, renamed b_c1 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A_b_C"> <!-- Top priority -->
+		<xs:sequence>
+			<xs:element name="z" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+
+	
+	<xs:simpleType name="MyEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ONE_TWO"/>
+			<xs:enumeration value="ONETWO"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_AkW-MQvsEeS1yPQQHR22DQ" xpdExt:DisplayName="SUBPTEMP" Name="SUBPTEMP">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2177-10-07</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>sajain</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_Ak0RMAvsEeS1yPQQHR22DQ" xpdExt:DisplayName="SUBPTEMP" Name="SUBPTEMP" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="N65679" Name="TPARI__1" Mode="IN" Required="false" xpdExt:DisplayName="INPPARAM1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65691" Name="TPARI__2" Mode="IN" Required="false" xpdExt:DisplayName="INPPARAM2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65703" Name="TPARI__3" Mode="IN" Required="false" xpdExt:DisplayName="INPPARAM3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65715" Name="TPARI__4" Mode="IN" Required="false" xpdExt:DisplayName="INPPARAM4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65727" Name="TPARI__5" Mode="IN" Required="false" xpdExt:DisplayName="INPPARAM5">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65739" Name="TPARI__6" Mode="IN" Required="false" xpdExt:DisplayName="INPPARAM6">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="REFERENCE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65755" Name="TPARO__1" Mode="OUT" Required="false" xpdExt:DisplayName="OUTPPARAM1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>20</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65766" Name="TPARO__2" Mode="OUT" Required="false" xpdExt:DisplayName="OUTPPARAM2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65777" Name="TPARO__3" Mode="OUT" Required="false" xpdExt:DisplayName="OUTPPARAM3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65788" Name="TPARO__4" Mode="OUT" Required="false" xpdExt:DisplayName="OUTPPARAM4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65799" Name="TPARO__5" Mode="OUT" Required="false" xpdExt:DisplayName="OUTPPARAM5">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="N65810" Name="TPARO__6" Mode="OUT" Required="false" xpdExt:DisplayName="OUTPPARAM6">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="REFERENCE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_AV-j8AvsEeS1yPQQHR22DQ_StartEvent" xpdExt:DisplayName="Start" Name="Start" DisableImplicitAssociation="false" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

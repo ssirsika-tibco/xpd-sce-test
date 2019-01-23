@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://calendar.api.dac.n2.tibco.com" xmlns:tns6="http://calendar.api.dac.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns4="http://api.dac.n2.tibco.com"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://calendar.api.dac.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.dac.api.calendar.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://api.dac.n2.tibco.com" schemaLocation="com.tibco.n2.dac.api.xsd"/>
+  <xsd:element abstract="false" name="updateWorkingDaysResponse" nillable="false"
+      type="xsd:string"/>
+  <xsd:element abstract="false" name="updateWorkingDayExceptionsResponse" nillable="false"
+      type="xsd:string"/>
+  <xsd:element abstract="false" name="deleteWorkingDayExceptionsResponse" nillable="false"
+      type="xsd:string"/>
+  <xsd:element abstract="false" name="getCalendarEntriesResponse" nillable="false"
+      type="tns4:XmlCalendarEntriesType"/>
+  <xsd:element abstract="false" name="getCalendarEntries" nillable="false">
+    <xsd:complexType ecore:name="getCalendarEntriesType" id="com.tibco.n2.dac.api.calendargetCalendarEntriesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="requireddetail" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="required-detail" type="tns4:XmlRequiredDetailType"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="guid" id="getCalendarEntriesTypeguid" form="unqualified"
+          name="guid" type="tns4:XmlGuidType" use="required">
+        <xsd:annotation>
+          <xsd:documentation>ID of the owning entity of the working time information to be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="startdatetime" id="getCalendarEntriesTypestart-date-time"
+          form="unqualified" name="start-date-time" type="xsd:dateTime" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Optional start filter on the working day exceptions to be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="enddatetime" id="getCalendarEntriesTypeend-date-time"
+          form="unqualified" name="end-date-time" type="xsd:dateTime" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Optional end filter on the working day exceptions to be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="updateWorkingDays" nillable="false">
+    <xsd:complexType ecore:name="updateWorkingDaysType" id="com.tibco.n2.dac.api.calendarupdateWorkingDaysType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="workingday" form="unqualified" maxOccurs="7" minOccurs="0"
+            name="working-day" type="tns4:XmlDayType"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="guid" id="updateWorkingDaysTypeguid" form="unqualified"
+          name="guid" type="tns4:XmlGuidType" use="required">
+        <xsd:annotation>
+          <xsd:documentation>ID of the owning entity of the working time information to be modified. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="addWorkingDayExceptions" nillable="false">
+    <xsd:complexType ecore:name="addWorkingDayExceptionsType" id="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="addexceptions" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="add-exceptions" type="tns4:XmlNewWorkingDayExceptionType"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="guid" id="addWorkingDayExceptionsTypeguid" form="unqualified"
+          name="guid" type="tns4:XmlGuidType" use="required">
+        <xsd:annotation>
+          <xsd:documentation>ID of the owning entity of the working time information to be added. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="addWorkingDayExceptionsResponse" nillable="false">
+    <xsd:complexType ecore:name="addWorkingDayExceptionsResponseType" id="com.tibco.n2.dac.api.calendaraddWorkingDayExceptionsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="addexceptions" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="add-exceptions" type="tns4:XmlGuidType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="updateWorkingDayExceptions" nillable="false">
+    <xsd:complexType ecore:name="updateWorkingDayExceptionsType" id="com.tibco.n2.dac.api.calendarupdateWorkingDayExceptionsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="updateexceptions" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="update-exceptions" type="tns4:XmlExistingWorkingDayExceptionType"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="guid" id="updateWorkingDayExceptionsTypeguid" form="unqualified"
+          name="guid" type="tns4:XmlGuidType" use="required">
+        <xsd:annotation>
+          <xsd:documentation>ID of the owning entity of the working time information to be modified. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="deleteWorkingDayExceptions" nillable="false">
+    <xsd:complexType ecore:name="deleteWorkingDayExceptionsType" id="com.tibco.n2.dac.api.calendardeleteWorkingDayExceptionsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="deleteexceptions" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="delete-exceptions" type="tns4:XmlGuidType"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="guid" id="deleteWorkingDayExceptionsTypeguid" form="unqualified"
+          name="guid" type="tns4:XmlGuidType" use="required">
+        <xsd:annotation>
+          <xsd:documentation>ID of the owning entity of the working time information to be removed. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

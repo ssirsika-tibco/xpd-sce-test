@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %BundleName_notrans
+Bundle-SymbolicName: com.tibco.xpd.xpdl2;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %BundleVendor_notrans
+Bundle-Localization: plugin
+Require-Bundle: com.tibco.xpd.resources;bundle-version="[5.0.0,6.0.0)";visibility:=reexport,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;bundle-version="[2.7.0,3.0.0)";visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;bundle-version="[2.7.0,3.0.0)"
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: com.tibco.xpd.xpdExtension,
+ com.tibco.xpd.xpdExtension.impl,
+ com.tibco.xpd.xpdExtension.util,
+ com.tibco.xpd.xpdl2,
+ com.tibco.xpd.xpdl2.extension,
+ com.tibco.xpd.xpdl2.impl,
+ com.tibco.xpd.xpdl2.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

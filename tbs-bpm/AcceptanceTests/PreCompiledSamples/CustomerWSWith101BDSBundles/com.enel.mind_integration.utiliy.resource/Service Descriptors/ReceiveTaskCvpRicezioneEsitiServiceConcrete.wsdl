@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskcvpricezioneesiti" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.example.com/1380791141124" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.example.com/1380791141124" tibex:src="file:/C:/Users/Santullo/Documents/Progetti/ENEL/Schemas/ReceiveTaskCvpRicezioneEsitiServiceConcrete.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskcvpricezioneesiti" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetaskcvpricezioneesiti">
+            <xs:element name="CvpRicezioneEsitiRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ClienteCdm" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CodEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DescrizioneEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Macrocausale" type="xs:string"/>
+                        <xs:element minOccurs="0" name="SistemaSorgente" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CorrelationId" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ReceiveTaskCvpRicezioneEsitiService">
+        <wsdl:port binding="tns:ReceiveTaskCvpRicezioneEsitiPortTypeEndpoint0Binding" name="ReceiveTaskCvpRicezioneEsitiPortTypeEndpoint0">
+            <soap:address location="http://localhost:99999/Processes/ReceiveTaskCvpRicezioneEsiti/ReceiveTaskCvpRicezioneEsitiWSDL-service0.serviceagent/ReceiveTaskCvpRicezioneEsitiPortTypeEndpoint0"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="ReceiveTaskCvpRicezioneEsitiPortType">
+        <wsdl:operation name="ReceiveTaskCvpRicezioneEsiti">
+            <wsdl:input message="tns:CvpRicezioneEsitiRequest"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ReceiveTaskCvpRicezioneEsitiPortTypeEndpoint0Binding" type="tns:ReceiveTaskCvpRicezioneEsitiPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ReceiveTaskCvpRicezioneEsiti">
+            <soap:operation soapAction="/Processes/ReceiveTaskCvpRicezioneEsiti/ReceiveTaskCvpRicezioneEsitiWSDL-service0.serviceagent/ReceiveTaskCvpRicezioneEsitiPortTypeEndpoint0/ReceiveTaskCvpRicezioneEsiti" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="CvpRicezioneEsitiRequest">
+        <wsdl:part element="ns0:CvpRicezioneEsitiRequest" name="Input"/>
+    </wsdl:message>
+</wsdl:definitions>

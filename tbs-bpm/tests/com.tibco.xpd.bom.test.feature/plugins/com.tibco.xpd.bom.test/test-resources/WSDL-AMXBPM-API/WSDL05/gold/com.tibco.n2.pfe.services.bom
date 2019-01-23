@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.pfe.services2" name="com.tibco.n2.pfe.services">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NydE0RUhEeGeRrbRLAepWg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NydE0hUhEeGeRrbRLAepWg" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NydE0xUhEeGeRrbRLAepWg" key="created" value="1321980420125"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NydE1BUhEeGeRrbRLAepWg" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.servicesPageFlowService" name="PageFlowService">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_NeFXURUhEeGeRrbRLAepWg" body="Get information about and interact with deployed pageflows."/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="PageFlowServicelistPageFlows" name="listPageFlows">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="listPageFlowsparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonListingRequest?com.tibco.n2.pfe.api.common%3a%3aListingRequest?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="listPageFlowsresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowlistPageFlowsResponseType?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="PageFlowServicestartPageFlow" name="startPageFlow">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="startPageFlowparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowstartPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="startPageFlowresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowstartPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="PageFlowServiceupdatePageFlow" name="updatePageFlow">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="updatePageFlowparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowupdatePageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="updatePageFlowresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowupdatePageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="PageFlowServiceinjectPageFlowEvent" name="injectPageFlowEvent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="injectPageFlowEventparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowinjectPageFlowEventType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="injectPageFlowEventresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowinjectPageFlowEventResponseType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="PageFlowServicecancelPageFlow" name="cancelPageFlow">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="cancelPageFlowparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowcancelPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="cancelPageFlowresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.pageflow.bom#com.tibco.n2.pfe.api.pageflowcancelPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Nd-CkRUhEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Nd-CkhUhEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Nd-CkxUhEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Nd-ClBUhEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_Nd-poBUhEeGeRrbRLAepWg" base_Package="com.tibco.n2.pfe.services2?com.tibco.n2.pfe.services?" xsdTargetNamespace="http://services.pfe.n2.tibco.com" xsdSchemaLocation="pflow.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NeF-YBUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.servicesPageFlowService?com.tibco.n2.pfe.services%3a%3aPageFlowService?" xsdName="PageFlowService" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NydE0BUhEeGeRrbRLAepWg" displayLabel="PageFlowService" base_NamedElement="com.tibco.n2.pfe.servicesPageFlowService?com.tibco.n2.pfe.services%3a%3aPageFlowService?"/>
+  <notation:Diagram xmi:id="_Nydr4BUhEeGeRrbRLAepWg" type="Business Object Model" element="com.tibco.n2.pfe.services2?com.tibco.n2.pfe.services?" name="com.tibco.n2.pfe.services" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Nydr4RUhEeGeRrbRLAepWg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_Nydr4hUhEeGeRrbRLAepWg"/>
+  </notation:Diagram>
+</xmi:XMI>

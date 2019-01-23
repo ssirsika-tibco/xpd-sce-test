@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2" name="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VaCTYU1lEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VaCTYk1lEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VaCTY01lEeSLJZkJre4IDg" key="created" value="1412609435158"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VaCTZE1lEeSLJZkJre4IDg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Va85YE1lEeSLJZkJre4IDg" key="checksum" value="2965151048"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2AirlinePreference" name="AirlinePreference">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlinePreferenceseating" name="seating" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VZvYcE1lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VZuxYk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlinePreferencemealType" name="mealType" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VZwmk01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VZwmkk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AirlinePreferencespecialRequest" name="specialRequest" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VZybw01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VZybwk1lEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2FrequentFlier" name="FrequentFlier">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FrequentFlierairline" name="airline" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VZ2GI01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VZ2GIk1lEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="FrequentFlierfreqFlierNumber" name="freqFlierNumber" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VZ37U01lEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VZ37Uk1lEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_VZqf8U1lEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VZqf8k1lEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_VZqf801lEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VZqf9E1lEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_VZqf9U1lEeSLJZkJre4IDg" base_Package="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2?" xsdTargetNamespace="http://www.amsbqa.com/linda08/WSDLEmbedSchema1/Schema1IncludeSchema2" xsdSchemaLocation="Profile_WSDLEmbedsSchema1_Schema1IncludeSchema2L.wsdl;profile/AirlineUserProfileL.xsd" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.9.0.qualifier" bomWsdlSources="Profile_WSDLEmbedsSchema1_Schema1IncludeSchema2L.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_VZs8MU1lEeSLJZkJre4IDg" base_Class="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2AirlinePreference?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference?" xsdName="AirlinePreference" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_VZzC0E1lEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_VZuxYU1lEeSLJZkJre4IDg" base_Property="AirlinePreferenceseating?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3aseating?" xsdName="seating" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_VZzC0E1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_VZvYcU1lEeSLJZkJre4IDg" textLength="-1" base_Property="AirlinePreferenceseating?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3aseating?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_VZwmkU1lEeSLJZkJre4IDg" base_Property="AirlinePreferencemealType?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3amealType?" xsdName="mealType" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_VZzC0E1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_VZxNoE1lEeSLJZkJre4IDg" textLength="-1" base_Property="AirlinePreferencemealType?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3amealType?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_VZybwU1lEeSLJZkJre4IDg" base_Property="AirlinePreferencespecialRequest?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3aspecialRequest?" xsdName="specialRequest" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_VZzC0E1lEeSLJZkJre4IDg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_VZybxE1lEeSLJZkJre4IDg" textLength="-1" base_Property="AirlinePreferencespecialRequest?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3aspecialRequest?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_VZ04AE1lEeSLJZkJre4IDg" base_Class="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2FrequentFlier?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier?" xsdName="FrequentFlier" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_VZ4iYE1lEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_VZ2GIU1lEeSLJZkJre4IDg" base_Property="FrequentFlierairline?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier%3a%3aairline?" xsdName="airline" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_VZ4iYE1lEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_VZ2GJE1lEeSLJZkJre4IDg" textLength="-1" base_Property="FrequentFlierairline?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier%3a%3aairline?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_VZ37UU1lEeSLJZkJre4IDg" base_Property="FrequentFlierfreqFlierNumber?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier%3a%3afreqFlierNumber?" xsdName="freqFlierNumber" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_VZ4iYE1lEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_VZ37VE1lEeSLJZkJre4IDg" textLength="-1" base_Property="FrequentFlierfreqFlierNumber?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier%3a%3afreqFlierNumber?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ5wgE1lEeSLJZkJre4IDg" base_Element="FrequentFlierairline?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier%3a%3aairline?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6XkE1lEeSLJZkJre4IDg" base_Element="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2AirlinePreference?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6XkU1lEeSLJZkJre4IDg" base_Element="_VZqf8U1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6Xkk1lEeSLJZkJre4IDg" base_Element="_VZvYcE1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6Xk01lEeSLJZkJre4IDg" base_Element="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2FrequentFlier?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6XlE1lEeSLJZkJre4IDg" base_Element="_VZybwk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6XlU1lEeSLJZkJre4IDg" base_Element="FrequentFlierfreqFlierNumber?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier%3a%3afreqFlierNumber?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6Xlk1lEeSLJZkJre4IDg" base_Element="AirlinePreferencespecialRequest?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3aspecialRequest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6Xl01lEeSLJZkJre4IDg" base_Element="_VZ2GIk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6XmE1lEeSLJZkJre4IDg" base_Element="_VZwmk01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6XmU1lEeSLJZkJre4IDg" base_Element="_VZ37Uk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6-oE1lEeSLJZkJre4IDg" base_Element="_VZwmkk1lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6-oU1lEeSLJZkJre4IDg" base_Element="AirlinePreferencemealType?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3amealType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6-ok1lEeSLJZkJre4IDg" base_Element="_VZ37U01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6-o01lEeSLJZkJre4IDg" base_Element="_VZ2GI01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6-pE1lEeSLJZkJre4IDg" base_Element="_VZybw01lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6-pU1lEeSLJZkJre4IDg" base_Element="_VZqf801lEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6-pk1lEeSLJZkJre4IDg" base_Element="AirlinePreferenceseating?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3aseating?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_VZ6-p01lEeSLJZkJre4IDg" base_Element="_VZuxYk1lEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VaAeME1lEeSLJZkJre4IDg" displayLabel="AirlinePreference" base_NamedElement="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2AirlinePreference?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VaBFQE1lEeSLJZkJre4IDg" displayLabel="FrequentFlier" base_NamedElement="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2FrequentFlier?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VaBFQU1lEeSLJZkJre4IDg" displayLabel="mealType" base_NamedElement="AirlinePreferencemealType?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3amealType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VaBsUE1lEeSLJZkJre4IDg" displayLabel="seating" base_NamedElement="AirlinePreferenceseating?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3aseating?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VaBsUU1lEeSLJZkJre4IDg" displayLabel="specialRequest" base_NamedElement="AirlinePreferencespecialRequest?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aAirlinePreference%3a%3aspecialRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VaBsUk1lEeSLJZkJre4IDg" displayLabel="airline" base_NamedElement="FrequentFlierairline?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier%3a%3aairline?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_VaCTYE1lEeSLJZkJre4IDg" displayLabel="freqFlierNumber" base_NamedElement="FrequentFlierfreqFlierNumber?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2%3a%3aFrequentFlier%3a%3afreqFlierNumber?"/>
+  <notation:Diagram xmi:id="_VaCTZU1lEeSLJZkJre4IDg" type="Business Object Model" element="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2?com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2?" name="com.amsbqa.linda08.WSDLEmbedSchema1.Schema1IncludeSchema2" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_VaCTZk1lEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_VaCTZ01lEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

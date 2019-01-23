@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_slyvIJ44Ed-FEqK5UGTaIg" xpdExt:DisplayName="TestWebSvcAPIJavaScriptInvalidMappings" Name="TestWebSvcAPIJavaScriptInvalidMappings">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-07-30</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_slyvIp44Ed-FEqK5UGTaIg" xpdExt:DisplayName="NewWSDLFile NewWSDLFile" Name="NewWSDLFileNewWSDLFile">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_slyvI544Ed-FEqK5UGTaIg" xpdExt:DisplayName="TestWebSvcAPIJavaScriptInvalidMappings-Process (API Activity EndPoint)" Name="Pkg_WebSvcAPIJavaScriptInvalidMappings">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/TestWebSvcAPIJavaScriptInvalidMappings/TestWebSvcAPIJavaScriptInvalidMappingsProcess" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_6Xv0YJ4-Ed-FEqK5UGTaIg" xpdExt:DisplayName="nongen" Name="nongen">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" HttpClientInstanceName="nonGenAPI">
+              <xpdExt:OutboundSecurity/>
+            </xpdExt:SoapHttpBinding>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_slyvJJ44Ed-FEqK5UGTaIg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_slyvJp44Ed-FEqK5UGTaIg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_slyvJZ44Ed-FEqK5UGTaIg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="581.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_slyvJp44Ed-FEqK5UGTaIg" xpdExt:DisplayName="TestWebSvcAPIJavaScriptInvalidMappings-Process" xpdExt:ApiEndPointParticipant="_slyvI544Ed-FEqK5UGTaIg" iProcessExt:MaxStepIndex="17" Name="TestWebSvcAPIJavaScriptInvalidMappingsProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_slyvSp44Ed-FEqK5UGTaIg" Name="Bool1" Mode="INOUT" Required="false" xpdExt:DisplayName="Bool1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_slyvS544Ed-FEqK5UGTaIg" Name="ChildType1" Mode="INOUT" Required="false" xpdExt:DisplayName="ChildType1">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="org.example.NewWSDLFileChildType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_slyvTJ44Ed-FEqK5UGTaIg" Name="ChildTypeArray" IsArray="true" Mode="INOUT" Required="false" xpdExt:DisplayName="ChildTypeArray">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="org.example.NewWSDLFileChildType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_slyvTZ44Ed-FEqK5UGTaIg" Name="DateArray" IsArray="true" Mode="INOUT" Required="false" xpdExt:DisplayName="DateArray">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_slyvTp44Ed-FEqK5UGTaIg" Name="DateTime1" Mode="INOUT" Required="false" xpdExt:DisplayName="DateTime1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_slyvT544Ed-FEqK5UGTaIg" Name="Decimal1" Mode="INOUT" Required="false" xpdExt:DisplayName="Decimal1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_slyvUJ44Ed-FEqK5UGTaIg" Name="Int1" Mode="INOUT" Required="false" xpdExt:DisplayName="Int1">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_slyvUZ44Ed-FEqK5UGTaIg" Name="IntArray" IsArray="true" Mode="INOUT" Required="false" xpdExt:DisplayName="IntArray">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_slyvUp44Ed-FEqK5UGTaIg" Name="Text" Mode="INOUT" Required="false" xpdExt:DisplayName="Text">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gIJ44Ed-FEqK5UGTaIg" Name="Text2" Mode="INOUT" Required="false" xpdExt:DisplayName="Text2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gIZ44Ed-FEqK5UGTaIg" Name="Text3" Mode="INOUT" Required="false" xpdExt:DisplayName="Text3">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gIp44Ed-FEqK5UGTaIg" Name="Text4" Mode="INOUT" Required="false" xpdExt:DisplayName="Text4">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gI544Ed-FEqK5UGTaIg" Name="Text5" Mode="INOUT" Required="false" xpdExt:DisplayName="Text5">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gJJ44Ed-FEqK5UGTaIg" Name="Text6" Mode="INOUT" Required="false" xpdExt:DisplayName="Text6">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gJZ44Ed-FEqK5UGTaIg" Name="Text7Array" IsArray="true" Mode="INOUT" Required="false" xpdExt:DisplayName="Text7Array">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gJp44Ed-FEqK5UGTaIg" Name="Text8Array" IsArray="true" Mode="INOUT" Required="false" xpdExt:DisplayName="Text8Array">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gJ544Ed-FEqK5UGTaIg" Name="Text9" Mode="INOUT" Required="false" xpdExt:DisplayName="Text9">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gKJ44Ed-FEqK5UGTaIg" Name="WholeInParam" Mode="INOUT" Required="false" xpdExt:DisplayName="Whole In Param">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="org.example.NewWSDLFileInParamsType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_sl8gKZ44Ed-FEqK5UGTaIg" Name="WholeOutParams" Mode="INOUT" Required="false" xpdExt:DisplayName="WholeOutParams">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="org.example.NewWSDLFile.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="org.example.NewWSDLFileOutParamsType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_sl8gKp44Ed-FEqK5UGTaIg" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_sl8gK544Ed-FEqK5UGTaIg" xpdExt:DisplayName="CorrelationField2" Name="CorrelationField2" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_sl8gLJ44Ed-FEqK5UGTaIg" xpdExt:DisplayName="BooleanCorrelationField3" Name="BooleanCorrelationField3" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_sl8gLZ44Ed-FEqK5UGTaIg" xpdExt:DisplayName="CorrelationField4" Name="CorrelationField4" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_slyvJ544Ed-FEqK5UGTaIg" Name="IncomingWholePartMapped" xpdExt:Visibility="Private" xpdExt:DisplayName="Incoming Whole Part Mapped" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage>
+                <xpdl2:Message Id="_slyvKJ44Ed-FEqK5UGTaIg">
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="inParameters.requiredStringIn">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="inParameters.optionalSingleChoiceA">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField2</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="inParameters.requiredChildIn.requiredChildAttribute">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">BooleanCorrelationField3</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="inParameters.requiredChildIn.requiredChildString">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField4</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="inParameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">WholeInParam</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_6Xv0YJ4-Ed-FEqK5UGTaIg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_6Xv0YJ4-Ed-FEqK5UGTaIg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="59.0">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="81.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvKZ44Ed-FEqK5UGTaIg" Name="ReplyWholePartMapped" xpdExt:DisplayName="Reply Whole Part Mapped" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_slyvJ544Ed-FEqK5UGTaIg" CatchThrow="THROW">
+                <xpdl2:Message Id="_slyvK544Ed-FEqK5UGTaIg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="outParameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">WholeOutParams</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_6Xv0YJ4-Ed-FEqK5UGTaIg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_slyvIp44Ed-FEqK5UGTaIg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="77.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="61.0">
+              <xpdl2:Coordinates XCoordinate="587.0" YCoordinate="81.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ScriptInformation Id="_slyvKp44Ed-FEqK5UGTaIg">
+            <xpdExt:Expression ScriptGrammar="JavaScript"/>
+          </xpdExt:ScriptInformation>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvLJ44Ed-FEqK5UGTaIg" iProcessExt:StepIndex="6">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_slyvPp44Ed-FEqK5UGTaIg"/>
+                  <xpdl2:TransitionRef Id="_slyvQJ44Ed-FEqK5UGTaIg"/>
+                  <xpdl2:TransitionRef Id="_slyvRp44Ed-FEqK5UGTaIg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="421.0" YCoordinate="81.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvLZ44Ed-FEqK5UGTaIg" Name="Enoughtoprovereplysendtaskvalidated" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Enough to prove reply send task validated" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskSend xpdExt:ReplyToActivityId="_slyvM544Ed-FEqK5UGTaIg" xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:Message Id="_slyvLp44Ed-FEqK5UGTaIg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="outParameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">WholeOutParams</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_6Xv0YJ4-Ed-FEqK5UGTaIg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskSend>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="86.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="112.0">
+              <xpdl2:Coordinates XCoordinate="332.0" YCoordinate="334.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvL544Ed-FEqK5UGTaIg" Name="UntriggeredEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid multiple mappings" iProcessExt:StepIndex="8">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_slyvJ544Ed-FEqK5UGTaIg" CatchThrow="THROW">
+                <xpdl2:Message Id="_slyvMJ44Ed-FEqK5UGTaIg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="outParameters.requiredStringOut">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="outParameters.optionalChildOut.requiredChildString">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="outParameters.optionalChildOut.simpleTypeWithAttr.value">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text4</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="outParameters.optionalChildOut.simpleTypeWithAttr.requiredAttribute">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="outParameters.requiredChildOut">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ChildType1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="outParameters.requiredIntSeqOut">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IntArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="outParameters.optionalChildOut.requiredChildAttribute">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Bool1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_6Xv0YJ4-Ed-FEqK5UGTaIg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="55.0">
+              <xpdl2:Coordinates XCoordinate="587.0" YCoordinate="168.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvMZ44Ed-FEqK5UGTaIg" Name="UntriggeredEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="Untriggered Event 2" iProcessExt:StepIndex="9">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="65.0">
+              <xpdl2:Coordinates XCoordinate="699.0" YCoordinate="168.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvMp44Ed-FEqK5UGTaIg" iProcessExt:StepIndex="10">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Parallel">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_slyvP544Ed-FEqK5UGTaIg"/>
+                  <xpdl2:TransitionRef Id="_slyvQ544Ed-FEqK5UGTaIg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="164.0" YCoordinate="81.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvM544Ed-FEqK5UGTaIg" Name="Enoughtoprovereceivetaskvalidated" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:DisplayName="Enough to prove receive task validated" xpdExt:RequireNewTransaction="false" iProcessExt:StepIndex="11">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_slyvNJ44Ed-FEqK5UGTaIg">
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="inParameters.requiredChildIn.requiredChildAttribute">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">BooleanCorrelationField3</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="inParameters.requiredStringIn">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField2</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="inParameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">WholeInParam</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_6Xv0YJ4-Ed-FEqK5UGTaIg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="NewWSDLFile.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="NewWSDLFile" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="NewWSDLFile.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_6Xv0YJ4-Ed-FEqK5UGTaIg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="90.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="111.0">
+              <xpdl2:Coordinates XCoordinate="142.0" YCoordinate="334.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedCorrelationFields>
+            <xpdExt:AssociatedCorrelationField Name="BooleanCorrelationField3" CorrelationMode="Correlate"/>
+            <xpdExt:AssociatedCorrelationField Name="CorrelationField2" CorrelationMode="Correlate"/>
+          </xpdExt:AssociatedCorrelationFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvNZ44Ed-FEqK5UGTaIg" Name="ReplyToEnoughtoprovegeneratedreqandcorrelationmappingsnotthrowing" xpdExt:Visibility="Private" xpdExt:DisplayName="Reply To: Enough to prove generated req and correlation mappings not throwing" iProcessExt:StepIndex="12">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_slyvNp44Ed-FEqK5UGTaIg">
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="ChildType1.optionalChildAttribute">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="ChildType1.requiredChildAttribute">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">BooleanCorrelationField3</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="ChildType1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ChildType1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_slyvI544Ed-FEqK5UGTaIg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestWebSvcAPIJavaScriptValidMappings.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestWebSvcAPIJavaScriptInvalidMappingsProcess" OperationName="ReplyToEnoughtoprovegeneratedreqandcorrelationmappingsnotthrowing">
+                  <xpdExt:ExternalReference location="TestWebSvcAPIJavaScriptValidMappings.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_slyvI544Ed-FEqK5UGTaIg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="152.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="71.0">
+              <xpdl2:Coordinates XCoordinate="486.0" YCoordinate="333.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="ChildType1" Mode="INOUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+          <xpdExt:AssociatedCorrelationFields>
+            <xpdExt:AssociatedCorrelationField Name="BooleanCorrelationField3" CorrelationMode="Correlate"/>
+            <xpdExt:AssociatedCorrelationField Name="CorrelationField" CorrelationMode="Correlate"/>
+          </xpdExt:AssociatedCorrelationFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvN544Ed-FEqK5UGTaIg" Name="ReplyToReplyToReplyToReplyToReplyToReplyToReplyToReplyToReplyToReplyToReplyToReplyToReplyToReplyToEnoughtoprovegeneratedreqandcorrelationmappingsnotthrowing" iProcessExt:StepIndex="13" xpdExt:Visibility="Private" xpdExt:DisplayName="Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Reply To: Enough to prove generated req and correlation mappings not throwing">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_slyvNZ44Ed-FEqK5UGTaIg" CatchThrow="THROW">
+                <xpdl2:Message Id="_slyvOJ44Ed-FEqK5UGTaIg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="IN" Formal="ChildType1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ChildType1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_slyvI544Ed-FEqK5UGTaIg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestWebSvcAPIJavaScriptValidMappings.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestWebSvcAPIJavaScriptInvalidMappingsProcess" OperationName="ReplyToEnoughtoprovegeneratedreqandcorrelationmappingsnotthrowing">
+                  <xpdExt:ExternalReference location="TestWebSvcAPIJavaScriptValidMappings.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_slyvI544Ed-FEqK5UGTaIg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="167.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="71.0">
+              <xpdl2:Coordinates XCoordinate="779.0" YCoordinate="333.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="ChildType1" Mode="INOUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvOZ44Ed-FEqK5UGTaIg" Name="Validerrormappings" xpdExt:Visibility="Private" xpdExt:DisplayName="Valid error mappings" iProcessExt:StepIndex="14">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError xpdExt:RequestActivityId="_slyvJ544Ed-FEqK5UGTaIg" ErrorCode="fault">
+                <xpdExt:FaultMessage Id="_slyvOp44Ed-FEqK5UGTaIg" FaultName="fault">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="fault.requiredStringFault">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="fault.requiredChildFault.requiredChildAttribute">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Bool1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="fault.requiredChildFault.requiredChildString">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="fault.requiredIntSeqFault">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IntArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdExt:FaultMessage>
+              </xpdl2:ResultError>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="587.0" YCoordinate="242.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvO544Ed-FEqK5UGTaIg" Name="genmeratedmappingsshouldthrownoerrors" xpdExt:Visibility="Private" xpdExt:DisplayName="genmerated mappings should throw no errors." iProcessExt:StepIndex="15">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Error">
+              <xpdl2:ResultError xpdExt:RequestActivityId="_slyvNZ44Ed-FEqK5UGTaIg" ErrorCode="GeneratedFault">
+                <xpdExt:FaultMessage Id="_slyvPJ44Ed-FEqK5UGTaIg" FaultName="GeneratedFault">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Bool1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Bool1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="ChildType1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ChildType1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="ChildTypeArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ChildTypeArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="DateArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">DateArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="DateTime1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">DateTime1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Decimal1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Decimal1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Int1">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Int1</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="IntArray">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">IntArray</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text3">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text4">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text4</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text5">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text6">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text6</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text7Array">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text7Array</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text8Array">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text8Array</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="Text9">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Text9</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="WholeInParam">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">WholeInParam</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="WholeOutParams">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">WholeOutParams</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdExt:FaultMessage>
+              </xpdl2:ResultError>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="59.0">
+              <xpdl2:Coordinates XCoordinate="619.0" YCoordinate="440.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_slyvPZ44Ed-FEqK5UGTaIg" iProcessExt:StepIndex="16">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_slyvRZ44Ed-FEqK5UGTaIg"/>
+                  <xpdl2:TransitionRef Id="_slyvSZ44Ed-FEqK5UGTaIg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="593.0" YCoordinate="333.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_xF9f8p4-Ed-FEqK5UGTaIg" Name="UntriggeredEvent3" xpdExt:Visibility="Private" xpdExt:DisplayName="Untriggered Event 3" iProcessExt:StepIndex="17">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_slyvJZ44Ed-FEqK5UGTaIg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="920.0" YCoordinate="333.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_slyvPp44Ed-FEqK5UGTaIg" Name="" From="_slyvLJ44Ed-FEqK5UGTaIg" To="_slyvKZ44Ed-FEqK5UGTaIg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvP544Ed-FEqK5UGTaIg" Name="" From="_slyvMp44Ed-FEqK5UGTaIg" To="_slyvLJ44Ed-FEqK5UGTaIg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvQJ44Ed-FEqK5UGTaIg" Name="" From="_slyvLJ44Ed-FEqK5UGTaIg" To="_slyvL544Ed-FEqK5UGTaIg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">false;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="1.0" YCoordinate="58.0"/>
+              <xpdl2:Coordinates XCoordinate="-165.0" YCoordinate="-29.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvQZ44Ed-FEqK5UGTaIg" Name="" From="_slyvL544Ed-FEqK5UGTaIg" To="_slyvMZ44Ed-FEqK5UGTaIg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvQp44Ed-FEqK5UGTaIg" xpdExt:DisplayName="" Name="" From="_slyvJ544Ed-FEqK5UGTaIg" To="_slyvMp44Ed-FEqK5UGTaIg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvQ544Ed-FEqK5UGTaIg" Name="" From="_slyvMp44Ed-FEqK5UGTaIg" To="_slyvM544Ed-FEqK5UGTaIg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvRJ44Ed-FEqK5UGTaIg" Name="" From="_slyvLZ44Ed-FEqK5UGTaIg" To="_slyvNZ44Ed-FEqK5UGTaIg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvRZ44Ed-FEqK5UGTaIg" Name="" From="_slyvPZ44Ed-FEqK5UGTaIg" To="_slyvN544Ed-FEqK5UGTaIg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvRp44Ed-FEqK5UGTaIg" Name="" From="_slyvLJ44Ed-FEqK5UGTaIg" To="_slyvOZ44Ed-FEqK5UGTaIg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">false;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="21.0" YCoordinate="162.0"/>
+              <xpdl2:Coordinates XCoordinate="-145.0" YCoordinate="1.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvR544Ed-FEqK5UGTaIg" xpdExt:DisplayName="" Name="" From="_slyvM544Ed-FEqK5UGTaIg" To="_slyvLZ44Ed-FEqK5UGTaIg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvSJ44Ed-FEqK5UGTaIg" xpdExt:DisplayName="" Name="" From="_slyvNZ44Ed-FEqK5UGTaIg" To="_slyvPZ44Ed-FEqK5UGTaIg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_slyvSZ44Ed-FEqK5UGTaIg" xpdExt:DisplayName="" Name="" From="_slyvPZ44Ed-FEqK5UGTaIg" To="_slyvO544Ed-FEqK5UGTaIg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">false;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_xF9f854-Ed-FEqK5UGTaIg" Name="" From="_slyvN544Ed-FEqK5UGTaIg" To="_xF9f8p4-Ed-FEqK5UGTaIg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="Bool1"/>
+            <simulation:ParameterDistribution ParameterId="ChildType1"/>
+            <simulation:ParameterDistribution ParameterId="ChildTypeArray"/>
+            <simulation:ParameterDistribution ParameterId="DateArray"/>
+            <simulation:ParameterDistribution ParameterId="DateTime1"/>
+            <simulation:ParameterDistribution ParameterId="Decimal1"/>
+            <simulation:ParameterDistribution ParameterId="Int1"/>
+            <simulation:ParameterDistribution ParameterId="IntArray"/>
+            <simulation:ParameterDistribution ParameterId="Text"/>
+            <simulation:ParameterDistribution ParameterId="Text2"/>
+            <simulation:ParameterDistribution ParameterId="Text3"/>
+            <simulation:ParameterDistribution ParameterId="Text4"/>
+            <simulation:ParameterDistribution ParameterId="Text5"/>
+            <simulation:ParameterDistribution ParameterId="Text6"/>
+            <simulation:ParameterDistribution ParameterId="Text7Array"/>
+            <simulation:ParameterDistribution ParameterId="Text8Array"/>
+            <simulation:ParameterDistribution ParameterId="Text9"/>
+            <simulation:ParameterDistribution ParameterId="WholeInParam"/>
+            <simulation:ParameterDistribution ParameterId="WholeOutParams"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="10"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

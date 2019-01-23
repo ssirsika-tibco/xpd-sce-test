@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/XSDBOM_TLE10A_RootElementReference" xmlns:tns1="http://example.com/XSDBOM_TLE10A_RootElementReference"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/XSDBOM_TLE10A_RootElementReference">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_TLE10A_RootElementReference/Business Objects/com.example.XSDBOM_TLE10A_RootElementReference.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Person" id="com.example.XSDBOM_TLE10A_RootElementReferencePerson"
+      abstract="false" mixed="false" name="Person">
+    <xsd:sequence>
+      <xsd:element ecore:name="surname" id="Personsurname" maxOccurs="1" minOccurs="1"
+          ref="tns1:surname"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="surname" nillable="false" type="xsd:string"/>
+</xsd:schema>

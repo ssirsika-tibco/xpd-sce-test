@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions  xmlns:tns="http://xmlns.enel.com/mercato/libero/abstract/integration/fatturazionevariazioneusobpm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionevariazioneusoconsumogas.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/fatturazionevariazioneusobpm">
+    <wsdl:types>
+
+	<xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionevariazioneusoconsumogas.xsd"  xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/integration/fatturazionevariazioneusoconsumogas.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+     
+      <xs:complexType name="EsitoType">
+      	<xs:sequence>
+      		<xs:element minOccurs="0" name="esito" type="xs:string">
+      		</xs:element>
+      		<xs:element minOccurs="0" name="codiceEsito" type="xs:string">
+      		</xs:element>
+      		<xs:element minOccurs="0" name="descrizione" type="xs:string">
+      		</xs:element>
+      		<xs:element minOccurs="0" name="tipoEsito" type="xs:string">
+      		</xs:element>
+      		<xs:element minOccurs="1" name="sistemaSorgenteEsito" type="xs:string"/>
+      	</xs:sequence>
+      </xs:complexType>
+
+	<xs:element name="VariazioneConsumoUsoGasRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idMuti" type="xs:string" minOccurs="0"/>
+                        <xs:element name="causale" type="xs:string" minOccurs="0"/>
+                        <xs:element name="contrattoSap" type="xs:string" minOccurs="0"/>
+                        <xs:element name="numeroUtente" type="xs:string" minOccurs="0"/>
+                        <xs:element name="dataModifica" type="xs:date" minOccurs="0"/>
+                        <xs:element name="CDM_Fornitura" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="VariazioneConsumoUsoGasResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Esito" type="EsitoType"/>
+                        <xs:element name="dataIsu" type="xs:date" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+ 
+    <wsdl:portType name="FatturazioneVariazioneUsoBpmPortType">
+        <wsdl:operation name="VariazioneUsoConsumoGas">
+            <wsdl:input message="tns:VariazioneUsoConsumoGasRequest"/>
+            <wsdl:output message="tns:VariazioneUsoConsumoGasResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+ 
+    <wsdl:message name="VariazioneUsoConsumoGasRequest">
+        <wsdl:part name="input" element="ns0:VariazioneConsumoUsoGasRequest"/>
+    </wsdl:message>
+    <wsdl:message name="VariazioneUsoConsumoGasResponse">
+        <wsdl:part name="output" element="ns0:VariazioneConsumoUsoGasResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

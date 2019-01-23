@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/XSDBOM_TLE06_topLevelAttributes"
+	xmlns:tns="http://www.example.org/XSDBOM_TLE06_topLevelAttributes"
+	elementFormDefault="qualified">
+	
+	<!--
+		Tests 3.7 as described in 'BDS Support for Handling - Studio BOM
+		Import'.
+	-->
+	
+	<!-- Map to BOM Text -->
+	<attribute name="attrString" type="string" />
+	<attribute name="attrGDay" type="gDay" />
+	<attribute name="attrGMonth" type="gMonth" />
+	<attribute name="attrGMonthDay" type="gMonthDay" />
+	<attribute name="attrGYear" type="gYear" />
+	<attribute name="attrGYearMonth" type="gYearMonth" />
+	<attribute name="attrId" type="ID" />
+	<attribute name="attrIdRef" type="IDREF" />
+	<attribute name="attrIdRefs" type="IDREFS" />
+	<attribute name="attrLanguage" type="language" />
+	<attribute name="attrName" type="Name" />
+	<attribute name="attrNCName" type="NCName" />
+	<attribute name="attrNMToken" type="NMTOKEN" />
+	<attribute name="attrNMTokens" type="NMTOKENS" />
+	<attribute name="attrNormalizedString" type="normalizedString" />
+	<attribute name="attrQName" type="QName" />
+	<attribute name="attrENTITY" type="ENTITY" />
+	<attribute name="attrENTITIES" type="ENTITIES" />
+	<!-- <attribute name="attrAnySimpleType" type="anySimpleType" /> -->
+	<attribute name="attrToken" type="token" />
+
+	<!-- Maps to BOM Signed Integer -->
+	<attribute name="attrByte" type="byte" />
+	<attribute name="attrUnsignedByte" type="unsignedByte" />
+	<attribute name="attrShort" type="short" />
+	<attribute name="attrUnsignedShort" type="unsignedShort" />
+	<attribute name="attrInt" type="int" />
+
+	<!-- Maps to BOM Fixed length Integer -->
+	<attribute name="attrInteger" type="integer" />
+	<attribute name="attrLong" type="long" />
+	<attribute name="attrNegativeInteger" type="negativeInteger" />
+	<attribute name="attrNonNegativeInteger" type="nonNegativeInteger" />
+	<attribute name="attrPositiveInteger" type="positiveInteger" />
+	<attribute name="attrNonPositiveInteger" type="nonPositiveInteger" />
+	<attribute name="attrUnsignedInt" type="unsignedInt" />
+	<attribute name="attrUnsignedLong" type="unsignedLong" />
+
+	<!-- Maps to BOM Fixed Decimal -->
+	<attribute name="attrDecimal" type="decimal" />
+
+	<!-- Maps to BOM Floating point Decimal -->
+	<attribute name="attrFloat" type="float" />
+	<attribute name="attrDouble" type="double" />
+
+	<!-- Map to BOM Boolean -->
+	<attribute name="attrBoolean" type="boolean" />
+
+	<!-- Maps to BOM Date -->
+	<attribute name="attrDate" type="date" />
+
+	<!-- Maps to BOM Time -->
+	<attribute name="attrTime" type="time" />
+
+	<!-- Maps to BOM DateTime -->
+	<attribute name="attrDateTime" type="dateTime" />
+
+	<!-- Maps to BOM URI -->
+	<attribute name="attrAnyURI" type="anyURI" />
+
+	<!-- Maps to BOM Duration -->
+	<attribute name="attrDuration" type="duration" />
+</schema>

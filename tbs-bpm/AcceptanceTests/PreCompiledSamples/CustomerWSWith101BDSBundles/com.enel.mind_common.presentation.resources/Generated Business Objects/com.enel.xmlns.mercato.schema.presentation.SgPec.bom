@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPec" name="com.enel.xmlns.mercato.schema.presentation.SgPec">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J6-2rw93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_J6-2sA93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_J6-2sQ93EeW3MruGqUCC5Q" key="created" value="1433947614602"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_J6-2sg93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_J8LJcA93EeW3MruGqUCC5Q" key="checksum" value="2104031641"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardRequestType" name="SendMailStandardRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypeidentificativoMessaggioChiamante" name="identificativoMessaggioChiamante" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4KMKw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4KMKg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypecasellaMailMittente" name="casellaMailMittente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4KMMA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4KMLw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypecasellaMailToDestinatarioType" name="casellaMailToDestinatario" type="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailToDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailToDestinatarioType?" aggregation="composite" association="com.enel.xmlns.mercato.schema.presentation.SgPecComposition0?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4TWGQ93EeW3MruGqUCC5Q" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4TWGA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypecasellaMailCCDestinatarioType" name="casellaMailCCDestinatario" type="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailCCDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailCCDestinatarioType?" aggregation="composite" association="com.enel.xmlns.mercato.schema.presentation.SgPecComposition1?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4TWKQ93EeW3MruGqUCC5Q" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4TWKA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypecanale" name="canale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4dHFQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4dHFA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypedescrizioneCanale" name="descrizioneCanale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4dHGg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4dHGQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypesistemaRichiedente" name="sistemaRichiedente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4dHIQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4dHIA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypeoggettoMail" name="oggettoMail" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4dHKA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4dHJw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypebodyMail" name="bodyMail" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4m4Ew93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4m4Eg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypedataInvioMail" name="dataInvioMail" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AMizkHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDateTime?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4m4GA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4m4Fw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypetempoConservazioneMail" name="tempoConservazioneMail" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4m4HA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4m4Gw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardRequestTypedatiBamType" name="datiBam" type="com.enel.xmlns.mercato.schema.presentation.SgPecdatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType?" aggregation="composite" association="com.enel.xmlns.mercato.schema.presentation.SgPecComposition3?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J45zAw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J45zAg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailToDestinatarioType" name="casellaMailToDestinatarioType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="casellaMailToDestinatarioTypeemail" name="email" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4TWEw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4TWEg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecComposition0" name="Composition0" memberEnd="SendMailStandardRequestTypecasellaMailToDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailToDestinatario? Composition0sendmailstandardrequesttype?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition0%3a%3asendmailstandardrequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0sendmailstandardrequesttype" name="sendmailstandardrequesttype" type="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardRequestType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType?" association="com.enel.xmlns.mercato.schema.presentation.SgPecComposition0?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4TWHA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4TWGw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailCCDestinatarioType" name="casellaMailCCDestinatarioType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="casellaMailCCDestinatarioTypeemail" name="email" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4TWIw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4TWIg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecComposition1" name="Composition1" memberEnd="SendMailStandardRequestTypecasellaMailCCDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailCCDestinatario? Composition1sendmailstandardrequesttype?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition1%3a%3asendmailstandardrequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1sendmailstandardrequesttype" name="sendmailstandardrequesttype" type="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardRequestType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType?" association="com.enel.xmlns.mercato.schema.presentation.SgPecComposition1?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4dHEA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4TWKw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecdatiBamType" name="datiBamType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="datiBamTypeservizio" name="servizio" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4m4Ig93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4m4IQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="datiBamTypetipoPratica" name="tipoPratica" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4m4Jw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4m4Jg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="datiBamTypedatiIstanzeType" name="datiIstanze" type="com.enel.xmlns.mercato.schema.presentation.SgPecdatiIstanzeType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType?" aggregation="composite" association="com.enel.xmlns.mercato.schema.presentation.SgPecComposition2?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4wCDQ93EeW3MruGqUCC5Q" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4wCDA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecdatiIstanzeType" name="datiIstanzeType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="datiIstanzeTypeidRichiesta" name="idRichiesta" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4wCBQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4wCBA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecComposition2" name="Composition2" memberEnd="datiBamTypedatiIstanzeType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3adatiIstanze? Composition2datibamtype?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition2%3a%3adatibamtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition2datibamtype" name="datibamtype" type="com.enel.xmlns.mercato.schema.presentation.SgPecdatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType?" association="com.enel.xmlns.mercato.schema.presentation.SgPecComposition2?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J4wCEA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J4wCDw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecComposition3" name="Composition3" memberEnd="SendMailStandardRequestTypedatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adatiBam? Composition3sendmailstandardrequesttype?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition3%3a%3asendmailstandardrequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition3sendmailstandardrequesttype" name="sendmailstandardrequesttype" type="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardRequestType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType?" association="com.enel.xmlns.mercato.schema.presentation.SgPecComposition3?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J45zBg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J45zBQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardResponseType" name="SendMailStandardResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardResponseTypeEsito" name="esito" type="com.enel.xmlns.mercato.schema.presentation.SgPecEsitoType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType?" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J45zEA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J45zDw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardResponseTypeCodice" name="codice" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J6GF0w93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J6GF0g93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardResponseTypeDescrizione" name="descrizione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J6GF2A93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J6GF1w93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardResponseTypeSorgenteEsito" name="sorgenteEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J6PPww93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J6PPwg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SendMailStandardResponseTypeidentificativoSgPec" name="identificativoSgPec" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J6ZAww93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J6ZAwg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="com.enel.xmlns.mercato.schema.presentation.SgPecEsitoType" name="EsitoType">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_J45zFA93EeW3MruGqUCC5Q" name="OK"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_J45zFg93EeW3MruGqUCC5Q" name="KO"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_J4KMIQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J4KMIg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_J4KMIw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J4KMJA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_J4KMJQ93EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.schema.presentation.SgPec?com.enel.xmlns.mercato.schema.presentation.SgPec?" xsdTargetNamespace="http://xmlns.enel.com/mercato/schema/presentation/SgPec.xsd" xsdSchemaLocation="SgPecAbstract.wsdl" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="SgPecAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_J4KMJw93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardRequestType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_J45zCA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4KMKQ93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypeidentificativoMessaggioChiamante?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aidentificativoMessaggioChiamante?" xsdName="identificativoMessaggioChiamante" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4KMLA93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardRequestTypeidentificativoMessaggioChiamante?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aidentificativoMessaggioChiamante?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4KMLg93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypecasellaMailMittente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailMittente?" xsdName="casellaMailMittente" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4KMMQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardRequestTypecasellaMailMittente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailMittente?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_J4KMMw93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailToDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailToDestinatarioType?" xsdName="casellaMailToDestinatario" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_J4TWFQ93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4TWEQ93EeW3MruGqUCC5Q" base_Property="casellaMailToDestinatarioTypeemail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailToDestinatarioType%3a%3aemail?" xsdName="email" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J4TWFQ93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4TWFA93EeW3MruGqUCC5Q" textLength="-1" base_Property="casellaMailToDestinatarioTypeemail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailToDestinatarioType%3a%3aemail?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4TWHQ93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypecasellaMailToDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailToDestinatario?" xsdName="casellaMailToDestinatario" xsdForm="qualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_J4TWHw93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailCCDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailCCDestinatarioType?" xsdName="casellaMailCCDestinatario" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_J4TWJQ93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4TWIQ93EeW3MruGqUCC5Q" base_Property="casellaMailCCDestinatarioTypeemail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailCCDestinatarioType%3a%3aemail?" xsdName="email" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J4TWJQ93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4TWJA93EeW3MruGqUCC5Q" textLength="-1" base_Property="casellaMailCCDestinatarioTypeemail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailCCDestinatarioType%3a%3aemail?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4dHEQ93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypecasellaMailCCDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailCCDestinatario?" xsdName="casellaMailCCDestinatario" xsdForm="qualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4dHEw93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypecanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acanale?" xsdName="canale" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4dHFg93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardRequestTypecanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acanale?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4dHGA93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypedescrizioneCanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adescrizioneCanale?" xsdName="descrizioneCanale" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4dHGw93EeW3MruGqUCC5Q" textLength="100" base_Property="SendMailStandardRequestTypedescrizioneCanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adescrizioneCanale?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_J4dHHA93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypedescrizioneCanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adescrizioneCanale?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_J4dHHQ93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypedescrizioneCanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adescrizioneCanale?" xsdMaxLengthFixed="false" xsdMaxLengthValue="100"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4dHHw93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypesistemaRichiedente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3asistemaRichiedente?" xsdName="sistemaRichiedente" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4dHIg93EeW3MruGqUCC5Q" textLength="15" base_Property="SendMailStandardRequestTypesistemaRichiedente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3asistemaRichiedente?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_J4dHIw93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypesistemaRichiedente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3asistemaRichiedente?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_J4dHJA93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypesistemaRichiedente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3asistemaRichiedente?" xsdMaxLengthFixed="false" xsdMaxLengthValue="15"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4dHJg93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypeoggettoMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aoggettoMail?" xsdName="oggettoMail" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4dHKQ93EeW3MruGqUCC5Q" textLength="100" base_Property="SendMailStandardRequestTypeoggettoMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aoggettoMail?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_J4dHKg93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypeoggettoMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aoggettoMail?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_J4dHKw93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypeoggettoMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aoggettoMail?" xsdMaxLengthFixed="false" xsdMaxLengthValue="100"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4m4EQ93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypebodyMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3abodyMail?" xsdName="bodyMail" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4m4FA93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardRequestTypebodyMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3abodyMail?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4m4Fg93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypedataInvioMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adataInvioMail?" xsdName="dataInvioMail" xsdForm="qualified" xsdType="dateTime" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4m4Gg93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypetempoConservazioneMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3atempoConservazioneMail?" xsdName="tempoConservazioneMail" xsdForm="qualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_J4m4Hg93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.schema.presentation.SgPecdatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType?" xsdName="datiBam" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_J4wCEg93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4m4IA93EeW3MruGqUCC5Q" base_Property="datiBamTypeservizio?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3aservizio?" xsdName="servizio" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J4wCEg93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4m4Iw93EeW3MruGqUCC5Q" textLength="-1" base_Property="datiBamTypeservizio?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3aservizio?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4m4JQ93EeW3MruGqUCC5Q" base_Property="datiBamTypetipoPratica?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3atipoPratica?" xsdName="tipoPratica" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J4wCEg93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4m4KA93EeW3MruGqUCC5Q" textLength="-1" base_Property="datiBamTypetipoPratica?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3atipoPratica?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_J4wCAQ93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.schema.presentation.SgPecdatiIstanzeType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType?" xsdName="datiIstanze" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_J4wCCQ93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4wCAw93EeW3MruGqUCC5Q" base_Property="datiIstanzeTypeidRichiesta?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType%3a%3aidRichiesta?" xsdName="idRichiesta" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J4wCCQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J4wCBg93EeW3MruGqUCC5Q" textLength="15" base_Property="datiIstanzeTypeidRichiesta?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType%3a%3aidRichiesta?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_J4wCBw93EeW3MruGqUCC5Q" base_Property="datiIstanzeTypeidRichiesta?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType%3a%3aidRichiesta?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_J4wCCA93EeW3MruGqUCC5Q" base_Property="datiIstanzeTypeidRichiesta?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType%3a%3aidRichiesta?" xsdMaxLengthFixed="false" xsdMaxLengthValue="15"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J4wCEQ93EeW3MruGqUCC5Q" base_Property="datiBamTypedatiIstanzeType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3adatiIstanze?" xsdName="datiIstanze" xsdForm="qualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J4wCEg93EeW3MruGqUCC5Q" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J45zBw93EeW3MruGqUCC5Q" base_Property="SendMailStandardRequestTypedatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adatiBam?" xsdName="datiBam" xsdForm="qualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J45zCA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_J45zCQ93EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.schema.presentation.SgPec?com.enel.xmlns.mercato.schema.presentation.SgPec?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_J45zCg93EeW3MruGqUCC5Q" name="SendMailStandardRequest" type="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardRequestType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/schema/presentation/SgPec.xsd" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_J6iKsA93EeW3MruGqUCC5Q" name="SendMailStandardResponse" type="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardResponseType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/schema/presentation/SgPec.xsd" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_J45zDA93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardResponseType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_J6ZAxQ93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J45zDg93EeW3MruGqUCC5Q" base_Property="SendMailStandardResponseTypeEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aesito?" xsdName="Esito" xsdForm="qualified" xsdType="string" xsdEnumLiterals="OK, KO" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J6ZAxQ93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J45zEQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardResponseTypeEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_J45zEw93EeW3MruGqUCC5Q" base_Enumeration="com.enel.xmlns.mercato.schema.presentation.SgPecEsitoType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType?" xsdSimpleTypeName="EsitoType" xsdSimpleTypeId="" xsdRestrictionId="" xsdRestrictionBase="string" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_J45zFQ93EeW3MruGqUCC5Q" base_EnumerationLiteral="_J45zFA93EeW3MruGqUCC5Q?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType%3a%3aOK?" xsdId="OK" xsdValue="OK"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_J45zFw93EeW3MruGqUCC5Q" base_EnumerationLiteral="_J45zFg93EeW3MruGqUCC5Q?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType%3a%3aKO?" xsdId="KO" xsdValue="KO"/>
+  <XsdNotationProfile:XsdBasedEnumeration xmi:id="_J45zGA93EeW3MruGqUCC5Q" base_Enumeration="com.enel.xmlns.mercato.schema.presentation.SgPecEsitoType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType?" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_J45zGQ93EeW3MruGqUCC5Q" base_Property="SendMailStandardResponseTypeEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aesito?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_J45zGg93EeW3MruGqUCC5Q" base_Property="SendMailStandardResponseTypeEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aesito?" xsdMaxLengthValue="2" xsdLengthFixed="false" xsdLengthValue="2"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J6GF0Q93EeW3MruGqUCC5Q" base_Property="SendMailStandardResponseTypeCodice?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3acodice?" xsdName="Codice" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J6ZAxQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J6GF1A93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardResponseTypeCodice?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3acodice?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J6GF1g93EeW3MruGqUCC5Q" base_Property="SendMailStandardResponseTypeDescrizione?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3adescrizione?" xsdName="Descrizione" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J6ZAxQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J6GF2Q93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardResponseTypeDescrizione?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J6PPwQ93EeW3MruGqUCC5Q" base_Property="SendMailStandardResponseTypeSorgenteEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3asorgenteEsito?" xsdName="SorgenteEsito" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J6ZAxQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J6PPxA93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardResponseTypeSorgenteEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3asorgenteEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_J6ZAwQ93EeW3MruGqUCC5Q" base_Property="SendMailStandardResponseTypeidentificativoSgPec?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aidentificativoSgPec?" xsdName="identificativoSgPec" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_J6ZAxQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_J6ZAxA93EeW3MruGqUCC5Q" textLength="-1" base_Property="SendMailStandardResponseTypeidentificativoSgPec?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aidentificativoSgPec?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKsQ93EeW3MruGqUCC5Q" base_Element="SendMailStandardResponseTypeDescrizione?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKsg93EeW3MruGqUCC5Q" base_Element="_J6PPww93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKsw93EeW3MruGqUCC5Q" base_Element="_J4KMLw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKtA93EeW3MruGqUCC5Q" base_Element="_J4m4Fw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKtQ93EeW3MruGqUCC5Q" base_Element="_J45zBg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKtg93EeW3MruGqUCC5Q" base_Element="_J4wCEA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKtw93EeW3MruGqUCC5Q" base_Element="_J4wCBQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKuA93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypetempoConservazioneMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3atempoConservazioneMail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKuQ93EeW3MruGqUCC5Q" base_Element="datiBamTypeservizio?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3aservizio?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKug93EeW3MruGqUCC5Q" base_Element="_J45zAw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKuw93EeW3MruGqUCC5Q" base_Element="_J4wCDw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKvA93EeW3MruGqUCC5Q" base_Element="_J6PPwg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKvQ93EeW3MruGqUCC5Q" base_Element="_J45zDw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKvg93EeW3MruGqUCC5Q" base_Element="datiBamTypedatiIstanzeType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3adatiIstanze?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKvw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecComposition0?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKwA93EeW3MruGqUCC5Q" base_Element="_J4TWEw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKwQ93EeW3MruGqUCC5Q" base_Element="_J45zEA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKwg93EeW3MruGqUCC5Q" base_Element="Composition2datibamtype?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition2%3a%3adatibamtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKww93EeW3MruGqUCC5Q" base_Element="_J45zBQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKxA93EeW3MruGqUCC5Q" base_Element="_J4KMKg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKxQ93EeW3MruGqUCC5Q" base_Element="_J4TWIw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKxg93EeW3MruGqUCC5Q" base_Element="SendMailStandardResponseTypeEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKxw93EeW3MruGqUCC5Q" base_Element="_J4m4Ig93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKyA93EeW3MruGqUCC5Q" base_Element="_J4dHFQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKyQ93EeW3MruGqUCC5Q" base_Element="_J4m4HA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKyg93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecdatiIstanzeType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKyw93EeW3MruGqUCC5Q" base_Element="_J4dHIA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKzA93EeW3MruGqUCC5Q" base_Element="_J4dHFA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKzQ93EeW3MruGqUCC5Q" base_Element="_J4m4Jg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKzg93EeW3MruGqUCC5Q" base_Element="_J4dHJw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iKzw93EeW3MruGqUCC5Q" base_Element="_J6ZAwg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iK0A93EeW3MruGqUCC5Q" base_Element="datiBamTypetipoPratica?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3atipoPratica?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iK0Q93EeW3MruGqUCC5Q" base_Element="_J4dHIQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iK0g93EeW3MruGqUCC5Q" base_Element="_J4TWHA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iK0w93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypeidentificativoMessaggioChiamante?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aidentificativoMessaggioChiamante?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iK1A93EeW3MruGqUCC5Q" base_Element="_J45zAg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iK1Q93EeW3MruGqUCC5Q" base_Element="_J4m4GA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iK1g93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypesistemaRichiedente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3asistemaRichiedente?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6iK1w93EeW3MruGqUCC5Q" base_Element="_J6GF2A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7sA93EeW3MruGqUCC5Q" base_Element="SendMailStandardResponseTypeCodice?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3acodice?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7sQ93EeW3MruGqUCC5Q" base_Element="_J6GF0w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7sg93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardResponseType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7sw93EeW3MruGqUCC5Q" base_Element="_J4KMKw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7tA93EeW3MruGqUCC5Q" base_Element="casellaMailToDestinatarioTypeemail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailToDestinatarioType%3a%3aemail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7tQ93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypecasellaMailMittente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailMittente?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7tg93EeW3MruGqUCC5Q" base_Element="_J4KMIw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7tw93EeW3MruGqUCC5Q" base_Element="SendMailStandardResponseTypeidentificativoSgPec?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aidentificativoSgPec?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7uA93EeW3MruGqUCC5Q" base_Element="_J4m4IQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7uQ93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypedataInvioMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adataInvioMail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7ug93EeW3MruGqUCC5Q" base_Element="_J4TWEg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7uw93EeW3MruGqUCC5Q" base_Element="_J4dHGg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7vA93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecEsitoType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7vQ93EeW3MruGqUCC5Q" base_Element="Composition1sendmailstandardrequesttype?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition1%3a%3asendmailstandardrequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7vg93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecComposition1?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7vw93EeW3MruGqUCC5Q" base_Element="SendMailStandardResponseTypeSorgenteEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3asorgenteEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7wA93EeW3MruGqUCC5Q" base_Element="_J4TWKQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7wQ93EeW3MruGqUCC5Q" base_Element="_J4m4Gw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7wg93EeW3MruGqUCC5Q" base_Element="_J6GF0g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7ww93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypeoggettoMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aoggettoMail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7xA93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardRequestType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7xQ93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypecasellaMailCCDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailCCDestinatario?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7xg93EeW3MruGqUCC5Q" base_Element="_J4TWKw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7xw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecComposition3?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7yA93EeW3MruGqUCC5Q" base_Element="_J6ZAww93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7yQ93EeW3MruGqUCC5Q" base_Element="_J4TWKA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7yg93EeW3MruGqUCC5Q" base_Element="Composition3sendmailstandardrequesttype?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition3%3a%3asendmailstandardrequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7yw93EeW3MruGqUCC5Q" base_Element="casellaMailCCDestinatarioTypeemail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailCCDestinatarioType%3a%3aemail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7zA93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypecanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acanale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7zQ93EeW3MruGqUCC5Q" base_Element="_J4wCBA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7zg93EeW3MruGqUCC5Q" base_Element="datiIstanzeTypeidRichiesta?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType%3a%3aidRichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r7zw93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypebodyMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3abodyMail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r70A93EeW3MruGqUCC5Q" base_Element="_J4dHEA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r70Q93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailCCDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailCCDestinatarioType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r70g93EeW3MruGqUCC5Q" base_Element="_J6GF1w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r70w93EeW3MruGqUCC5Q" base_Element="_J4TWGw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r71A93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypedatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adatiBam?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r71Q93EeW3MruGqUCC5Q" base_Element="_J4KMIQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r71g93EeW3MruGqUCC5Q" base_Element="_J4TWGA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r71w93EeW3MruGqUCC5Q" base_Element="_J4wCDA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r72A93EeW3MruGqUCC5Q" base_Element="_J4m4Jw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r72Q93EeW3MruGqUCC5Q" base_Element="_J4TWIg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r72g93EeW3MruGqUCC5Q" base_Element="_J4TWGQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r72w93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecComposition2?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r73A93EeW3MruGqUCC5Q" base_Element="_J4wCDQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r73Q93EeW3MruGqUCC5Q" base_Element="Composition0sendmailstandardrequesttype?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aComposition0%3a%3asendmailstandardrequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r73g93EeW3MruGqUCC5Q" base_Element="_J4m4Ew93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r73w93EeW3MruGqUCC5Q" base_Element="_J4dHGQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r74A93EeW3MruGqUCC5Q" base_Element="_J4m4Eg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r74Q93EeW3MruGqUCC5Q" base_Element="_J45zFg93EeW3MruGqUCC5Q?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType%3a%3aKO?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r74g93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPecdatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r74w93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypedescrizioneCanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adescrizioneCanale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r75A93EeW3MruGqUCC5Q" base_Element="_J4dHKA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r75Q93EeW3MruGqUCC5Q" base_Element="_J45zFA93EeW3MruGqUCC5Q?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType%3a%3aOK?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r75g93EeW3MruGqUCC5Q" base_Element="_J4KMMA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r75w93EeW3MruGqUCC5Q" base_Element="SendMailStandardRequestTypecasellaMailToDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailToDestinatario?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_J6r76A93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailToDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailToDestinatarioType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61suQ93EeW3MruGqUCC5Q" displayLabel="SendMailStandardRequestType" base_NamedElement="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardRequestType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61sug93EeW3MruGqUCC5Q" displayLabel="SendMailStandardResponseType" base_NamedElement="com.enel.xmlns.mercato.schema.presentation.SgPecSendMailStandardResponseType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61suw93EeW3MruGqUCC5Q" displayLabel="bodyMail" base_NamedElement="SendMailStandardRequestTypebodyMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3abodyMail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61svA93EeW3MruGqUCC5Q" displayLabel="canale" base_NamedElement="SendMailStandardRequestTypecanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acanale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61svQ93EeW3MruGqUCC5Q" displayLabel="casellaMailCCDestinatario" base_NamedElement="SendMailStandardRequestTypecasellaMailCCDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailCCDestinatario?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61svg93EeW3MruGqUCC5Q" displayLabel="casellaMailMittente" base_NamedElement="SendMailStandardRequestTypecasellaMailMittente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailMittente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61svw93EeW3MruGqUCC5Q" displayLabel="casellaMailToDestinatario" base_NamedElement="SendMailStandardRequestTypecasellaMailToDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3acasellaMailToDestinatario?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61swA93EeW3MruGqUCC5Q" displayLabel="dataInvioMail" base_NamedElement="SendMailStandardRequestTypedataInvioMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adataInvioMail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61swQ93EeW3MruGqUCC5Q" displayLabel="datiBam" base_NamedElement="SendMailStandardRequestTypedatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adatiBam?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61swg93EeW3MruGqUCC5Q" displayLabel="descrizioneCanale" base_NamedElement="SendMailStandardRequestTypedescrizioneCanale?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3adescrizioneCanale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61sww93EeW3MruGqUCC5Q" displayLabel="identificativoMessaggioChiamante" base_NamedElement="SendMailStandardRequestTypeidentificativoMessaggioChiamante?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aidentificativoMessaggioChiamante?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61sxA93EeW3MruGqUCC5Q" displayLabel="oggettoMail" base_NamedElement="SendMailStandardRequestTypeoggettoMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3aoggettoMail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61sxQ93EeW3MruGqUCC5Q" displayLabel="sistemaRichiedente" base_NamedElement="SendMailStandardRequestTypesistemaRichiedente?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3asistemaRichiedente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61sxg93EeW3MruGqUCC5Q" displayLabel="tempoConservazioneMail" base_NamedElement="SendMailStandardRequestTypetempoConservazioneMail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardRequestType%3a%3atempoConservazioneMail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61sxw93EeW3MruGqUCC5Q" displayLabel="casellaMailCCDestinatarioType" base_NamedElement="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailCCDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailCCDestinatarioType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61syA93EeW3MruGqUCC5Q" displayLabel="email" base_NamedElement="casellaMailCCDestinatarioTypeemail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailCCDestinatarioType%3a%3aemail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J61syQ93EeW3MruGqUCC5Q" displayLabel="casellaMailToDestinatarioType" base_NamedElement="com.enel.xmlns.mercato.schema.presentation.SgPeccasellaMailToDestinatarioType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailToDestinatarioType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2oA93EeW3MruGqUCC5Q" displayLabel="email" base_NamedElement="casellaMailToDestinatarioTypeemail?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3acasellaMailToDestinatarioType%3a%3aemail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2oQ93EeW3MruGqUCC5Q" displayLabel="datiBamType" base_NamedElement="com.enel.xmlns.mercato.schema.presentation.SgPecdatiBamType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2og93EeW3MruGqUCC5Q" displayLabel="datiIstanze" base_NamedElement="datiBamTypedatiIstanzeType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3adatiIstanze?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2ow93EeW3MruGqUCC5Q" displayLabel="servizio" base_NamedElement="datiBamTypeservizio?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3aservizio?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2pA93EeW3MruGqUCC5Q" displayLabel="tipoPratica" base_NamedElement="datiBamTypetipoPratica?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiBamType%3a%3atipoPratica?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2pQ93EeW3MruGqUCC5Q" displayLabel="datiIstanzeType" base_NamedElement="com.enel.xmlns.mercato.schema.presentation.SgPecdatiIstanzeType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2pg93EeW3MruGqUCC5Q" displayLabel="idRichiesta" base_NamedElement="datiIstanzeTypeidRichiesta?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3adatiIstanzeType%3a%3aidRichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2pw93EeW3MruGqUCC5Q" displayLabel="Codice" base_NamedElement="SendMailStandardResponseTypeCodice?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3acodice?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2qA93EeW3MruGqUCC5Q" displayLabel="Descrizione" base_NamedElement="SendMailStandardResponseTypeDescrizione?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3adescrizione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2qQ93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="SendMailStandardResponseTypeEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2qg93EeW3MruGqUCC5Q" displayLabel="SorgenteEsito" base_NamedElement="SendMailStandardResponseTypeSorgenteEsito?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3asorgenteEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2qw93EeW3MruGqUCC5Q" displayLabel="identificativoSgPec" base_NamedElement="SendMailStandardResponseTypeidentificativoSgPec?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aSendMailStandardResponseType%3a%3aidentificativoSgPec?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2rA93EeW3MruGqUCC5Q" displayLabel="EsitoType" base_NamedElement="com.enel.xmlns.mercato.schema.presentation.SgPecEsitoType?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2rQ93EeW3MruGqUCC5Q" displayLabel="KO" base_NamedElement="_J45zFg93EeW3MruGqUCC5Q?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType%3a%3aKO?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_J6-2rg93EeW3MruGqUCC5Q" displayLabel="OK" base_NamedElement="_J45zFA93EeW3MruGqUCC5Q?com.enel.xmlns.mercato.schema.presentation.SgPec%3a%3aEsitoType%3a%3aOK?"/>
+  <notation:Diagram xmi:id="_J6-2sw93EeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.xmlns.mercato.schema.presentation.SgPec?com.enel.xmlns.mercato.schema.presentation.SgPec?" name="com.enel.xmlns.mercato.schema.presentation.SgPec" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_J6-2tA93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_J6-2tQ93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

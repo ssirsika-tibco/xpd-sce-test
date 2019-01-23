@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_INwe8BSbEeONnbteG2Ijvw_RecuperoAttivita__fv7vMCYHEeOv0PtAVxh5gA" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/recuperoinfoattivitasaleforce" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MIND_SaleForce" targetNamespace="http://www.tibco.com/bs3.0/_INwe8BSbEeONnbteG2Ijvw_RecuperoAttivita__fv7vMCYHEeOv0PtAVxh5gA" tibex:ServiceTask="_fv7vMCYHEeOv0PtAVxh5gA" tibex:XPDL="MIND_SaleForce.xpdl" tibex:process="_88P7IRVuEeObE-n39TpxqA">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_INwe8BSbEeONnbteG2Ijvw_RecuperoAttivita__fv7vMCYHEeOv0PtAVxh5gA" targetNamespace="http://www.tibco.com/bs3.0/_INwe8BSbEeONnbteG2Ijvw_RecuperoAttivita__fv7vMCYHEeOv0PtAVxh5gA">
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="RecuperoInfoAttivita_CorrelationInvioEsitoMMP" type="string_50"/>
+      <xsd:simpleType name="string_100">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="RecuperoInfoAttivita_errorCode" type="string_100"/>
+      <xsd:simpleType name="string_4000">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="RecuperoInfoAttivita_errorDetail" type="string_4000"/>
+      <xsd:simpleType name="integer_3">
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="3"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="RecuperoInfoAttivita_errorMaxRetries" type="integer_3"/>
+      <xsd:element name="RecuperoInfoAttivita_errorPerformer" type="string_50"/>
+      <xsd:element name="RecuperoInfoAttivita_errorRetryCount" type="integer_3"/>
+      <xsd:element name="RecuperoInfoAttivita_errorShortRetries" type="integer_3"/>
+      <xsd:simpleType name="integer_9">
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="9"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="RecuperoInfoAttivita_errorWaitLongDelayMin" type="integer_9"/>
+      <xsd:element name="RecuperoInfoAttivita_errorWaitShortDelayMin" type="integer_9"/>
+      <xsd:element name="RecuperoInfoAttivita_msgPayload" type="string_4000"/>
+      <xsd:element name="RecuperoInfoAttivita_processId" type="string_50"/>
+      <xsd:element name="RecuperoInfoAttivita_processName" type="string_100"/>
+    </xsd:schema>
+    <xsd:schema xmlns="http://mind.enel.com/recuperoinfoattivitasaleforce" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/recuperoinfoattivitasaleforce" targetNamespace="http://mind.enel.com/recuperoinfoattivitasaleforce">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/MIND_SaleForce/Business Objects/RecuperoInfoAttivitaSaleForce.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="RecuperoInfoAttivita_Input">
+        <xsd:sequence>
+
+
+
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="assegnatarioLogin">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="causale"
+        		type="xsd:string" />
+        	<xsd:element maxOccurs="1" minOccurs="0" name="descrizione"
+        		type="xsd:string" />
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="descrizioneLavorazione" type="xsd:string" />
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="esitoLavorazione">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="255" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element name="idChiamata" minOccurs="0"
+        		maxOccurs="1">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50"></xsd:maxLength>
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="pratica">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="255" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="specifica">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="stato">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="timestamp">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="tipo">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+
+        	<xsd:element name="idBpm" minOccurs="0"><xsd:simpleType><xsd:restriction base="xsd:string"></xsd:restriction></xsd:simpleType></xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RecuperoInfoAttivita_Output">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecuperoInfoAttivita_InputElement" type="RecuperoInfoAttivita_Input"/>
+      <xsd:element name="RecuperoInfoAttivita_OutputElement" type="RecuperoInfoAttivita_Output"/>
+    
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RecuperoInfoAttivita_RecuperoAttivita_INPUT">
+    <wsdl:part element="ttns:RecuperoInfoAttivita_InputElement" name="Request"/>
+  </wsdl:message>
+  <wsdl:message name="RecuperoInfoAttivita_RecuperoAttivita_OUTPUT">
+    <wsdl:part element="ttns:RecuperoInfoAttivita_OutputElement" name="Response"/>
+  </wsdl:message>
+  <wsdl:message name="RecuperoInfoAttivita_RecuperoAttivita_GenericErrorEvent_fault">
+    <wsdl:part element="ttns:RecuperoInfoAttivita_OutputElement" name="Response"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_CorrelationInvioEsitoMMP" name="CorrelationInvioEsitoMMP"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_errorCode" name="errorCode"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_errorDetail" name="errorDetail"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_errorMaxRetries" name="errorMaxRetries"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_errorPerformer" name="errorPerformer"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_errorRetryCount" name="errorRetryCount"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_errorShortRetries" name="errorShortRetries"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_errorWaitLongDelayMin" name="errorWaitLongDelayMin"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_errorWaitShortDelayMin" name="errorWaitShortDelayMin"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_msgPayload" name="msgPayload"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_processId" name="processId"/>
+    <wsdl:part element="ns:RecuperoInfoAttivita_processName" name="processName"/>
+  </wsdl:message>
+  <wsdl:portType name="RecuperoInfoAttivita" tibex:FlowContainer="_88P7IRVuEeObE-n39TpxqA">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="RecuperoAttivita">
+      <wsdl:input message="ns:RecuperoInfoAttivita_RecuperoAttivita_INPUT" tibex:Event="_fv7vMCYHEeOv0PtAVxh5gA"/>
+      <wsdl:output message="ns:RecuperoInfoAttivita_RecuperoAttivita_OUTPUT" tibex:Event="_fv7vMCYHEeOv0PtAVxh5gA"/>
+      <wsdl:fault message="ns:RecuperoInfoAttivita_RecuperoAttivita_GenericErrorEvent_fault" name="GenericErrorEvent" tibex:Error="_j9tjdxY-EeOwKop0ANkfIw"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

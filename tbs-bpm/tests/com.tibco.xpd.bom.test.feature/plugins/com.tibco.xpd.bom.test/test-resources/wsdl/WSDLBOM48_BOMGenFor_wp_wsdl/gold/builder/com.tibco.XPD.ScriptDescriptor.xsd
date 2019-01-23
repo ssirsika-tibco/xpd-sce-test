@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.tibco.com/XPD/ScriptDescriptor/" xmlns:tns1="http://www.tibco.com/XPD/ScriptDescriptor/"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/XPD/ScriptDescriptor/">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.XPD.ScriptDescriptor.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="ScriptDescriptorType" id="com.tibco.XPD.ScriptDescriptorScriptDescriptorType"
+      abstract="false" mixed="false" name="ScriptDescriptorType">
+    <xsd:sequence>
+      <xsd:element ecore:name="script" id="ScriptDescriptorTypescript" form="unqualified"
+          maxOccurs="unbounded" minOccurs="1" name="script" type="ScriptType"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="version" id="ScriptDescriptorTypeversion" form="unqualified"
+        name="version" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ScriptType" id="com.tibco.XPD.ScriptDescriptorScriptType"
+      abstract="false" mixed="false" name="ScriptType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of a ScriptType. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element ecore:name="process" id="ScriptTypeprocessType" form="unqualified"
+            maxOccurs="1" minOccurs="1" name="process">
+          <xsd:complexType ecore:name="processType" id="com.tibco.XPD.ScriptDescriptorprocessType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="processId" form="unqualified" maxOccurs="1"
+                  minOccurs="1" name="processId" type="tns1:nmtoken_StudioGeneratedTemplate"/>
+              <xsd:element ecore:name="packageId" form="unqualified" maxOccurs="1"
+                  minOccurs="1" name="packageId" type="tns1:nmtoken_StudioGeneratedTemplate"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="taskLibraryId" id="ScriptTypetaskLibraryId" form="unqualified"
+            maxOccurs="1" minOccurs="1" name="taskLibraryId" type="tns1:nmtoken_StudioGeneratedTemplate"/>
+      </xsd:choice>
+      <xsd:element ecore:name="factory" id="ScriptTypefactory" form="unqualified"
+          maxOccurs="unbounded" minOccurs="0" name="factory" type="FactoryType"/>
+      <xsd:element ecore:name="enum1" id="ScriptTypeenum" form="unqualified" maxOccurs="unbounded"
+          minOccurs="0" name="enum" type="EnumType"/>
+      <xsd:element ecore:name="cac" id="ScriptTypecac" form="unqualified" maxOccurs="unbounded"
+          minOccurs="0" name="cac" type="CacType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="FactoryType" id="com.tibco.XPD.ScriptDescriptorFactoryType"
+      abstract="false" mixed="false" name="FactoryType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of a FactoryType. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="scriptingName" id="FactoryTypescriptingName" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="scriptingName" type="xsd:string"/>
+      <xsd:element ecore:name="canonicalClassName" id="FactoryTypecanonicalClassName"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="canonicalClassName"
+          type="xsd:string"/>
+      <xsd:element ecore:name="namespace" id="FactoryTypenamespace" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="namespace" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="EnumType" id="com.tibco.XPD.ScriptDescriptorEnumType"
+      abstract="false" mixed="false" name="EnumType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of an EnumType. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="scriptingName" id="EnumTypescriptingName" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="scriptingName" type="xsd:string"/>
+      <xsd:element ecore:name="canonicalClassName" id="EnumTypecanonicalClassName"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="canonicalClassName"
+          type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CacType" id="com.tibco.XPD.ScriptDescriptorCacType"
+      abstract="false" mixed="false" name="CacType">
+    <xsd:annotation>
+      <xsd:documentation>Definition of a CAC Type (Case Access Class). </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="scriptingName" id="CacTypescriptingName" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="scriptingName" type="xsd:string"/>
+      <xsd:element ecore:name="canonicalClassName" id="CacTypecanonicalClassName"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="canonicalClassName"
+          type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="nmtoken_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\c+"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="scriptdescriptor" nillable="false" type="ScriptDescriptorType"/>
+</xsd:schema>

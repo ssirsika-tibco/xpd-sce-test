@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm" name="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WJ_xWw93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WJ_xXA93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WJ_xXQ93EeW3MruGqUCC5Q" key="created" value="1433947696707"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WJ_xXg93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WUtzcA93EeW3MruGqUCC5Q" key="checksum" value="316316164"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType" name="RichiestaType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypesistemaRichiedente" name="sistemaRichiedente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9pXRQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9pXRA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypecanale" name="canale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9pXSg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9pXSQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeidRichiesta" name="idRichiesta" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9pXTw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9pXTg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypetipoOperazione" name="tipoOperazione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9pXVA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9pXUw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypecausale" name="causale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9pXWQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9pXWA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeidProcessoBpm" name="idProcessoBpm" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9yhMw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9yhMg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypecommodity" name="commodity" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9yhOA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9yhNw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeflagDelibera40" name="flagDelibera40" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9yhPQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9yhPA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeIp" name="ip" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9yhQQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9yhQA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeProfilo" name="profilo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9yhRg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9yhRQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeMatricola" name="matricola" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V9yhSw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V9yhSg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeDataRichiesta" name="dataRichiesta" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V98SMw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V98SMg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeIdMuti" name="idMuti" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V98SNw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V98SNg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeIdDms" name="idDms" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V98SPA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V98SOw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeIdDmsReclamo" name="idDmsReclamo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V98SQQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V98SQA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeIdR2d" name="idR2d" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2dType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition0?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-GDQw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-GDQg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypedataDecorrenza" name="dataDecorrenza" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AmUlgHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-GDSw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-GDSg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypetipoRichiesta" name="tipoRichiesta" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-PNIw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-PNIg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeflagComplesso" name="flagComplesso" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-PNKA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-PNJw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeflagPreventivo" name="flagPreventivo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-PNLA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-PNKw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeflagDocumentazione" name="flagDocumentazione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-PNMQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-PNMA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeidCRM" name="idCRM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-PNNg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-PNNQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypestatoServizio" name="statoServizio" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-Y-Iw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-Y-Ig93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypestatoOrdine" name="statoOrdine" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-Y-KA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-Y-Jw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypestatoFiCa" name="statoFiCa" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-Y-LQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-Y-LA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypestatoISU" name="statoISU" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-Y-Mg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-Y-MQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypestatoR2D" name="statoR2D" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-iIEw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-iIEg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypestatoSD" name="statoSD" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-iIGA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-iIFw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypestatoSempre" name="statoSempre" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-iIHQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-iIHA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypestatoUDB" name="statoUDB" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-iIIg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-iIIQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeIdR2R" name="idR2R" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2rType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2rType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition1?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-r5Gg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-r5GQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RichiestaTypeIdAttivitaCrm" name="idAttivitaCrm" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-r5Ig93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-r5IQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2dType" name="IdentificativiR2dType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="IdentificativiR2dTypeIdDistr" name="idDistr" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-GDMw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-GDMg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="IdentificativiR2dTypeIdDistr2" name="idDistr2" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-GDOA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-GDNw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="IdentificativiR2dTypeIdR2d" name="idR2d" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-GDPQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-GDPA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition0" name="Composition0" memberEnd="RichiestaTypeIdR2d?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidR2d? Composition0richiestatype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition0%3a%3arichiestatype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0richiestatype" name="richiestatype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition0?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-GDRg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-GDRQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2rType" name="IdentificativiR2rType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="IdentificativiR2rTypeIdR2R" name="idR2R" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-r5FA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-r5Ew93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition1" name="Composition1" memberEnd="RichiestaTypeIdR2R?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidR2R? Composition1richiestatype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition1%3a%3arichiestatype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1richiestatype" name="richiestatype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition1?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-r5HQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-r5HA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType" name="EsitoType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypeesito" name="esito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-1qFQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-1qFA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypecodiceEsito" name="codiceEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V--0Aw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V--0Ag93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypedescrizione" name="descrizione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V--0CA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V--0Bw93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypetipoEsito" name="tipoEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V--0DQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V--0DA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EsitoTypesistemaSorgenteEsito" name="sistemaSorgenteEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V--0Eg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V--0EQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapRequestType" name="AggiornaMercatoSapRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AggiornaMercatoSapRequestTypeRichiesta" name="richiesta" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition2?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_IlBQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_IlBA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AggiornaMercatoSapRequestTypeFatturazioneCDM" name="fatturazioneCDM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_IlDQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_IlDA93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AggiornaMercatoSapRequestTypeClienteCDM" name="clienteCDM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_Ru8w93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_Ru8g93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AggiornaMercatoSapRequestTypeDataAggiornamentoMercato" name="dataAggiornamentoMercato" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_Ru-A93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_Ru9w93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition2" name="Composition2" memberEnd="AggiornaMercatoSapRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3arichiesta? Composition2aggiornamercatosaprequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition2%3a%3aaggiornamercatosaprequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition2aggiornamercatosaprequesttype" name="aggiornamercatosaprequesttype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition2?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_IlCA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_IlBw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapResponseType" name="AggiornaMercatoSapResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AggiornaMercatoSapResponseTypeEsito" name="esito" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition3?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_RvAg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_RvAQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition3" name="Composition3" memberEnd="AggiornaMercatoSapResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType%3a%3aesito? Composition3aggiornamercatosapresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition3%3a%3aaggiornamercatosapresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition3aggiornamercatosapresponsetype" name="aggiornamercatosapresponsetype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition3?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_RvBQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_RvBA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaRequestType" name="ModificaDisalimentabilitaRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaDisalimentabilitaRequestTypeRichiesta" name="richiesta" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition4?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_bf9Q93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_bf9A93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaDisalimentabilitaRequestTypeIdIsuFatturazioneCDM" name="idIsuFatturazioneCDM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHKfow93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHKfog93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaDisalimentabilitaRequestTypeFornituraCDM" name="fornituraCDM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHUQow93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHUQog93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition4" name="Composition4" memberEnd="ModificaDisalimentabilitaRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3arichiesta? Composition4modificadisalimentabilitarequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition4%3a%3amodificadisalimentabilitarequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition4modificadisalimentabilitarequesttype" name="modificadisalimentabilitarequesttype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition4?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_bf-A93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_bf9w93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaResponseType" name="ModificaDisalimentabilitaResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaDisalimentabilitaResponseTypeEsito" name="esito" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition5?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHnLkw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHnLkg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition5" name="Composition5" memberEnd="ModificaDisalimentabilitaResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType%3a%3aesito? Composition5modificadisalimentabilitaresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition5%3a%3amodificadisalimentabilitaresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition5modificadisalimentabilitaresponsetype" name="modificadisalimentabilitaresponsetype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition5?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHnLlg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHnLlQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraRequestType" name="ModificaIndirizzoFornituraRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaIndirizzoFornituraRequestTypeRichiesta" name="richiesta" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition6?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition6?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHnLnw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHnLng93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaIndirizzoFornituraRequestTypeCDM_IdFatturazione" name="CDM_IdFatturazione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHw8kw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHw8kg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaIndirizzoFornituraRequestTypeCDM_Cliente" name="CDM_Cliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHw8mA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHw8lw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaIndirizzoFornituraRequestTypeCDM_Fornitura" name="CDM_Fornitura" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHw8nQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHw8nA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition6" name="Composition6" memberEnd="ModificaIndirizzoFornituraRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3arichiesta? Composition6modificaindirizzoforniturarequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition6%3a%3amodificaindirizzoforniturarequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition6modificaindirizzoforniturarequesttype" name="modificaindirizzoforniturarequesttype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition6?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition6?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHnLog93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHnLoQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraResponseType" name="ModificaIndirizzoFornituraResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaIndirizzoFornituraResponseTypeEsito" name="esito" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition7?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WH6Ghg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WH6GhQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition7" name="Composition7" memberEnd="ModificaIndirizzoFornituraResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType%3a%3aesito? Composition7modificaindirizzofornituraresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition7%3a%3amodificaindirizzofornituraresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition7modificaindirizzofornituraresponsetype" name="modificaindirizzofornituraresponsetype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition7?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WH6GiQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WH6GiA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodRequestType" name="ModificaPodRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaPodRequestTypeRichiesta" name="richiesta" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition8?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition8?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WH6Gkg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WH6GkQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaPodRequestTypeCDM_Idfatturazione" name="CDM_Idfatturazione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WID3gw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WID3gg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaPodRequestTypeCDM_Cliente" name="CDM_Cliente" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WID3iA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WID3hw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaPodRequestTypePodNuovo" name="podNuovo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WINBcw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WINBcg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition8" name="Composition8" memberEnd="ModificaPodRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3arichiesta? Composition8modificapodrequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition8%3a%3amodificapodrequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition8modificapodrequesttype" name="modificapodrequesttype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition8?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition8?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WH6GlQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WH6GlA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodResponseType" name="ModificaPodResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaPodResponseTypeEsito" name="esito" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition9?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition9?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WINBfg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WINBfQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition9" name="Composition9" memberEnd="ModificaPodResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType%3a%3aesito? Composition9modificapodresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition9%3a%3amodificapodresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition9modificapodresponsetype" name="modificapodresponsetype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition9?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition9?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WINBgQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WINBgA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneRequestType" name="ModificaTelegestioneRequestType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaTelegestioneRequestTypeRichiesta" name="richiesta" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition10?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition10?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WIWycw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WIWycg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaTelegestioneRequestTypeIdIsuFatturazioneCDM" name="idIsuFatturazioneCDM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WIWyew93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WIWyeg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaTelegestioneRequestTypeFornituraCDM" name="fornituraCDM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WIWygA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WIWyfw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition10" name="Composition10" memberEnd="ModificaTelegestioneRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3arichiesta? Composition10modificatelegestionerequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition10%3a%3amodificatelegestionerequesttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition10modificatelegestionerequesttype" name="modificatelegestionerequesttype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition10?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition10?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WIWydg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WIWydQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneResponseType" name="ModificaTelegestioneResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ModificaTelegestioneResponseTypeEsito" name="esito" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType?" aggregation="composite" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition11?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition11?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WIgjdw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WIgjdg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition11" name="Composition11" memberEnd="ModificaTelegestioneResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType%3a%3aesito? Composition11modificatelegestioneresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition11%3a%3amodificatelegestioneresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition11modificatelegestioneresponsetype" name="modificatelegestioneresponsetype" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType?" association="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition11?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition11?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WIgjeg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WIgjeQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmFatturazioneMoteBpm" name="FatturazioneMoteBpm">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="FatturazioneMoteBpmModificaIndirizzoFornitura" name="ModificaIndirizzoFornitura">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ModificaIndirizzoForniturainput" name="input" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ModificaIndirizzoFornituraoutput" name="output" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="FatturazioneMoteBpmModificaPod" name="ModificaPod">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ModificaPodinput" name="input" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ModificaPodoutput" name="output" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="FatturazioneMoteBpmModificaTelegestione" name="ModificaTelegestione">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ModificaTelegestioneinput" name="input" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ModificaTelegestioneoutput" name="output" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="FatturazioneMoteBpmModificaDisalimentabilita" name="ModificaDisalimentabilita">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ModificaDisalimentabilitainput" name="input" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="ModificaDisalimentabilitaoutput" name="output" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType?" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="FatturazioneMoteBpmAggiornamentoMercato" name="AggiornamentoMercato">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="AggiornamentoMercatoinput" name="input" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="AggiornamentoMercatooutput" name="output" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType?" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_V9fmQQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_V9fmQg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_V9fmQw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_V9fmRA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_V9fmRQ93EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm?" xsdTargetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" xsdSchemaLocation="FatturazioneMoteAbstract.wsdl" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="FatturazioneMoteAbstract.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_V9pXQQ93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?" xsdName="RichiestaType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_V-r5JA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9pXQw93EeW3MruGqUCC5Q" base_Property="RichiestaTypesistemaRichiedente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3asistemaRichiedente?" xsdName="sistemaRichiedente" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9pXRg93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypesistemaRichiedente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3asistemaRichiedente?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9pXSA93EeW3MruGqUCC5Q" base_Property="RichiestaTypecanale?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acanale?" xsdName="canale" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9pXSw93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypecanale?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acanale?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9pXTQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypeidRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidRichiesta?" xsdName="idRichiesta" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9pXUA93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeidRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidRichiesta?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9pXUg93EeW3MruGqUCC5Q" base_Property="RichiestaTypetipoOperazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3atipoOperazione?" xsdName="tipoOperazione" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9pXVQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypetipoOperazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3atipoOperazione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9pXVw93EeW3MruGqUCC5Q" base_Property="RichiestaTypecausale?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acausale?" xsdName="causale" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9pXWg93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypecausale?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acausale?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9yhMQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypeidProcessoBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidProcessoBpm?" xsdName="idProcessoBpm" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9yhNA93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeidProcessoBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidProcessoBpm?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9yhNg93EeW3MruGqUCC5Q" base_Property="RichiestaTypecommodity?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acommodity?" xsdName="commodity" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9yhOQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypecommodity?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acommodity?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9yhOw93EeW3MruGqUCC5Q" base_Property="RichiestaTypeflagDelibera40?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagDelibera40?" xsdName="flagDelibera40" xsdForm="qualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9yhPw93EeW3MruGqUCC5Q" base_Property="RichiestaTypeIp?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aip?" xsdName="Ip" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9yhQg93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeIp?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aip?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9yhRA93EeW3MruGqUCC5Q" base_Property="RichiestaTypeProfilo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aprofilo?" xsdName="Profilo" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9yhRw93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeProfilo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aprofilo?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V9yhSQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypeMatricola?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3amatricola?" xsdName="Matricola" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V9yhTA93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeMatricola?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3amatricola?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V98SMQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypeDataRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3adataRichiesta?" xsdName="DataRichiesta" xsdForm="qualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V98SNQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypeIdMuti?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidMuti?" xsdName="IdMuti" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V98SOA93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeIdMuti?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidMuti?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V98SOg93EeW3MruGqUCC5Q" base_Property="RichiestaTypeIdDms?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidDms?" xsdName="IdDms" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V98SPQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeIdDms?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidDms?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V98SPw93EeW3MruGqUCC5Q" base_Property="RichiestaTypeIdDmsReclamo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidDmsReclamo?" xsdName="IdDmsReclamo" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V98SQg93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeIdDmsReclamo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidDmsReclamo?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_V98SRA93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2dType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType?" xsdName="IdentificativiR2dType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_V-GDPw93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-GDMQ93EeW3MruGqUCC5Q" base_Property="IdentificativiR2dTypeIdDistr?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidDistr?" xsdName="IdDistr" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-GDPw93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-GDNA93EeW3MruGqUCC5Q" textLength="-1" base_Property="IdentificativiR2dTypeIdDistr?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidDistr?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-GDNg93EeW3MruGqUCC5Q" base_Property="IdentificativiR2dTypeIdDistr2?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidDistr2?" xsdName="IdDistr2" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-GDPw93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-GDOQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="IdentificativiR2dTypeIdDistr2?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidDistr2?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-GDOw93EeW3MruGqUCC5Q" base_Property="IdentificativiR2dTypeIdR2d?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidR2d?" xsdName="IdR2d" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-GDPw93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-GDPg93EeW3MruGqUCC5Q" textLength="-1" base_Property="IdentificativiR2dTypeIdR2d?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidR2d?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-GDRw93EeW3MruGqUCC5Q" base_Property="RichiestaTypeIdR2d?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidR2d?" xsdName="IdR2d" xsdForm="qualified" xsdType="IdentificativiR2dType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-GDSQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypedataDecorrenza?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3adataDecorrenza?" xsdName="dataDecorrenza" xsdForm="qualified" xsdType="date" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-PNIQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypetipoRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3atipoRichiesta?" xsdName="tipoRichiesta" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-PNJA93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypetipoRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3atipoRichiesta?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-PNJg93EeW3MruGqUCC5Q" base_Property="RichiestaTypeflagComplesso?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagComplesso?" xsdName="flagComplesso" xsdForm="qualified" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-PNKg93EeW3MruGqUCC5Q" base_Property="RichiestaTypeflagPreventivo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagPreventivo?" xsdName="flagPreventivo" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-PNLQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeflagPreventivo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagPreventivo?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-PNLw93EeW3MruGqUCC5Q" base_Property="RichiestaTypeflagDocumentazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagDocumentazione?" xsdName="flagDocumentazione" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-PNMg93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeflagDocumentazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagDocumentazione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-PNNA93EeW3MruGqUCC5Q" base_Property="RichiestaTypeidCRM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidCRM?" xsdName="idCRM" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-PNNw93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeidCRM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidCRM?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-Y-IQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypestatoServizio?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoServizio?" xsdName="statoServizio" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-Y-JA93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypestatoServizio?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoServizio?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-Y-Jg93EeW3MruGqUCC5Q" base_Property="RichiestaTypestatoOrdine?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoOrdine?" xsdName="statoOrdine" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-Y-KQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypestatoOrdine?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoOrdine?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-Y-Kw93EeW3MruGqUCC5Q" base_Property="RichiestaTypestatoFiCa?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoFiCa?" xsdName="statoFiCa" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-Y-Lg93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypestatoFiCa?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoFiCa?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-Y-MA93EeW3MruGqUCC5Q" base_Property="RichiestaTypestatoISU?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoISU?" xsdName="statoISU" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-Y-Mw93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypestatoISU?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoISU?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-iIEQ93EeW3MruGqUCC5Q" base_Property="RichiestaTypestatoR2D?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoR2D?" xsdName="statoR2D" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-iIFA93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypestatoR2D?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoR2D?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-iIFg93EeW3MruGqUCC5Q" base_Property="RichiestaTypestatoSD?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoSD?" xsdName="statoSD" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-iIGQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypestatoSD?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoSD?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-iIGw93EeW3MruGqUCC5Q" base_Property="RichiestaTypestatoSempre?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoSempre?" xsdName="statoSempre" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-iIHg93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypestatoSempre?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoSempre?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-iIIA93EeW3MruGqUCC5Q" base_Property="RichiestaTypestatoUDB?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoUDB?" xsdName="statoUDB" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-iIIw93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypestatoUDB?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoUDB?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_V-r5EA93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2rType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2rType?" xsdName="IdentificativiR2rType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_V-r5Fg93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-r5Eg93EeW3MruGqUCC5Q" base_Property="IdentificativiR2rTypeIdR2R?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2rType%3a%3aidR2R?" xsdName="IdR2R" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5Fg93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-r5FQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="IdentificativiR2rTypeIdR2R?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2rType%3a%3aidR2R?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-r5Hg93EeW3MruGqUCC5Q" base_Property="RichiestaTypeIdR2R?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidR2R?" xsdName="IdR2R" xsdForm="qualified" xsdType="IdentificativiR2rType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-r5IA93EeW3MruGqUCC5Q" base_Property="RichiestaTypeIdAttivitaCrm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidAttivitaCrm?" xsdName="IdAttivitaCrm" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V-r5JA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-r5Iw93EeW3MruGqUCC5Q" textLength="-1" base_Property="RichiestaTypeIdAttivitaCrm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidAttivitaCrm?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_V-1qEQ93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType?" xsdName="EsitoType" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_V--0FA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V-1qEw93EeW3MruGqUCC5Q" base_Property="EsitoTypeesito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3aesito?" xsdName="esito" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V--0FA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V-1qFg93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypeesito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V--0AQ93EeW3MruGqUCC5Q" base_Property="EsitoTypecodiceEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3acodiceEsito?" xsdName="codiceEsito" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V--0FA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V--0BA93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypecodiceEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V--0Bg93EeW3MruGqUCC5Q" base_Property="EsitoTypedescrizione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3adescrizione?" xsdName="descrizione" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V--0FA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V--0CQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypedescrizione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V--0Cw93EeW3MruGqUCC5Q" base_Property="EsitoTypetipoEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3atipoEsito?" xsdName="tipoEsito" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V--0FA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V--0Dg93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypetipoEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V--0EA93EeW3MruGqUCC5Q" base_Property="EsitoTypesistemaSorgenteEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3asistemaSorgenteEsito?" xsdName="sistemaSorgenteEsito" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V--0FA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V--0Ew93EeW3MruGqUCC5Q" textLength="-1" base_Property="EsitoTypesistemaSorgenteEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3asistemaSorgenteEsito?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_V_IlAQ93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_V_Ru-g93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V_IlCQ93EeW3MruGqUCC5Q" base_Property="AggiornaMercatoSapRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3arichiesta?" xsdName="Richiesta" xsdForm="qualified" xsdType="RichiestaType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V_Ru-g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V_IlCw93EeW3MruGqUCC5Q" base_Property="AggiornaMercatoSapRequestTypeFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3afatturazioneCDM?" xsdName="FatturazioneCDM" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V_Ru-g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V_IlDg93EeW3MruGqUCC5Q" textLength="-1" base_Property="AggiornaMercatoSapRequestTypeFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3afatturazioneCDM?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V_Ru8Q93EeW3MruGqUCC5Q" base_Property="AggiornaMercatoSapRequestTypeClienteCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3aclienteCDM?" xsdName="ClienteCDM" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V_Ru-g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V_Ru9A93EeW3MruGqUCC5Q" textLength="-1" base_Property="AggiornaMercatoSapRequestTypeClienteCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3aclienteCDM?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V_Ru9g93EeW3MruGqUCC5Q" base_Property="AggiornaMercatoSapRequestTypeDataAggiornamentoMercato?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3adataAggiornamentoMercato?" xsdName="DataAggiornamentoMercato" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V_Ru-g93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_V_Ru-Q93EeW3MruGqUCC5Q" textLength="-1" base_Property="AggiornaMercatoSapRequestTypeDataAggiornamentoMercato?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3adataAggiornamentoMercato?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_V_Ru-w93EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_V_Ru_A93EeW3MruGqUCC5Q" name="AggiornaMercatoSapRequest" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_V_RvCA93EeW3MruGqUCC5Q" name="AggiornaMercatoSapResponse" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_WHdakA93EeW3MruGqUCC5Q" name="ModificaDisalimentabilitaRequest" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_WHnLmQ93EeW3MruGqUCC5Q" name="ModificaDisalimentabilitaResponse" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_WH6GgA93EeW3MruGqUCC5Q" name="ModificaIndirizzoFornituraRequest" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_WH6GjA93EeW3MruGqUCC5Q" name="ModificaIndirizzoFornituraResponse" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_WINBeA93EeW3MruGqUCC5Q" name="ModificaPodRequest" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_WINBhA93EeW3MruGqUCC5Q" name="ModificaPodResponse" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_WIgjcQ93EeW3MruGqUCC5Q" name="ModificaTelegestioneRequest" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_WIgjfQ93EeW3MruGqUCC5Q" name="ModificaTelegestioneResponse" type="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType?" isAnonymous="true" targetNamespace="http://xmlns.enel.com/mercato/libero/abstract/integration/FatturazioneMoteBpm" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_V_Ru_g93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_V_RvBw93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V_RvBg93EeW3MruGqUCC5Q" base_Property="AggiornaMercatoSapResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType%3a%3aesito?" xsdName="Esito" xsdForm="qualified" xsdType="EsitoType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_V_RvBw93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_V_bf8Q93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_WHUQpQ93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_V_bf-Q93EeW3MruGqUCC5Q" base_Property="ModificaDisalimentabilitaRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3arichiesta?" xsdName="Richiesta" xsdForm="qualified" xsdType="RichiestaType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WHUQpQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WHKfoQ93EeW3MruGqUCC5Q" base_Property="ModificaDisalimentabilitaRequestTypeIdIsuFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3aidIsuFatturazioneCDM?" xsdName="IdIsuFatturazioneCDM" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WHUQpQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WHKfpA93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaDisalimentabilitaRequestTypeIdIsuFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3aidIsuFatturazioneCDM?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WHUQoQ93EeW3MruGqUCC5Q" base_Property="ModificaDisalimentabilitaRequestTypeFornituraCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3afornituraCDM?" xsdName="FornituraCDM" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WHUQpQ93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WHUQpA93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaDisalimentabilitaRequestTypeFornituraCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3afornituraCDM?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_WHdakg93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_WHnLmA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WHnLlw93EeW3MruGqUCC5Q" base_Property="ModificaDisalimentabilitaResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType%3a%3aesito?" xsdName="Esito" xsdForm="qualified" xsdType="EsitoType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WHnLmA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_WHnLmw93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_WHw8nw93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WHnLow93EeW3MruGqUCC5Q" base_Property="ModificaIndirizzoFornituraRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3arichiesta?" xsdName="Richiesta" xsdForm="qualified" xsdType="RichiestaType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WHw8nw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WHw8kQ93EeW3MruGqUCC5Q" base_Property="ModificaIndirizzoFornituraRequestTypeCDM_IdFatturazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_IdFatturazione?" xsdName="CDM_IdFatturazione" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WHw8nw93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WHw8lA93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaIndirizzoFornituraRequestTypeCDM_IdFatturazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_IdFatturazione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WHw8lg93EeW3MruGqUCC5Q" base_Property="ModificaIndirizzoFornituraRequestTypeCDM_Cliente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_Cliente?" xsdName="CDM_Cliente" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WHw8nw93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WHw8mQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaIndirizzoFornituraRequestTypeCDM_Cliente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_Cliente?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WHw8mw93EeW3MruGqUCC5Q" base_Property="ModificaIndirizzoFornituraRequestTypeCDM_Fornitura?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_Fornitura?" xsdName="CDM_Fornitura" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WHw8nw93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WHw8ng93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaIndirizzoFornituraRequestTypeCDM_Fornitura?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_Fornitura?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_WH6Ggg93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_WH6Giw93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WH6Gig93EeW3MruGqUCC5Q" base_Property="ModificaIndirizzoFornituraResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType%3a%3aesito?" xsdName="Esito" xsdForm="qualified" xsdType="EsitoType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WH6Giw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_WH6Gjg93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_WINBdw93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WH6Glg93EeW3MruGqUCC5Q" base_Property="ModificaPodRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3arichiesta?" xsdName="Richiesta" xsdForm="qualified" xsdType="RichiestaType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WINBdw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WID3gQ93EeW3MruGqUCC5Q" base_Property="ModificaPodRequestTypeCDM_Idfatturazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3aCDM_Idfatturazione?" xsdName="CDM_Idfatturazione" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WINBdw93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WID3hA93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaPodRequestTypeCDM_Idfatturazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3aCDM_Idfatturazione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WID3hg93EeW3MruGqUCC5Q" base_Property="ModificaPodRequestTypeCDM_Cliente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3aCDM_Cliente?" xsdName="CDM_Cliente" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WINBdw93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WID3iQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaPodRequestTypeCDM_Cliente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3aCDM_Cliente?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WINBcQ93EeW3MruGqUCC5Q" base_Property="ModificaPodRequestTypePodNuovo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3apodNuovo?" xsdName="PodNuovo" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WINBdw93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WINBdA93EeW3MruGqUCC5Q" textLength="20" base_Property="ModificaPodRequestTypePodNuovo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3apodNuovo?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_WINBdQ93EeW3MruGqUCC5Q" base_Property="ModificaPodRequestTypePodNuovo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3apodNuovo?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_WINBdg93EeW3MruGqUCC5Q" base_Property="ModificaPodRequestTypePodNuovo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3apodNuovo?" xsdMaxLengthFixed="false" xsdMaxLengthValue="20"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_WINBeg93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_WINBgw93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WINBgg93EeW3MruGqUCC5Q" base_Property="ModificaPodResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType%3a%3aesito?" xsdName="Esito" xsdForm="qualified" xsdType="EsitoType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WINBgw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_WINBhg93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_WIgjcA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WIWydw93EeW3MruGqUCC5Q" base_Property="ModificaTelegestioneRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3arichiesta?" xsdName="Richiesta" xsdForm="qualified" xsdType="RichiestaType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WIgjcA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WIWyeQ93EeW3MruGqUCC5Q" base_Property="ModificaTelegestioneRequestTypeIdIsuFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3aidIsuFatturazioneCDM?" xsdName="IdIsuFatturazioneCDM" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WIgjcA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WIWyfA93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaTelegestioneRequestTypeIdIsuFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3aidIsuFatturazioneCDM?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WIWyfg93EeW3MruGqUCC5Q" base_Property="ModificaTelegestioneRequestTypeFornituraCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3afornituraCDM?" xsdName="FornituraCDM" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WIgjcA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_WIWygQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="ModificaTelegestioneRequestTypeFornituraCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3afornituraCDM?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_WIgjcw93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_WIgjfA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_WIgjew93EeW3MruGqUCC5Q" base_Property="ModificaTelegestioneResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType%3a%3aesito?" xsdName="Esito" xsdForm="qualified" xsdType="EsitoType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_WIgjfA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjfg93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjfw93EeW3MruGqUCC5Q" base_Element="_WH6GhQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjgA93EeW3MruGqUCC5Q" base_Element="_V-GDMw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjgQ93EeW3MruGqUCC5Q" base_Element="_V-PNLA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjgg93EeW3MruGqUCC5Q" base_Element="EsitoTypecodiceEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjgw93EeW3MruGqUCC5Q" base_Element="_WH6GkQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjhA93EeW3MruGqUCC5Q" base_Element="_V-1qFQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjhQ93EeW3MruGqUCC5Q" base_Element="_WIgjeQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjhg93EeW3MruGqUCC5Q" base_Element="_V9yhSw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjhw93EeW3MruGqUCC5Q" base_Element="_V9yhQQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjiA93EeW3MruGqUCC5Q" base_Element="_V98SMg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjiQ93EeW3MruGqUCC5Q" base_Element="_V-r5Gg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjig93EeW3MruGqUCC5Q" base_Element="_V_Ru8w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjiw93EeW3MruGqUCC5Q" base_Element="_WHnLlQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjjA93EeW3MruGqUCC5Q" base_Element="RichiestaTypeflagPreventivo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagPreventivo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjjQ93EeW3MruGqUCC5Q" base_Element="_V-PNKw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjjg93EeW3MruGqUCC5Q" base_Element="ModificaTelegestioneRequestTypeIdIsuFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3aidIsuFatturazioneCDM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjjw93EeW3MruGqUCC5Q" base_Element="_WIWydQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjkA93EeW3MruGqUCC5Q" base_Element="_V--0Aw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjkQ93EeW3MruGqUCC5Q" base_Element="IdentificativiR2rTypeIdR2R?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2rType%3a%3aidR2R?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjkg93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition1?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjkw93EeW3MruGqUCC5Q" base_Element="_V-PNMA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjlA93EeW3MruGqUCC5Q" base_Element="Composition10modificatelegestionerequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition10%3a%3amodificatelegestionerequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjlQ93EeW3MruGqUCC5Q" base_Element="_V-GDMg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjlg93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjlw93EeW3MruGqUCC5Q" base_Element="EsitoTypeesito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjmA93EeW3MruGqUCC5Q" base_Element="_V-PNIg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjmQ93EeW3MruGqUCC5Q" base_Element="_V-GDPA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjmg93EeW3MruGqUCC5Q" base_Element="ModificaTelegestioneResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjmw93EeW3MruGqUCC5Q" base_Element="_V-GDOA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjnA93EeW3MruGqUCC5Q" base_Element="_V_IlCA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjnQ93EeW3MruGqUCC5Q" base_Element="_V-r5HA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjng93EeW3MruGqUCC5Q" base_Element="_V98SOw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjnw93EeW3MruGqUCC5Q" base_Element="IdentificativiR2dTypeIdDistr2?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidDistr2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjoA93EeW3MruGqUCC5Q" base_Element="_V_Ru-A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjoQ93EeW3MruGqUCC5Q" base_Element="_V-GDRQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjog93EeW3MruGqUCC5Q" base_Element="RichiestaTypeflagDelibera40?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagDelibera40?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjow93EeW3MruGqUCC5Q" base_Element="_WHUQog93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjpA93EeW3MruGqUCC5Q" base_Element="_WIgjdw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjpQ93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition3?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjpg93EeW3MruGqUCC5Q" base_Element="Composition8modificapodrequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition8%3a%3amodificapodrequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjpw93EeW3MruGqUCC5Q" base_Element="ModificaPodRequestTypeCDM_Idfatturazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3aCDM_Idfatturazione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjqA93EeW3MruGqUCC5Q" base_Element="RichiestaTypeIdR2d?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidR2d?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjqQ93EeW3MruGqUCC5Q" base_Element="_V-r5FA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjqg93EeW3MruGqUCC5Q" base_Element="_V-PNIw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjqw93EeW3MruGqUCC5Q" base_Element="RichiestaTypestatoISU?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoISU?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjrA93EeW3MruGqUCC5Q" base_Element="_WID3hw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjrQ93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition7?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition7?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjrg93EeW3MruGqUCC5Q" base_Element="_V9pXSQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjrw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition6?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition6?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjsA93EeW3MruGqUCC5Q" base_Element="_WHnLng93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjsQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypeidProcessoBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidProcessoBpm?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjsg93EeW3MruGqUCC5Q" base_Element="_WH6GlA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjsw93EeW3MruGqUCC5Q" base_Element="_WINBgA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjtA93EeW3MruGqUCC5Q" base_Element="_V--0EQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjtQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypetipoRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3atipoRichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjtg93EeW3MruGqUCC5Q" base_Element="_WINBfg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjtw93EeW3MruGqUCC5Q" base_Element="ModificaIndirizzoFornituraRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3arichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjuA93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjuQ93EeW3MruGqUCC5Q" base_Element="Composition9modificapodresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition9%3a%3amodificapodresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjug93EeW3MruGqUCC5Q" base_Element="_V-Y-Iw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjuw93EeW3MruGqUCC5Q" base_Element="_V9yhMg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjvA93EeW3MruGqUCC5Q" base_Element="_WHnLoQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIgjvQ93EeW3MruGqUCC5Q" base_Element="Composition3aggiornamercatosapresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition3%3a%3aaggiornamercatosapresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptYA93EeW3MruGqUCC5Q" base_Element="_V-Y-KA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptYQ93EeW3MruGqUCC5Q" base_Element="_V_RvAQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptYg93EeW3MruGqUCC5Q" base_Element="_WHUQow93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptYw93EeW3MruGqUCC5Q" base_Element="ModificaPodResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptZA93EeW3MruGqUCC5Q" base_Element="RichiestaTypestatoUDB?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoUDB?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptZQ93EeW3MruGqUCC5Q" base_Element="_WID3gw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptZg93EeW3MruGqUCC5Q" base_Element="_WIWycw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptZw93EeW3MruGqUCC5Q" base_Element="_V-PNNg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptaA93EeW3MruGqUCC5Q" base_Element="_WH6GiQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptaQ93EeW3MruGqUCC5Q" base_Element="_V-Y-Ig93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptag93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition8?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition8?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptaw93EeW3MruGqUCC5Q" base_Element="RichiestaTypeMatricola?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3amatricola?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptbA93EeW3MruGqUCC5Q" base_Element="RichiestaTypecommodity?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acommodity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptbQ93EeW3MruGqUCC5Q" base_Element="_V-PNNQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptbg93EeW3MruGqUCC5Q" base_Element="_V9yhPA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptbw93EeW3MruGqUCC5Q" base_Element="RichiestaTypeDataRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3adataRichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptcA93EeW3MruGqUCC5Q" base_Element="_V_RvBQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptcQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypeIdDms?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidDms?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptcg93EeW3MruGqUCC5Q" base_Element="AggiornaMercatoSapRequestTypeFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3afatturazioneCDM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptcw93EeW3MruGqUCC5Q" base_Element="RichiestaTypeidRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidRichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptdA93EeW3MruGqUCC5Q" base_Element="_V_bf9Q93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptdQ93EeW3MruGqUCC5Q" base_Element="_V9pXUw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptdg93EeW3MruGqUCC5Q" base_Element="_V--0Ag93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptdw93EeW3MruGqUCC5Q" base_Element="_WHw8kw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpteA93EeW3MruGqUCC5Q" base_Element="_V9fmQw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpteQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypeflagComplesso?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagComplesso?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpteg93EeW3MruGqUCC5Q" base_Element="_V_Ru9w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptew93EeW3MruGqUCC5Q" base_Element="_V-GDNw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptfA93EeW3MruGqUCC5Q" base_Element="RichiestaTypesistemaRichiedente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3asistemaRichiedente?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptfQ93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2rType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2rType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptfg93EeW3MruGqUCC5Q" base_Element="_WHw8nQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptfw93EeW3MruGqUCC5Q" base_Element="_V98SPA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptgA93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptgQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypestatoServizio?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoServizio?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptgg93EeW3MruGqUCC5Q" base_Element="_V-r5GQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptgw93EeW3MruGqUCC5Q" base_Element="_V9yhRQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpthA93EeW3MruGqUCC5Q" base_Element="_WINBgQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpthQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypestatoSD?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoSD?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpthg93EeW3MruGqUCC5Q" base_Element="_V-Y-LA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpthw93EeW3MruGqUCC5Q" base_Element="RichiestaTypecanale?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acanale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptiA93EeW3MruGqUCC5Q" base_Element="_WID3iA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptiQ93EeW3MruGqUCC5Q" base_Element="_WHKfow93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptig93EeW3MruGqUCC5Q" base_Element="_V--0CA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptiw93EeW3MruGqUCC5Q" base_Element="ModificaIndirizzoFornituraRequestTypeCDM_Cliente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_Cliente?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptjA93EeW3MruGqUCC5Q" base_Element="_WIWygA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptjQ93EeW3MruGqUCC5Q" base_Element="_V9pXRQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptjg93EeW3MruGqUCC5Q" base_Element="_V-iIIQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptjw93EeW3MruGqUCC5Q" base_Element="_V98SMw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptkA93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition9?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition9?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptkQ93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptkg93EeW3MruGqUCC5Q" base_Element="_V-Y-MQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptkw93EeW3MruGqUCC5Q" base_Element="RichiestaTypeflagDocumentazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagDocumentazione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptlA93EeW3MruGqUCC5Q" base_Element="_WHw8kg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptlQ93EeW3MruGqUCC5Q" base_Element="_WINBcw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptlg93EeW3MruGqUCC5Q" base_Element="RichiestaTypeIp?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aip?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptlw93EeW3MruGqUCC5Q" base_Element="_V9yhQA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptmA93EeW3MruGqUCC5Q" base_Element="Composition0richiestatype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition0%3a%3arichiestatype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptmQ93EeW3MruGqUCC5Q" base_Element="_V_bf-A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptmg93EeW3MruGqUCC5Q" base_Element="_V-GDRg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptmw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptnA93EeW3MruGqUCC5Q" base_Element="_V--0Eg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptnQ93EeW3MruGqUCC5Q" base_Element="Composition1richiestatype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition1%3a%3arichiestatype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptng93EeW3MruGqUCC5Q" base_Element="_V-PNKA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptnw93EeW3MruGqUCC5Q" base_Element="ModificaDisalimentabilitaResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptoA93EeW3MruGqUCC5Q" base_Element="RichiestaTypestatoSempre?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoSempre?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptoQ93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition10?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition10?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptog93EeW3MruGqUCC5Q" base_Element="_V_IlBQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptow93EeW3MruGqUCC5Q" base_Element="_WHKfog93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptpA93EeW3MruGqUCC5Q" base_Element="EsitoTypesistemaSorgenteEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3asistemaSorgenteEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptpQ93EeW3MruGqUCC5Q" base_Element="_V-iIIg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptpg93EeW3MruGqUCC5Q" base_Element="_WHw8mA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptpw93EeW3MruGqUCC5Q" base_Element="_V_bf9A93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptqA93EeW3MruGqUCC5Q" base_Element="_V_IlDA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptqQ93EeW3MruGqUCC5Q" base_Element="_WID3gg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptqg93EeW3MruGqUCC5Q" base_Element="_V98SNw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptqw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2dType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptrA93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition4?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition4?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptrQ93EeW3MruGqUCC5Q" base_Element="_V_IlDQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptrg93EeW3MruGqUCC5Q" base_Element="ModificaDisalimentabilitaRequestTypeIdIsuFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3aidIsuFatturazioneCDM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptrw93EeW3MruGqUCC5Q" base_Element="_WHnLnw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptsA93EeW3MruGqUCC5Q" base_Element="_V-iIFw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptsQ93EeW3MruGqUCC5Q" base_Element="_V_RvBA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptsg93EeW3MruGqUCC5Q" base_Element="IdentificativiR2dTypeIdR2d?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidR2d?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptsw93EeW3MruGqUCC5Q" base_Element="_WHw8nA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpttA93EeW3MruGqUCC5Q" base_Element="_V_RvAg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpttQ93EeW3MruGqUCC5Q" base_Element="_WH6GlQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpttg93EeW3MruGqUCC5Q" base_Element="_WIgjeg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpttw93EeW3MruGqUCC5Q" base_Element="_V9pXWA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptuA93EeW3MruGqUCC5Q" base_Element="RichiestaTypeIdMuti?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidMuti?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptuQ93EeW3MruGqUCC5Q" base_Element="_V98SNg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptug93EeW3MruGqUCC5Q" base_Element="_V9pXVA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptuw93EeW3MruGqUCC5Q" base_Element="EsitoTypetipoEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptvA93EeW3MruGqUCC5Q" base_Element="_WIgjdg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptvQ93EeW3MruGqUCC5Q" base_Element="_V9pXTw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptvg93EeW3MruGqUCC5Q" base_Element="_V9pXTg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptvw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition5?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition5?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptwA93EeW3MruGqUCC5Q" base_Element="Composition7modificaindirizzofornituraresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition7%3a%3amodificaindirizzofornituraresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptwQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypeIdR2R?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidR2R?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptwg93EeW3MruGqUCC5Q" base_Element="AggiornaMercatoSapRequestTypeDataAggiornamentoMercato?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3adataAggiornamentoMercato?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptww93EeW3MruGqUCC5Q" base_Element="_WH6GiA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptxA93EeW3MruGqUCC5Q" base_Element="_V98SQQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptxQ93EeW3MruGqUCC5Q" base_Element="ModificaIndirizzoFornituraResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptxg93EeW3MruGqUCC5Q" base_Element="_WIWyeg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptxw93EeW3MruGqUCC5Q" base_Element="RichiestaTypecausale?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acausale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptyA93EeW3MruGqUCC5Q" base_Element="_V-r5Ew93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptyQ93EeW3MruGqUCC5Q" base_Element="_V9pXRA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptyg93EeW3MruGqUCC5Q" base_Element="AggiornaMercatoSapRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3arichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptyw93EeW3MruGqUCC5Q" base_Element="_V9yhOA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptzA93EeW3MruGqUCC5Q" base_Element="RichiestaTypestatoOrdine?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoOrdine?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptzQ93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptzg93EeW3MruGqUCC5Q" base_Element="_V9yhNw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIptzw93EeW3MruGqUCC5Q" base_Element="Composition2aggiornamercatosaprequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition2%3a%3aaggiornamercatosaprequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt0A93EeW3MruGqUCC5Q" base_Element="ModificaPodRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3arichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt0Q93EeW3MruGqUCC5Q" base_Element="RichiestaTypedataDecorrenza?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3adataDecorrenza?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt0g93EeW3MruGqUCC5Q" base_Element="_V-r5HQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt0w93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition2?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt1A93EeW3MruGqUCC5Q" base_Element="_V-GDQw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt1Q93EeW3MruGqUCC5Q" base_Element="ModificaIndirizzoFornituraRequestTypeCDM_IdFatturazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_IdFatturazione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt1g93EeW3MruGqUCC5Q" base_Element="AggiornaMercatoSapRequestTypeClienteCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3aclienteCDM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt1w93EeW3MruGqUCC5Q" base_Element="RichiestaTypeIdAttivitaCrm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidAttivitaCrm?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt2A93EeW3MruGqUCC5Q" base_Element="Composition4modificadisalimentabilitarequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition4%3a%3amodificadisalimentabilitarequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt2Q93EeW3MruGqUCC5Q" base_Element="_V_IlBA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt2g93EeW3MruGqUCC5Q" base_Element="_WHnLkg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt2w93EeW3MruGqUCC5Q" base_Element="_V-GDSw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt3A93EeW3MruGqUCC5Q" base_Element="IdentificativiR2dTypeIdDistr?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidDistr?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt3Q93EeW3MruGqUCC5Q" base_Element="_V9yhPQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt3g93EeW3MruGqUCC5Q" base_Element="_V-iIEg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt3w93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition0?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt4A93EeW3MruGqUCC5Q" base_Element="_WH6Gkg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt4Q93EeW3MruGqUCC5Q" base_Element="_V-PNJw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt4g93EeW3MruGqUCC5Q" base_Element="_V--0Bw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt4w93EeW3MruGqUCC5Q" base_Element="_V-GDPQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt5A93EeW3MruGqUCC5Q" base_Element="Composition5modificadisalimentabilitaresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition5%3a%3amodificadisalimentabilitaresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt5Q93EeW3MruGqUCC5Q" base_Element="ModificaTelegestioneRequestTypeFornituraCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3afornituraCDM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt5g93EeW3MruGqUCC5Q" base_Element="_WHnLkw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt5w93EeW3MruGqUCC5Q" base_Element="_V-GDSg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt6A93EeW3MruGqUCC5Q" base_Element="ModificaDisalimentabilitaRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3arichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt6Q93EeW3MruGqUCC5Q" base_Element="_V-r5IQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt6g93EeW3MruGqUCC5Q" base_Element="RichiestaTypestatoR2D?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoR2D?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt6w93EeW3MruGqUCC5Q" base_Element="_V-Y-LQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt7A93EeW3MruGqUCC5Q" base_Element="Composition11modificatelegestioneresponsetype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition11%3a%3amodificatelegestioneresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt7Q93EeW3MruGqUCC5Q" base_Element="_V-r5Ig93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt7g93EeW3MruGqUCC5Q" base_Element="_WHw8lw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt7w93EeW3MruGqUCC5Q" base_Element="_V9pXSg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt8A93EeW3MruGqUCC5Q" base_Element="_V_IlBw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt8Q93EeW3MruGqUCC5Q" base_Element="ModificaTelegestioneRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3arichiesta?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt8g93EeW3MruGqUCC5Q" base_Element="_V98SQA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt8w93EeW3MruGqUCC5Q" base_Element="ModificaDisalimentabilitaRequestTypeFornituraCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3afornituraCDM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt9A93EeW3MruGqUCC5Q" base_Element="_V9pXWQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt9Q93EeW3MruGqUCC5Q" base_Element="_V9yhMw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt9g93EeW3MruGqUCC5Q" base_Element="_WINBcg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt9w93EeW3MruGqUCC5Q" base_Element="RichiestaTypestatoFiCa?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoFiCa?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt-A93EeW3MruGqUCC5Q" base_Element="_V-Y-Jw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt-Q93EeW3MruGqUCC5Q" base_Element="_WIWyew93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt-g93EeW3MruGqUCC5Q" base_Element="_WIWyfw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt-w93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt_A93EeW3MruGqUCC5Q" base_Element="AggiornaMercatoSapResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt_Q93EeW3MruGqUCC5Q" base_Element="RichiestaTypeProfilo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aprofilo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt_g93EeW3MruGqUCC5Q" base_Element="_V--0DQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpt_w93EeW3MruGqUCC5Q" base_Element="ModificaIndirizzoFornituraRequestTypeCDM_Fornitura?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_Fornitura?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuAA93EeW3MruGqUCC5Q" base_Element="_V--0DA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuAQ93EeW3MruGqUCC5Q" base_Element="EsitoTypedescrizione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuAg93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuAw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmComposition11?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition11?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuBA93EeW3MruGqUCC5Q" base_Element="_V-iIHQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuBQ93EeW3MruGqUCC5Q" base_Element="_V_Ru8g93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuBg93EeW3MruGqUCC5Q" base_Element="_V-iIEw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuBw93EeW3MruGqUCC5Q" base_Element="_V-Y-Mg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuCA93EeW3MruGqUCC5Q" base_Element="_V_bf9w93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuCQ93EeW3MruGqUCC5Q" base_Element="Composition6modificaindirizzoforniturarequesttype?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aComposition6%3a%3amodificaindirizzoforniturarequesttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuCg93EeW3MruGqUCC5Q" base_Element="_V-GDQg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuCw93EeW3MruGqUCC5Q" base_Element="RichiestaTypeidCRM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidCRM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuDA93EeW3MruGqUCC5Q" base_Element="_V9yhSg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuDQ93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuDg93EeW3MruGqUCC5Q" base_Element="_WIWydg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuDw93EeW3MruGqUCC5Q" base_Element="_WHnLlg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuEA93EeW3MruGqUCC5Q" base_Element="_V9yhRg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuEQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypeIdDmsReclamo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidDmsReclamo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuEg93EeW3MruGqUCC5Q" base_Element="_WINBfQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuEw93EeW3MruGqUCC5Q" base_Element="_V-1qFA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuFA93EeW3MruGqUCC5Q" base_Element="_WH6Ghg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuFQ93EeW3MruGqUCC5Q" base_Element="RichiestaTypetipoOperazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3atipoOperazione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuFg93EeW3MruGqUCC5Q" base_Element="_WIWycg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuFw93EeW3MruGqUCC5Q" base_Element="_V9fmQQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuGA93EeW3MruGqUCC5Q" base_Element="ModificaPodRequestTypeCDM_Cliente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3aCDM_Cliente?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuGQ93EeW3MruGqUCC5Q" base_Element="_V-iIHA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuGg93EeW3MruGqUCC5Q" base_Element="_V-PNMQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuGw93EeW3MruGqUCC5Q" base_Element="ModificaPodRequestTypePodNuovo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3apodNuovo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuHA93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuHQ93EeW3MruGqUCC5Q" base_Element="_WHnLog93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuHg93EeW3MruGqUCC5Q" base_Element="_V-iIGA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_WIpuHw93EeW3MruGqUCC5Q" base_Element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_WIzeYQ93EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmFatturazioneMoteBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aFatturazioneMoteBpm?" xsdName="FatturazioneMoteBpm" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AMQ93EeW3MruGqUCC5Q" displayLabel="EsitoType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmEsitoType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AMg93EeW3MruGqUCC5Q" displayLabel="FatturazioneMoteBpm" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmFatturazioneMoteBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aFatturazioneMoteBpm?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AMw93EeW3MruGqUCC5Q" displayLabel="IdentificativiR2dType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2dType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ANA93EeW3MruGqUCC5Q" displayLabel="IdentificativiR2rType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmIdentificativiR2rType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2rType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ANQ93EeW3MruGqUCC5Q" displayLabel="RichiestaType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmRichiestaType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ANg93EeW3MruGqUCC5Q" displayLabel="AggiornaMercatoSapRequestType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ANw93EeW3MruGqUCC5Q" displayLabel="AggiornaMercatoSapResponseType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmAggiornaMercatoSapResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AOA93EeW3MruGqUCC5Q" displayLabel="ModificaDisalimentabilitaRequestType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AOQ93EeW3MruGqUCC5Q" displayLabel="ModificaDisalimentabilitaResponseType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaDisalimentabilitaResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AOg93EeW3MruGqUCC5Q" displayLabel="ModificaIndirizzoFornituraRequestType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AOw93EeW3MruGqUCC5Q" displayLabel="ModificaIndirizzoFornituraResponseType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaIndirizzoFornituraResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2APA93EeW3MruGqUCC5Q" displayLabel="ModificaPodRequestType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2APQ93EeW3MruGqUCC5Q" displayLabel="ModificaPodResponseType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaPodResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2APg93EeW3MruGqUCC5Q" displayLabel="ModificaTelegestioneRequestType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneRequestType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2APw93EeW3MruGqUCC5Q" displayLabel="ModificaTelegestioneResponseType" base_NamedElement="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpmModificaTelegestioneResponseType?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AQA93EeW3MruGqUCC5Q" displayLabel="codiceEsito" base_NamedElement="EsitoTypecodiceEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3acodiceEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AQQ93EeW3MruGqUCC5Q" displayLabel="descrizione" base_NamedElement="EsitoTypedescrizione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3adescrizione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AQg93EeW3MruGqUCC5Q" displayLabel="esito" base_NamedElement="EsitoTypeesito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AQw93EeW3MruGqUCC5Q" displayLabel="sistemaSorgenteEsito" base_NamedElement="EsitoTypesistemaSorgenteEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3asistemaSorgenteEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ARA93EeW3MruGqUCC5Q" displayLabel="tipoEsito" base_NamedElement="EsitoTypetipoEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aEsitoType%3a%3atipoEsito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ARQ93EeW3MruGqUCC5Q" displayLabel="IdDistr" base_NamedElement="IdentificativiR2dTypeIdDistr?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidDistr?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ARg93EeW3MruGqUCC5Q" displayLabel="IdDistr2" base_NamedElement="IdentificativiR2dTypeIdDistr2?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidDistr2?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ARw93EeW3MruGqUCC5Q" displayLabel="IdR2d" base_NamedElement="IdentificativiR2dTypeIdR2d?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2dType%3a%3aidR2d?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ASA93EeW3MruGqUCC5Q" displayLabel="IdR2R" base_NamedElement="IdentificativiR2rTypeIdR2R?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aIdentificativiR2rType%3a%3aidR2R?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ASQ93EeW3MruGqUCC5Q" displayLabel="DataRichiesta" base_NamedElement="RichiestaTypeDataRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3adataRichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ASg93EeW3MruGqUCC5Q" displayLabel="IdAttivitaCrm" base_NamedElement="RichiestaTypeIdAttivitaCrm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidAttivitaCrm?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ASw93EeW3MruGqUCC5Q" displayLabel="IdDms" base_NamedElement="RichiestaTypeIdDms?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidDms?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ATA93EeW3MruGqUCC5Q" displayLabel="IdDmsReclamo" base_NamedElement="RichiestaTypeIdDmsReclamo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidDmsReclamo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ATQ93EeW3MruGqUCC5Q" displayLabel="IdMuti" base_NamedElement="RichiestaTypeIdMuti?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidMuti?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ATg93EeW3MruGqUCC5Q" displayLabel="IdR2R" base_NamedElement="RichiestaTypeIdR2R?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidR2R?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2ATw93EeW3MruGqUCC5Q" displayLabel="IdR2d" base_NamedElement="RichiestaTypeIdR2d?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidR2d?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AUA93EeW3MruGqUCC5Q" displayLabel="Ip" base_NamedElement="RichiestaTypeIp?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aip?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AUQ93EeW3MruGqUCC5Q" displayLabel="Matricola" base_NamedElement="RichiestaTypeMatricola?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3amatricola?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AUg93EeW3MruGqUCC5Q" displayLabel="Profilo" base_NamedElement="RichiestaTypeProfilo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aprofilo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AUw93EeW3MruGqUCC5Q" displayLabel="canale" base_NamedElement="RichiestaTypecanale?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acanale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ2AVA93EeW3MruGqUCC5Q" displayLabel="causale" base_NamedElement="RichiestaTypecausale?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acausale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xMA93EeW3MruGqUCC5Q" displayLabel="commodity" base_NamedElement="RichiestaTypecommodity?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3acommodity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xMQ93EeW3MruGqUCC5Q" displayLabel="dataDecorrenza" base_NamedElement="RichiestaTypedataDecorrenza?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3adataDecorrenza?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xMg93EeW3MruGqUCC5Q" displayLabel="flagComplesso" base_NamedElement="RichiestaTypeflagComplesso?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagComplesso?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xMw93EeW3MruGqUCC5Q" displayLabel="flagDelibera40" base_NamedElement="RichiestaTypeflagDelibera40?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagDelibera40?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xNA93EeW3MruGqUCC5Q" displayLabel="flagDocumentazione" base_NamedElement="RichiestaTypeflagDocumentazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagDocumentazione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xNQ93EeW3MruGqUCC5Q" displayLabel="flagPreventivo" base_NamedElement="RichiestaTypeflagPreventivo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aflagPreventivo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xNg93EeW3MruGqUCC5Q" displayLabel="idCRM" base_NamedElement="RichiestaTypeidCRM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidCRM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xNw93EeW3MruGqUCC5Q" displayLabel="idProcessoBpm" base_NamedElement="RichiestaTypeidProcessoBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidProcessoBpm?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xOA93EeW3MruGqUCC5Q" displayLabel="idRichiesta" base_NamedElement="RichiestaTypeidRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3aidRichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xOQ93EeW3MruGqUCC5Q" displayLabel="sistemaRichiedente" base_NamedElement="RichiestaTypesistemaRichiedente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3asistemaRichiedente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xOg93EeW3MruGqUCC5Q" displayLabel="statoFiCa" base_NamedElement="RichiestaTypestatoFiCa?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoFiCa?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xOw93EeW3MruGqUCC5Q" displayLabel="statoISU" base_NamedElement="RichiestaTypestatoISU?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoISU?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xPA93EeW3MruGqUCC5Q" displayLabel="statoOrdine" base_NamedElement="RichiestaTypestatoOrdine?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoOrdine?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xPQ93EeW3MruGqUCC5Q" displayLabel="statoR2D" base_NamedElement="RichiestaTypestatoR2D?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoR2D?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xPg93EeW3MruGqUCC5Q" displayLabel="statoSD" base_NamedElement="RichiestaTypestatoSD?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoSD?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xPw93EeW3MruGqUCC5Q" displayLabel="statoSempre" base_NamedElement="RichiestaTypestatoSempre?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoSempre?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xQA93EeW3MruGqUCC5Q" displayLabel="statoServizio" base_NamedElement="RichiestaTypestatoServizio?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoServizio?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xQQ93EeW3MruGqUCC5Q" displayLabel="statoUDB" base_NamedElement="RichiestaTypestatoUDB?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3astatoUDB?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xQg93EeW3MruGqUCC5Q" displayLabel="tipoOperazione" base_NamedElement="RichiestaTypetipoOperazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3atipoOperazione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xQw93EeW3MruGqUCC5Q" displayLabel="tipoRichiesta" base_NamedElement="RichiestaTypetipoRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aRichiestaType%3a%3atipoRichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xRA93EeW3MruGqUCC5Q" displayLabel="ClienteCDM" base_NamedElement="AggiornaMercatoSapRequestTypeClienteCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3aclienteCDM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xRQ93EeW3MruGqUCC5Q" displayLabel="DataAggiornamentoMercato" base_NamedElement="AggiornaMercatoSapRequestTypeDataAggiornamentoMercato?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3adataAggiornamentoMercato?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xRg93EeW3MruGqUCC5Q" displayLabel="FatturazioneCDM" base_NamedElement="AggiornaMercatoSapRequestTypeFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3afatturazioneCDM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xRw93EeW3MruGqUCC5Q" displayLabel="Richiesta" base_NamedElement="AggiornaMercatoSapRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapRequestType%3a%3arichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xSA93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="AggiornaMercatoSapResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aAggiornaMercatoSapResponseType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xSQ93EeW3MruGqUCC5Q" displayLabel="FornituraCDM" base_NamedElement="ModificaDisalimentabilitaRequestTypeFornituraCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3afornituraCDM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xSg93EeW3MruGqUCC5Q" displayLabel="IdIsuFatturazioneCDM" base_NamedElement="ModificaDisalimentabilitaRequestTypeIdIsuFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3aidIsuFatturazioneCDM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xSw93EeW3MruGqUCC5Q" displayLabel="Richiesta" base_NamedElement="ModificaDisalimentabilitaRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaRequestType%3a%3arichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xTA93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="ModificaDisalimentabilitaResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaDisalimentabilitaResponseType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xTQ93EeW3MruGqUCC5Q" displayLabel="CDM_Cliente" base_NamedElement="ModificaIndirizzoFornituraRequestTypeCDM_Cliente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_Cliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xTg93EeW3MruGqUCC5Q" displayLabel="CDM_Fornitura" base_NamedElement="ModificaIndirizzoFornituraRequestTypeCDM_Fornitura?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_Fornitura?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xTw93EeW3MruGqUCC5Q" displayLabel="CDM_IdFatturazione" base_NamedElement="ModificaIndirizzoFornituraRequestTypeCDM_IdFatturazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3aCDM_IdFatturazione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xUA93EeW3MruGqUCC5Q" displayLabel="Richiesta" base_NamedElement="ModificaIndirizzoFornituraRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraRequestType%3a%3arichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xUQ93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="ModificaIndirizzoFornituraResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaIndirizzoFornituraResponseType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xUg93EeW3MruGqUCC5Q" displayLabel="CDM_Cliente" base_NamedElement="ModificaPodRequestTypeCDM_Cliente?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3aCDM_Cliente?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xUw93EeW3MruGqUCC5Q" displayLabel="CDM_Idfatturazione" base_NamedElement="ModificaPodRequestTypeCDM_Idfatturazione?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3aCDM_Idfatturazione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xVA93EeW3MruGqUCC5Q" displayLabel="PodNuovo" base_NamedElement="ModificaPodRequestTypePodNuovo?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3apodNuovo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xVQ93EeW3MruGqUCC5Q" displayLabel="Richiesta" base_NamedElement="ModificaPodRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodRequestType%3a%3arichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xVg93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="ModificaPodResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaPodResponseType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xVw93EeW3MruGqUCC5Q" displayLabel="FornituraCDM" base_NamedElement="ModificaTelegestioneRequestTypeFornituraCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3afornituraCDM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xWA93EeW3MruGqUCC5Q" displayLabel="IdIsuFatturazioneCDM" base_NamedElement="ModificaTelegestioneRequestTypeIdIsuFatturazioneCDM?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3aidIsuFatturazioneCDM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xWQ93EeW3MruGqUCC5Q" displayLabel="Richiesta" base_NamedElement="ModificaTelegestioneRequestTypeRichiesta?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneRequestType%3a%3arichiesta?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_WJ_xWg93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="ModificaTelegestioneResponseTypeEsito?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm%3a%3aModificaTelegestioneResponseType%3a%3aesito?"/>
+  <notation:Diagram xmi:id="_WJ_xXw93EeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm?com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm?" name="com.enel.xmlns.mercato.libero.abstract_.integration.FatturazioneMoteBpm" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_WJ_xYA93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_WJ_xYQ93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

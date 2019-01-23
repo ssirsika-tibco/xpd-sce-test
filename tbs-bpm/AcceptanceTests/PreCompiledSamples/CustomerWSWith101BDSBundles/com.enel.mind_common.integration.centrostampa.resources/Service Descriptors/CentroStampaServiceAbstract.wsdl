@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="com.enel.mind.InvioWelcomeLetter" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://integration.mind_common.enel.com.example.com/inviowelcomeletter" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CentroStampa" targetNamespace="com.enel.mind.InvioWelcomeLetter" tibex:ServiceTask="_rqyvUaVWEeOE0ZzwhOlzXg" tibex:XPDL="CentroStampa.xpdl" tibex:process="_V4h84aVWEeOE0ZzwhOlzXg">
+  <wsdl:types>
+    <xsd:schema xmlns="com.enel.mind.InvioWelcomeLetter" targetNamespace="com.enel.mind.InvioWelcomeLetter"/>
+    <xsd:schema xmlns="http://integration.mind_common.enel.com.example.com/inviowelcomeletter" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://integration.mind_common.enel.com.example.com/inviowelcomeletter" targetNamespace="http://integration.mind_common.enel.com.example.com/inviowelcomeletter">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/com.enel.mind_common.integration.centrostampa.resources/Business Objects/com.enel.mind_common.integration.inviowelcomeletter.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="InvioWelcomeLetterRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBpm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="clienteCDM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="indirizzoCDM" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numContratto">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dataAttivazione" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tipoDocumento">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="dataAdesione" type="xsd:date"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numPratica">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numUtePdr">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceVas">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InvioWelcomeLetterResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito" type="EsitoCentroStampa"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EsitoCentroStampa">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizioneEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaSorgenteEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="InvioWelcomeLetterRequestElement" type="InvioWelcomeLetterRequest"/>
+      <xsd:element name="InvioWelcomeLetterResponseElement" type="InvioWelcomeLetterResponse"/>
+      <xsd:element name="EsitoCentroStampaElement" type="EsitoCentroStampa"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="InvioWelcomeLetterProcess_InvioWelcomeLetter_INPUT">
+    <wsdl:part element="ttns:InvioWelcomeLetterRequestElement" name="Request"/>
+  </wsdl:message>
+  <wsdl:message name="InvioWelcomeLetterProcess_InvioWelcomeLetter_OUTPUT">
+    <wsdl:part element="ttns:InvioWelcomeLetterResponseElement" name="Response"/>
+  </wsdl:message>
+  <wsdl:portType name="InvioWelcomeLetterProcess" tibex:FlowContainer="_V4h84aVWEeOE0ZzwhOlzXg">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="InvioWelcomeLetter">
+      <wsdl:input message="ns:InvioWelcomeLetterProcess_InvioWelcomeLetter_INPUT" tibex:Event="_rqyvUaVWEeOE0ZzwhOlzXg"/>
+      <wsdl:output message="ns:InvioWelcomeLetterProcess_InvioWelcomeLetter_OUTPUT" tibex:Event="_rqyvUaVWEeOE0ZzwhOlzXg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_3L9QcE7_EeSuMNIv6cnhGQ" xpdExt:DisplayName="test" Name="test">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-10-08</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_qArFcE8AEeSuMNIv6cnhGQ" xpdExt:DisplayName="TestEventHandlerCannotInvokeEventHandlerRules.xpdl (API Activity EndPoint)" Name="TestEventHandlerCannotInvokeEventHandlerRulesxpdl">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/test/TestEventHandlerCannotInvokeEventHandlerRulesxpdl" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_3hjtAE7_EeSuMNIv6cnhGQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_3MKEwE7_EeSuMNIv6cnhGQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_3hjtAU7_EeSuMNIv6cnhGQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="827.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_3MKEwE7_EeSuMNIv6cnhGQ" xpdExt:ApiEndPointParticipant="_qArFcE8AEeSuMNIv6cnhGQ" xpdExt:DisplayName="TestEventHandlerCannotInvokeEventHandlerRules.xpdl" Name="TestEventHandlerCannotInvokeEventHandlerRulesxpdl">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_NM3rAE-REeSOEo3p2SAJug" Name="Parameter" Mode="IN" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_OAZZsE-REeSOEo3p2SAJug" xpdExt:DisplayName="CorrelationField" Name="CorrelationField" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_7gJpgU7_EeSuMNIv6cnhGQ">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_8z2GAE7_EeSuMNIv6cnhGQ" Name="CatchSIGA" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch: SIG A">
+              <xpdl2:Event>
+                <xpdl2:StartEvent xpdExt:NonInterruptingEvent="false" Trigger="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="CATCH" Name="SIG A">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:StartEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" Width="68.0">
+                  <xpdl2:Coordinates XCoordinate="44.0" YCoordinate="46.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_9Smekk7_EeSuMNIv6cnhGQ" Name="Task2" xpdExt:Visibility="Private" xpdExt:DisplayName="Task 2">
+              <xpdl2:Implementation>
+                <xpdl2:No/>
+              </xpdl2:Implementation>
+              <xpdl2:TransitionRestrictions>
+                <xpdl2:TransitionRestriction>
+                  <xpdl2:Split Type="Inclusive">
+                    <xpdl2:TransitionRefs>
+                      <xpdl2:TransitionRef Id="_2zPQo08OEeS6jNobkHUGiQ"/>
+                      <xpdl2:TransitionRef Id="_U6TtQE-QEeSOEo3p2SAJug"/>
+                      <xpdl2:TransitionRef Id="_hF6ugE-QEeSOEo3p2SAJug"/>
+                    </xpdl2:TransitionRefs>
+                  </xpdl2:Split>
+                </xpdl2:TransitionRestriction>
+              </xpdl2:TransitionRestrictions>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="204.0" YCoordinate="46.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_9ozYEE7_EeSuMNIv6cnhGQ" Name="CatchSIGC" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch: SIG C">
+              <xpdl2:Event>
+                <xpdl2:IntermediateEvent Trigger="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="CATCH" Name="SIG C">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:IntermediateEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" Width="68.0">
+                  <xpdl2:Coordinates XCoordinate="60.0" YCoordinate="146.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_AOhdIk8AEeSuMNIv6cnhGQ" Name="BADSIGB" xpdExt:Visibility="Private" xpdExt:DisplayName="BAD SIG B">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG B">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:EndEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="160.0" YCoordinate="146.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_NOiW0k8AEeSuMNIv6cnhGQ" Name="SIGC" xpdExt:Visibility="Private" xpdExt:DisplayName="SIG C">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG C">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:EndEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" Width="31.0">
+                  <xpdl2:Coordinates XCoordinate="404.0" YCoordinate="46.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_aPnAcE8AEeSuMNIv6cnhGQ" Name="CatchSIGD" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch SIG D">
+              <xpdl2:Event>
+                <xpdl2:IntermediateEvent Trigger="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="CATCH" Name="SIG D">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:IntermediateEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="57.0" YCoordinate="214.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_dabWoE8AEeSuMNIv6cnhGQ" Name="BADSigC" xpdExt:Visibility="Private" xpdExt:DisplayName="BAD Sig C">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG C">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:EndEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="160.0" YCoordinate="214.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_kDswsk8AEeSuMNIv6cnhGQ" Name="SIGD2" xpdExt:Visibility="Private" xpdExt:DisplayName="SIG D (2)">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG D">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:EndEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" Width="47.0">
+                  <xpdl2:Coordinates XCoordinate="404.0" YCoordinate="106.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_2zPQok8OEeS6jNobkHUGiQ" Name="BADSIGE" xpdExt:Visibility="Private" xpdExt:DisplayName="BAD SIG E">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG E">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:EndEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="47.0" Width="54.0">
+                  <xpdl2:Coordinates XCoordinate="404.0" YCoordinate="178.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_U6SfIU-QEeSOEo3p2SAJug" Name="BADSIGE2" xpdExt:Visibility="Private" xpdExt:DisplayName="BAD SIG E (2)">
+              <xpdl2:Event>
+                <xpdl2:IntermediateEvent Trigger="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG E">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:IntermediateEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="324.0" YCoordinate="46.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_hF6HcE-QEeSOEo3p2SAJug" Name="SIGC2" xpdExt:Visibility="Private" xpdExt:DisplayName="SIG C (2)">
+              <xpdl2:Event>
+                <xpdl2:IntermediateEvent Trigger="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG C">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:IntermediateEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" Width="47.0">
+                  <xpdl2:Coordinates XCoordinate="321.0" YCoordinate="106.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_9Smek07_EeSuMNIv6cnhGQ" Name="" From="_8z2GAE7_EeSuMNIv6cnhGQ" To="_9Smekk7_EeSuMNIv6cnhGQ">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_AOhdI08AEeSuMNIv6cnhGQ" Name="" From="_9ozYEE7_EeSuMNIv6cnhGQ" To="_AOhdIk8AEeSuMNIv6cnhGQ">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_NOi94E8AEeSuMNIv6cnhGQ" Name="" From="_U6SfIU-QEeSOEo3p2SAJug" To="_NOiW0k8AEeSuMNIv6cnhGQ">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+                <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_dabWoU8AEeSuMNIv6cnhGQ" Name="" From="_aPnAcE8AEeSuMNIv6cnhGQ" To="_dabWoE8AEeSuMNIv6cnhGQ">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_kDsws08AEeSuMNIv6cnhGQ" xpdExt:DisplayName="" Name="" From="_hF6HcE-QEeSOEo3p2SAJug" To="_kDswsk8AEeSuMNIv6cnhGQ">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+                <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_2zPQo08OEeS6jNobkHUGiQ" Name="" From="_9Smekk7_EeSuMNIv6cnhGQ" To="_2zPQok8OEeS6jNobkHUGiQ">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+                  <xpdl2:Coordinates XCoordinate="89.0" YCoordinate="131.0"/>
+                  <xpdl2:Coordinates XCoordinate="-111.0" YCoordinate="-1.0"/>
+                </xpdl2:ConnectorGraphicsInfo>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_U6TtQE-QEeSOEo3p2SAJug" xpdExt:DisplayName="" Name="" From="_9Smekk7_EeSuMNIv6cnhGQ" To="_U6SfIU-QEeSOEo3p2SAJug">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_hF6ugE-QEeSOEo3p2SAJug" xpdExt:DisplayName="" Name="" From="_9Smekk7_EeSuMNIv6cnhGQ" To="_hF6HcE-QEeSOEo3p2SAJug">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+        <xpdl2:ActivitySet Id="_x97ukU8OEeS6jNobkHUGiQ">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_yWHlEE8OEeS6jNobkHUGiQ" Name="CatchSIGE" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch SIG E">
+              <xpdl2:Event>
+                <xpdl2:StartEvent xpdExt:NonInterruptingEvent="false" Trigger="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="CATCH" Name="SIG E">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:StartEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="47.0" YCoordinate="51.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_zAibEE8OEeS6jNobkHUGiQ" Name="Task4" xpdExt:Visibility="Private" xpdExt:DisplayName="Task 4">
+              <xpdl2:Implementation>
+                <xpdl2:No/>
+              </xpdl2:Implementation>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" Width="96.0">
+                  <xpdl2:Coordinates XCoordinate="165.0" YCoordinate="51.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_8_UYYk8OEeS6jNobkHUGiQ" Name="BADSIGB2" xpdExt:Visibility="Private" xpdExt:DisplayName="BAD SIG B (2)">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="Signal">
+                  <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG B">
+                    <xpdl2:Properties/>
+                  </xpdl2:TriggerResultSignal>
+                </xpdl2:EndEvent>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="283.0" YCoordinate="51.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_zAibEU8OEeS6jNobkHUGiQ" Name="" From="_yWHlEE8OEeS6jNobkHUGiQ" To="_zAibEE8OEeS6jNobkHUGiQ">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_8_UYY08OEeS6jNobkHUGiQ" Name="" From="_zAibEE8OEeS6jNobkHUGiQ" To="_8_UYYk8OEeS6jNobkHUGiQ">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_3hjtAk7_EeSuMNIv6cnhGQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="58.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_3hjtA07_EeSuMNIv6cnhGQ" Name="SIGA" xpdExt:DisplayName="SIG A">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG A">
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="572.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_6SLagE7_EeSuMNIv6cnhGQ" Name="SIGB" xpdExt:Visibility="Private" xpdExt:DisplayName="SIG B">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="CATCH" Name="SIG B">
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="64.0" YCoordinate="147.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_6_JOMk7_EeSuMNIv6cnhGQ" Name="Task" xpdExt:Visibility="Private" xpdExt:DisplayName="Task">
+          <xpdl2:Implementation>
+            <xpdl2:No/>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="236.0" YCoordinate="147.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_7gJpgE7_EeSuMNIv6cnhGQ" Name="EventSubProcess" xpdExt:DisplayName="Event Sub-Process">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="true" ActivitySetId="_7gJpgU7_EeSuMNIv6cnhGQ" View="EXPANDED"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="311.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="552.0">
+              <xpdl2:Coordinates XCoordinate="431.0" YCoordinate="437.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_TARr8k8AEeSuMNIv6cnhGQ" Name="BADSIGA" xpdExt:Visibility="Private" xpdExt:DisplayName="BAD SIG A">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG A">
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="47.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="53.0">
+              <xpdl2:Coordinates XCoordinate="387.0" YCoordinate="147.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_p89qIE8AEeSuMNIv6cnhGQ" Name="CatchMessageEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Message Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:EventHandlerFlowStrategy="SerializeConcurrent" xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_p89qIU8AEeSuMNIv6cnhGQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="Parameter">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="Parameter">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">CorrelationField</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_qArFcE8AEeSuMNIv6cnhGQ" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="TestEventHandlerCannotInvokeEventHandlerRules.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="TestEventHandlerCannotInvokeEventHandlerRulesxpdl" OperationName="CatchMessageEvent">
+                  <xpdExt:ExternalReference location="TestEventHandlerCannotInvokeEventHandlerRules.wsdl"/>
+                </xpdExt:PortTypeOperation>
+                <xpdExt:EventHandlerInitialisers Id="_QF5GkE-REeSOEo3p2SAJug">
+                  <xpdExt:ActivityRef xpdExt:IdRef="_3hjtAk7_EeSuMNIv6cnhGQ"/>
+                </xpdExt:EventHandlerInitialisers>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_qArFcE8AEeSuMNIv6cnhGQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="77.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="48.0">
+              <xpdl2:Coordinates XCoordinate="64.0" YCoordinate="215.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_q_I40k8AEeSuMNIv6cnhGQ" Name="Task3" xpdExt:Visibility="Private" xpdExt:DisplayName="Task 3">
+          <xpdl2:Implementation>
+            <xpdl2:No/>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="236.0" YCoordinate="215.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_sv_LYk8AEeSuMNIv6cnhGQ" Name="BADSIGB1" xpdExt:Visibility="Private" xpdExt:DisplayName="BAD SIG B (1)">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG B">
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="47.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="55.0">
+              <xpdl2:Coordinates XCoordinate="387.0" YCoordinate="215.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nWM0gU8GEeSuMNIv6cnhGQ" Name="BADThrowSIGC" xpdExt:Visibility="Private" xpdExt:DisplayName="BAD Throw: SIG C">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG C">
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,0,0" Height="47.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="70.0">
+              <xpdl2:Coordinates XCoordinate="280.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_x97ukE8OEeS6jNobkHUGiQ" Name="EventSubProcess2" xpdExt:DisplayName="Event Sub-Process 2">
+          <xpdl2:BlockActivity xpdExt:IsEventSubProcess="true" ActivitySetId="_x97ukU8OEeS6jNobkHUGiQ" View="EXPANDED"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="192.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="430.0">
+              <xpdl2:Coordinates XCoordinate="370.0" YCoordinate="721.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_HWK9YE-REeSOEo3p2SAJug" Name="SIGBgood" xpdExt:Visibility="Private" xpdExt:DisplayName="SIG B (good)">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Trigger="Signal">
+              <xpdl2:TriggerResultSignal CatchThrow="THROW" Name="SIG B">
+                <xpdl2:Properties/>
+              </xpdl2:TriggerResultSignal>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_3hjtAU7_EeSuMNIv6cnhGQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="400.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="true"/>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_3hjtBE7_EeSuMNIv6cnhGQ" xpdExt:DisplayName="" Name="" From="_HWK9YE-REeSOEo3p2SAJug" To="_3hjtA07_EeSuMNIv6cnhGQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_6_JOM07_EeSuMNIv6cnhGQ" Name="" From="_6SLagE7_EeSuMNIv6cnhGQ" To="_6_JOMk7_EeSuMNIv6cnhGQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_TARr808AEeSuMNIv6cnhGQ" Name="" From="_6_JOMk7_EeSuMNIv6cnhGQ" To="_TARr8k8AEeSuMNIv6cnhGQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_q_I4008AEeSuMNIv6cnhGQ" Name="" From="_p89qIE8AEeSuMNIv6cnhGQ" To="_q_I40k8AEeSuMNIv6cnhGQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_sv_LY08AEeSuMNIv6cnhGQ" Name="" From="_q_I40k8AEeSuMNIv6cnhGQ" To="_sv_LYk8AEeSuMNIv6cnhGQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nWPQwE8GEeSuMNIv6cnhGQ" xpdExt:DisplayName="" Name="" From="_3hjtAk7_EeSuMNIv6cnhGQ" To="_nWM0gU8GEeSuMNIv6cnhGQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_HWLkcE-REeSOEo3p2SAJug" xpdExt:DisplayName="" Name="" From="_nWM0gU8GEeSuMNIv6cnhGQ" To="_HWK9YE-REeSOEo3p2SAJug">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="Parameter"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="17"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="17"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

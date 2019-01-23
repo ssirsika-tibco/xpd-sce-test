@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_jpsAUGYpEeCPQ_7quZYuqg" xpdExt:DisplayName="ProcessPackage" Name="ProcessPackage">
+  <xpdl2:PackageHeader xpdExt:Language="en_US">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2011-04-13</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>USD</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>alexp</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_Xldg4GpEEeC77f-sbcvMRg" xpdExt:DisplayName="Correlate - Simple (API Activity EndPoint)" Name="ProcessPackage_CorrelateSimple">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/CorrAndPickUsingBOM/CorrelateSimple" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_-H_9IGpFEeC77f-sbcvMRg" xpdExt:DisplayName="Correlate - Boundary Msg Event (API Activity EndPoint)" Name="ProcessPackage_CorrelateBoundaryMsgEvent">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/CorrAndPickUsingBOM/CorrelateBoundaryMsgEvent" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_YTDC0WpIEeC77f-sbcvMRg" xpdExt:DisplayName="Join Start (API Activity EndPoint)" Name="ProcessPackage_JoinStart">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/CorrAndPickUsingBOM/JoinStart" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="__x7ykGpJEeC77f-sbcvMRg" xpdExt:DisplayName="Pick Start (API Activity EndPoint)" Name="ProcessPackage_PickStart">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="RpcLiteral" SoapVersion="1.1" EndpointUrlPath="/CorrAndPickUsingBOM/PickStart" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_75hWlWpJEeC77f-sbcvMRg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_7ATPkGpJEeC77f-sbcvMRg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_75hWlmpJEeC77f-sbcvMRg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_NDv412pIEeC77f-sbcvMRg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_Lmw9cGpIEeC77f-sbcvMRg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_NDv42GpIEeC77f-sbcvMRg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_098BVWpFEeC77f-sbcvMRg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_wHsEEGpFEeC77f-sbcvMRg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_098BVmpFEeC77f-sbcvMRg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="395.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_vPtoR2YpEeCPQ_7quZYuqg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_jrBdEGYpEeCPQ_7quZYuqg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_vPtoSGYpEeCPQ_7quZYuqg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_jrBdEGYpEeCPQ_7quZYuqg" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="Correlate - Simple" xpdExt:ApiEndPointParticipant="_Xldg4GpEEeC77f-sbcvMRg" iProcessExt:MaxStepIndex="7" Name="CorrelateSimple">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_enEicGpEEeC77f-sbcvMRg" Name="somebody" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="somebody">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_ytbCIGpDEeC77f-sbcvMRg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_v5yAYWpEEeC77f-sbcvMRg" Name="ack" ReadOnly="false" Mode="OUT" Required="true" xpdExt:DisplayName="ack">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>128</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_3RhqAWpEEeC77f-sbcvMRg" Name="employee" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="employee">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_IhRI8GpEEeC77f-sbcvMRg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_nzP-IWpEEeC77f-sbcvMRg" xpdExt:DisplayName="name" Name="name" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_pQFIgWpEEeC77f-sbcvMRg" xpdExt:DisplayName="age" Name="age" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_vPtoSWYpEeCPQ_7quZYuqg" Name="Start1" xpdExt:DisplayName="Start1" xpdExt:Visibility="Private" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_cC58kGpEEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="somebody">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">somebody</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="somebody.name">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">name</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="somebody.age">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">age</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_Xldg4GpEEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="CorrelateSimple" OperationName="Start1">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Xldg4GpEEeC77f-sbcvMRg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_vPtoSGYpEeCPQ_7quZYuqg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="somebody" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="ack" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vPtoSmYpEeCPQ_7quZYuqg" Name="End1" xpdExt:DisplayName="End1" xpdExt:Visibility="Private" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_vPtoSWYpEeCPQ_7quZYuqg" CatchThrow="THROW">
+                <xpdl2:Message Id="_ZPpVUGpFEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="ack">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ack</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_Xldg4GpEEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="CorrelateSimple" OperationName="Start1">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_vPtoSGYpEeCPQ_7quZYuqg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="somebody" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="ack" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Xe5l4GpEEeC77f-sbcvMRg" Name="Receive1" xpdExt:Visibility="Private" xpdExt:DisplayName="Receive1" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" xpdExt:Generated="true" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_Xe5l4WpEEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="employee">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">employee</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="employee.name">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">name</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="employee.age">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">age</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_Xldg4GpEEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="CorrelateSimple" OperationName="Receive1">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Xldg4GpEEeC77f-sbcvMRg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_vPtoSGYpEeCPQ_7quZYuqg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="247.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="employee" Mode="IN" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Axm5IGpFEeC77f-sbcvMRg" Name="Script1" xpdExt:Visibility="Private" xpdExt:DisplayName="Script1" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">ack = name+&quot;/&quot;+age+&quot;/&quot;+employee.id+&quot;/&quot;+somebody.address;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_vPtoSGYpEeCPQ_7quZYuqg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="432.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_vPtoS2YpEeCPQ_7quZYuqg" xpdExt:DisplayName="" Name="" From="_Axm5IGpFEeC77f-sbcvMRg" To="_vPtoSmYpEeCPQ_7quZYuqg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Xe5l4mpEEeC77f-sbcvMRg" xpdExt:DisplayName="" Name="" From="_vPtoSWYpEeCPQ_7quZYuqg" To="_Xe5l4GpEEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Axm5IWpFEeC77f-sbcvMRg" xpdExt:DisplayName="" Name="" From="_Xe5l4GpEEeC77f-sbcvMRg" To="_Axm5IGpFEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="somebody"/>
+            <simulation:ParameterDistribution ParameterId="ack"/>
+            <simulation:ParameterDistribution ParameterId="employee"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_wHsEEGpFEeC77f-sbcvMRg" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="Correlate - Boundary Msg Event" xpdExt:ApiEndPointParticipant="_-H_9IGpFEeC77f-sbcvMRg" iProcessExt:MaxStepIndex="12" Name="CorrelateBoundaryMsgEvent">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_IGVZEWpHEeC77f-sbcvMRg" Name="mePerson" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="mePerson">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_ytbCIGpDEeC77f-sbcvMRg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_PjfHIWpHEeC77f-sbcvMRg" Name="meOK" ReadOnly="false" Mode="OUT" Required="true" xpdExt:DisplayName="meOK">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_UUOSQWpHEeC77f-sbcvMRg" Name="meWorker" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="meWorker">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_IhRI8GpEEeC77f-sbcvMRg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_-PZJIWpGEeC77f-sbcvMRg" xpdExt:DisplayName="callHow" Name="callHow" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_BQ-DwWpHEeC77f-sbcvMRg" xpdExt:DisplayName="whenBorn" Name="whenBorn" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_DzvX8WpGEeC77f-sbcvMRg">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_LKUj8GpGEeC77f-sbcvMRg" Name="Timer2" xpdExt:Visibility="Private" xpdExt:DisplayName="Timer2" iProcessExt:StepIndex="10">
+              <xpdl2:Event>
+                <xpdl2:IntermediateEvent Trigger="Timer">
+                  <xpdl2:TriggerTimer>
+                    <xpdl2:TimeDate/>
+                  </xpdl2:TriggerTimer>
+                </xpdl2:IntermediateEvent>
+              </xpdl2:Event>
+              <xpdl2:Deadline>
+                <xpdl2:DeadlineDuration ScriptGrammar="ConstantPeriod">
+<xpdExt:ConstantPeriod Hours="1"/>
+</xpdl2:DeadlineDuration>
+              </xpdl2:Deadline>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="124.0" YCoordinate="80.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_Sh840GpGEeC77f-sbcvMRg" Name="EmbedStart2" xpdExt:Visibility="Private" xpdExt:DisplayName="Embed Start 2" iProcessExt:StepIndex="11">
+              <xpdl2:Event>
+                <xpdl2:StartEvent Trigger="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="42.0" YCoordinate="40.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_V5uF4GpGEeC77f-sbcvMRg" Name="EmbedEnd2" xpdExt:Visibility="Private" xpdExt:DisplayName="Embed End 2" iProcessExt:StepIndex="12">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" Width="27.0">
+                  <xpdl2:Coordinates XCoordinate="224.0" YCoordinate="130.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_YBxXgGpGEeC77f-sbcvMRg" Name="" From="_Sh840GpGEeC77f-sbcvMRg" To="_LKUj8GpGEeC77f-sbcvMRg">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_Y6ZooGpGEeC77f-sbcvMRg" Name="" From="_LKUj8GpGEeC77f-sbcvMRg" To="_V5uF4GpGEeC77f-sbcvMRg">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+                <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+                  <xpdl2:Coordinates XCoordinate="54.31225305465397" YCoordinate="0.0"/>
+                </xpdl2:ConnectorGraphicsInfo>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_098BV2pFEeC77f-sbcvMRg" Name="Start2" xpdExt:DisplayName="Start2" xpdExt:Visibility="Private" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_-H2zMGpFEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="mePerson">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">mePerson</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="mePerson.name">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">callHow</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="mePerson.age">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">whenBorn</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_-H_9IGpFEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="CorrelateBoundaryMsgEvent" OperationName="Start2">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_-H_9IGpFEeC77f-sbcvMRg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_098BVmpFEeC77f-sbcvMRg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="meOK" Mode="OUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="mePerson" Mode="IN" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_098BWGpFEeC77f-sbcvMRg" Name="End2" xpdExt:DisplayName="End 2" xpdExt:Visibility="Private" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_098BV2pFEeC77f-sbcvMRg" CatchThrow="THROW">
+                <xpdl2:Message Id="_xdwNMGpHEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="meOK">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">meOK</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_-H_9IGpFEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="CorrelateBoundaryMsgEvent" OperationName="Start2">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_098BVmpFEeC77f-sbcvMRg" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="707.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="meOK" Mode="OUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="mePerson" Mode="IN" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DzvX8GpGEeC77f-sbcvMRg" Name="Embed2" xpdExt:DisplayName="Embed 2" iProcessExt:StepIndex="6">
+          <xpdl2:BlockActivity ActivitySetId="_DzvX8WpGEeC77f-sbcvMRg" View="EXPANDED"/>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="195.0" LaneId="_098BVmpFEeC77f-sbcvMRg" Width="288.0">
+              <xpdl2:Coordinates XCoordinate="308.0" YCoordinate="145.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_hpWVwGpGEeC77f-sbcvMRg" Name="Catch2" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch 2" iProcessExt:StepIndex="7">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Target="_DzvX8GpGEeC77f-sbcvMRg" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_hpWVwWpGEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="meWorker">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">meWorker</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="meWorker.age">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">whenBorn</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="meWorker.name">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">callHow</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_-H_9IGpFEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="CorrelateBoundaryMsgEvent" OperationName="Catch2">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_-H_9IGpFEeC77f-sbcvMRg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="26.0" LaneId="_098BVmpFEeC77f-sbcvMRg" Width="26.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="35.507246376811594" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="meWorker" Mode="IN" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_rgbIkGpGEeC77f-sbcvMRg" Name="Bad2" xpdExt:Visibility="Private" xpdExt:DisplayName="Bad 2" iProcessExt:StepIndex="8">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">meOK = &quot;Not really OK!&quot;;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_098BVmpFEeC77f-sbcvMRg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="568.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_vxt-oGpGEeC77f-sbcvMRg" Name="Good2" xpdExt:Visibility="Private" xpdExt:DisplayName="Good 2" iProcessExt:StepIndex="9">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">meOK = callHow + &quot; / &quot; + whenBorn;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_098BVmpFEeC77f-sbcvMRg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="568.0" YCoordinate="353.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_aqAlEGpGEeC77f-sbcvMRg" Name="" From="_098BV2pFEeC77f-sbcvMRg" To="_DzvX8GpGEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_cICpUGpGEeC77f-sbcvMRg" xpdExt:DisplayName="" Name="" From="_rgbIkGpGEeC77f-sbcvMRg" To="_098BWGpFEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rgbIkWpGEeC77f-sbcvMRg" xpdExt:DisplayName="" Name="" From="_DzvX8GpGEeC77f-sbcvMRg" To="_rgbIkGpGEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_yFsMYGpGEeC77f-sbcvMRg" Name="" From="_hpWVwGpGEeC77f-sbcvMRg" To="_vxt-oGpGEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.68750000000001" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_zUhXAGpGEeC77f-sbcvMRg" Name="" From="_vxt-oGpGEeC77f-sbcvMRg" To="_098BWGpFEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="112.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="-27.0" YCoordinate="198.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="mePerson"/>
+            <simulation:ParameterDistribution ParameterId="meOK"/>
+            <simulation:ParameterDistribution ParameterId="meWorker"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_Lmw9cGpIEeC77f-sbcvMRg" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="Join Start" xpdExt:ApiEndPointParticipant="_YTDC0WpIEeC77f-sbcvMRg" iProcessExt:MaxStepIndex="8" Name="JoinStart">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_ajc_MWpIEeC77f-sbcvMRg" Name="person" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="person">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_ytbCIGpDEeC77f-sbcvMRg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_nBRx0WpIEeC77f-sbcvMRg" Name="employee" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="employee">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_IhRI8GpEEeC77f-sbcvMRg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_qggRwWpIEeC77f-sbcvMRg" Name="ack" ReadOnly="false" Mode="OUT" Required="true" xpdExt:DisplayName="ack">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>128</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_vjIeIWpIEeC77f-sbcvMRg" xpdExt:DisplayName="name" Name="name" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_wkso0WpIEeC77f-sbcvMRg" xpdExt:DisplayName="age" Name="age" ReadOnly="true" Correlation="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_NDv42WpIEeC77f-sbcvMRg" Name="Start31" xpdExt:DisplayName="Start 31" xpdExt:Visibility="Private" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_YTDC0GpIEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="person">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">person</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="person.age">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">age</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="person.name">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">name</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_YTDC0WpIEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="JoinStart" OperationName="Start31">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_YTDC0WpIEeC77f-sbcvMRg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_NDv42GpIEeC77f-sbcvMRg" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="72.0" YCoordinate="73.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="ack" Mode="OUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="person" Mode="IN" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+          <xpdExt:AssociatedCorrelationFields>
+            <xpdExt:AssociatedCorrelationField Name="name" CorrelationMode="Join"/>
+            <xpdExt:AssociatedCorrelationField Name="age" CorrelationMode="Join"/>
+          </xpdExt:AssociatedCorrelationFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_NDv42mpIEeC77f-sbcvMRg" Name="End3" xpdExt:DisplayName="End 3" xpdExt:Visibility="Private" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_NDv42WpIEeC77f-sbcvMRg" CatchThrow="THROW">
+                <xpdl2:Message Id="_SA3doGpJEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="ack">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ack</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_YTDC0WpIEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="JoinStart" OperationName="Start31">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_NDv42GpIEeC77f-sbcvMRg" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="140.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="ack" Mode="OUT" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="person" Mode="IN" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_jjZVsmpIEeC77f-sbcvMRg" Name="Start32" xpdExt:Visibility="Private" xpdExt:DisplayName="Start 32" iProcessExt:StepIndex="6">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_jjZVs2pIEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="employee">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">employee</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                  <xpdExt:CorrelationDataMappings>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="employee.name">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">name</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                    <xpdExt:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="employee.age">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">age</xpdl2:Actual>
+                    </xpdExt:DataMapping>
+                  </xpdExt:CorrelationDataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_YTDC0WpIEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="JoinStart" OperationName="Start32">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_YTDC0WpIEeC77f-sbcvMRg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_NDv42GpIEeC77f-sbcvMRg" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="72.0" YCoordinate="206.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="employee" Mode="IN" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+          <xpdExt:AssociatedCorrelationFields>
+            <xpdExt:AssociatedCorrelationField Name="name" CorrelationMode="Join"/>
+            <xpdExt:AssociatedCorrelationField Name="age" CorrelationMode="Join"/>
+          </xpdExt:AssociatedCorrelationFields>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_E56OcGpJEeC77f-sbcvMRg" iProcessExt:StepIndex="7">
+          <xpdl2:Route GatewayType="Parallel"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Parallel"/>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_NDv42GpIEeC77f-sbcvMRg" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="225.0" YCoordinate="140.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PAfc4GpJEeC77f-sbcvMRg" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task" iProcessExt:StepIndex="8">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">ack = name+&quot;/&quot;+age+&quot;/&quot;+employee.id+&quot;/&quot;+person.address;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_NDv42GpIEeC77f-sbcvMRg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="387.0" YCoordinate="141.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_Gz85QGpJEeC77f-sbcvMRg" Name="" From="_NDv42WpIEeC77f-sbcvMRg" To="_E56OcGpJEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="118.0" YCoordinate="1.0"/>
+              <xpdl2:Coordinates XCoordinate="-3.0" YCoordinate="-48.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="5.5199346874421105" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_H-KpoGpJEeC77f-sbcvMRg" Name="" From="_jjZVsmpIEeC77f-sbcvMRg" To="_E56OcGpJEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="118.0" YCoordinate="1.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="48.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="48.781231420920214" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_QWeYYGpJEeC77f-sbcvMRg" Name="" From="_E56OcGpJEeC77f-sbcvMRg" To="_PAfc4GpJEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_RG5vwGpJEeC77f-sbcvMRg" Name="" From="_PAfc4GpJEeC77f-sbcvMRg" To="_NDv42mpIEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="person"/>
+            <simulation:ParameterDistribution ParameterId="employee"/>
+            <simulation:ParameterDistribution ParameterId="ack"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_7ATPkGpJEeC77f-sbcvMRg" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="Pick Start" xpdExt:ApiEndPointParticipant="__x7ykGpJEeC77f-sbcvMRg" iProcessExt:MaxStepIndex="10" Name="PickStart">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_BPOP8WpKEeC77f-sbcvMRg" Name="someone" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="someone">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_ytbCIGpDEeC77f-sbcvMRg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_F_qgIWpKEeC77f-sbcvMRg" Name="worker" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="worker">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="BusinessObjectModel.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_IhRI8GpEEeC77f-sbcvMRg"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_KQgqQWpKEeC77f-sbcvMRg" Name="ack" ReadOnly="false" Mode="OUT" Required="true" xpdExt:DisplayName="ack">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>128</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_75hWl2pJEeC77f-sbcvMRg" Name="Start41" xpdExt:DisplayName="Start 41" xpdExt:Visibility="Private" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="__xyooGpJEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="someone">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">someone</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="__x7ykGpJEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="PickStart" OperationName="Start41">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>__x7ykGpJEeC77f-sbcvMRg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_75hWlmpJEeC77f-sbcvMRg" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="69.0" YCoordinate="75.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="someone" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="ack" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_75hWmGpJEeC77f-sbcvMRg" Name="End41" xpdExt:DisplayName="End 41" xpdExt:Visibility="Private" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_75hWl2pJEeC77f-sbcvMRg" CatchThrow="THROW">
+                <xpdl2:Message Id="_I7CPoGpLEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="ack">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ack</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="__x7ykGpJEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="PickStart" OperationName="Start41">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_75hWlmpJEeC77f-sbcvMRg" Width="35.0">
+              <xpdl2:Coordinates XCoordinate="556.0" YCoordinate="75.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="someone" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="ack" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_RpCXAGpKEeC77f-sbcvMRg" Name="Start42" xpdExt:Visibility="Private" xpdExt:DisplayName="Start 42" iProcessExt:StepIndex="6">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_RpCXAWpKEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="worker">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">worker</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="__x7ykGpJEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="PickStart" OperationName="Start42">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>__x7ykGpJEeC77f-sbcvMRg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_75hWlmpJEeC77f-sbcvMRg" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="69.0" YCoordinate="219.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="worker" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="ack" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_WQ1okGpKEeC77f-sbcvMRg" iProcessExt:StepIndex="7">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_Ri75kGpLEeC77f-sbcvMRg"/>
+                  <xpdl2:TransitionRef Id="_TcXgYGpLEeC77f-sbcvMRg"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_75hWlmpJEeC77f-sbcvMRg" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="178.0" YCoordinate="149.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1dTEkGpKEeC77f-sbcvMRg" Name="Script41" xpdExt:Visibility="Private" xpdExt:DisplayName="Script 41" iProcessExt:StepIndex="8">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">ack = someone.name+&quot;/&quot;+someone.age+&quot;/&quot;+someone.address;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_75hWlmpJEeC77f-sbcvMRg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="346.0" YCoordinate="76.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_30WbgGpKEeC77f-sbcvMRg" Name="Script42" xpdExt:Visibility="Private" xpdExt:DisplayName="Script 42" iProcessExt:StepIndex="9">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">ack = worker.name+&quot;/&quot;+worker.age+&quot;/&quot;+worker.id;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_75hWlmpJEeC77f-sbcvMRg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="346.0" YCoordinate="220.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MQjZ8GpLEeC77f-sbcvMRg" Name="End42" xpdExt:DisplayName="End 42" xpdExt:Visibility="Private" iProcessExt:StepIndex="10">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_RpCXAGpKEeC77f-sbcvMRg" CatchThrow="THROW">
+                <xpdl2:Message Id="_MQjZ8WpLEeC77f-sbcvMRg">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="ack">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">ack</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="__x7ykGpJEeC77f-sbcvMRg" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="PickStart" OperationName="Start42">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_75hWlmpJEeC77f-sbcvMRg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="556.0" YCoordinate="219.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="worker" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="ack" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_nzHzkGpKEeC77f-sbcvMRg" Name="" From="_RpCXAGpKEeC77f-sbcvMRg" To="_WQ1okGpKEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="89.0" YCoordinate="1.0"/>
+              <xpdl2:Coordinates XCoordinate="-19.0" YCoordinate="51.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="51.21914962273543" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_pWfDwGpKEeC77f-sbcvMRg" Name="" From="_75hWl2pJEeC77f-sbcvMRg" To="_WQ1okGpKEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="104.0" YCoordinate="1.0"/>
+              <xpdl2:Coordinates XCoordinate="-5.0" YCoordinate="-52.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_PdlWoGpLEeC77f-sbcvMRg" Name="" From="_1dTEkGpKEeC77f-sbcvMRg" To="_75hWmGpJEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.99342621527704" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_QKb1kGpLEeC77f-sbcvMRg" Name="" From="_30WbgGpKEeC77f-sbcvMRg" To="_MQjZ8GpLEeC77f-sbcvMRg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Ri75kGpLEeC77f-sbcvMRg" Name="" From="_WQ1okGpKEeC77f-sbcvMRg" To="_1dTEkGpKEeC77f-sbcvMRg">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">someone!=null</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.68750000000001" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_TcXgYGpLEeC77f-sbcvMRg" Name="" From="_WQ1okGpKEeC77f-sbcvMRg" To="_30WbgGpKEeC77f-sbcvMRg">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="61.5625" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData">
+<simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="someone"/>
+            <simulation:ParameterDistribution ParameterId="worker"/>
+            <simulation:ParameterDistribution ParameterId="ack"/>
+          </simulation:WorkflowProcessSimulationData>
+</xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

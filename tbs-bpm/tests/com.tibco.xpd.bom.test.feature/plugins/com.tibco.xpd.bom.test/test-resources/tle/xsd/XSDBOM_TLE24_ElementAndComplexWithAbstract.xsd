@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema"
+	xmlns:tns="http://www.example.org/NewXMLSchema" elementFormDefault="qualified">
+
+	<element name="anAbstractTLE" type="string" abstract="true" />
+
+	<complexType name="Car">
+		<complexContent>
+			<extension base="tns:Vehicle">
+				<sequence>
+					<element name="seats" type="int" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Vehicle" abstract="true">
+		<sequence>
+			<element name="colour" type="string" />
+		</sequence>
+	</complexType>
+
+</schema>

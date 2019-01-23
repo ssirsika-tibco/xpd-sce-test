@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://businessobjectmodel" xmlns:tns1="http://businessobjectmodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://businessobjectmodel">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/tes/Business Objects/SimpleTypeEnumerationTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType id="businessobjectmodel_mySimpleEnum" name="mySimpleEnum">
+    <xsd:restriction base="xsd:ID">
+      <xsd:enumeration value="ENUM1"/>
+      <xsd:enumeration value="ENUM2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType id="businessobjectmodel_couponDetailsType" abstract="false" mixed="false"
+      name="couponDetailsType">
+    <xsd:sequence>
+      <xsd:element id="couponDetailsType_type" form="unqualified" maxOccurs="1" minOccurs="1"
+          name="type">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="activation"/>
+            <xsd:enumeration value="refill"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="businessobjectmodel_couponDetailsType2" abstract="false" mixed="false"
+      name="couponDetailsType2">
+    <xsd:sequence>
+      <xsd:element id="couponDetailsType2_type" form="unqualified" maxOccurs="1" minOccurs="1"
+          name="type">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="activation2"/>
+            <xsd:enumeration value="refill2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="businessobjectmodel_couponDetailsType3" abstract="false" mixed="false"
+      name="couponDetailsType3">
+    <xsd:sequence>
+      <xsd:element id="couponDetailsType3_type" form="unqualified" maxOccurs="1" minOccurs="1"
+          name="type">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="activation3"/>
+            <xsd:enumeration value="refill3"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

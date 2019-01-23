@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.n2.live" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.n2.live" id="LiveDevelopment" name="Live Development"/>
+      </appinfo>
+      <documentation>
+         &lt;p&gt;This schema provides extension point definitions to support the Live Development perspective. This includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Filtering for the project explorer.&lt;/li&gt;
+&lt;li&gt;Contributed parameters for the Openspace URL.&lt;/li&gt;
+&lt;/ul&gt;
+      </documentation>
+   </annotation>
+
+   <include schemaLocation="schema://org.eclipse.core.expressions/schema/expressionLanguage.exsd"/>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="explorerInclude" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="openspaceUrlContributor" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="explorerInclude">
+      <annotation>
+         <documentation>
+            This allows expressions to be defined to determine which project explorer items will be included in the live development view. By default all items will be excluded unless they are specifically included by one or more of these expressions.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="enablement" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="description" type="string">
+            <annotation>
+               <documentation>
+                  Optional description of the filter.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="openspaceUrlContributor">
+      <annotation>
+         <documentation>
+            This allows property providers to be defined to contribute parameters to the Openspace URL. Classes must implement the IPropertyProvider interface and should return a Map of parameter names to parameter values. The names and values may contain invalid URL characters (space, &amp;, = etc...) and these will be encoded if necessary to ensure the URL is valid.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="urlPropertyProvider" type="string">
+            <annotation>
+               <documentation>
+                  An implementation of the IPropertyProvider interface.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.n2.live.IPropertyProvider"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.9.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         &lt;h4&gt;Project Explorer Filter&lt;/h4&gt;
+&lt;pre&gt;
+&lt;extension point=&quot;com.tibco.xpd.n2.live.LiveDevelopment&quot;&gt;
+  &lt;explorerInclude&gt;
+    &lt;enablement&gt;
+      &lt;or&gt;
+        &lt;and&gt;
+          &lt;instanceof value=&quot;org.eclipse.core.resources.IFolder&quot;/&gt;
+          &lt;test
+            property=&quot;com.tibco.xpd.resources.specialfolder.containsSpecialFolder&quot;
+            value=&quot;forms&quot;/&gt;
+        &lt;/and&gt;
+        &lt;and&gt;
+          &lt;instanceof value=&quot;com.tibco.xpd.resources.projectconfig.SpecialFolder&quot;/&gt;
+          &lt;test
+            property=&quot;com.tibco.xpd.resources.specialfolder.isOfKind&quot;
+            value=&quot;forms&quot;/&gt;
+        &lt;/and&gt;
+        &lt;and&gt;
+          &lt;or&gt;
+            &lt;and&gt;
+              &lt;instanceof
+                value=&quot;org.eclipse.core.resources.IFile&quot;&gt;
+              &lt;/instanceof&gt;
+              &lt;test
+                property=&quot;org.eclipse.core.resources.extension&quot;
+                value=&quot;form&quot;&gt;
+              &lt;/test&gt;
+            &lt;/and&gt;
+            &lt;instanceof
+              value=&quot;org.eclipse.core.resources.IFolder&quot;&gt;
+            &lt;/instanceof&gt;
+          &lt;/or&gt;
+          &lt;test
+            property=&quot;com.tibco.xpd.resources.specialfolder.isRootSpecialFolder&quot;
+            value=&quot;forms&quot;&gt;
+          &lt;/test&gt;
+        &lt;/and&gt;
+      &lt;/or&gt;  
+    &lt;/enablement&gt;
+  &lt;/explorerInclude&gt;
+&lt;/extension&gt;
+&lt;/pre&gt;
+&lt;h4&gt;Openspace URL parameters&lt;/h4&gt;
+&lt;pre&gt;
+&lt;extension point=&quot;com.tibco.xpd.n2.live.LiveDevelopment&quot;&gt;
+  &lt;openspaceUrlContributor
+    urlPropertyProvider=&quot;com.tibco.xpd.n2.live.ExamplePropertyProvider&quot;&gt;
+  &lt;/openspaceUrlContributor&gt;
+&lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004, 2014. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

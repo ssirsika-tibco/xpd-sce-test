@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  
+  
+  <extension
+       point="com.tibco.xpd.resources.specialFolders">
+    <folder
+          icon="icons/WMFolder2.png"
+          kind="wm"
+          name="%wmSpecialFolder_name"
+          navigatorContentId="com.tibco.xpd.projectExplorer.taskLibraryContent"
+          projectAssetId="com.tibco.xpd.asset.wm">
+    </folder>
+ </extension>
+ 
+ 
+ 
+       
+ 
+ 
+ 
+ <extension
+       point="com.tibco.xpd.resources.projectAsset">
+    <asset
+          category="com.tibco.xpd.resources.ui.businessobjects"
+          configuration="com.tibco.xpd.resources.projectconfig.projectassets.SpecialFolderAssetConfiguration"
+          icon="icons/WMFolder2.png"
+          id="com.tibco.xpd.asset.wm"
+          name="%wmAsset_name">
+       <configurator class="com.tibco.xpd.wm.resources.ui.WMAssetConfigurator">
+       		<parameter name="kind" value="wm"/>
+           	<parameter name="defaultFolder" value="%wmDefaultSpecialFolder_name" />
+       </configurator>   
+       <description>
+          %wmAsset_description
+       </description>
+    </asset>
+ </extension>
+ 
+ <extension
+       point="com.tibco.xpd.resources.projectAssetBinding">
+    <projectAssetBinding
+          assetId="com.tibco.xpd.asset.wm"
+          newProjectWizardId="com.tibco.xpd.analysisProject">
+    </projectAssetBinding>
+ </extension>
+<!-- JA: This would be reenabled after N2 beta.     
+ <extension
+       point="com.tibco.xpd.resources.projectAssetBinding">
+    <projectAssetBinding
+          assetId="com.tibco.xpd.asset.wm"
+          newProjectWizardId="com.tibco.xpd.newProject.BPMSOADeveloper">
+    </projectAssetBinding>
+ </extension>
+ -->
+ <extension
+       point="org.eclipse.ui.newWizards">
+         <wizard
+               category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.resources.ui.newWizard.bpm.category"
+               class="com.tibco.xpd.processeditor.xpdl2.wizards.NewPageflowProcessWizard"
+               finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+               preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+               icon="icons/NewProcessPageflow.png"
+               id="com.tibco.xpd.analyst.resources.xpdl2.newpageflow.wizard"
+               name="%newWizard.pageflow">
+               <description>
+               %newWizard.pageflow.description
+               </description>
+         </wizard>
+         <wizard
+               category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.resources.ui.newWizard.bpm.category"
+               class="com.tibco.xpd.processeditor.xpdl2.wizards.NewBusinessServiceWizard"
+               finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+               preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+               icon="icons/NewProcessBusinessService.png"
+               id="com.tibco.xpd.analyst.resources.xpdl2.newbusinessservice.wizard"
+               name="%newWizard.businessservice">
+               <description>
+               %newWizard.businessservice.description
+               </description>
+         </wizard>
+         <wizard
+               category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.resources.ui.newWizard.bpm.category"
+               class="com.tibco.xpd.processeditor.xpdl2.wizards.NewCaseServiceWizard"
+               finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+               preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+               icon="icons/NewCaseService.png"
+               id="com.tibco.xpd.analyst.resources.xpdl2.newcaseservice.wizard"
+               name="%newWizard.caseservice">
+               <description>
+               %newWizard.caseservice.description
+               </description>
+         </wizard>
+         <wizard
+               category="com.tibco.xpd.newWizard.modeling.category/com.tibco.xpd.resources.ui.newWizard.bpm.category"
+               class="com.tibco.xpd.processeditor.xpdl2.wizards.NewServiceProcessWizard"
+               finalPerspective="com.tibco.xpd.bpm.modeling.perspective"
+               preferredPerspectives="com.tibco.xpd.bpm.modeling.perspective,com.tibco.modeling.perspective,com.tibco.xpd.n2.LiveDevelopment"
+               icon="icons/NewServiceProcess.png"
+               id="com.tibco.xpd.analyst.resources.xpdl2.newserviceprocess.wizard"
+               name="%newWizard.serviceprocess">
+            <description>
+               %newWizard.serviceprocess.description
+            </description>
+         </wizard>       
+ </extension>
+ <extension
+       point="com.tibco.xpd.resources.ui.categories">
+    <defaultEnablement
+          id="com.tibco.xpd.solutiondesign">
+    </defaultEnablement>
+ </extension>
+ <extension
+       point="org.eclipse.ui.popupMenus">
+    <objectContribution
+          adaptable="false"
+          id="com.tibco.xpd.implementer.resources.xpdl2.startEventPageflowContribution"
+          objectClass="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">
+       <menu
+             id="starteventPageflowMenu"
+             label="%pageflowMenu.label"
+             path="object">
+       </menu>
+       <action
+             class="com.tibco.xpd.implementer.resources.xpdl2.actions.GenerateBizServiceOnIncomingReqActivityAction"
+             enablesFor="1"
+             icon="icons/NewProcessBusinessService.png"
+             id="com.tibco.xpd.implementer.resources.xpdl2.starteventpageflow.generate"
+             label="%generatePageflow.label"
+             menubarPath="starteventPageflowMenu/group1">
+       </action>
+       <visibility>
+          <objectState
+                name="com.tibco.xpd.processwidget.IS_BUSINESS_PROCESS_REQUEST_ACTIVITY"
+                value="TRUE">
+          </objectState>
+       </visibility>
+    </objectContribution>
+    <objectContribution
+          adaptable="false"
+          id="com.tibco.xpd.implementer.resources.xpdl2.generateBizSvcFromStartTypeNoneContribution"
+          objectClass="com.tibco.xpd.processwidget.parts.BaseFlowNodeEditPart">
+       <menu
+             id="starteventPageflowMenu"
+             label="%pageflowMenu.label"
+             path="object">
+       </menu>
+       <action
+             class="com.tibco.xpd.implementer.resources.xpdl2.actions.GenerateBizServiceFromStartTypeNoneAction"
+             enablesFor="1"
+             icon="icons/NewProcessBusinessService.png"
+             id="com.tibco.xpd.implementer.resources.xpdl2.generateBizSvcFromStartTypeNoneAction"
+             label="%generatePageflow.label"
+             menubarPath="starteventPageflowMenu/group1">
+       </action>
+       <visibility>
+          <objectState
+                name="com.tibco.xpd.processwidget.IS_START_TYPE_NONE_DIRECTLY_UNDER_PROCESS"
+                value="TRUE">
+          </objectState>
+       </visibility>
+    </objectContribution>
+ </extension>
+    
+</plugin>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1269867326457" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Untitled" targetNamespace="http://xmlns.example.com/1269867326457">
+    <wsdl:types/>
+    <wsdl:service name="Service-datetime">
+        <wsdl:port name="PortTypeEndpoint1" binding="tns:PortTypeEndpoint1Binding">
+            <soap:address location="http://localhost:12345/Service-datetime.serviceagent/PortTypeEndpoint1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="getTimestamp">
+            <wsdl:input message="tns:TimestampRequest"/>
+            <wsdl:output message="tns:TimestampResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getDateTime">
+            <wsdl:input message="tns:DateTimeRequest"/>
+            <wsdl:output message="tns:DateTimeResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PortTypeEndpoint1Binding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getTimestamp">
+            <soap:operation style="document" soapAction="urn://getTimestamp" soapActionRequired="true"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="datetime"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="timestamp"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDateTime">
+            <soap:operation style="document" soapAction="urn://getDateTime" soapActionRequired="true"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="timestamp"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="dateTime"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="TimestampRequest">
+        <wsdl:part name="datetime" type="xs:dateTime"/>
+    </wsdl:message>
+    <wsdl:message name="TimestampResponse">
+        <wsdl:part name="timestamp" type="xs:long"/>
+    </wsdl:message>
+    <wsdl:message name="DateTimeRequest">
+        <wsdl:part name="timestamp" type="xs:long"/>
+    </wsdl:message>
+    <wsdl:message name="DateTimeResponse">
+        <wsdl:part name="dateTime" type="xs:dateTime"/>
+    </wsdl:message>
+</wsdl:definitions>

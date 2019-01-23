@@ -1,0 +1,91 @@
+<%if (!genClass.isDocumentRoot()) { %>
+  <%if (genFeature.getEcoreFeature().getEType() instanceof org.eclipse.emf.ecore.EDataType) {%>
+    <%if (genFeature.getEcoreFeature().getEType().getInstanceClass() == javax.xml.datatype.XMLGregorianCalendar.class) {%>
+    // Object is mutable, so unless it's the already-set object, clone to give set-by-value semantics
+    <%if (genFeature.hasDelegateFeature() && genFeature.getDelegateFeature().isWrappedFeatureMapType()){%>
+    <%=genModel.getImportedName("javax.xml.datatype.XMLGregorianCalendar")%> <%=genFeature.getSafeName()%> = get<%=genFeature.getAccessorName()%>();
+    <%}%>
+    if (<%="new" + genFeature.getCapName()%> != <%=genFeature.getSafeName()%>)
+    { 
+      if (<%=genFeature.getSafeName()%> instanceof <%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSNotifyingCalendar"))%>)
+      {
+        ((<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSNotifyingCalendar"))%>)<%=genFeature.getSafeName()%>).cancelNotification();
+      }
+      if (<%="new" + genFeature.getCapName()%> != null)
+      {
+        <%="new" + genFeature.getCapName()%> = new <%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSNotifyingCalendar"))%>((<%=genModel.getImportedName("javax.xml.datatype.XMLGregorianCalendar")%>)<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSCopyUtil"))%>.copyIfMutable(<%="new" + genFeature.getCapName()%>), this, <%=genClass.getQualifiedFeatureID(genFeature)%><%=positiveOffsetCorrection%>);
+      }
+    }
+    <%} else if(genFeature.getEcoreFeature().getEType().getInstanceClass() == java.lang.Object.class) {%>
+    if( <%="new" + genFeature.getCapName()%> instanceof <%=genModel.getImportedName("javax.xml.datatype.XMLGregorianCalendar")%>) {
+      // Object is mutable, so unless it's the already-set object, clone to give set-by-value semantics
+      <%if (genFeature.hasDelegateFeature() && genFeature.getDelegateFeature().isWrappedFeatureMapType()){%>
+      <%=genModel.getImportedName("javax.xml.datatype.XMLGregorianCalendar")%> <%=genFeature.getSafeName()%> = get<%=genFeature.getAccessorName()%>();
+      <%}%>
+      if (<%="new" + genFeature.getCapName()%> != <%=genFeature.getSafeName()%>)
+      { 
+        if (<%=genFeature.getSafeName()%> instanceof <%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSNotifyingCalendar"))%>)
+        {
+          ((<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSNotifyingCalendar"))%>)<%=genFeature.getSafeName()%>).cancelNotification();
+        }
+        if (<%="new" + genFeature.getCapName()%> != null)
+        {
+          <%="new" + genFeature.getCapName()%> = new <%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSNotifyingCalendar"))%>((<%=genModel.getImportedName("javax.xml.datatype.XMLGregorianCalendar")%>)<%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSCopyUtil"))%>.copyIfMutable(<%="new" + genFeature.getCapName()%>), this, <%=genClass.getQualifiedFeatureID(genFeature)%><%=positiveOffsetCorrection%>);
+        }
+      }
+    }
+    <%}%>
+  <%}%>
+  <%// If the underlying type is non-primitive... %>
+  <%if (genFeature.getEcoreFeature().getEType().getInstanceClassName() != null && genFeature.getEcoreFeature().getEType().getInstanceClassName().contains(".")) {%>
+    <%String defaultVal = (genFeature.getEcoreFeature().getDefaultValue()==null?null:genFeature.getStaticDefaultValue());%>
+    <%if (defaultVal != null) {%>
+    // In BDS, an assignment of null means 'unset the feature'.
+    // Unsetting means returning it to its default value.
+    if (<%="new" + genFeature.getCapName()%> == null) {
+      <%="new" + genFeature.getCapName()%> = <%=defaultVal%>;
+    }
+    <%}%>
+  <%}%>
+<%}%>
+<%// ** Check if this set interface takes an Object (Union), not anySimpleType ** %>
+<%if ("java.lang.Object".equals(genFeature.getType(genClass)) && (!genFeature.getTypeGenDataType().getQualifiedClassifierAccessor().equals("XMLTypePackage.Literals.ANY_SIMPLE_TYPE")) ) {%>
+    // First check the direct to string to see if that matches
+    String stringVal = <%="new" + genFeature.getCapName()%>.toString();
+
+    Exception exception = null;
+    try {
+      // Call the conversion to see if a valid value
+    <%if (genModel.isSuppressEMFMetaData()) {%>
+      <%="new" + genFeature.getCapName()%> = <%=genPackage.getImportedFactoryInterfaceName()%>.INSTANCE.createFromString(<%=genFeature.getTypeGenDataType().getQualifiedClassifierAccessor()%>, stringVal);
+    <%} else {%>
+      <%="new" + genFeature.getCapName()%> = <%=genPackage.getImportedFactoryInterfaceName()%>.eINSTANCE.createFromString(<%=genFeature.getTypeGenDataType().getQualifiedClassifierAccessor()%>, stringVal);
+    <%}%>
+    }
+    catch (Exception e) {
+      exception = e;
+    }
+
+    // Was not a valid format, it may be a decimal being stored into a non decimal
+    // for this reason convert into a BigInteger (removing the decimal part) and
+    // then back into a string
+    if( exception != null ) {
+      // Try converting to a string of an integer
+      String intString = <%=genModel.getImportedName(genModel.getFeatureMapWrapperInterface().replaceFirst("BDSFeatureMap$","BDSTypeConversions"))%>.convertToBigInteger(<%="new" + genFeature.getCapName()%>).toString();
+
+      try {
+        // Call the conversion to see if a valid value, if it is valid, it will return
+        // the object representation which we overwrite the input value with
+        // if it isn't valid it will throw an exception, in this case we just continue
+        // with the default behaviour storing exactly what was passed in
+      <%if (genModel.isSuppressEMFMetaData()) {%>
+        <%="new" + genFeature.getCapName()%> = <%=genPackage.getImportedFactoryInterfaceName()%>.INSTANCE.createFromString(<%=genFeature.getTypeGenDataType().getQualifiedClassifierAccessor()%>, intString);
+      <%} else {%>
+        <%="new" + genFeature.getCapName()%> = <%=genPackage.getImportedFactoryInterfaceName()%>.eINSTANCE.createFromString(<%=genFeature.getTypeGenDataType().getQualifiedClassifierAccessor()%>, intString);
+      <%}%>
+      }
+      catch (Exception e) {
+        exception = e;
+      }
+    }
+<%}%>

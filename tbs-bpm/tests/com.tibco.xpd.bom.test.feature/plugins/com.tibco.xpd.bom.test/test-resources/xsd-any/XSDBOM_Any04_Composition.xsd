@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.w3schools.com" xmlns="http://www.w3schools.com"
+	elementFormDefault="qualified">
+
+	<xs:complexType name="person">
+		<xs:sequence>
+			<xs:element name="firstname" type="person2" />
+			<xs:element name="lastname" type="person3" />
+			<xs:any></xs:any>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="person2">
+		<xs:sequence>
+			<xs:element name="attr1" type="xs:boolean"></xs:element>
+			<xs:any></xs:any>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="person3">
+		<xs:sequence>
+			<xs:element name="attr1" type="xs:boolean"></xs:element>
+			<xs:any></xs:any>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

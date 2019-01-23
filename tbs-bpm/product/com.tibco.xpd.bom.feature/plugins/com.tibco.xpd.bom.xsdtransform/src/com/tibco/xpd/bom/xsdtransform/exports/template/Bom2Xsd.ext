@@ -1,0 +1,2207 @@
+import xmlSchema;
+import type;
+import uml;
+//import xsd;
+import com::tibco::xpd::bom::xsdtransform::exports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension org::openarchitectureware::xsd::lib::map;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::Extensions reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::GeneralisationFuncs reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::CompositionFuncs reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::RestrictionFuncs reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::HelperFuncs reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::TopLevelFuncs reexport;
+
+// create a DocumentRoot for every sub-Epackage
+// This method is an entry point from the Bom-WSDL transformation and calls it in order to generate all Inner schemas before
+// moving on to generating its container wsdl.
+List[Object] transform(ExportTransformationData data, Model model, String bomFullPathUri, Boolean parseOperations) :
+	parseOperations == false ? transform(data, model, bomFullPathUri) : (	
+		let modelCollection = {model} :	
+		let docRootList = {} :
+		let allPackages = {} :
+		let renamedList = {} :
+		let topLevelElementOrAttributeNames = {} :
+		
+		data.monitor.createTransformMonitor(8) ->
+		
+		// Collecting model and references.
+		data.monitor.subTaskCollectModelAndRefs() ->
+		modelCollection.addAll(getModelAndReferences(model,parseOperations)) ->
+		data.monitor.subTaskDone() ->
+		
+		data.clearIgnoredPackages() ->
+		data.modelsToParse.addAll(modelCollection) ->
+			
+		allPackages.addAll(modelCollection) ->
+
+		// Creating skeleton schemas		
+		data.monitor.subTaskCreateSkeletonSchemas() ->
+		modelCollection.typeSelect(Model).collect(e | getAllPackages(e, allPackages)) ->
+		data.monitor.subTaskDone() ->
+		
+		// Creating skeleton data types
+		data.monitor.subTaskCreateSkeletonDataTypes() ->
+		populateTopLevelDetails(data, allPackages) ->		
+		modelCollection.typeSelect(Model).collect(e | parsePackages(data, e, docRootList, getModelResourceURI(e))) ->
+		data.monitor.subTaskDone() ->		
+		(
+			let filteredPackages = {} :			
+			
+			filteredPackages.addAll(allPackages) ->
+			filteredPackages.removeAll(data.ignoredPackages) ->
+			
+			filteredPackages.collect(e|addMissedImports(data, allPackages, docRootList.eAllContents.typeSelect(SchemaType), e)) -> 
+			filteredPackages.collect(e | isXSDNotationProfileApplied(e)) ->
+	
+			// Processing simple data types
+			data.monitor.subTaskProcessSimpleDataTypes() ->
+			parseSimpleContents(data, docRootList.eAllContents.typeSelect(SchemaType),filteredPackages, allPackages) ->
+			data.monitor.subTaskDone() ->
+	
+			// Processing type inheritance hierarchy
+			data.monitor.subTaskProcessTypeHierarchy() ->
+			parseGeneralisations(data, docRootList.eAllContents.typeSelect(SchemaType),filteredPackages, allPackages) ->
+			data.monitor.subTaskDone() ->
+			
+			//parseCompositions(data, docRootList.eAllContents.typeSelect(SchemaType),allPackages) ->
+			
+			// Processing complex data types
+			data.monitor.subTaskProcessComplexDataTypes() ->
+			parseClasses(data, docRootList.eAllContents.typeSelect(SchemaType),filteredPackages, allPackages) ->		
+			data.monitor.subTaskDone() ->
+			
+			// Processing top-level elements and attributes
+			data.monitor.subTaskProcessTopLevelElements() ->
+			parseTopLevelElementsAndAttributes(data, docRootList.eAllContents.typeSelect(SchemaType), filteredPackages, allPackages, topLevelElementOrAttributeNames) ->
+			data.monitor.subTaskDone() ->
+			
+			// Cleaning up anonymous complex types and resolving target namespaces
+			data.monitor.subTaskCleanAnonymousTypes() ->
+			
+			filteredPackages.packagedElement.typeSelect(Class).select(e | isAnonTypeClass(e) == true).collect(e | changeTopToLocalComplex(data,docRootList.eAllContents.typeSelect(SchemaType), e, topLevelElementOrAttributeNames)) ->	
+			docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(xmlSchema::Element).select(e|e.simpleType != null && e.simpleType.restriction != null && e.simpleType.restriction.base.localPart.toLowerCase() == "xsd:anytype").collect(e | fixAnyTypes(e)) ->	
+			docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(SchemaType).eAllContents.typeSelect(ExtensionType).collect(e|fixExtensionPrefixes(e, e.eRootContainer.schema, data, docRootList.eAllContents.typeSelect(SchemaType))) ->		
+			docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(SchemaType).eAllContents.typeSelect(xmlSchema::Element).select(e | e.type != null).collect(e|fixElementTypePrefixes(data,e, e.eRootContainer.schema,docRootList.eAllContents.typeSelect(SchemaType))) ->
+			
+			fixOriginalNames(data, docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(SchemaType)) ->
+			
+			docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(xmlSchema::Element).select(e|e.type != null && e.complexType != null).sortBy(e | getContainerCount(e.eContainer, 1)).collect(e|fixAnonTypes(data,docRootList.eAllContents.typeSelect(SchemaType), e)) ->
+			// XPD-4169: getting rid of the clean up method call that adds empty complexTypes in generated XSD
+			//docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(xmlSchema::Element).select(e|e.type != null && e.complexType != null).sortBy(e | getContainerCount(e.eContainer, 1)).collect(e|cleanTopLevelElements(data, docRootList.eAllContents.typeSelect(SchemaType), e, topLevelElementOrAttributeNames)) ->	
+			docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(xmlSchema::Element).select(e|e.type != null).sortBy(e | getContainerCount(e.eContainer, 1)).collect(e|fixBrokenReferences(docRootList.eAllContents.typeSelect(SchemaType), e, topLevelElementOrAttributeNames)) ->
+							
+			// clears up any temporary complex types with no contents - be nice later on to find why they are left floating on rare occasions 
+			docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(SchemaType).eAllContents.typeSelect(LocalComplexType).select(e | e.eContainer.type != null).select(e | e.name == null && e.sequence == null && e.all == null && e.choice == null && e.complexContent == null && e.simpleContent == null && e.anyAttribute1 == null && (e.attribute == null || e.attribute.size == 0 )).collect(e | e.eContainer.setComplexType(null)) ->
+		    docRootList.removeAll(data.parsedOAWSchemas).eAllContents.typeSelect(SchemaType).eAllContents.typeSelect(ComplexType).select(e | e.complexContent.^extension != null && e.sequence != null).collect(e | e.complexContent.^extension.setSequence(e.sequence)) ->
+		    
+			data.monitor.subTaskDone() ->
+			
+			// Close of the transform progress monitor.
+			data.monitor.transformDone() ->
+			
+			(
+				let newSchemas = docRootList.removeAll(data.parsedOAWSchemas) :
+				newSchemas.collect(e | data.addParsedOAWSchema(e)) ->
+				newSchemas
+			)
+		)
+	);
+	
+// create a DocumentRoot for every sub-Epackage
+List[Object] transform(ExportTransformationData data, Model model, String bomFullPathUri) :	
+	let modelCollection = {model} :	
+	let docRootList = {} :
+	let allPackages = {} :
+	let renamedList = {} :
+	let topLevelElementOrAttributeNames = {} :
+	
+	data.monitor.createTransformMonitor(8) ->
+	
+	// Collecting model and references.
+	data.monitor.subTaskCollectModelAndRefs() ->
+	modelCollection.addAll(getModelAndReferences(model,false)) ->
+	data.monitor.subTaskDone() ->
+	
+	data.clearIgnoredPackages() ->
+	data.modelsToParse.addAll(modelCollection) ->
+	
+	allPackages.addAll(modelCollection) ->
+
+	// Creating skeleton schemas		
+	data.monitor.subTaskCreateSkeletonSchemas() ->
+	modelCollection.typeSelect(Model).collect(e | getAllPackages(e, allPackages)) ->
+	// might not be needed but is a preventative measure to ensure no duplicate packages
+	data.stripDuplicatePackages(allPackages) ->
+	data.monitor.subTaskDone() ->
+	
+	// Creating skeleton data types
+	data.monitor.subTaskCreateSkeletonDataTypes() ->
+	
+	// throughout the transformation we refer to the top level element /attriuute sterotype classes for each model but this
+	// take time and so this method is to add all of these constructs to the data class hashmaps in one go so we have instant
+	// access to them.
+	populateTopLevelDetails(data, allPackages) ->
+
+	modelCollection.collect(e | parsePackages(data, e, docRootList, getModelResourceURI(e))) ->	
+	data.monitor.subTaskDone() ->
+	(
+		let filteredPackages = {} :		
+		
+		filteredPackages.addAll(allPackages) ->
+		filteredPackages.removeAll(data.ignoredPackages) ->
+		
+		filteredPackages.collect(e|addMissedImports(data, allPackages, docRootList.eAllContents.typeSelect(SchemaType), e)) -> 
+		
+		// this line does not seem to do anything apart from check if each package is user defined or not and does nothing afterwards
+		filteredPackages.collect(e | isXSDNotationProfileApplied(e)) ->
+
+		// Processing simple data types
+		data.monitor.subTaskProcessSimpleDataTypes() ->
+		parseSimpleContents(data, docRootList.eAllContents.typeSelect(SchemaType),filteredPackages, allPackages) ->
+		data.monitor.subTaskDone() ->
+
+		// Processing type inheritance hierarchy
+		data.monitor.subTaskProcessTypeHierarchy() ->
+		parseGeneralisations(data, docRootList.eAllContents.typeSelect(SchemaType),filteredPackages,allPackages) ->
+		data.monitor.subTaskDone() ->
+
+		////parseCompositions(data, docRootList.eAllContents.typeSelect(SchemaType),allPackages) ->
+
+		// Processing complex data types
+		data.monitor.subTaskProcessComplexDataTypes() ->
+		parseClasses(data, docRootList.eAllContents.typeSelect(SchemaType),filteredPackages,allPackages) ->
+		data.monitor.subTaskDone() ->
+	
+		(	
+			let originalDocRootList = {} :
+			originalDocRootList.addAll(docRootList) ->
+			(
+				let allSchemaTypes = docRootList.eAllContents.typeSelect(SchemaType) :
+				let filteredOAWSchemas = (
+					data.parsedOAWSchemas.size == 0 ? docRootList : docRootList.removeAll(data.parsedOAWSchemas)
+				) :
+				let schemaTypeList = filteredOAWSchemas.eAllContents.typeSelect(SchemaType) :
+				let elements = schemaTypeList.eAllContents.typeSelect(xmlSchema::Element) :
+	
+				// Processing top-level elements and attributes
+				data.monitor.subTaskProcessTopLevelElements() ->
+				parseTopLevelElementsAndAttributes(data, allSchemaTypes, filteredPackages, allPackages, topLevelElementOrAttributeNames) ->
+				data.monitor.subTaskDone() ->
+				
+				// Cleaning up anonymous complex types and resolving target namespaces
+				data.monitor.subTaskCleanAnonymousTypes() ->
+				
+				filteredPackages.packagedElement.typeSelect(Class).select(e | isAnonTypeClass(e) == true).collect(e | changeTopToLocalComplex(data,allSchemaTypes, e, topLevelElementOrAttributeNames)) ->	
+				elements.select(e|e.simpleType != null && e.simpleType.restriction != null && e.simpleType.restriction.base.localPart.toLowerCase() == "xsd:anytype").collect(e | fixAnyTypes(e)) ->	
+				schemaTypeList.eAllContents.typeSelect(ExtensionType).collect(e|fixExtensionPrefixes(e, e.eRootContainer.schema, data, allSchemaTypes)) ->
+				
+				elements.select(e | e.type != null).collect(e|fixElementTypePrefixes(data,e, e.eRootContainer.schema,allSchemaTypes)) ->
+	
+				fixOriginalNames(data, schemaTypeList) ->
+				
+				(
+					let sortedElements = elements.select(e|e.type != null).sortBy(e | getContainerCount(e.eContainer, 1)) :
+					sortedElements.select(e|e.complexType != null).collect(e|fixAnonTypes(data,allSchemaTypes, e)) ->
+					// XPD-4169: getting rid of the clean up method call that adds empty complexTypes in generated XSD
+					//sortedElements.select(e|e.complexType != null).collect(e|cleanTopLevelElements(data, allSchemaTypes, e, topLevelElementOrAttributeNames)) ->	
+					sortedElements.select(e|e != null && e.eContainer != null).collect(e|fixBrokenReferences(allSchemaTypes, e, topLevelElementOrAttributeNames)) 
+				) ->
+					
+				// clears up any temporary complex types with no contents - be nice later on to find why they are left floating on rare occasions 
+				schemaTypeList.eAllContents.typeSelect(LocalComplexType).select(e | e.eContainer.type != null).select(e | e.name == null && e.sequence == null && e.all == null && e.choice == null && e.complexContent == null && e.simpleContent == null && e.anyAttribute1 == null && (e.attribute == null || e.attribute.size == 0 )).collect(e | e.eContainer.setComplexType(null)) ->
+				schemaTypeList.eAllContents.typeSelect(ComplexType).select(e | e.complexContent.^extension != null && e.sequence != null).collect(e | e.complexContent.^extension.setSequence(e.sequence)) ->
+				
+				filteredOAWSchemas.collect(e | data.addParsedOAWSchema(e)) ->
+				
+				data.monitor.subTaskDone() ->
+				
+				// Close of the transform progress monitor.
+				data.monitor.transformDone() ->
+				
+				data.wantAllReferencedSchemas ? originalDocRootList : filteredOAWSchemas			
+			)
+		)	
+	);
+	
+// returns how many containers a particular object has and bombs out as soon as the container is an XML Schema
+Integer getContainerCount(Object obj, Integer counter) :
+	xmlSchema::SchemaType.isInstance(obj) ? counter : (
+		let tmpCounter = counter + 1 :
+		getContainerCount(obj.eContainer, tmpCounter)		
+	);
+	
+// changes any of the XML construct names back to their original equivalent brought from the UML stereotype applied
+cached fixOriginalNames(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList) :
+
+	// For each complex/simple type, check whether we have the original name from XSD 
+	// (because this was a bom generated from wsdl/xsd in the first place) 
+	// And if it was mangled by WSDL/XSD2BOM, the give it back it's original name and update any references to it.
+	(
+		let typeObjects = {} :
+		typeObjects.addAll(schemaTypeList.eAllContents.typeSelect(ComplexType)) ->
+		typeObjects.addAll(schemaTypeList.eAllContents.typeSelect(SimpleType)) ->
+		
+		typeObjects.collect(type | 
+			(			
+				type.name == null ? null : (
+					let origXsdName = data.getOriginalName(type) :
+					// holding the bom name into a variable for replacing the references to it with the original xsd name
+					let currBomName = type.name :
+					(origXsdName == null || origXsdName == type.name) ? null : (
+						// We have a different original XSD name from the BOM name
+						// Replace it and replace references to it.
+						type.setName(origXsdName) ->
+						schemaTypeList.collect(schema | 
+							updateSchemaReferencesToType(schema, currBomName, origXsdName))	
+					)
+				)
+			)
+		)
+	) ->
+
+	// For each element and top level element, check whether we have the original name from XSD 
+	// (because this was a bom generated from wsdl/xsd in the first place) 
+	// And if it was mangled by WSDL/XSD2BOM, the give it back it's original name and update any references to it.
+	//
+	
+	(
+		let elements = {} :
+		// need not add TopLevelElement as TopLevelElement is an Element
+		//elements.addAll(schemaTypeList.eAllContents.typeSelect(TopLevelElement))->
+		elements.addAll(schemaTypeList.eAllContents.typeSelect(Element))->
+		elements.collect(ele | 
+			(			
+				ele.name == null ? null : (
+					let origXsdName = data.getOriginalName(ele) :
+					// holding the bom name into a variable for replacing the references to it with the original xsd name
+					let currBomName = ele.name :
+					(origXsdName == null || origXsdName == ele.name) ? null : (
+						// We have a different original XSD name from the BOM name
+						// Replace it.
+						ele.setName(origXsdName) ->
+						// replace references only for TOP LEVEL ELEMENT
+						TopLevelElement.isInstance(ele) ? 
+							(schemaTypeList.collect(schema
+								 | updateSchemaReferencesToElement(schema, currBomName, origXsdName)))	: null
+					)
+				)
+			)
+		)
+	) ->
+	
+	// For each attibute and top level attribute, check whether we have the original name from XSD 
+	// (because this was a bom generated from wsdl/xsd in the first place) 
+	// And if it was mangled by WSDL/XSD2BOM, the give it back it's original name and update any references to it.
+	//
+	
+	(
+		let attributes = {} :
+		// need not add TopLevelAttribute as TopLevelElement is an Attribute
+		//attributes.addAll(schemaTypeList.eAllContents.typeSelect(TopLevelAttribute)) ->
+		attributes.addAll(schemaTypeList.eAllContents.typeSelect(Attribute)) ->		
+		
+		attributes.collect(attr | 
+		(			
+				attr.name == null ? null : (
+					let origXsdName = data.getOriginalName(attr) :
+					// holding the bom name into a variable for replacing the references to it with the original xsd name
+					let currBomName = attr.name :
+					(origXsdName == null || origXsdName == attr.name) ? null : (
+						// We have a different original XSD name from the BOM name
+						// Replace it 
+						attr.setName(origXsdName) ->
+						// replace references only for TOP LEVEL ATTRIBUTE
+						TopLevelAttribute.isInstance(attr) ?
+							(schemaTypeList.collect(schema
+								 | updateSchemaReferencesToAttribute(schema, currBomName, origXsdName))) : null 	
+					)
+				)
+			)
+		)
+	) ->
+	
+	// For each AttributeGroup, check whether we have the original name from XSD 
+	// (because this was a bom generated from wsdl/xsd in the first place) 
+	// And if it was mangled by WSDL/XSD2BOM, the give it back it's original name and update any references to it.
+	//
+	
+	(
+		let attributeGrp = schemaTypeList.eAllContents.typeSelect(AttributeGroup) :
+		
+		attributeGrp.collect(type |
+		(			
+				type.name == null ? null : (
+					let origXsdName = data.getOriginalName(e) :
+					// holding the bom name into a variable for replacing the references to it with the original xsd name
+					let currBomName = type.name : 
+					(origXsdName == null || origXsdName == type.name) ? null : (
+						// We have a different original XSD name from the BOM name
+						// Replace it and replace references to it.
+						type.setName(origXsdName) ->
+						schemaTypeList.collect(schema | 
+							updateSchemaReferencesToAttributeGrp(schema, currBomName, origXsdName))	
+					)
+				)
+			)
+		)
+	) ->
+	
+	// For each Group, check whether we have the original name from XSD 
+	// (because this was a bom generated from wsdl/xsd in the first place) 
+	// And if it was mangled by WSDL/XSD2BOM, the give it back it's original name and update any references to it.
+	//
+	
+	(
+		let grp = schemaTypeList.eAllContents.typeSelect(Group) :
+		
+		grp.collect(type |
+		(			
+				type.name == null ? null : (
+					let origXsdName = data.getOriginalName(e) :
+					// holding the bom name into a variable for replacing the references to it with the original xsd name
+					let currBomName = type.name :
+					(origXsdName == null || origXsdName == type.name) ? null : (
+						// We have a different original XSD name from the BOM name
+						// Replace it and replace references to it.
+						type.setName(origXsdName) ->
+						schemaTypeList.collect(schema | 
+							updateSchemaReferencesGrp(schema, currBomName, origXsdName))
+					)
+				)
+			)
+		)
+	) ;
+		
+// goes through all the elements and removes all the top level elements left by transformation through anonymous complex type creation earlier on
+cached fixBrokenReferences(Collection[xmlSchema::SchemaType] schemaTypeList, Element element, List[String] topLevelElementOrAttributeNames) :
+	let complexTypeWithElemName = schemaTypeList.eAllContents.typeSelect(ComplexType).select(e|e.name == element.type.localPart) :
+	let groupWithElemName = schemaTypeList.eAllContents.typeSelect(Group).select(e|e.name == element.type.localPart) :	
+	(complexTypeWithElemName.size == 0 || groupWithElemName.size == 0) && topLevelElementOrAttributeNames.contains(element.name + "_elem_" +((SchemaType)element.eRootContainer.schema).targetNamespace) == false ? (		
+		((XmlSchemaDocumentRoot)element.eRootContainer).schema.element.remove(element)
+	) : null;
+
+// creates a new qname including all parameters for completeness
+QName getNewQName(QName tmpQName, String newName) :
+	createQName(tmpQName.namespaceURI, newName, tmpQName.prefix);
+
+// Goes through each schema type and changes any reference to a COMPLEX TYPE or SIMPLE TYPE whose
+// name is being changed back FROM the XSD2BOM-mangled-name TO it's original name from original XSD.  
+cached updateSchemaReferencesToType(SchemaType schemaType, String oldName, String newName) :
+	schemaType.eAllContents.typeSelect(Element).select(e|e.type.localPart == oldName).collect(e|e.setType(getNewQName(e.type, newName))) ->
+	schemaType.eAllContents.typeSelect(RestrictionType1).select(e|e.base.localPart == oldName).collect(e|e.setBase(getNewQName(e.base, newName))) ->
+	schemaType.eAllContents.typeSelect(ExtensionType).select(e|e.base.localPart == oldName).collect(e|e.setBase(getNewQName(e.base, newName))) ->
+	schemaType.eAllContents.typeSelect(Attribute).select(e|e.type.localPart == oldName).collect(e|e.setType(getNewQName(e.type, newName)));
+
+// Goes through each schema Element and changes any reference to a TOP LEVEL ELEMENT NAME whose
+// name is being changed back FROM the XSD2BOM-mangled-name TO it's original name from original XSD.  
+cached updateSchemaReferencesToElement(SchemaType schemaType, String oldName, String newName) :
+	schemaType.eAllContents.typeSelect(Element).select(e|e.ref.localPart == oldName).collect(e|e.setRef(getNewQName(e.ref, newName))) ;
+
+// Goes through each schema attribute and changes any reference to a TOP LEVEL ATTRIBUTE NAME whose
+// name is being changed back FROM the XSD2BOM-mangled-name TO it's original name from original XSD.  
+cached updateSchemaReferencesToAttribute(SchemaType schemaType, String oldName, String newName) :
+	schemaType.eAllContents.typeSelect(Attribute).select(e|e.ref.localPart == oldName).collect(e|e.setRef(getNewQName(e.ref, newName))) ;
+
+// Goes through each schema attribute group or group ref and changes any reference to an ATTRIBUTE NAME whose
+// name is being changed back FROM the XSD2BOM-mangled-name TO it's original name from original XSD.
+cached updateSchemaReferencesToAttributeGrp(SchemaType schemaType, String oldName, String newName) :
+	schemaType.eAllContents.typeSelect(AttributeGroupRef).select(e|e.ref.localPart == oldName).collect(e|e.setRef(getNewQName(e.ref, newName)));
+
+// Goes through each schema group ref and changes any reference to an ATTRIBUTE NAME whose
+// name is being changed back FROM the XSD2BOM-mangled-name TO it's original name from original XSD.
+cached updateSchemaReferencesGrp(SchemaType schemaType, String oldName, String newName) :
+	schemaType.eAllContents.typeSelect(GroupRef).select(e|e.ref.localPart == oldName).collect(e|e.setRef(getNewQName(e.ref, newName)));
+
+// after transformation has taken place sometimes the prefixes are not always what they should be so this method cleans this up - at some point we need to look at why
+// this is needed but its a huge task and this method doesn't take long so is best left in for now as a secondary parse to clean any invalid prefixes.
+cached fixExtensionPrefixes(ExtensionType tmpExtension, SchemaType schemaType, ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList) :	
+	isKnownXSDType(tmpExtension.base.localPart) ? null  : (
+		tmpExtension.base.localPart.contains(":") == true ? (
+			(tmpExtension.base.namespaceURI != null && tmpExtension.base.namespaceURI != schemaType.targetNamespace && tmpExtension.base.namespaceURI != "http://www.w3.org/2001/XMLSchema" && tmpExtension.base.localPart.contains("xsd:") == false) ? (				
+				tmpExtension.base.namespaceURI != null && tmpExtension.base.namespaceURI.trim().length > 0 ? (			
+					tmpExtension.setBase(createQName(tmpExtension.base.namespaceURI, ReplaceFirst(tmpExtension.base.localPart,":",""))) 
+				): (
+					let tmpLocalPart = ReplaceFirst(ReplaceFirst(tmpExtension.base.localPart,":",""),":","") :					 
+					let namespace = data.getNamespaceForPrefix(tmpExtension.base.localPart) :
+					let simpleType = (
+						namespace == null || namespace == "http://www.w3.org/2001/XMLSchema" ? (
+							schemaTypeList.eAllContents.typeSelect(SimpleType).select(e|e.name == tmpLocalPart).first()
+						) : (
+							schemaTypeList.select(e|e.targetNamespace == namespace).eAllContents.typeSelect(SimpleType).select(e|e.name == tmpLocalPart).first()
+						)
+					) :										
+					simpleType != null ? (
+						let tmpSchema = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.simpleType.contains(simpleType)).first() :
+						tmpExtension.setBase(createQName(tmpSchema.targetNamespace, tmpLocalPart))
+					) : tmpExtension.setBase(createQName(schemaType.targetNamespace, tmpLocalPart)) 
+				)
+				 
+			) : (
+				let localPart = ReplaceFirst(tmpExtension.base.localPart,":","") :
+				let namespace = data.getNamespaceForPrefix(tmpExtension.base.localPart) :
+				let simpleType = (
+					namespace == null || namespace == "http://www.w3.org/2001/XMLSchema" ? (
+						schemaTypeList.eAllContents.typeSelect(xmlSchema::SimpleType).selectFirst(e | e.name == localPart)
+					) : (
+						schemaTypeList.select(e|e.targetNamespace == namespace).eAllContents.typeSelect(xmlSchema::SimpleType).selectFirst(e | e.name == localPart)
+					)
+				) :				
+				let complexType = (
+					namespace == null || namespace == "http://www.w3.org/2001/XMLSchema" ? (
+						schemaTypeList.eAllContents.typeSelect(xmlSchema::ComplexType).select(e | e.simpleContent != null).selectFirst(e | e.name == localPart)
+					) : ( 
+						schemaTypeList.select(e|e.targetNamespace == namespace).eAllContents.typeSelect(xmlSchema::ComplexType).select(e | e.simpleContent != null).selectFirst(e | e.name == localPart)
+					)
+				):
+				simpleType != null ? ( 
+					let containerSchemaTargetNamespace = ((SchemaType)simpleType.eContainer).targetNamespace :
+					tmpExtension.setBase(createQName(containerSchemaTargetNamespace, localPart))
+				) : (
+					complexType != null ? ( 
+						let containerSchemaTargetNamespace = ((SchemaType)complexType.eContainer).targetNamespace :
+						tmpExtension.setBase(createQName(containerSchemaTargetNamespace, localPart))
+					) :	tmpExtension.setBase(createQName(schemaType.targetNamespace, ReplaceFirst(tmpExtension.base.localPart,":","")))
+				)
+			)						
+		) : (			
+			(tmpExtension.base.prefix != null && tmpExtension.base.prefix.trim().length > 0) || (tmpExtension.base.namespaceURI != schemaType.targetNamespace)  ? null : (				
+				tmpExtension.setBase(createQName(schemaType.targetNamespace,tmpExtension.base.localPart))
+			)			
+		)
+	);
+	
+// goes through all element type prefixes that are not refferring to the standard w3 schema and fixes the references accordingly
+cached fixElementTypePrefixes(ExportTransformationData data,Element element, SchemaType schemaType, Collection[xmlSchema::SchemaType] schemaTypeList) :	
+	isKnownXSDType(element.type.localPart) ? null  : (		
+		element.type.localPart.contains(":") == true ? (
+			(element.type.namespaceURI != null && element.type.namespaceURI != schemaType.targetNamespace && element.type.namespaceURI != "http://www.w3.org/2001/XMLSchema" && element.type.localPart.contains("xsd:") == false) ? (				
+				element.type.namespaceURI != null && element.type.namespaceURI.trim().length > 0 ? (										
+					element.setType(createQName(element.type.namespaceURI, getLocalPart(element.type.localPart))) 
+				): (
+					let tmpLocalPart = ReplaceFirst(ReplaceFirst(element.type.localPart,":",""),":","") :					 
+					let namespace = data.getNamespaceForPrefix(element.type.localPart) :
+					let simpleType = (
+						namespace == null || namespace == "http://www.w3.org/2001/XMLSchema" ? (
+							schemaTypeList.eAllContents.typeSelect(SimpleType).select(e|e.name == tmpLocalPart).first()
+						) : (
+							schemaTypeList.select(e|e.targetNamespace == namespace).eAllContents.typeSelect(SimpleType).select(e|e.name == tmpLocalPart).first()
+						)
+					) :						
+					simpleType != null ? (
+						let tmpSchema = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.simpleType.contains(simpleType)).first() :
+						element.setType(createQName(tmpSchema.targetNamespace,  getLocalPart(tmpLocalPart)))
+					) : element.setType(createQName(data.getPrefixForNamespace(namespace)+":"+getLocalPart(tmpLocalPart))) 
+				)
+				 
+			) : (
+				let localPart = ReplaceFirst(element.type.localPart,":","") :
+				let namespace = data.getNamespaceForPrefix(element.type.localPart) :
+				let simpleType = (
+					namespace == null || namespace == "http://www.w3.org/2001/XMLSchema" ? (
+						schemaTypeList.eAllContents.typeSelect(xmlSchema::SimpleType).selectFirst(e | e.name == localPart)
+					) : (
+						schemaTypeList.select(e|e.targetNamespace == namespace).eAllContents.typeSelect(xmlSchema::SimpleType).selectFirst(e | e.name == localPart)
+					)
+				) :				
+				let complexType = (
+					namespace == null || namespace == "http://www.w3.org/2001/XMLSchema" ? (
+						schemaTypeList.eAllContents.typeSelect(xmlSchema::ComplexType).select(e | e.simpleContent != null).selectFirst(e | e.name == localPart)
+					) : ( 
+						schemaTypeList.select(e|e.targetNamespace == namespace).eAllContents.typeSelect(xmlSchema::ComplexType).select(e | e.simpleContent != null).selectFirst(e | e.name == localPart)
+					)
+				):
+				simpleType != null ? ( 
+					let containerSchemaTargetNamespace = ((SchemaType)simpleType.eContainer).targetNamespace :
+					element.setType(createQName(containerSchemaTargetNamespace, getLocalPart(localPart)))
+				) : (
+					complexType != null ? ( 
+						let containerSchemaTargetNamespace = ((SchemaType)complexType.eContainer).targetNamespace :						
+						element.setType(createQName(containerSchemaTargetNamespace, getLocalPart(localPart)))
+					) :	(						
+						element.setType(createQName(schemaType.targetNamespace, getLocalPart(element.type.localPart)))
+					)
+				)
+			)								
+		) : (
+			(element.type.prefix != null && element.type.prefix.trim().length > 0) || (element.type.namespaceURI != schemaType.targetNamespace)  ? null : element.setType(createQName(schemaType.targetNamespace,getLocalPart(element.type.localPart)))
+		)
+	);
+
+// the transformation leaves the elements with anonymous complex types as top level elements temporarily - this method goes through and enforces that the local anonymous complex types are
+// converted from top level to local.
+cached changeTopToLocalComplex(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Class cls, List[String] topLevelElementOrAttributeNames) :
+
+	// XPD-4700: ONLY look in schema derived from cls.package NOT all schema types list
+	
+	let clsSchemaType = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.targetNamespace == getNamespace(cls.package,true)).first() :
+
+	let complexType = clsSchemaType.eAllContents.typeSelect(xmlSchema::TopLevelComplexType).select(e|e.name == cls.name).first() :
+	complexType.name == null ? null : (	
+		let elementWithTypeOfComplex = (
+
+			// XPD-4700: NOW should be guaranteed to have CORRECT complexType. SO should be able to say "e.type == complexType". 
+			// But we cannot say that because e.type is instanceof QName and complexType is instanceof TopLevelComplexType
+
+			let tmpElement = clsSchemaType.eAllContents.typeSelect(xmlSchema::LocalElement).select(e|e.type.localPart == complexType.name).first() :			
+			// if this element is not found it may be due to the fact we are searching for the wrong name 
+			// as it may be an anonymous type so we add the Type suffix to the search and re-evaluate if the element now exists
+			tmpElement != null ? tmpElement : (
+				let tmpElement2 = clsSchemaType.eAllContents.typeSelect(xmlSchema::LocalElement).select(e|e.type.localPart == complexType.name+"Type").first() :
+				tmpElement2 != null ? tmpElement2 : clsSchemaType.eAllContents.typeSelect(xmlSchema::LocalElement).select(e|e.type.localPart != null).select(e|ReplaceFirst(e.type.localPart.split(":").last(),":","") == complexType.name).first()			
+			)
+		) :		
+		(elementWithTypeOfComplex != null) ? (			
+			fixAnonTypes(data, schemaTypeList, elementWithTypeOfComplex, complexType) 
+		) : null
+	);
+
+// actually create a local complex type and set the contents of that from the top level complex type created as a temporary measure earlier on when encountering the anonymous complex types
+cached fixAnonTypes(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Element element, ComplexType complexType) :
+	let parentSchema = complexType.eContainer :
+	let localComplexType = new LocalComplexType :
+	localComplexType.setAll(complexType.all) ->
+	complexType.annotation != null ? localComplexType.setAnnotation(complexType.annotation) : null ->
+	complexType.attribute != null ? localComplexType.setAttribute(complexType.attribute) : null ->
+	complexType.anyAttribute1 != null ? localComplexType.setAnyAttribute1(complexType.anyAttribute1) : null ->
+	complexType.attributeGroup != null ? localComplexType.setAttributeGroup(complexType.attributeGroup) : null ->
+	localComplexType.setBlock(complexType.block) ->	
+	complexType.complexContent != null ? localComplexType.setComplexContent(complexType.complexContent) : null ->
+	localComplexType.setFinal(complexType.final) ->
+	localComplexType.setGroup(complexType.group) ->
+	localComplexType.setId(complexType.id) ->
+	localComplexType.setMixed(complexType.mixed) ->
+	complexType.all != null ? (
+		localComplexType.setAll(complexType.all) ->
+		localComplexType.all.element.setId(null)
+	): null ->
+	complexType.choice != null ? (
+		localComplexType.setChoice(complexType.choice) ->
+		localComplexType.choice.element.setId(null)
+	): null ->
+	complexType.sequence != null ? (
+		localComplexType.setSequence(complexType.sequence) ->
+		localComplexType.sequence.element.setId(null)
+	): null ->
+	complexType.simpleContent != null ? localComplexType.setSimpleContent(complexType.simpleContent) : null ->
+	element.setType(null) ->
+	// XPD-2569: adding ecore:name 
+	addFeatureMapEntry(localComplexType.anyAttribute, complexType.name, "name")->
+	element.setComplexType(localComplexType) ->
+	parentSchema.complexType.remove(complexType);
+
+// goes through all top level elements and finds the anonymous complex type and creates a local equivalent instead and then removes the "floating" element.
+cached fixAnonTypes(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Element element) :
+	let topLevelElement = schemaTypeList.eAllContents.typeSelect(xmlSchema::TopLevelElement).select(e|e.name == element.type.localPart).first() :
+	topLevelElement != null ? (
+		let parentSchema = topLevelElement.eContainer :
+		let containedComplexType = clone(topLevelElement.complexType) :
+		let localComplexType = element.complexType :								
+		containedComplexType != null ? (
+			localComplexType.setAll(containedComplexType.all) ->
+			containedComplexType.annotation != null ? localComplexType.setAnnotation(containedComplexType.annotation) : null ->
+			containedComplexType.attribute != null ? localComplexType.setAttribute(containedComplexType.attribute) : null ->
+			containedComplexType.anyAttribute1 != null ? localComplexType.setAnyAttribute1(containedComplexType.anyAttribute1) : null ->
+			containedComplexType.attributeGroup != null ? localComplexType.setAttributeGroup(containedComplexType.attributeGroup) : null ->
+			localComplexType.setBlock(containedComplexType.block) ->		
+			containedComplexType.complexContent != null ? localComplexType.setComplexContent(containedComplexType.complexContent) : null ->
+			localComplexType.setFinal(containedComplexType.final) ->
+			localComplexType.setGroup(containedComplexType.group) ->
+			localComplexType.setId(containedComplexType.id) ->
+			localComplexType.setMixed(containedComplexType.mixed) ->
+			containedComplexType.all != null ? (
+				localComplexType.setAll(containedComplexType.all) ->
+				localComplexType.all.element.setId(null)
+			): null ->
+			containedComplexType.choice != null ? (
+				localComplexType.setChoice(containedComplexType.choice) ->
+				localComplexType.choice.element.setId(null)
+			): null ->
+			containedComplexType.sequence != null ? (
+				localComplexType.setSequence(containedComplexType.sequence) ->
+				localComplexType.sequence.element.setId(null)
+			): null ->
+			containedComplexType.simpleContent != null ? localComplexType.setSimpleContent(containedComplexType.simpleContent) : null
+		) : null
+	) : (
+		null
+	);
+
+// removes any top level elements that are created from the transformation as part of the anonymous complex type solution - just a clean up method!	
+cached cleanTopLevelElements(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Element element, List[String] topLevelElementOrAttributeNames) :
+	let topLevelElement = schemaTypeList.eAllContents.typeSelect(xmlSchema::TopLevelElement).select(e|e.name == element.type.localPart).first() :
+	topLevelElementOrAttributeNames.contains(topLevelElement.name + "_elem_" + ((SchemaType)topLevelElement.eRootContainer.schema).targetNamespace) == false ? (
+		topLevelElement != null ? (	
+			let parentSchema = topLevelElement.eContainer :		
+			element.setType(null) ->
+			topLevelElement.setComplexType(null) ->
+			parentSchema.element.remove(topLevelElement)
+		) : (
+			element.setType(null)
+		)
+	) : null;
+
+// enforces the element is set a type of anyType rather than leaving it black or set in the restriction base (which is invalid anyway)	
+cached fixAnyTypes(Element element) :	
+	element.setType(element.simpleType.restriction.base) ->
+	element.setSimpleType(null);	
+	
+// this is mainly for user defined boms because we want to also collect all of the inner packages and add them to our package list ready for trnasformation
+cached getAllPackages(Package package, Collection[Package] packages) :	
+	package.metaType.isInstance(Model) == false ? (
+		packages.add(package)
+	) : null ->
+	
+	package.packagedElement.typeSelect(Package).size > 0 ? (
+		package.packagedElement.typeSelect(Package).collect(e|getAllPackages(e, packages))		
+	) : (
+		null
+	); 
+	
+cached parseEachPackage(ExportTransformationData data, Package package, Collection[xmlSchema::SchemaType] schemaTypeList, String bomFullPathUri) :
+	package.packagedElement.typeSelect(Package).collect(e|parseEachPackage(data, e, schemaTypeList, bomFullPathUri)) ->
+	(
+		let docRoot = createDocumentRoot(data, package, bomFullPathUri) :
+		docRoot != null ? schemaTypeList.add(docRoot) : null
+	);
+ 	
+cached parsePackages(ExportTransformationData data, Model model, Collection[xmlSchema::SchemaType] schemaTypeList, String bomFullPathUri) :
+	model.packagedElement.typeSelect(Package).collect(e|parseEachPackage(data, e, schemaTypeList, bomFullPathUri)) ->		
+	(
+		let docRoot = createDocumentRoot(data, model, bomFullPathUri) :
+		docRoot != null ? schemaTypeList.add(docRoot) : null
+	);			
+	
+cached addMissedImports(ExportTransformationData data, Collection[Package] packageList, Collection[xmlSchema::SchemaType] schemaTypeList, Package parentPkg) :
+	schemaTypeList.collect(e | (
+		e.simpleType.collect(s | (
+			s.union.memberTypes != null ? (
+				updateUnionImports(data, s, e, packageList, schemaTypeList)				 
+			) : null
+		))		
+	)) ->			
+	parentPkg.nestedPackage.collect(e | addMissedImport(data, schemaTypeList, parentPkg, e));
+
+cached addMissedImport(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Package parentPkg, Package nestedPkg) :
+	let parentPkgSchema = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.targetNamespace == getNamespace(parentPkg,true)).first() :
+	let nestedPkgSchema = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.targetNamespace == getNamespace(nestedPkg,true)).first() :	
+	addImportType(data, nestedPkgSchema, parentPkgSchema, nestedPkg, getPrefix(data, nestedPkg), nestedPkgSchema.targetNamespace);
+	
+addAttributeToComplexType(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Property property, ComplexType containerComplexType, Collection[Package] packageList) :	
+	traceMe("addAttributeToComplexType") ->
+	containerComplexType != null ? (
+		let localElement = new LocalElement : // we will either use element or attribute depending on simplecontent or not
+		let attribute = new Attribute :
+		let anyType = new AnyType :
+		let anyAttributeWildCard = new Wildcard :
+		let xrefId = getXRefID(property) :
+		let propertyRefName = getPropertyRefName(data, property) :
+		let propertyTypeOrRefName = (
+			propertyRefName != null ? propertyRefName : getPropertyTypeName(data, property)
+		) :
+		let propertySchema = (
+			schemaTypeList.size == 1 ? schemaTypeList.first() : getPropertySchema(schemaTypeList, property)
+		) :				
+		let propertyTypeSchema = (
+			schemaTypeList.size == 1 ? schemaTypeList.first() : getPropertyTypeSchema(schemaTypeList, property)
+		) :
+		
+		let propertyTypePackageName = _getNearestPackageName(property.type) : 
+		let isDefaultPrimitiveType = isDefaultPrimitiveType(propertyTypeOrRefName, propertyTypePackageName) :
+		
+		let parentClass = (Class) property.eContainer :
+		let propertyComplexType = propertyTypeSchema.complexType.select(e|e.name == propertyTypeOrRefName).first() :
+		let isAttribute = isAttribute(property) :		
+		let isObjectAnyType = isObjectAnyType(property, "xsdAny") : 
+		let isObjectAnyAttribute = isObjectAnyType(property, "xsdAnyAttribute") :
+		let isAllMultiplicitySet = (
+			let appliedClassStereotype = parentClass.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :	
+			appliedClassStereotype != null && getStereotypeValue(parentClass, appliedClassStereotype, "xsdIsAllMultiplicitySet") == true
+		) :
+		let appliedPropertyStereotype = property.getAppliedStereotypes().select(e|e.name == "XsdBasedProperty").first() :
+		propertyTypeSchema.complexType.collect(e|traceMe("comp = " +e.name)) ->
+		isObjectAnyType || isObjectAnyAttribute ? (
+			let stereoType = getStereotypedProperty(property) :						
+			let tmpNamespace = getStereotypeValue(property, appliedPropertyStereotype, "xsdNamespace") :
+			let tmpProcessContents = getStereotypeValue(property, appliedPropertyStereotype, "xsdProcessContents") :
+			let appliedModelStereotype = parentClass.getModel().getAppliedStereotypes().select(e|e.name == "XsdBasedModel").first() :		
+			addFeatureMapEntry(anyType.anyAttribute, property.name, "name")  ->	
+			addFeatureMapEntry(anyAttributeWildCard.anyAttribute, property.name, "name")  ->			
+			tmpNamespace != null ? (
+				let splitList = tmpNamespace.split(" ") :
+				let tmpList = {} :
+				splitList.select(e|e!=null && e.trim().length > 0).collect(e|tmpList.add(e.toString())) ->
+				switch(tmpNamespace) {
+					case "##other": (
+						anyType.setNamespace(NamespaceListMember0::other) ->
+						anyAttributeWildCard.setNamespace(NamespaceListMember0::other)
+					)
+					case "##any": (
+						anyType.setNamespace(NamespaceListMember0::any) ->
+						anyAttributeWildCard.setNamespace(NamespaceListMember0::any)
+					)					
+					default: (											
+						anyType.setNamespace(tmpList) ->
+						anyAttributeWildCard.setNamespace(tmpList)
+					)						
+				} ->
+				switch(tmpNamespace) {
+					case "[##targetNamespace]": (
+						anyType.setNamespace({NamespaceListMember1ItemMember1::targetNamespace}) ->
+						anyAttributeWildCard.setNamespace({NamespaceListMember1ItemMember1::targetNamespace})
+					)
+					case "[##local]": (
+						anyType.setNamespace({NamespaceListMember1ItemMember1::local}) ->
+						anyAttributeWildCard.setNamespace({NamespaceListMember1ItemMember1::local})
+					)					
+					default: (											
+						anyType.setNamespace(tmpList) ->
+						anyAttributeWildCard.setNamespace(tmpList)
+					)				
+				}				
+			) : null ->
+			tmpProcessContents != null ?( 
+				switch(tmpProcessContents) {
+					case "lax": (
+						anyType.setProcessContents(ProcessContentsType::lax) ->
+						anyAttributeWildCard.setProcessContents(ProcessContentsType::lax)
+					)
+					case "skip": (
+						anyType.setProcessContents(ProcessContentsType::skip) ->
+						anyAttributeWildCard.setProcessContents(ProcessContentsType::skip)
+					)
+					case "strict": (
+						anyType.setProcessContents(ProcessContentsType::strict) ->
+						anyAttributeWildCard.setProcessContents(ProcessContentsType::strict)
+					)
+					default:
+						null
+				}					
+			) : null ->
+			appliedModelStereotype == null ? (
+				isObjectAnyType ? anyType.setProcessContents(ProcessContentsType::lax) : null ->
+				isObjectAnyAttribute ? anyAttributeWildCard.setProcessContents(ProcessContentsType::lax) : null 
+			): null
+		) : null ->		
+
+		isObjectAnyAttribute ? (
+			containerComplexType.simpleContent == null && containerComplexType.complexContent == null ? containerComplexType.setAnyAttribute1(anyAttributeWildCard) : null 
+		): null ->
+
+		property.ownedComment.size > 0 ? attribute.setAnnotation(createAnnotationType(property.ownedComment.first().body)) : null ->		
+		(propertyTypeSchema != propertySchema) && (propertySchema != null) && (propertyTypeSchema != null) ? (
+			addImportType(data, propertyTypeSchema, propertySchema, ((PrimitiveType)property.type).package, getPrefix(data, ((PrimitiveType)property.type).package), propertyTypeSchema.targetNamespace)
+		) : null ->
+		//(propertyTypeSchema != propertySchema) && (propertySchema != null) && (propertyTypeSchema != null) ? (addImportType(propertySchema, propertyTypeSchema, getPrefix(data, parentClass.package), propertySchema.targetNamespace)) : null ->			
+		localElement.setName(property.name) ->	
+		// XPD-2569: adding ecore:name 
+		addFeatureMapEntry(localElement.anyAttribute, property.name, "name") ->
+		data.addOriginalName(localElement, getOriginalName(property)) ->	
+		localElement.setMinOccurs(getPropertyMinOccurs(property)) ->
+		localElement.setMaxOccurs(getPropertyMaxOccurs(property)) ->		
+		anyType.setMinOccurs(getPropertyMinOccurs(property)) ->
+		anyType.setMaxOccurs(getPropertyMaxOccurs(property)) ->
+		attribute.setName(property.name) ->
+		// XPD-2569: adding ecore:name 
+		addFeatureMapEntry(attribute.anyAttribute, property.name, "name") ->
+		data.addOriginalName(attribute, getOriginalName(property)) ->
+		xrefId == null || xrefId.trim().length == 0 ? null : (
+			localElement.setId(xrefId) ->
+			//localElement.setAnnotation(createAnnotationType("xsdID="+xrefId)) ->
+			attribute.setId(xrefId) ->
+			//attribute.setAnnotation(createAnnotationType("xsdID="+xrefId))
+			anyType.setId(xrefId) ->
+			anyAttributeWildCard.setId(xrefId)
+		) ->	
+		
+		isObjectAnyAttribute ? (
+			let complexContentExtension = containerComplexType.complexContent.^extension :			
+			let complexContentRestriction = containerComplexType.complexContent.restriction :
+			let simpExtension = containerComplexType.simpleContent.^extension :			
+			let simpRestriction = containerComplexType.simpleContent.restriction :
+			complexContentExtension == null	? null : (				
+				complexContentExtension.setAnyAttribute1(anyAttributeWildCard)						
+			) ->
+			complexContentRestriction == null	? null : (				
+				complexContentRestriction.setAnyAttribute1(anyAttributeWildCard)						
+			) ->
+			simpExtension == null	? null : (				
+				simpExtension.setAnyAttribute1(anyAttributeWildCard)						
+			) ->
+			simpRestriction == null	? null : (				
+				simpRestriction.setAnyAttribute1(anyAttributeWildCard)						
+			)
+		) : (
+			isDefaultPrimitiveType == true ? (			
+				getStereotypeType(data, property) == null ? (
+					setElementType(data, property, getPropertyQName(data, property, getStereotypeRef(data, property)), localElement, packageList, schemaTypeList) ->
+					setAttributeType(data, property, getPropertyQName(data, property, getStereotypeRef(data, property)), attribute, packageList, schemaTypeList)
+				) : (
+					setElementType(data, property, getPropertyQName(data, property, getStereotypeType(data, property)), localElement, packageList, schemaTypeList) ->			
+					setAttributeType(data, property, getPropertyQName(data, property, getStereotypeType(data, property)), attribute, packageList, schemaTypeList)
+				)						
+			) : (
+				propertyComplexType == null ? (			
+					propertyTypeOrRefName == null ? null : (	
+						// this is the set element type that gets called for restrictions
+						setElementType(data, property, createQName(propertyTypeSchema.targetNamespace,propertyTypeOrRefName), localElement, packageList, schemaTypeList) ->
+						setAttributeType(data, property, createQName(propertyTypeSchema.targetNamespace,propertyTypeOrRefName), attribute, packageList, schemaTypeList)
+					)
+				) : (				
+					let propertyType = getPropertyTypeName(data, property) :
+					propertyType == null ? null : (
+						localElement.setType(createQName(propertyTypeSchema.targetNamespace,getLocalPart(propertyType))) ->
+						attribute.setType(createQName(propertyTypeSchema.targetNamespace,getLocalPart(propertyType)))
+					)
+				)
+			) ->		
+			containerComplexType.simpleContent == null ?			
+			(				
+				containerComplexType.complexContent == null ? (
+					isAttribute == true ?  (
+						let existingAttribute = containerComplexType.attribute.select(e|e.id == attribute.id).first() :
+						existingAttribute == null ? containerComplexType.attribute.add(attribute) : null 
+					): ( 
+						let explicitGroup = getElementSequence(data, containerComplexType, property) :
+						isObjectAnyType == true ? (						
+							addSortAnyTypeToExplicitGroup(anyType, explicitGroup, parentClass)
+						) : (
+							let alreadyExists = (						
+								localElement.name == null ? null :	explicitGroup.element.select(e | e.name == localElement.name).first()
+							) :					
+							alreadyExists == null ? (
+								addSortElementToExplicitGroup(localElement, explicitGroup, parentClass)
+							) : null
+						)
+					)
+				) : (
+					let complexContentExtension = containerComplexType.complexContent.^extension :			
+					let complexContentRestriction = containerComplexType.complexContent.restriction :
+					complexContentExtension != null ? (
+						let alreadyExists = (
+							isAttribute == true ? (
+								attribute.name == null ? null : complexContentExtension.attribute.select(e | e.name == attribute.name).first() 
+							) : (
+								localElement.name == null ? null : (
+									isAllContainer(data, property) ? complexContentExtension.all.element.select(e | e.name == localElement.name).first() : complexContentExtension.sequence.element.select(e | e.name == localElement.name).first()								
+								)
+							) 
+						) :						
+						alreadyExists == null ? (
+							isAttribute == true ? complexContentExtension.attribute.add(attribute) : (
+								isAllContainer(data, property) ? (
+									let all = createAll(complexContentExtension) :						
+									isAllMultiplicitySet == true ? (
+										all.setMinOccurs(0) ->
+										all.setMaxOccurs(1)
+									) : null ->									
+									isObjectAnyType == true ? (
+										containerComplexType.all != null ? (
+											all.any.addAll(containerComplexType.all.any) ->									
+											containerComplexType.setAll(null)
+										) : null ->
+										all.any.add(anyType)
+									) : (
+										containerComplexType.all != null ? (
+											all.element.addAll(containerComplexType.all.element) ->									
+											containerComplexType.setAll(null)
+										) : null ->
+										all.element.add(localElement)
+									)
+								) : (							
+									let explicitGroup =	getElementSequence(data, containerComplexType, property) :									 					
+									isObjectAnyType == true ? (										
+										explicitGroup.any.add(anyType)
+									) : (										
+										explicitGroup.element.add(localElement)
+									)
+								)
+							)
+						) : null
+					) : (
+						let alreadyExists = (
+							isAttribute == true ? (
+								attribute.name == null ? null : complexContentRestriction.attribute.select(e | e.name == attribute.name).first()
+							) : (
+								localElement.name == null ? null : (
+									isAllContainer(data, property) ? complexContentRestriction.all.element.select(e | e.name == localElement.name).first() : complexContentRestriction.sequence.element.select(e | e.name == localElement.name).first()
+								)
+							) 
+						) :
+						alreadyExists == null ? (
+							isAttribute == true ? complexContentRestriction.attribute.add(attribute) : (
+								isAllContainer(data, property) ? (
+									let all = createAll(complexContentRestriction) :
+									isAllMultiplicitySet == true ? (
+										all.setMinOccurs(0) ->
+										all.setMaxOccurs(1)
+									) : null ->	
+									isObjectAnyType == true ? (
+										containerComplexType.all != null ? (
+											all.any.addAll(containerComplexType.all.any) ->									
+											containerComplexType.setAll(null)
+										) : null ->								
+										all.any.add(anyType)
+									) : (
+										containerComplexType.all != null ? (
+											all.element.addAll(containerComplexType.all.element) ->									
+											containerComplexType.setAll(null)
+										) : null ->								
+										all.element.add(localElement)
+									)
+								) : (
+									let explicitGroup = getElementSequence(data, containerComplexType, property) :	
+									isObjectAnyType == true ? (												
+										explicitGroup.any.add(anyType)
+									) : (																		
+										explicitGroup.element.add(localElement)
+									)
+								)
+							)
+						) : null
+					)					
+				)
+			) : (			
+				let simpExtension = containerComplexType.simpleContent.^extension :			
+				let simpRestriction = containerComplexType.simpleContent.restriction :			
+				let simpleAttributes = (			
+					simpExtension != null ? (					
+						simpExtension.attribute
+					) : (					
+						simpRestriction.attribute
+					)
+				) :
+				let alreadyExists = (
+					attribute.name == null ? null : simpleAttributes.select(e | e.name == attribute.name).first() 
+				) :
+				alreadyExists == null ? (												
+					simpleAttributes.add(attribute)
+				) : null			
+			)		
+		) 
+	) : (
+		null
+	);
+	
+cached updateUnionImports(ExportTransformationData data, SimpleType simpleType, xmlSchema::SchemaType schemaType, Collection[Package] packageList, Collection[xmlSchema::SchemaType] schemaTypeList) :
+	simpleType.union.memberTypes.collect(e | (	
+	let tmpTargetPrefix = (
+		e.prefix != null && e.prefix.trim().length > 0 ? e.prefix : getPrefixPart(e.localPart).replaceFirst("http:","") 
+	):
+	let currentPrefix = data.getPrefixForNamespace(schemaType.targetNamespace) :	
+	traceMe("updateUnionImports "+ simpleType.union.memberTypes) ->
+	tmpTargetPrefix != null && tmpTargetPrefix != "xsd" && tmpTargetPrefix != currentPrefix ? (					
+		let targetSchema = (			
+			let tmpSchema = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.targetNamespace == data.getNamespaceForPrefix(tmpTargetPrefix)).first() :
+			tmpSchema != null ? tmpSchema : schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|data.getJavaPackageNameFromURI(e.targetNamespace) == data.getNamespaceForPrefix(tmpTargetPrefix)).first() 
+		) :	
+		let targetPkg = (
+			packageList.collect(e | (
+				let appliedModelStereotype = e.getAppliedStereotypes().select(e|e.name == "XsdBasedModel").first() :
+				let tmpNamespace = getStereotypeValue(e, appliedModelStereotype, "xsdTargetNamespace") :
+				tmpNamespace == targetSchema.targetNamespace ? e : null
+			)).selectFirst(e | e != null)
+		) :
+		targetSchema != null ? addImportType(data, targetSchema, schemaType, targetPkg, tmpTargetPrefix, targetSchema.targetNamespace) : null
+	) : null
+) );
+	
+cached boolean isAnonymousDataType(DataType dataType) :
+	let appliedPrimitiveStereotype = dataType.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() :
+	let xsdIsAnonUnionSimpleType = getStereotypeValue(dataType, appliedPrimitiveStereotype, "xsdIsAnonType") :
+	xsdIsAnonUnionSimpleType == true;
+	
+cached processUnionType(ExportTransformationData data, DataType dataType, Object elementOrAttr, xmlSchema::SchemaType schemaType, Collection[Package] packageList, Collection[xmlSchema::SchemaType] schemaTypeList) :
+	let appliedPrimitiveStereotype = dataType.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() :
+	let simpleTypeName = getStereotypeValue(dataType, appliedPrimitiveStereotype, "xsdSimpleTypeName") :
+	let simpleType = schemaType.simpleType.select(e | e.name == simpleTypeName).first() :
+	let appliedUnionTypeStereotype = dataType.getAppliedStereotypes().select(e|e.name == "XsdBasedUnion").first() :
+	let parentContainer = elementOrAttr.eContainer :
+	xmlSchema::SchemaType.isInstance(parentContainer) || isAnonymousDataType(dataType) ? (	
+		appliedUnionTypeStereotype == null ? null : (
+			let localSimpleType = new LocalSimpleType :
+			let unionType = new UnionType :		
+			elementOrAttr.setType(null) ->			
+			elementOrAttr.setSimpleType(null) ->		
+		    simpleType.union.id != null ? unionType.setID(simpleType.union.id) : null ->
+			simpleType.union.simpleType != null ? unionType.setSimpleType(simpleType.union.simpleType) : null ->		
+			simpleType.union.memberTypes != null ? (
+				updateUnionImports(data, simpleType, schemaType, packageList, schemaTypeList) ->
+				setMemberTypesList(unionType, simpleType.union.memberTypes) 
+			) : null ->		
+			localSimpleType.setUnion(unionType) ->
+			// XPD-2569: adding ecore:name 
+			addFeatureMapEntry(localSimpleType.anyAttribute, dataType.name, "name")  ->
+			elementOrAttr.setSimpleType(localSimpleType) ->
+		    schemaType.simpleType.remove(simpleType)	    
+		)
+	) : null;
+
+cached setAttributeType(ExportTransformationData data, Property property, QName qName, Attribute attribute, Collection[Package] packageList, Collection[xmlSchema::SchemaType] schemaTypeList) :
+	let stereoType = getStereotypedProperty(property) :
+	let appliedPropertyStereotype = property.getAppliedStereotypes().select(e|e.name == "XsdBasedProperty").first() :
+	let propertyType = property.type :
+	let appliedPropertyTypeStereotype = (		
+		DataType.isInstance(propertyType) ? propertyType.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() : null		
+	) :
+	let isFinal = (			
+		let tmpFinal = (
+			DataType.isInstance(propertyType) ? getStereotypeValue(propertyType, appliedPropertyTypeStereotype, "xsdSimpleTypeFinal")  : null
+		) :
+		(tmpFinal == null || tmpFinal.trim().length == 0) ? false : true	
+	) :
+	let isAnonType = (
+		appliedPropertyTypeStereotype == null ? false : (
+			 getStereotypeValue(propertyType, appliedPropertyTypeStereotype, "xsdIsAnonType")
+		)
+	) :
+	let simpleType = new LocalSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let tmpPackage = propertyType.getNearestPackage() :	
+	let ref = getStereotypeValue(property, appliedPropertyStereotype, "xsdRef") :
+	let appliedModelStereotype = tmpPackage.getAppliedStereotypes().select(e|e.name == "XsdBasedModel").first() :
+	let stereotypeTargetNamespace = (
+		let tmpNamespace = getStereotypeValue(tmpPackage, appliedModelStereotype, "xsdTargetNamespace") :
+		tmpNamespace != null ? tmpNamespace : getNamespace(tmpPackage,true) 
+	):	
+	let propertySchema = (
+		schemaTypeList.size == 1 ? schemaTypeList.first() : getPropertySchema(schemaTypeList, property)
+	) :	
+	ref == null ? (		
+		isKnownXSDType("xsd:"+getLocalPart(qName.localPart)) ? restrictionType.setBase(getQName(propertySchema,"xsd:"+getLocalPart(qName.localPart),data.getPrefixForNamespace(propertySchema.targetNamespace))) : (
+			containsXSDPrefix(qName.localPart) ? restrictionType.setBase(createQName(getLocalPart(qName.localPart))) : (
+				qName.namespaceURI == null ? restrictionType.setBase(qName) : (
+					restrictionType.setBase(createQName(qName.namespaceURI,getLocalPart(qName.localPart)))
+				)
+			) 
+		)->
+		stereoType == null ? null : (
+			setRestrictions(data, property, stereoType, restrictionType, attribute) ->
+
+			isKnownXSDType("xsd:"+getLocalPart(qName.localPart)) ? null : (
+				// XPD-2569: adding ecore:name 
+				addFeatureMapEntry(simpleType.anyAttribute, propertyType.name, "name") 	
+			)
+		) ->		
+		// XPD-3997: adding ecore:name. should have been done as part of XPD-2569 but i think we missed out the case with an enum in an attribute
+		isAnonType ? addFeatureMapEntry(simpleType.anyAttribute, propertyType.name, "name") : null ->
+		
+		simpleType.setRestriction(restrictionType) ->	
+		attribute.setSimpleType(simpleType) ->	
+		setOtherStereotypedValues(data, property, attribute, propertySchema) ->
+		removeUnwantedRestrictions(data, restrictionType) ->	
+		(restrictionType.base.localPart.toLowerCase().contains("anysimpletype")) ? (
+			isKnownXSDType(ReplaceFirst(restrictionType.base.localPart,":","xsd:")) ? attribute.setType(restrictionType.base) : null ->				
+			attribute.setSimpleType(null)
+		) : null ->
+		restrictionType.eContents.flatten().size == 0 ? (
+			attribute.setType(restrictionType.base) ->			
+			attribute.setSimpleType(null)
+		) : null ->
+		isFinal == true ? (
+			attribute.setType(restrictionType.base) ->				
+			attribute.setSimpleType(null)
+		) : null ->		
+		(restrictionType.base.localPart.toLowerCase().contains("anytype")) ? (
+			attribute.setType(null) ->			
+			attribute.setSimpleType(null)
+		) : null ->
+		isAttribute(property) == true ? ( 
+			DataType.isInstance(propertyType) ? processUnionType(data, propertyType, attribute, propertySchema, packageList, schemaTypeList) : null
+		) : null 
+	) : (
+		let refNamespace = (
+			let tmpNamespace = getPrefixPart(ref) :
+			tmpNamespace == null ? stereotypeTargetNamespace : tmpNamespace
+		) :
+		let tmpPrefix = (
+			let tmpNamespace = getPrefixPart(ref) :
+			tmpNamespace == null ? getPrefix(data, tmpPackage) : data.getPrefixForNamespace(tmpNamespace)
+		) :
+		isKnownXSDType(qName.localPart) ? attribute.setRef(createQName(qName.localPart)) : attribute.setRef(createQName(refNamespace,getLocalPart(ref),tmpPrefix)) ->
+		attribute.setType(null) ->
+		attribute.setName(null) ->	
+		(
+			let docRoot = (XmlSchemaDocumentRoot)propertySchema.eContainer :
+			// TODO The collect on XML NS prefix map is unnecessary!!!!
+			docRoot.xMLNSPrefixMap.values().collect(namespace|(
+					let isExists = propertySchema.^import.namespace.contains(refNamespace) :
+					(isExists == false || isExists == null) && refNamespace != propertySchema.targetNamespace ? (
+							let importType = new ImportType :
+							
+							data.debugAddImport("FROMSLETELEMTYPE-"+tmpPrefix,refNamespace) ->
+							
+							importType.setNamespace(refNamespace) ->	
+							importType.setSchemaLocation(data.getFileLocation(refNamespace).replaceFirst("http://","").split("/").last()) ->
+							importType.namespace == null && importType.schemaLocation == null ? null : propertySchema.^import.add(importType)						
+						) : null					
+					)
+			) 
+		) ->	
+		setOtherStereotypedValues(data, property, attribute, propertySchema)		
+	);	
+	
+cached setElementType(ExportTransformationData data, Property property, QName qName, Element element, Collection[Package] packageList, Collection[xmlSchema::SchemaType] schemaTypeList) :
+	let stereoType = getStereotypedProperty(property) :
+	let appliedPropertyStereotype = property.getAppliedStereotypes().select(e|e.name == "XsdBasedProperty").first() :
+	let propertyType = property.type :
+	let appliedPropertyTypeStereotype = (		
+		Class.isInstance(propertyType) ? propertyType.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first()  : (
+			DataType.isInstance(propertyType) ? propertyType.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() : null
+		)	
+	) :
+	let isFinal = (			
+		let tmpFinal = (
+			Class.isInstance(propertyType) ? getStereotypeValue(propertyType, appliedPropertyTypeStereotype, "xsdFinal") : (
+				DataType.isInstance(propertyType) ? getStereotypeValue(propertyType, appliedPropertyTypeStereotype, "xsdSimpleTypeFinal") : null
+			)
+		) :
+		(tmpFinal == null || tmpFinal.trim().length == 0) ? false : true	
+	) :
+	let isAnonType = (
+		appliedPropertyTypeStereotype == null ? false : (
+			 getStereotypeValue(propertyType, appliedPropertyTypeStereotype, "xsdIsAnonType")
+		)
+	) :
+	let simpleType = new LocalSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let ref = getStereotypeValue(property, appliedPropertyStereotype, "xsdRef") :
+	let tmpPackage = propertyType.getNearestPackage() :
+	let appliedModelStereotype = tmpPackage.getAppliedStereotypes().select(e|e.name == "XsdBasedModel").first() :
+	let stereotypeTargetNamespace = (
+		let tmpNamespace = getStereotypeValue(tmpPackage, appliedModelStereotype, "xsdTargetNamespace") :
+		tmpNamespace != null ? tmpNamespace : getNamespace(tmpPackage,true) 
+	):
+	let propertySchema = (
+		schemaTypeList.size == 1 ? schemaTypeList.first() : getPropertySchema(schemaTypeList, property)
+	) :	
+
+	traceMe("property name= " + property.name) ->
+	
+	ref == null ? (	
+		isKnownXSDType("xsd:"+getLocalPart(qName.localPart)) ? restrictionType.setBase(getQName(propertySchema,"xsd:"+getLocalPart(qName.localPart),data.getPrefixForNamespace(propertySchema.targetNamespace))) : (
+			restrictionType.setBase(createQName(stereotypeTargetNamespace,getLocalPart(qName.localPart),getPrefix(data, tmpPackage)))
+			//containsXSDPrefix(qName.localPart) ? restrictionType.setBase(createQName(getLocalPart(qName.localPart))) : restrictionType.setBase(qName) 
+		) ->
+		
+		stereoType == null ? null : (
+			setRestrictions(data, property, stereoType, restrictionType, null) ->
+			setElementRestrictions(property, stereoType, restrictionType, element) ->	
+			
+			isKnownXSDType("xsd:"+getLocalPart(qName.localPart)) ? null : (				
+				// XPD-2569: adding ecore:name 
+				isAnonType ? addFeatureMapEntry(simpleType.anyAttribute, propertyType.name, "name") : null
+			)
+		) ->
+		// XPD-2569: adding ecore:name 
+		isAnonType ? addFeatureMapEntry(simpleType.anyAttribute, propertyType.name, "name") : null ->
+		
+		simpleType.setRestriction(restrictionType) ->	
+		element.setSimpleType(simpleType) ->
+		setOtherStereotypedValues(data, property, element, propertySchema) ->	
+		removeUnwantedRestrictions(data, restrictionType) ->
+		traceMe("property type prefix= " + element.type.prefix) ->
+		traceMe("property type localpart= " + element.type.localPart) ->
+		(element.type != null && element.type.localPart.toLowerCase().contains("anysimpletype") == false) ? (
+			let tmpQName = element.type :
+			isKnownXSDType("xsd:"+getLocalPart(tmpQName.localPart)) ? restrictionType.setBase(getQName(propertySchema,"xsd:"+getLocalPart(tmpQName.localPart),data.getPrefixForNamespace(propertySchema.targetNamespace))) : (
+				restrictionType.setBase(createQName(stereotypeTargetNamespace,getLocalPart(tmpQName.localPart),getPrefix(data, tmpPackage)))
+				//containsXSDPrefix(tmpQName.localPart) ? restrictionType.setBase(createQName(getLocalPart(tmpQName.localPart))) : restrictionType.setBase(tmpQName) 
+			)->			
+			element.setType(null)			
+		) : null ->		
+		isObjectAnyType(property, "xsdAnySimpleType") ? (				
+			element.setType(createQName("xsd:anySimpleType")) ->			
+			element.setSimpleType(null)
+		) : (
+			isObjectAnyType(property, "xsdAnyType") ? (				
+				element.setType(createQName("xsd:anyType")) ->			
+				element.setSimpleType(null)
+			) : (
+				restrictionType.eContents.flatten().size == 0 ? (
+					element.setType(restrictionType.base) ->			
+					element.setSimpleType(null)
+				) : null
+			)
+		) ->
+		//) : null ->
+		Class.isInstance(propertyType) || (TopLevelElement.isInstance(element) && data.allTopLevelElementsReferencedBySubstitutionGroups.contains(element.name)) ? (
+			Class.isInstance(propertyType) && isAnonymousTopLevelElement(propertyType) ? (				
+				let name = getAnonymousTopLevelElementName(propertyType) :
+				// XPD-2569: after applying changes from XPD-2569, the fix for XPD-3194 to addFeatureMapEntry is no more required
+				// for XPD-3194: attribute in a user defined bom refers to element from imported schema, then element node must contain ecore:name
+				//addFeatureMapEntry(element.anyAttribute, element.name, "name")->
+				element.setType(null) ->
+				element.setName(null) ->
+				element.setRef(createQName(restrictionType.base.namespaceURI,name,restrictionType.base.prefix))
+			) : ( 
+				element.setType(restrictionType.base)
+			) ->
+			element.setSimpleType(null)
+		) : null ->	
+		isFinal == true ? (
+			element.setType(restrictionType.base) ->				
+			element.setSimpleType(null)
+		) : null ->			
+		isAttribute(property) == false ? (			
+			DataType.isInstance(propertyType) ? processUnionType(data, propertyType, element, propertySchema, packageList, schemaTypeList) : null
+		) : null		
+	) : (		
+		let refNamespace = (
+			let tmpNamespace = getPrefixPart(ref) :
+			tmpNamespace == null ? stereotypeTargetNamespace : tmpNamespace
+		) :
+		let tmpPrefix = (
+			let tmpNamespace = getPrefixPart(ref) :
+			tmpNamespace == null ? getPrefix(data, tmpPackage) : data.getPrefixForNamespace(tmpNamespace)
+		) :		
+		element.setRef(createQName(refNamespace,getLocalPart(ref),tmpPrefix)) ->
+		element.setType(null) ->
+		element.setName(null) ->		
+		(
+			let docRoot = (XmlSchemaDocumentRoot)propertySchema.eContainer :
+			// TODO The collect on XML NS prefix map is unnecessary!!!!
+			docRoot.xMLNSPrefixMap.values().collect(namespace|(
+					let isExists = propertySchema.^import.namespace.contains(refNamespace) :
+					(isExists == false || isExists == null) && refNamespace != propertySchema.targetNamespace ? (
+							let importType = new ImportType :
+							
+							data.debugAddImport("FROMSLETELEMTYPE-"+tmpPrefix,refNamespace) ->
+							
+							importType.setNamespace(refNamespace) ->	
+							importType.setSchemaLocation(data.getFileLocation(refNamespace).replaceFirst("http://","").split("/").last()) ->
+							importType.namespace == null && importType.schemaLocation == null ? null : propertySchema.^import.add(importType)						
+						) : null					
+					)
+			) 
+		) ->		
+		setOtherStereotypedValues(data, property, element, propertySchema)		
+	);
+	
+setOtherStereotypedValues(Class tempClass, ComplexType complexType) :
+	let appliedClassStereotype = tempClass.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :	
+	appliedClassStereotype == null || complexType == null ? null : (
+		//let tempName = getStereotypeValue(tempClass, appliedClassStereotype, "xsdName") :
+		let tempId = getStereotypeValue(tempClass, appliedClassStereotype, "xsdId") :
+		let tempMixed = getStereotypeValue(tempClass, appliedClassStereotype, "xsdMixed") :
+		let tempAbstract = getStereotypeValue(tempClass, appliedClassStereotype, "xsdAbstract") :
+		//tempName != null && tempName.trim().length > 0 ? complexType.setName(tempName) : null ->				
+		tempId != null && tempId.trim().length > 0 ? complexType.setId(tempId) : null ->		
+		tempMixed != null && tempMixed.trim().length > 0 ? complexType.setMixed(toBoolean(tempMixed)) : null ->
+		tempAbstract != null && tempAbstract.trim().length > 0 ? complexType.setAbstract(toBoolean(tempAbstract)) : null ->
+		setElementOrComplexBlock(tempClass, complexType) ->
+		setElemComplexOrSimpleFinal(tempClass, complexType)
+	);
+	
+setOtherStereotypedValues(Class tempClass, Element element) :
+	let appliedClassStereotype = tempClass.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :	
+	appliedClassStereotype == null || element == null ? null : (
+		//let tempName = getStereotypeValue(tempClass, appliedClassStereotype, "xsdName") :
+		let tempId = getStereotypeValue(tempClass, appliedClassStereotype, "xsdId") :		
+		let tempAbstract = getStereotypeValue(tempClass, appliedClassStereotype, "xsdAbstract") :
+		//tempName != null && tempName.trim().length > 0 ? element.setName(tempName) : null ->				
+		tempId != null && tempId.trim().length > 0 ? element.setId(tempId) : null ->
+		tempAbstract != null && tempAbstract.trim().length > 0 ? element.setAbstract(toBoolean(tempAbstract)) : null ->
+		setElementOrComplexBlock(tempClass, element) ->
+		setElemComplexOrSimpleFinal(tempClass, element)
+	);
+	
+setOtherStereotypedValues(Class tempClass, Group group) :
+	let appliedClassStereotype = tempClass.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :	
+	appliedClassStereotype == null || group == null ? null : (
+		//let tempName = getStereotypeValue(tempClass, appliedClassStereotype, "xsdName") :
+		let tempId = getStereotypeValue(tempClass, appliedClassStereotype, "xsdId") :		
+		//tempName != null && tempName.trim().length > 0 ? group.setName(tempName) : null ->				
+		tempId != null && tempId.trim().length > 0 ? group.setId(tempId) : null
+	);
+
+setOtherStereotypedValues(Class tempClass, AttributeGroup attributeGroup) :
+	let appliedClassStereotype = tempClass.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :	
+	appliedClassStereotype == null || attributeGroup == null ? null : (
+		//let tempName = getStereotypeValue(tempClass, appliedClassStereotype, "xsdName") :
+		let tempId = getStereotypeValue(tempClass, appliedClassStereotype, "xsdId") :		
+		//tempName != null && tempName.trim().length > 0 ? attributeGroup.setName(tempName) : null ->				
+		tempId != null && tempId.trim().length > 0 ? attributeGroup.setId(tempId) : null
+	);
+	
+setOtherStereotypedValues(ExportTransformationData data, Property property, Attribute attribute, SchemaType schemaType) :	
+	let appliedPropertyStereotype = property.getAppliedStereotypes().select(e|e.name == "XsdBasedProperty").first() :
+	let appliedPrimitiveStereotype = property.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() :	
+	let parentClass = (Class) property.eContainer :
+	appliedPropertyStereotype == null || attribute == null ? null : (
+		//let tempName = getStereotypeValue(property, appliedPropertyStereotype, "xsdName") :
+		let type = getStereotypeValue(property, appliedPropertyStereotype, "xsdType") :
+		let form = getStereotypeValue(property, appliedPropertyStereotype, "xsdForm") :
+		let tempDefault = getStereotypeValue(property, appliedPropertyStereotype, "xsdDefault") :
+		let tempId = getStereotypeValue(property, appliedPropertyStereotype, "xsdId") :
+		let fixed = getStereotypeValue(property, appliedPropertyStereotype, "xsdFixed") :
+		let ref = getStereotypeValue(property, appliedPropertyStereotype, "xsdRef") :
+		let use = getStereotypeValue(property, appliedPropertyStereotype, "xsdUse") :		
+		
+		//tempName != null && tempName.trim().length > 0 ? attribute.setName(tempName) : null ->
+		type != null && type.trim().length > 0 ? (					
+			let qname = createQName(ReplaceFirst(type,":","xsd:")) :			
+			//setAttributeType(property, qname, attribute)
+			//attribute.setType(qname)
+			null
+		) : null ->
+		form != null && form.trim().length > 0 ? (
+			form == "qualified" ? attribute.setForm(FormChoice::qualified) : null -> 
+			form == "unqualified" ? attribute.setForm(FormChoice::unqualified) : null			
+		) : null ->
+		tempDefault != null && tempDefault.trim().length > 0 ? (
+			attribute.setDefault(tempDefault) -> attribute.setUse(UseType::optional)
+		) : null ->
+		tempId != null && tempId.trim().length > 0 ? attribute.setId(tempId) : null ->
+		fixed != null && fixed.trim().length > 0 ? attribute.setFixed(fixed) : null ->
+		ref != null && ref.trim().length > 0 ? (
+			let qname = createQName(ref) :
+			//attribute.setRef(qname)
+			null
+		) : null ->				
+		use != null && use.trim().length > 0 ? (
+			use == "prohibited" ? attribute.setUse(UseType::prohibited) : null -> 
+			use == "optional" ? attribute.setUse(UseType::optional) : null ->
+			use == "required" ? attribute.setUse(UseType::required) : null
+		) : null		
+	) ->
+	appliedPrimitiveStereotype == null || attribute == null ? null : (
+		let simpleTypeName = getStereotypeValue(property, appliedPrimitiveStereotype, "xsdSimpleTypeName") :		
+		let simpleTypeId = getStereotypeValue(property, appliedPrimitiveStereotype, "xsdSimpleTypeId") :				
+		let restrictionId = getStereotypeValue(property, appliedPrimitiveStereotype, "xsdRestrictionId") :
+		let restrictionBase = getStereotypeValue(property, appliedPrimitiveStereotype, "xsdRestrictionBase") :
+		attribute.simpleType == null ? null : (
+			simpleTypeName != null && simpleTypeName.trim().length > 0 ? attribute.simpleType.setName(simpleTypeName) : null ->
+			simpleTypeId != null && simpleTypeId.trim().length > 0 ? attribute.simpleType.setId(simpleTypeId) : null ->			
+			attribute.simpleType.restriction == null ? null : (
+				restrictionId != null && restrictionId.trim().length > 0 ? attribute.simpleType.restriction.setId(restrictionId) : null ->				
+				restrictionBase != null && restrictionBase.trim().length > 0 ? (
+					let type = getPackagableElementTypeName(data, property, ReplaceFirst(restrictionBase,":","xsd:")) :
+					let qName = (					
+						isKnownXSDType(ReplaceFirst(type,":","xsd:")) == false ? (		
+							createQName(type)
+						) : (
+							getQName(schemaType,type,getPrefix(data,parentClass.package))  
+						)
+					) :					
+					attribute.simpleType.restriction.setBase(qName)					
+				) : null ->
+				PrimitiveTypeFacets::RestrictedType.isInstance(property) == false ? setOtherStereotypedPropertyRestrictionValues(data, property, attribute.simpleType.restriction) : null
+			)
+		)
+	);
+	
+parseSimpleContents(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Collection[Package] filteredPackageList, Collection[Package] packageList) :	
+	filteredPackageList.eAllContents.typeSelect(Property).select(e|e.name == "value" && Class.isInstance(e.eContainer) == true && isSimpleContentExtension(e) == true).collect(e|parseSimpleContent(data, schemaTypeList, e, packageList, true)) ->
+	filteredPackageList.eAllContents.typeSelect(Property).select(e|e.name == "value" && Class.isInstance(e.eContainer) == true && isSimpleContentRestriction(e) == true).collect(e|parseSimpleContent(data, schemaTypeList, e, packageList, false));
+
+cached parseSimpleContent(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Property property, Collection[Package] packageList, boolean isExtension) :	
+	let parentClass = (Class) property.eContainer :
+	let containerElementSchema = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.targetNamespace == getNamespace(((Class)property.eContainer).package,true)).first() :
+	let containerComplexType = containerElementSchema.complexType.select(e|e.name == parentClass.name).first() :	
+	containerComplexType.setSimpleContent(createSimpleContent(data, parentClass, schemaTypeList, isExtension));
+
+parseClasses(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Collection[Package] filteredPackageList, Collection[Package] packageList) :	
+	filteredPackageList.eAllContents.typeSelect(Class).sortBy(e | e.name).select(e | 
+		( 
+			data.monitor.subTaskProcessDataType(e.name) ->
+			parseProperties(data, schemaTypeList, e, packageList)
+		) 
+	);
+
+parseProperties(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Class parentCls, Collection[Package] packageList) :
+	let isAnonymousTopLevel = (
+		let appliedClassStereotype = parentCls.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :	
+		appliedClassStereotype != null ? (
+			let tempName = getStereotypeValue(parentCls, appliedClassStereotype, "xsdName") :
+			tempName == null || tempName.trim().length == 0 ? true : (
+				(isAnonymousTopLevelAttribute(parentCls) || isAnonymousTopLevelElement(parentCls))
+			) 
+		) : false
+	) :			
+	isAnonymousTopLevel == false ? ( 
+		let ownedAttributes = parentCls.ownedAttribute.select(e | isSimpleContentExtension(e) == false && isSimpleContentRestriction(e) == false) :
+		
+		ownedAttributes.collect(e | 
+			(			
+				e.association == null ? (					
+					parseProperty(data, schemaTypeList, e, packageList) 
+				): (
+					parseAssociations(data, schemaTypeList, {e.association}, packageList)
+				)				
+			) 
+		)
+	) : null;
+
+parseProperty(ExportTransformationData data, Collection[xmlSchema::SchemaType] schemaTypeList, Property property, Collection[Package] packageList) :	
+	let parentClass = (Class) property.eContainer :
+	let containerElementSchema = (xmlSchema::SchemaType)schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.targetNamespace == getNamespace(((Class)property.eContainer).package,true)).first() :
+	(
+		let containerObj = getComplexOrGroup(containerElementSchema, parentClass.name) :
+		containerObj != null ? (
+			(containerObj.metaType.name == "xmlSchema::ComplexType" || containerObj.metaType.name == "xmlSchema::LocalComplexType" || containerObj.metaType.name == "xmlSchema::TopLevelComplexType") ? (			
+				addAttributeToComplexType(data, schemaTypeList, property, containerObj,packageList)
+			) : null			
+		) : (
+			let element = containerElementSchema.element.select(e|e.name == parentClass.name).first() :
+			element != null ? (
+				let containerComplexType = element.complexType :
+				addAttributeToComplexType(data, schemaTypeList, property, containerComplexType, packageList)
+			) : (
+				let containerComplexType = getComplexWithAnonymousContainer(containerElementSchema, parentClass, packageList) :
+				addAttributeToComplexType(data, schemaTypeList, property, containerComplexType, packageList)
+			)
+		)
+	);
+
+cached parseIncrementalProperty(ExportTransformationData data, SchemaType schemaType, Property property, Collection[Package] packageList) :	
+	let parentClass = (Class) property.eContainer :	
+	let containerObj = getComplexOrGroup(schemaType, parentClass.name) :
+	containerObj != null ? (
+		(containerObj.metaType.name == "xmlSchema::ComplexType" || containerObj.metaType.name == "xmlSchema::LocalComplexType" || containerObj.metaType.name == "xmlSchema::TopLevelComplexType") ? (			
+			addAttributeToComplexType(data, {schemaType}, property, containerObj, packageList)
+		) : null
+	) : (
+		let element = schemaType.element.select(e|e.name == parentClass.name).first() :		
+		element != null ? (
+			let containerComplexType = element.complexType :			
+			addAttributeToComplexType(data, {schemaType}, property, containerComplexType, packageList)
+		) : (
+			let containerComplexType = getComplexWithAnonymousContainer(schemaType, parentClass, {parentClass.getModel()}) :			
+			addAttributeToComplexType(data, {schemaType}, property, containerComplexType, packageList)
+		)
+	);
+
+cached ExplicitGroup addAttributeToComplexType(ComplexType complexType, Attribute attribute) : 
+	let r = new ExplicitGroup:	
+	(complexType.complexContent != null && complexType.complexContent.^extension != null) ? 
+	(
+		let alreadyExists = complexType.complexContent.^extension.attribute.select(e | e.name == attribute.name).first() :
+		alreadyExists == null ? complexType.complexContent.^extension.attribute.add(attribute) : null
+	) 
+	: 
+	(		
+		(complexType.complexContent != null && complexType.complexContent.restriction != null) ? 
+		(
+			let alreadyExists = complexType.complexContent.restriction.attribute.select(e | e.name == attribute.name).first() :
+			alreadyExists == null ? complexType.complexContent.restriction.attribute.add(attribute) : null
+		) 
+		: 
+		(	
+			let alreadyExists = complexType.attribute.select(e | e.name == attribute.name).first() :		
+			alreadyExists == null ? complexType.attribute.add(attribute) : null		
+		)		
+	) ->	
+	r;
+	
+// create a DocumentRoot object and declare depending namespaces.
+// EMF defines the XMLSchema namespace automatically, but this way we avoid using a prefix for it. 
+xmlSchema::XmlSchemaDocumentRoot createDocumentRoot(ExportTransformationData data, Package pkg, String bomFullPathUri):
+	let namespaceForSchema = getNamespace(pkg,true) :
+	let existingParsedSchema = data.parsedOAWSchemas.eAllContents.typeSelect(SchemaType).select(e | e.targetNamespace == namespaceForSchema).first() :	
+	traceMe("namespaceForSchema " + namespaceForSchema) ->
+	traceMe("parsed oaw schemas = " + data.parsedOAWSchemas) ->		
+	//data.parsedOAWSchemas.eAllContents.typeSelect(SchemaType).collect(e|traceMe("inside "+e.targetNamespace)) ->
+	traceMe("existingParsedSchema " + existingParsedSchema) ->
+	data.addIgnoredPackages(null) ->
+	existingParsedSchema != null  ? (
+         //getting from cache
+         traceMe("  ** createDocumentRoot("+namespaceForSchema+"): Pulled from cache.") ->
+         	
+		data.ignoredPackages.add(pkg) ->	
+		data.addPackageForDocRoot(existingParsedSchema.eContainer, pkg) ->		
+		existingParsedSchema.eContainer
+	) : (	
+		let docRoot = new xmlSchema::XmlSchemaDocumentRoot :
+		let tempSchemaType = createSchema(data, pkg) :
+		let annotationType = createAnnotationType("BOMORIGIN::"+bomFullPathUri) :
+		
+		//Creating new schema
+		traceMe("** createDocumentRoot("+namespaceForSchema+"): Creating schema") ->
+					
+		docRoot.setSchema(tempSchemaType) ->
+		docRoot.xMLNSPrefixMap.put("",namespaceForSchema) ->
+		docRoot.xMLNSPrefixMap.put(getPrefix(data, pkg),namespaceForSchema) ->
+		docRoot.xMLNSPrefixMap.put("xsd","http://www.w3.org/2001/XMLSchema") ->	
+		docRoot.xMLNSPrefixMap.put("ecore","http://www.eclipse.org/emf/2002/Ecore") ->
+		
+		// creates simple types for both primitive type and enumerations in the model
+		docRoot.schema.simpleType.addAll(pkg.packagedElement.typeSelect(PrimitiveType).select(e|data.baseTypeTopLevelElements.contains(e) == false && data.baseTypeTopLevelAttributes.contains(e) == false && data.anonymousTopLevelElements.contains(e) == false && data.anonymousTopLevelAttributes.contains(e) == false).collect(e|createSimpleType(data, e, tempSchemaType)).select(e|e != null)) ->
+		docRoot.schema.simpleType.addAll(pkg.packagedElement/*.select(e|isDirty(e) == true)*/.typeSelect(Enumeration).select(e|data.baseTypeTopLevelElements.contains(e) == false && data.baseTypeTopLevelAttributes.contains(e) == false && data.anonymousTopLevelElements.contains(e) == false && data.anonymousTopLevelAttributes.contains(e) == false).select(e|isAnonTypeEnum(e) == false).collect(e|createSimpleType(data, e, tempSchemaType)).select(e|e != null)) ->
+		(
+			// gather all of the classes that do NOT represent top level elements
+			let nonAnonymousTopLevelElementClasses = pkg.packagedElement.typeSelect(Class).select(e|data.anonymousTopLevelElements.contains(e) == false) :
+			
+			// for each class we create a complex type
+			docRoot.schema.complexType.addAll(nonAnonymousTopLevelElementClasses.select(e| isComplexType(e)).collect(e|createComplexType(data, e, docRoot.schema)).select(e|e != null && TopLevelComplexType.isInstance(e))) ->
+			
+			// we do not process groups or attribute groups any longer so this can potentially be removed
+			docRoot.schema.group2.addAll(nonAnonymousTopLevelElementClasses.select(e| isGroup(e)).collect(e|createGroup(e, docRoot.schema)).select(e|e != null)) ->
+			docRoot.schema.attributeGroup.addAll(nonAnonymousTopLevelElementClasses.select(e| isAttributeGroup(e)).collect(e|createAttributeGroup(e, docRoot.schema)).select(e|e != null))
+		) ->
+		
+		pkg.ownedComment.size > 0 ? annotationType.documentation.add(createDocumentationType(pkg.ownedComment.first().body)) : null ->
+		docRoot.schema.setAnnotation({annotationType}) ->		
+	
+		data.addPackageForDocRoot(docRoot, pkg) ->
+		docRoot
+	);
+	 
+
+// create a Schema Object with all its imports, complexTypes and simpleTypes.
+cached xmlSchema::SchemaType createSchema(ExportTransformationData data, Package pkg): 
+	let appliedModelStereotype = pkg.getAppliedStereotypes().select(e|e.name == "XsdBasedModel").first() :
+	let schemaType = new xmlSchema::SchemaType :	
+	let namespace = getNamespace(pkg,true) :
+	let existingSchemaType = null : // (SchemaType)getExistingSchema(pkg.getModel(), namespace) :  (uncomment this if I want the original schema)	
+
+	data.monitor.subTaskCreateSkeletonSchema(namespace) ->
+
+	schemaType.setTargetNamespace(namespace) ->
+	appliedModelStereotype == null ? null : (
+		let attributeFormDefault = getStereotypeValue(pkg, appliedModelStereotype, "xsdAttributeForm") :
+		let elementFormDefault = getStereotypeValue(pkg, appliedModelStereotype, "xsdElementForm") :
+		attributeFormDefault != null && attributeFormDefault.toString() == "qualified" ? schemaType.setAttributeFormDefault(FormChoice::qualified) : null ->
+		elementFormDefault != null && elementFormDefault.toString() == "qualified" ? schemaType.setElementFormDefault(FormChoice::qualified) : null		
+	) ->	
+	data.addFileName(namespace, pkg.qualifiedName) ->		
+	existingSchemaType == null ? schemaType : (
+		existingSchemaType			
+	); 
+	
+TopLevelComplexType createComplexType(ExportTransformationData data, Class cls, xmlSchema::SchemaType schema): 
+	//let existingComplex = data.getComplexForName(schema.targetNamespace + ":" + getOriginalName(cls)) :
+	//existingComplex != null && TopLevelComplexType.isInstance(existingComplex) ? existingComplex : (
+		let r = new TopLevelComplexType:	 
+		let xsdBasedModelStereotype = getXSDNotationStereotype(cls, "XsdBasedClass") :
+		let xsdDocumentRootPropertyValue = getXSDNotationProperty(cls, xsdBasedModelStereotype, "xsdDocumentRoot") :
+		let xrefId = getXRefID(cls) :
+		let isAnonymousType = getStereotypeValue(cls, xsdBasedModelStereotype, "xsdIsAnonType") :		
+		
+		data.monitor.subTaskCreateDataType(cls.name) ->
+				
+		r.setName(cls.name) ->
+		// XPD-2569: adding ecore:name 
+		addFeatureMapEntry(r.anyAttribute, cls.name, "name") ->
+		data.addOriginalName(r, getOriginalName(cls)) ->
+		// XPD-5171: top level complex types names are never changed. 
+		// so caching with the class name (instead of getOriginalName(cls) which leads to confusions when there are name conflicts)
+		data.addTopLevelComplexType(schema.targetNamespace + ":" + cls.name, r) ->
+		setOtherStereotypedValues(cls, r) ->
+				
+		//if the class is an anonymous type we need to temporarily keep the generated name for this to be able to find the complex type 
+		//at the end of transformation when we pull it up from top level to local complex in an element.
+		//isAnonymousType == true ? r.setName(cls.name) : null ->
+		r.setName(cls.name) ->
+		
+		cls.ownedComment.size > 0 ? r.setAnnotation(createAnnotationType(cls.ownedComment.first().body)) : null ->
+		xrefId == null || xrefId.trim().length == 0 ? null : (
+			r.setId(xrefId)
+			//r.setAnnotation(createAnnotationType("xsdID="+xrefId))
+		) ->	
+		r;
+	//);
+	
+NamedGroup createGroup(Class cls, xmlSchema::SchemaType schema): 
+	let r = new NamedGroup:	 
+	let xsdBasedModelStereotype = getXSDNotationStereotype(cls, "XsdBasedClass") :
+	let xsdDocumentRootPropertyValue = getXSDNotationProperty(cls, xsdBasedModelStereotype, "xsdDocumentRoot") :	
+	let xrefId = getXRefID(cls) :
+
+	data.monitor.subTaskCreateGroup(cls.name) ->
+
+	setOtherStereotypedValues(cls, r) ->	
+	r.setName(cls.name) ->
+	cls.ownedComment.size > 0 ? r.setAnnotation(createAnnotationType(cls.ownedComment.first().body)) : null ->
+	xrefId == null || xrefId.trim().length == 0 ? null : (
+		r.setId(xrefId)
+		//r.setAnnotation(createAnnotationType("xsdID="+xrefId))
+	) ->	
+	(xsdBasedModelStereotype != null && xsdDocumentRootPropertyValue != null && xsdDocumentRootPropertyValue.toString().trim() == "true" ) ? (
+		let topLevelElement = new TopLevelElement :
+		topLevelElement.setName(r.name.toLowerCase()) ->
+		topLevelElement.setType(createQName(schema.targetNamespace,r.name)) ->
+		cls.ownedComment.size > 0 ? topLevelElement.setAnnotation(createAnnotationType(cls.ownedComment.first().body)) : null ->
+		schema.element.add(topLevelElement)
+	) : null ->		
+	r;
+
+NamedAttributeGroup createAttributeGroup(Class cls, xmlSchema::SchemaType schema): 
+	let r = new NamedAttributeGroup:	 
+	let xsdBasedModelStereotype = getXSDNotationStereotype(cls, "XsdBasedClass") :
+	let xsdDocumentRootPropertyValue = getXSDNotationProperty(cls, xsdBasedModelStereotype, "xsdDocumentRoot") :
+	let xrefId = getXRefID(cls) :
+
+	data.monitor.subTaskCreateAttributeGroup(cls.name) ->
+
+	setOtherStereotypedValues(cls, r) ->	
+	r.setName(cls.name) ->
+	cls.ownedComment.size > 0 ? r.setAnnotation(createAnnotationType(cls.ownedComment.first().body)) : null ->
+	xrefId == null || xrefId.trim().length == 0 ? null : (
+		r.setId(xrefId)
+		//r.setAnnotation(createAnnotationType("xsdID="+xrefId))
+	) ->	
+	(xsdBasedModelStereotype != null && xsdDocumentRootPropertyValue != null && xsdDocumentRootPropertyValue.toString().trim() == "true" ) ? (
+		let topLevelElement = new TopLevelElement :
+		topLevelElement.setName(r.name.toLowerCase()) ->
+		topLevelElement.setType(createQName(schema.targetNamespace,r.name)) ->
+		cls.ownedComment.size > 0 ? topLevelElement.setAnnotation(createAnnotationType(cls.ownedComment.first().body)) : null ->
+		schema.element.add(topLevelElement)
+	) : null ->	
+	r;
+
+SimpleContentType createSimpleContent(ExportTransformationData data, Class cls, Collection[xmlSchema::SchemaType] schemaTypeList, boolean isExtension) :
+	let simpleContentType = new SimpleContentType :
+	let simpleContentsProperty = (
+		isExtension ? cls.eAllContents.typeSelect(Property).select(e|e.name == "value" && isSimpleContentExtension(e) == true).first() : cls.eAllContents.typeSelect(Property).select(e|e.name == "value" && isSimpleContentRestriction(e) == true).first()		
+	) :
+	let extensionType = new SimpleExtensionType :	
+	let restrictionType = new SimpleRestrictionType :
+	// XPD-3623: we must check if the property is referring to a primitive type rather than 
+	// just finding the name of the property in default primitives list
+	let propertyTypePackageName = _getNearestPackageName(simpleContentsProperty.type) :
+	let isDefaultPrimitiveType = isDefaultPrimitiveType(simpleContentsProperty.type.name, propertyTypePackageName) :	
+	data.monitor.subTaskCreateSimpleContent(cls.name) ->
+
+	isDefaultPrimitiveType == true ? (
+		let tmpPropertyQName = (
+			let tmpPropQName = getPropertyQName(data, simpleContentsProperty, getStereotypeType(data, simpleContentsProperty)) :
+			let simpleTypeSchema = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.targetNamespace == getNamespace(cls.package,true)).first() :
+			isKnownXSDType(ReplaceFirst(tmpPropQName.localPart,":","xsd:")) == false ? (		
+				tmpPropQName
+			) : (				
+				simpleTypeSchema != null ? ( 
+					getQName(simpleTypeSchema,ReplaceFirst(tmpPropQName.localPart,":","xsd:"),getPrefix(data, cls.package))
+				) : tmpPropQName
+			)
+		) :
+		extensionType.setBase(tmpPropertyQName) ->
+		restrictionType.setBase(tmpPropertyQName) 
+	) : (		
+		let simpleTypeSchema = schemaTypeList.typeSelect(xmlSchema::SchemaType).select(e|e.targetNamespace == getNamespace(simpleContentsProperty.type.package,true)).first() :
+		simpleTypeSchema != null ? ( 
+			extensionType.setBase(createQName(simpleTypeSchema.targetNamespace,getPropertyTypeName(data, simpleContentsProperty))) ->
+			restrictionType.setBase(createQName(simpleTypeSchema.targetNamespace,getPropertyTypeName(data, simpleContentsProperty))) 
+		): null
+	) ->
+	isExtension == true ? (
+		simpleContentType.setExtension(extensionType)
+	) : (
+		let appliedPropertyStereotype = simpleContentsProperty.getAppliedStereotypes().select(e|e.name == "XsdBasedProperty").first() :
+		simpleContentType.setRestriction(restrictionType) ->
+	
+		appliedPropertyStereotype == null ? null : (
+			// XPD-2569: earlier ecore:name was being added by looking at the stereotype of the simpleContentsProperty,
+			// which has name from original xsd schema but not the BOM name 
+			// "xsdEnumLiterals" stereotype is set only when the enums are nested. 
+			// so we need not do the below in all cases but only those cases when this stereotype value is set 
+			let tempEnumLiterals = getStereotypeValue(simpleContentsProperty, appliedPropertyStereotype, "xsdEnumLiterals") :
+			tempEnumLiterals == null ? null : (
+				// XPD-2569: get enumeration if the property refers to enumeration
+				let enumeration = _getEnumerationFromProperty(simpleContentsProperty) :
+				enumeration != null ? 
+				(
+					enumeration.ownedLiteral.collect(enumLit|
+						(						
+							let fixedFacet = new NoFixedFacet :
+							let appliedStereotype = enumLit.getAppliedStereotypes().select(e|e.name == "XsdBasedEnumerationLiteral").first() :
+							let enumLiteralValue = getStereotypeValue(enumLit, appliedStereotype, "xsdValue") :
+							fixedFacet.setValue(enumLiteralValue) ->
+							// XPD-2569: adding ecore:name 
+							addFeatureMapEntry(fixedFacet.anyAttribute, enumLit.name, "name")  ->
+							simpleContentType.restriction.enumeration.add(fixedFacet)
+						)
+					) 
+				) : (
+					null
+				)			
+			)
+		) 
+	) ->
+	simpleContentType;
+	
+cached List[QName] createMemberTypeQNameList(ExportTransformationData data, String memberTypes, Model model) :
+	let anonymousDataTypes = model.eAllContents.typeSelect(DataType).select(e|(
+			let appliedPrimitiveStereotype = e.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() :	
+			let xsdIsAnonUnionSimpleType = getStereotypeValue(e, appliedPrimitiveStereotype, "xsdIsAnonUnionSimpleType") :
+			xsdIsAnonUnionSimpleType != null	 
+		)
+	) :
+	let newQNameList = {} :
+	let memberTypeVals = getMemberTypeStrValues(data, memberTypes, anonymousDataTypes) :
+	memberTypeVals.collect(e| newQNameList.add(createQName(e))) ->	
+	newQNameList;
+	
+TopLevelSimpleType createSimpleType(ExportTransformationData data, PrimitiveType primitiveType, SchemaType schemaType): 
+	let simpleType = new TopLevelSimpleType :
+	let restrictionType = new RestrictionType1 :
+	let unionType = new UnionType :
+	let xrefId = getXRefID(primitiveType) :
+	let appliedUnionTypeStereotype = primitiveType.getAppliedStereotypes().select(e|e.name == "XsdBasedUnion").first() :
+	let xsdMemberTypes = getStereotypeValue(primitiveType, appliedUnionTypeStereotype, "xsdMemberTypes") :	
+	let isImportCreatedXSDType = isImportCreatedXSDType(primitiveType.name) :
+	let appliedPrimitiveStereotype = primitiveType.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() :	
+	let xsdIsAnonUnionSimpleType = getStereotypeValue(primitiveType, appliedPrimitiveStereotype, "xsdIsAnonUnionSimpleType") :	
+	let xsdIsStandardUnionSimpleType = getStereotypeValue(primitiveType, appliedPrimitiveStereotype, "xsdIsStandardUnionSimpleType") :    
+    xsdIsStandardUnionSimpleType ? null : (
+		data.monitor.subTaskCreateSimpleType(primitiveType.name) ->
+	
+		isImportCreatedXSDType == false ? (
+			xrefId == null || xrefId.trim().length == 0 ? null : (
+				simpleType.setId(xrefId)		
+				//simpleType.setAnnotation(createAnnotationType("xsdID="+xrefId)) 
+			) ->
+			simpleType.setName(primitiveType.name) ->
+			// XPD-2569: adding ecore:name on top level simple types
+			addFeatureMapEntry(simpleType.anyAttribute, primitiveType.name, "name") ->
+			xsdIsAnonUnionSimpleType == true ? null : data.addOriginalName(simpleType, getOriginalName(primitiveType)) ->
+			appliedUnionTypeStereotype == null ? (
+				restrictionType.setBase(createQName("xsd:string")) ->
+				simpleType.setRestriction(restrictionType)
+			) : (			
+				setMemberTypesList(unionType, createMemberTypeQNameList(data, xsdMemberTypes, primitiveType.getModel())) ->
+				simpleType.setUnion(unionType)
+			) ->
+			primitiveType.ownedComment.size > 0 ? (		
+				simpleType.annotation.documentation.size == 0 || simpleType.annotation.documentation.size == null ? (				
+					simpleType.setAnnotation(createAnnotationType(primitiveType.ownedComment.first().body))
+				) : (				
+				 	simpleType.annotation.documentation.add(createDocumentationType(primitiveType.ownedComment.first().body))
+				)
+			): null ->
+			setOtherStereotypedValues(data, primitiveType, simpleType, schemaType) ->
+			simpleType
+		) : null
+	);
+	
+	
+TopLevelSimpleType createSimpleType(ExportTransformationData data, Enumeration enumeration, SchemaType schemaType): 
+	let simpleType = new TopLevelSimpleType :
+	let xrefId = getXRefID(enumeration) :
+	let unionType = new UnionType :
+	let appliedUnionTypeStereotype = enumeration.getAppliedStereotypes().select(e|e.name == "XsdBasedUnion").first() :
+	let xsdMemberTypes = getStereotypeValue(enumeration, appliedUnionTypeStereotype, "xsdMemberTypes") :
+	let isImportCreatedXSDType = isImportCreatedXSDType(enumeration.name) :	
+	let appliedPrimitiveStereotype = enumeration.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() :
+	let xsdIsAnonUnionSimpleType = getStereotypeValue(enumeration, appliedPrimitiveStereotype, "xsdIsAnonUnionSimpleType") :	
+	let xsdIsStandardUnionSimpleType = getStereotypeValue(enumeration, appliedPrimitiveStereotype, "xsdIsStandardUnionSimpleType") :	
+	xsdIsStandardUnionSimpleType ? null : (
+		data.monitor.subTaskCreateSimpleType(enumeration.name) ->
+	
+		isImportCreatedXSDType == false ? (
+			xrefId == null || xrefId.trim().length == 0 ? null : (
+				simpleType.setId(xrefId)
+				//simpleType.setAnnotation(createAnnotationType("xsdID="+xrefId))  
+			) ->
+			simpleType.setName(enumeration.name) ->
+			// XPD-2569: ecore name on top level enum types
+			addFeatureMapEntry(simpleType.anyAttribute, enumeration.name, "name")->
+			xsdIsAnonUnionSimpleType == true ? null : data.addOriginalName(simpleType, getOriginalName(enumeration)) ->	
+			appliedUnionTypeStereotype == null ? (
+				enumeration.ownedLiteral.size > 0 ? simpleType.setRestriction(addRestriction(data, enumeration)) : simpleType.setRestriction(new RestrictionType1) ->
+				simpleType.restriction.setBase(createQName("xsd:string"))	
+			) : (			
+				setMemberTypesList(unionType, createMemberTypeQNameList(data, xsdMemberTypes, enumeration.getModel())) ->
+				simpleType.setUnion(unionType)
+			) ->
+			enumeration.ownedComment.size > 0 ? (
+				simpleType.annotation.documentation.size == 0 || simpleType.annotation.documentation.size == null ? (
+					simpleType.setAnnotation(createAnnotationType(enumeration.ownedComment.first().body))
+				) : (
+				 	simpleType.annotation.documentation.add(createDocumentationType(enumeration.ownedComment.first().body))
+				)
+			): null ->
+			setOtherStereotypedValues(data, enumeration, simpleType, schemaType) ->
+			simpleType
+		) : null
+	);	
+	
+setOtherStereotypedValues(ExportTransformationData data, DataType dataType, TopLevelSimpleType simpleType, SchemaType schemaType) :
+	let appliedPropertyStereotype = dataType.getAppliedStereotypes().select(e|e.name == "XsdBasedPrimitiveType").first() :		
+	appliedPropertyStereotype == null ? null : (		
+		let simpleTypeName = getStereotypeValue(dataType, appliedPropertyStereotype, "xsdSimpleTypeName") :		
+		let simpleTypeId = getStereotypeValue(dataType, appliedPropertyStereotype, "xsdSimpleTypeId") :
+		let restrictionId = getStereotypeValue(dataType, appliedPropertyStereotype, "xsdRestrictionId") :		
+		let restrictionBase = getStereotypeValue(dataType, appliedPropertyStereotype, "xsdRestrictionBase") :
+		simpleType == null ? null : (
+			simpleTypeName != null && simpleTypeName.trim().length > 0 ? (
+				let xsdIsAnonUnionSimpleType = getStereotypeValue(dataType, appliedPropertyStereotype, "xsdIsAnonUnionSimpleType") :	
+				xsdIsAnonUnionSimpleType == true ? null : simpleType.setName(simpleTypeName) 
+			): null ->
+			simpleTypeId != null && simpleTypeId.trim().length > 0 ? simpleType.setId(simpleTypeId) : null ->
+			setElemComplexOrSimpleFinal(dataType, simpleType) ->			
+			simpleType.restriction == null ? null : (				
+				restrictionId != null && restrictionId.trim().length > 0 ? simpleType.restriction.setId(restrictionId) : null ->						
+				restrictionBase != null && restrictionBase.trim().length > 0 ? (	
+					let type = getPackagableElementTypeName(data, dataType, ReplaceFirst(restrictionBase,":","xsd:")) :								
+					let qName = (					
+						isKnownXSDType(ReplaceFirst(type,":","xsd:")) == false ? (		
+							createQName(type)
+						) : (
+							getQName(schemaType,type,getPrefix(data, dataType.package)) 
+						)
+					) :
+					simpleType.restriction.setBase(qName)
+				) : null ->
+				Property.isInstance(dataType) == true && PrimitiveTypeFacets::RestrictedType.isInstance(dataType) == false  ? setOtherStereotypedPropertyRestrictionValues(data, dataType, simpleType.restriction) : null ->
+				PrimitiveType.isInstance(dataType) == true ? setOtherStereotypedPrimitiveTypeRestrictionValues(data, dataType, simpleType.restriction) : null ->
+				Enumeration.isInstance(dataType) == true ? setOtherStereotypedEnumerationRestrictionValues(data, dataType, simpleType.restriction) : null				
+			)
+		)
+	);
+	
+setOtherStereotypedValues(EnumerationLiteral enumerationLiteral, List[NoFixedFacet] enumList, String literalValue) :
+	let xsdEnumEntry = enumList.select(e|e.value == literalValue).first() :
+	let appliedStereotype = enumerationLiteral.getAppliedStereotypes().select(e|e.name == "XsdBasedEnumerationLiteral").first() :	 
+	appliedStereotype == null ? null : (		
+		xsdEnumEntry == null ? null : (
+			let enumLiteralId = getStereotypeValue(enumerationLiteral, appliedStereotype, "xsdId") :
+			let enumLiteralValue = getStereotypeValue(enumerationLiteral, appliedStereotype, "xsdValue") :			
+			enumLiteralId != null && enumLiteralId.trim().length > 0 ? xsdEnumEntry.setId(enumLiteralId) : null ->
+			enumLiteralValue != null ? xsdEnumEntry.setValue(enumLiteralValue) : null
+		)
+	);
+	
+setOtherStereotypedPrimitiveTypeRestrictionValues(ExportTransformationData data, PrimitiveType primitiveType, RestrictionType1 restriction) :
+	let appliedRestrictionStereotype = primitiveType.getAppliedStereotypes().select(e|e.name == "XsdBasedRestriction").first() :
+	appliedRestrictionStereotype == null ? null : (
+		restriction == null ? null : (
+			let fractionDigitsId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdFractionDigitsId") :
+			let fractionDigitsFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdFractionDigitsFixed") :
+			let fractionDigitsValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdFractionDigitsValue") :			
+			let lengthId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdLengthId") :
+			let lengthFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdLengthFixed") :
+			let lengthValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdLengthValue") :
+			let maxExclusiveId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxExclusiveId") :
+			let maxExclusiveFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxExclusiveFixed") :
+			let maxExclusiveValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxExclusiveValue") :
+			let maxInclusiveId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxInclusiveId") :
+			let maxInclusiveFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxInclusiveFixed") :
+			let maxInclusiveValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxInclusiveValue") :
+			let maxLengthId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxLengthId") :
+			let maxLengthFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxLengthFixed") :
+			let maxLengthValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMaxLengthValue") :			
+			let minExclusiveId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinExclusiveId") :
+			let minExclusiveFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinExclusiveFixed") :
+			let minExclusiveValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinExclusiveValue") :
+			let minInclusiveId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinInclusiveId") :
+			let minInclusiveFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinInclusiveFixed") :
+			let minInclusiveValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinInclusiveValue") :
+			let minLengthId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinLengthId") :
+			let minLengthFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinLengthFixed") :
+			let minLengthValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdMinLengthValue") :
+			let patternId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdPatternId") :
+			let patternFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdPatternFixed") :
+			let patternValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdPatternValue") :						
+			let totalDigitsId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdTotalDigitsId") :
+			let totalDigitsFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdTotalDigitsFixed") :
+			let totalDigitsValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdTotalDigitsValue") :
+			let whitespaceId = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdWhitespaceId") :
+			let whitespaceFixed = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdWhitespaceFixed") :
+			let whitespaceValue = getStereotypeValue(primitiveType, appliedRestrictionStereotype, "xsdWhitespaceValue") :
+			
+			(restriction.fractionDigits.first() == null || restriction.fractionDigits.size == 0) ? (
+				restriction.fractionDigits.add(new NumFacet)
+			) : null ->			
+			(restriction.length.first() == null || restriction.length.size == 0) ? (
+				restriction.length.add(new NumFacet)
+			) : null ->
+			(restriction.maxExclusive.first() == null || restriction.maxExclusive.size == 0) ? (
+				restriction.maxExclusive.add(new Facet)
+			) : null ->
+			(restriction.maxInclusive.first() == null || restriction.maxInclusive.size == 0) ? (
+				restriction.maxInclusive.add(new Facet)
+			) : null ->
+			(restriction.maxLength.first() == null || restriction.maxLength.size == 0) ? (				
+				restriction.maxLength.add(new NumFacet)				
+			) : null ->
+			(restriction.minExclusive.first() == null || restriction.minExclusive.size == 0) ? (
+				restriction.minExclusive.add(new Facet)
+			) : null ->
+			(restriction.minInclusive.first() == null || restriction.minInclusive.size == 0) ? (
+				restriction.minInclusive.add(new Facet)
+			) : null ->
+			(restriction.minLength.first() == null || restriction.minLength.size == 0) ? (
+				restriction.minLength.add(new NumFacet)
+			) : null ->
+			(restriction.pattern.first() == null || restriction.pattern.size == 0) ? (
+				restriction.pattern.add(new PatternType)
+			) : null ->
+			(restriction.totalDigits.first() == null || restriction.totalDigits.size == 0) ? (
+				restriction.totalDigits.add(new TotalDigitsType)
+			) : null ->
+			(restriction.whiteSpace.first() == null || restriction.whiteSpace.size == 0) ? (
+				restriction.whiteSpace.add(new WhiteSpaceType)
+			) : null ->
+			
+			restriction.fractionDigits.first() != null && fractionDigitsId != null && fractionDigitsId.trim().length > 0 ? restriction.fractionDigits.first().setId(fractionDigitsId) : null ->
+			restriction.fractionDigits.first() != null && fractionDigitsFixed != null ? restriction.fractionDigits.first().setFixed(toBoolean(fractionDigitsFixed)) : null ->
+			restriction.fractionDigits.first() != null && fractionDigitsValue != null ? restriction.fractionDigits.first().setValue(fractionDigitsValue) : null ->
+			restriction.fractionDigits.first().value == null ? (
+				restriction.fractionDigits.remove(restriction.fractionDigits.first())
+			) : null ->
+			
+			restriction.length.first() != null && lengthId != null && lengthId.trim().length > 0 ? restriction.length.first().setId(lengthId) : null ->
+			restriction.length.first() != null && lengthFixed != null ? restriction.length.first().setFixed(toBoolean(lengthFixed)) : null ->
+			restriction.length.first() != null && lengthValue != null ? restriction.length.first().setValue(lengthValue) : null ->
+			restriction.length.first().value == null ? (
+				restriction.length.remove(restriction.length.first())
+			) : null ->
+			
+			restriction.maxExclusive.first() != null && maxExclusiveId != null && maxExclusiveId.trim().length > 0 ? restriction.maxExclusive.first().setId(maxExclusiveId) : null ->
+			restriction.maxExclusive.first() != null && maxExclusiveFixed != null ? restriction.maxExclusive.first().setFixed(toBoolean(maxExclusiveFixed)) : null ->
+			restriction.maxExclusive.first() != null && maxExclusiveValue != null ? restriction.maxExclusive.first().setValue(maxExclusiveValue) : null ->			
+			restriction.maxExclusive.first().value == null || restriction.maxExclusive.first().value.trim().length == 0 ? (				
+				restriction.maxExclusive.remove(restriction.maxExclusive.first())
+			) : null ->
+			
+			restriction.maxInclusive.first() != null && maxInclusiveId != null && maxInclusiveId.trim().length > 0 ? restriction.maxInclusive.first().setId(maxInclusiveId) : null ->
+			restriction.maxInclusive.first() != null && maxInclusiveFixed != null ? restriction.maxInclusive.first().setFixed(toBoolean(maxInclusiveFixed)) : null ->
+			restriction.maxInclusive.first() != null && maxInclusiveValue != null ? restriction.maxInclusive.first().setValue(maxInclusiveValue) : null ->
+			restriction.maxInclusive.first().value == null || restriction.maxInclusive.first().value.trim().length == 0 ? (
+				restriction.maxInclusive.remove(restriction.maxInclusive.first())
+			) : null ->
+			
+			restriction.maxLength.first() != null && maxLengthId != null && maxLengthId.trim().length > 0 ? restriction.maxLength.first().setId(maxLengthId) : null ->
+			restriction.maxLength.first() != null && maxLengthFixed != null ? restriction.maxLength.first().setFixed(toBoolean(maxLengthFixed)) : null ->
+			restriction.maxLength.first() != null && maxLengthValue != null ? restriction.maxLength.first().setValue(maxLengthValue) : null ->
+			restriction.maxLength.first().value == null || (restriction.maxLength.first().value != null && restriction.length.first().value != null) ? (
+				restriction.maxLength.remove(restriction.maxLength.first())
+			) : null ->
+			
+			restriction.minExclusive.first() != null && minExclusiveId && minExclusiveId.trim().length > 0 != null ? restriction.minExclusive.first().setId(minExclusiveId) : null ->
+			restriction.minExclusive.first() != null && minExclusiveFixed != null ? restriction.minExclusive.first().setFixed(toBoolean(minExclusiveFixed)) : null ->
+			restriction.minExclusive.first() != null && minExclusiveValue != null ? restriction.minExclusive.first().setValue(minExclusiveValue) : null ->
+			restriction.minExclusive.first().value == null || restriction.minExclusive.first().value.trim().length == 0 ? (
+				restriction.minExclusive.remove(restriction.minExclusive.first())
+			) : null ->
+			
+			restriction.minInclusive.first() != null && minInclusiveId && minInclusiveId.trim().length > 0 != null ? restriction.minInclusive.first().setId(minInclusiveId) : null ->
+			restriction.minInclusive.first() != null && minInclusiveFixed != null ? restriction.minInclusive.first().setFixed(toBoolean(minInclusiveFixed)) : null ->
+			restriction.minInclusive.first() != null && minInclusiveValue != null ? restriction.minInclusive.first().setValue(minInclusiveValue) : null ->
+			restriction.minInclusive.first().value == null || restriction.minInclusive.first().value.trim().length == 0 ? (
+				restriction.minInclusive.remove(restriction.minInclusive.first())
+			) : null ->
+			
+			restriction.minLength.first() != null && minLengthId != null && minLengthId.trim().length > 0 ? restriction.minLength.first().setId(minLengthId) : null ->
+			restriction.minLength.first() != null && minLengthFixed != null ? restriction.minLength.first().setFixed(toBoolean(minLengthFixed)) : null ->
+			restriction.minLength.first() != null && minLengthValue != null ? restriction.minLength.first().setValue(minLengthValue) : null ->
+			restriction.minLength.first().value == null || (restriction.minLength.first().value != null && restriction.length.first().value != null) ? (
+				restriction.minLength.remove(restriction.minLength.first())
+			) : null ->
+			
+			restriction.pattern.first() != null && patternId != null && patternId.trim().length > 0 ? restriction.pattern.first().setId(patternId) : null ->
+			restriction.pattern.first() != null && patternFixed != null && (patternFixed == true || patternFixed.toString() == "true") ? restriction.pattern.first().setFixed(toBoolean(patternFixed)) : null ->
+			restriction.pattern.first() != null && patternValue != null ? restriction.pattern.first().setValue(patternValue) : null ->
+			restriction.pattern.first().value == null ? (
+				restriction.pattern.remove(restriction.pattern.first())
+			) : null ->
+			
+			restriction.totalDigits.first() != null && totalDigitsId != null && totalDigitsId.trim().length > 0 ? restriction.totalDigits.first().setId(totalDigitsId) : null ->
+			restriction.totalDigits.first() != null && totalDigitsFixed != null ? restriction.totalDigits.first().setFixed(toBoolean(totalDigitsFixed)) : null ->
+			restriction.totalDigits.first() != null && totalDigitsValue != null ? restriction.totalDigits.first().setValue(totalDigitsValue) : null ->
+			restriction.totalDigits.first().value == null ? (
+				restriction.totalDigits.remove(restriction.totalDigits.first())
+			) : null ->
+									
+			restriction.whiteSpace.first() != null && whitespaceId != null && whitespaceId.trim().length > 0 ? restriction.whiteSpace.first().setId(whitespaceId) : null ->
+			restriction.whiteSpace.first() != null && whitespaceFixed != null ? restriction.whiteSpace.first().setFixed(toBoolean(whitespaceFixed)) : null ->
+			restriction.whiteSpace.first() != null && whitespaceValue != null ? restriction.whiteSpace.first().setValue(whitespaceValue) : null ->
+			restriction.whiteSpace.first().value == null ? (
+				restriction.whiteSpace.remove(restriction.whiteSpace.first())
+			) : null ->
+			
+			removeUnwantedRestrictions(data, restriction)
+		)
+	);		
+
+setOtherStereotypedEnumerationRestrictionValues(ExportTransformationData data, Enumeration enumeration, RestrictionType1 restriction) :
+	let appliedRestrictionStereotype = enumeration.getAppliedStereotypes().select(e|e.name == "XsdBasedRestriction").first() :
+	appliedRestrictionStereotype == null ? null : (
+		restriction == null ? null : (
+			let fractionDigitsId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdFractionDigitsId") :
+			let fractionDigitsFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdFractionDigitsFixed") :
+			let fractionDigitsValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdFractionDigitsValue") :			
+			let lengthId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdLengthId") :
+			let lengthFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdLengthFixed") :
+			let lengthValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdLengthValue") :
+			let maxExclusiveId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxExclusiveId") :
+			let maxExclusiveFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxExclusiveFixed") :
+			let maxExclusiveValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxExclusiveValue") :
+			let maxInclusiveId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxInclusiveId") :
+			let maxInclusiveFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxInclusiveFixed") :
+			let maxInclusiveValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxInclusiveValue") :
+			let maxLengthId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxLengthId") :
+			let maxLengthFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxLengthFixed") :
+			let maxLengthValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMaxLengthValue") :			
+			let minExclusiveId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinExclusiveId") :
+			let minExclusiveFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinExclusiveFixed") :
+			let minExclusiveValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinExclusiveValue") :
+			let minInclusiveId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinInclusiveId") :
+			let minInclusiveFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinInclusiveFixed") :
+			let minInclusiveValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinInclusiveValue") :
+			let minLengthId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinLengthId") :
+			let minLengthFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinLengthFixed") :
+			let minLengthValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdMinLengthValue") :
+			let patternId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdPatternId") :
+			let patternFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdPatternFixed") :
+			let patternValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdPatternValue") :						
+			let totalDigitsId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdTotalDigitsId") :
+			let totalDigitsFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdTotalDigitsFixed") :
+			let totalDigitsValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdTotalDigitsValue") :
+			let whitespaceId = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdWhitespaceId") :
+			let whitespaceFixed = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdWhitespaceFixed") :
+			let whitespaceValue = getStereotypeValue(enumeration, appliedRestrictionStereotype, "xsdWhitespaceValue") :
+			
+			(restriction.fractionDigits.first() == null || restriction.fractionDigits.size == 0) ? (
+				restriction.fractionDigits.add(new NumFacet)
+			) : null ->			
+			(restriction.length.first() == null || restriction.length.size == 0) ? (
+				restriction.length.add(new NumFacet)
+			) : null ->
+			(restriction.maxExclusive.first() == null || restriction.maxExclusive.size == 0) ? (
+				restriction.maxExclusive.add(new Facet)
+			) : null ->
+			(restriction.maxInclusive.first() == null || restriction.maxInclusive.size == 0) ? (
+				restriction.maxInclusive.add(new Facet)
+			) : null ->
+			(restriction.maxLength.first() == null || restriction.maxLength.size == 0) ? (				
+				restriction.maxLength.add(new NumFacet)				
+			) : null ->
+			(restriction.minExclusive.first() == null || restriction.minExclusive.size == 0) ? (
+				restriction.minExclusive.add(new Facet)
+			) : null ->
+			(restriction.minInclusive.first() == null || restriction.minInclusive.size == 0) ? (
+				restriction.minInclusive.add(new Facet)
+			) : null ->
+			(restriction.minLength.first() == null || restriction.minLength.size == 0) ? (
+				restriction.minLength.add(new NumFacet)
+			) : null ->
+			(restriction.pattern.first() == null || restriction.pattern.size == 0) ? (
+				restriction.pattern.add(new PatternType)
+			) : null ->
+			(restriction.totalDigits.first() == null || restriction.totalDigits.size == 0) ? (
+				restriction.totalDigits.add(new TotalDigitsType)
+			) : null ->
+			(restriction.whiteSpace.first() == null || restriction.whiteSpace.size == 0) ? (
+				restriction.whiteSpace.add(new WhiteSpaceType)
+			) : null ->
+			
+			restriction.fractionDigits.first() != null && fractionDigitsId != null && fractionDigitsId.trim().length > 0 ? restriction.fractionDigits.first().setId(fractionDigitsId) : null ->
+			restriction.fractionDigits.first() != null && fractionDigitsFixed != null ? restriction.fractionDigits.first().setFixed(toBoolean(fractionDigitsFixed)) : null ->
+			restriction.fractionDigits.first() != null && fractionDigitsValue != null ? restriction.fractionDigits.first().setValue(fractionDigitsValue) : null ->
+			restriction.fractionDigits.first().value == null ? (
+				restriction.fractionDigits.remove(restriction.fractionDigits.first())
+			) : null ->
+			
+			restriction.length.first() != null && lengthId != null && lengthId.trim().length > 0 ? restriction.length.first().setId(lengthId) : null ->
+			restriction.length.first() != null && lengthFixed != null ? restriction.length.first().setFixed(toBoolean(lengthFixed)) : null ->
+			restriction.length.first() != null && lengthValue != null ? restriction.length.first().setValue(lengthValue) : null ->
+			restriction.length.first().value == null ? (
+				restriction.length.remove(restriction.length.first())
+			) : null ->
+			
+			restriction.maxExclusive.first() != null && maxExclusiveId != null && maxExclusiveId.trim().length > 0 ? restriction.maxExclusive.first().setId(maxExclusiveId) : null ->
+			restriction.maxExclusive.first() != null && maxExclusiveFixed != null ? restriction.maxExclusive.first().setFixed(toBoolean(maxExclusiveFixed)) : null ->
+			restriction.maxExclusive.first() != null && maxExclusiveValue != null ? restriction.maxExclusive.first().setValue(maxExclusiveValue) : null ->			
+			restriction.maxExclusive.first().value == null || restriction.maxExclusive.first().value.trim().length == 0 ? (				
+				restriction.maxExclusive.remove(restriction.maxExclusive.first())
+			) : null ->
+			
+			restriction.maxInclusive.first() != null && maxInclusiveId != null && maxInclusiveId.trim().length > 0 ? restriction.maxInclusive.first().setId(maxInclusiveId) : null ->
+			restriction.maxInclusive.first() != null && maxInclusiveFixed != null ? restriction.maxInclusive.first().setFixed(toBoolean(maxInclusiveFixed)) : null ->
+			restriction.maxInclusive.first() != null && maxInclusiveValue != null ? restriction.maxInclusive.first().setValue(maxInclusiveValue) : null ->
+			restriction.maxInclusive.first().value == null || restriction.maxInclusive.first().value.trim().length == 0 ? (
+				restriction.maxInclusive.remove(restriction.maxInclusive.first())
+			) : null ->
+			
+			restriction.maxLength.first() != null && maxLengthId != null && maxLengthId.trim().length > 0 ? restriction.maxLength.first().setId(maxLengthId) : null ->
+			restriction.maxLength.first() != null && maxLengthFixed != null ? restriction.maxLength.first().setFixed(toBoolean(maxLengthFixed)) : null ->
+			restriction.maxLength.first() != null && maxLengthValue != null ? restriction.maxLength.first().setValue(maxLengthValue) : null ->
+			restriction.maxLength.first().value == null || (restriction.maxLength.first().value != null && restriction.length.first().value != null) ? (			
+				restriction.maxLength.remove(restriction.maxLength.first())
+			) : null ->
+			
+			restriction.minExclusive.first() != null && minExclusiveId && minExclusiveId.trim().length > 0 != null ? restriction.minExclusive.first().setId(minExclusiveId) : null ->
+			restriction.minExclusive.first() != null && minExclusiveFixed != null ? restriction.minExclusive.first().setFixed(toBoolean(minExclusiveFixed)) : null ->
+			restriction.minExclusive.first() != null && minExclusiveValue != null ? restriction.minExclusive.first().setValue(minExclusiveValue) : null ->
+			restriction.minExclusive.first().value == null || restriction.minExclusive.first().value.trim().length == 0 ? (
+				restriction.minExclusive.remove(restriction.minExclusive.first())
+			) : null ->
+			
+			restriction.minInclusive.first() != null && minInclusiveId && minInclusiveId.trim().length > 0 != null ? restriction.minInclusive.first().setId(minInclusiveId) : null ->
+			restriction.minInclusive.first() != null && minInclusiveFixed != null ? restriction.minInclusive.first().setFixed(toBoolean(minInclusiveFixed)) : null ->
+			restriction.minInclusive.first() != null && minInclusiveValue != null ? restriction.minInclusive.first().setValue(minInclusiveValue) : null ->
+			restriction.minInclusive.first().value == null || restriction.minInclusive.first().value.trim().length == 0 ? (
+				restriction.minInclusive.remove(restriction.minInclusive.first())
+			) : null ->
+			
+			restriction.minLength.first() != null && minLengthId != null && minLengthId.trim().length > 0 ? restriction.minLength.first().setId(minLengthId) : null ->
+			restriction.minLength.first() != null && minLengthFixed != null ? restriction.minLength.first().setFixed(toBoolean(minLengthFixed)) : null ->
+			restriction.minLength.first() != null && minLengthValue != null ? restriction.minLength.first().setValue(minLengthValue) : null ->
+			restriction.minLength.first().value == null || (restriction.minLength.first().value != null && restriction.length.first().value != null) ? (
+				restriction.minLength.remove(restriction.minLength.first())
+			) : null ->
+			
+			restriction.pattern.first() != null && patternId != null && patternId.trim().length > 0 ? restriction.pattern.first().setId(patternId) : null ->
+			restriction.pattern.first() != null && patternFixed != null && (patternFixed == true || patternFixed.toString() == "true") ? restriction.pattern.first().setFixed(toBoolean(patternFixed)) : null ->
+			restriction.pattern.first() != null && patternValue != null ? restriction.pattern.first().setValue(patternValue) : null ->
+			restriction.pattern.first().value == null ? (
+				restriction.pattern.remove(restriction.pattern.first())
+			) : null ->
+			
+			restriction.totalDigits.first() != null && totalDigitsId != null && totalDigitsId.trim().length > 0 ? restriction.totalDigits.first().setId(totalDigitsId) : null ->
+			restriction.totalDigits.first() != null && totalDigitsFixed != null ? restriction.totalDigits.first().setFixed(toBoolean(totalDigitsFixed)) : null ->
+			restriction.totalDigits.first() != null && totalDigitsValue != null ? restriction.totalDigits.first().setValue(totalDigitsValue) : null ->
+			restriction.totalDigits.first().value == null ? (
+				restriction.totalDigits.remove(restriction.totalDigits.first())
+			) : null ->
+									
+			restriction.whiteSpace.first() != null && whitespaceId != null && whitespaceId.trim().length > 0 ? restriction.whiteSpace.first().setId(whitespaceId) : null ->
+			restriction.whiteSpace.first() != null && whitespaceFixed != null ? restriction.whiteSpace.first().setFixed(toBoolean(whitespaceFixed)) : null ->
+			restriction.whiteSpace.first() != null && whitespaceValue != null ? restriction.whiteSpace.first().setValue(whitespaceValue) : null ->
+			restriction.whiteSpace.first().value == null ? (
+				restriction.whiteSpace.remove(restriction.whiteSpace.first())
+			) : null ->
+			
+			removeUnwantedRestrictions(data, restriction)
+		)
+	);	
+	
+create RestrictionType1 this addRestriction(ExportTransformationData data, Enumeration tempEnum):		
+	tempEnum.ownedLiteral.collect(e|toNoFixedFacet(data, this.enumeration, e.name, e, tempEnum)) ->
+	tempEnum.ownedLiteral.collect(e|setOtherStereotypedValues(e, this.enumeration, e.name));
+
+xmlSchema::AnnotationType createAnnotationType(String ownedComment):
+	let annotType = new xmlSchema::AnnotationType :	
+	annotType.documentation.add(createDocumentationType(ownedComment)) ->
+	annotType;	
+
+xmlSchema::DocumentationType createDocumentationType(String ownedComment):
+	let docType = new xmlSchema::DocumentationType :		
+	docType.mixed.text.add(ownedComment) ->	
+	docType;
+	
+RestrictionType1 createRestrictionType(DataType dat): let r = new RestrictionType1:
+	r.setBase(getType(dat)) ->
+	r;
+	
+LocalElement createElement(TypedElement ele): let r = new LocalElement:
+	r.setName(ele.name) ->
+	r.setType(getType(ele.type)) ->
+	//r.setMinOccurs(ele.lowerBound) ->
+	//r.setMaxOccurs((ele.upperBound == -1) ? "unbounded" : "xx") ->
+	r;
+
+// collect all used types for the package and see if they belong to different packages.
+cached List[Package] getDependencies(Package pkg):	
+	pkg.nestedPackage;	
+
+QName getType(DataType c): 
+	switch(c.eClass().name) {
+		case "java.lang.String": createQName("string")
+		default: createQName(c.eClass().name)
+	};
+
+

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://presentationmodel.common.n2.tibco.com" xmlns:tns4="http://presentationmodel.common.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://presentationmodel.common.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.common.presentationmodel.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="DataFeed" id="com.tibco.n2.common.presentationmodelDataFeed2"
+      name="DataFeed">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="FeedFormat" id="com.tibco.n2.common.presentationmodelFeedFormat"
+      name="FeedFormat">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="JSONDOJOV2" value="JSON_DOJO_V2"/>
+      <xsd:enumeration ecore:name="JSONPURE" value="JSON_PURE"/>
+      <xsd:enumeration ecore:name="DOJOECORE" value="DOJO_ECORE"/>
+      <xsd:enumeration ecore:name="NOFORMAT" value="NO_FORMAT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="FeedMode" id="com.tibco.n2.common.presentationmodelFeedMode"
+      name="FeedMode">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="XML" value="XML"/>
+      <xsd:enumeration ecore:name="JSON" value="JSON"/>
+      <xsd:enumeration ecore:name="RSS" value="RSS"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="SyndicationModel" id="com.tibco.n2.common.presentationmodelSyndicationModel"
+      abstract="false" mixed="false" name="SyndicationModel">
+    <xsd:annotation>
+      <xsd:documentation>Returns Specified Feed in an xml String (serialized) </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="mode" id="SyndicationModelmode" default="JSON" form="unqualified"
+        name="mode" type="FeedMode" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>The Mode requested XML, JSON, RSS for example </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="format" id="SyndicationModelformat" default="JSON_DOJO_V2"
+        form="unqualified" name="format" type="FeedFormat" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>This is the FeedFormat specfic info, i.e DOJO etc </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="SyndicationFeed" id="com.tibco.n2.common.presentationmodelSyndicationFeed"
+      abstract="false" mixed="false" name="SyndicationFeed">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns4:SyndicationModel">
+        <xsd:sequence>
+          <xsd:element ecore:name="dataFeed" id="SyndicationFeeddataFeed" form="qualified"
+              maxOccurs="unbounded" minOccurs="1" name="dataFeed" type="tns4:DataFeed"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

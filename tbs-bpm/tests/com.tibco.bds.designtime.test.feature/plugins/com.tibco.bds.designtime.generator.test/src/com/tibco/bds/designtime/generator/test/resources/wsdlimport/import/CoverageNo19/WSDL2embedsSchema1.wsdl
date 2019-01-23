@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.amsbqa.com/linda19/wsdl2embedsSchema1Schema1includesSchema2" xmlns:tns1="http://www.amsbqa.com/linda19/XSD2Define_Types19" targetNamespace="http://www.amsbqa.com/linda19/wsdl2embedsSchema1Schema1includesSchema2">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.amsbqa.com/linda19/XSD2Define_Types19" targetNamespace="http://www.amsbqa.com/linda19/XSD2Define_Types19" elementFormDefault="qualified">
+            <include schemaLocation="Contract.xsd"/>
+            <simpleType name="Company">
+                <restriction base="string"/>
+            </simpleType>
+            <element name="CompanyElement" type="tns:Company"/>
+            <complexType name="NewType1">
+                <sequence>
+                    <element name="NewElement" type="tns:Company"/>
+                    <element ref="tns:ContractElement"/>
+                </sequence>
+            </complexType>
+            <element name="BusinessElement" type="tns:NewType1"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.amsbqa.com/linda19/XSD2Define_Types19" schemaLocation="Contract.xsd">
+			</xsd:import>
+        </xsd:schema>
+    </types>
+    <message name="QueryContractRequest">
+        <part name="BusinessInfo" element="tns1:BusinessElement"/>
+    </message>
+    <message name="QueryContractResponse">
+        <part name="Contract" element="tns1:ContractElement"/>
+    </message>
+    <message name="QueryCompanyRequest">
+        <part name="BusinessInfo" element="tns1:BusinessElement"/>
+    </message>
+    <message name="QueryCompanyResponse">
+        <part name="parameters" element="tns1:CompanyElement"/>
+    </message>
+    <portType name="NewPortType">
+        <operation name="QueryContract">
+            <input message="tns:QueryContractRequest"/>
+            <output message="tns:QueryContractResponse"/>
+        </operation>
+        <operation name="QueryCompany">
+            <input message="tns:QueryCompanyRequest"/>
+            <output message="tns:QueryCompanyResponse"/>
+        </operation>
+    </portType>
+</definitions>

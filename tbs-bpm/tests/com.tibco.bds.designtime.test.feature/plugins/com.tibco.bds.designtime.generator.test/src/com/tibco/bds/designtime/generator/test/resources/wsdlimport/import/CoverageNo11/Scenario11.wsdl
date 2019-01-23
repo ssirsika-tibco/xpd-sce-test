@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tibco.com/matrix/qa/wsdl/transport" xmlns:s1="http://tibco.com/matrix/qa/xsd/travel" xmlns:s2="http://tibco.com/matrix/qa/xsd/primitives" targetNamespace="http://tibco.com/matrix/qa/wsdl/transport">
+    <import namespace="http://tibco.com/matrix/qa/xsd/primitives" location="Scenario11_ImportSchema2.xsd"/>
+    <message name="GetTopModelOutput">
+        <part name="message" element="s2:string"/>
+    </message>
+    <message name="GetTopModelInput">
+        <part name="message" element="s2:int"/>
+    </message>
+    <portType name="WSDLFilePortType">
+        <operation name="GetTopModel">
+            <input message="tns:GetTopModelInput"/>
+            <output message="tns:GetTopModelOutput"/>
+        </operation>
+    </portType>
+</definitions>

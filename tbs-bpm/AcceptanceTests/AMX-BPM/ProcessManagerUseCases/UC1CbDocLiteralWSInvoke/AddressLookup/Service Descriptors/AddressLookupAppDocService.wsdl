@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns="http://com.tibco.addresslookup" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://com.tibco.addresslookup" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.tibco.addresslookup" tibex:bdsSupport="false">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://com.tibco.addresslookup">
+			<xs:element name="zipCode" type="xs:string"/>
+			<xs:element name="address" type="xs:string"/>
+		</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addressLookupDocResponse">
+    <wsdl:part element="ns:address" name="address">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addressLookupDocRequest">
+    <wsdl:part element="ns:zipCode" name="zip_code">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AddressLookupAppDocPort">
+    <wsdl:operation name="addressLookupDoc">
+      <wsdl:input message="ns:addressLookupDocRequest">
+    </wsdl:input>
+      <wsdl:output message="ns:addressLookupDocResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AddressLookupAppDocBinding" type="ns:AddressLookupAppDocPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addressLookupDoc">
+      <soap:operation soapAction="addressLookupDoc" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddressLookupAppDocService">
+    <wsdl:port binding="ns:AddressLookupAppDocBinding" name="AddressLookupAppDocPort">
+      <soap:address location="http://10.100.83.53:8080/axis2/services/AddressLookupAppDocService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

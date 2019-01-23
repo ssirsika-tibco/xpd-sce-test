@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://exception.api.dac.n2.tibco.com" xmlns:comex="http://exception.api.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exception.api.dac.n2.tibco.com" version="1.0">
+
+	<xs:import namespace="http://exception.api.common.n2.tibco.com" schemaLocation="comexception.xsd"/>
+
+	<xs:element name="CalendarFault" type="comex:DetailedException">
+		<xs:annotation>
+			<xs:documentation>Fault returned in the event that the request is incorrectly formed or the calendar is incorrectly configured.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="DeadlineFault" type="comex:DetailedException">
+		<xs:annotation>
+			<xs:documentation>Fault returned in the event that the request is incorrectly formed or the deadline cannot be calculated.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="SecurityFault" type="comex:DetailedException">
+		<xs:annotation>
+			<xs:documentation>Fault returned in the event of invalid credentials being presented.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_WwNLQANaEeStpcFE0mT0RQ" xpdExt:DisplayName="CALTIME" Name="CALTIME">
+  <xpdl2:PackageHeader>
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2197-10-06</xpdl2:Created>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader>
+    <xpdl2:Author>kthombar</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="N66136" xpdExt:DisplayName="Default Pool" Name="DefaultPool" BoundaryVisible="true" Process="_WtSaIANaEeStpcFE0mT0RQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="N66148" xpdExt:DisplayName="Default Lane" Name="DefaultLane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="318.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_WtSaIANaEeStpcFE0mT0RQ" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="CALTIME" Name="CALTIME_GOLD" AccessLevel="PUBLIC">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Created></xpdl2:Created>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="N65588" xpdExt:DisplayName="DAYSOVER" Name="DAYSOVER" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>9</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="N65891" xpdExt:DisplayName="TIMEE" Name="TIMEE" IsArray="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="TIME"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="N65924" Name="TIME" xpdExt:DisplayName="TIME">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">IpeScriptUtil.CALCTIME(DateTimeUtil.createTime(12, 00, 0, 0), 2, 40); // timee
+DAYSOVER = IpeScriptUtil.CALCTIMECARRYOVER(DateTimeUtil.createTime(12, 00, 0, 0), 2, 40);
+
+IpeScriptUtil.CALCTIME(TIMEE, 2, 40); // 
+DAYSOVER = IpeScriptUtil.CALCTIMECARRYOVER(TIMEE, 2, 40);
+
+IpeScriptUtil.CALCTIME(IpeScriptUtil.CALCTIME(DateTimeUtil.createTime(12, 00, 0, 0), 2, 40), 2, 40); // 
+// The Parameter 'DAYSOVER' needs to be deleted manually.
+DAYSOVER = IpeScriptUtil.CALCTIMECARRYOVER(IpeScriptUtil.CALCTIME(DateTimeUtil.createTime(12, 00, 0, 0), 2, 40, DAYSOVER), 2, 40);
+DAYSOVER = IpeScriptUtil.CALCTIMECARRYOVER(DateTimeUtil.createTime(12, 00, 0, 0), 2, 40);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:ExtendedAttributes>
+            <xpdl2:ExtendedAttribute Name="iProcessStepNum" Value="3"/>
+          </xpdl2:ExtendedAttributes>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="N66148" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="539.0" YCoordinate="210.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66007" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66148" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="789.0" YCoordinate="199.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="N66053" Name="Start" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="N66148" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="60.0" YCoordinate="48.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="N66103" xpdExt:DisplayName="" Name="" From="N65924" To="N66007">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="N66108" xpdExt:DisplayName="" Name="" From="N66053" To="N65924">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

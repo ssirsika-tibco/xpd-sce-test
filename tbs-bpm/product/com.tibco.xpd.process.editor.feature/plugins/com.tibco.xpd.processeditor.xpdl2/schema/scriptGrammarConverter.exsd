@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.processeditor.xpdl2" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.processeditor.xpdl2" id="scriptGrammarConverter" name="Script Grammar Converter"/>
+      </appInfo>
+      <documentation>
+         Contribution for script grammar conversion. The contribution is activated when the user changes the script grammar and is given the opportunity to perform any translations required.
+&lt;p&gt;
+This does not (currently) apply to data mappings.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="scriptGrammarConverter"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="scriptGrammarConverter">
+      <annotation>
+         <documentation>
+            Contributes a script grammar converter (IScriptGrammarConverter implementing class) for converting the given source grammar into the given target grammar.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="sourceGrammar" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The source grammar name.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="targetGrammar" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The target grammar.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Integer Priority. The higher the number the higher the priority.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Implements IScriptGrammarConverter interface to convert from the given soruce grammar to the given target grammar.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.processeditor.xpdl2.extensions.IScriptGrammarConverter"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         3.5.2
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         See &lt;code&gt;com.tibco.xpd.processeditor.pdl2.extensions.IScriptGrammarConverter&lt;/code&gt;
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright TIBCO Software Inc. (c) 2011
+      </documentation>
+   </annotation>
+
+</schema>

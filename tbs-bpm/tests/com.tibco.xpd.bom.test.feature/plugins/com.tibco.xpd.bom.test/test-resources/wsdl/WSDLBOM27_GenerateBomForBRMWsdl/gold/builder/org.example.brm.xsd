@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/brm" xmlns:tns2="http://www.example.org/brm" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/brm">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/kapil/Generated Business Objects/org.example.brm.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="ObjectID" id="org.example.brmObjectID" abstract="false"
+      mixed="false" name="ObjectID">
+    <xsd:attribute ecore:name="id" id="ObjectIDid" form="unqualified" name="id" type="tns2:long_StudioGeneratedTemplate"
+        use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ManagedObjectID" id="org.example.brmManagedObjectID"
+      abstract="false" mixed="false" name="ManagedObjectID">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns2:ObjectID">
+        <xsd:attribute ecore:name="version" id="ManagedObjectIDversion" form="unqualified"
+            name="version" type="tns2:long_StudioGeneratedTemplate" use="optional"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="WorkItem" id="org.example.brmWorkItem" abstract="false"
+      mixed="false" name="WorkItem">
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="WorkItemid" form="qualified" maxOccurs="1"
+          minOccurs="1" name="id" type="ManagedObjectID"/>
+      <xsd:element ecore:name="visible" id="WorkItemvisible" form="qualified" maxOccurs="1"
+          minOccurs="1" name="visible" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="getWorkListItems" nillable="false">
+    <xsd:complexType ecore:name="getWorkListItemsType" id="org.example.brmgetWorkListItemsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="entityID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="entityID" type="xsd:string"/>
+        <xsd:element ecore:name="orderFilterCriteria" form="qualified" maxOccurs="1"
+            minOccurs="0" name="orderFilterCriteria" type="xsd:string"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="startPosition" id="getWorkListItemsTypestartPosition"
+          form="unqualified" name="startPosition" type="tns2:long_StudioGeneratedTemplate"
+          use="required"/>
+      <xsd:attribute ecore:name="numberOfItems" id="getWorkListItemsTypenumberOfItems"
+          form="unqualified" name="numberOfItems" type="tns2:long_StudioGeneratedTemplate"
+          use="required"/>
+      <xsd:attribute ecore:name="getTotalCount" id="getWorkListItemsTypegetTotalCount"
+          default="true" form="unqualified" name="getTotalCount" type="xsd:boolean"
+          use="optional"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getWorkListItemsResponse" nillable="false">
+    <xsd:complexType ecore:name="getWorkListItemsResponseType" id="org.example.brmgetWorkListItemsResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="startPosition" form="qualified" maxOccurs="1" minOccurs="1"
+            name="startPosition" type="tns2:long_StudioGeneratedTemplate"/>
+        <xsd:element ecore:name="endPosition" form="qualified" maxOccurs="1" minOccurs="1"
+            name="endPosition" type="tns2:long_StudioGeneratedTemplate"/>
+        <xsd:element ecore:name="totalItems" form="qualified" maxOccurs="1" minOccurs="1"
+            name="totalItems" type="tns2:long_StudioGeneratedTemplate"/>
+        <xsd:element ecore:name="workItems" form="qualified" maxOccurs="unbounded"
+            minOccurs="0" name="workItems" type="WorkItem"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

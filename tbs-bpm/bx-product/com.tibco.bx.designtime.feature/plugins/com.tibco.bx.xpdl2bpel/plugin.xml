@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point 
+         id="activityConfigurationModelBuilder" 
+         name="Builder of the XPDL Activity Configuration Models" 
+         schema="schema/activityConfigurationModelBuilder.exsd"/>
+   
+   <extension
+         id="problemmarker"
+         name="N2 Marker"
+         point="org.eclipse.core.resources.markers">
+     <super type="org.eclipse.core.resources.problemmarker"/>
+     <persistent value="true"/>
+     <attribute name="ID"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/NewXMLSchema" xmlns:tns1="http://www.example.org/NewXMLSchema"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/NewXMLSchema">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfsd/Business Objects/XSDBOM_Final02_Multiple.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType id="org.example.NewXMLSchematopSimpleRest2" final="restriction restriction"
+      name="topSimpleRest">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType id="org.example.NewXMLSchematopSimpleUnion2" final="union union"
+      name="topSimpleUnion">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType id="org.example.NewXMLSchematopSimpleList2" final="list list" name="topSimpleList">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:complexType id="org.example.NewXMLSchemamyComplexRest" abstract="false" final="restriction restriction"
+      mixed="false" name="myComplexRest"/>
+  <xsd:complexType id="org.example.NewXMLSchemamyComplexExtension" abstract="false"
+      final="extension extension" mixed="false" name="myComplexExtension"/>
+  <xsd:element abstract="false" final="restriction restriction restriction" name="topElemRest"
+      nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" final="extension extension extension" name="topElemExtension"
+      nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+</xsd:schema>

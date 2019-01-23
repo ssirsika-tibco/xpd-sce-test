@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://exporter.api.de.n2.tibco.com" xmlns:de="http://api.de.n2.tibco.com" xmlns:ldap="http://ldap.api.de.n2.tibco.com" xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exporter.api.de.n2.tibco.com" version="1.0">
+
+	<xs:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="organisation.xsd"/>
+    <xs:import namespace="http://api.de.n2.tibco.com" schemaLocation="de.xsd"/>
+	<xs:import namespace="http://ldap.api.de.n2.tibco.com" schemaLocation="de-ldap.xsd"/>
+	<xs:element name="exportResourcesRequest">
+		<xs:annotation>
+			<xs:documentation>Request element for the exportResources operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="orgdto:XmlOrgModelVersion">
+			<xs:attribute default="true" name="export-ldap-containers" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Boolean value specifying whether LDAP containers will be exported (TRUE or not set) or not (FALSE).</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute default="true" name="export-resources" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Boolean value specifying whether Directory Engine resource mappings will be exported (TRUE or not set) or not (FALSE).</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute default="true" name="export-push-destinations" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Boolean value specifying whether push destinations will be exported (TRUE or not set) or not (FALSE).</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+                </xs:extension>
+            </xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="exportResourcesResponse" type="ExportResource">
+		<xs:annotation>
+			<xs:documentation>Response element for the exportResources operation.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="importResourcesRequest" type="ExportResource">
+		<xs:annotation>
+			<xs:documentation>Request element for the importResources operation.
+
+NOTE: If the data is being imported into a different server:
+
+- all LDAP references must still be valid on the new server.
+
+- all referenced organization model entities must exist on the new server. (That is, all organization models that were deployed to the server from which the details were exported, and that are referenced in the ResourceDetail element, must also have been deployed to the new server.)
+
+The import operation will fail if this is not the case.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="importResourcesResponse" type="xs:boolean">
+		<xs:annotation>
+			<xs:documentation>Response element for the importResources operation.
+
+If the import operation fails, an InvalidModelImport fault will be returned listing any errors found in the imported document.      </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ExportResource">
+		<xs:annotation>
+			<xs:documentation>Type definition for the complete exported object details.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="container" type="ldap:XmlLdapContainer">
+				<xs:annotation>
+					<xs:documentation>Details of all LDAP containers that are currently configured in Directory Engine.
+
+Note that these LDAP containers contain LDAP alias references. If the same LDAP references do not exist in the import environment runtime errors will occur.
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="resource" type="ResourceDetail">
+				<xs:annotation>
+					<xs:documentation>Details of all resource mappings that are currently configured in Directory Engine. (This also includes resources that have been created as users but not mapped to any positions or groups.)
+
+Note that these resource definitions contain:
+
+- organization model entity references (unique IDs). If the same organization model entity references do not exist on the import environment runtime errors will occur.
+
+-  LDAP references (ldapalias and ldapdn). If the same LDAP references are not available on the import environment runtime errors will occur.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="push-destination" type="PushDestinationDetail">
+				<xs:annotation>
+					<xs:documentation>Details of all push destinations that are currently configured in Directory Engine.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+        <xs:attribute default="-1" name="model-version" type="xs:int" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ResourceDetail">
+		<xs:annotation>
+			<xs:documentation>Base type definition for the exported resource details.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="resourceCapability">
+				<xs:annotation>
+					<xs:documentation>References to all capabilities held by this resource.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="qualifier">
+							<xs:annotation>
+								<xs:documentation>An optional collection of qualifying values. Multiple values will only be used for qualifiers of type "enumset".
+                          </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:attribute name="value" type="xs:string" use="required"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="capabilityId" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>Unique ID of the capability.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="positionHeld">
+				<xs:annotation>
+					<xs:documentation>References to all positions held by this resource.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="positionId" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>Unique ID of the position.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="startDate" type="xs:dateTime" use="optional">
+						<xs:annotation>
+							<xs:documentation>Date/time at which the user starts to hold the position.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="endDate" type="xs:dateTime" use="optional">
+						<xs:annotation>
+							<xs:documentation>Date/time at which the user ceases to hold the position.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="resourceGroup">
+				<xs:annotation>
+					<xs:documentation>References to all groups of which this resource is a member.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="groupId" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>Unique ID of the group.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="startDate" type="xs:dateTime" use="optional">
+						<xs:annotation>
+							<xs:documentation>Date/time at which the user becomes a member of the group.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="endDate" type="xs:dateTime" use="optional">
+						<xs:annotation>
+							<xs:documentation>Date/time at which the user ceases to be a member of the group.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="parameter">
+				<xs:annotation>
+					<xs:documentation>References to all parameter descriptors that describe resource attributes associated with this resource.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence minOccurs="0">
+						<xs:element name="enumSet">
+							<xs:complexType>
+								<xs:sequence maxOccurs="unbounded">
+									<xs:element name="enumValue">
+										<xs:complexType>
+											<xs:attribute name="value" type="xs:anySimpleType" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="descriptor" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>Unique identifier of the parameter descriptor that describes the resource attribute.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="value" type="xs:anySimpleType" use="optional">
+						<xs:annotation>
+							<xs:documentation>Value of the resource attribute.
+
+This will be set only for locally held resource attribute values - that is, where the parameter is not mapped to an external LDAP attribute.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ldapdn" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>For non-locally held resource attribute values, the DN of the LDAP entry from which the attribute's value is read. </xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ldapalias" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>For non-locally held resource attribute values, the alias by which the LDAP connection is registered within Directory Engine. </xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ldapattribute" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>For non-locally held resource attribute values, the name of the LDAP attribute from which the attribute's value is read. </xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="secondary-ldap">
+				<xs:complexType>
+					<xs:attribute name="ldapalias" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>LDAP alias of the secondary LDAP source from which this resource is derived.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ldapdn" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>LDAP DN of the secondary LDAP source from which this resource is derived.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Unique ID of the resource.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the resource.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+        <xs:attribute name="label" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>The name of the resource used for display purposes.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+		<xs:attribute name="startDate" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>Date/time at which the resource becomes available.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="endDate" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>Date/time at which the resource becomes unavailable.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="locationId" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>ID of the location associated with this resource.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resourceType" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Type of this resource.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ldapalias" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>LDAP alias associated with this resource (only for resources whose resourceType is human).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ldapdn" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>LDAP DN associated with this resource (only for resources whose resourceType is human).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ldapcontainer" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>LDAP container name associated with this resource (only if this LDAP container is part of this export).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PushDestinationDetail">
+		<xs:annotation>
+			<xs:documentation>Definition of a push destination.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="orgdto:XmlModelEntityId">
+				<xs:sequence>
+					<xs:element name="XMLPushDestination">
+						<xs:annotation>
+							<xs:documentation>Definition of a a push destination for the specified entity.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:choice>
+								<xs:element maxOccurs="unbounded" name="target" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>Value to be used for this push destination. This is only supplied if the value is not retrieved from a parameter descriptor (defined in param-descriptor).</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="param-descriptor" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>Unique ID of a prameter descriptor whose value should be used for the push destination. </xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:choice>
+							<xs:attribute name="name" type="xs:string" use="required">
+								<xs:annotation>
+									<xs:documentation>Unique name of this push destination.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="channel-type" type="xs:string" use="required">
+								<xs:annotation>
+									<xs:documentation>Enumerated type defining the presentation technology used by the channel associated with this push destination.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="channel-ID" type="xs:string" use="required">
+								<xs:annotation>
+									<xs:documentation>Unique ID of the channel associated with this push destination.</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+							<xs:attribute name="enabled" type="xs:boolean" use="required">
+								<xs:annotation>
+									<xs:documentation>Boolean value indicating whether this push destination is currently enabled (TRUE) or not (FALSE).</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

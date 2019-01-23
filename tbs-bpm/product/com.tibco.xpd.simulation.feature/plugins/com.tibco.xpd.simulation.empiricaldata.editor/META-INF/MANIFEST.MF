@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.tibco.xpd.simulation.empiricaldata.editor; singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: com.tibco.xpd.simulation.EmpircalDataEditorPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: com.tibco.xpd.simulation.empiricaldata.ui,
+ com.tibco.xpd.simulation.empiricaldata.ui.wizard
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.emf.edit.ui;visibility:=reexport,
+ org.eclipse.ui.ide;visibility:=reexport,
+ com.tibco.xpd.resources,
+ com.tibco.xpd.resources.ui,
+ com.tibco.xpd.analyst.resources.xpdl2,
+ com.tibco.xpd.xpdl2,
+ com.tibco.xpd.simulation,
+ com.tibco.xpd.simulation.edit,
+ com.tibco.xpd.simulation.common,
+ com.tibco.xpd.simulation.process,
+ com.tibco.xpd.simulation.empiricaldata,
+ com.tibco.xpd.simulation.empiricaldata.edit,
+ com.tibco.xpd.org.apache.poi;bundle-version="[2.5.1,4.0.0)"
+Eclipse-LazyStart: true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://api.wp.n2.tibco.com" xmlns:tns3="http://api.wp.n2.tibco.com" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:tns10="http://datafeed.common.n2.tibco.com" xmlns:tns11="http://channeltype.common.n2.tibco.com"
+    xmlns:tns12="http://datamodel.common.n2.tibco.com" xmlns:tns4="http://api.brm.n2.tibco.com"
+    xmlns:tns5="http://base.api.wp.n2.tibco.com" xmlns:tns6="http://api.organisation.common.n2.tibco.com"
+    xmlns:tns7="http://base.api.bs.n2.tibco.com" xmlns:tns9="http://service.archive.wp.n2.tibco.com"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.wp.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.wp.api.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://base.api.wp.n2.tibco.com" schemaLocation="com.tibco.n2.wp.api.base.xsd"/>
+  <xsd:import namespace="http://datamodel.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.datamodel.xsd"/>
+  <xsd:import namespace="http://datafeed.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.datafeed.xsd"/>
+  <xsd:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.organisation.api.xsd"/>
+  <xsd:import namespace="http://api.brm.n2.tibco.com" schemaLocation="com.tibco.n2.brm.api.xsd"/>
+  <xsd:import namespace="http://service.archive.wp.n2.tibco.com" schemaLocation="com.tibco.n2.wp.archive.service.xsd"/>
+  <xsd:import namespace="http://base.api.bs.n2.tibco.com" schemaLocation="com.tibco.n2.bs.api.base.xsd"/>
+  <xsd:import namespace="http://channeltype.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.channeltype.xsd"/>
+  <xsd:complexType ecore:name="workResponseType" id="com.tibco.n2.wp.apiworkResponseType"
+      abstract="false" mixed="false" name="workResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns5:Success">
+        <xsd:sequence>
+          <xsd:element ecore:name="payloadModel" id="workResponseTypepayloadModel"
+              form="unqualified" maxOccurs="1" minOccurs="0" name="payloadModel" nillable="true"
+              type="tns10:dataPayload"/>
+          <xsd:element ecore:name="workTypeDetail" id="workResponseTypeworkTypeDetailType"
+              form="unqualified" maxOccurs="1" minOccurs="0" name="workTypeDetail"
+              nillable="true">
+            <xsd:complexType ecore:name="workTypeDetailType" id="com.tibco.n2.wp.apiworkTypeDetailType"
+                mixed="false">
+              <xsd:complexContent mixed="false">
+                <xsd:extension base="tns5:WorkType">
+                  <xsd:sequence>
+                    <xsd:element ecore:name="dataModel" id="workTypeDetailTypedataModel"
+                        form="unqualified" maxOccurs="1" minOccurs="0" name="dataModel"
+                        type="tns12:DataModel"/>
+                  </xsd:sequence>
+                  <xsd:attribute ecore:name="typePiled" id="workTypeDetailTypetypePiled"
+                      form="unqualified" name="typePiled" type="xsd:boolean" use="required">
+                    <xsd:annotation>
+                      <xsd:documentation>Boolean value specifying whether this work type is a piled work type. </xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
+                  <xsd:attribute ecore:name="pilingLimit" id="workTypeDetailTypepilingLimit"
+                      form="unqualified" name="pilingLimit" type="xsd:int" use="optional">
+                    <xsd:annotation>
+                      <xsd:documentation>Maximum number of piled work items of this work type (pecified only or a piled work type). </xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
+                </xsd:extension>
+              </xsd:complexContent>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element ecore:name="presentation" id="workResponseTypepresentationType"
+              form="unqualified" maxOccurs="1" minOccurs="0" name="presentation" nillable="true">
+            <xsd:complexType ecore:name="presentationType" id="com.tibco.n2.wp.apipresentationType"
+                mixed="false">
+              <xsd:attribute ecore:name="type" id="presentationTypetype" form="unqualified"
+                  name="type" use="required">
+                <xsd:simpleType ecore:name="typeType">
+                  <xsd:restriction base="xsd:string">
+                    <xsd:enumeration ecore:name="GWTFORM" value="GWT_FORM"/>
+                    <xsd:enumeration ecore:name="GIFORM" value="GI_FORM"/>
+                    <xsd:enumeration ecore:name="PAGEFLOW" value="PAGEFLOW"/>
+                    <xsd:enumeration ecore:name="CUSTOMFORM" value="CUSTOM_FORM"/>
+                    <xsd:enumeration ecore:name="FORM" value="FORM"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+              </xsd:attribute>
+              <xsd:attribute ecore:name="formIdenitifier" id="presentationTypeformIdenitifier"
+                  form="unqualified" name="formIdenitifier" type="xsd:string" use="required">
+                <xsd:annotation>
+                  <xsd:documentation>Identifier for the JSON form artifact to be used to display the data for the work item.
+										 </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+              <xsd:attribute ecore:name="activityName" id="presentationTypeactivityName"
+                  form="unqualified" name="activityName" type="xsd:string" use="optional">
+                <xsd:annotation>
+                  <xsd:documentation>Name of the process activity from which the work item was generated.
+										 </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+              <xsd:attribute ecore:name="version" id="presentationTypeversion" form="unqualified"
+                  name="version" type="xsd:string" use="optional">
+                <xsd:annotation>
+                  <xsd:documentation>Version number of the form artifact. </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element ecore:name="workItem" id="workResponseTypeworkItem" form="unqualified"
+              maxOccurs="1" minOccurs="0" name="workItem" nillable="true" type="tns5:WorkItem"/>
+          <xsd:element ecore:name="pageFlowDetail" id="workResponseTypepageFlowDetail"
+              form="unqualified" maxOccurs="1" minOccurs="0" name="pageFlowDetail"
+              type="tns9:pageFlowType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="successFailureResponse" nillable="false" type="tns5:Success"/>
+  <xsd:element abstract="false" name="baseRequest" nillable="false" type="tns5:BaseRequest"/>
+  <xsd:element abstract="false" name="baseWorkRequest" nillable="false" type="tns5:BaseWorkRequest"/>
+  <xsd:element abstract="false" name="workRequest" nillable="false" type="tns5:WorkRequest"/>
+  <xsd:element abstract="false" name="listChannelTypesRequest" nillable="false" type="tns5:ChannelTypeRequest"/>
+  <xsd:element abstract="false" name="getPresentationChannelRequest" nillable="false"
+      type="tns5:PresentationChannelRequest"/>
+  <xsd:element abstract="false" name="getPresentationArtifactRequest" nillable="false"
+      type="tns5:PresentationArtifactRequest"/>
+  <xsd:element abstract="false" name="businessServiceDetailsResponse" nillable="false"
+      type="tns9:businessServiceType"/>
+  <xsd:element abstract="false" name="workResponse" nillable="false">
+    <xsd:complexType ecore:name="workResponseType1">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns5:Success">
+          <xsd:sequence>
+            <xsd:element ecore:name="payloadModel" id="workResponseTypepayloadModel2"
+                maxOccurs="1" minOccurs="0" name="payloadModel" type="tns10:dataPayload"/>
+            <xsd:element ecore:name="workTypeDetail" id="workResponseTypeworkTypeDetailType2"
+                form="unqualified" maxOccurs="1" minOccurs="0" name="workTypeDetail"
+                nillable="true">
+              <xsd:complexType ecore:name="workTypeDetailType1" id="com.tibco.n2.wp.apiworkTypeDetailType2"
+                  mixed="false">
+                <xsd:complexContent mixed="false">
+                  <xsd:extension base="tns5:WorkType">
+                    <xsd:sequence>
+                      <xsd:element ecore:name="dataModel" id="workTypeDetailTypedataModel2"
+                          form="unqualified" maxOccurs="1" minOccurs="0" name="dataModel"
+                          type="tns12:DataModel"/>
+                    </xsd:sequence>
+                    <xsd:attribute ecore:name="typePiled" id="workTypeDetailTypetypePiled2"
+                        form="unqualified" name="typePiled" type="xsd:boolean" use="required">
+                      <xsd:annotation>
+                        <xsd:documentation>Boolean value specifying whether this work type is a piled work type. </xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute ecore:name="pilingLimit" id="workTypeDetailTypepilingLimit2"
+                        form="unqualified" name="pilingLimit" type="xsd:int" use="optional">
+                      <xsd:annotation>
+                        <xsd:documentation>Maximum number of piled work items of this work type (pecified only or a piled work type). </xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:attribute>
+                  </xsd:extension>
+                </xsd:complexContent>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element ecore:name="presentation" id="workResponseTypepresentationType2"
+                form="unqualified" maxOccurs="1" minOccurs="0" name="presentation"
+                nillable="true">
+              <xsd:complexType ecore:name="presentationType1" id="com.tibco.n2.wp.apipresentationType2"
+                  mixed="false">
+                <xsd:attribute ecore:name="type" id="presentationTypetype2" form="unqualified"
+                    name="type" use="required">
+                  <xsd:simpleType ecore:name="typeType1">
+                    <xsd:restriction base="xsd:string">
+                      <xsd:enumeration ecore:name="GWTFORM" value="GWT_FORM"/>
+                      <xsd:enumeration ecore:name="GIFORM" value="GI_FORM"/>
+                      <xsd:enumeration ecore:name="PAGEFLOW" value="PAGEFLOW"/>
+                      <xsd:enumeration ecore:name="CUSTOMFORM" value="CUSTOM_FORM"/>
+                      <xsd:enumeration ecore:name="FORM" value="FORM"/>
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+                <xsd:attribute ecore:name="formIdenitifier" id="presentationTypeformIdenitifier2"
+                    form="unqualified" name="formIdenitifier" type="xsd:string" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation>Identifier for the JSON form artifact to be used to display the data for the work item.
+										 </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute ecore:name="activityName" id="presentationTypeactivityName2"
+                    form="unqualified" name="activityName" type="xsd:string" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation>Name of the process activity from which the work item was generated.
+										 </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute ecore:name="version" id="presentationTypeversion2"
+                    form="unqualified" name="version" type="xsd:string" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation>Version number of the form artifact. </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element ecore:name="workItem" id="workResponseTypeworkItem2" maxOccurs="1"
+                minOccurs="0" name="workItem" type="tns5:WorkItem"/>
+            <xsd:element ecore:name="pageFlowDetail" id="workResponseTypepageFlowDetail2"
+                maxOccurs="1" minOccurs="0" name="pageFlowDetail" type="tns9:pageFlowType"/>
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listChannelTypesResponse" nillable="false">
+    <xsd:complexType ecore:name="listChannelTypesResponseType" id="com.tibco.n2.wp.apilistChannelTypesResponseType"
+        mixed="false">
+      <xsd:sequence maxOccurs="unbounded">
+        <xsd:element ecore:name="channelTypes" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="channelTypes" type="tns5:ChannelTypeDetail"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getPresentationChannelResponse" nillable="false">
+    <xsd:complexType ecore:name="getPresentationChannelResponseType" id="com.tibco.n2.wp.apigetPresentationChannelResponseType"
+        mixed="false">
+      <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+        <xsd:element ecore:name="presentationChannel" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="presentationChannel" type="tns5:PresentationChannel"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getPresentationArtifactResponse" nillable="false">
+    <xsd:complexType ecore:name="getPresentationArtifactResponseType" id="com.tibco.n2.wp.apigetPresentationArtifactResponseType"
+        mixed="false">
+      <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+        <xsd:element ecore:name="presentationArtifact" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="presentationArtifact" type="tns5:WorkTypeArtifact"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="businessServiceDetailsRequest" nillable="false">
+    <xsd:complexType ecore:name="businessServiceDetailsRequestType" id="com.tibco.n2.wp.apibusinessServiceDetailsRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="moduleName" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="moduleName" type="xsd:string"/>
+        <xsd:element ecore:name="processName" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="processName" type="xsd:string"/>
+        <xsd:element ecore:name="moduleVersion" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="moduleVersion" type="xsd:string"/>
+        <xsd:element ecore:name="channel" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="Channel" type="tns7:Channel"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="previewWorkItemResponse" nillable="false">
+    <xsd:complexType ecore:name="previewWorkItemResponseType" id="com.tibco.n2.wp.apipreviewWorkItemResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="previewData" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="previewData">
+          <xsd:complexType ecore:name="previewDataType" id="com.tibco.n2.wp.apipreviewDataType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="presentation" form="unqualified" maxOccurs="1"
+                  minOccurs="1" name="Presentation" type="tns5:PresentationArtifact"/>
+              <xsd:element ecore:name="workItem" form="unqualified" maxOccurs="1"
+                  minOccurs="1" name="workItem" type="tns5:WorkItem"/>
+              <xsd:element ecore:name="payload" form="unqualified" maxOccurs="1" minOccurs="1"
+                  name="payload">
+                <xsd:complexType ecore:name="payloadType" id="com.tibco.n2.wp.apipayloadType"
+                    mixed="false">
+                  <xsd:choice>
+                    <xsd:element ecore:name="serializedPayload" form="unqualified"
+                        maxOccurs="1" minOccurs="1" name="serializedPayload" type="xsd:string"/>
+                    <xsd:element ecore:name="xmlPayload" form="unqualified" maxOccurs="unbounded"
+                        minOccurs="1" name="xmlPayload" type="tns12:FieldType"/>
+                  </xsd:choice>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element ecore:name="responseType" form="unqualified" maxOccurs="1"
+                  minOccurs="1" name="responseType" type="tns10:payloadModeType"/>
+              <xsd:element ecore:name="workType" form="unqualified" maxOccurs="1"
+                  minOccurs="0" name="workType" type="tns12:WorkTypeSpec"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="isSuccess" default="false" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="isSuccess" type="xsd:boolean"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="previewWorkItemRequest" nillable="false">
+    <xsd:complexType ecore:name="previewWorkItemRequestType" id="com.tibco.n2.wp.apipreviewWorkItemRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="payloadMode" default="JSON" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="payloadMode" type="tns10:payloadModeType"/>
+        <xsd:element ecore:name="previewWorkItemFromList" form="unqualified" maxOccurs="1"
+            minOccurs="1" name="previewWorkItemFromList">
+          <xsd:complexType ecore:name="previewWorkItemFromListType" id="com.tibco.n2.wp.apipreviewWorkItemFromListType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="entityID" form="unqualified" maxOccurs="1"
+                  minOccurs="1" name="entityID" type="tns6:XmlModelEntityId"/>
+              <xsd:element ecore:name="workItemID" form="unqualified" maxOccurs="unbounded"
+                  minOccurs="1" name="workItemID" type="tns4:ObjectID"/>
+              <xsd:element ecore:name="requiredField" form="unqualified" maxOccurs="unbounded"
+                  minOccurs="0" name="requiredField" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ecore:name="channelId" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="channelId" type="xsd:string"/>
+        <xsd:element ecore:name="channelType" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="channelType" type="tns11:ChannelType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

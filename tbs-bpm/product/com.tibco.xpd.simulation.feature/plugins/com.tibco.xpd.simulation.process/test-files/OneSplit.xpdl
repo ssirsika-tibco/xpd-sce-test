@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xpdl:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensions="http://www.tibco.com/xpd/XpdlExtensions" xmlns:simulation="http://www.tibco.com/xpd/Simulation" xmlns:xpdl="http://www.wfmc.org/2002/XPDL1.0" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd" Id="OneSplit" Name="OneSplit">
+  <xpdl:PackageHeader>
+    <xpdl:XPDLVersion>1.0</xpdl:XPDLVersion>
+    <xpdl:Vendor>TIBCO</xpdl:Vendor>
+    <xpdl:Created>Mon Jan 30 12:20:48 GMT 2006</xpdl:Created>
+  </xpdl:PackageHeader>
+  <xpdl:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl:Author>jarciuch</xpdl:Author>
+    <xpdl:Version>1.0</xpdl:Version>
+  </xpdl:RedefinableHeader>
+  <xpdl:Applications>
+    <xpdl:Application Id="0"/>
+  </xpdl:Applications>
+  <xpdl:WorkflowProcesses>
+    <xpdl:WorkflowProcess Id="1" Name="OneSplitProcess">
+      <xpdl:ProcessHeader/>
+      <xpdl:RedefinableHeader/>
+      <xpdl:Participants>
+        <xpdl:Participant Id="1" Name="DrinkMaker">
+          <xpdl:ParticipantType Type="ROLE"/>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="ParticipantSimulationData"><simulation:ParticipantSimulationData>
+                <simulation:Instances>1</simulation:Instances>
+                <simulation:TimeUnitCost>
+                  <simulation:Cost>5.0</simulation:Cost>
+                  <simulation:TimeDisplayUnit>HOUR</simulation:TimeDisplayUnit>
+                </simulation:TimeUnitCost>
+              </simulation:ParticipantSimulationData></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Participant>
+      </xpdl:Participants>
+      <xpdl:Activities>
+        <xpdl:Activity Name="StartEvent" Id="1">
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>74</extensions:XOffset>
+                  <extensions:YOffset>155</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>START</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="StartSimulationData"><simulation:StartSimulationData NumberOfCases="100">
+                <simulation:Duration>
+                  <simulation:ConstantRealDistribution ConstantValue="5.0"/>
+                </simulation:Duration>
+                <simulation:DisplayTimeUnit>MINUTE</simulation:DisplayTimeUnit>
+              </simulation:StartSimulationData></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="EndEvent" Id="2">
+          <xpdl:Implementation>
+            <xpdl:No/>
+          </xpdl:Implementation>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>409</extensions:XOffset>
+                  <extensions:YOffset>163</extensions:YOffset>
+                  <extensions:Width>29</extensions:Width>
+                  <extensions:Height>29</extensions:Height>
+                </extensions:Location>
+                <extensions:ActivityType>EVENT</extensions:ActivityType>
+                <extensions:EventFlowType>END</extensions:EventFlowType>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Make Tea" Id="3">
+          <xpdl:Performer>1</xpdl:Performer>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>201</extensions:XOffset>
+                  <extensions:YOffset>53</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="ActivitySimulationData"><simulation:ActivitySimulationData>
+                <simulation:Duration>
+                  <simulation:ConstantRealDistribution ConstantValue="5.0"/>
+                </simulation:Duration>
+                <simulation:DisplayTimeUnit>MINUTE</simulation:DisplayTimeUnit>
+              </simulation:ActivitySimulationData></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+        <xpdl:Activity Name="Make Coffee" Id="4">
+          <xpdl:Performer>1</xpdl:Performer>
+          <xpdl:StartMode>
+            <xpdl:Manual/>
+          </xpdl:StartMode>
+          <xpdl:FinishMode>
+            <xpdl:Manual/>
+          </xpdl:FinishMode>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Activity LaneId="0">
+                <extensions:Location>
+                  <extensions:XOffset>202</extensions:XOffset>
+                  <extensions:YOffset>193</extensions:YOffset>
+                  <extensions:Width>90</extensions:Width>
+                  <extensions:Height>68</extensions:Height>
+                </extensions:Location>
+              </extensions:Activity></xpdl:ExtendedAttribute>
+            <xpdl:ExtendedAttribute Name="ActivitySimulationData"><simulation:ActivitySimulationData>
+                <simulation:Duration>
+                  <simulation:ConstantRealDistribution ConstantValue="5.0"/>
+                </simulation:Duration>
+                <simulation:DisplayTimeUnit>MINUTE</simulation:DisplayTimeUnit>
+              </simulation:ActivitySimulationData></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Activity>
+      </xpdl:Activities>
+      <xpdl:Transitions>
+        <xpdl:Transition Id="1" From="1" To="3">
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Transition>
+                <extensions:Router>
+                  <extensions:BendPoints>
+                    <extensions:Location>
+                      <extensions:XOffset>7</extensions:XOffset>
+                      <extensions:YOffset>-68</extensions:YOffset>
+                      <extensions:Width>-165</extensions:Width>
+                      <extensions:Height>0</extensions:Height>
+                    </extensions:Location>
+                    <extensions:Weight>0.5</extensions:Weight>
+                  </extensions:BendPoints>
+                  <extensions:BendPoints>
+                    <extensions:Location>
+                      <extensions:XOffset>102</extensions:XOffset>
+                      <extensions:YOffset>-68</extensions:YOffset>
+                      <extensions:Width>-70</extensions:Width>
+                      <extensions:Height>0</extensions:Height>
+                    </extensions:Location>
+                    <extensions:Weight>0.5</extensions:Weight>
+                  </extensions:BendPoints>
+                </extensions:Router>
+              </extensions:Transition></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Transition>
+        <xpdl:Transition Id="2" From="1" To="4">
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Transition>
+                <extensions:Router>
+                  <extensions:BendPoints>
+                    <extensions:Location>
+                      <extensions:XOffset>103</extensions:XOffset>
+                      <extensions:YOffset>76</extensions:YOffset>
+                      <extensions:Width>-70</extensions:Width>
+                      <extensions:Height>4</extensions:Height>
+                    </extensions:Location>
+                    <extensions:Weight>0.5</extensions:Weight>
+                  </extensions:BendPoints>
+                </extensions:Router>
+              </extensions:Transition></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Transition>
+        <xpdl:Transition Id="3" From="3" To="2">
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Transition>
+                <extensions:Router>
+                  <extensions:BendPoints>
+                    <extensions:Location>
+                      <extensions:XOffset>71</extensions:XOffset>
+                      <extensions:YOffset>3</extensions:YOffset>
+                      <extensions:Width>-92</extensions:Width>
+                      <extensions:Height>-73</extensions:Height>
+                    </extensions:Location>
+                    <extensions:Weight>0.5</extensions:Weight>
+                  </extensions:BendPoints>
+                </extensions:Router>
+              </extensions:Transition></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Transition>
+        <xpdl:Transition Id="4" From="4" To="2">
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="XPD"><extensions:Transition>
+                <extensions:Router>
+                  <extensions:BendPoints>
+                    <extensions:Location>
+                      <extensions:XOffset>69</extensions:XOffset>
+                      <extensions:YOffset>0</extensions:YOffset>
+                      <extensions:Width>-93</extensions:Width>
+                      <extensions:Height>64</extensions:Height>
+                    </extensions:Location>
+                    <extensions:Weight>0.5</extensions:Weight>
+                  </extensions:BendPoints>
+                  <extensions:BendPoints>
+                    <extensions:Location>
+                      <extensions:XOffset>109</extensions:XOffset>
+                      <extensions:YOffset>-11</extensions:YOffset>
+                      <extensions:Width>-53</extensions:Width>
+                      <extensions:Height>53</extensions:Height>
+                    </extensions:Location>
+                    <extensions:Weight>0.5</extensions:Weight>
+                  </extensions:BendPoints>
+                </extensions:Router>
+              </extensions:Transition></xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:Transition>
+      </xpdl:Transitions>
+      <xpdl:ExtendedAttributes>
+        <xpdl:ExtendedAttribute Name="XPD"><extensions:Diagram>
+            <extensions:ZoomLevel>1.0</extensions:ZoomLevel>
+            <extensions:Pool extensions:Id="0">
+              <extensions:Name>Default Pool</extensions:Name>
+              <extensions:IsVisible>true</extensions:IsVisible>
+              <extensions:IsDefault>true</extensions:IsDefault>
+              <extensions:Lane extensions:Id="0">
+                <extensions:Name>Default Lane</extensions:Name>
+                <extensions:IsDefault>true</extensions:IsDefault>
+                <extensions:Size>300</extensions:Size>
+              </extensions:Lane>
+            </extensions:Pool>
+          </extensions:Diagram></xpdl:ExtendedAttribute>
+      </xpdl:ExtendedAttributes>
+    </xpdl:WorkflowProcess>
+  </xpdl:WorkflowProcesses>
+  <xpdl:ExtendedAttributes>
+    <xpdl:ExtendedAttribute Name="CreatedBy" Value="iProcess Studio v1.0.0"/>
+  </xpdl:ExtendedAttributes>
+</xpdl:Package>

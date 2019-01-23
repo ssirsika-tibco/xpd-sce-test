@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://XSDBOM_TLE19_ChainLink2" xmlns:tns4="http://XSDBOM_TLE19_ChainLink2"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns3="http://XSDBOM_TLE19_ChainLink3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://XSDBOM_TLE19_ChainLink2">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD3877/Business Objects/XSDBOM_TLE19_ChainLink2.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://XSDBOM_TLE19_ChainLink3" schemaLocation="XSDBOM_TLE19_ChainLink3.xsd"/>
+  <xsd:simpleType ecore:name="referencedSimple" id="XSDBOM_TLE19_ChainLink2referencedSimple2"
+      name="referencedSimple">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="referencedEnum" id="XSDBOM_TLE19_ChainLink2referencedEnum"
+      name="referencedEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="ENUMLIT" value="ENUMLIT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="referencedComplex" id="XSDBOM_TLE19_ChainLink2referencedComplex"
+      abstract="false" mixed="false" name="referencedComplex"/>
+  <xsd:element abstract="false" name="referencedElem5" nillable="false" type="tns3:referenced2Simple"/>
+  <xsd:element abstract="false" name="referencedElem6" nillable="false" type="tns3:referenced2Enum"/>
+  <xsd:element abstract="false" name="referencedElem4" nillable="false" type="tns3:referenced2Complex"/>
+</xsd:schema>

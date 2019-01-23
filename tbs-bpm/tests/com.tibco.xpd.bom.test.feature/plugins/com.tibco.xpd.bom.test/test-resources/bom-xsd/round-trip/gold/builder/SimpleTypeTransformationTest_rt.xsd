@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://businessobjectmodel" xmlns:tns1="http://businessobjectmodel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://businessobjectmodel">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/hgfh/Business Objects/SimpleTypeTransformationTest_rt.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType id="businessobjectmodel_mySimple2" final="#all" name="mySimple">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType id="businessobjectmodel_personalInfoType2" name="personalInfoType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="40"/>
+      <xsd:minLength fixed="false" value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType id="businessobjectmodel_middleNameType" name="middleNameType">
+    <xsd:restriction base="personalInfoType">
+      <xsd:maxLength fixed="false" value="4"/>
+      <xsd:minLength fixed="false" value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

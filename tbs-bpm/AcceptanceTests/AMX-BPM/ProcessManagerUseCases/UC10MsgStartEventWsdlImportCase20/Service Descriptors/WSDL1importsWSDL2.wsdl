@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://xmlns.example.com/1236058394286" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ns0="http://www.amsbqa.com/linda20/WSDL2embedsSchema1andSchema2"
+	name="Untitled" targetNamespace="http://xmlns.example.com/1236058394286">
+	<wsdl:import
+		namespace="http://www.amsbqa.com/linda20/WSDL2embedsSchema1andSchema2"
+		location="WSDL2embedsSchema1andSchema2.wsdl" />
+	<wsdl:service name="WSDL2embedsSchema1andSchema2-service0">
+		<wsdl:port name="NewPortTypeEndpoint0" binding="tns:NewPortTypeEndpoint0Binding">
+			<soap:address
+				location="http://localhost:8970/20/WSDL2embedsSchema1andSchema2-service0.serviceagent/NewPortTypeEndpoint0" />
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:binding name="NewPortTypeEndpoint0Binding" type="ns0:NewPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="BookLunch">
+			<soap:operation style="document"
+				soapAction="/20/WSDL2embedsSchema1andSchema2-service0.serviceagent/NewPortTypeEndpoint0/BookLunch" />
+			<wsdl:input>
+				<soap:body use="literal" parts="Book" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="Result" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

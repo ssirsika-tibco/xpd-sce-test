@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_JArg0IGgEeOxZ96cNHgqYg" xpdExt:DisplayName="UC5WLF-LoanBPM" Name="UC5WLFLoanBPM">
+  <xpdl2:PackageHeader xpdExt:Language="en_IN">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-01-20</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>INR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aprasad</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_KYBHMIGgEeOxZ96cNHgqYg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_JArg0YGgEeOxZ96cNHgqYg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_KYBuQIGgEeOxZ96cNHgqYg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_JArg0YGgEeOxZ96cNHgqYg" xpdExt:DisplayName="UC5WLFLoanBPM-Process" Name="UC5WLFLoanBPMProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_me88sIGgEeOxZ96cNHgqYg" Name="lastAccessedOn" Mode="OUT" Required="true" xpdExt:DisplayName="lastAccessedOn">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_Lh1O8IGgEeOxZ96cNHgqYg" xpdExt:DisplayName="perf" Name="perf">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_OzFkUIGgEeOxZ96cNHgqYg" xpdExt:DisplayName="loan" Name="loan" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="UC5WLFBusinessData.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_tTi6IIGZEeOxZ96cNHgqYg"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_KYBuQYGgEeOxZ96cNHgqYg" Name="LoanStartEvent" xpdExt:DisplayName="Loan Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_KYBuQIGgEeOxZ96cNHgqYg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_KYBuQoGgEeOxZ96cNHgqYg" Name="LoanEndEvent" xpdExt:DisplayName="Loan End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_KYBuQIGgEeOxZ96cNHgqYg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_NKFmMIGgEeOxZ96cNHgqYg" Name="LoanUserTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Loan User Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_NKFmMYGgEeOxZ96cNHgqYg"/>
+                <xpdl2:MessageOut Id="_NKFmMoGgEeOxZ96cNHgqYg"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Lh1O8IGgEeOxZ96cNHgqYg</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_KYBuQIGgEeOxZ96cNHgqYg" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="342.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="JavaScript">//Create necessary instances&#xD;
+loan = com_example_uc5wlfbusinessdata_Factory.createLoan();&#xD;
+loan.customer = com_example_uc5wlfbusinessdata_Factory.createCustomer();&#xD;
+loan.customer.address = com_example_uc5wlfbusinessdata_Factory.createAddress();&#xD;
+&#xD;
+loan.acntNumber = &quot;HOMELOAN1234&quot;;&#xD;
+loan.interesttRate = 10.0;&#xD;
+loan.loanAmount = 400000;&#xD;
+loan.loanTenure = 10;&#xD;
+loan.openingDate = DateTimeUtil.createDatetime(2010,03,24,14,55,35,00);&#xD;
+loan.type = &quot;Home Loan&quot;;&#xD;
+&#xD;
+&#xD;
+loan.customer.dob = DateTimeUtil.createDatetime(1988,06,18,04,55,35,00);&#xD;
+loan.customer.lastName = &quot;Joy&quot;;&#xD;
+loan.customer.firstName= &quot;Lissa&quot;;&#xD;
+loan.customer.address.street= &quot;Adria Road&quot;;&#xD;
+loan.customer.address.city = &quot;Birmingham&quot;;&#xD;
+</xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_KYBuQ4GgEeOxZ96cNHgqYg" xpdExt:DisplayName="" Name="" From="_NKFmMIGgEeOxZ96cNHgqYg" To="_KYBuQoGgEeOxZ96cNHgqYg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_NKICcIGgEeOxZ96cNHgqYg" xpdExt:DisplayName="" Name="" From="_KYBuQYGgEeOxZ96cNHgqYg" To="_NKFmMIGgEeOxZ96cNHgqYg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="lastAccessedOn"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:ProcessDataWorkItemAttributeMappings>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute10</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.acntNumber</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute18</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.interesttRate</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute16</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.loanAmount</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute15</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.loanTenure</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute6</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.openingDate</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute22</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.type</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute12</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.customer.address.city</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute11</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.customer.address.street</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute9</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.customer.lastName</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute3</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.customer.firstName</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute7</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>loan.customer.dob</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+        <xpdExt:DataWorkItemAttributeMapping>
+          <xpdExt:WorkItemAttribute>attribute20</xpdExt:WorkItemAttribute>
+          <xpdExt:ProcessData>lastAccessedOn</xpdExt:ProcessData>
+        </xpdExt:DataWorkItemAttributeMapping>
+      </xpdExt:ProcessDataWorkItemAttributeMappings>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="16"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

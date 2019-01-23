@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension
+         id="com.tibco.xpd.n2.cds.validator.cdsValidationMarker"
+         name="%cds.cdsValidation"
+         point="org.eclipse.core.resources.markers">
+      <persistent
+            value="true">
+      </persistent>
+      <super
+            type="com.tibco.xpd.validation.ValidationMarker">
+      </super>
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.xpd.n2.cds.validator"
+            markerType="com.tibco.xpd.n2.cds.validator.cdsValidationMarker"
+            name="CDS"
+            scopeProvider="com.tibco.xpd.bom.validator.BOMScopeProvider">
+
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.AttributeDefaultValueRule"/>
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.EMFNameClashRule: Class"/>
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.EMFNameClashRule: Package"/>
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.EMFNameClashRule: Enumeration"/>
+         <rule class="com.tibco.bds.designtime.validator.rules.DuplicateModelNameRule"/>
+         <rule
+               class="com.tibco.bds.designtime.validator.rules.ModelNameEqualToProjectLifecycleIdRule">
+         </rule>
+         <rule class="com.tibco.bds.designtime.validator.rules.EmptyEnumerationRule"/>
+         <rule class="com.tibco.bds.designtime.validator.rules.CDSEntityNameRule"/>
+         <rule class="com.tibco.bds.designtime.validator.rules.NameClashCaseMismatchRule"/>
+         <rule class="com.tibco.bds.designtime.validator.rules.AttachmentPreventionRule: Property"/>
+         <rule class="com.tibco.bds.designtime.validator.rules.AttachmentPreventionRule: PrimitiveType"/>
+         <rule
+               class="com.tibco.bds.designtime.validator.rules.EnumerationValidationRule">
+         </rule>
+         <rule class="com.tibco.bds.designtime.validator.rules.GetterNounClashRule: Classifier"/>
+         <rule class="com.tibco.bds.designtime.validator.rules.GetterNounClashRule: Property"/>
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.AttributeGlobalDataRule"/>
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.AssociationGlobalDataRule"/>
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.SubPackageRule"/>
+ 	 	 <rule class="com.tibco.bds.designtime.validator.rules.MandatorySelfContainmentRule"/>
+      </provider>
+      <issue 
+      		id="bom.cds.name.clash.getternoun.class.issue"
+      		message = "%cds.name.clash.getternoun.class.issue.message"
+      		severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue 
+      		id="bom.cds.name.clash.getternoun.enumeration.issue"
+      		message = "%cds.name.clash.getternoun.enumeration.issue.message"
+      		severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue 
+      		id="bom.cds.name.clash.getternoun.primitivetype.issue"
+      		message = "%cds.name.clash.getternoun.primitivetype.issue.message"
+      		severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue 
+      		id="bom.cds.name.clash.getternoun.property.issue"
+      		message = "%cds.name.clash.getternoun.property.issue.message"
+      		severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.attachmenttype.attribute"
+            message="%cds.attachmenttype.attribute"
+            severity="ERROR"/>
+      <issue
+            id="bom.cds.attachmenttype.primitivetype"
+            message="%cds.attachmenttype.primitivetype"
+            severity="ERROR"/>
+      <issue
+            id="bom.cds.name.clash.classifier.ignorecase.issue"
+            message="%cds.name.clash.classifier.ignorecase.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.clash.property.ignorecase.issue"
+            message="%cds.name.clash.property.ignorecase.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.class.issue"
+            message="%cds.name.invalid.class.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.class.reservedword.issue"
+            message="%cds.name.invalid.class.reservedword.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.class.package.issue"
+            message="%cds.name.invalid.class.package.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.attribute.issue"
+            message="%cds.name.invalid.attribute.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.attribute.reservedword.issue"
+            message="%cds.name.invalid.attribute.reservedword.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.enumerationliteral.issue"
+            message="%cds.name.invalid.enumerationliteral.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.package.issue"
+            message="%cds.name.invalid.package.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.package.reservedwords.issue"
+            message="%cds.name.invalid.package.reservedwords.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.name.invalid.model.issue"
+            message="%cds.name.invalid.model.issue.message"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution">
+         </resolution>
+      </issue>
+      <issue
+      		id="bom.cds.enumeration.empty.issue"
+      		message="%cds.enumeration.empty.issue.message"
+      		severity="ERROR">
+      </issue>
+      <issue
+            id="bom.cds.name.clash.class.issue"
+            message="%cds.name.clash.class.issue.message"
+            severity="ERROR"/>
+      <issue
+            id="bom.cds.name.clash.factory.issue"
+            message="%cds.name.clash.factory.issue.message"
+            severity="ERROR"/>
+      <issue
+            id="bom.cds.name.clash.factory.impl.issue"
+            message="%cds.name.clash.factory.impl.issue.message"
+            severity="ERROR"/>
+      <issue
+            id="bom.cds.name.clash.package.issue"
+            message="%cds.name.clash.package.issue.message"
+            severity="ERROR"/>
+      <issue
+            id="bom.cds.name.clash.package.impl.issue"
+            message="%cds.name.clash.package.impl.issue.message"
+            severity="ERROR"/>
+      <issue
+            id="bom.cds.name.clash.utility.issue"
+            message="%cds.name.clash.utility.issue.message"
+            severity="ERROR"/>
+      <issue
+            id="bom.cds.multiple.value.attribute.default.issue"
+            message="%cds.multiple.value.attribute.default.issue.message"
+            severity="WARNING">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.removedefaultvalueresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.multiple.value.attribute.default.from.type.issue"
+            message="%cds.multiple.value.attribute.default.from.type.issue.message"
+            severity="WARNING">
+      </issue>
+      <issue
+            id="bom.cds.attribute.optional.default.issue"
+            message="%cds.attribute.optional.default.issue.message"
+            severity="WARNING">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.removedefaultvalueresolution">
+         </resolution>
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.makepropertymandatoryresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.attribute.optional.default.from.type.issue"
+            message="%cds.attribute.optional.default.from.type.issue.message"
+            severity="WARNING">
+         <resolution
+               canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.makepropertymandatoryresolution">
+         </resolution>
+      </issue>
+      <issue
+            id="bom.cds.attribute.restriction.default.issue"
+            message="%cds.attribute.restriction.default.issue.message"
+            severity="WARNING">
+      </issue>
+      <issue
+            id="bom.cds.duplicateModelName.issue"
+            message="%duplicateModeName_issue_message"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="bom.cds.duplicateModelAndProjectLifecycle.issue"
+            message="%bom.cds.duplicateModelAndProjectLifecycle.issue.message"
+            severity="ERROR">
+      </issue>
+
+		<issue
+            id="cds.noEnumLitValue"
+            message="%cds.noEnumLitValue"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.noEnumLitUpperValue"
+            message="%cds.noEnumLitUpperValue"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.noEnumLitLowerValue"
+            message="%cds.noEnumLitLowerValue"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.invalidEnumLitValue"
+            message="%cds.invalidEnumLitValue"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.invalidEnumLitLowerValue"
+            message="%cds.invalidEnumLitLowerValue"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.invalidEnumLitUpperValue"
+            message="%cds.invalidEnumLitUpperValue"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.unsupportedEnumType"
+            message="%cds.unsupportedEnumType"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.upperValueGreaterThanLowerInRange"
+            message="%cds.upperValueGreaterThanLowerInRange"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.onlyTwoLiteralsAllowedInBooleanEnum"
+            message="%cds.onlyTwoLiteralsAllowedInBooleanEnum"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="cds.onlyOneTrueAndFalseLitAllowed"
+            message="%cds.onlyOneTrueAndFalseLitAllowed"
+            severity="ERROR">
+      </issue>
+       <issue
+             id="cds.invalidStringEnumLitValue"
+             message="%cds.invalidStringEnumLitValue"
+             severity="ERROR">
+       </issue>
+       <issue
+             id="cds.rangeOnLiteralsNotSupported"
+             message="%cds.rangeOnLiteralsNotSupported"
+             severity="ERROR">
+       </issue>
+       <issue id="bom.cds.attribute.global.dbnameclash.ending.issue"
+      		message = "%cds.attribute.global.dbnameclash.ending.issue"
+      		severity="ERROR">
+      	 <resolution canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution"/>
+       </issue>
+       <issue id="bom.cds.attribute.global.name.size.issue"
+      		message = "%cds.attribute.global.name.size.issue"
+      		severity="ERROR">
+     	 <resolution canApplyToMultiple="true"
+               id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution"/>
+       </issue>
+       <issue id="bom.cds.attribute.global.type.object.issue"
+      		message = "%cds.attribute.global.type.object.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.attribute.global.type.notsearchable.issue"
+      		message = "%cds.attribute.global.type.notsearchable.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.attribute.global.type.notcid.issue"
+      		message = "%cds.attribute.global.type.notcid.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.attribute.global.type.notautocid.issue"
+      		message = "%cds.attribute.global.type.notautocid.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.attribute.global.type.numeric.length.issue"
+      		message = "%cds.attribute.global.type.numeric.length.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.attribute.global.type.searchable.length.issue"
+      		message = "%cds.attribute.global.type.searchable.length.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.attribute.global.association.mandatory.issue"
+      		message = "%cds.attribute.global.association.mandatory.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.attribute.global.association.bidirectional.issue"
+      		message = "%cds.attribute.global.association.bidirectional.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.attribute.global.association.selfreference.issue"
+      		message = "%cds.attribute.global.association.selfreference.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.global.subpackage.issue"
+      		message = "%cds.global.subpackage.issue"
+      		severity="ERROR"/>
+       <issue id="bom.cds.mandatory.self.contained.issue"
+      		message = "%cds.mandatory.self.contained.issue"
+      		severity="ERROR"/>
+   </extension>
+   
+   <!-- ============ DESTINATIONS ========================================== -->
+   <extension
+         point="com.tibco.xpd.validation.destinations">
+      <destination
+            id="bom.cds.destination"
+            name="%CDS_destination_label"
+            selectable="true"
+            version="">
+         <filter
+               class="com.tibco.xpd.bom.validator.BOMFileFilter">
+         </filter>
+         <validationProvider
+               id="com.tibco.xpd.n2.cds.validator">
+         </validationProvider>
+      </destination>
+      <destination
+            id="cds.wsdl.bom.destination"
+            name="%cds.wsdl.bom.destination"
+            selectable="false"
+            version="">
+         <filter
+               class="com.tibco.xpd.bom.validator.WSDLFileFilter">
+         </filter>
+         <validationProvider
+               id="com.tibco.xpd.n2.cds.wsdl.bom.validator">
+         </validationProvider>
+      </destination>
+      <destination
+            id="cds.process.destination"
+            name="%CDS_destination_label"
+            selectable="true"
+            version="">
+         <filter
+               class="com.tibco.xpd.validation.xpdl2.provider.Xpdl2FileFilter">
+         </filter>
+         <validationProvider
+               id="com.tibco.xpd.n2.cds.validator.process">
+         </validationProvider>
+      </destination>
+   </extension>
+   
+      <!-- ============ RESOLUTIONS =========================================== -->
+
+   <extension
+	       point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+	          class="com.tibco.xpd.validation.resolutions.GenericResolutionGenerator"
+	          markerType="com.tibco.xpd.n2.cds.validator.cdsValidationMarker">
+      </markerResolutionGenerator>
+   </extension>
+
+   <extension
+         point="com.tibco.xpd.validation.resolution">
+      <resolution
+            canApplyToMultiple="false"
+            class="com.tibco.bds.designtime.validator.resolution.RenameModelResolution"
+            id="bom.cds.duplicateModelName.issue"
+            label="%renameModel_resolution_label">
+      </resolution>
+      <resolution
+            canApplyToMultiple="false"
+            class="com.tibco.bds.designtime.validator.resolution.RefactorModelResolution"
+            id="bom.cds.duplicateModelName.issue"
+            label="%refactorModel_resolution_label">
+      </resolution>
+      <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.bds.designtime.validator.resolution.ResetEnumLiteralValue"
+            description="%resolution_resetValue_shortdesc"
+            id="cds.invalidStringEnumLitValue"
+            label="%resolution_resetValue_label">
+      </resolution>
+      <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.bds.designtime.validator.resolution.AttributeIndexLimitResolution"
+            description="%resolution_AttributeIndexLimit_shortdesc"
+            id="bom.cds.attribute.global.type.searchable.length.issue"
+            label="%resolution_AttributeIndexLimit_label">
+      </resolution>
+      <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.bds.designtime.validator.resolution.AttributeNumericLengthLimitResolution"
+            description="%resolution_AttributeIndexLimit_shortdesc"
+            id="bom.cds.attribute.global.type.numeric.length.issue"
+            label="%resolution_AttributeIndexLimit_label">
+      </resolution>
+      <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.bds.designtime.validator.resolution.AssociationOptionalResolution"
+            description="%resolution_AssociationOptional_shortdesc"
+            id="bom.cds.attribute.global.association.mandatory.issue"
+            label="%resolution_AssociationOptional_label">
+      </resolution>
+      <resolution
+            canApplyToMultiple="true"
+            class="com.tibco.bds.designtime.validator.resolution.AssociationBidirectionalResolution"
+            description="%resolution_AssociationBidirectional_shortdesc"
+            id="bom.cds.attribute.global.association.bidirectional.issue"
+            label="%resolution_AssociationBidirectional_label">
+      </resolution>
+   </extension>
+ 
+      
+   <extension
+         point="com.tibco.xpd.validation.reusableResolutions">
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.NameCleanseResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.namecleanseresolution"
+            label="%nameCleanse_resolution_label">
+      </resolution>
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.RefactorCleanseResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.refactorcleanseresolution"
+            label="%refactorCleanse_resolution_label">
+      </resolution>
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.RemoveDefaultValueResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.removedefaultvalueresolution"
+            label="%removeDefaultValue_resolution_label">
+      </resolution>
+      <resolution
+            class="com.tibco.bds.designtime.validator.resolution.MakePropertyMandatoryResolution"
+            id="com.tibco.xpd.n2.cds.validator.resolution.makepropertymandatoryresolution"
+            label="Make the attribute mandatory">
+      </resolution>      
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.xpd.n2.cds.wsdl.bom.validator"
+            markerType="com.tibco.xpd.wsdltobom.validator.wsdlValidationMarker"
+            name="WSDL"
+            scopeProvider="com.tibco.xpd.bom.validator.WSDLtoBOMScopeProvider">
+         <rule
+               class="com.tibco.bds.designtime.validator.rules.AbsoluteSchemaLocationInvalidRule">
+         </rule>
+         <rule
+               class="com.tibco.bds.designtime.validator.rules.WsdlImportAbsoluteSchemaLocationInvalidRule">
+         </rule>
+      </provider>
+      <issue
+            id="cds.wsdlbom.absolutePathInvalid"
+            message="%cds.wsdlbom.absolutePathInvalid"
+            severity="ERROR">
+      </issue>
+   </extension>
+   
+   <extension
+         point="com.tibco.xpd.destinations.globalDestinationEnvironment">      
+      <globalDestinationComponentVersion
+            disabled="false"
+            globalDestinationComponentId="com.tibco.xpd.bom.cds.globalDestinationComponent"
+            validationDestinationId="bom.cds.destination">
+      </globalDestinationComponentVersion>
+      <globalDestinationComponentVersion
+            disabled="true"
+            globalDestinationComponentId="com.tibco.xpd.bom.cds.globalDestinationComponent"
+            validationDestinationId="bom.cds.destination.disabled">
+      </globalDestinationComponentVersion>
+      <globalDestinationComponentVersion
+            disabled="false"
+            globalDestinationComponentId="com.tibco.xpd.process.cds.globalDestinationComponent"
+            validationDestinationId="cds.process.destination">
+      </globalDestinationComponentVersion>
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.xpd.n2.cds.validator.process"
+            markerType="com.tibco.xpd.n2.cds.validator.cdsValidationMarker"
+            name="%CDS_destination_label"
+            scopeProvider="com.tibco.xpd.validation.xpdl2.provider.Xpdl2ScopeProvider">
+      </provider>
+     
+      <issue
+            id="cds.process.enum.data.field"
+            message="%cds.process.enum.data.field"
+            severity="ERROR">
+      </issue>
+      
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.destinations">
+      <workspaceResourceDestination
+            id="com.tibco.bds.designtime.validation.workspace"
+            name="%CDS_destination_label">
+         <validationProvider
+               id="com.tibco.bds.designtime.workspaceValidatorProvider">
+         </validationProvider>
+      </workspaceResourceDestination>
+   </extension>
+   <extension
+         point="com.tibco.xpd.validation.workspaceResourceValidationProvider">
+      <provider
+            id="com.tibco.bds.designtime.workspaceValidatorProvider">
+         <validator
+               class="com.tibco.bds.designtime.validator.rules.UnsupportedBOMContent"
+               filter=".*[\\.]bom"
+               id="com.tibco.bds.designtime.validator.UnsupportedBOMContent"
+               validateType="FILE"/>
+      </provider>
+      <issues>
+       <issue id="bom.cds.unsupported.service.only.bom.issue"
+      		message="%cds.unsupported.service.only.bom.issue"
+      		severity="ERROR"/>
+      </issues>
+   </extension>
+
+</plugin>

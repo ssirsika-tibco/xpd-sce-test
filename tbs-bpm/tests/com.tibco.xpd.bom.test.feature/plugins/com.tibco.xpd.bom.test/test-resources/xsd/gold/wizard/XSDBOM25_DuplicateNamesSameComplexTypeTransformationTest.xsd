@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://duplicates" xmlns:tns1="http://duplicates" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://duplicates">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gfdgdf/Business Objects/XSDBOM25_DuplicateNamesSameComplexTypeTransformationTest.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="duplicatesMyComplex" abstract="false" mixed="false" name="MyComplex">
+    <xsd:sequence>
+      <xsd:element id="MyComplexelemMyComplex2" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemMyComplex2" type="MyComplex2"/>
+      <xsd:element id="MyComplexelemmyComplex2" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemmyComplex2" type="MyComplex2"/>
+      <xsd:element id="MyComplexElemmyComplex2" form="qualified" maxOccurs="1" minOccurs="1"
+          name="ElemmyComplex2" type="MyComplex2"/>
+      <xsd:element id="MyComplexelemMyPrim" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemMyPrim">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplexelemmyPriM1" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemmyPriM">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplexElemmyprim2" form="qualified" maxOccurs="1" minOccurs="1"
+          name="Elemmyprim">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:decimal"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplexElemmyRestprim" form="qualified" maxOccurs="1" minOccurs="1"
+          name="ElemmyRestprim">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="4.9E-324"/>
+            <xsd:maxInclusive value="179.76931348623157E+306"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplexeLemmYRestPrim1" form="qualified" maxOccurs="1" minOccurs="1"
+          name="eLemmYRestPrim">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="4.9E-324"/>
+            <xsd:maxInclusive value="179.76931348623157E+306"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="duplicatesMyComplex2" abstract="false" mixed="false" name="MyComplex2">
+    <xsd:sequence>
+      <xsd:element id="MyComplex2elemMyComplex" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemMyComplex" type="MyComplex"/>
+      <xsd:element id="MyComplex2elemmyComplex" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemmyComplex" type="MyComplex"/>
+      <xsd:element id="MyComplex2ElemmyComplex" form="qualified" maxOccurs="1" minOccurs="1"
+          name="ElemmyComplex" type="MyComplex"/>
+      <xsd:element id="MyComplex2elemMyPrim" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemMyPrim">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplex2elemmyPriM1" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemmyPriM">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplex2Elemmyprim2" form="qualified" maxOccurs="1" minOccurs="1"
+          name="Elemmyprim">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:decimal"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplex2ElemmyRestenum" form="qualified" maxOccurs="1" minOccurs="1"
+          name="ElemmyRestenum">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="test"/>
+            <xsd:enumeration value="tEst"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplex2eLemmYRestPrim" form="qualified" maxOccurs="1" minOccurs="1"
+          name="eLemmYRestPrim">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="teSt"/>
+            <xsd:enumeration value="tEst"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType id="duplicatesMyComplex3" abstract="false" mixed="false" name="MyComplex3">
+    <xsd:sequence>
+      <xsd:element id="MyComplex3elemMyComplex32" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemMyComplex3" type="MyComplex"/>
+      <xsd:element id="MyComplex3elemmyComplex3" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemmyComplex3" type="MyComplex"/>
+      <xsd:element id="MyComplex3ElemmyComplex3" form="qualified" maxOccurs="1" minOccurs="1"
+          name="ElemmyComplex3" type="MyComplex"/>
+      <xsd:element id="MyComplex3elemMyPrim33" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemMyPrim3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplex3elemmyPriM34" form="qualified" maxOccurs="1" minOccurs="1"
+          name="elemmyPriM3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:boolean"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplex3Elemmyprim35" form="qualified" maxOccurs="1" minOccurs="1"
+          name="Elemmyprim3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:decimal"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplex3ElemmyRestenum31" form="qualified" maxOccurs="1"
+          minOccurs="1" name="ElemmyRestenum3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="test3"/>
+            <xsd:enumeration value="tEst3"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="MyComplex3eLemmYRestPrim31" form="qualified" maxOccurs="1"
+          minOccurs="1" name="eLemmYRestPrim3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="teSt3"/>
+            <xsd:enumeration value="tEst3"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute id="MyComplex3elemMyComplex3" form="unqualified" name="elemMyComplex3"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute id="MyComplex3elemmyComplex31" form="unqualified" name="elemmyComplex3"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:boolean"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute id="MyComplex3ElemmyComplex32" form="unqualified" name="ElemmyComplex3"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:date"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute id="MyComplex3elemMyPrim3" form="unqualified" name="elemMyPrim3"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:dateTime"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute id="MyComplex3elemmyPriM31" form="unqualified" name="elemmyPriM3"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:int"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute id="MyComplex3Elemmyprim32" form="unqualified" name="Elemmyprim3"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute id="MyComplex3ElemmyRestenum3" form="unqualified" name="ElemmyRestenum3"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:long">
+          <xsd:minInclusive value="-9223372036854775808"/>
+          <xsd:maxInclusive value="9223372036854775807"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute id="MyComplex3eLemmYRestPrim3" form="unqualified" name="eLemmYRestPrim3"
+        use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:float">
+          <xsd:minInclusive value="1.4E-45"/>
+          <xsd:maxInclusive value="340.28235E+36"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+</xsd:schema>

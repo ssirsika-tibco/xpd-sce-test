@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_hWW8ECScEeC07q58gQSKeA" xpdExt:DisplayName="ProcessPackage" Name="ProcessPackage">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2011-01-20</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>rsomayaj</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_A8zlYCSdEeC07q58gQSKeA" xpdExt:DisplayName="ProcessPackage-Process (API Activity EndPoint)" Name="ProcessPackage_ProcessPackageProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:SharedResource Type="WebService" URI="/ProcessPackage/ProcessPackageProcess/qualifier"/>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_hw5jACScEeC07q58gQSKeA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_hWeQ0CScEeC07q58gQSKeA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_hw5jASScEeC07q58gQSKeA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="420.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_hWeQ0CScEeC07q58gQSKeA" xpdExt:DisplayName="ProcessPackage-Process" xpdExt:ApiEndPointParticipant="_A8zlYCSdEeC07q58gQSKeA" Name="ProcessPackageProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_EoaUcCSdEeC07q58gQSKeA" Name="Parameter" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_FL9tcCSdEeC07q58gQSKeA" Name="Parameter2" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_Z0EOUCSnEeC8h9lB7SMN5Q" Name="CatchMessageEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Message Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_Z0EOUSSnEeC8h9lB7SMN5Q">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="Parameter">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="Parameter2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_A8zlYCSdEeC07q58gQSKeA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ProcessPackageProcess" OperationName="CatchMessageEvent">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_A8zlYCSdEeC07q58gQSKeA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_hw5jASScEeC07q58gQSKeA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="74.0" YCoordinate="86.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_bDQlUCSnEeC8h9lB7SMN5Q" Name="ReceiveTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Receive Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" xpdExt:Generated="true" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_bDQlUSSnEeC8h9lB7SMN5Q">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="Parameter">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="true" Direction="OUT" Formal="Parameter2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_A8zlYCSdEeC07q58gQSKeA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ProcessPackageProcess" OperationName="ReceiveTask">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_A8zlYCSdEeC07q58gQSKeA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_hw5jASScEeC07q58gQSKeA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="84.0" YCoordinate="217.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_bixL0CSnEeC8h9lB7SMN5Q" Name="CatchMessageEvent2" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Message Event 2">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_bixL0SSnEeC8h9lB7SMN5Q">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="Parameter">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="Parameter2">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_A8zlYCSdEeC07q58gQSKeA">
+                  <xpdl2:Service xpdExt:IsRemote="true">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ProcessPackage.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ProcessPackageProcess" OperationName="CatchMessageEvent2">
+                  <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_A8zlYCSdEeC07q58gQSKeA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_hw5jASScEeC07q58gQSKeA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="83.0" YCoordinate="330.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="Parameter"/>
+            <simulation:ParameterDistribution ParameterId="Parameter2"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="DocumentLiteral"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_eYxCMCSfEeC8h9lB7SMN5Q" xpdExt:DisplayName="ProcessPackage-Interface" Name="ProcessPackageInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_q6s4wCSfEeC8h9lB7SMN5Q" Name="Parameter" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_wK-fkCSfEeC8h9lB7SMN5Q" Name="Parameter2" Mode="INOUT" Required="true" xpdExt:DisplayName="Parameter2">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="DocumentLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_ekLoACSfEeC8h9lB7SMN5Q" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+        <xpdExt:StartMethod Id="_xHcu4CSfEeC8h9lB7SMN5Q" xpdExt:DisplayName="StartEvent2" Name="StartEvent2" Trigger="Message" Visibility="Public">
+          <xpdExt:TriggerResultMessage>
+            <xpdl2:Message Id="_xO8eACSfEeC8h9lB7SMN5Q">
+              <xpdl2:DataMappings>
+                <xpdl2:DataMapping Direction="OUT" Formal="Parameter">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="Parameter">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="OUT" Formal="Parameter2">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="Parameter2">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                </xpdl2:DataMapping>
+              </xpdl2:DataMappings>
+            </xpdl2:Message>
+            <xpdExt:PortTypeOperation PortTypeName="ProcessPackageInterface" OperationName="StartEvent2">
+              <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+            </xpdExt:PortTypeOperation>
+          </xpdExt:TriggerResultMessage>
+        </xpdExt:StartMethod>
+      </xpdExt:StartMethods>
+      <xpdExt:IntermediateMethods>
+        <xpdExt:IntermediateMethod Id="_x-aMECSfEeC8h9lB7SMN5Q" xpdExt:DisplayName="IntermediateEvent" Name="IntermediateEvent" Visibility="Public"/>
+        <xpdExt:IntermediateMethod Id="_ya1CUCSfEeC8h9lB7SMN5Q" xpdExt:DisplayName="IntermediateEvent2" Name="IntermediateEvent2" Trigger="Message" Visibility="Public">
+          <xpdExt:TriggerResultMessage>
+            <xpdl2:Message Id="_yj5ewCSfEeC8h9lB7SMN5Q">
+              <xpdl2:DataMappings>
+                <xpdl2:DataMapping Direction="OUT" Formal="Parameter">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="Parameter">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">Parameter</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="OUT" Formal="Parameter2">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                </xpdl2:DataMapping>
+                <xpdl2:DataMapping Direction="IN" Formal="Parameter2">
+                  <xpdl2:Actual ScriptGrammar="JavaScript">Parameter2</xpdl2:Actual>
+                </xpdl2:DataMapping>
+              </xpdl2:DataMappings>
+            </xpdl2:Message>
+            <xpdExt:PortTypeOperation PortTypeName="ProcessPackageInterface" OperationName="IntermediateEvent2">
+              <xpdExt:ExternalReference location="ProcessPackage.wsdl"/>
+            </xpdExt:PortTypeOperation>
+          </xpdExt:TriggerResultMessage>
+        </xpdExt:IntermediateMethod>
+      </xpdExt:IntermediateMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

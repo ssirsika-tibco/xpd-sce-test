@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.tibco.xpd.scheduling.calendar/src"
+    editDirectory="/com.tibco.xpd.scheduling.calendar.edit/src" editorDirectory="/com.tibco.xpd.scheduling.calendar.editor/src"
+    modelPluginID="com.tibco.xpd.scheduling.calendar" templateDirectory="" modelName="com.tibco.xpd.scheduling.calendar"
+    editPluginClass="com.tibco.xpd.scheduling.calendar.provider.CalendarEditPlugin"
+    editorPluginClass="com.tibco.xpd.scheduling.calendar.presentation.CalendarEditorPlugin"
+    testsDirectory="/com.tibco.xpd.scheduling.calendar.tests/src" testSuiteClass="com.tibco.xpd.scheduling.calendar.tests.AllTests"
+    importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0">
+  <foreignModel>calendar.xsd</foreignModel>
+  <genPackages prefix="Calendar" basePackage="com.tibco.xpd.scheduling" resource="XML"
+      disposableProviderFactory="true" ecorePackage="com.tibco.xpd.scheduling.calendar.ecore#/">
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//CalculatedHolidayType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//CalculatedHolidayType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//CalculatedHolidayType/script"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//Calendar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//Calendar/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//Calendar/locale"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//Calendar/defaultWorkingSchedule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//Calendar/publicHolidays"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//DocumentRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//DocumentRoot/calendar"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//PublicHolidays">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//PublicHolidays/singleHoliday"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//PublicHolidays/calculatedHoliday"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//SingleHolidayType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//SingleHolidayType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//SingleHolidayType/startDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//SingleHolidayType/endDate"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//TimeSlot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//TimeSlot/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//TimeSlot/endTime"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//WorkingDay">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute com.tibco.xpd.scheduling.calendar.ecore#//WorkingDay/dayOfWeek"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//WorkingDay/workingTime"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//WorkingSchedule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//WorkingSchedule/workingDay"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//WorkingSchedule/defaultWorkingTime"/>
+    </genClasses>
+    <genClasses ecoreClass="com.tibco.xpd.scheduling.calendar.ecore#//WorkingTime">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference com.tibco.xpd.scheduling.calendar.ecore#//WorkingTime/timeSlot"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

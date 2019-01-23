@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Deploy
+Bundle-SymbolicName: com.tibco.xpd.n2.globalsignal.deploy;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Activator: com.tibco.xpd.n2.globalsignal.deploy.Activator
+Bundle-Vendor: TIBCO Software Inc.
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.tibco.xpd.daa,
+ com.tibco.xpd.daa;bundle-version="1.5.0",
+ com.tibco.xpd.n2.daa,
+ com.tibco.bx.composite.xpdl.core;bundle-version="1.13.100",
+ com.tibco.xpd.n2.globalsignal.model,
+ com.tibco.xpd.n2.globalsignal.resource
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: com.tibco.xpd.n2.globalsignal.deploy.requirementresolver

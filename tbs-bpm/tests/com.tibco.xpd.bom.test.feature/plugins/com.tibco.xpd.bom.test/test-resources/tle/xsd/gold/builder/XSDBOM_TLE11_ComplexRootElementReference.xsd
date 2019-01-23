@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE11_ComplexRootElementReference" xmlns:tns1="http://www.example.org/XSDBOM_TLE11_ComplexRootElementReference"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE11_ComplexRootElementReference">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_TLE11_ComplexRootElementReference/Business Objects/org.example.XSDBOM_TLE11_ComplexRootElementReference.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Person" id="org.example.XSDBOM_TLE11_ComplexRootElementReferencePerson"
+      abstract="false" mixed="false" name="Person">
+    <xsd:sequence>
+      <xsd:element ecore:name="surname" id="Personsurname" form="qualified" maxOccurs="1"
+          minOccurs="1" name="surname" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Child" id="org.example.XSDBOM_TLE11_ComplexRootElementReferenceChild"
+      abstract="false" mixed="false" name="Child">
+    <xsd:sequence>
+      <xsd:element ecore:name="surname" id="Childsurname" maxOccurs="1" minOccurs="1"
+          ref="tns1:surname"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="surname" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="PersonElem" nillable="false" type="Person"/>
+  <xsd:element abstract="false" name="BusDriver" nillable="false">
+    <xsd:complexType ecore:name="BusDriverType" id="org.example.XSDBOM_TLE11_ComplexRootElementReferenceBusDriverType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="personElem" maxOccurs="1" minOccurs="1" ref="tns1:PersonElem"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

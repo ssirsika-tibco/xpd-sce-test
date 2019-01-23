@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/proctolocalindirect" xmlns:tns1="http://example.com/proctolocalindirect"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns3="http://example.com/proctolocal"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/proctolocalindirect">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/ProcToLocalIndirect/Business Objects/ProcToLocalIndirect.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://example.com/proctolocal" schemaLocation="com.example.proctolocal.xsd"/>
+  <xsd:complexType ecore:name="ProcLocal" id="_4h30IFOAEeOydMVTHmI6_w" name="ProcLocal">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1" id="_55nDIFOAEeOydMVTHmI6_w" maxOccurs="1"
+          minOccurs="0" name="attribute1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="attribute2" id="_6H4IoFOAEeOydMVTHmI6_w" maxOccurs="1"
+          minOccurs="0" name="attribute2" type="tns3:Class1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProcLocalElement" type="ProcLocal"/>
+</xsd:schema>

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:java="http://xml.apache.org/xslt/java" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_Zg3-8DABEeK_8eNnJGSujw" xpdExt:DisplayName="Model Company" Name="ModelCompany">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO Software Inc</xpdl2:Vendor>
+    <xpdl2:Created>16-Nov-2012 16:22:13</xpdl2:Created>
+    <xpdl2:Description>Create organizational design</xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>Nimbus Partners</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_Zg5NEDABEeK_8eNnJGSujw" xpdExt:DisplayName="HR Specialist" Name="HRSpecialist">
+      <xpdl2:ParticipantType Type="ROLE"/>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_Zg5NETABEeK_8eNnJGSujw" xpdExt:DisplayName="Change Manager" Name="ChangeManager">
+      <xpdl2:ParticipantType Type="ROLE"/>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_Zg5NEjABEeK_8eNnJGSujw" xpdExt:DisplayName="HR Mgr" Name="HRMgr">
+      <xpdl2:ParticipantType Type="ROLE"/>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="ABBA99151413B9EF411B80352661DBFF5F13_Pool" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="ABBA99151413B9EF411B80352661DBFF5F13">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="240.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="ABBA99151413B9EF411B80352661DBFF5F13" xpdExt:DisplayName="1.2.1.2.5: Create organizational design" Name="Createorganizationaldesign">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2"></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_Zg6bMDABEeK_8eNnJGSujw" Name="Organisationalrequirementsdefined" ReadOnly="false" Mode="IN" Required="true" xpdExt:DisplayName="Organisational requirements defined">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_Zg7pUDABEeK_8eNnJGSujw" Name="Neworganizationalstructurerolledout" ReadOnly="false" Mode="OUT" Required="true" xpdExt:DisplayName="New organizational structure rolled out">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_Zg8QYDABEeK_8eNnJGSujw" xpdExt:DisplayName="Organizational complexity understood" Name="Organizationalcomplexityunderstood" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Zg9egDABEeK_8eNnJGSujw" xpdExt:DisplayName="Internal capabilities mapped against future requirements" Name="Internalcapabilitiesmappedagainstfuturerequirements" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Zg-FkDABEeK_8eNnJGSujw" xpdExt:DisplayName="Inter-dependencies between roles identified" Name="Interdependenciesbetweenrolesidentified" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Zg-soDABEeK_8eNnJGSujw" xpdExt:DisplayName="Organisational improvements commenced" Name="Organisationalimprovementscommenced" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Zg-soTABEeK_8eNnJGSujw" xpdExt:DisplayName="Cross-functional working relationships identified" Name="Crossfunctionalworkingrelationshipsidentified" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Zg_TsDABEeK_8eNnJGSujw" xpdExt:DisplayName="Key process competencies identified" Name="Keyprocesscompetenciesidentified" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_Zg_6wDABEeK_8eNnJGSujw" xpdExt:DisplayName="Shortlist of possible designs evaluated" Name="Shortlistofpossibledesignsevaluated" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING"/>
+          </xpdl2:DataType>
+          <xpdl2:InitialValue/>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_Zg_6wTABEeK_8eNnJGSujw" Name="StartCreateorganizationaldesign" xpdExt:Visibility="Private" xpdExt:DisplayName="Start Create organizational design">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="73.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Organisationalrequirementsdefined" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Neworganizationalstructurerolledout" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhAh0DABEeK_8eNnJGSujw" Name="EndCreateorganizationaldesign" xpdExt:Visibility="Private" xpdExt:DisplayName="End Create organizational design">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="1779.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhAh0TABEeK_8eNnJGSujw" Name="Evaluatebreadthanddepthoforganizationalstructure" xpdExt:Visibility="Private" xpdExt:DisplayName="Evaluate breadth and depth of organizational structure">
+          <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2">
+Statements: APQC PCF Version 5 - Generic
+====================================================================================================
+
+Statement: 1.2.5.1. Evaluate breadth and depth of organizational structure (Status: &lt;DEFAULT>)
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ZhAh0jABEeK_8eNnJGSujw"/>
+                <xpdl2:MessageOut Id="_ZhAh0zABEeK_8eNnJGSujw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zg5NEDABEeK_8eNnJGSujw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="226.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Organisationalrequirementsdefined" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Organizationalcomplexityunderstood" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhBI4DABEeK_8eNnJGSujw" Name="Performjobspecificrolesmappingandvalueaddanalyses" xpdExt:Visibility="Private" xpdExt:DisplayName="Perform job specific roles mapping and value-add analyses">
+          <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2">
+Statements: APQC PCF Version 5 - Generic
+====================================================================================================
+
+Statement: 1.2.5.2. Perform job specific roles mapping and value-add analyses (Status: &lt;DEFAULT>)
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ZhBI4TABEeK_8eNnJGSujw"/>
+                <xpdl2:MessageOut Id="_ZhBI4jABEeK_8eNnJGSujw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zg5NEDABEeK_8eNnJGSujw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="426.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Organizationalcomplexityunderstood" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Internalcapabilitiesmappedagainstfuturerequirements" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhBv8DABEeK_8eNnJGSujw" Name="Developroleactivitydiagramstoassesshandoffactivity" xpdExt:Visibility="Private" xpdExt:DisplayName="Develop role activity diagrams to assess hand-off activity">
+          <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2">
+Statements: APQC PCF Version 5 - Generic
+====================================================================================================
+
+Statement: 1.2.5.3. Develop role activity diagrams to assess hand-off activity (Status: &lt;DEFAULT>)
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ZhBv8TABEeK_8eNnJGSujw"/>
+                <xpdl2:MessageOut Id="_ZhBv8jABEeK_8eNnJGSujw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zg5NEDABEeK_8eNnJGSujw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="626.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Internalcapabilitiesmappedagainstfuturerequirements" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Interdependenciesbetweenrolesidentified" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhCXADABEeK_8eNnJGSujw" Name="Performorganizationredesignworkshops" xpdExt:Visibility="Private" xpdExt:DisplayName="Perform organization redesign workshops">
+          <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2">
+Statements: APQC PCF Version 5 - Generic
+====================================================================================================
+
+Statement: 1.2.5.4. Perform organization redesign workshops (Status: &lt;DEFAULT>)
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ZhCXATABEeK_8eNnJGSujw"/>
+                <xpdl2:MessageOut Id="_ZhCXAjABEeK_8eNnJGSujw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zg5NETABEeK_8eNnJGSujw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="826.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Interdependenciesbetweenrolesidentified" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Organisationalimprovementscommenced" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhEMMDABEeK_8eNnJGSujw" Name="Designtherelationshipsbetweenorganizationalunits" xpdExt:Visibility="Private" xpdExt:DisplayName="Design the relationships between organizational units">
+          <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2">
+Statements: APQC PCF Version 5 - Generic
+====================================================================================================
+
+Statement: 1.2.5.5. Design the relationships between organizational units (Status: &lt;DEFAULT>)
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ZhEMMTABEeK_8eNnJGSujw"/>
+                <xpdl2:MessageOut Id="_ZhEMMjABEeK_8eNnJGSujw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zg5NETABEeK_8eNnJGSujw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="1026.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Organisationalimprovementscommenced" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Crossfunctionalworkingrelationshipsidentified" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhEzQDABEeK_8eNnJGSujw" Name="Developroleanalysisandactivitydiagramsforkeyprocesses" xpdExt:Visibility="Private" xpdExt:DisplayName="Develop role analysis and activity diagrams for key processes">
+          <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2">
+Statements: APQC PCF Version 5 - Generic
+====================================================================================================
+
+Statement: 1.2.5.6. Develop role analysis and activity diagrams for key processes (Status: &lt;DEFAULT>)
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ZhEzQTABEeK_8eNnJGSujw"/>
+                <xpdl2:MessageOut Id="_ZhEzQjABEeK_8eNnJGSujw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zg5NEDABEeK_8eNnJGSujw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="1226.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Crossfunctionalworkingrelationshipsidentified" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Keyprocesscompetenciesidentified" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhFaUDABEeK_8eNnJGSujw" Name="Assessorganizationalimplicationoffeasiblealternatives" xpdExt:Visibility="Private" xpdExt:DisplayName="Assess organizational implication of feasible alternatives">
+          <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2">
+Statements: APQC PCF Version 5 - Generic
+====================================================================================================
+
+Statement: 1.2.5.7. Assess organizational implication of feasible alternatives (Status: &lt;DEFAULT>)
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ZhFaUTABEeK_8eNnJGSujw"/>
+                <xpdl2:MessageOut Id="_ZhFaUjABEeK_8eNnJGSujw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zg5NETABEeK_8eNnJGSujw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="1426.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Keyprocesscompetenciesidentified" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Shortlistofpossibledesignsevaluated" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZhGBYDABEeK_8eNnJGSujw" Name="Migratetoneworganization" xpdExt:Visibility="Private" xpdExt:DisplayName="Migrate to new organization">
+          <xpdl2:Description xpdExt:DocumentationURL="https://80.175.46.139/sandbox/CtrlWebIsapi.dll/?__id=webDiagram.show&amp;guid=67EA549E0D674654BD7885CE249B6BE2">
+Statements: APQC PCF Version 5 - Generic
+====================================================================================================
+
+Statement: 1.2.5.8. Migrate to new organization (Status: &lt;DEFAULT>)
+</xpdl2:Description>
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="_ZhGBYTABEeK_8eNnJGSujw"/>
+                <xpdl2:MessageOut Id="_ZhGBYjABEeK_8eNnJGSujw"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_Zg5NEjABEeK_8eNnJGSujw</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="ABBA99151413B9EF411B80352661DBFF5F13_Lane___DEFAULT" Width="120.0">
+              <xpdl2:Coordinates XCoordinate="1626.0" YCoordinate="120.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED" xpdExt:ReOfferOnClose="true" xpdExt:ReOfferOnCancel="true"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Shortlistofpossibledesignsevaluated" Mode="IN" Mandatory="true"/>
+            <xpdExt:AssociatedParameter FormalParam="Neworganizationalstructurerolledout" Mode="OUT" Mandatory="true"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_ZhGocDABEeK_8eNnJGSujw" From="_Zg_6wTABEeK_8eNnJGSujw" To="_ZhAh0TABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZhGocTABEeK_8eNnJGSujw" From="_ZhAh0TABEeK_8eNnJGSujw" To="_ZhBI4DABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZhGocjABEeK_8eNnJGSujw" From="_ZhBI4DABEeK_8eNnJGSujw" To="_ZhBv8DABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZhHPgDABEeK_8eNnJGSujw" From="_ZhBv8DABEeK_8eNnJGSujw" To="_ZhCXADABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZhHPgTABEeK_8eNnJGSujw" From="_ZhCXADABEeK_8eNnJGSujw" To="_ZhEMMDABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZhHPgjABEeK_8eNnJGSujw" From="_ZhEMMDABEeK_8eNnJGSujw" To="_ZhEzQDABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZhHPgzABEeK_8eNnJGSujw" From="_ZhEzQDABEeK_8eNnJGSujw" To="_ZhFaUDABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZhHPhDABEeK_8eNnJGSujw" From="_ZhFaUDABEeK_8eNnJGSujw" To="_ZhGBYDABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_ZhHPhTABEeK_8eNnJGSujw" From="_ZhGBYDABEeK_8eNnJGSujw" To="_ZhAh0DABEeK_8eNnJGSujw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio (Import From Nimbus Process Map)"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

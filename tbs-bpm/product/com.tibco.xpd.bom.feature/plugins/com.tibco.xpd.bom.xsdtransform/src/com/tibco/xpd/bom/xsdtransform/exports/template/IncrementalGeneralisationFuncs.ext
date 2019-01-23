@@ -1,0 +1,100 @@
+import xmlSchema;
+import type;
+import uml;
+import xsd;
+import com::tibco::xpd::bom::xsdtransform::exports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension org::openarchitectureware::xsd::lib::map;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::GeneralisationFuncs reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::Extensions reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::HelperFuncs reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::RestrictionFuncs reexport;
+	
+parseIncrementalGeneralisation(ExportTransformationData data, SchemaType schemaType, Generalization generalization) :	
+	let baseElement = generalization.general.package.packagedElement.select(e|e.name == generalization.general.name).first() :
+	let superElement = (PackageableElement)generalization.eContainer :	
+	parseIncrementalGeneralisation(data, schemaType, baseElement, superElement);
+	
+parseIncrementalGeneralisation(ExportTransformationData data, SchemaType schemaType, Class baseElement, Class superElement) :	
+	let superComplexType = (
+		let tmpSuperComplexType = schemaType.complexType.select(e|e.name == superElement.name).first() :
+		let tmpElemWithAnonComplextType = schemaType.element.select(e|e.name +"Type" == superElement.name).first() :
+		tmpSuperComplexType == null ? tmpElemWithAnonComplextType.complexType : tmpSuperComplexType
+	) :	
+	let baseComplexType = schemaType.complexType.select(e|e.name == baseElement.name).first() :
+	let baseGroup = schemaType.group2.select(e|e.name == baseElement.name).first() :	
+	let isBaseComplexType = isComplexType(baseElement) :
+	let isBaseGroup = isGroup(baseElement) :
+	let isBaseAttributeGroup = isAttributeGroup(baseElement) :
+	let extensionType = new ExtensionType :
+	let complexRestrictionType = new ComplexRestrictionType :
+	let complexContent = new ComplexContentType :
+	let extQName = getQName(schemaType, baseElement.name, getPrefix(data, baseElement.package)) :
+	let appliedRestrictionStereotype = superElement.getAppliedStereotypes().select(e|e.name == "XsdBasedClass").first() :
+	let isAnonContainer = getStereotypeValue(superElement, appliedRestrictionStereotype, "xsdIsAnonContainer") :		
+	superComplexType.name == null && baseComplexType.name == null ? null : (
+		isAnonContainer == true ? (
+			let element = (
+				let tempElem = new TopLevelElement :
+				let elem = schemaType.element.select(e|e.name == superElement.name).first() :			
+				elem == null ? (schemaType.element.add(tempElem) -> tempElem) : (elem.setType(null) -> elem)
+			) :
+			let compCont = new LocalComplexType :
+			element.setComplexType(compCont) ->
+			element.setName(superElement.name) ->	
+			data.addOriginalName(element, getOriginalName(superElement)) ->			
+			schemaType.complexType.remove(superComplexType) ->
+			schemaType.complexType.remove(baseComplexType)
+		) : (
+			isBaseComplexType == true ? (			
+				let isXSDRestriction = getStereotypeValue(superElement, appliedRestrictionStereotype, "xsdIsRestriction") :		
+				extensionType.setBase(extQName) ->				
+				complexRestrictionType.setBase(extQName) ->		
+				isXSDRestriction != null && isXSDRestriction == true ? complexContent.setRestriction(complexRestrictionType) : complexContent.setExtension(extensionType) ->								
+				superComplexType.setComplexContent(complexContent)								
+			) : (
+				isBaseGroup == true ? (
+					let groupRef = new GroupRef :
+					groupRef.setRef(extQName) ->
+					superComplexType.setGroup(groupRef)
+				) : (
+					isBaseAttributeGroup == true ? (
+						let attributeGroupRef = new AttributeGroupRef :
+						attributeGroupRef.setRef(extQName) ->
+						superComplexType.setAttributeGroup({attributeGroupRef})
+					) : null
+				)
+			)			
+		)
+	);
+	
+parseIncrementalGeneralisation(ExportTransformationData data, SchemaType schemaType, Enumeration baseElement, PrimitiveType superElement) :	
+	let superSimpleType = schemaType.simpleType.select(e|e.name == superElement.name).first() :
+	let baseSimpleType = schemaType.simpleType.select(e|e.name == baseElement.name).first() :	
+	let extQName = getQName(schemaType, baseElement.name, getPrefix(data, baseElement.package)) :	
+	superSimpleType.restriction.setBase(extQName) ->
+	setRestrictionAttrs(data, baseElement, superSimpleType.restriction);	
+	
+parseIncrementalGeneralisation(ExportTransformationData data, SchemaType schemaType, PrimitiveType baseElement, Enumeration superElement) :	
+	let superSimpleType = schemaType.simpleType.select(e|e.name == superElement.name).first() :
+	let baseSimpleType = schemaType.simpleType.select(e|e.name == baseElement.name).first() :	
+	let extQName = getQName(schemaType, baseElement.name, getPrefix(data, baseElement.package)) :	
+	superSimpleType.restriction.setBase(extQName) ->	
+	setRestrictionAttrs(data, baseElement, superSimpleType.restriction) ->
+	superSimpleType.restriction.enumeration.size == 0 ? toNoFixedFacet(data, superSimpleType.restriction.enumeration, "", null, superElement) : null;
+	
+parseIncrementalGeneralisation(ExportTransformationData data, SchemaType schemaType, Enumeration baseElement, Enumeration superElement) :	
+	let superSimpleType = schemaType.simpleType.select(e|e.name == superElement.name).first() :
+	let baseSimpleType = schemaType.simpleType.select(e|e.name == baseElement.name).first() :	
+	let extQName = getQName(schemaType, baseElement.name, getPrefix(data, baseElement.package)) :	
+	superSimpleType.restriction.setBase(extQName) ->
+	setRestrictionAttrs(data, baseElement, superSimpleType.restriction) ->	
+	superSimpleType.restriction.enumeration.size == 0 ? toNoFixedFacet(data, superSimpleType.restriction.enumeration, "", null, superElement) : null;
+	
+parseIncrementalGeneralisation(ExportTransformationData data, SchemaType schemaType, PrimitiveType baseElement, PrimitiveType superElement) :	
+	let superSimpleType = schemaType.simpleType.select(e|e.name == superElement.name).first() :
+	let baseSimpleType = schemaType.simpleType.select(e|e.name == baseElement.name).first() :	
+	let extQName = getQName(schemaType, baseElement.name, getPrefix(data, baseElement.package)) :		
+	superSimpleType.restriction.setBase(extQName) ->
+	setRestrictionAttrs(data, baseElement, superSimpleType.restriction);

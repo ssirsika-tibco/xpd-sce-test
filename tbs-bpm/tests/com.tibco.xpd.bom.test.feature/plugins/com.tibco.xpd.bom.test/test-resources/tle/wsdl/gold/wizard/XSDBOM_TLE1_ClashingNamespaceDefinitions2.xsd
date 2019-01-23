@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://XSDBOM_TLE1_ClashingNamespaceDefinitions2" xmlns:tns2="http://XSDBOM_TLE1_ClashingNamespaceDefinitions2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://XSDBOM_TLE1_ClashingNamespaceDefinitions2">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fromBWImportExample/Generated Business Objects/com.tibco.schemas.create.examples.simple.mappings.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="dec1" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:decimal"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="bfield1" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:boolean"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="date1" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:date"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="dtfield" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:dateTime"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="int1" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:int"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="str1" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="time1" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:time"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="root" nillable="false">
+    <xsd:complexType id="com.tibco.schemas.create.examples.simple.mappings_rootType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="simpleContainer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="simpleContainer" nillable="false">
+    <xsd:complexType id="com.tibco.schemas.create.examples.simple.mappings_simpleContainerType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="bfield1"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="date1"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="dec1"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="dtfield"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="int1"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="time1"/>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="str1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

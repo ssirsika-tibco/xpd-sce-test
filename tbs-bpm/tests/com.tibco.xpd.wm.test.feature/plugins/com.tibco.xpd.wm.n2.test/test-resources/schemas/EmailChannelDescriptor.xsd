@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Stephen Young (TIBCO Software Inc.) -->
+<xs:schema xmlns:email="http://email.channel.presentation.wp.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://email.channel.presentation.wp.n2.tibco.com" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Email-Channel-Descriptor">
+		<xs:annotation>
+			<xs:documentation>Root element for Email Channel Presentation resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="to">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="address" type="email:EmailAddress"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="from">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="address" type="email:EmailAddress"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="reply-to" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="address" type="email:EmailAddress"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="cc" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="address" type="email:EmailAddress"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="bcc" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="address" type="email:EmailAddress"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="subject" type="xs:string"/>
+				<xs:element name="priority" type="email:PriorityValues" default="3" minOccurs="0"/>
+				<xs:element name="body-file" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The file used for the body of the message being sent and the relative path to the file.
+ </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="headers" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>List of custom message headers</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="header" type="email:Header"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="attachments" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>List of message attachments</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="attachment" type="email:Attachment"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="embedded-images" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>List of images to be embedded in the message body. </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="image" type="email:Image"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="security" type="xs:boolean" default="1" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="EmailAddress">
+		<xs:attribute name="display-name" type="xs:string"/>
+		<xs:attribute name="address" type="email:AddressFormat" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="AddressFormat">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[^@]+@[^@]+\.[^@]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PriorityValues">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Attachment">
+		<xs:attribute name="location" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="Image">
+		<xs:attribute name="image-ref" type="xs:string" use="required"/>
+		<xs:attribute name="location" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="Header">
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="Value" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

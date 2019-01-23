@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.amsbqa.uc4i.com/linda01/XSDDefineTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.amsbqa.uc4i.com/linda01/XSDDefineTypes">
+	<types>
+		<xsd:schema targetNamespace="http://www.amsbqa.uc4i.com/linda01/XSDDefineTypes">
+			<xsd:include schemaLocation="Atomic_XSD_Define_Types.xsd"/>
+		</xsd:schema>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.amsbqa.uc4i.com/linda01/XSDDefineTypes" schemaLocation="Atomic_XSD_Define_Types.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+	<message name="Request">
+		<part name="part1" type="tns:requestType"/>
+	</message>
+	<message name="Response">
+		<part name="part2" type="tns:responseType"/>
+	</message>
+	<portType name="simpleInclude">
+		<operation name="doIt">
+			<input message="tns:Request"/>
+			<output message="tns:Response"/>
+		</operation>
+	</portType>
+</definitions>

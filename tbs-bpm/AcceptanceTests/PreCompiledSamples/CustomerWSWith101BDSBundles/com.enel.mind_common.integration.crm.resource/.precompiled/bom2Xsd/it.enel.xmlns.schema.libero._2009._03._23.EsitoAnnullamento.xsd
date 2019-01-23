@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.it/schema/libero/2009/03/23/EsitoAnnullamento.xsd" xmlns:tns24="http://xmlns.enel.it/schema/libero/2009/03/23/EsitoAnnullamento.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.it/schema/libero/2009/03/23/EsitoAnnullamento.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_common.integration.crm.resource/Generated Business Objects/it.enel.xmlns.schema.libero._2009._03._23.EsitoAnnullamento.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="string1" id="it.enel.xmlns.schema.libero._2009._03._23.EsitoAnnullamentostring12"
+      name="string1">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="string15" id="it.enel.xmlns.schema.libero._2009._03._23.EsitoAnnullamentostring152"
+      name="string15">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="string30" id="it.enel.xmlns.schema.libero._2009._03._23.EsitoAnnullamentostring302"
+      name="string30">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="string50" id="it.enel.xmlns.schema.libero._2009._03._23.EsitoAnnullamentostring502"
+      name="string50">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="Request" nillable="false">
+    <xsd:complexType ecore:name="RequestType" id="it.enel.xmlns.schema.libero._2009._03._23.EsitoAnnullamentoRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="ID_CRM" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_CRM" type="xsd:string"/>
+        <xsd:element ecore:name="ID_DISTR" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_DISTR" type="xsd:string"/>
+        <xsd:element ecore:name="ID_DISTR2" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_DISTR2" type="xsd:string"/>
+        <xsd:element ecore:name="ID_R2D" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_R2D" type="xsd:string"/>
+        <xsd:element ecore:name="ID_TRADER" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_TRADER" type="xsd:string"/>
+        <xsd:element ecore:name="ID_MUTI" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_MUTI" type="xsd:string"/>
+        <xsd:element ecore:name="COMMODITY" form="qualified" maxOccurs="1" minOccurs="0"
+            name="COMMODITY" type="xsd:string"/>
+        <xsd:element ecore:name="TIPO_OPERAZIONE" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TIPO_OPERAZIONE" type="xsd:string"/>
+        <xsd:element ecore:name="CAUSALE" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CAUSALE" type="xsd:string"/>
+        <xsd:element ecore:name="RIALLACCIO_FLG" form="qualified" maxOccurs="1" minOccurs="0"
+            name="RIALLACCIO_FLG" type="xsd:string"/>
+        <xsd:element ecore:name="ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ESITO" type="xsd:string"/>
+        <xsd:element ecore:name="CD_ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CD_ESITO" type="xsd:string"/>
+        <xsd:element ecore:name="DESC_ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="DESC_ESITO" type="xsd:string"/>
+        <xsd:element ecore:name="TIPO_ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TIPO_ESITO" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="Response" nillable="false">
+    <xsd:complexType ecore:name="ResponseType" id="it.enel.xmlns.schema.libero._2009._03._23.EsitoAnnullamentoResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="ID_CRM" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_CRM" type="xsd:string"/>
+        <xsd:element ecore:name="ID_DISTR" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_DISTR" type="xsd:string"/>
+        <xsd:element ecore:name="ID_DISTR2" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_DISTR2" type="xsd:string"/>
+        <xsd:element ecore:name="ID_R2D" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_R2D" type="xsd:string"/>
+        <xsd:element ecore:name="ID_TRADER" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_TRADER" type="xsd:string"/>
+        <xsd:element ecore:name="ID_MUTI" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ID_MUTI" type="xsd:string"/>
+        <xsd:element ecore:name="COMMODITY" form="qualified" maxOccurs="1" minOccurs="0"
+            name="COMMODITY" type="xsd:string"/>
+        <xsd:element ecore:name="TIPO_OPERAZIONE" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TIPO_OPERAZIONE" type="xsd:string"/>
+        <xsd:element ecore:name="CAUSALE" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CAUSALE" type="xsd:string"/>
+        <xsd:element ecore:name="CD_ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="CD_ESITO" type="xsd:string"/>
+        <xsd:element ecore:name="DESC_ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="DESC_ESITO" type="xsd:string"/>
+        <xsd:element ecore:name="ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="ESITO" type="xsd:string"/>
+        <xsd:element ecore:name="TIPO_ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TIPO_ESITO" type="xsd:string"/>
+        <xsd:element ecore:name="TECNICO_ESITO" form="qualified" maxOccurs="1" minOccurs="0"
+            name="TECNICO_ESITO" type="xsd:string"/>
+        <xsd:element ecore:name="TECNICO_DESC_ESITO" form="qualified" maxOccurs="1"
+            minOccurs="0" name="TECNICO_DESC_ESITO" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.XSDBOM_Group03_Multiplicity" name="org.example.XSDBOM_Group03_Multiplicity">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1QFVYU1ZEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1QFVYk1ZEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1QFVY01ZEeSLJZkJre4IDg" key="created" value="1412604494902"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1QFVZE1ZEeSLJZkJre4IDg" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.XSDBOM_Group03_MultiplicityPersonDetails" name="PersonDetails">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PersonDetailsgroupAElem1" name="groupAElem1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1P_Ow01ZEeSLJZkJre4IDg" value="5"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1P_Owk1ZEeSLJZkJre4IDg" value="2"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_1P5IIU1ZEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1P5IIk1ZEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_1P5vME1ZEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1P5vMU1ZEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_1P6WQE1ZEeSLJZkJre4IDg" base_Package="org.example.XSDBOM_Group03_Multiplicity?org.example.XSDBOM_Group03_Multiplicity?" xsdTargetNamespace="http://www.example.org/XSDBOM_Group03_Multiplicity" xsdSchemaLocation="XsdGroup/XSDBOM_Group03_Multiplicity.xsd" xsdAttributeForm="unqualified" xsdElementForm="qualified" xsdStudioVersion="3.9.0.qualifier"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_1P8ygE1ZEeSLJZkJre4IDg" base_Class="org.example.XSDBOM_Group03_MultiplicityPersonDetails?org.example.XSDBOM_Group03_Multiplicity%3a%3aPersonDetails?" xsdName="PersonDetails" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_1QBD8E1ZEeSLJZkJre4IDg" name="MS1_1_1"/>
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_1QCSEE1ZEeSLJZkJre4IDg" name="MS2_1_1" minOccurs="2" maxOccurs="5" parent="_1QBD8E1ZEeSLJZkJre4IDg"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_1P_OwU1ZEeSLJZkJre4IDg" base_Property="PersonDetailsgroupAElem1?org.example.XSDBOM_Group03_Multiplicity%3a%3aPersonDetails%3a%3agroupAElem1?" xsdName="groupAElem1" xsdForm="qualified" xsdType="string" xsdExplicitGroupHierarchy="S1:S2" xsdParentSequence="_1QCSEE1ZEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_1P_10E1ZEeSLJZkJre4IDg" textLength="-1" base_Property="PersonDetailsgroupAElem1?org.example.XSDBOM_Group03_Multiplicity%3a%3aPersonDetails%3a%3agroupAElem1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_1QDgME1ZEeSLJZkJre4IDg" base_Element="_1P5IIU1ZEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_1QDgMU1ZEeSLJZkJre4IDg" base_Element="PersonDetailsgroupAElem1?org.example.XSDBOM_Group03_Multiplicity%3a%3aPersonDetails%3a%3agroupAElem1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_1QDgMk1ZEeSLJZkJre4IDg" base_Element="_1P_Ow01ZEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_1QDgM01ZEeSLJZkJre4IDg" base_Element="org.example.XSDBOM_Group03_MultiplicityPersonDetails?org.example.XSDBOM_Group03_Multiplicity%3a%3aPersonDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_1QDgNE1ZEeSLJZkJre4IDg" base_Element="_1P5vME1ZEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_1QEHQE1ZEeSLJZkJre4IDg" base_Element="_1P_Owk1ZEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_1QEuUE1ZEeSLJZkJre4IDg" displayLabel="PersonDetails" base_NamedElement="org.example.XSDBOM_Group03_MultiplicityPersonDetails?org.example.XSDBOM_Group03_Multiplicity%3a%3aPersonDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_1QFVYE1ZEeSLJZkJre4IDg" displayLabel="groupAElem1" base_NamedElement="PersonDetailsgroupAElem1?org.example.XSDBOM_Group03_Multiplicity%3a%3aPersonDetails%3a%3agroupAElem1?"/>
+  <notation:Diagram xmi:id="_1QFVZU1ZEeSLJZkJre4IDg" type="Business Object Model" element="org.example.XSDBOM_Group03_Multiplicity?org.example.XSDBOM_Group03_Multiplicity?" name="org.example.XSDBOM_Group03_Multiplicity" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_1QFVZk1ZEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_1QFVZ01ZEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

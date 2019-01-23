@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="extensionDependencies" name="Extension Dependencies" schema="schema/extensionDependencies.exsd"/>
+
+   <extension
+         point="com.tibco.amf.tools.componenttype.implementationType">
+      <implementationType
+            componentTypeResolver="com.tibco.bx.composite.xpdl.core.it.N2PEComponentTypeResolver"
+            delegate="com.tibco.bx.composite.xpdl.core.it.N2PEImplementationDelegate"
+            icon_medium="icons/process_32_32.gif"
+            icon_small="icons/process_16_16.gif"
+            name="Process Manager"
+            typeId="implementation.bx"
+            defaultPalette="false">
+         <implementationTypeResolver
+               ecoreClass="N2PEServiceImplementation"
+               ecoreURI="http://xsd.tns.tibco.com/bx/amx/model"></implementationTypeResolver>
+      </implementationType>
+   </extension>
+   <extension
+         point="com.tibco.amf.tools.componenttype.implementationType">
+      <implementationType
+            componentTypeResolver="com.tibco.bx.composite.xpdl.core.it.BxGlobalSignalComponentTypeResolver"
+            delegate="com.tibco.bx.composite.xpdl.core.it.BxGlobalSignalImplementationDelegate"
+            icon_medium="icons/process_32_32.gif"
+            icon_small="icons/process_16_16.gif"
+            name="Global Signal"
+            typeId="global.signal.implementation.bx"
+            defaultPalette="false">
+         <implementationTypeResolver
+               ecoreClass="BxGlobalSignalImplementation"
+               ecoreURI="http://xsd.tns.tibco.com/bx/amx/model"></implementationTypeResolver>
+      </implementationType>
+   </extension>
+   
+   <extension
+         point="com.tibco.amf.tools.componenttype.implementationTypeProvider">
+      <implementation
+            class="com.tibco.bx.composite.xpdl.core.it.N2PEImplementationTypeProvider"
+            implementationTypeId="implementation.bx">
+      </implementation>
+   </extension>
+   <extension
+         point="com.tibco.bx.composite.core.requirementsResolver">
+      <resolver
+            class="com.tibco.bx.composite.core.extensions.BpelWsdlsRequirementsResolver"
+            implementationTypeId="implementation.bx">
+      </resolver>
+      <resolver
+            class="com.tibco.bx.composite.xpdl.core.extensions.ExtensionActivityRequirementsResolver"
+            implementationTypeId="implementation.bx">
+      </resolver>
+      <resolver
+            class="com.tibco.bx.composite.xpdl.core.extensions.ProcessPackageRequirementsResolver"
+            implementationTypeId="implementation.bx">
+      </resolver>
+      <resolver
+            class="com.tibco.bx.composite.xpdl.core.extensions.GlobalSignalRequirementsResolver"
+            implementationTypeId="global.signal.implementation.bx">
+      </resolver>
+   </extension>
+   
+   <extension
+         point="com.tibco.amf.tools.componenttype.propertyType">
+      <propertyTypeToITBinding
+            implementationTypeID="implementation.bx"
+            supportedPropertyType="{http://xsd.tns.tibco.com/amf/models/sharedresource/httpclient}HttpClientConfiguration">
+      </propertyTypeToITBinding>
+      <propertyTypeToITBinding
+            implementationTypeID="implementation.bx"
+            supportedPropertyType="{http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc}JdbcDataSource">
+      </propertyTypeToITBinding>
+      <propertyTypeToITBinding
+            implementationTypeID="implementation.bx"
+            supportedPropertyType="{http://xsd.tns.tibco.com/amf/models/sharedresource/smtp}SmtpConfiguration">
+      </propertyTypeToITBinding>
+   </extension>
+
+</plugin>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:bomnotation="http://www.tibco.com/models/bomnotation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw">
+  <uml:Model xmi:id="_L1VQQA0GEeC9i-176CUMzw" name="com.example.planes">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_L1VQQQ0GEeC9i-176CUMzw" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_L1VQQg0GEeC9i-176CUMzw" key="author" value="rsomayaj"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_L1VQQw0GEeC9i-176CUMzw" key="created" value="1292941703620"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hdWZgDLBEeC2u73BgAN_UA" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MEXyBA0GEeC9i-176CUMzw" name="AeroPlane">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MEXyBQ0GEeC9i-176CUMzw" name="freightDetails" type="_MEXyCw0GEeC9i-176CUMzw?com.example.planes%3a%3aCargo?" aggregation="composite" association="_MEXyFg0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MEXyBg0GEeC9i-176CUMzw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MEXyBw0GEeC9i-176CUMzw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MEXyCA0GEeC9i-176CUMzw" name="seats" type="_MEXyDw0GEeC9i-176CUMzw?com.example.planes%3a%3aSeatInfo?" aggregation="composite" association="_MEXyKg0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MEXyCQ0GEeC9i-176CUMzw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MEXyCg0GEeC9i-176CUMzw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MEXyCw0GEeC9i-176CUMzw" name="Cargo">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MEXyDA0GEeC9i-176CUMzw" name="capacity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MEXyDQ0GEeC9i-176CUMzw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MEXyDg0GEeC9i-176CUMzw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MEXyDw0GEeC9i-176CUMzw" name="SeatInfo">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MEXyEA0GEeC9i-176CUMzw" name="seatSize">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MEXyEQ0GEeC9i-176CUMzw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MEXyEg0GEeC9i-176CUMzw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MEXyEw0GEeC9i-176CUMzw" name="color">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MEXyFA0GEeC9i-176CUMzw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MEXyFQ0GEeC9i-176CUMzw" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_MEXyFg0GEeC9i-176CUMzw" name="Composition0" memberEnd="_MEXyBQ0GEeC9i-176CUMzw?com.example.planes%3a%3aAeroPlane%3a%3afreightDetails? _MEXyFw0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition0%3a%3aplane?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_MEXyFw0GEeC9i-176CUMzw" name="plane" type="_MEXyBA0GEeC9i-176CUMzw?com.example.planes%3a%3aAeroPlane?" association="_MEXyFg0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MEXyGA0GEeC9i-176CUMzw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MEXyGQ0GEeC9i-176CUMzw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_MEXyKg0GEeC9i-176CUMzw" name="Composition1" memberEnd="_MEXyCA0GEeC9i-176CUMzw?com.example.planes%3a%3aAeroPlane%3a%3aseats? _MEXyKw0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition1%3a%3aplane?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_MEXyKw0GEeC9i-176CUMzw" name="plane" type="_MEXyBA0GEeC9i-176CUMzw?com.example.planes%3a%3aAeroPlane?" association="_MEXyKg0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MEXyLA0GEeC9i-176CUMzw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MEXyLQ0GEeC9i-176CUMzw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_MEOA1g0GEeC9i-176CUMzw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MEOA1w0GEeC9i-176CUMzw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <notation:Diagram xmi:id="_L1VQRA0GEeC9i-176CUMzw" type="Business Object Model" element="_L1VQQA0GEeC9i-176CUMzw?com.example.planes?" name="Planes.bom" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_MEXx1w0GEeC9i-176CUMzw" type="1002" element="_MEXyBA0GEeC9i-176CUMzw?com.example.planes%3a%3aAeroPlane?">
+      <children xmi:type="notation:Node" xmi:id="_MEXx2A0GEeC9i-176CUMzw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx2Q0GEeC9i-176CUMzw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx2g0GEeC9i-176CUMzw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx2w0GEeC9i-176CUMzw" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_MEXx3A0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_MEXx3Q0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_MEXx3g0GEeC9i-176CUMzw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXx3w0GEeC9i-176CUMzw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_MEXx4A0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_MEXx4Q0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_MEXx4g0GEeC9i-176CUMzw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_MEXx4w0GEeC9i-176CUMzw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_MEXx5A0GEeC9i-176CUMzw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MEXx5Q0GEeC9i-176CUMzw" x="580" y="330"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_MEXx5g0GEeC9i-176CUMzw" type="1002" element="_MEXyCw0GEeC9i-176CUMzw?com.example.planes%3a%3aCargo?">
+      <children xmi:type="notation:Node" xmi:id="_MEXx5w0GEeC9i-176CUMzw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx6A0GEeC9i-176CUMzw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx6Q0GEeC9i-176CUMzw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx6g0GEeC9i-176CUMzw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_1CU_kEssEeCI8pDu3HNweQ" type="2001" element="_MEXyDA0GEeC9i-176CUMzw?com.example.planes%3a%3aCargo%3a%3acapacity?">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_1CU_kUssEeCI8pDu3HNweQ"/>
+        </children>
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_MEXx6w0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_MEXx7A0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_MEXx7Q0GEeC9i-176CUMzw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXx7g0GEeC9i-176CUMzw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_MEXx7w0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_MEXx8A0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_MEXx8Q0GEeC9i-176CUMzw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_MEXx8g0GEeC9i-176CUMzw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_MEXx8w0GEeC9i-176CUMzw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MEXx9A0GEeC9i-176CUMzw" x="405" y="40"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_MEXx9Q0GEeC9i-176CUMzw" type="1002" element="_MEXyDw0GEeC9i-176CUMzw?com.example.planes%3a%3aSeatInfo?">
+      <children xmi:type="notation:Node" xmi:id="_MEXx9g0GEeC9i-176CUMzw" type="4003"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx9w0GEeC9i-176CUMzw" type="4004"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx-A0GEeC9i-176CUMzw" type="4005"/>
+      <children xmi:type="notation:Node" xmi:id="_MEXx-Q0GEeC9i-176CUMzw" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_MEXx-g0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_MEXx-w0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_MEXx_A0GEeC9i-176CUMzw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXx_Q0GEeC9i-176CUMzw" type="5003">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_MEXx_g0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_MEXx_w0GEeC9i-176CUMzw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_MEXyAA0GEeC9i-176CUMzw"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_MEXyAQ0GEeC9i-176CUMzw" fontHeight="10"/>
+      <styles xmi:type="bomnotation:ShapeGradientStyle" xmi:id="_MEXyAg0GEeC9i-176CUMzw" gradStartColor="6356832" gradEndColor="16777215"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MEXyAw0GEeC9i-176CUMzw" x="605" y="40"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_L1VQRQ0GEeC9i-176CUMzw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_L1VQRg0GEeC9i-176CUMzw"/>
+    <edges xmi:type="notation:Edge" xmi:id="_MEXyGg0GEeC9i-176CUMzw" type="3002" element="_MEXyFg0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition0?" source="_MEXx5g0GEeC9i-176CUMzw" target="_MEXx1w0GEeC9i-176CUMzw">
+      <children xmi:type="notation:Node" xmi:id="_MEXyGw0GEeC9i-176CUMzw" type="4010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyHA0GEeC9i-176CUMzw" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXyHQ0GEeC9i-176CUMzw" type="4011">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyHg0GEeC9i-176CUMzw" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXyHw0GEeC9i-176CUMzw" type="4012">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyIA0GEeC9i-176CUMzw" y="15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXyIQ0GEeC9i-176CUMzw" type="4013">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyIg0GEeC9i-176CUMzw" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXyIw0GEeC9i-176CUMzw" visible="false" type="4014">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyJA0GEeC9i-176CUMzw" y="15"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_MEXyJQ0GEeC9i-176CUMzw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_MEXyJg0GEeC9i-176CUMzw" fontHeight="10"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MEXyJw0GEeC9i-176CUMzw" points="[0, 0, -75, -61]$[75, 61, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MEXyKA0GEeC9i-176CUMzw" id="(0.4964029,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MEXyKQ0GEeC9i-176CUMzw" id="(0.33333334,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_MEXyLg0GEeC9i-176CUMzw" type="3002" element="_MEXyKg0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition1?" source="_MEXx9Q0GEeC9i-176CUMzw" target="_MEXx1w0GEeC9i-176CUMzw">
+      <children xmi:type="notation:Node" xmi:id="_MEXyLw0GEeC9i-176CUMzw" type="4010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyMA0GEeC9i-176CUMzw" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXyMQ0GEeC9i-176CUMzw" type="4011">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyMg0GEeC9i-176CUMzw" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXyMw0GEeC9i-176CUMzw" type="4012">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyNA0GEeC9i-176CUMzw" y="15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXyNQ0GEeC9i-176CUMzw" type="4013">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyNg0GEeC9i-176CUMzw" y="-15"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_MEXyNw0GEeC9i-176CUMzw" visible="false" type="4014">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MEXyOA0GEeC9i-176CUMzw" y="15"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_MEXyOQ0GEeC9i-176CUMzw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_MEXyOg0GEeC9i-176CUMzw" fontHeight="10"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MEXyOw0GEeC9i-176CUMzw" points="[0, 0, 75, -61]$[-75, 61, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MEXyPA0GEeC9i-176CUMzw" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MEXyPQ0GEeC9i-176CUMzw" id="(0.6666667,0.0)"/>
+    </edges>
+  </notation:Diagram>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_MEXx0A0GEeC9i-176CUMzw" displayLabel="Cargo" base_NamedElement="_MEXyCw0GEeC9i-176CUMzw?com.example.planes%3a%3aCargo?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_MEXx0Q0GEeC9i-176CUMzw" decimalUpper="1.7976931348623157E308" decimalLower="4.9E-324" decimalLength="-1" decimalPlaces="-1" base_Property="_MEXyEA0GEeC9i-176CUMzw?com.example.planes%3a%3aSeatInfo%3a%3aseatSize?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_MEXx0g0GEeC9i-176CUMzw" displayLabel="color" base_NamedElement="_MEXyEw0GEeC9i-176CUMzw?com.example.planes%3a%3aSeatInfo%3a%3acolor?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_MEXx0w0GEeC9i-176CUMzw" displayLabel="AeroPlane" base_NamedElement="_MEXyBA0GEeC9i-176CUMzw?com.example.planes%3a%3aAeroPlane?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_MEXx1A0GEeC9i-176CUMzw" decimalUpper="1.7976931348623157E308" decimalLower="4.9E-324" decimalLength="-1" decimalPlaces="-1" base_Property="_MEXyDA0GEeC9i-176CUMzw?com.example.planes%3a%3aCargo%3a%3acapacity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_MEXx1Q0GEeC9i-176CUMzw" displayLabel="seatSize" base_NamedElement="_MEXyEA0GEeC9i-176CUMzw?com.example.planes%3a%3aSeatInfo%3a%3aseatSize?"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_MEXx1g0GEeC9i-176CUMzw" textLength="-1" base_Property="_MEXyEw0GEeC9i-176CUMzw?com.example.planes%3a%3aSeatInfo%3a%3acolor?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_UJA9sA0GEeC9i-176CUMzw" displayLabel="plane" base_NamedElement="_MEXyFw0GEeC9i-176CUMzw?com.example.planes%3a%3aComposition0%3a%3aplane?"/>
+</xmi:XMI>

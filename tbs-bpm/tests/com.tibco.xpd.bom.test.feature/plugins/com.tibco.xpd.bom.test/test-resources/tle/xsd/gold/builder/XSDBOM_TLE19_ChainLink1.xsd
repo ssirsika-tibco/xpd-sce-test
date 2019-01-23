@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://XSDBOM_TLE19_ChainLink" xmlns:tns1="http://XSDBOM_TLE19_ChainLink"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns4="http://XSDBOM_TLE19_ChainLink2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://XSDBOM_TLE19_ChainLink">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD3877/Business Objects/XSDBOM_TLE19_ChainLink.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://XSDBOM_TLE19_ChainLink2" schemaLocation="XSDBOM_TLE19_ChainLink2.xsd"/>
+  <xsd:simpleType ecore:name="rootSimple" id="XSDBOM_TLE19_ChainLinkrootSimple2" name="rootSimple">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="rootEnum" id="XSDBOM_TLE19_ChainLinkrootEnum" name="rootEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="ENUMLIT" value="ENUMLIT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="rootComplex" id="XSDBOM_TLE19_ChainLinkrootComplex"
+      abstract="false" mixed="false" name="rootComplex">
+    <xsd:sequence>
+      <xsd:element ecore:name="elem" id="rootComplexelem" form="qualified" maxOccurs="1"
+          minOccurs="1" name="elem" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="rootElem2" nillable="false" type="tns4:referencedSimple"/>
+  <xsd:element abstract="false" name="rootElem3" nillable="false" type="tns4:referencedEnum"/>
+  <xsd:element abstract="false" name="rootElem" nillable="false" type="tns4:referencedComplex"/>
+</xsd:schema>

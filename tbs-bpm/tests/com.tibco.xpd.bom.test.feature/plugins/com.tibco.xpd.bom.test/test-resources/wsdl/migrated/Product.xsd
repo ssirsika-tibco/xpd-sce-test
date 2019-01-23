@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Product" xmlns:cp="http://www.example.org/Product" elementFormDefault="qualified">
+
+	<xsd:complexType name="ContactMedium">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="address">
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="cp:Address"/>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="emailAddress" type="xsd:string"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Address">
+		<xsd:sequence>
+			<xsd:element name="cityName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="language" type="xsd:language" minOccurs="0"/>
+			<xsd:element name="postcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="provinceCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="provinceName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="countryName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="countryCode" type="xsd:string" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:sequence>
+					<xsd:element name="houseNumber" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="houseNumberExtension" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="streetName" type="xsd:string" minOccurs="0"/>
+					<xsd:sequence>
+						<xsd:element name="houseNumberEnd" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="houseNumberExtentionEnd" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:sequence>
+				<xsd:element name="poBoxNumber" type="xsd:string" minOccurs="1"/>
+				<xsd:element name="freePostNumber" type="xsd:string" minOccurs="1"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

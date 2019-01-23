@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/bpm/gestionescarti" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.enel.com/mercato/libero/service/bpm/gestionescarti" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/service/bpm/gestionescarti" tibex:src="file:/C:/Users/egiusro/Desktop/MIGRAZIONE_AMX_BPM/PORTING_R2/AUTOMATIZZAZIONE_FATTURAZIONE/GestioneScartiBpmServiceConcrete.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/gestionescarti" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/gestionescarti">
+            <xs:element name="EsitoScartoRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="CorrelationId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CodiceEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DescrizioneEsito" type="xs:string"/>
+                        <xs:element minOccurs="0" name="IdAttivitaBarra" type="xs:string"/>
+                        <xs:element minOccurs="0" name="CommentoCrm" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="GestioneScartiBpmService">
+        <wsdl:port binding="tns:GestioneScartiEndpoint1Binding" name="GestioneScartiEndpoint1">
+            <soap:address location="http://localhost:9999/mercato/libero/service/bpm/gestionescarti"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="GestioneScarti">
+        <wsdl:operation name="EsitoScarto">
+            <wsdl:input message="tns:EsitoScartoRequest"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GestioneScartiEndpoint1Binding" type="tns:GestioneScarti">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="EsitoScarto">
+            <soap:operation soapAction="/GestioneScarti/GestioneScartiBpmService.serviceagent/GestioneScartiEndpoint1/EsitoScarto" style="document"/>
+            <wsdl:input>
+                <soap:body parts="input" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="EsitoScartoRequest">
+        <wsdl:part element="ns0:EsitoScartoRequest" name="input"/>
+    </wsdl:message>
+</wsdl:definitions>

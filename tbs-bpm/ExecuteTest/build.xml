@@ -1,0 +1,137 @@
+<project name="Execute Test Feature" default="createTestEnvirnmentAndRunJunitTest" basedir=".">	
+	
+	<import file="${user.home}/tibco-build/user-overrides.xml"/>
+	<property name="os" value="win32" />
+	<property name="ws" value="win32" />	
+	<property name="arch" value="x86_64" />	
+	<!--suffix added to test output files to identify platform on which tests ran.-->
+	<property name="platform" value="${os}.${ws}.${arch}" />	
+
+	<property name="eclipse-home" value="${junitTestHome}"/>
+	<property name="installation.root" value="${junitTestHome}"/>
+	<property name="studioZip" value="studio.zip"/>
+	
+	<property name="featuresDir" value="${junitTestHome}/features"/>
+	<property name="pluginsDir" value="${junitTestHome}/plugins"/>
+	<property name="results" value="${junitTestHome}/results" />
+	<property name="junit-report-output" value="${results}/${platform}" />
+		
+	<property name="execTp.filename" value="exec-tp"/>
+	<property name="execTp.zip.filename" value="${execTp.filename}.zip"/>
+	<property name="tp.dir" value="C:\DevTargetPlatform"/>
+
+	<!-- Checks if file exists. -->
+	<macrodef name="checkFileExists">
+		<attribute name="file" />
+		<attribute name="message" default="File doesn't exist: '@{file}'." />
+		<sequential>
+			<fail message="@{message}">
+				<condition>
+					<not>
+						<available file="@{file}" type="file" />
+					</not>
+				</condition>
+			</fail>
+		</sequential>
+	</macrodef>
+	
+	<!-- this target will create test environment & then execute test -->
+	<target name="createTestEnvirnmentAndRunJunitTest" depends="prepareTestEnvironment,_runJunitTest"/>
+	
+	<!-- this target will run junit test assuming test envirnoment is already set-->
+	<target name="runJunitTest" depends="_runJunitTest"/>
+	
+	<!-- this will set up test envirnoment -->
+	<target name="prepareTestEnvironment" depends="_init,_downLoadEclipse,_unzipEclipse,_copyJunitXslToDropInsFolder"/>
+	
+	<!-- this will set up test envirnoment on slave and also downsload the latest TP required for running tests  -->
+	<target name="prepareTestEnvironmentOnSlave" depends="prepareTestEnvironment, setTestTp"/>
+		
+	<target name="_init">
+		<!-- delete old destination directory-->
+		<delete dir="${junitTestHome}"></delete>
+		<!-- create destination directory-->
+		<mkdir dir="${junitTestHome}"/>
+	</target>
+
+	<target name="_downLoadEclipse">
+		<!-- get the zip file from a known location-->
+		<get dest="${junitTestHome}\${studioZip}" src="${latestStudioBuildLocation}"/>		
+	</target>
+	
+	<target name="_unzipEclipse">
+		<!-- unzip file latest build-->			
+		<unzip dest="${junitTestHome}" src="${junitTestHome}\${studioZip}"></unzip>
+     </target>	
+	
+	<target name="_runJunitTest" depends="findSelfTestFeatureDir,setLibraryFile">
+		<echo>self-test.xml is being used from: ${selfTestFeatureDir}/self-test.xml</echo>
+		<ant antfile="${selfTestFeatureDir}\self-test.xml">
+		</ant>
+	</target>
+
+	<target name="findSelfTestFeatureDir">
+		<path id="selfTest.feature.dir">
+			<dirset dir="${featuresDir}">
+				<include name="com.tibco.xpd.core.test.feature_*" />
+			</dirset>
+		</path>
+		<property name="selfTestFeatureDir" refid="selfTest.feature.dir"/>		
+		<!-- Hack for local testing.
+		Temporarly copy a version of file.
+		<copy 
+			file="C:\src\repos\studio\trunk\tbs-core\tests\com.tibco.xpd.core.test.feature\features\com.tibco.xpd.core.test.feature\self-test.xml" 
+			todir="${selfTestFeatureDir}" overwrite="true"/>
+		-->
+	</target>
+
+	<target name="setLibraryFile">
+		<echo> plugins dir is::${pluginsDir}</echo>
+		<path id="core.test.plugin.dir">
+			<dirset dir="${pluginsDir}">
+				<include name="org.eclipse.test_*" />
+			</dirset>
+		</path>
+		<property name="eclipseCoreTestPluginDir" refid="core.test.plugin.dir"/>
+		<echo> Location of eclipse core test plugin: ${eclipseCoreTestPluginDir}</echo>
+		<script language="javascript">
+			<![CDATA[
+				testPluginDir = project.getProperty("eclipseCoreTestPluginDir");
+				if (testPluginDir != null) {
+					project.setProperty("org.eclipse.test", testPluginDir.replaceFirst(".*?org.eclipse.test_(.*)", "$1"));
+				}
+	        	]]>
+		</script>
+		<property name="library-file" value="${eclipse-home}/tools/test-scripts/library.xml" />
+		<property name="junit-xsl" value="${eclipse-home}/tools/test-scripts/JUNIT.XSL" />
+		<echo> Version of eclipse core test plugin 'org.eclipse.test': ${org.eclipse.test}</echo>
+		<echo> Library "library.xml" location ($${library-file}): ${library-file}</echo>
+		<echo> Styleshit "JUNIT.XSL" location ($${junit-xsl}): ${junit-xsl}</echo>
+		<checkFileExists file="${library-file}" />
+		<checkFileExists file="${junit-xsl}" />
+	</target>
+	
+	<target name="_copyJunitXslToDropInsFolder" depends="setLibraryFile">
+		<!--TODO; Jan: Remove. I don't think it's needed. -->
+		<!--<copy file="${junit-xsl}" todir="${eclipse-home}/dropins/eclipse/plugins/org.eclipse.test"/>-->
+	</target>
+	
+	<!-- Set up the TP. -->    	
+	<target name="setTestTp">   
+		<!-- delete existing tp dir and create new-->
+		<delete dir="${tp.dir}"/>
+		<mkdir dir="${tp.dir}" />
+		
+		<echo>Downloading exec TP: '${execTp.file.location}/${execTp.zip.filename}' to: '${tp.dir}/${execTp.zip.filename}'</echo>
+		<get src="${execTp.file.location}/${execTp.zip.filename}" dest="${tp.dir}/${execTp.zip.filename}" />
+		
+		<echo>Unzip downloaded exec TP</echo>
+		<unzip src="${tp.dir}/${execTp.zip.filename}" dest="${tp.dir}/${execTp.filename}">
+		</unzip>
+		<!-- Updating tp definition file.-->
+		<echo>Updating tp definition file</echo>
+		<get src="${execTp.file.location}/devTargetPlatform.target.template" dest="${tp.dir}/devTargetPlatform.target" />
+		<replace file="${tp.dir}/devTargetPlatform.target" token="%%TP_BASE_LOCATION%%" value="${tp.dir}/${execTp.filename}"/>		
+    </target>
+	
+</project>

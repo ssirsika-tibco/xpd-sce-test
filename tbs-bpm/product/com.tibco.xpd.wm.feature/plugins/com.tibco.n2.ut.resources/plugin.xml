@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.validation.destinations">
+      <destination
+            id="com.tibco.n2.ut.resources.destination.v1.0.0"
+            name="%com.tibco.n2.ut.resources.destination"
+            selectable="true"
+            version="">
+         <validationProvider
+               id="com.tibco.n2.ut.resources.provider.v1">
+         </validationProvider>
+         <filter
+               class="com.tibco.xpd.validation.xpdl2.provider.Xpdl2FileFilter">
+         </filter>
+      </destination>
+   </extension>
+   <extension
+         point="com.tibco.xpd.destinations.globalDestinationEnvironment">
+      <globalDestinationComponent
+            globalDestinationId="com.tibco.xpd.n2.core.n2GlobalDestination"
+            id="com.tibco.n2.ut.resources.globalDestinationComponent"
+            name="%com.tibco.n2.ut.resources.globalDestinationComponent">
+      </globalDestinationComponent>
+      <globalDestinationComponentVersion
+            disabled="false"
+            globalDestinationComponentId="com.tibco.n2.ut.resources.globalDestinationComponent"
+            validationDestinationId="com.tibco.n2.ut.resources.destination.v1.0.0">
+      </globalDestinationComponentVersion>
+      <globalDestinationComponentVersion
+            disabled="true"
+            globalDestinationComponentId="com.tibco.n2.ut.resources.globalDestinationComponent"
+            validationDestinationId="com.tibco.xpd.destinations.empty">
+      </globalDestinationComponentVersion>
+      <defaultGlobalDestinationComponent
+            globalDestinationComponentId="com.tibco.n2.ut.resources.globalDestinationComponent"
+            name="BPM"
+            validationDestinationId="com.tibco.n2.ut.resources.destination.v1.0.0">
+      </defaultGlobalDestinationComponent>
+   </extension>
+   <extension point="com.tibco.xpd.validation.provider">
+      <provider
+            id="com.tibco.n2.ut.resources.provider.v1"
+            name="com.tibco.n2.ut.resources.provider.v1"
+            scopeProvider="com.tibco.xpd.validation.xpdl2.provider.Xpdl2ScopeProvider">
+         <rule class="com.tibco.n2.ut.resources.rules.UserTaskParticipantRule"/>         
+         <rule class="com.tibco.n2.ut.resources.rules.UserActivityModeTypeRule"/>
+         <rule class="com.tibco.n2.ut.resources.rules.UserActivityResourceAllocationRule"/>
+         <rule class="com.tibco.n2.ut.resources.rules.UserActivityChainingGroupRule"/>
+         <rule class="com.tibco.n2.ut.resources.rules.UserActivityResourcePatternsRule"/>
+         <rule
+               class="com.tibco.n2.ut.resources.rules.RQLParticipantScriptRule">
+         </rule>
+         <rule
+               class="com.tibco.n2.ut.resources.rules.UserTaskNoFormsFolderRule">
+         </rule>
+         <rule class="com.tibco.n2.ut.resources.rules.UserActivityFieldRule"/>
+         <rule
+               class="com.tibco.n2.ut.resources.rules.UserTaskNameRule">
+         </rule>
+         <rule class = "com.tibco.n2.ut.resources.dynamicparticipant.validation.ProcessDataToDynamicOrgIdentifierMappingRule">
+         </rule>
+         <rule
+               class="com.tibco.n2.ut.resources.rules.UserTaskAllocateToOfferSetMemberRule"
+               validateOnSaveOnly="false">
+         </rule>
+      </provider>
+      <issue
+            id="n2.ut.userTaskWithoutPerformer"
+            message="%n2.ut.userTaskWithoutPerformer"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="false"
+               id="resolution.bpmn.selectTaskParticipant">
+         </resolution>
+      </issue>
+      <issue id="n2.ut.unsupportedModeType" message="%n2.ut.unsupportedModeType" severity="ERROR"/>
+      <issue id="n2.ut.noResourceAllocation" message="%n2.ut.noResourceAllocation" severity="ERROR"/>
+      <issue id="n2.ut.chainingOfferState" message="%n2.ut.chainingOfferState" severity="ERROR"/>
+      <issue id="n2.ut.unsupportedResourceAllocation" message="%n2.ut.unsupportedResourceAllocation" severity="ERROR"/>
+      <issue id="n2.ut.allocatToMoreThanOne" message="%n2.ut.allocatToMoreThanOne" severity="ERROR"/>
+      <issue id="n2.ut.unsupportedParticipantType" message="%n2.ut.unsupportedParticipantType2" severity="ERROR"/>
+      <issue
+            id="n2.ut.conditionalParticipant"
+            message="%n2.ut.conditionalParticipant"
+            severity="WARNING">
+      </issue>
+      <issue id="n2.ut.orgQueryLimit" message="%n2.ut.orgQueryLimit2" severity="ERROR"/>
+      <issue id="n2.ut.multipleResourcePattern" message="%n2.ut.multipleResourcePattern" severity="ERROR"/>
+      <issue id="n2.ut.userTaskUsingPrimitive" message="%n2.ut.userTaskUsingPrimitive" severity="ERROR"/>
+      <issue id="n2.ut.userTaskUsingObject" message="%n2.ut.userTaskUsingObject" severity="ERROR"/>
+      <issue id="n2.ut.userTaskMultiplicitySequence" message="%n2.ut.userTaskMultiplicitySequence" severity="ERROR"/>
+      <issue id="n2.ut.userTaskCaseClassRefModeType" message="%n2.ut.userTaskCaseClassRefModeType" severity="ERROR"/>
+      <issue id="n2.ut.userTaskCaseClassRefMandatory" message="%n2.ut.userTaskCaseClassRefMandatory" severity="ERROR"/>
+      <issue id="n2.ut.userTaskCaseClassRefArrayForm" message="%n2.ut.userTaskCaseClassRefArrayForm" severity="ERROR"/>
+      <issue id="n2.ut.userTaskCaseClassRefPageFlow" message="%n2.ut.userTaskCaseClassRefPageFlow" severity="ERROR"/>
+      <issue id="n2.ut.userTaskDynamicParticipantLimit" message="%n2.ut.userTaskDynamicParticipantLimit" severity="ERROR"/>
+      <issue
+            id="rql.error.validateScript"
+            message="%rql.error.validateScript"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="rql.warning.validateScript"
+            message="%rql.warning.validateScript"
+            severity="WARNING">
+      </issue>
+      <issue
+            id="n2.ut.userTaskWithoutFormsFolder"
+            message="%n2.ut.userTaskWithoutFormsFolder"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="n2.ut.sepDutiesAllocationType"
+            message="%n2.ut.sepDutiesAllocationType"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="n2.ut.retainFamiliarAllocationType"
+            message="%n2.ut.retainFamiliarAllocationType"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="n2.ut.userTaskNameDuplicate"
+            message="%n2.ut.userTaskNameDuplicate"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="wm.atosmWithoutMemberIdPerformerField"
+            message="%wm.atosmWithoutMemberIdPerformerField"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="wm.atosmIdMustBePerformer"
+            message="%wm.atosmIdMustBePerformer"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="wm.performerFieldInATOSMCannotHaveRQL"
+            message="%wm.performerFieldInATOSMCannotHaveRQL"
+            severity="ERROR">
+         <resolution
+               canApplyToMultiple="true"
+               id="resolution.bpmn.removeRQLExpression">
+         </resolution>
+      </issue>
+      <issue
+            id="wm.arrayPerfFieldCannotBeUsedInATOSM"
+            message="%wm.arrayPerfFieldCannotBeUsedInATOSM"
+            severity="ERROR">
+      </issue>
+      <issue
+            id="wm.atosmCannotBeUsedWithSODChainingRF"
+            message="%wm.atosmCannotBeUsedWithSODChainingRF"
+            severity="ERROR">
+      </issue>
+   </extension>
+
+   <extension point="com.tibco.xpd.validation.resolution">
+  	  <resolution
+  	  		 canApplyToMultiple="true"
+  	  		 class="com.tibco.n2.ut.resources.resolutions.UserActivityChainingOfferStateResolution"
+  	  		 description="%n2.ut.chainingOfferState"
+  	  		 id="n2.ut.chainingOfferState"
+  	  		 label="%n2.ut.chainingOfferState" />
+  	  <resolution
+  	  		 canApplyToMultiple="true"
+  	  		 class="com.tibco.n2.ut.resources.resolutions.UserActivityChainingOfferStateResolution"
+  	  		 description="%n2.ut.retainFamiliarAllocationType"
+  	  		 id="n2.ut.retainFamiliarAllocationType"
+  	  		 label="%n2.ut.retainFamiliarAllocationType" />
+  	  <resolution
+  	  		 canApplyToMultiple="true"
+  	  		 class="com.tibco.n2.ut.resources.resolutions.UserActivityChainingOfferStateResolution"
+  	  		 description="%n2.ut.sepDutiesAllocationType"
+  	  		 id="n2.ut.sepDutiesAllocationType"
+  	  		 label="%n2.ut.sepDutiesAllocationType" />
+     <resolution
+           canApplyToMultiple="true"
+           class="com.tibco.n2.ut.resources.resolutions.UserActivityParticipantScriptResolution"
+           description="%n2.ut.conditionalParticipant"
+           id="n2.ut.conditionalParticipant"
+           label="%n2.ut.conditionalParticipant"/>
+  	  
+  </extension>  
+  
+   <extension
+         point="com.tibco.xpd.processeditor.xpdl2.sashPropertySection">
+         <sashPropertySection
+            afterSection="CalendarReferenceSection"
+            class="com.tibco.n2.ut.resources.dynamicparticipant.mapper.ProcessDataToDynamicOrgIdentifierMappingSection"
+            expandFirstTimeEver="false"
+            expandHeaderLabel="%processDataToDynamicOrgIdentifierMappingSection"
+            filter="com.tibco.n2.ut.resources.dynamicparticipant.mapper.ProcessDataToDynamicOrgIdentifierMappingSectionFilter"
+            grabExtraVertical="true"
+            id="ProcessDataToDynamicOrgIdentifierMappingSection"
+            location="GENERAL"
+            minimumHeightOrMinus1ForDefault="-1"            
+            sashContributionSection="com.tibco.xpd.processeditor.xpdl2.ProcessWorkResourceSection">
+      </sashPropertySection>
+   </extension>   
+   
+   <extension
+        point="com.tibco.xpd.xpdl2.edit.fieldOrParamReferenceResolver">
+     <DataReferenceResolver
+           class="com.tibco.n2.ut.resources.dynamicparticipant.mapper.ProcessDataInDynamicParticipantMappingReferenceResolver">
+     </DataReferenceResolver>
+  </extension>
+  
+  <extension
+       point="com.tibco.xpd.datamapper.DataMapperContentContribution">
+    <mapperContentContributor
+          applicableContext="CloseUserTask"
+          applyToMapperRHS="true"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+    <mapperContentContributor
+          applicableContext="CloseUserTask"
+          applyToMapperRHS="false"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+     <mapperContentContributor
+          applicableContext="OpenUserTask"
+          applyToMapperRHS="true"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+    <mapperContentContributor
+          applicableContext="OpenUserTask"
+          applyToMapperRHS="false"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+     <mapperContentContributor
+          applicableContext="RescheduleUserTask"
+          applyToMapperRHS="true"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+    <mapperContentContributor
+          applicableContext="RescheduleUserTask"
+          applyToMapperRHS="false"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+     <mapperContentContributor
+          applicableContext="ScheduleUserTask"
+          applyToMapperRHS="true"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+    <mapperContentContributor
+          applicableContext="ScheduleUserTask"
+          applyToMapperRHS="false"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+     <mapperContentContributor
+          applicableContext="SubmitUserTask"
+          applyToMapperRHS="true"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+    <mapperContentContributor
+          applicableContext="SubmitUserTask"
+          applyToMapperRHS="false"
+          mapperContribution="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperContentContributor"
+          priority="4">
+    </mapperContentContributor>
+ </extension>
+
+  <extension
+       point="com.tibco.xpd.datamapper.DataMapperContentContribution">
+      <mapperContentContributor
+            applicableContext="CloseUserTask"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="CloseUserTask"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="OpenUserTask"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="OpenUserTask"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="RescheduleUserTask"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="RescheduleUserTask"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="ScheduleUserTask"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="ScheduleUserTask"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="SubmitUserTask"
+            applyToMapperRHS="true"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+      <mapperContentContributor
+            applicableContext="SubmitUserTask"
+            applyToMapperRHS="false"
+            mapperContribution="com.tibco.xpd.process.datamapper.common.ActivityInterfaceDataMapperContentContributor"
+            priority="2">
+      </mapperContentContributor>
+   </extension>
+  <extension
+        point="com.tibco.xpd.datamapper.scriptGeneratorInfoProviderContribution">
+     <scriptGeneratorInfoProviderContributor
+           contributor="com.tibco.n2.ut.resources.processdatamapper.WMDataMapperScriptGeneratorInfoProvider"
+           contributorID="DataMapperWMScripts">
+     </scriptGeneratorInfoProviderContributor>
+  </extension>
+
+</plugin>

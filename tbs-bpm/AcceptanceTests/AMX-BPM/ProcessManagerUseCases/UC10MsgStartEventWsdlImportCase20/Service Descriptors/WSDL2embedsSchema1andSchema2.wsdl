@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.amsbqa.com/linda20/WSDL2embedsSchema1andSchema2"
+	xmlns:tns2="http://www.amsbqa.com/linda20/Schema2" xmlns:tns1="http://www.example.org/Schema1importsSchema2"
+	targetNamespace="http://www.amsbqa.com/linda20/WSDL2embedsSchema1andSchema2">
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.amsbqa.com/linda20/Schema2"
+			targetNamespace="http://www.amsbqa.com/linda20/Schema2"
+			elementFormDefault="qualified">
+			<complexType name="LunchComplexType">
+				<sequence>
+					<element name="LunchType" type="string" />
+					<element name="LunchPrice" type="string" />
+					<element ref="tns:HowMuchBread" />
+				</sequence>
+			</complexType>
+			<element name="HowMuchBread" type="int" />
+			<element name="LunchElement" type="tns:LunchComplexType" />
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/Schema1importsSchema2"
+			xmlns:Q1="http://www.amsbqa.com/linda20/Schema2" targetNamespace="http://www.example.org/Schema1importsSchema2"
+			elementFormDefault="qualified">
+			<import namespace="http://www.amsbqa.com/linda20/Schema2">
+			</import>
+			<complexType name="LunchOrderComplexType">
+				<sequence>
+					<element ref="Q1:LunchElement" />
+					<element ref="tns:No" />
+				</sequence>
+			</complexType>
+			<element name="No" type="int" />
+			<element name="Order" type="tns:LunchOrderComplexType" />
+		</schema>
+	</types>
+	<message name="BookLunchRequest">
+		<part name="Book" type="xsd:string" />
+	</message>
+	<message name="BookLunchResponse">
+		<part name="Result" element="tns2:LunchElement" />
+	</message>
+	<portType name="NewPortType">
+		<operation name="BookLunch">
+			<input message="tns:BookLunchRequest" />
+			<output message="tns:BookLunchResponse" />
+		</operation>
+	</portType>
+</definitions>

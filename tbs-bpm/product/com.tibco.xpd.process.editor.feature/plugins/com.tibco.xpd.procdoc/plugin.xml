@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.resources.ui.documentViewerContribution">
+      <documentViewerContribution
+            defaultTemplate="reports/xpdlModelReportFlattened.rptdesign"
+            documentGenerator="com.tibco.xpd.procdoc.XPDLDocXsltGen"
+            fileExtensions="xpdl"
+            specialFolders="processes">
+      </documentViewerContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.tibco.xpd.ui.preferences.documentation.DocumentationGeneralPreferencePage"
+            class="com.tibco.xpd.procdoc.preferences.ProcDocPreferencePage"
+            id="com.tibco.xpd.procdoc.preferences.procDocPreferencePage"
+            name="%procDocPreferencePage_title">
+         <keywordReference
+               id="com.tibco.xpd.procdoc.processDocumentation">
+         </keywordReference>
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            category="com.tibco.xpd.ui.preferences.documentation.DocumentationGeneralPropertyPage"
+            class="com.tibco.xpd.procdoc.preferences.ProcDocPreferencePage"
+            id="com.tibco.xpd.procdoc.preferences.procDocPropertyPage"
+            name="%procDocPropertyPage_title">
+         <enabledWhen>
+            <and>
+               <instanceof
+                     value="org.eclipse.core.resources.IProject">
+               </instanceof>
+               <test
+                     property="org.eclipse.core.resources.projectNature"
+                     value="com.tibco.xpd.resources.xpdNature">
+               </test>
+               <test
+                     args="com.tibco.xpd.wm.resources.ui"
+                     property="com.tibco.xpd.resources.platform.isBundleInstalled">
+               </test>
+            </and>
+         </enabledWhen>
+         <keywordReference
+               id="com.tibco.xpd.procdoc.processDocumentation">
+         </keywordReference>
+      </page>
+   </extension>
+
+</plugin>

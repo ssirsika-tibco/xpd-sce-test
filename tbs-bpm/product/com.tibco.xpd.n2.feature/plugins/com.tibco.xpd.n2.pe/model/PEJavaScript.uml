@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XbwAsdGBEdu4j_LxN5OLIw" name="PEJavaScript" viewpoint="">
+  <packageImport xmi:id="_2bbm4HtWEd6js_XbMFf3Kg"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_lZGIkY1wEd6z0bDBoCyiFQ" name="E"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_aPzxAKHqEd6gj7Xw0shGxA" name="Boolean"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_dEQ1oKHqEd6gj7Xw0shGxA" name="Integer"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_eTPKMKHqEd6gj7Xw0shGxA" name="Object"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_L0lAYOANEd6NV_VD55whVg" name="String"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_h2km8OWqEd6droIMdV2Wlw" name="Decimal"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_s3xegHIbEd-kC5ysQRjHHw" name="Datetimetz"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_X3vwkZu4Ed-_pML3o1febA" name="OrgModel"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_zTteoMpBEeClx4jeV3xxjQ" name="bom.Class"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_M5X7UFw6Ed-vgt4QWwegTA" name="Process">
+    <ownedAttribute xmi:id="_7LXzEFw6Ed-vgt4QWwegTA" name="priority" isStatic="true" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    <ownedOperation xmi:id="_M5X7UVw6Ed-vgt4QWwegTA" name="getName" isStatic="true">
+      <ownedParameter xmi:id="_X5TzoFw6Ed-vgt4QWwegTA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dZ5HUFw6Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_itDDAFw6Ed-vgt4QWwegTA" name="getDescription" isStatic="true">
+      <ownedParameter xmi:id="_itDDAVw6Ed-vgt4QWwegTA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_itDDAlw6Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_4FeZIFw6Ed-vgt4QWwegTA" name="getStartTime" isStatic="true">
+      <ownedParameter xmi:id="_4FeZIVw6Ed-vgt4QWwegTA" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4FeZIlw6Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="__5STsFw6Ed-vgt4QWwegTA" name="getPriority" isStatic="true">
+      <ownedParameter xmi:id="__5STsVw6Ed-vgt4QWwegTA" type="_dEQ1oKHqEd6gj7Xw0shGxA" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__5STslw6Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ScVYIFw7Ed-vgt4QWwegTA" name="getOriginator" isStatic="true">
+      <ownedParameter xmi:id="_ScVYIVw7Ed-vgt4QWwegTA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ScVYIlw7Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ZZ4ZEFw7Ed-vgt4QWwegTA" name="getId" isStatic="true">
+      <ownedParameter xmi:id="_ZZ4ZEVw7Ed-vgt4QWwegTA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZZ4ZElw7Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_bk6tQFw7Ed-vgt4QWwegTA" name="getActivityAttribute" isStatic="true">
+      <ownedParameter xmi:id="_bk6tQVw7Ed-vgt4QWwegTA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bk6tQlw7Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_1AmdcFw7Ed-vgt4QWwegTA" name="activityName" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_4SQbcFw7Ed-vgt4QWwegTA" name="attributeName" type="_L0lAYOANEd6NV_VD55whVg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mKVMwFw7Ed-vgt4QWwegTA" name="getActivityStartTime" isStatic="true">
+      <ownedParameter xmi:id="_mKVMwVw7Ed-vgt4QWwegTA" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mKVMwlw7Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_6Zt3MFw7Ed-vgt4QWwegTA" name="activityName" type="_L0lAYOANEd6NV_VD55whVg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_xbtaYFw7Ed-vgt4QWwegTA" name="getActivityCompletionTime" isStatic="true">
+      <ownedParameter xmi:id="_xbtaYVw7Ed-vgt4QWwegTA" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xbtaYlw7Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_8Oiq0Fw7Ed-vgt4QWwegTA" name="activityName" type="_L0lAYOANEd6NV_VD55whVg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_-IufkFw7Ed-vgt4QWwegTA" name="getActivityType" isStatic="true">
+      <ownedParameter xmi:id="_-IufkVw7Ed-vgt4QWwegTA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-Iufklw7Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_-Iufk1w7Ed-vgt4QWwegTA" name="activityName" type="_L0lAYOANEd6NV_VD55whVg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_D7ehUFw8Ed-vgt4QWwegTA" name="getActivityDeadline" isStatic="true">
+      <ownedParameter xmi:id="_D7ehUVw8Ed-vgt4QWwegTA" type="_s3xegHIbEd-kC5ysQRjHHw" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_D7ehUlw8Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_D7ehU1w8Ed-vgt4QWwegTA" name="activityName" type="_L0lAYOANEd6NV_VD55whVg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_H10P8Fw8Ed-vgt4QWwegTA" name="getActivityState" isStatic="true">
+      <ownedParameter xmi:id="_H10P8Vw8Ed-vgt4QWwegTA" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H10P8lw8Ed-vgt4QWwegTA"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_H10P81w8Ed-vgt4QWwegTA" name="activityName" type="_L0lAYOANEd6NV_VD55whVg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mTbLoX6bEd-JKp7XncPKzg" name="getActivityArrayAttribute" isStatic="true">
+      <ownedParameter xmi:id="_mTbysH6bEd-JKp7XncPKzg" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTbysX6bEd-JKp7XncPKzg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_quqA0H6bEd-JKp7XncPKzg" value="*"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_mTbysn6bEd-JKp7XncPKzg" name="activityName" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_mTbys36bEd-JKp7XncPKzg" name="attributeName" type="_L0lAYOANEd6NV_VD55whVg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_BEh1oaqZEd-2mv_9PYSCQA" name="getActivityLoopIndex" isStatic="true">
+      <ownedParameter xmi:id="_BEicsKqZEd-2mv_9PYSCQA" type="_dEQ1oKHqEd6gj7Xw0shGxA" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BEicsaqZEd-2mv_9PYSCQA"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_lHO4oSPLEeCS_PZ1Ji7KGg" name="addActivityLoopAdditionalInstances" isStatic="true">
+      <ownedParameter xmi:id="_lHO4oiPLEeCS_PZ1Ji7KGg" type="_aPzxAKHqEd6gj7Xw0shGxA" direction="return"/>
+      <ownedParameter xmi:id="_lHO4pSPLEeCS_PZ1Ji7KGg" name="activityName" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_lHO4piPLEeCS_PZ1Ji7KGg" name="numAdditionalInstances" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_-TiW4L6IEeCzsI4Y2-zN8g" name="getOriginatorName" isStatic="true">
+      <ownedParameter xmi:id="_-TiW4b6IEeCzsI4Y2-zN8g" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-TiW4r6IEeCzsI4Y2-zN8g"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_sarxUcpBEeClx4jeV3xxjQ" name="setContextVariable" isStatic="true">
+      <ownedParameter xmi:id="_sarxU8pBEeClx4jeV3xxjQ" name="varName" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_sarxVMpBEeClx4jeV3xxjQ" name="data" type="_zTteoMpBEeClx4jeV3xxjQ"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_7S47sMpBEeClx4jeV3xxjQ" name="getContextVariable" isStatic="true">
+      <eAnnotations xmi:id="_7t7JgMpPEeClx4jeV3xxjQ" source="contextParameter=arg2"/>
+      <ownedParameter xmi:id="_7S47scpBEeClx4jeV3xxjQ" name="varName" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_-lsJMMpBEeClx4jeV3xxjQ" name="className" type="_L0lAYOANEd6NV_VD55whVg"/>
+      <ownedParameter xmi:id="_7S47sspBEeClx4jeV3xxjQ" name="" type="_lZGIkY1wEd6z0bDBoCyiFQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_SE3d0GVeEeKh4oUpuRBwFA" name="getOrgModel" isStatic="true">
+      <ownedParameter xmi:id="_W2uqUGVeEeKh4oUpuRBwFA" direction="return">
+        <type xmi:type="uml:Class" href="platform:/plugin/com.tibco.n2.common.model.eclipse/model/Business Objects/OrgModelScripting.bom#_kePhQGriEeK5l7gdajX-Jw"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_9BS2AGVgEeKh4oUpuRBwFA" name="getOrgModelByVersion" isStatic="true">
+      <ownedParameter xmi:id="_pn0DYGVhEeKh4oUpuRBwFA" direction="return">
+        <type xmi:type="uml:Class" href="platform:/plugin/com.tibco.n2.common.model.eclipse/model/Business Objects/OrgModelScripting.bom#_kePhQGriEeK5l7gdajX-Jw"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_GBMycGVwEeKh4oUpuRBwFA" name="" type="_dEQ1oKHqEd6gj7Xw0shGxA"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_lcGbcNM_EeK2RNCqw8Jocw" name="getModuleName" isStatic="true">
+      <ownedParameter xmi:id="_Z55mwNNDEeK2RNCqw8Jocw" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_46_DwNNEEeK2RNCqw8Jocw" name="getModuleVersion" isStatic="true">
+      <ownedParameter xmi:id="_A0VZENNaEeK2RNCqw8Jocw" type="_L0lAYOANEd6NV_VD55whVg" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_6E4SgJS8EeOKfZgI2vNcQQ" name="auditLog" isStatic="true">
+      <ownedParameter xmi:id="_6E4SgZS8EeOKfZgI2vNcQQ" name="auditMessage" type="_L0lAYOANEd6NV_VD55whVg"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_WR5pIP-WEeS2WJDM8Zok8g" name="getParentProcessId" isStatic="true">
+      <ownedParameter xmi:id="_uQX0cP-WEeS2WJDM8Zok8g" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1vgfgP-WEeS2WJDM8Zok8g"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_PMU4IP-XEeS2WJDM8Zok8g" name="getMasterProcessId" isStatic="true">
+      <ownedParameter xmi:id="_RDAs8P-XEeS2WJDM8Zok8g" type="_L0lAYOANEd6NV_VD55whVg" direction="return">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XKir4P-XEeS2WJDM8Zok8g"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+</uml:Model>

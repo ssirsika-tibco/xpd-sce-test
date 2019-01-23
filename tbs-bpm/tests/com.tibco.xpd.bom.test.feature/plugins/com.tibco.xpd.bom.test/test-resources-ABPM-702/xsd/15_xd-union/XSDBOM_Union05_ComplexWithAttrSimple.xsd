@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/Unions"
+	targetNamespace="http://example.com/Unions">
+
+	<xs:complexType name="myComplex">
+		<xs:attribute name="attr">
+			<xs:simpleType>
+				<xs:union memberTypes="xs:int">
+				</xs:union>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/businessobjectmodel3" xmlns:tns1="http://example.com/businessobjectmodel3"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/businessobjectmodel3">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM23_GeneralizationAndCompositionWithAttributes/Business Objects/com.example.businessobjectmodel3.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Class1" id="com.example.businessobjectmodel3Class1"
+      abstract="false" mixed="false" name="Class1">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:Class2">
+        <xsd:sequence>
+          <xsd:element ecore:name="attribute1" id="_Dc4vAGf8Ed-MbOyYUw9wSg" form="unqualified"
+              maxOccurs="1" minOccurs="0" name="attribute1">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element ecore:name="class3" id="_Kun3Q2f8Ed-MbOyYUw9wSg" form="unqualified"
+              maxOccurs="1" minOccurs="1" name="class3" type="Class3"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Class3" id="com.example.businessobjectmodel3Class3"
+      abstract="false" mixed="false" name="Class3">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1" id="_mZZVMGf8Ed-MbOyYUw9wSg" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="attribute1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Class2" id="com.example.businessobjectmodel3Class2"
+      abstract="false" mixed="false" name="Class2">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1111" id="_EA-6kGf8Ed-MbOyYUw9wSg" form="unqualified"
+          maxOccurs="1" minOccurs="0" name="attribute1111">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

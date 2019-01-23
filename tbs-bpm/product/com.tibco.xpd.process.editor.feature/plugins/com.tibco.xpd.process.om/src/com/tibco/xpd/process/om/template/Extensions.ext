@@ -1,0 +1,55 @@
+import xpdl2;
+
+String traceMe(String className):	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.traceMe(java.lang.String);
+	
+String getHumanPostfix():	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.getHumanPostfix();
+	
+String getRolePostfix():	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.getRolePostfix();
+	
+String getOrgUnitPostfix():	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.getOrgUnitPostfix();
+	
+String getOrgModelName():	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.getOrgModelName();
+	
+String getOrganizationName():	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.getOrganizationName();
+	
+String getDefaultOrgUnitFolderDisplayName():	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.getDefaultOrgUnitFolderDisplayName();
+	
+String getDefaultOrgUnitFolderName():	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.getDefaultOrgUnitFolderName();
+	
+String getDefaultOrgUnitFolderDesc():	
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.getDefaultOrgUnitFolderDesc();
+	
+String getParticipantDisplayName(String participantID) :
+    JAVA com.tibco.xpd.process.om.template.TransformHelper.getParticipantDisplayName(java.lang.String);
+    
+String getParticipantName(String participantName) :
+    JAVA com.tibco.xpd.process.om.template.TransformHelper.getParticipantName(java.lang.String);
+    
+String getLaneDisplayName(String laneID) :
+ 	JAVA com.tibco.xpd.process.om.template.TransformHelper.getLaneDisplayName(java.lang.String);
+ 	
+setName(NamedElement nE, String value) :
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.setName(com.tibco.xpd.xpdl2.NamedElement, java.lang.String);
+
+setProcessId(Pool pool, String id) :
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.setProcessId(com.tibco.xpd.xpdl2.Pool, java.lang.String);
+	
+setNodeGraphicsInfoLaneId(NodeGraphicsInfo ng, String id) :
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.setNodeGraphicsInfoLaneId(com.tibco.xpd.xpdl2.NodeGraphicsInfo, java.lang.String);  
+
+setPoolId(Pool ng, String id) :
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.setPoolId(com.tibco.xpd.xpdl2.Pool, java.lang.String);
+	
+setLaneId(Lane lane, String id) :
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.setLaneId(com.tibco.xpd.xpdl2.Lane, java.lang.String);    
+	
+setLaneHeight(List[GraphicalNode] graphicalNodes, Lane lane) :
+	JAVA com.tibco.xpd.process.om.template.TransformHelper.setLaneHeight(java.util.List, com.tibco.xpd.xpdl2.Lane);

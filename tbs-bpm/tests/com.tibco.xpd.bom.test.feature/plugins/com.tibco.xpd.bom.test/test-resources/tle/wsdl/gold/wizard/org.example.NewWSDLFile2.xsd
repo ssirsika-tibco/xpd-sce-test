@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/NewWSDLFile2/" xmlns:tns2="http://www.example.org/NewWSDLFile2/"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns3="http://www.example.org/NewWSDLFile3/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewWSDLFile2/">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/ghfg/Business Objects/org.example.NewWSDLFile2.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.example.org/NewWSDLFile3/" schemaLocation="org.example.NewWSDLFile3.xsd"/>
+  <xsd:complexType id="org.example.NewWSDLFile2ExtendedAccountInfoList_Type" abstract="false"
+      mixed="false" name="ExtendedAccountInfoList_Type"/>
+  <xsd:element abstract="false" name="extendedAccountInfoList" nillable="false" type="ExtendedAccountInfoList_Type"/>
+  <xsd:element abstract="false" name="offerPreferences" nillable="false" type="tns3:FilterCriteria_Type"/>
+</xsd:schema>

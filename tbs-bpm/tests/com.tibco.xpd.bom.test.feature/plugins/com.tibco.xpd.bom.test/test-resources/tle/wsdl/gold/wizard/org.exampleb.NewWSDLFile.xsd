@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.exampleb.org/NewWSDLFile/" xmlns:tns1="http://www.exampleb.org/NewWSDLFile/"
+    xmlns:NewWSDLFile2="http://www.exampleb.org/NewWSDLFile2/" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:tns2="http://www.exampleb.org/NewWSDLFile3/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.exampleb.org/NewWSDLFile/">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/gdfgds/Business Objects/org.exampleb.NewWSDLFile.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.exampleb.org/NewWSDLFile3/" schemaLocation="org.exampleb.NewWSDLFile3.xsd"/>
+  <xsd:import namespace="http://www.exampleb.org/NewWSDLFile2/" schemaLocation="org.exampleb.NewWSDLFile2.xsd"/>
+  <xsd:element abstract="false" name="NewOperation" nillable="false">
+    <xsd:complexType id="org.exampleb.NewWSDLFileNewOperationType" mixed="false">
+      <xsd:sequence>
+        <xsd:element form="unqualified" maxOccurs="1" minOccurs="1" name="in">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element maxOccurs="1" minOccurs="1" ref="NewWSDLFile2:refToComplex"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NewOperationResponse" nillable="false">
+    <xsd:complexType id="org.exampleb.NewWSDLFileNewOperationResponseType" mixed="false">
+      <xsd:sequence>
+        <xsd:element form="unqualified" maxOccurs="1" minOccurs="1" name="out">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

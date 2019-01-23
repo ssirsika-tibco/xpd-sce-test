@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/ElmAndComplex" xmlns:tns1="http://example.com/ElmAndComplex"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://example.com/ElmAndComplex2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/ElmAndComplex">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfsd/Business Objects/XSDBOM_Duplicate_01_AttributeGroupVariations.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://example.com/ElmAndComplex2" schemaLocation="XSDBOM_Duplicate_01_AttributeGroupVariationsImported.xsd"/>
+  <xsd:simpleType id="com.example.elm.and.complex_melon2" name="melon">
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+  <xsd:simpleType id="com.example.elm.and.complex_tleSimpleTypeMelon2" name="tleSimpleTypeMelon">
+    <xsd:restriction base="melon"/>
+  </xsd:simpleType>
+  <xsd:complexType id="com.example.elm.and.complex_orange" abstract="false" mixed="false"
+      name="orange">
+    <xsd:sequence>
+      <xsd:sequence>
+        <xsd:element id="orange_elem1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="elem1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string"/>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:sequence>
+    <xsd:attribute id="orange_attr1" form="unqualified" name="attr1" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType id="com.example.elm.and.complex_tleComplexType" abstract="false"
+      mixed="false" name="tleComplexType">
+    <xsd:sequence>
+      <xsd:element id="tleComplexType_elemTypeOrange" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="elemTypeOrange" type="orange"/>
+      <xsd:element id="tleComplexType_elemComplexContentOrange___Type" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="elemComplexContentOrange">
+        <xsd:complexType id="com.example.elm.and.complex_elemComplexContentOrange___Type"
+            mixed="false">
+          <xsd:complexContent>
+            <xsd:extension base="tns2:orange"/>
+          </xsd:complexContent>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element id="tleComplexType_elemTypeMelon" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="elemTypeMelon">
+        <xsd:simpleType>
+          <xsd:restriction base="tns2:melon"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="tleComplexType_elemSimpleTypeMelon" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="elemSimpleTypeMelon">
+        <xsd:simpleType>
+          <xsd:restriction base="tns2:melon"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="_3k2HEC-KEeCVncn78rcQkw" maxOccurs="1" minOccurs="1" ref="banana"/>
+    </xsd:sequence>
+    <xsd:attribute id="_3kY0EC-KEeCVncn78rcQkw" ref="apple"/>
+  </xsd:complexType>
+  <xsd:attribute name="apple">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:boolean"/>
+    </xsd:simpleType>
+  </xsd:attribute>
+  <xsd:attribute name="tleAttrTypeMelon">
+    <xsd:simpleType>
+      <xsd:restriction base="tns2:tleSimpleTypeMelon"/>
+    </xsd:simpleType>
+  </xsd:attribute>
+  <xsd:element abstract="false" name="banana" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="tleElemTypeOrange" nillable="false" type="tns2:orange"/>
+</xsd:schema>

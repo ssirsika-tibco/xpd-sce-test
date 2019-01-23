@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:tns="http://www.tibco.com/rsbtPassThrough/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    name="rsbtPassThrough" targetNamespace="http://www.tibco.com/rsbtPassThrough/">
+	<partnerLinkType name="RESTPassThroughService_PLT"
+		xmlns="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+		<role name="RESTPassThroughServiceProvider" portType="tns:RESTPassThroughService" />
+	</partnerLinkType>
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://www.tibco.com/rsbtPassThrough/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/rsbtPassThrough/">
+  
+            <xsd:element name="httpRequest" type="tns:httpRequest"></xsd:element>
+            <xsd:element name="httpResponse" type="tns:httpResponse"></xsd:element>
+            <xsd:complexType name="httpRequest">
+                <xsd:sequence>
+                    <xsd:element name="requestURI" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+                    <xsd:element name="httpMethod" type="tns:httpMethod" maxOccurs="1" minOccurs="1">
+                    </xsd:element>
+                    <xsd:element name="httpHeaders" type="tns:httpHeaders" maxOccurs="1" minOccurs="0">
+                    </xsd:element>
+                    <xsd:element name="httpBody" type="xsd:base64Binary" maxOccurs="1" minOccurs="0">
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+  
+            <xsd:complexType name="httpResponse">
+                <xsd:sequence>
+                    <xsd:element name="httpStatus" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="httpHeaders" type="tns:httpHeaders" maxOccurs="1" minOccurs="0">
+                    </xsd:element>
+                    <xsd:element name="httpBody" type="xsd:base64Binary" maxOccurs="1" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+              
+            <xsd:simpleType name="httpMethod">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="GET"></xsd:enumeration>
+                    <xsd:enumeration value="PUT"></xsd:enumeration>
+                    <xsd:enumeration value="POST"></xsd:enumeration>
+                    <xsd:enumeration value="DELETE"></xsd:enumeration>
+                </xsd:restriction>
+            </xsd:simpleType>
+  
+  
+             <xsd:complexType name="httpHeaders">
+                <xsd:sequence>
+                    <xsd:element name="httpHeader" type="tns:httpHeader" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+             
+            <xsd:complexType name="httpHeader">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="value" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+  
+        </xsd:schema></wsdl:types>
+    <wsdl:message name="invokeRequest">
+        <wsdl:part name="httpRequest" element="tns:httpRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="invokeResponse">
+        <wsdl:part name="httpResponse" element="tns:httpResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="RESTPassThroughService">
+        <wsdl:operation name="invoke">
+            <wsdl:input message="tns:invokeRequest"></wsdl:input>
+            <wsdl:output message="tns:invokeResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

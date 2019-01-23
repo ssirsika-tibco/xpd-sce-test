@@ -1,0 +1,576 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.analyst.resources.xpdl2" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.analyst.resources.xpdl2" id="processEditorConfiguration" name="Process Editor Configuration"/>
+      </appInfo>
+      <documentation>
+         Allows various process editor configuration changes depending on an use-case&apos;s requirements (such as excluding supported object types).
+&lt;p&gt;
+&lt;b&gt;Contributers should take great care not to unnecessarily activate their contributions thus preventing process editors under the control of other contributers from functioning correctly.&lt;/b&gt; To this end a property tester has been declared to be used in the &lt;code&gt;enablement&lt;/code&gt; element of each contribution. This can be used in the &lt;code&gt;enablement&lt;/code&gt; element (along with various &lt;code&gt;and&lt;/code&gt; / &lt;code&gt;or&lt;/code&gt; elements and your own contributed property testers) as required. 
+&lt;/p&gt;
+&lt;p&gt;
+To use this property tester simply add a &lt;code&gt;test&lt;/code&gt; element to the &lt;code&gt;enablement&lt;/code&gt; element (or child &lt;code&gt;and&lt;/code&gt; / &lt;code&gt;or&lt;/code&gt; etc) and configure it in one of the following ways...
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsBusinessProcess&lt;/b&gt; Args: &lt;b&gt;none&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsBusinessService&lt;/b&gt; Args: &lt;b&gt;none&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsCaseService&lt;/b&gt; Args: &lt;b&gt;none&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsServiceProcess&lt;/b&gt; Args: &lt;b&gt;none&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsPageFlow&lt;/b&gt; Args: &lt;b&gt;none&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsTaskLibrary&lt;/b&gt; Args: &lt;b&gt;none&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsDecisionFlow&lt;/b&gt; Args: &lt;b&gt;none&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;  
+Note that these tests will return for &quot;true&quot; when the test-context-object &lt;b&gt;is&lt;/b&gt; or &lt;b&gt;is a descendent of&lt;/b&gt; a process of the given type.
+&lt;/p&gt;
+&lt;p&gt;
+  ---------------------------------
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsTheOnlyDestinationEnabled&lt;/b&gt; Args: &lt;b&gt;comma-separated list global-destination-ids (as contributed via the &lt;code&gt;globalDestinations&lt;/code&gt; extension point)&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; if the destination(s) are enabled and that there are &lt;b&gt;no other&lt;/b&gt; destination types selected in the process(or parent process) of contextObject (or combined destinations of all processes if context object is package(or child of package), if the package has no processes then the project destination will be considered) | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;    &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsDestinationEnabled&lt;/b&gt; Args: &lt;b&gt;comma-separated list global-destination-ids (as contributed via the &lt;code&gt;globalDestinations&lt;/code&gt; extension point)&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; if the destination(s) are enabled in the process(or parent process) of contextObject (or combined destinations of all processes if context object is package(or child of package), if the package has no processes then the project destination will be considered | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;    &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsOnlyDestinationEnabledOnProject&lt;/b&gt; Args: &lt;b&gt;comma-separated list global-destination-ids (as contributed via the &lt;code&gt;globalDestinations&lt;/code&gt; extension point)&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; if the destination(s) are enabled and that there are &lt;b&gt;no other&lt;/b&gt; destination types selected in the parent project of the contextObject | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsProjectDestinationEnabled&lt;/b&gt; Args: &lt;b&gt;comma-separated list global-destination-ids (as contributed via the &lt;code&gt;globalDestinations&lt;/code&gt; extension point)&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; if the destination(s) are enabled in the parent project of the contextObject | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+  
+  &lt;li&gt;Property: &lt;b&gt;com.tibco.xpd.processEditorConfiguration.IsFileExtension&lt;/b&gt; Args: &lt;b&gt;comma-separated list of file extensions&lt;/b&gt; Value: &lt;b&gt;true&lt;/b&gt; | &lt;b&gt;false&lt;/b&gt;&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+Note that these tests will function for process packages, processes or any descendent elemetn thereof.
+&lt;/p&gt;
+&lt;p&gt;
+------------------------------------
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;Example: To activate your contribution only for: &lt;/b&gt;Pageflow processes&lt;b&gt; in and &lt;/b&gt;XPDL&lt;b&gt; file with the destination id &lt;/b&gt;&quot;my.madeup.globaldestination&quot;&lt;b&gt; enabled and no other destinations enabled:&lt;/b&gt;
+&lt;pre&gt;
+         &lt;enablement&gt;
+            &lt;and&gt;
+               &lt;test
+                     forcePluginActivation=&quot;false&quot;
+                     property=&quot;com.tibco.xpd.processEditorConfiguration.IsPageFlow&quot;
+                     value=&quot;true&quot;&gt;
+               &lt;/test&gt;
+               &lt;test
+                     args=&quot;my.madeup.globaldestination&quot;
+                     forcePluginActivation=&quot;false&quot;
+                     property=&quot;com.tibco.xpd.processEditorConfiguration.IsTheOnlyDestinationEnabled&quot;
+                     value=&quot;true&quot;&gt;
+               &lt;/test&gt;
+               &lt;test
+                     args=&quot;xpdl&quot;
+                     forcePluginActivation=&quot;false&quot;
+                     property=&quot;com.tibco.xpd.processEditorConfiguration.IsFileExtension&quot;
+                     value=&quot;true&quot;&gt;
+               &lt;/test&gt;
+            &lt;/and&gt;
+         &lt;/enablement&gt;
+&lt;/pre&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <include schemaLocation="schema://org.eclipse.core.expressions/schema/expressionLanguage.exsd"/>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <choice>
+               <element ref="PropertyTabExclusions"/>
+               <element ref="ObjectTypeExclusions"/>
+               <element ref="ActivityIconOverrides"/>
+               <element ref="ElementTypeExclusions"/>
+               <element ref="ValidationDestinationExclusions"/>
+            </choice>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="ObjectTypeExclusions">
+      <annotation>
+         <documentation>
+            &lt;b&gt;An ObjectTypeExclusions element allows specific Activity/Flow/Artifact types to be excluded from the process editor and is active according to enablement element.&lt;/b&gt;
+The context object for property testers is the &lt;code&gt;com.tibco.xpd.xpdl2.Process&lt;/code&gt; object.
+&lt;p&gt;
+An excluded object type is removed from:
+&lt;li&gt;The tool palette. &lt;/li&gt;
+&lt;li&gt;Object type selection via process diagram context menu.&lt;/li&gt;
+&lt;li&gt;Object type selection via process diagram &apos;cycle type&apos; gadget.&lt;/li&gt;
+&lt;li&gt;Object type selection via the property sheet for that class of object.&lt;/li&gt;
+&lt;/p&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="enablement"/>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+               <element ref="ObjectType"/>
+            </sequence>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="ElementTypeExclusions">
+      <annotation>
+         <documentation>
+            &lt;b&gt;An ElementTypeExclusions element allows restriction of the type of process package elements that the user is allowed to can create via New element wizards.&lt;/b&gt; 
+&lt;p&gt;
+The context object for enablement and property testers is the closest ancestor Process, ProcessInterface or ProcessPackage model object. These can be all be tested with the com.tibco.xpd.processEditorConfiguration.xxx test properties.
+&lt;li&gt;It also controls whether the &apos;group-parent-folder&apos; for the element type is displayed in the project-explorer view (such as &quot;Participants&quot;, &quot;Process Interfaces&quot; folder etc).&lt;/li&gt;
+&lt;li&gt;It also controls whether the element-group proprrty tab is displayed for teh given elemetn type (the proeprty tab with a table control for all Participants/DataFields etc).&lt;/li&gt;
+&lt;b&gt;Note that the group-folder and group-property tab for an excluded element type will always be included if it already contains elements.&lt;/b&gt; This can happen for instance if excluded element types were added prior to the enablement for the exclusion becoming enabled.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="enablement"/>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+               <element ref="ElementType"/>
+            </sequence>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="PropertyTabExclusions">
+      <annotation>
+         <documentation>
+            &lt;b&gt;A PropertyTabExclusion element allows speicic process-editor property tabs to be excluded from the Properties view&lt;/b&gt;
+*The context object for enablement is the selected diagram part&apos;s underlying model EObject (com.tibco.xpd.xpdl2.Process / Activity / Transition etc)* Any of these can be used with the com.tibco.xpd.processEditorConfiguration.xxxxx property tests.
+&lt;p&gt;
+Note that this is the case &lt;i&gt;only property tabs shown when those editors are the  active view&lt;/i&gt; i.e. this extension point will not impact the property tabs shown for when the Project Explorer is the selection provider (the currently active view).
+&lt;/p&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="enablement"/>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+               <element ref="PropertyTab"/>
+            </sequence>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="ObjectType">
+      <annotation>
+         <documentation>
+            &lt;b&gt;Enumeration of available Object Types in the process editor.&lt;/b&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="type" use="required">
+            <annotation>
+               <documentation>
+                  Process Editor Object Type
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="start_event_none">
+                  </enumeration>
+                  <enumeration value="start_event_message">
+                  </enumeration>
+                  <enumeration value="start_event_timer">
+                  </enumeration>
+                  <enumeration value="start_event_conditional">
+                  </enumeration>
+                  <enumeration value="start_event_multi">
+                  </enumeration>
+                  <enumeration value="start_event_signal">
+                  </enumeration>
+                  <enumeration value="intermediate_event_none">
+                  </enumeration>
+                  <enumeration value="intermediate_event_message_catch">
+                  </enumeration>
+                  <enumeration value="intermediate_event_message_throw">
+                  </enumeration>
+                  <enumeration value="intermediate_event_timer">
+                  </enumeration>
+                  <enumeration value="intermediate_event_conditional">
+                  </enumeration>
+                  <enumeration value="intermediate_event_link_catch">
+                  </enumeration>
+                  <enumeration value="intermediate_event_link_throw">
+                  </enumeration>
+                  <enumeration value="intermediate_event_signal_catch">
+                  </enumeration>
+                  <enumeration value="intermediate_event_signal_throw">
+                  </enumeration>
+                  <enumeration value="intermediate_event_multi_catch">
+                  </enumeration>
+                  <enumeration value="intermediate_event_multi_throw">
+                  </enumeration>
+                  <enumeration value="intermediate_event_error_catch">
+                  </enumeration>
+                  <enumeration value="intermediate_event_compensation_catch">
+                  </enumeration>
+                  <enumeration value="intermediate_event_compensation_throw">
+                  </enumeration>
+                  <enumeration value="intermediate_event_cancel_catch">
+                  </enumeration>
+                  <enumeration value="end_event_none">
+                  </enumeration>
+                  <enumeration value="end_event_message">
+                  </enumeration>
+                  <enumeration value="end_event_multi">
+                  </enumeration>
+                  <enumeration value="end_event_error">
+                  </enumeration>
+                  <enumeration value="end_event_compensation">
+                  </enumeration>
+                  <enumeration value="end_event_cancel">
+                  </enumeration>
+                  <enumeration value="end_event_signal">
+                  </enumeration>
+                  <enumeration value="end_event_terminate">
+                  </enumeration>
+                  <enumeration value="gateway_exclusive_data_based">
+                  </enumeration>
+                  <enumeration value="gateway_parallel">
+                  </enumeration>
+                  <enumeration value="gateway_exclusive_event_based">
+                  </enumeration>
+                  <enumeration value="gateway_inclusive">
+                  </enumeration>
+                  <enumeration value="gateway_complex">
+                  </enumeration>
+                  <enumeration value="task_none">
+                  </enumeration>
+                  <enumeration value="task_user">
+                  </enumeration>
+                  <enumeration value="task_manual">
+                  </enumeration>
+                  <enumeration value="task_service">
+                  </enumeration>
+                  <enumeration value="task_script">
+                  </enumeration>
+                  <enumeration value="task_send">
+                  </enumeration>
+                  <enumeration value="task_receive">
+                  </enumeration>
+                  <enumeration value="task_reference">
+                  </enumeration>
+                  <enumeration value="task_decisiontable">
+                  </enumeration>
+                  <enumeration value="task_subprocess">
+                  </enumeration>
+                  <enumeration value="embedded_subprocess">
+                  </enumeration>
+                  <enumeration value="event_subprocess">
+                  </enumeration>
+                  <enumeration value="artifact_text_annotation">
+                  </enumeration>
+                  <enumeration value="artifact_data_object">
+                  </enumeration>
+                  <enumeration value="artifact_group_box">
+                  </enumeration>
+                  <enumeration value="sequenceflow_uncontrolled">
+                  </enumeration>
+                  <enumeration value="sequenceflow_conditional">
+                  </enumeration>
+                  <enumeration value="sequenceflow_default">
+                  </enumeration>
+                  <enumeration value="messageflow">
+                  </enumeration>
+                  <enumeration value="association_connection">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="ElementType">
+      <annotation>
+         <documentation>
+            &lt;b&gt;Enumeration of available process-package related Element Types in the project explorer.&lt;/b&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="type" use="required">
+            <annotation>
+               <documentation>
+                  Process package content element type
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="datafield">
+                  </enumeration>
+                  <enumeration value="participant">
+                  </enumeration>
+                  <enumeration value="correlation_data">
+                  </enumeration>
+                  <enumeration value="formal_parameter">
+                  </enumeration>
+                  <enumeration value="type_declaration">
+                  </enumeration>
+                  <enumeration value="process_interface">
+                  </enumeration>
+                  <enumeration value="business_process">
+                  </enumeration>
+                  <enumeration value="pageflow_process">
+                  </enumeration>
+                  <enumeration value="business_service">
+                  </enumeration>
+                  <enumeration value="case_service">
+                  </enumeration>
+                  <enumeration value="service_process">
+                  </enumeration>
+                   <enumeration value="service_process_interface">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="PropertyTab">
+      <annotation>
+         <documentation>
+            The property tab to exclude.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  The property tab id. Current possible values are...
+&lt;p&gt;
+&lt;b&gt;Process Editor&lt;/b&gt;
+&lt;li&gt;General = com.tibco.xpd.processeditor.propertyTabs.general&lt;/li&gt;
+&lt;li&gt;Description = com.tibco.xpd.processeditor.propertyTabs.description&lt;/li&gt;
+&lt;li&gt;Destinations = com.tibco.xpd.processeditor.propertyTabs.destinations&lt;/li&gt;
+&lt;li&gt;Interface = com.tibco.xpd.processeditor.propertyTabs.interface&lt;/li&gt;
+&lt;li&gt;Implementation = com.tibco.xpd.processeditor.propertyTabs.implementation&lt;/li&gt;
+&lt;li&gt;Loops = com.tibco.xpd.processeditor.propertyTabs.loop&lt;/li&gt;
+&lt;li&gt;Ad-Hoc Configuration = com.tibco.xpd.processeditor.propertyTabs.adhoc &lt;/li&gt;
+&lt;li&gt;TaskResource = com.tibco.xpd.processeditor.propertyTabs.resource&lt;/li&gt;
+&lt;li&gt;Scripts = com.tibco.xpd.processeditor.propertyTabs.script&lt;/li&gt;
+&lt;li&gt;Map To (Sub)Process (analyst) = com.tibco.xpd.processeditor.propertyTabs.SubprocParameterMapperIn&lt;/li&gt;
+&lt;li&gt;Map From (Sub)Process (analyst) = com.tibco.xpd.processeditor.propertyTabs.SubprocParameterMapperOut&lt;/li&gt;
+&lt;li&gt;MapToPageflow (analyst) = com.tibco.xpd.processeditor.propertyTabs.PageflowParameterMapperIn&lt;/li&gt;
+&lt;li&gt;MapFromPageflow (analyst) = com.tibco.xpd.processeditor.propertyTabs.PageflowParameterMapperOut&lt;/li&gt;
+&lt;li&gt;MapFromError = com.tibco.xpd.processeditor.propertyTabs.CatchErrorEventMapperOut&lt;/li&gt;
+&lt;li&gt;Appearance = com.tibco.xpd.processeditor.propertyTabs.appearance&lt;/li&gt;
+&lt;li&gt;Extended = com.tibco.xpd.processeditor.propertyTabs.extended&lt;/li&gt;
+&lt;li&gt;Advanced = com.tibco.xpd.processeditor.xpdl2.advancedTab&lt;/li&gt;
+&lt;li&gt;DataFields = com.tibco.xpd.processeditor.xpdl2.dataFieldsTab&lt;/li&gt;
+&lt;li&gt;Parameters = com.tibco.xpd.processeditor.xpdl2.parametersTab&lt;/li&gt;
+&lt;li&gt;TypeDeclarations = com.tibco.xpd.processeditor.xpdl2.typeDeclarationsTab&lt;/li&gt;
+&lt;li&gt;Participants = com.tibco.xpd.processeditor.xpdl2.participantsTab&lt;/li&gt;
+&lt;li&gt;ProcessResource = com.tibco.xpd.processeditor.propertyTabs.resource&lt;/li&gt;
+&lt;li&gt;Priveleges = com.tibco.xpd.processeditor.propertyTabs.taskGroups&lt;/li&gt;
+&lt;li&gt;Email = com.tibco.xpd.nativeservices.propertyTabs.email&lt;/li&gt;
+&lt;li&gt;Database = com.tibco.xpd.nativeservices.propertyTabs.database&lt;/li&gt;
+&lt;li&gt;Input To (Web)Service = com.tibco.xpd.implementer.propertyTabs.parameterMapperIn&lt;/li&gt;
+&lt;li&gt;Output From (Web)Service = com.tibco.xpd.implementer.propertyTabs.parameterMapperOut&lt;/li&gt;
+&lt;li&gt;Input To Process (incoming message) (solution designer) =com.tibco.xpd.implementer.propertyTabs.parameterMapperToProcess&lt;/li&gt;
+&lt;li&gt;Output from Process (reply to incoming message)  (solution designer) = com.tibco.xpd.implementer.propertyTabs.parameterMapperFromProcess&lt;/li&gt;
+&lt;li&gt;Output Fault From Process (solution designer) = com.tibco.xpd.processeditor.propertyTabs.ThrowErrorEventMapperOut&lt;/li&gt;
+&lt;li&gt;Transform (Script) = com.tibco.xpd.implementer.propertyTabs.scriptMapperTransform&lt;/li&gt;
+&lt;li&gt;Simulation = com.tibco.xpd.simulation.propertyTabs.simulation&lt;/li&gt;
+&lt;li&gt;Simulation Control = com.tibco.xpd.simulation.propertyTabs.simulationControl&lt;/li&gt;
+&lt;li&gt;Rule = com.tibco.xpd.simulation.propertyTabs.transitionRule&lt;/li&gt;
+&lt;li&gt;Rule Parameter = com.tibco.xpd.simulation.propertyTabs.ruleParameter&lt;/li&gt;
+======================================
+&lt;/p&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="ActivityIconOverrides">
+      <annotation>
+         <documentation>
+            &lt;b&gt;Allows contributor to override the icon of an activity when enabled&lt;/b&gt;
+The context object for enablement testing will be the parent com.tibco.xpd.xpdl2.Process model object.
+&lt;p&gt;
+Enablement...
+&lt;li&gt;Each set of IActivityIconProviders will be used only when the enablement element indicates that it should.&lt;/li&gt;
+&lt;li&gt;The enablement element should be used to check the major filters that can affect many activities in a process (process type, destination environment, file extension and so on) in preference to checking these things in the IActivityIconProvider.isEnabled() method. This is because the set of providers enabled for any given process has to be checked each time any part of the model changes and if that set differs from before the change then a complete referesh must be done on the diagram.&lt;/li&gt;
+&lt;li&gt;Each IActivityIconProvider is only used if the activity type matches of one of the ObjectType&apos;s listed in the ActivityIconProvider in the same ActivityIconProvioder contribution. The first ctrobibution whose isEnabled() method returns true will be used to get the image for the activity.&lt;/li&gt;
+&lt;li&gt;Then finally, if both of the above are true, the IActionProvider.isEnabled(Activity activity) is called as a final check to see whether the IActionProvider.getImage(Activity activity) method should be called.&lt;/li&gt;
+&lt;li&gt;The IActivityIconProvider.getImage(Activity activity) is then called to get the icon image for the activity.&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;More Notes:&lt;/b&gt; The IActionProvider.isEnabled(Activity activity) will be called frequently for initial creation and refreshes of activity objects in the process editor diagram, therefore it should be as efficient as possible.  If IActivityIconProvider.getImage() returns &lt;code&gt;null&lt;/code&gt; then the default process editor defined icon for the activity will be used. If the user has manually selected a custom icon for an activity this will take precedence over any ActivityIconOverride contributions.
+&lt;/p&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="enablement"/>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+               <element ref="ActivityIconProvider"/>
+            </sequence>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="ActivityIconProvider">
+      <annotation>
+         <documentation>
+            &lt;b&gt;Allows the contributor to return the appropriate ImageDescriptor for an activity whose type matches one of the lkisted ObjectTypes&lt;/b&gt;
+The provider is given further chance to  filter the activities that it is interested via the IActivityIconProvider.isEnabled(Activity activity) which should only return true when the provider wishes to either override the default icon for the activity.
+&lt;p&gt;
+Also note that the SWT images are not disposed by the process editor and therefore the provider should return only images that are loaded once and then never disposed (for instance by loading from the host plugin&apos;s image registry).
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="ObjectType"/>
+         </sequence>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.xpdl2.resources.IActivityIconProvider"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="ValidationDestinationExclusions">
+      <annotation>
+         <documentation>
+            &lt;b&gt;A ValidationProviderExclusions element allows the rules for a validation-destination to be excluded for a given process, process-interface, process-package. Optionally, specific the contributor can choose to exclude only the rules contributed by a specific validaiton-provider used in that destination.&lt;/b&gt;
+&lt;p&gt;
+Each validation destination identifies a set of separately contributed validation-providers. These validation-providers specify the actual validation rules and issues that perform the validaiton of the process package (these are re-usable for multiple destinations).
+&lt;/p&gt;
+&lt;p&gt;
+This extension point allows the rules for any validation-destination to be excluded (and optionally specific validaiton-provider) thus preventing any of the rules provided by it being run as part of that validaiton destination. &lt;b&gt;Great care must be taken not to exclude rules required by other selected process destinations that require the these rules.&lt;/b&gt; It is therefore recommended that the enablement is used to test at least the file-extension and that only the destination that wishes to exclude these rules applies to a given process-package, process or process-interface (&lt;code&gt;com.tibco.xpd.processEditorConfiguration.IsFileExtension&lt;/code&gt; and &lt;code&gt; com.tibco.xpd.processEditorConfiguration.IsTheOnlyDestinationEnabled&lt;/code&gt;).
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;The enablement is checked for the process-package and the each process and each process interface (for process / package / interface scope rules) and activity for activity-scoped rules.&lt;/b&gt; The &lt;code&gt;com.tibco.xpd.processEditorConfiguration.xxxx&lt;/code&gt; property tests will function with all of these context objects.
+&lt;/p&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="enablement"/>
+            <sequence minOccurs="1" maxOccurs="unbounded">
+               <element ref="ValidationDestinationExclusion"/>
+            </sequence>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="ValidationDestinationExclusion">
+      <annotation>
+         <documentation>
+            Specifies the validation-destination to exclude (with optional specific validation provider if only rules contributed by a specific provider are to be excluded).
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="validationDestinationId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The id of the validation-destination for which to disable the validation-provider.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier" basedOn="com.tibco.xpd.validation.destinations/destination/@id"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="specificValidationProviderId" type="string">
+            <annotation>
+               <documentation>
+                  The id of the specific validation-provider to disable for the given validation-destination. If this is provided then only the rules for this provider are exlcuded. If it is ommitted then all rules for the destination are excluded.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier" basedOn="com.tibco.xpd.validation.provider/provider/@id"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         v3.5.3
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         &lt;!-- Example: To not show support for Intermediate Throw Signal Event or Receive Task for 
+      Pageflow processes in and XPDL file with the destination id &quot;my.madeup.globaldestination&quot; enabled: --&gt;
+&lt;pre&gt;
+&lt;extension
+      point=&quot;com.tibco.xpd.analyst.resources.xpdl2.processEditorConfiguration&quot;&gt;
+   &lt;ObjectTypeExclusions&gt;
+     &lt;enablement&gt;
+        &lt;and&gt;
+           &lt;test
+                forcePluginActivation=&quot;false&quot;
+                property=&quot;com.tibco.xpd.processEditorConfiguration.IsPageFlow&quot;
+                value=&quot;true&quot;&gt;
+          &lt;/test&gt;
+          &lt;test
+                args=&quot;my.madeup.globaldestination&quot;
+                forcePluginActivation=&quot;false&quot;
+                property=&quot;com.tibco.xpd.processEditorConfiguration.IsDestinationEnabled&quot;
+                value=&quot;true&quot;&gt;
+          &lt;/test&gt;
+          &lt;test
+                args=&quot;xpdl&quot;
+                forcePluginActivation=&quot;false&quot;
+                property=&quot;com.tibco.xpd.processEditorConfiguration.IsFileExtension&quot;
+                value=&quot;true&quot;&gt;
+          &lt;/test&gt;
+      &lt;/and&gt;
+    &lt;/enablement&gt;
+    &lt;ObjectType type=&quot;intermediate_event_signal_throw&quot;&gt;&lt;/ObjectType&gt;
+    &lt;ObjectType type=&quot;task_receive&quot;&gt;&lt;/ObjectType&gt;
+&lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004, 2011. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

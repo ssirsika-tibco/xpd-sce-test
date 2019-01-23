@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://www.wfmc.org/2002/XPDL1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sw="http://bpm.tibco.com/2004/SWSPDXML2.0" Id="PKG_N0576E780.058CE038" Name="em2" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd">
+<PackageHeader>
+<XPDLVersion>1.0</XPDLVersion>
+<Vendor>TIBCO iProcess Workspace (Windows) - v11.4.2</Vendor>
+<Created>2014/09/03 13:50:17</Created>
+</PackageHeader>
+<ConformanceClass GraphConformance="NON_BLOCKED"/>
+<Script Type="StaffwareScript" Version="11.4.2" Grammar="Proprietary"/>
+<WorkflowProcesses>
+<WorkflowProcess Id="EM2" Name="EM2" AccessLevel="PUBLIC">
+<ProcessHeader>
+<Created/>
+<Description/>
+</ProcessHeader>
+<DataFields>
+<DataField Id="SW_CASEDESC" Name="SW_CASEDESC" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_INCPERIOD" Name="SW_CP_INCPERIOD" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>4</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="4">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_INCREMENT" Name="SW_CP_INCREMENT" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>4</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="4">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_NUMINC" Name="SW_CP_NUMINC" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>3</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="3">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_PERIODTYP" Name="SW_CP_PERIODTYP" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>1</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="1">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_CP_VALUE" Name="SW_CP_VALUE" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>3</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="3">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_GEN_IDX" Name="SW_GEN_IDX" IsArray="FALSE">
+<DataType>
+<BasicType Type="FLOAT"/>
+</DataType>
+<Length>6</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails decimal="0" fsize="6">
+          <FieldType>NUM</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM1" Name="SW_QPARAM1" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM2" Name="SW_QPARAM2" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>24</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="24">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM3" Name="SW_QPARAM3" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>12</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="12">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="SW_QPARAM4" Name="SW_QPARAM4" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>12</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="12">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="TXT1" Name="TXT1" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="TXT2" Name="TXT2" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="TXT3" Name="TXT3" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="TXT4" Name="TXT4" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+<DataField Id="TXT5" Name="TXT5" IsArray="FALSE">
+<DataType>
+<BasicType Type="STRING"/>
+</DataType>
+<Length>20</Length>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="FieldDetails">
+<FieldDetails fsize="20">
+          <FieldType>TEXT</FieldType>
+        </FieldDetails>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</DataField>
+</DataFields>
+<Participants>
+<Participant Id="MAIL1_Performer" Name="EAI_MAIL">
+<ParticipantType Type="SYSTEM"/>
+</Participant>
+<Participant Id="MAIL2_Performer" Name="EAI_MAIL">
+<ParticipantType Type="SYSTEM"/>
+</Participant>
+<Participant Id="MAIL3_Performer" Name="EAI_MAIL">
+<ParticipantType Type="SYSTEM"/>
+</Participant>
+</Participants>
+<Applications>
+<Application Name="EAI_MAIL" Id="MAIL1">
+<FormalParameters/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIRunType">
+<EAIRunType>EAI_MAIL</EAIRunType>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIData">
+<EAIData TypeDataIncomplete="true">
+            <EAIRunData>
+              <EAITypeData>
+                <EAIText>HOST^
+PORT^25
+SERVER_SMTP^1
+SERVER_FROM^0
+TO^%Txt1%
+FROM^%TXT2%%Txt6%
+CC^%TXT2%
+BCC^%Txt3%;%TXT4%
+PRIORITY^
+REPLYTO^%TXT5%
+SUBJECT^%TXT4% on %SW_DATE%, %SW_TIME%
+RETURNMSG^
+RETURNCODE^
+BODY^
+%TXT1%, %TXT2% and %TXT3% were created in iPM will all letters in upper case. 
+%TXT4% and %TXT5% had "x and t" in small case. Let's also see what happens if I use %Txt6% here which doesn't exist at all.
+Date is %SW_DATE%, time is %SW_TIME% and
+process name is %SW_PRONAME%. Priority of the process is %SW_CP_VALUE% and ID of the process is %SW_CASENUM%.
+</EAIText>
+              </EAITypeData>
+            </EAIRunData>
+          </EAIData>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Application>
+<Application Name="EAI_MAIL" Id="MAIL2">
+<FormalParameters/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIRunType">
+<EAIRunType>EAI_MAIL</EAIRunType>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIData">
+<EAIData TypeDataIncomplete="false">
+            <EAIRunData>
+              <EAITypeData>
+                <EAIText>HOST^
+PORT^25
+SERVER_SMTP^1
+SERVER_FROM^1
+TO^%TXT1%
+FROM^
+PRIORITY^
+SUBJECT^
+RETURNMSG^
+RETURNCODE^
+BODY^
+This is to test whether % my patch works for a single percent sign.
+</EAIText>
+              </EAITypeData>
+            </EAIRunData>
+          </EAIData>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Application>
+<Application Name="EAI_MAIL" Id="MAIL3">
+<FormalParameters/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIRunType">
+<EAIRunType>EAI_MAIL</EAIRunType>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIData">
+<EAIData TypeDataIncomplete="false">
+            <EAIRunData>
+              <EAITypeData>
+                <EAIText>HOST^
+PORT^25
+SERVER_SMTP^1
+SERVER_FROM^1
+TO^%TXT2%
+FROM^
+PRIORITY^
+SUBJECT^
+RETURNMSG^
+RETURNCODE^
+BODY^
+This is to check whether %% works fine.
+</EAIText>
+              </EAITypeData>
+            </EAIRunData>
+          </EAIData>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Application>
+</Applications>
+<Activities>
+<Activity Id="1" Name="MAIL1">
+<Implementation>
+<Tool Type="APPLICATION" Id="MAIL1">
+<ActualParameters/>
+</Tool>
+</Implementation>
+<Performer>MAIL1_Performer</Performer>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="EAIObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="263"/>
+<ExtendedAttribute Name="YOffset" Value="89"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="3"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIStepFlags">
+<EAIStepFlags IgnoreCaseSuspend="false" NoDelOnWithdraw="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="DelayedRelease">
+<DelayedRelease>
+            <DelayedReleaseType>Never</DelayedReleaseType>
+          </DelayedRelease>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="2" Name="MAIL2">
+<Implementation>
+<Tool Type="APPLICATION" Id="MAIL2">
+<ActualParameters/>
+</Tool>
+</Implementation>
+<Performer>MAIL2_Performer</Performer>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="EAIObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="418"/>
+<ExtendedAttribute Name="YOffset" Value="96"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="4"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIStepFlags">
+<EAIStepFlags IgnoreCaseSuspend="false" NoDelOnWithdraw="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="DelayedRelease">
+<DelayedRelease>
+            <DelayedReleaseType>Never</DelayedReleaseType>
+          </DelayedRelease>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="3" Name="MAIL3">
+<Implementation>
+<Tool Type="APPLICATION" Id="MAIL3">
+<ActualParameters/>
+</Tool>
+</Implementation>
+<Performer>MAIL3_Performer</Performer>
+<StartMode>
+<Automatic/>
+</StartMode>
+<FinishMode>
+<Automatic/>
+</FinishMode>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="EAIObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="594"/>
+<ExtendedAttribute Name="YOffset" Value="85"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="StepNum" Value="5"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="EAIStepFlags">
+<EAIStepFlags IgnoreCaseSuspend="false" NoDelOnWithdraw="false"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="DelayedRelease">
+<DelayedRelease>
+            <DelayedReleaseType>Never</DelayedReleaseType>
+          </DelayedRelease>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+<Activity Id="4" Name="Start">
+<Route/>
+<TransitionRestrictions/>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ObjType" Value="StartObject"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="XOffset" Value="40"/>
+<ExtendedAttribute Name="YOffset" Value="40"/>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLaneID" Value="0"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="TextPosition">
+<TextPosition>Automatic</TextPosition>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Activity>
+</Activities>
+<Transitions>
+<Transition From="1" To="2" Id="Trans_N0576E780.058CEF18">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="2">
+          <LineType>curved</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="2" To="3" Id="Trans_N0576E780.058CEFF8">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="2">
+          <LineType>curved</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+<Transition From="4" To="1" Id="Trans_N0576E780.058CF0D8">
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkFlags">
+<LinkFlags FromPrimary="true" ToPrimary="true">
+          <FromSide>right</FromSide>
+          <ToSide>left</ToSide>
+        </LinkFlags>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ColorRef">
+<ColorRef Blue="60" Green="60" Red="60"/>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LinkStyleFlags">
+<LinkStyleFlags LineWidth="2">
+          <LineType>curved</LineType>
+          <StartCap>round</StartCap>
+          <EndCap>arrow1</EndCap>
+        </LinkStyleFlags>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Transition>
+</Transitions>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="ProcProperties">
+<ProcProperties Author="Administrator" AutoPurgeCases="false" DateCreated="01/09/2014 09:05" DateModified="03/09/2014 07:55" IgnoreBlankAddressees="false" MajorVersion="0" MaxStepNum="5" MinorVersion="0" NormalizeCaseData="true" PMO_ID="246" PredictInBackground="false" ProcDescription="" ReleaseID="" UsageURL="" UseWorkingDays="true">
+      <ProcType>MAIN</ProcType>
+      <ProcStatus>incomplete</ProcStatus>
+      <CaseDescOnStart>required</CaseDescOnStart>
+      <StartStep ObjectName="MAIL1"/>
+      <DefinitionAccess>
+        <AllUsers>
+          <DefinitionAccessType>Edit</DefinitionAccessType>
+        </AllUsers>
+      </DefinitionAccess>
+      <ProcedureGUID>C333B892-31AE-11E4-826A-005056B20004</ProcedureGUID>
+    </ProcProperties>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="LayoutOptions">
+<LayoutOptions AnimateLinks="true" DisplayDescText="true" DisplayExtDescText="false" DisplayLinkLabelText="true" DisplayNameText="true" FastAnimPoints="false" GridSize="0" MultiAnimPoints="true" RoundAnimPoints="true" Scale="1" ShowGrid="false" TopDown="false">
+      <LinkStyleFlags LineWidth="2">
+        <LineType>curved</LineType>
+        <StartCap>round</StartCap>
+        <EndCap>arrow1</EndCap>
+      </LinkStyleFlags>
+      <NormalLinkColor>
+        <ColorRef Blue="60" Green="60" Red="60"/>
+      </NormalLinkColor>
+      <IfYesLinkColor>
+        <ColorRef Blue="0" Green="160" Red="0"/>
+      </IfYesLinkColor>
+      <IfNoLinkColor>
+        <ColorRef Blue="0" Green="0" Red="160"/>
+      </IfNoLinkColor>
+      <DeadlineLinkColor>
+        <ColorRef Blue="200" Green="0" Red="0"/>
+      </DeadlineLinkColor>
+    </LayoutOptions>
+</ExtAttr>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SwimLanes">
+<SwimLanes>
+      <LanesProperties>
+        <LanesType>None</LanesType>
+      </LanesProperties>
+    </SwimLanes>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</WorkflowProcess>
+</WorkflowProcesses>
+<ExtendedAttributes>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="MadeBy" Value="Tibco-Process-Suite"/>
+</ExtendedAttribute>
+<ExtendedAttribute Name="ExtAttr">
+<ExtAttr xmlns="http://bpm.tibco.com/2004/SWSPDXML2.0" Name="SchemaFormat">
+<SchemaFormat Version="3">
+<ComponentVersion Name="sw.xsd" Version="$Revision: 83819 $"/>
+<ComponentVersion Name="XPDLExtAttr.xsd" Version="$Revision: 83819 $"/>
+<ComponentVersion Name="TIBCO iProcess Workspace (Windows)" Version="11.4.2"/>
+<ComponentVersion Name="sw2xpdl.xslt" Version="$Revision: 81629 $"/>
+<ComponentVersion Name="Objects.xslt" Version="$Revision: 69039 $"/>
+<ComponentVersion Name="Participants.xslt" Version="$Revision: 80346 $"/>
+<ComponentVersion Name="SubProcParams.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="Links.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="Fields.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="FormAndEAIDefs.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="Utils.xslt" Version="$Revision: 65867 $"/>
+<ComponentVersion Name="translations.xslt" Version="$Revision: 65867 $"/>
+</SchemaFormat>
+</ExtAttr>
+</ExtendedAttribute>
+</ExtendedAttributes>
+</Package>

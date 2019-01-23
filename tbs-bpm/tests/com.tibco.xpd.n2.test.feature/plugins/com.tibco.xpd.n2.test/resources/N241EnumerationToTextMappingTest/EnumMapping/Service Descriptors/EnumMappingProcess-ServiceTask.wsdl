@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_Pt3qEH6iEeSIgNbhCufPJw_ServiceTask__L8jkgH62EeSIgNbhCufPJw" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://example.com/enummappingOne" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EnumMapping" targetNamespace="http://www.tibco.com/bs3.0/_Pt3qEH6iEeSIgNbhCufPJw_ServiceTask__L8jkgH62EeSIgNbhCufPJw" tibex:ServiceTask="_L8jkgH62EeSIgNbhCufPJw" tibex:XPDL="EnumMapping.xpdl" tibex:process="_PuVkIH6iEeSIgNbhCufPJw">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_Pt3qEH6iEeSIgNbhCufPJw_ServiceTask__L8jkgH62EeSIgNbhCufPJw" targetNamespace="http://www.tibco.com/bs3.0/_Pt3qEH6iEeSIgNbhCufPJw_ServiceTask__L8jkgH62EeSIgNbhCufPJw">
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://example.com/enummappingOne" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://example.com/enummappingOne" targetNamespace="http://example.com/enummappingOne">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/EnumMapping/Business Objects/EnumMapping.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType name="IntegerPrimitiveType">
+        <xsd:restriction base="xsd:int"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="TextPrimitiveType">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DateTimePrimitiveType">
+        <xsd:restriction base="xsd:dateTime"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="TextEnum">
+        <xsd:restriction base="TextPrimitiveType">
+          <xsd:enumeration value="TEXTLITERAL1"/>
+          <xsd:enumeration value="TEXTLITERAL2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="IntEnumPriority">
+        <xsd:restriction base="IntegerPrimitiveType">
+          <xsd:enumeration value="100"/>
+          <xsd:enumeration value="100"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DatetimeSchedule">
+        <xsd:restriction base="DateTimePrimitiveType">
+          <xsd:enumeration value="2014-12-12T15:08:00"/>
+          <xsd:enumeration value="2014-12-18T15:08:00"/>
+          <xsd:enumeration value="2014-12-31T15:09:00"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="CustDetails">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="custName" type="TextEnum"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="priority" type="IntEnumPriority"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="schedule" type="DatetimeSchedule"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OrderDetails">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="department" type="TextEnum"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="priority" type="IntEnumPriority"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="schedule" type="DatetimeSchedule"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="IntegerPrimitiveTypeElement">
+        <xsd:simpleType>
+          <xsd:restriction base="IntegerPrimitiveType"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="TextPrimitiveTypeElement">
+        <xsd:simpleType>
+          <xsd:restriction base="TextPrimitiveType"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="DateTimePrimitiveTypeElement">
+        <xsd:simpleType>
+          <xsd:restriction base="DateTimePrimitiveType"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="TextEnumElement">
+        <xsd:simpleType>
+          <xsd:restriction base="TextEnum"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="IntEnumPriorityElement">
+        <xsd:simpleType>
+          <xsd:restriction base="IntEnumPriority"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="DatetimeScheduleElement">
+        <xsd:simpleType>
+          <xsd:restriction base="DatetimeSchedule"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="CustDetailsElement" type="CustDetails"/>
+      <xsd:element name="OrderDetailsElement" type="OrderDetails"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EnumMappingProcess_ServiceTask_INPUT">
+    <wsdl:part name="TextPriority" type="ns:string_50"/>
+    <wsdl:part name="custDetails" type="ttns:CustDetails"/>
+    <wsdl:part name="custDetailsParam" type="ttns:CustDetails"/>
+    <wsdl:part name="orderDetails" type="ttns:OrderDetails"/>
+    <wsdl:part name="orderDetailsParam" type="ttns:OrderDetails"/>
+    <wsdl:part name="textCustName" type="ns:string_50"/>
+    <wsdl:part name="textDept" type="ns:string_50"/>
+    <wsdl:part name="textSchedule" type="ns:string_50"/>
+    <wsdl:part name="textVal" type="ns:string_50"/>
+    <wsdl:part name="textVal3" type="ns:string_50"/>
+  </wsdl:message>
+  <wsdl:message name="EnumMappingProcess_ServiceTask_OUTPUT">
+    <wsdl:part name="TextPriority" type="ns:string_50"/>
+    <wsdl:part name="custDetails" type="ttns:CustDetails"/>
+    <wsdl:part name="custDetailsParam" type="ttns:CustDetails"/>
+    <wsdl:part name="orderDetails" type="ttns:OrderDetails"/>
+    <wsdl:part name="orderDetailsParam" type="ttns:OrderDetails"/>
+    <wsdl:part name="textCustName" type="ns:string_50"/>
+    <wsdl:part name="textDept" type="ns:string_50"/>
+    <wsdl:part name="textSchedule" type="ns:string_50"/>
+    <wsdl:part name="textVal" type="ns:string_50"/>
+    <wsdl:part name="textVal3" type="ns:string_50"/>
+  </wsdl:message>
+  <wsdl:portType name="EnumMappingProcess" tibex:FlowContainer="_PuVkIH6iEeSIgNbhCufPJw">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="ServiceTask">
+      <wsdl:input message="ns:EnumMappingProcess_ServiceTask_INPUT" tibex:Event="_L8jkgH62EeSIgNbhCufPJw"/>
+      <wsdl:output message="ns:EnumMappingProcess_ServiceTask_OUTPUT" tibex:Event="_L8jkgH62EeSIgNbhCufPJw"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

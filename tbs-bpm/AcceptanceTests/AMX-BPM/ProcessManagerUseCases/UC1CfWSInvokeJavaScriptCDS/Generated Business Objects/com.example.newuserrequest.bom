@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example.newuserrequest" name="com.example.newuserrequest">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oeEUAgdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oeEUAwdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oeEUBAdTEeSRjauCcgnMbg" key="created" value="1404905250752"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oeEUBQdTEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ogt_YAdTEeSRjauCcgnMbg" key="checksum" value="2767815773"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.newuserrequestEmployee" name="Employee">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EmployeefirstName" name="firstName" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oateAwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oateAgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EmployeelastName" name="lastName" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oawhUwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oawhUgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Employeeemail" name="email" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oazkowdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oazkogdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Employeephone" name="phone" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oa2A4wdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oa2A4gdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EmployeeraCFID" name="raCFID" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oa5EMwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oa5EMgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Employeetitle" name="title" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oa7gcwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oa7gcgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="EmployeeuserId" name="userId" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oa-jwwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oa-jwgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.newuserrequestRequestInformation" name="RequestInformation">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationrequestor" name="requestor" type="com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?" aggregation="composite" association="com.example.newuserrequestComposition0?com.example.newuserrequest%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obSs0gdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obSs0QdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationrequestee" name="requestee" type="com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?" aggregation="composite" association="com.example.newuserrequestComposition1?com.example.newuserrequest%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obW-QwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obW-QgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationrequestorComment" name="requestorComment" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obZagQdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obZagAdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationreportingManager" name="reportingManager" type="com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?" aggregation="composite" association="com.example.newuserrequestComposition2?com.example.newuserrequest%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obcd0AdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obb2wgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationproductInformation" name="productInformation" type="com.example.newuserrequestProductInformation?com.example.newuserrequest%3a%3aProductInformation?" aggregation="composite" association="com.example.newuserrequestComposition4?com.example.newuserrequest%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocF-EwdTEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocF-EgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationapprovalinformation" name="approvalinformation" type="com.example.newuserrequestApprovalInformation?com.example.newuserrequest%3a%3aApprovalInformation?" aggregation="composite" association="com.example.newuserrequestComposition6?com.example.newuserrequest%3a%3aComposition6?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocV1swdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocV1sgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationnewUserIDRequest" name="newUserIDRequest" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocY5AwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocY5AgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationuserID" name="userID" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_occjYwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_occjYgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="RequestInformationcompany" name="company" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocgNwwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocgNwgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition0" name="Composition0" memberEnd="RequestInformationrequestor?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestor? Composition0requestinformation?com.example.newuserrequest%3a%3aComposition0%3a%3arequestinformation?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0requestinformation" name="requestinformation" type="com.example.newuserrequestRequestInformation?com.example.newuserrequest%3a%3aRequestInformation?" association="com.example.newuserrequestComposition0?com.example.newuserrequest%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obSs1QdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obSs1AdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition1" name="Composition1" memberEnd="RequestInformationrequestee?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestee? Composition1requestinformation?com.example.newuserrequest%3a%3aComposition1%3a%3arequestinformation?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1requestinformation" name="requestinformation" type="com.example.newuserrequestRequestInformation?com.example.newuserrequest%3a%3aRequestInformation?" association="com.example.newuserrequestComposition1?com.example.newuserrequest%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obW-RgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obW-RQdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition2" name="Composition2" memberEnd="RequestInformationreportingManager?com.example.newuserrequest%3a%3aRequestInformation%3a%3areportingManager? Composition2requestinformation?com.example.newuserrequest%3a%3aComposition2%3a%3arequestinformation?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition2requestinformation" name="requestinformation" type="com.example.newuserrequestRequestInformation?com.example.newuserrequest%3a%3aRequestInformation?" association="com.example.newuserrequestComposition2?com.example.newuserrequest%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obcd0wdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obcd0gdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.newuserrequestProductInformation" name="ProductInformation">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationproductID" name="productID" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obhWUgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obhWUQdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationproductDescription" name="productDescription" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obkZowdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obkZogdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationsiSID" name="siSID" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oboEAwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oboEAgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationrole" name="role" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obrHUwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obrHUgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationtag" name="tag" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_obwm4wdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_obwm4gdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationproductApproverVP" name="productApproverVP" type="com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?" aggregation="composite" association="com.example.newuserrequestComposition3?com.example.newuserrequest%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ob1fYgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ob1fYQdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationproductRequestApproval" name="productRequestApproval" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ob5w0wdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ob5w0gdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationproductApproverVPComment" name="productApproverVPComment" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ob_3cgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ob_3cQdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition3" name="Composition3" memberEnd="ProductInformationproductApproverVP?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVP? Composition3productinformation?com.example.newuserrequest%3a%3aComposition3%3a%3aproductinformation?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition3productinformation" name="productinformation" type="com.example.newuserrequestProductInformation?com.example.newuserrequest%3a%3aProductInformation?" association="com.example.newuserrequestComposition3?com.example.newuserrequest%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ob1fZQdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ob1fZAdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition4" name="Composition4" memberEnd="RequestInformationproductInformation?com.example.newuserrequest%3a%3aRequestInformation%3a%3aproductInformation? Composition4requestinformation?com.example.newuserrequest%3a%3aComposition4%3a%3arequestinformation?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition4requestinformation" name="requestinformation" type="com.example.newuserrequestRequestInformation?com.example.newuserrequest%3a%3aRequestInformation?" association="com.example.newuserrequestComposition4?com.example.newuserrequest%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocF-FgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocF-FQdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.newuserrequestApprovalInformation" name="ApprovalInformation">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ApprovalInformationemployeeRequestApproval" name="employeeRequestApproval" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocNS0gdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocNS0QdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ApprovalInformationemployeeRequestApproverVP" name="employeeRequestApproverVP" type="com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?" aggregation="composite" association="com.example.newuserrequestComposition5?com.example.newuserrequest%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocQWIwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocQWIgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ApprovalInformationemployeeRequestApproverVPComment" name="employeeRequestApproverVPComment" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocTZcwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocTZcgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition5" name="Composition5" memberEnd="ApprovalInformationemployeeRequestApproverVP?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVP? Composition5approvalinformation?com.example.newuserrequest%3a%3aComposition5%3a%3aapprovalinformation?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition5approvalinformation" name="approvalinformation" type="com.example.newuserrequestApprovalInformation?com.example.newuserrequest%3a%3aApprovalInformation?" association="com.example.newuserrequestComposition5?com.example.newuserrequest%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocQWJgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocQWJQdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition6" name="Composition6" memberEnd="RequestInformationapprovalinformation?com.example.newuserrequest%3a%3aRequestInformation%3a%3aapprovalinformation? Composition6requestinformation?com.example.newuserrequest%3a%3aComposition6%3a%3arequestinformation?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition6requestinformation" name="requestinformation" type="com.example.newuserrequestRequestInformation?com.example.newuserrequest%3a%3aRequestInformation?" association="com.example.newuserrequestComposition6?com.example.newuserrequest%3a%3aComposition6?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocWcwQdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocWcwAdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.newuserrequestProductInformationList" name="ProductInformationList">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductInformationListproductInformation" name="productInformation" type="com.example.newuserrequestProductInformation?com.example.newuserrequest%3a%3aProductInformation?" aggregation="composite" association="com.example.newuserrequestComposition7?com.example.newuserrequest%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocm7cwdTEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocm7cgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition7" name="Composition7" memberEnd="ProductInformationListproductInformation?com.example.newuserrequest%3a%3aProductInformationList%3a%3aproductInformation? Composition7productinformationlist?com.example.newuserrequest%3a%3aComposition7%3a%3aproductinformationlist?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition7productinformationlist" name="productinformationlist" type="com.example.newuserrequestProductInformationList?com.example.newuserrequest%3a%3aProductInformationList?" association="com.example.newuserrequestComposition7?com.example.newuserrequest%3a%3aComposition7?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocm7dgdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocm7dQdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.newuserrequestProductQualifier" name="ProductQualifier">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductQualifierselect" name="select" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocrz8wdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocrz8gdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductQualifierproductId" name="productId" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ocwFYwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ocwFYgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductQualifierproductDescription" name="productDescription" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oc0W0QdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oc0W0AdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductQualifierroleList" name="roleList" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oc4BMwdTEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oc4BMgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductQualifierselectedRole" name="selectedRole" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oc8SowdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oc8SogdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductQualifiertagList" name="tagList" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_odAkEAdTEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oc_9AgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductQualifierselectedTag" name="selectedTag" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_odEOcwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_odEOcgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.newuserrequestProductQualifierList" name="ProductQualifierList">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ProductQualifierListproductQualifier" name="productQualifier" type="com.example.newuserrequestProductQualifier?com.example.newuserrequest%3a%3aProductQualifier?" aggregation="composite" association="com.example.newuserrequestComposition8?com.example.newuserrequest%3a%3aComposition8?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_odN_cAdTEeSRjauCcgnMbg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_odNYYgdTEeSRjauCcgnMbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.newuserrequestComposition8" name="Composition8" memberEnd="ProductQualifierListproductQualifier?com.example.newuserrequest%3a%3aProductQualifierList%3a%3aproductQualifier? Composition8productqualifierlist?com.example.newuserrequest%3a%3aComposition8%3a%3aproductqualifierlist?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition8productqualifierlist" name="productqualifierlist" type="com.example.newuserrequestProductQualifierList?com.example.newuserrequest%3a%3aProductQualifierList?" association="com.example.newuserrequestComposition8?com.example.newuserrequest%3a%3aComposition8?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_odN_cwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_odN_cgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_oapzoQdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oapzogdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_oapzowdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oapzpAdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_oapzpQdTEeSRjauCcgnMbg" base_Package="com.example.newuserrequest?com.example.newuserrequest?" xsdTargetNamespace="http://example.com/newuserrequest" xsdSchemaLocation="DummyWS.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.8.0.005" bomWsdlSources="DummyWS.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_oaro0QdTEeSRjauCcgnMbg" base_Class="com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?" xsdName="Employee" xsdId="_f_vycHcZEd-yZfh7D0paag" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_oa_x4AdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oateAQdTEeSRjauCcgnMbg" base_Property="EmployeefirstName?com.example.newuserrequest%3a%3aEmployee%3a%3afirstName?" xsdName="firstName" xsdForm="unqualified" xsdId="_h0uXEHcZEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_oa_x4AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oauFEAdTEeSRjauCcgnMbg" base_Property="EmployeefirstName?com.example.newuserrequest%3a%3aEmployee%3a%3afirstName?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oauFEQdTEeSRjauCcgnMbg" base_Property="EmployeefirstName?com.example.newuserrequest%3a%3aEmployee%3a%3afirstName?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oauFEgdTEeSRjauCcgnMbg" base_Property="EmployeefirstName?com.example.newuserrequest%3a%3aEmployee%3a%3afirstName?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oawhUQdTEeSRjauCcgnMbg" base_Property="EmployeelastName?com.example.newuserrequest%3a%3aEmployee%3a%3alastName?" xsdName="lastName" xsdForm="unqualified" xsdId="_h2Ea4HcZEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_oa_x4AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oaxIYAdTEeSRjauCcgnMbg" base_Property="EmployeelastName?com.example.newuserrequest%3a%3aEmployee%3a%3alastName?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oaxIYQdTEeSRjauCcgnMbg" base_Property="EmployeelastName?com.example.newuserrequest%3a%3aEmployee%3a%3alastName?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oaxIYgdTEeSRjauCcgnMbg" base_Property="EmployeelastName?com.example.newuserrequest%3a%3aEmployee%3a%3alastName?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oazkoQdTEeSRjauCcgnMbg" base_Property="Employeeemail?com.example.newuserrequest%3a%3aEmployee%3a%3aemail?" xsdName="email" xsdForm="unqualified" xsdId="_h2qQwHcZEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_oa_x4AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oazkpAdTEeSRjauCcgnMbg" base_Property="Employeeemail?com.example.newuserrequest%3a%3aEmployee%3a%3aemail?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oa0LsAdTEeSRjauCcgnMbg" base_Property="Employeeemail?com.example.newuserrequest%3a%3aEmployee%3a%3aemail?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oa0LsQdTEeSRjauCcgnMbg" base_Property="Employeeemail?com.example.newuserrequest%3a%3aEmployee%3a%3aemail?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oa2A4QdTEeSRjauCcgnMbg" base_Property="Employeephone?com.example.newuserrequest%3a%3aEmployee%3a%3aphone?" xsdName="phone" xsdForm="unqualified" xsdId="_iswLQHcZEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_oa_x4AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oa2n8AdTEeSRjauCcgnMbg" base_Property="Employeephone?com.example.newuserrequest%3a%3aEmployee%3a%3aphone?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oa2n8QdTEeSRjauCcgnMbg" base_Property="Employeephone?com.example.newuserrequest%3a%3aEmployee%3a%3aphone?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oa2n8gdTEeSRjauCcgnMbg" base_Property="Employeephone?com.example.newuserrequest%3a%3aEmployee%3a%3aphone?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oa5EMQdTEeSRjauCcgnMbg" base_Property="EmployeeraCFID?com.example.newuserrequest%3a%3aEmployee%3a%3araCFID?" xsdName="raCFID" xsdForm="unqualified" xsdId="_i1_m0HcZEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_oa_x4AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oa5ENAdTEeSRjauCcgnMbg" base_Property="EmployeeraCFID?com.example.newuserrequest%3a%3aEmployee%3a%3araCFID?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oa5ENQdTEeSRjauCcgnMbg" base_Property="EmployeeraCFID?com.example.newuserrequest%3a%3aEmployee%3a%3araCFID?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oa5rQAdTEeSRjauCcgnMbg" base_Property="EmployeeraCFID?com.example.newuserrequest%3a%3aEmployee%3a%3araCFID?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oa7gcQdTEeSRjauCcgnMbg" base_Property="Employeetitle?com.example.newuserrequest%3a%3aEmployee%3a%3atitle?" xsdName="title" xsdForm="unqualified" xsdId="_8rpJkHpjEd-AOPV52W0hEw" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_oa_x4AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oa8HgAdTEeSRjauCcgnMbg" base_Property="Employeetitle?com.example.newuserrequest%3a%3aEmployee%3a%3atitle?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oa8HgQdTEeSRjauCcgnMbg" base_Property="Employeetitle?com.example.newuserrequest%3a%3aEmployee%3a%3atitle?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oa8HggdTEeSRjauCcgnMbg" base_Property="Employeetitle?com.example.newuserrequest%3a%3aEmployee%3a%3atitle?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oa-jwQdTEeSRjauCcgnMbg" base_Property="EmployeeuserId?com.example.newuserrequest%3a%3aEmployee%3a%3auserId?" xsdName="userId" xsdForm="unqualified" xsdId="_lMErUHpkEd-AOPV52W0hEw" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_oa_x4AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oa-jxAdTEeSRjauCcgnMbg" base_Property="EmployeeuserId?com.example.newuserrequest%3a%3aEmployee%3a%3auserId?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oa_K0AdTEeSRjauCcgnMbg" base_Property="EmployeeuserId?com.example.newuserrequest%3a%3aEmployee%3a%3auserId?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oa_K0QdTEeSRjauCcgnMbg" base_Property="EmployeeuserId?com.example.newuserrequest%3a%3aEmployee%3a%3auserId?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_obCOIQdTEeSRjauCcgnMbg" base_Class="com.example.newuserrequestRequestInformation?com.example.newuserrequest%3a%3aRequestInformation?" xsdName="RequestInformation" xsdId="_0nItMHcZEd-yZfh7D0paag" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ociC8AdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_obSs1gdTEeSRjauCcgnMbg" base_Property="RequestInformationrequestor?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestor?" xsdName="requestor" xsdForm="unqualified" xsdId="_6w-ZQHcZEd-yZfh7D0paag" xsdType="Employee" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_obW-RwdTEeSRjauCcgnMbg" base_Property="RequestInformationrequestee?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestee?" xsdName="requestee" xsdForm="unqualified" xsdId="_9z4woHcZEd-yZfh7D0paag" xsdType="Employee" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_obYzcQdTEeSRjauCcgnMbg" base_Property="RequestInformationrequestorComment?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestorComment?" xsdName="requestorComment" xsdForm="unqualified" xsdId="_ID6OMHj3Ed-onJPXn1HflA" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_obZaggdTEeSRjauCcgnMbg" base_Property="RequestInformationrequestorComment?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestorComment?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_obZagwdTEeSRjauCcgnMbg" base_Property="RequestInformationrequestorComment?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestorComment?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_obZahAdTEeSRjauCcgnMbg" base_Property="RequestInformationrequestorComment?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestorComment?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_obcd1AdTEeSRjauCcgnMbg" base_Property="RequestInformationreportingManager?com.example.newuserrequest%3a%3aRequestInformation%3a%3areportingManager?" xsdName="reportingManager" xsdForm="unqualified" xsdId="_-EbHAHcZEd-yZfh7D0paag" xsdType="Employee" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_obe6EQdTEeSRjauCcgnMbg" base_Class="com.example.newuserrequestProductInformation?com.example.newuserrequest%3a%3aProductInformation?" xsdName="ProductInformation" xsdId="_DaaUQHcaEd-yZfh7D0paag" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ocCTsAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_obhWUAdTEeSRjauCcgnMbg" base_Property="ProductInformationproductID?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductID?" xsdName="productID" xsdForm="unqualified" xsdId="_FVfg4HcaEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocCTsAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_obhWUwdTEeSRjauCcgnMbg" base_Property="ProductInformationproductID?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductID?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_obh9YAdTEeSRjauCcgnMbg" base_Property="ProductInformationproductID?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductID?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_obh9YQdTEeSRjauCcgnMbg" base_Property="ProductInformationproductID?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductID?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_obkZoQdTEeSRjauCcgnMbg" base_Property="ProductInformationproductDescription?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductDescription?" xsdName="productDescription" xsdForm="unqualified" xsdId="_GKPXkHcaEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocCTsAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oblAsAdTEeSRjauCcgnMbg" base_Property="ProductInformationproductDescription?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductDescription?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oblAsQdTEeSRjauCcgnMbg" base_Property="ProductInformationproductDescription?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductDescription?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oblAsgdTEeSRjauCcgnMbg" base_Property="ProductInformationproductDescription?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductDescription?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oboEAQdTEeSRjauCcgnMbg" base_Property="ProductInformationsiSID?com.example.newuserrequest%3a%3aProductInformation%3a%3asiSID?" xsdName="siSID" xsdForm="unqualified" xsdId="_G60f8HcaEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocCTsAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oboEBAdTEeSRjauCcgnMbg" base_Property="ProductInformationsiSID?com.example.newuserrequest%3a%3aProductInformation%3a%3asiSID?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oborEAdTEeSRjauCcgnMbg" base_Property="ProductInformationsiSID?com.example.newuserrequest%3a%3aProductInformation%3a%3asiSID?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oborEQdTEeSRjauCcgnMbg" base_Property="ProductInformationsiSID?com.example.newuserrequest%3a%3aProductInformation%3a%3asiSID?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_obrHUQdTEeSRjauCcgnMbg" base_Property="ProductInformationrole?com.example.newuserrequest%3a%3aProductInformation%3a%3arole?" xsdName="role" xsdForm="unqualified" xsdId="_HmViIHcaEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocCTsAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_obruYAdTEeSRjauCcgnMbg" base_Property="ProductInformationrole?com.example.newuserrequest%3a%3aProductInformation%3a%3arole?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_obruYQdTEeSRjauCcgnMbg" base_Property="ProductInformationrole?com.example.newuserrequest%3a%3aProductInformation%3a%3arole?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_obsVcAdTEeSRjauCcgnMbg" base_Property="ProductInformationrole?com.example.newuserrequest%3a%3aProductInformation%3a%3arole?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_obwm4QdTEeSRjauCcgnMbg" base_Property="ProductInformationtag?com.example.newuserrequest%3a%3aProductInformation%3a%3atag?" xsdName="tag" xsdForm="unqualified" xsdId="_ILlkQHcaEd-yZfh7D0paag" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocCTsAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_obxN8AdTEeSRjauCcgnMbg" base_Property="ProductInformationtag?com.example.newuserrequest%3a%3aProductInformation%3a%3atag?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_obxN8QdTEeSRjauCcgnMbg" base_Property="ProductInformationtag?com.example.newuserrequest%3a%3aProductInformation%3a%3atag?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_obx1AAdTEeSRjauCcgnMbg" base_Property="ProductInformationtag?com.example.newuserrequest%3a%3aProductInformation%3a%3atag?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ob1fZgdTEeSRjauCcgnMbg" base_Property="ProductInformationproductApproverVP?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVP?" xsdName="productApproverVP" xsdForm="unqualified" xsdId="_I03KwHcaEd-yZfh7D0paag" xsdType="Employee" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocCTsAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ob5w0QdTEeSRjauCcgnMbg" base_Property="ProductInformationproductRequestApproval?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductRequestApproval?" xsdName="productRequestApproval" xsdForm="unqualified" xsdDefault="false" xsdId="_J81fcHcaEd-yZfh7D0paag" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocCTsAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ob6X4AdTEeSRjauCcgnMbg" base_Property="ProductInformationproductRequestApproval?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductRequestApproval?" booleanDefaultValue="false"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ob6-8AdTEeSRjauCcgnMbg" base_Property="ProductInformationproductRequestApproval?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductRequestApproval?" xsdRestrictionBase="boolean"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ob6-8QdTEeSRjauCcgnMbg" base_Property="ProductInformationproductRequestApproval?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductRequestApproval?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ob_3cAdTEeSRjauCcgnMbg" base_Property="ProductInformationproductApproverVPComment?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVPComment?" xsdName="productApproverVPComment" xsdForm="unqualified" xsdId="_9Qg9EHj2Ed-onJPXn1HflA" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocCTsAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ocAegAdTEeSRjauCcgnMbg" base_Property="ProductInformationproductApproverVPComment?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVPComment?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ocAegQdTEeSRjauCcgnMbg" base_Property="ProductInformationproductApproverVPComment?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVPComment?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ocAeggdTEeSRjauCcgnMbg" base_Property="ProductInformationproductApproverVPComment?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVPComment?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocF-FwdTEeSRjauCcgnMbg" base_Property="RequestInformationproductInformation?com.example.newuserrequest%3a%3aRequestInformation%3a%3aproductInformation?" xsdName="productInformation" xsdForm="unqualified" xsdId="_enB2lHcaEd-yZfh7D0paag" xsdType="ProductInformation" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_ocJBYQdTEeSRjauCcgnMbg" base_Class="com.example.newuserrequestApprovalInformation?com.example.newuserrequest%3a%3aApprovalInformation?" xsdName="ApprovalInformation" xsdId="_j2ng4HcaEd-yZfh7D0paag" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ocUnkAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocNS0AdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproval?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproval?" xsdName="employeeRequestApproval" xsdForm="unqualified" xsdDefault="false" xsdId="_lE_YgHcaEd-yZfh7D0paag" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocUnkAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ocNS0wdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproval?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproval?" booleanDefaultValue="false"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ocN54AdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproval?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproval?" xsdRestrictionBase="boolean"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ocN54QdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproval?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproval?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocQ9MAdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproverVP?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVP?" xsdName="employeeRequestApproverVP" xsdForm="unqualified" xsdId="_llCKgHcaEd-yZfh7D0paag" xsdType="Employee" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocUnkAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocTZcQdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproverVPComment?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVPComment?" xsdName="employeeRequestApproverVPComment" xsdForm="unqualified" xsdId="_FE4RQHj3Ed-onJPXn1HflA" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocUnkAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ocTZdAdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproverVPComment?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVPComment?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ocTZdQdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproverVPComment?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVPComment?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ocUAgAdTEeSRjauCcgnMbg" base_Property="ApprovalInformationemployeeRequestApproverVPComment?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVPComment?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocWcwgdTEeSRjauCcgnMbg" base_Property="RequestInformationapprovalinformation?com.example.newuserrequest%3a%3aRequestInformation%3a%3aapprovalinformation?" xsdName="approvalinformation" xsdForm="unqualified" xsdId="_yqVz5HcaEd-yZfh7D0paag" xsdType="ApprovalInformation" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocY5AQdTEeSRjauCcgnMbg" base_Property="RequestInformationnewUserIDRequest?com.example.newuserrequest%3a%3aRequestInformation%3a%3anewUserIDRequest?" xsdName="newUserIDRequest" xsdForm="unqualified" xsdDefault="false" xsdId="_T_czIHj3Ed-onJPXn1HflA" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ocY5BAdTEeSRjauCcgnMbg" base_Property="RequestInformationnewUserIDRequest?com.example.newuserrequest%3a%3aRequestInformation%3a%3anewUserIDRequest?" booleanDefaultValue="false"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ocZgEAdTEeSRjauCcgnMbg" base_Property="RequestInformationnewUserIDRequest?com.example.newuserrequest%3a%3aRequestInformation%3a%3anewUserIDRequest?" xsdRestrictionBase="boolean"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ocZgEQdTEeSRjauCcgnMbg" base_Property="RequestInformationnewUserIDRequest?com.example.newuserrequest%3a%3aRequestInformation%3a%3anewUserIDRequest?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_occjYQdTEeSRjauCcgnMbg" base_Property="RequestInformationuserID?com.example.newuserrequest%3a%3aRequestInformation%3a%3auserID?" xsdName="userID" xsdForm="unqualified" xsdId="_rCRAYHioEd-D4cJTy1UZ0Q" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ocdKcAdTEeSRjauCcgnMbg" base_Property="RequestInformationuserID?com.example.newuserrequest%3a%3aRequestInformation%3a%3auserID?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ocdKcQdTEeSRjauCcgnMbg" base_Property="RequestInformationuserID?com.example.newuserrequest%3a%3aRequestInformation%3a%3auserID?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ocdKcgdTEeSRjauCcgnMbg" base_Property="RequestInformationuserID?com.example.newuserrequest%3a%3aRequestInformation%3a%3auserID?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocgNwQdTEeSRjauCcgnMbg" base_Property="RequestInformationcompany?com.example.newuserrequest%3a%3aRequestInformation%3a%3acompany?" xsdName="company" xsdForm="unqualified" xsdId="_Mia9UHipEd-D4cJTy1UZ0Q" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ociC8AdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ocg00AdTEeSRjauCcgnMbg" base_Property="RequestInformationcompany?com.example.newuserrequest%3a%3aRequestInformation%3a%3acompany?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ocg00QdTEeSRjauCcgnMbg" base_Property="RequestInformationcompany?com.example.newuserrequest%3a%3aRequestInformation%3a%3acompany?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ocg00gdTEeSRjauCcgnMbg" base_Property="RequestInformationcompany?com.example.newuserrequest%3a%3aRequestInformation%3a%3acompany?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_oclGQAdTEeSRjauCcgnMbg" base_Class="com.example.newuserrequestProductInformationList?com.example.newuserrequest%3a%3aProductInformationList?" xsdName="ProductInformationList" xsdId="_7fPOkHpoEd-0CrKr3h_eqg" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ocnigQdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocnigAdTEeSRjauCcgnMbg" base_Property="ProductInformationListproductInformation?com.example.newuserrequest%3a%3aProductInformationList%3a%3aproductInformation?" xsdName="productInformation" xsdForm="unqualified" xsdId="__Kuo4HpoEd-0CrKr3h_eqg" xsdType="ProductInformation" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ocnigQdTEeSRjauCcgnMbg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_ocowoQdTEeSRjauCcgnMbg" base_Class="com.example.newuserrequestProductQualifier?com.example.newuserrequest%3a%3aProductQualifier?" xsdName="ProductQualifier" xsdId="_2KPMoHsUEd-x6ZzIwFKy_g" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_odGDoAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocrz8QdTEeSRjauCcgnMbg" base_Property="ProductQualifierselect?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselect?" xsdName="select" xsdForm="unqualified" xsdDefault="false" xsdId="_fgsYwI0vEd-9GuEkxt9wOQ" xsdType="boolean" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_odGDoAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ocsbAAdTEeSRjauCcgnMbg" base_Property="ProductQualifierselect?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselect?" booleanDefaultValue="false"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ocsbAQdTEeSRjauCcgnMbg" base_Property="ProductQualifierselect?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselect?" xsdRestrictionBase="boolean"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ocsbAgdTEeSRjauCcgnMbg" base_Property="ProductQualifierselect?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselect?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ocwFYQdTEeSRjauCcgnMbg" base_Property="ProductQualifierproductId?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductId?" xsdName="productId" xsdForm="unqualified" xsdId="_4m3nIHsUEd-x6ZzIwFKy_g" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_odGDoAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_ocwFZAdTEeSRjauCcgnMbg" base_Property="ProductQualifierproductId?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductId?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_ocwscAdTEeSRjauCcgnMbg" base_Property="ProductQualifierproductId?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductId?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_ocwscQdTEeSRjauCcgnMbg" base_Property="ProductQualifierproductId?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductId?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oczvwQdTEeSRjauCcgnMbg" base_Property="ProductQualifierproductDescription?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductDescription?" xsdName="productDescription" xsdForm="unqualified" xsdId="_5sWBcHsUEd-x6ZzIwFKy_g" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_odGDoAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oc0W0gdTEeSRjauCcgnMbg" base_Property="ProductQualifierproductDescription?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductDescription?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oc0W0wdTEeSRjauCcgnMbg" base_Property="ProductQualifierproductDescription?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductDescription?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oc0W1AdTEeSRjauCcgnMbg" base_Property="ProductQualifierproductDescription?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductDescription?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oc4BMQdTEeSRjauCcgnMbg" base_Property="ProductQualifierroleList?com.example.newuserrequest%3a%3aProductQualifier%3a%3aroleList?" xsdName="roleList" xsdForm="unqualified" xsdId="_oT-CAJMeEd-p-t6Su98_Vw" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_odGDoAdTEeSRjauCcgnMbg" xsdMinOccurs="0" xsdMaxOccurs="*"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oc4oQAdTEeSRjauCcgnMbg" base_Property="ProductQualifierroleList?com.example.newuserrequest%3a%3aProductQualifier%3a%3aroleList?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oc4oQQdTEeSRjauCcgnMbg" base_Property="ProductQualifierroleList?com.example.newuserrequest%3a%3aProductQualifier%3a%3aroleList?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oc4oQgdTEeSRjauCcgnMbg" base_Property="ProductQualifierroleList?com.example.newuserrequest%3a%3aProductQualifier%3a%3aroleList?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oc8SoQdTEeSRjauCcgnMbg" base_Property="ProductQualifierselectedRole?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedRole?" xsdName="selectedRole" xsdForm="unqualified" xsdId="_oYfVoJMeEd-p-t6Su98_Vw" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_odGDoAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_oc8SpAdTEeSRjauCcgnMbg" base_Property="ProductQualifierselectedRole?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedRole?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_oc8SpQdTEeSRjauCcgnMbg" base_Property="ProductQualifierselectedRole?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedRole?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_oc85sAdTEeSRjauCcgnMbg" base_Property="ProductQualifierselectedRole?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedRole?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_oc_9AQdTEeSRjauCcgnMbg" base_Property="ProductQualifiertagList?com.example.newuserrequest%3a%3aProductQualifier%3a%3atagList?" xsdName="tagList" xsdForm="unqualified" xsdId="_ocwxoJMeEd-p-t6Su98_Vw" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_odGDoAdTEeSRjauCcgnMbg" xsdMinOccurs="0" xsdMaxOccurs="*"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_odAkEQdTEeSRjauCcgnMbg" base_Property="ProductQualifiertagList?com.example.newuserrequest%3a%3aProductQualifier%3a%3atagList?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_odAkEgdTEeSRjauCcgnMbg" base_Property="ProductQualifiertagList?com.example.newuserrequest%3a%3aProductQualifier%3a%3atagList?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_odAkEwdTEeSRjauCcgnMbg" base_Property="ProductQualifiertagList?com.example.newuserrequest%3a%3aProductQualifier%3a%3atagList?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_odEOcQdTEeSRjauCcgnMbg" base_Property="ProductQualifierselectedTag?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedTag?" xsdName="selectedTag" xsdForm="unqualified" xsdId="_oiyhIJMeEd-p-t6Su98_Vw" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_odGDoAdTEeSRjauCcgnMbg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_odE1gAdTEeSRjauCcgnMbg" base_Property="ProductQualifierselectedTag?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedTag?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_odE1gQdTEeSRjauCcgnMbg" base_Property="ProductQualifierselectedTag?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedTag?" xsdMaxLengthFixed="false" xsdMaxLengthValue="50"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_odE1ggdTEeSRjauCcgnMbg" base_Property="ProductQualifierselectedTag?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedTag?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_odIf4QdTEeSRjauCcgnMbg" base_Class="com.example.newuserrequestProductQualifierList?com.example.newuserrequest%3a%3aProductQualifierList?" xsdName="ProductQualifierList" xsdId="_9bfzwHsUEd-x6ZzIwFKy_g" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_odOmgAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_odN_dAdTEeSRjauCcgnMbg" base_Property="ProductQualifierListproductQualifier?com.example.newuserrequest%3a%3aProductQualifierList%3a%3aproductQualifier?" xsdName="productQualifier" xsdForm="unqualified" xsdId="_ACIe0HsVEd-x6ZzIwFKy_g" xsdType="ProductQualifier" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_odOmgAdTEeSRjauCcgnMbg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odRCwAdTEeSRjauCcgnMbg" base_Element="_ob1fYQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odRp0AdTEeSRjauCcgnMbg" base_Element="ProductQualifierListproductQualifier?com.example.newuserrequest%3a%3aProductQualifierList%3a%3aproductQualifier?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odRp0QdTEeSRjauCcgnMbg" base_Element="Composition6requestinformation?com.example.newuserrequest%3a%3aComposition6%3a%3arequestinformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odRp0gdTEeSRjauCcgnMbg" base_Element="RequestInformationrequestorComment?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestorComment?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odRp0wdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition7?com.example.newuserrequest%3a%3aComposition7?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odRp1AdTEeSRjauCcgnMbg" base_Element="_oc8SowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odRp1QdTEeSRjauCcgnMbg" base_Element="_obZagQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odRp1gdTEeSRjauCcgnMbg" base_Element="ProductInformationproductRequestApproval?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductRequestApproval?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odSQ4AdTEeSRjauCcgnMbg" base_Element="_obrHUwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odSQ4QdTEeSRjauCcgnMbg" base_Element="Composition4requestinformation?com.example.newuserrequest%3a%3aComposition4%3a%3arequestinformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odSQ4gdTEeSRjauCcgnMbg" base_Element="_oa-jwwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odSQ4wdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestProductInformationList?com.example.newuserrequest%3a%3aProductInformationList?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odSQ5AdTEeSRjauCcgnMbg" base_Element="Employeeemail?com.example.newuserrequest%3a%3aEmployee%3a%3aemail?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odSQ5QdTEeSRjauCcgnMbg" base_Element="_ob1fYgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odSQ5gdTEeSRjauCcgnMbg" base_Element="_ocTZcgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odS38AdTEeSRjauCcgnMbg" base_Element="_ocNS0gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odS38QdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition1?com.example.newuserrequest%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odS38gdTEeSRjauCcgnMbg" base_Element="Employeetitle?com.example.newuserrequest%3a%3aEmployee%3a%3atitle?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odS38wdTEeSRjauCcgnMbg" base_Element="_oboEAwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odS39AdTEeSRjauCcgnMbg" base_Element="_obkZowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odS39QdTEeSRjauCcgnMbg" base_Element="_obSs1QdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odS39gdTEeSRjauCcgnMbg" base_Element="_odN_cAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odS39wdTEeSRjauCcgnMbg" base_Element="_ocQWJgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odTfAAdTEeSRjauCcgnMbg" base_Element="EmployeeuserId?com.example.newuserrequest%3a%3aEmployee%3a%3auserId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odTfAQdTEeSRjauCcgnMbg" base_Element="_ocrz8gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odTfAgdTEeSRjauCcgnMbg" base_Element="_obcd0gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odTfAwdTEeSRjauCcgnMbg" base_Element="ProductInformationproductDescription?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductDescription?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odTfBAdTEeSRjauCcgnMbg" base_Element="ProductQualifierroleList?com.example.newuserrequest%3a%3aProductQualifier%3a%3aroleList?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odTfBQdTEeSRjauCcgnMbg" base_Element="Composition7productinformationlist?com.example.newuserrequest%3a%3aComposition7%3a%3aproductinformationlist?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odTfBgdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition5?com.example.newuserrequest%3a%3aComposition5?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUGEAdTEeSRjauCcgnMbg" base_Element="_ocgNwwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUGEQdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestProductInformation?com.example.newuserrequest%3a%3aProductInformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUGEgdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition2?com.example.newuserrequest%3a%3aComposition2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUGEwdTEeSRjauCcgnMbg" base_Element="_oc0W0QdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUGFAdTEeSRjauCcgnMbg" base_Element="EmployeelastName?com.example.newuserrequest%3a%3aEmployee%3a%3alastName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUGFQdTEeSRjauCcgnMbg" base_Element="_oa7gcwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUGFgdTEeSRjauCcgnMbg" base_Element="_oawhUwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUGFwdTEeSRjauCcgnMbg" base_Element="_ocWcwAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUtIAdTEeSRjauCcgnMbg" base_Element="_oapzowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUtIQdTEeSRjauCcgnMbg" base_Element="_oazkogdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUtIgdTEeSRjauCcgnMbg" base_Element="_ob5w0gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUtIwdTEeSRjauCcgnMbg" base_Element="_ocm7cgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUtJAdTEeSRjauCcgnMbg" base_Element="_obcd0wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUtJQdTEeSRjauCcgnMbg" base_Element="EmployeeraCFID?com.example.newuserrequest%3a%3aEmployee%3a%3araCFID?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odUtJgdTEeSRjauCcgnMbg" base_Element="_oc4BMwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUMAdTEeSRjauCcgnMbg" base_Element="_ocQWJQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUMQdTEeSRjauCcgnMbg" base_Element="RequestInformationnewUserIDRequest?com.example.newuserrequest%3a%3aRequestInformation%3a%3anewUserIDRequest?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUMgdTEeSRjauCcgnMbg" base_Element="_ocF-EwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUMwdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition3?com.example.newuserrequest%3a%3aComposition3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUNAdTEeSRjauCcgnMbg" base_Element="_obhWUgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUNQdTEeSRjauCcgnMbg" base_Element="_ocrz8wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUNgdTEeSRjauCcgnMbg" base_Element="ProductInformationproductID?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductID?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUNwdTEeSRjauCcgnMbg" base_Element="Composition8productqualifierlist?com.example.newuserrequest%3a%3aComposition8%3a%3aproductqualifierlist?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odVUOAdTEeSRjauCcgnMbg" base_Element="_obkZogdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7QAdTEeSRjauCcgnMbg" base_Element="_oapzoQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7QQdTEeSRjauCcgnMbg" base_Element="ProductInformationListproductInformation?com.example.newuserrequest%3a%3aProductInformationList%3a%3aproductInformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7QgdTEeSRjauCcgnMbg" base_Element="_oa-jwgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7QwdTEeSRjauCcgnMbg" base_Element="Employeephone?com.example.newuserrequest%3a%3aEmployee%3a%3aphone?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7RAdTEeSRjauCcgnMbg" base_Element="_ocWcwQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7RQdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition6?com.example.newuserrequest%3a%3aComposition6?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7RgdTEeSRjauCcgnMbg" base_Element="ApprovalInformationemployeeRequestApproverVP?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7RwdTEeSRjauCcgnMbg" base_Element="_obW-QgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7SAdTEeSRjauCcgnMbg" base_Element="_oa5EMgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odV7SQdTEeSRjauCcgnMbg" base_Element="Composition1requestinformation?com.example.newuserrequest%3a%3aComposition1%3a%3arequestinformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiUAdTEeSRjauCcgnMbg" base_Element="_obSs0gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiUQdTEeSRjauCcgnMbg" base_Element="_occjYgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiUgdTEeSRjauCcgnMbg" base_Element="_ob5w0wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiUwdTEeSRjauCcgnMbg" base_Element="_ocwFYgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiVAdTEeSRjauCcgnMbg" base_Element="_ob_3cgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiVQdTEeSRjauCcgnMbg" base_Element="ProductQualifierselectedTag?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedTag?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiVgdTEeSRjauCcgnMbg" base_Element="RequestInformationreportingManager?com.example.newuserrequest%3a%3aRequestInformation%3a%3areportingManager?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiVwdTEeSRjauCcgnMbg" base_Element="_ocwFYwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiWAdTEeSRjauCcgnMbg" base_Element="_obSs0QdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odWiWQdTEeSRjauCcgnMbg" base_Element="_oateAgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJYAdTEeSRjauCcgnMbg" base_Element="RequestInformationrequestor?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestor?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJYQdTEeSRjauCcgnMbg" base_Element="_oc_9AgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJYgdTEeSRjauCcgnMbg" base_Element="ApprovalInformationemployeeRequestApproverVPComment?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVPComment?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJYwdTEeSRjauCcgnMbg" base_Element="_odN_cwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJZAdTEeSRjauCcgnMbg" base_Element="_ocY5AgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJZQdTEeSRjauCcgnMbg" base_Element="_oazkowdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJZgdTEeSRjauCcgnMbg" base_Element="ApprovalInformationemployeeRequestApproval?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproval?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJZwdTEeSRjauCcgnMbg" base_Element="ProductInformationsiSID?com.example.newuserrequest%3a%3aProductInformation%3a%3asiSID?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJaAdTEeSRjauCcgnMbg" base_Element="ProductInformationrole?com.example.newuserrequest%3a%3aProductInformation%3a%3arole?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXJaQdTEeSRjauCcgnMbg" base_Element="_ocQWIgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXwcAdTEeSRjauCcgnMbg" base_Element="_ocF-EgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXwcQdTEeSRjauCcgnMbg" base_Element="Composition5approvalinformation?com.example.newuserrequest%3a%3aComposition5%3a%3aapprovalinformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXwcgdTEeSRjauCcgnMbg" base_Element="_ocY5AwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXwcwdTEeSRjauCcgnMbg" base_Element="_oawhUgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXwdAdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition4?com.example.newuserrequest%3a%3aComposition4?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXwdQdTEeSRjauCcgnMbg" base_Element="ProductQualifierproductId?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXwdgdTEeSRjauCcgnMbg" base_Element="Composition3productinformation?com.example.newuserrequest%3a%3aComposition3%3a%3aproductinformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXwdwdTEeSRjauCcgnMbg" base_Element="_obcd0AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odXweAdTEeSRjauCcgnMbg" base_Element="ProductInformationproductApproverVP?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXgAdTEeSRjauCcgnMbg" base_Element="_oc0W0AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXgQdTEeSRjauCcgnMbg" base_Element="RequestInformationproductInformation?com.example.newuserrequest%3a%3aRequestInformation%3a%3aproductInformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXggdTEeSRjauCcgnMbg" base_Element="_oboEAgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXgwdTEeSRjauCcgnMbg" base_Element="_obW-RQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXhAdTEeSRjauCcgnMbg" base_Element="_ocV1swdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXhQdTEeSRjauCcgnMbg" base_Element="_odEOcgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXhgdTEeSRjauCcgnMbg" base_Element="_oc8SogdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXhwdTEeSRjauCcgnMbg" base_Element="_oc4BMgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odYXiAdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-kAdTEeSRjauCcgnMbg" base_Element="Composition0requestinformation?com.example.newuserrequest%3a%3aComposition0%3a%3arequestinformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-kQdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition8?com.example.newuserrequest%3a%3aComposition8?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-kgdTEeSRjauCcgnMbg" base_Element="_obhWUQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-kwdTEeSRjauCcgnMbg" base_Element="_ob_3cQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-lAdTEeSRjauCcgnMbg" base_Element="_oa2A4wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-lQdTEeSRjauCcgnMbg" base_Element="ProductInformationtag?com.example.newuserrequest%3a%3aProductInformation%3a%3atag?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-lgdTEeSRjauCcgnMbg" base_Element="EmployeefirstName?com.example.newuserrequest%3a%3aEmployee%3a%3afirstName?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-lwdTEeSRjauCcgnMbg" base_Element="Composition2requestinformation?com.example.newuserrequest%3a%3aComposition2%3a%3arequestinformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odY-mAdTEeSRjauCcgnMbg" base_Element="ProductQualifierselectedRole?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedRole?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odZloAdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestProductQualifier?com.example.newuserrequest%3a%3aProductQualifier?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odZloQdTEeSRjauCcgnMbg" base_Element="_ocm7dgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odZlogdTEeSRjauCcgnMbg" base_Element="RequestInformationuserID?com.example.newuserrequest%3a%3aRequestInformation%3a%3auserID?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odZlowdTEeSRjauCcgnMbg" base_Element="_obW-QwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odZlpAdTEeSRjauCcgnMbg" base_Element="_ocNS0QdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odZlpQdTEeSRjauCcgnMbg" base_Element="RequestInformationapprovalinformation?com.example.newuserrequest%3a%3aRequestInformation%3a%3aapprovalinformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odZlpgdTEeSRjauCcgnMbg" base_Element="_oateAwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odZlpwdTEeSRjauCcgnMbg" base_Element="_oa5EMwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odaMsAdTEeSRjauCcgnMbg" base_Element="_ocQWIwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odaMsQdTEeSRjauCcgnMbg" base_Element="_ob1fZQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odaMsgdTEeSRjauCcgnMbg" base_Element="_ocF-FQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odaMswdTEeSRjauCcgnMbg" base_Element="_obb2wgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odaMtAdTEeSRjauCcgnMbg" base_Element="_oa7gcgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odaMtQdTEeSRjauCcgnMbg" base_Element="_occjYwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odaMtgdTEeSRjauCcgnMbg" base_Element="_obZagAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odaMtwdTEeSRjauCcgnMbg" base_Element="ProductQualifiertagList?com.example.newuserrequest%3a%3aProductQualifier%3a%3atagList?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odazwAdTEeSRjauCcgnMbg" base_Element="_ob1fZAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odazwQdTEeSRjauCcgnMbg" base_Element="_ocF-FgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odazwgdTEeSRjauCcgnMbg" base_Element="_ocV1sgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odazwwdTEeSRjauCcgnMbg" base_Element="ProductQualifierproductDescription?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductDescription?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odazxAdTEeSRjauCcgnMbg" base_Element="_oa2A4gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odazxQdTEeSRjauCcgnMbg" base_Element="_ocm7dQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odazxgdTEeSRjauCcgnMbg" base_Element="_obwm4wdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odazxwdTEeSRjauCcgnMbg" base_Element="_odEOcwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba0AdTEeSRjauCcgnMbg" base_Element="_obrHUgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba0QdTEeSRjauCcgnMbg" base_Element="ProductQualifierselect?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselect?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba0gdTEeSRjauCcgnMbg" base_Element="_obwm4gdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba0wdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestApprovalInformation?com.example.newuserrequest%3a%3aApprovalInformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba1AdTEeSRjauCcgnMbg" base_Element="_obW-RgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba1QdTEeSRjauCcgnMbg" base_Element="_odN_cgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba1gdTEeSRjauCcgnMbg" base_Element="_obSs1AdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba1wdTEeSRjauCcgnMbg" base_Element="_odNYYgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odba2AdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestProductQualifierList?com.example.newuserrequest%3a%3aProductQualifierList?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odcB4AdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestComposition0?com.example.newuserrequest%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odcB4QdTEeSRjauCcgnMbg" base_Element="_ocm7cwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odcB4gdTEeSRjauCcgnMbg" base_Element="_odAkEAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odcB4wdTEeSRjauCcgnMbg" base_Element="RequestInformationcompany?com.example.newuserrequest%3a%3aRequestInformation%3a%3acompany?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odcB5AdTEeSRjauCcgnMbg" base_Element="_ocgNwgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odcB5QdTEeSRjauCcgnMbg" base_Element="_ocTZcwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odcB5gdTEeSRjauCcgnMbg" base_Element="RequestInformationrequestee?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestee?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odco8AdTEeSRjauCcgnMbg" base_Element="com.example.newuserrequestRequestInformation?com.example.newuserrequest%3a%3aRequestInformation?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_odco8QdTEeSRjauCcgnMbg" base_Element="ProductInformationproductApproverVPComment?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVPComment?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od5U4AdTEeSRjauCcgnMbg" displayLabel="ApprovalInformation" base_NamedElement="com.example.newuserrequestApprovalInformation?com.example.newuserrequest%3a%3aApprovalInformation?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od578AdTEeSRjauCcgnMbg" displayLabel="Employee" base_NamedElement="com.example.newuserrequestEmployee?com.example.newuserrequest%3a%3aEmployee?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od578QdTEeSRjauCcgnMbg" displayLabel="ProductInformation" base_NamedElement="com.example.newuserrequestProductInformation?com.example.newuserrequest%3a%3aProductInformation?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od6jAAdTEeSRjauCcgnMbg" displayLabel="ProductInformationList" base_NamedElement="com.example.newuserrequestProductInformationList?com.example.newuserrequest%3a%3aProductInformationList?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od6jAQdTEeSRjauCcgnMbg" displayLabel="ProductQualifier" base_NamedElement="com.example.newuserrequestProductQualifier?com.example.newuserrequest%3a%3aProductQualifier?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od7KEAdTEeSRjauCcgnMbg" displayLabel="ProductQualifierList" base_NamedElement="com.example.newuserrequestProductQualifierList?com.example.newuserrequest%3a%3aProductQualifierList?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od7KEQdTEeSRjauCcgnMbg" displayLabel="RequestInformation" base_NamedElement="com.example.newuserrequestRequestInformation?com.example.newuserrequest%3a%3aRequestInformation?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od7KEgdTEeSRjauCcgnMbg" displayLabel="employeeRequestApproval" base_NamedElement="ApprovalInformationemployeeRequestApproval?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproval?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od7xIAdTEeSRjauCcgnMbg" displayLabel="employeeRequestApproverVP" base_NamedElement="ApprovalInformationemployeeRequestApproverVP?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od7xIQdTEeSRjauCcgnMbg" displayLabel="employeeRequestApproverVPComment" base_NamedElement="ApprovalInformationemployeeRequestApproverVPComment?com.example.newuserrequest%3a%3aApprovalInformation%3a%3aemployeeRequestApproverVPComment?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od8YMAdTEeSRjauCcgnMbg" displayLabel="email" base_NamedElement="Employeeemail?com.example.newuserrequest%3a%3aEmployee%3a%3aemail?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od8YMQdTEeSRjauCcgnMbg" displayLabel="firstName" base_NamedElement="EmployeefirstName?com.example.newuserrequest%3a%3aEmployee%3a%3afirstName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od8_QAdTEeSRjauCcgnMbg" displayLabel="lastName" base_NamedElement="EmployeelastName?com.example.newuserrequest%3a%3aEmployee%3a%3alastName?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od8_QQdTEeSRjauCcgnMbg" displayLabel="phone" base_NamedElement="Employeephone?com.example.newuserrequest%3a%3aEmployee%3a%3aphone?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od8_QgdTEeSRjauCcgnMbg" displayLabel="raCFID" base_NamedElement="EmployeeraCFID?com.example.newuserrequest%3a%3aEmployee%3a%3araCFID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od9mUAdTEeSRjauCcgnMbg" displayLabel="title" base_NamedElement="Employeetitle?com.example.newuserrequest%3a%3aEmployee%3a%3atitle?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od9mUQdTEeSRjauCcgnMbg" displayLabel="userId" base_NamedElement="EmployeeuserId?com.example.newuserrequest%3a%3aEmployee%3a%3auserId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od-NYAdTEeSRjauCcgnMbg" displayLabel="productApproverVP" base_NamedElement="ProductInformationproductApproverVP?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od-NYQdTEeSRjauCcgnMbg" displayLabel="productApproverVPComment" base_NamedElement="ProductInformationproductApproverVPComment?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductApproverVPComment?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od-0cAdTEeSRjauCcgnMbg" displayLabel="productDescription" base_NamedElement="ProductInformationproductDescription?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductDescription?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od-0cQdTEeSRjauCcgnMbg" displayLabel="productID" base_NamedElement="ProductInformationproductID?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od-0cgdTEeSRjauCcgnMbg" displayLabel="productRequestApproval" base_NamedElement="ProductInformationproductRequestApproval?com.example.newuserrequest%3a%3aProductInformation%3a%3aproductRequestApproval?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od_bgAdTEeSRjauCcgnMbg" displayLabel="role" base_NamedElement="ProductInformationrole?com.example.newuserrequest%3a%3aProductInformation%3a%3arole?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_od_bgQdTEeSRjauCcgnMbg" displayLabel="siSID" base_NamedElement="ProductInformationsiSID?com.example.newuserrequest%3a%3aProductInformation%3a%3asiSID?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeACkAdTEeSRjauCcgnMbg" displayLabel="tag" base_NamedElement="ProductInformationtag?com.example.newuserrequest%3a%3aProductInformation%3a%3atag?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeACkQdTEeSRjauCcgnMbg" displayLabel="productInformation" base_NamedElement="ProductInformationListproductInformation?com.example.newuserrequest%3a%3aProductInformationList%3a%3aproductInformation?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeApoAdTEeSRjauCcgnMbg" displayLabel="productDescription" base_NamedElement="ProductQualifierproductDescription?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductDescription?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeApoQdTEeSRjauCcgnMbg" displayLabel="productId" base_NamedElement="ProductQualifierproductId?com.example.newuserrequest%3a%3aProductQualifier%3a%3aproductId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeApogdTEeSRjauCcgnMbg" displayLabel="roleList" base_NamedElement="ProductQualifierroleList?com.example.newuserrequest%3a%3aProductQualifier%3a%3aroleList?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeBQsAdTEeSRjauCcgnMbg" displayLabel="select" base_NamedElement="ProductQualifierselect?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselect?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeBQsQdTEeSRjauCcgnMbg" displayLabel="selectedRole" base_NamedElement="ProductQualifierselectedRole?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedRole?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeB3wAdTEeSRjauCcgnMbg" displayLabel="selectedTag" base_NamedElement="ProductQualifierselectedTag?com.example.newuserrequest%3a%3aProductQualifier%3a%3aselectedTag?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeB3wQdTEeSRjauCcgnMbg" displayLabel="tagList" base_NamedElement="ProductQualifiertagList?com.example.newuserrequest%3a%3aProductQualifier%3a%3atagList?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeB3wgdTEeSRjauCcgnMbg" displayLabel="productQualifier" base_NamedElement="ProductQualifierListproductQualifier?com.example.newuserrequest%3a%3aProductQualifierList%3a%3aproductQualifier?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeCe0AdTEeSRjauCcgnMbg" displayLabel="approvalinformation" base_NamedElement="RequestInformationapprovalinformation?com.example.newuserrequest%3a%3aRequestInformation%3a%3aapprovalinformation?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeDF4AdTEeSRjauCcgnMbg" displayLabel="company" base_NamedElement="RequestInformationcompany?com.example.newuserrequest%3a%3aRequestInformation%3a%3acompany?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeDF4QdTEeSRjauCcgnMbg" displayLabel="newUserIDRequest" base_NamedElement="RequestInformationnewUserIDRequest?com.example.newuserrequest%3a%3aRequestInformation%3a%3anewUserIDRequest?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeDF4gdTEeSRjauCcgnMbg" displayLabel="productInformation" base_NamedElement="RequestInformationproductInformation?com.example.newuserrequest%3a%3aRequestInformation%3a%3aproductInformation?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeDs8AdTEeSRjauCcgnMbg" displayLabel="reportingManager" base_NamedElement="RequestInformationreportingManager?com.example.newuserrequest%3a%3aRequestInformation%3a%3areportingManager?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeDs8QdTEeSRjauCcgnMbg" displayLabel="requestee" base_NamedElement="RequestInformationrequestee?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestee?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeDs8gdTEeSRjauCcgnMbg" displayLabel="requestor" base_NamedElement="RequestInformationrequestor?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestor?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeEUAAdTEeSRjauCcgnMbg" displayLabel="requestorComment" base_NamedElement="RequestInformationrequestorComment?com.example.newuserrequest%3a%3aRequestInformation%3a%3arequestorComment?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_oeEUAQdTEeSRjauCcgnMbg" displayLabel="userID" base_NamedElement="RequestInformationuserID?com.example.newuserrequest%3a%3aRequestInformation%3a%3auserID?"/>
+  <notation:Diagram xmi:id="_oeE7EAdTEeSRjauCcgnMbg" type="Business Object Model" element="com.example.newuserrequest?com.example.newuserrequest?" name="com.example.newuserrequest" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_oeE7EQdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_oeE7EgdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

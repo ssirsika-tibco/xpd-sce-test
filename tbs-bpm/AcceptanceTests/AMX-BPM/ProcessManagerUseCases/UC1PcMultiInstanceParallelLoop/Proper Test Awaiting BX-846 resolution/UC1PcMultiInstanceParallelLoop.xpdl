@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_7zbEEDvZEd-8-NudvfXLRw" xpdExt:DisplayName="UC1PcMultiInstanceParallelLoop" Name="UC1PcMultiInstanceParallelLoop">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-03-30</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>aallway</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_IQtEJzvaEd-8-NudvfXLRw" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_77v5oDvZEd-8-NudvfXLRw">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_IQtEKDvaEd-8-NudvfXLRw" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="575.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Associations>
+    <xpdl2:Association Id="_btJO9jvaEd-8-NudvfXLRw" Name="" AssociationDirection="None" Source="_btJO2DvaEd-8-NudvfXLRw" Target="_btJO4DvaEd-8-NudvfXLRw">
+      <xpdl2:Object Id="_btJO9zvaEd-8-NudvfXLRw"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+    <xpdl2:Association Id="_776S4DvzEd-8-NudvfXLRw" Name="" AssociationDirection="None" Source="_btJO4TvaEd-8-NudvfXLRw" Target="_5YQqbjvzEd-8-NudvfXLRw">
+      <xpdl2:Object Id="_776S4TvzEd-8-NudvfXLRw"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+  </xpdl2:Associations>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_btJO3zvaEd-8-NudvfXLRw" ArtifactType="Annotation" TextAnnotation="Test Multi-Instance Parallel Loops.&#xD;&#xA;&#xD;&#xA;">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="49.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="927.0">
+          <xpdl2:Coordinates XCoordinate="46.0" YCoordinate="67.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_btJO4DvaEd-8-NudvfXLRw" ArtifactType="Annotation" TextAnnotation="5 instances - continue after all complete.">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="49.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="110.0">
+          <xpdl2:Coordinates XCoordinate="286.0" YCoordinate="115.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_btJO4TvaEd-8-NudvfXLRw" ArtifactType="Annotation" TextAnnotation="5 instances continue after FIRST complete.">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="34.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="147.0">
+          <xpdl2:Coordinates XCoordinate="854.0" YCoordinate="51.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+    <xpdl2:Artifact Id="_r2smDzv3Ed-8-NudvfXLRw" ArtifactType="Annotation" TextAnnotation="The first instance sets element in array immediately, the remaining instances only do so after 5 seconds. Therefore gateway after should be evaluated after 1st instance and before the other 4.">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="34.0" LaneId="_5YQqbzvzEd-8-NudvfXLRw" Width="508.0">
+          <xpdl2:Coordinates XCoordinate="20.0" YCoordinate="34.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_77v5oDvZEd-8-NudvfXLRw" xpdExt:DisplayName="UC1PcMultiInstanceParallelLoop" Name="UC1PcMultiInstanceParallelLoop">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_btJO-jvaEd-8-NudvfXLRw" xpdExt:DisplayName="LoopCounter" Name="LoopCounter">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_btJO-zvaEd-8-NudvfXLRw" xpdExt:DisplayName="CHECK" Name="CHECK">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_ogmdoTvbEd-8-NudvfXLRw" xpdExt:DisplayName="AllTestNumArray" Name="AllTestNumArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_7HhgADvcEd-8-NudvfXLRw" xpdExt:DisplayName="OneTestNumArray" Name="OneTestNumArray" IsArray="true">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:ActivitySets>
+        <xpdl2:ActivitySet Id="_5YQqbzvzEd-8-NudvfXLRw">
+          <xpdl2:Activities>
+            <xpdl2:Activity Id="_r2smDDv3Ed-8-NudvfXLRw">
+              <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+              <xpdl2:TransitionRestrictions>
+                <xpdl2:TransitionRestriction>
+                  <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                    <xpdl2:TransitionRefs>
+                      <xpdl2:TransitionRef Id="_r2smFDv3Ed-8-NudvfXLRw"/>
+                      <xpdl2:TransitionRef Id="_r2smFjv3Ed-8-NudvfXLRw"/>
+                    </xpdl2:TransitionRefs>
+                  </xpdl2:Split>
+                </xpdl2:TransitionRestriction>
+              </xpdl2:TransitionRestrictions>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" Width="43.0">
+                  <xpdl2:Coordinates XCoordinate="120.0" YCoordinate="114.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_r2smDTv3Ed-8-NudvfXLRw" Name="OutEmb" xpdExt:Visibility="Private" xpdExt:DisplayName="OutEmb">
+              <xpdl2:Event>
+                <xpdl2:EndEvent Result="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" Width="46.0">
+                  <xpdl2:Coordinates XCoordinate="511.0" YCoordinate="114.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_r2smDjv3Ed-8-NudvfXLRw" Name="Setarraryelem" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Set arrary elem.">
+              <xpdl2:Implementation>
+                <xpdl2:Task>
+                  <xpdl2:TaskScript>
+                    <xpdl2:Script ScriptGrammar="JavaScript">// Set items to the array according to the task instance.&#xD;
+&#xD;
+// NOTE LoopCounter is actually recognised by &#xD;
+// process manager as a special built-in&#xD;
+// loop instance number for each task instance&#xD;
+OneTestNumArray.set(LoopCounter-1, LoopCounter);&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+                  </xpdl2:TaskScript>
+                </xpdl2:Task>
+              </xpdl2:Implementation>
+              <xpdl2:TransitionRestrictions>
+                <xpdl2:TransitionRestriction>
+                  <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+                </xpdl2:TransitionRestriction>
+              </xpdl2:TransitionRestrictions>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="70.0" Width="126.0">
+                  <xpdl2:Coordinates XCoordinate="394.0" YCoordinate="116.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+              <xpdExt:ActivityResourcePatterns>
+                <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+              </xpdExt:ActivityResourcePatterns>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_r2smEDv3Ed-8-NudvfXLRw" Name="Wait5secs" xpdExt:Visibility="Private" xpdExt:DisplayName="Wait 5 secs">
+              <xpdl2:Event>
+                <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Timer">
+                  <xpdl2:TriggerTimer>
+                    <xpdl2:TimeDate/>
+                  </xpdl2:TriggerTimer>
+                </xpdl2:IntermediateEvent>
+              </xpdl2:Event>
+              <xpdl2:Deadline>
+                <xpdl2:DeadlineDuration ScriptGrammar="ConstantPeriod"><xpdExt:ConstantPeriod Seconds="5"/></xpdl2:DeadlineDuration>
+              </xpdl2:Deadline>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" Width="60.0">
+                  <xpdl2:Coordinates XCoordinate="162.0" YCoordinate="189.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+              <xpdl2:Extensions/>
+            </xpdl2:Activity>
+            <xpdl2:Activity Id="_r2smETv3Ed-8-NudvfXLRw" Name="InEmb" xpdExt:Visibility="Private" xpdExt:DisplayName="InEmb">
+              <xpdl2:Event>
+                <xpdl2:StartEvent Trigger="None"/>
+              </xpdl2:Event>
+              <xpdl2:NodeGraphicsInfos>
+                <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" Width="36.0">
+                  <xpdl2:Coordinates XCoordinate="43.0" YCoordinate="114.0"/>
+                </xpdl2:NodeGraphicsInfo>
+              </xpdl2:NodeGraphicsInfos>
+            </xpdl2:Activity>
+          </xpdl2:Activities>
+          <xpdl2:Transitions>
+            <xpdl2:Transition Id="_r2smEjv3Ed-8-NudvfXLRw" Name="" From="_r2smETv3Ed-8-NudvfXLRw" To="_r2smDDv3Ed-8-NudvfXLRw">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_r2smEzv3Ed-8-NudvfXLRw" Name="" From="_r2smDjv3Ed-8-NudvfXLRw" To="_r2smDTv3Ed-8-NudvfXLRw">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+                <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_r2smFDv3Ed-8-NudvfXLRw" Name="" From="_r2smDDv3Ed-8-NudvfXLRw" To="_r2smEDv3Ed-8-NudvfXLRw">
+              <xpdl2:Condition Type="OTHERWISE"/>
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+                  <xpdl2:Coordinates XCoordinate="1.0" YCoordinate="70.0"/>
+                  <xpdl2:Coordinates XCoordinate="-43.0" YCoordinate="-5.0"/>
+                </xpdl2:ConnectorGraphicsInfo>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_r2smFTv3Ed-8-NudvfXLRw" Name="" From="_r2smEDv3Ed-8-NudvfXLRw" To="_r2smDjv3Ed-8-NudvfXLRw">
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+                <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+                  <xpdl2:Coordinates XCoordinate="51.84210526315789" YCoordinate="0.0"/>
+                </xpdl2:ConnectorGraphicsInfo>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+            <xpdl2:Transition Id="_r2smFjv3Ed-8-NudvfXLRw" xpdExt:DisplayName="First instance" Name="Firstinstance" From="_r2smDDv3Ed-8-NudvfXLRw" To="_r2smDjv3Ed-8-NudvfXLRw">
+              <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">LoopCounter == 1;</xpdl2:Expression></xpdl2:Condition>
+              <xpdl2:ConnectorGraphicsInfos>
+                <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+              </xpdl2:ConnectorGraphicsInfos>
+            </xpdl2:Transition>
+          </xpdl2:Transitions>
+        </xpdl2:ActivitySet>
+      </xpdl2:ActivitySets>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_btJO1zvaEd-8-NudvfXLRw" Name="Setup1" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Setup 1">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">CHECK = 0;
+
+AllTestNumArray.add(0);
+AllTestNumArray.add(0);
+AllTestNumArray.add(0);
+AllTestNumArray.add(0);
+AllTestNumArray.add(0);
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="172.0" YCoordinate="208.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO2DvaEd-8-NudvfXLRw" Name="MIParallelLoopAllTest" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="MI Parallel Loop - &quot;All&quot; Test">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">// Set items to the array according to the task instance.&#xD;
+&#xD;
+// NOTE LoopCounter is actually recognised by &#xD;
+// process manager as a special built-in&#xD;
+// loop instance number for each task instance&#xD;
+AllTestNumArray.set(LoopCounter-1, LoopCounter);&#xD;
+&#xD;
+&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Loop LoopType="MultiInstance">
+            <xpdl2:LoopMultiInstance MI_FlowCondition="All" MI_Ordering="Parallel">
+              <xpdl2:MI_Condition ScriptGrammar="JavaScript">5;</xpdl2:MI_Condition>
+              <xpdExt:MultiInstanceScripts/>
+            </xpdl2:LoopMultiInstance>
+          </xpdl2:Loop>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="94.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="129.0">
+              <xpdl2:Coordinates XCoordinate="332.0" YCoordinate="209.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO2TvaEd-8-NudvfXLRw">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_btJO6zvaEd-8-NudvfXLRw"/>
+                  <xpdl2:TransitionRef Id="_btJO7TvaEd-8-NudvfXLRw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="469.0" YCoordinate="208.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO2jvaEd-8-NudvfXLRw" Name="Setup2" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Setup 2">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">CHECK = 0;
+
+
+OneTestNumArray.add(0);
+OneTestNumArray.add(0);
+OneTestNumArray.add(0);
+OneTestNumArray.add(0);
+OneTestNumArray.add(0);
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="604.0" YCoordinate="208.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO3DvaEd-8-NudvfXLRw">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_btJO7zvaEd-8-NudvfXLRw"/>
+                  <xpdl2:TransitionRef Id="_btJO8TvaEd-8-NudvfXLRw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="1442.0" YCoordinate="208.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO3TvaEd-8-NudvfXLRw">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Join Type="Exclusive" ExclusiveType="Data"/>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_btJO8jvaEd-8-NudvfXLRw"/>
+                  <xpdl2:TransitionRef Id="_btJO9DvaEd-8-NudvfXLRw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="1620.0" YCoordinate="208.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO4jvaEd-8-NudvfXLRw" Name="Start" xpdExt:DisplayName="Start">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="208.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO4zvaEd-8-NudvfXLRw" Name="SUCCESS" xpdExt:DisplayName="SUCCESS">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="47.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="50.0">
+              <xpdl2:Coordinates XCoordinate="1800.0" YCoordinate="208.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO5DvaEd-8-NudvfXLRw" Name="AllTestFailed" xpdExt:Visibility="Private" xpdExt:DisplayName="&quot;All&quot; Test Failed">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="51.0">
+              <xpdl2:Coordinates XCoordinate="572.0" YCoordinate="325.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO5TvaEd-8-NudvfXLRw" Name="OneTestFailed" xpdExt:Visibility="Private" xpdExt:DisplayName="&quot;One&quot; Test Failed">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="59.0">
+              <xpdl2:Coordinates XCoordinate="1542.0" YCoordinate="324.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_btJO5jvaEd-8-NudvfXLRw" Name="Wait10Seconds" xpdExt:Visibility="Private" xpdExt:DisplayName="Wait 10 Seconds">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Timer">
+              <xpdl2:TriggerTimer>
+                <xpdl2:TimeDate/>
+              </xpdl2:TriggerTimer>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers/>
+          <xpdl2:Deadline>
+            <xpdl2:DeadlineDuration ScriptGrammar="ConstantPeriod"><xpdExt:ConstantPeriod Seconds="10"/></xpdl2:DeadlineDuration>
+          </xpdl2:Deadline>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="62.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="46.0">
+              <xpdl2:Coordinates XCoordinate="1658.0" YCoordinate="292.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_IYJEsTvhEd-8-NudvfXLRw">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_nCUIcDvgEd-8-NudvfXLRw"/>
+                  <xpdl2:TransitionRef Id="_PAc1czvhEd-8-NudvfXLRw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="43.0">
+              <xpdl2:Coordinates XCoordinate="1658.0" YCoordinate="373.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PAc1cjvhEd-8-NudvfXLRw" Name="TimedOutWaitingForInstancesToComplete" xpdExt:Visibility="Private" xpdExt:DisplayName="Timed Out Waiting For Instances To Complete">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="92.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="68.0">
+              <xpdl2:Coordinates XCoordinate="1751.0" YCoordinate="432.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_5YQqbjvzEd-8-NudvfXLRw" Name="MIParallelLoopOneTest" xpdExt:DisplayName="MI Parallel Loop - &quot;One&quot; Test">
+          <xpdl2:BlockActivity ActivitySetId="_5YQqbzvzEd-8-NudvfXLRw" View="EXPANDED"/>
+          <xpdl2:Loop LoopType="MultiInstance">
+            <xpdl2:LoopMultiInstance MI_FlowCondition="One" MI_Ordering="Parallel">
+              <xpdl2:MI_Condition ScriptGrammar="JavaScript">5</xpdl2:MI_Condition>
+              <xpdExt:MultiInstanceScripts/>
+            </xpdl2:LoopMultiInstance>
+          </xpdl2:Loop>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,230,138" Height="307.0" LaneId="_IQtEKDvaEd-8-NudvfXLRw" Width="616.0">
+              <xpdl2:Coordinates XCoordinate="1039.0" YCoordinate="277.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_btJO6DvaEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_btJO4jvaEd-8-NudvfXLRw" To="_btJO1zvaEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO6TvaEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_btJO1zvaEd-8-NudvfXLRw" To="_btJO2DvaEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO6jvaEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_btJO2DvaEd-8-NudvfXLRw" To="_btJO2TvaEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO6zvaEd-8-NudvfXLRw" xpdExt:DisplayName="AllTestNumArray elements should have been set according to LoopCounter" Name="AllTestNumArrayelementsshouldhavebeensetaccordingtoLoopCounter" From="_btJO2TvaEd-8-NudvfXLRw" To="_btJO5DvaEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">if (AllTestNumArray.get(0) != 1 || AllTestNumArray.get(1) != 2 ||      
+     AllTestNumArray.get(2) != 3 || AllTestNumArray.get(3) != 4 ||
+      AllTestNumArray.get(4) != 5) {
+    return true;
+} 
+return false;
+      </xpdl2:Expression></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelSize">
+              <xpdl2:Coordinates XCoordinate="132.0" YCoordinate="35.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="29.347826086956523" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="6.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO7DvaEd-8-NudvfXLRw" Name="" From="_5YQqbjvzEd-8-NudvfXLRw" To="_btJO3DvaEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO7TvaEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_btJO2TvaEd-8-NudvfXLRw" To="_btJO2jvaEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO7zvaEd-8-NudvfXLRw" xpdExt:DisplayName="Only first element of OneTestNumArray should be assigned" Name="OnlyfirstelementofOneTestNumArrayshouldbeassigned" From="_btJO3DvaEd-8-NudvfXLRw" To="_btJO5TvaEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">// Only first element should be set by time we get here.&#xD;
+if (OneTestNumArray.get(0) == 1 &amp;&amp; OneTestNumArray.get(1) == 0 &amp;&amp;&#xD;
+      OneTestNumArray.get(2) == 0 &amp;&amp; OneTestNumArray.get(3) == 0 &amp;&amp;&#xD;
+      OneTestNumArray.get(4) == 0) {&#xD;
+    return false; &#xD;
+}&#xD;
+return true;&#xD;
+&#xD;
+</xpdl2:Expression></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelSize">
+              <xpdl2:Coordinates XCoordinate="116.0" YCoordinate="31.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO8TvaEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_btJO3DvaEd-8-NudvfXLRw" To="_btJO3TvaEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO8jvaEd-8-NudvfXLRw" xpdExt:DisplayName="Until Last Instance Exec'd" Name="UntilLastInstanceExecd" From="_btJO3TvaEd-8-NudvfXLRw" To="_btJO5jvaEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">if (OneTestNumArray.get(0) != 1 || OneTestNumArray.get(1) != 2 ||&#xD;
+      OneTestNumArray.get(2) != 3 || OneTestNumArray.get(3) != 4 ||&#xD;
+      OneTestNumArray.get(4) != 5) {&#xD;
+    return true; &#xD;
+}&#xD;
+return false;&#xD;
+&#xD;
+</xpdl2:Expression></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="32.94788315283869" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="52.63157894736842" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="46.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelSize">
+              <xpdl2:Coordinates XCoordinate="80.0" YCoordinate="31.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_btJO9DvaEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_btJO3TvaEd-8-NudvfXLRw" To="_btJO4zvaEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nCUIcDvgEd-8-NudvfXLRw" Name="" From="_IYJEsTvhEd-8-NudvfXLRw" To="_btJO3TvaEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo">
+              <xpdl2:Coordinates XCoordinate="-20.0" YCoordinate="49.0"/>
+              <xpdl2:Coordinates XCoordinate="18.0" YCoordinate="214.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_IYJEsjvhEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_btJO5jvaEd-8-NudvfXLRw" To="_IYJEsTvhEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_PAc1czvhEd-8-NudvfXLRw" xpdExt:DisplayName="Six attempts > minute - quit!" Name="Sixattemptsminutequit" From="_IYJEsTvhEd-8-NudvfXLRw" To="_PAc1cjvhEd-8-NudvfXLRw">
+          <xpdl2:Condition Type="CONDITION"><xpdl2:Expression ScriptGrammar="JavaScript">CHECK++ >= 6;</xpdl2:Expression></xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelSize">
+              <xpdl2:Coordinates XCoordinate="102.0" YCoordinate="67.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="49.572649572649574" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="9.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_5YabYDvzEd-8-NudvfXLRw" xpdExt:DisplayName="" Name="" From="_btJO2jvaEd-8-NudvfXLRw" To="_5YQqbjvzEd-8-NudvfXLRw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

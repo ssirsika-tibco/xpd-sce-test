@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+    xmlns:ips="http://example.com/bomFromWSDL" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/bomFromWSDL">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://example.com/bomFromWSDL">
+      <xsd:annotation>
+        <xsd:documentation>BOMORIGIN::/WSDLValidation/Business Objects/TestOriginalBOM.bom</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType id="_FJ9BkOMlEd6Zqe02C5BiwA" name="TypesTest">
+        <xsd:sequence>
+          <xsd:element id="__0_uEOMvEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="typesContainer"
+              type="ips:TypesContainer"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType id="_H_AjIOMlEd6Zqe02C5BiwA" name="TypesContainer">
+        <xsd:sequence>
+          <xsd:element id="_MmMwsOMlEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="textField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_Mnr-cOMlEd6Zqe02C5BiwA" default="false" maxOccurs="1"
+              minOccurs="0" name="booleanField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:boolean"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_NHuwcOMlEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="attachmentField">
+            <xsd:simpleType>
+              <!-- Sid base64 prevents construction of bom because base64Binary not supported -->
+              <!-- <xsd:restriction base="xsd:base64Binary"/> -->
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_NJz0EOMlEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="dateField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:date"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_Ctmk0OMuEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="dateTimeField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:dateTime"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_EVd6gOMuEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="dateTimeZoneField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_Icn9IOMuEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="durationField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:duration"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_J5wpgOMuEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="idField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:ID"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_L9yWwOMuEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="timeField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:time"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_PF5-QOMuEd6Zqe02C5BiwA" maxOccurs="1" minOccurs="0" name="uriField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:anyURI"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_DnBjUOMyEd6B-vgAYtWIBw" maxOccurs="1" minOccurs="0" name="decimalField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="10"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_GvTi4OMyEd6B-vgAYtWIBw" maxOccurs="1" minOccurs="0" name="floatType">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:double"/>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_OLH0MOMyEd6B-vgAYtWIBw" maxOccurs="1" minOccurs="0" name="integerField">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:int">
+                <xsd:totalDigits value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element id="_Sw_MEOMyEd6B-vgAYtWIBw" maxOccurs="1" minOccurs="0" name="bigInteger">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:integer">
+                <xsd:totalDigits value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewOperationRequest">
+  	<wsdl:part name="parameters" type="ips:TypesTest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+  	<wsdl:part name="parameters" type="ips:TypesTest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NewOperation_faultMsg">
+  	<wsdl:part name="fault" type="ips:TypesTest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BOMToWSDLExportPortType">
+  	<wsdl:operation name="NewOperation">
+  		<wsdl:input message="ips:NewOperationRequest"></wsdl:input>
+  		<wsdl:output message="ips:NewOperationResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="ips:NewOperation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

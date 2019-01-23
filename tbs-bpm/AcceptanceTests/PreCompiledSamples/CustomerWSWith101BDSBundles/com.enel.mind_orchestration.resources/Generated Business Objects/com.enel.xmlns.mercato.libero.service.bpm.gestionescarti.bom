@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.enel.xmlns.mercato.libero.service.bpm.gestionescarti" name="com.enel.xmlns.mercato.libero.service.bpm.gestionescarti">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AWdW_w94EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AWdXAA94EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AWdXAQ94EeW3MruGqUCC5Q" key="created" value="1433947979871"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AWdXAg94EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AXM90A94EeW3MruGqUCC5Q" key="checksum" value="3165814696"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.enel.xmlns.mercato.libero.service.bpm.gestionescartiGestioneScarti" name="GestioneScarti">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="GestioneScartiEsitoScarto" name="EsitoScarto">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="EsitoScartoinput" name="input">
+          <type xmi:type="uml:Class" href="com.enel.xmlns.mercato.libero.schema.bpm.gestionescarti.bom#com.enel.xmlns.mercato.libero.schema.bpm.gestionescartiEsitoScartoRequestType?com.enel.xmlns.mercato.libero.schema.bpm.gestionescarti%3a%3aEsitoScartoRequestType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_AWUNIA94EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AWUNIQ94EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_AWUNIg94EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AWUNIw94EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_AWUNJA94EeW3MruGqUCC5Q" base_Package="com.enel.xmlns.mercato.libero.service.bpm.gestionescarti?com.enel.xmlns.mercato.libero.service.bpm.gestionescarti?" xsdTargetNamespace="http://xmlns.enel.com/mercato/libero/service/bpm/gestionescarti" xsdSchemaLocation="GestioneScartiBpmServiceConcrete.wsdl" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="GestioneScartiBpmServiceConcrete.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_AWUNJg94EeW3MruGqUCC5Q" base_Class="com.enel.xmlns.mercato.libero.service.bpm.gestionescartiGestioneScarti?com.enel.xmlns.mercato.libero.service.bpm.gestionescarti%3a%3aGestioneScarti?" xsdName="GestioneScarti" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_AWdW_g94EeW3MruGqUCC5Q" displayLabel="GestioneScarti" base_NamedElement="com.enel.xmlns.mercato.libero.service.bpm.gestionescartiGestioneScarti?com.enel.xmlns.mercato.libero.service.bpm.gestionescarti%3a%3aGestioneScarti?"/>
+  <notation:Diagram xmi:id="_AWdXAw94EeW3MruGqUCC5Q" type="Business Object Model" element="com.enel.xmlns.mercato.libero.service.bpm.gestionescarti?com.enel.xmlns.mercato.libero.service.bpm.gestionescarti?" name="com.enel.xmlns.mercato.libero.service.bpm.gestionescarti" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_AWdXBA94EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_AWdXBQ94EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

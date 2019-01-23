@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension-point 
+         id="modelTypes" 
+         name="Tibco Process Process Model Type" 
+         schema="schema/modelTypes.exsd"/>
+	<extension-point 
+         id="connectionFactories" 
+         name="Tibco Process Debug Connection Factory" 
+         schema="schema/connectionFactories.exsd"/>
+	<extension-point 
+         id="runtimeEventFactories" 
+         name="Tibco Process Debug Runtime Event Factory" 
+         schema="schema/runtimeEventFactories.exsd"/>
+    <extension-point 
+         id="nodeDefinitionFactories" 
+         name="Node Definition Factory" 
+         schema="schema/nodeDefinitionFactories.exsd"/>
+    <extension-point 
+         id="variableHandlers" 
+         name="Variable Handler" 
+         schema="schema/variableHandlers.exsd"/>
+    <extension-point 
+         id="testDelegateFactories" 
+         name="Test Delegate Factory" 
+         schema="schema/testDelegateFactories.exsd"/>
+    <extension-point 
+         id="processModelHandlers" 
+         name="Process Model Handler" 
+         schema="schema/processModelHandlers.exsd"/>
+    <extension-point id="launcherService" name="LauncherService" schema="schema/launcherService.exsd"/>
+    <extension-point id="emulationService" name="EmulationService" schema="schema/emulationService.exsd"/>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="com.tibco.bx.debug.core.launching.BxLaunchDelegate"
+            id="com.tibco.bx.debug.launchType"
+            modes="debug"
+            name="TIBCO Process Engine"
+            sourceLocatorId="com.tibco.bx.debug.sourceLocator">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.sourceLocators">
+      <sourceLocator
+            class="com.tibco.bx.debug.core.sourcelookup.BxSourceLookupDirector"
+            id="com.tibco.bx.debug.sourceLocator"
+            name="name">
+      </sourceLocator>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.breakpoints">
+      <breakpoint
+            class="com.tibco.bx.debug.core.models.BxBreakpoint"
+            name="Bx Breakpoints"
+            markerType="com.tibco.bx.debug.core.bx.markerType.Breakpoint"
+            id="bx.breakpoint"/>
+   </extension>
+   <extension
+         id="com.tibco.bx.debug.core.bx.markerType.Breakpoint"
+         name="Bx Breakpoint Marker"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.debug.core.breakpointMarker"/>
+      <persistent value="true"/>
+      <attribute
+            name="processId">
+      </attribute>
+      <attribute
+            name="breakWhen">
+      </attribute>
+      <attribute
+            name="modelType">
+      </attribute>
+   </extension>
+   
+</plugin>

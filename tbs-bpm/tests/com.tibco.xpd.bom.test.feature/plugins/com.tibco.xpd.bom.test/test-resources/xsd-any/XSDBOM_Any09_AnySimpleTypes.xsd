@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema2"
+	xmlns:ns0="http://www.example.org/NewXMLSchema2" xmlns:tns="http://www.example.org/NewXMLSchema2"
+	elementFormDefault="qualified">
+
+	<element name="topCustomer">
+		<complexType>
+			<sequence>				
+				<element name="anyElem2" type="anySimpleType" />
+			</sequence>			
+			<attribute name="anyAttr4" type="anySimpleType"></attribute>
+		</complexType>
+	</element>
+
+	<complexType name="customer">
+		<sequence>			
+			<element name="anyElem6" type="anySimpleType" />
+		</sequence>		
+		<attribute name="anyAttr8" type="anySimpleType"></attribute>
+	</complexType>
+	
+	<attribute name="topAttr" type="anySimpleType" />
+	
+	<element name="topAttr" type="anySimpleType" />	
+</schema>

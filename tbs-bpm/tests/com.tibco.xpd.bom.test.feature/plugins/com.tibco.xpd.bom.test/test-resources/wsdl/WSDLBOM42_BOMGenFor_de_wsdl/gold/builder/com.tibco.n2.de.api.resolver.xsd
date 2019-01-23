@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://resolver.api.de.n2.tibco.com" xmlns:tns11="http://resolver.api.de.n2.tibco.com"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://api.organisation.common.n2.tibco.com"
+    xmlns:tns3="http://api.de.n2.tibco.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://resolver.api.de.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.de.api.resolver.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="com.tibco.n2.common.organisation.api.xsd"/>
+  <xsd:import namespace="http://api.de.n2.tibco.com" schemaLocation="com.tibco.n2.de.api.xsd"/>
+  <xsd:element abstract="false" name="validateEntity" nillable="false">
+    <xsd:complexType ecore:name="validateEntityType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns2:XmlModelEntityId"/>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="validateEntityResponse" nillable="false">
+    <xsd:complexType ecore:name="validateEntityResponseType" id="com.tibco.n2.de.api.resolvervalidateEntityResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Response indicating whether the given model entity identifier was valid or not.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute ecore:name="valid" id="validateEntityResponseTypevalid" form="unqualified"
+          name="valid" type="xsd:boolean" use="required">
+        <xsd:annotation>
+          <xsd:documentation>True if the entity specified is valid. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="hasPushDestinations" id="validateEntityResponseTypehasPushDestinations"
+          default="false" form="unqualified" name="hasPushDestinations" type="xsd:boolean"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>True if the entity specified has any push destinations set. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getEntityName" nillable="false">
+    <xsd:complexType ecore:name="getEntityNameType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns2:XmlOrgModelVersion">
+          <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+            <xsd:element ecore:name="guid" id="getEntityNameTypeguid" form="unqualified"
+                maxOccurs="1" minOccurs="1" name="guid" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getEntityNameResponse" nillable="false">
+    <xsd:complexType ecore:name="getEntityNameResponseType" id="com.tibco.n2.de.api.resolvergetEntityNameResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>Returns the name(s) of the entities identified by the given model
+                version and guid. </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+        <xsd:element ecore:name="entity" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="entity" type="tns2:XmlParticipantId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="lookupUser" nillable="false">
+    <xsd:complexType ecore:name="lookupUserType" id="com.tibco.n2.de.api.resolverlookupUserType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>Request to verify that the name Resource entity is known to Directory
+                Engine.
+                The request can either be by name or LDAP entry. If the request is by LDAP entry, the
+                caller may supply the LDAP Alias in order to reduce the search results.
+                The caller may optionally specify that the response should include detailed information
+                on those users that match the critieria (the default is to only return a count of
+                the users that match the criteria. </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute ecore:name="modelversion" id="lookupUserTypemodel-version" default="-1"
+          form="unqualified" name="model-version" type="xsd:int" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Major version number of the organization model from which the resources' associations ()position, group, capability, etc) are to be reported.
+This attribute is only applied if the attribute &quot;get-detail&quot; is true.
+
+If not specified, the default value will be the latest version of the organization model. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="lookupUserTypename" form="unqualified"
+          name="name" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Login name to search against for a matching resource. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="ldapalias" id="lookupUserTypeldap-alias" form="unqualified"
+          name="ldap-alias" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>LDAP alias to search against for a matching resource. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="ldapdn" id="lookupUserTypeldap-dn" form="unqualified"
+          name="ldap-dn" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>LDAP DN to search against for a matching resource. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="getdetail" id="lookupUserTypeget-detail" default="false"
+          form="unqualified" name="get-detail" type="xsd:boolean" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Boolean value defining whether to return the details of each matching resource. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="lookupUserResponse" nillable="false">
+    <xsd:complexType ecore:name="lookupUserResponseType" id="com.tibco.n2.de.api.resolverlookupUserResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>Describes the identified Resource entity(ies). </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+        <xsd:element ecore:name="detail" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="detail" type="tns3:XmlEntityDetail"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="usercount" id="lookupUserResponseTypeuser-count"
+          form="unqualified" name="user-count" type="xsd:int" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Number of resources that match the specified criteria. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="describeEntity" nillable="false">
+    <xsd:complexType ecore:name="describeEntityType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns2:XmlOrgModelVersion">
+          <xsd:attribute ecore:name="entitytype" id="describeEntityTypeentity-type"
+              form="unqualified" name="entity-type" type="tns2:OrganisationalEntityType"
+              use="optional">
+            <xsd:annotation>
+              <xsd:documentation>Identifies the category of the org-entity, and used to improve and validate the search.
+                             </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute ecore:name="guid" id="describeEntityTypeguid" form="unqualified"
+              name="guid" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation>Globally, unique identifier for the org-entity. Although this value is unique across all entities, if the entity exists within more than one major version, it will share the same GUID.
+                             </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="describeEntityResponse" nillable="false">
+    <xsd:complexType ecore:name="describeEntityResponseType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns3:XmlEntityDetail"/>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="resolveResource" nillable="false">
+    <xsd:complexType ecore:name="resolveResourceType" id="com.tibco.n2.de.api.resolverresolveResourceType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Request to return a Resource from a collection contained by the identified
+          model entity. If there is more than one Resource available, the given selection
+          mode is used to determine which one should be selected.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="entity" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="entity" type="tns2:XmlModelEntityId"/>
+        <xsd:element ecore:name="selectionmode" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="selection-mode" type="tns3:SelectionMode"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="resolveResourceResponse" nillable="false">
+    <xsd:complexType ecore:name="resolveResourceResponseType" id="com.tibco.n2.de.api.resolverresolveResourceResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          The identifier for the Resource determined by the request parameters.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="entity" form="unqualified" maxOccurs="1" minOccurs="0"
+            name="entity" type="tns2:XmlParticipantId"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="hasPushDestinations" id="resolveResourceResponseTypehasPushDestinations"
+          default="false" form="unqualified" name="hasPushDestinations" type="xsd:boolean"
+          use="optional">
+        <xsd:annotation>
+          <xsd:documentation>True if the entity specified has any push destinations set. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listResources" nillable="false">
+    <xsd:complexType ecore:name="listResourcesType" id="com.tibco.n2.de.api.resolverlistResourcesType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Request to list the Resources contained by the identified model entity.
+          A sub-set of the possible values can be returned using the &quot;start-index&quot;
+          and &quot;soft-limit&quot; attributes.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="entity" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="entity" type="tns2:XmlModelEntityId"/>
+      </xsd:sequence>
+      <xsd:attribute ecore:name="startindex" id="listResourcesTypestart-index" default="0"
+          form="unqualified" name="start-index" type="xsd:int" use="optional"/>
+      <xsd:attribute ecore:name="softlimit" id="listResourcesTypesoft-limit" default="0"
+          form="unqualified" name="soft-limit" type="xsd:int" use="optional"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listResourcesResponse" nillable="false">
+    <xsd:complexType ecore:name="listResourcesResponseType" id="com.tibco.n2.de.api.resolverlistResourcesResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          The collection of Resources associated with the identified model entity.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="resource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="resource" type="tns2:XmlModelEntityId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="resourcesRemaining" nillable="false">
+    <xsd:complexType ecore:name="resourcesRemainingType" id="com.tibco.n2.de.api.resolverresourcesRemainingType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Requests the number of resources remaining in a collection defined by a series of
+          containing organisational entities, after the identified resources have been
+          accounted for. For example, if an identified Position holds 10 Resources, two of
+          which are identified in the request, the result will be 8.
+           </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="resource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="resource" type="xsd:string"/>
+        <xsd:element ecore:name="container" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="container" type="tns2:XmlParticipantId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="resourcesRemainingResponse" nillable="false">
+    <xsd:complexType ecore:name="resourcesRemainingResponseType" id="com.tibco.n2.de.api.resolverresourcesRemainingResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          The number of Resources remaining in a defined collection, after an identified set
+          of Resources have been accounted for.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute ecore:name="remainder" id="resourcesRemainingResponseTyperemainder"
+          form="unqualified" name="remainder" type="xsd:int" use="required">
+        <xsd:annotation>
+          <xsd:documentation>The number of resources that the caller has not yet  identified. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listAssociatedResources" nillable="false">
+    <xsd:complexType ecore:name="listAssociatedResourcesType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns2:XmlOrgModelVersion">
+          <xsd:sequence>
+            <xsd:element ecore:name="entityguid" id="listAssociatedResourcesTypeentity-guid"
+                form="unqualified" maxOccurs="unbounded" minOccurs="1" name="entity-guid"
+                type="xsd:string"/>
+          </xsd:sequence>
+          <xsd:attribute ecore:name="startindex" id="listAssociatedResourcesTypestart-index"
+              default="0" form="unqualified" name="start-index" type="xsd:int" use="optional">
+            <xsd:annotation>
+              <xsd:documentation>Start position for the return data. </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute ecore:name="softlimit" id="listAssociatedResourcesTypesoft-limit"
+              default="0" form="unqualified" name="soft-limit" type="xsd:int" use="optional">
+            <xsd:annotation>
+              <xsd:documentation>Maxmimum number of resources to return. (This value will not exceed any system imposed limit.) </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listAssociatedResourcesResponse" nillable="false">
+    <xsd:complexType ecore:name="listAssociatedResourcesResponseType" id="com.tibco.n2.de.api.resolverlistAssociatedResourcesResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          The collection of Resources associated with the identified model entity.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="resource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="resource" type="tns3:XmlLdapEntity"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getNamedEntity" nillable="false">
+    <xsd:complexType ecore:name="getNamedEntityType" id="com.tibco.n2.de.api.resolvergetNamedEntityType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Request to retrieve a list of the entities, of a given type, identified by the given name.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="participant" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="participant" type="tns2:XmlParticipantId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getNamedEntityResponse" nillable="false">
+    <xsd:complexType ecore:name="getNamedEntityResponseType" id="com.tibco.n2.de.api.resolvergetNamedEntityResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          The collection of entity identifiers that match the given name.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="entity" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="entity" type="tns2:XmlParticipantId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getNamedResource" nillable="false">
+    <xsd:complexType ecore:name="getNamedResourceType" id="com.tibco.n2.de.api.resolvergetNamedResourceType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Request to list the Resources identified by the given name.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:attribute ecore:name="modelversion" id="getNamedResourceTypemodel-version"
+          default="-1" form="unqualified" name="model-version" type="xsd:int" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>Major version number of the organization model from which the resources' associations ()position, group, capability, etc) are to be reported.
+
+If not specified, the default value will be the latest version of the organization model. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute ecore:name="name" id="getNamedResourceTypename" form="unqualified"
+          name="name" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>Name uniquely identifying the resource whose details are to be returned. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getNamedResourceResponse" nillable="false">
+    <xsd:complexType ecore:name="getNamedResourceResponseType" id="com.tibco.n2.de.api.resolvergetNamedResourceResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          The collection of Resources with the given name.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="resource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="0" name="resource" type="tns3:XmlEntityDetail"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getResourceDetail" nillable="false">
+    <xsd:complexType ecore:name="getResourceDetailType" id="com.tibco.n2.de.api.resolvergetResourceDetailType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Request to retrieve a summary of the Groups, Positions, Privileges and Capabilities
+          associated with the identified Resource.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="resource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="resource" type="tns2:XmlModelEntityId"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getResourceDetailResponse" nillable="false">
+    <xsd:complexType ecore:name="getResourceDetailResponseType" id="com.tibco.n2.de.api.resolvergetResourceDetailResponseType"
+        mixed="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          The collection of Resources with the given name.
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+        <xsd:element ecore:name="resource" form="unqualified" maxOccurs="unbounded"
+            minOccurs="1" name="resource" type="tns3:XmlResourceDetail"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getUndeliveredEntity" nillable="false">
+    <xsd:complexType ecore:name="getUndeliveredEntityType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns3:EmptyRequest"/>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getUndeliveredEntityResponse" nillable="false">
+    <xsd:complexType ecore:name="getUndeliveredEntityResponseType">
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns2:XmlModelEntityId"/>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

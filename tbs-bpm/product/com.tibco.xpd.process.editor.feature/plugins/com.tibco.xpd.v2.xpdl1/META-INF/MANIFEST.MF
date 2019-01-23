@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %BundleName_notrans
+Bundle-SymbolicName: com.tibco.xpd.v2.xpdl1;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Vendor: %BundleVendor_notrans
+Bundle-Localization: plugin
+Require-Bundle: com.tibco.xpd.validation,
+ com.tibco.xpd.validation.xpdl2,
+ com.tibco.xpd.xpdl2,
+ com.tibco.xpd.analyst.resources.xpdl2,
+ com.tibco.xpd.xpdl2.edit
+Export-Package: com.tibco.xpd.v2.xpdl1.util,
+ com.tibco.xpd.v2.xpdl1.validation.utils
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+

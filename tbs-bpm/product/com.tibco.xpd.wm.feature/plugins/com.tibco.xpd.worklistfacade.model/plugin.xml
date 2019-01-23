@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ /*
+  * Copyright (c) TIBCO Software Inc 2004, 2013. All rights reserved.
+  */
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.tibco.com/XPD/workListFacade1.0.0"
+            class="com.tibco.xpd.worklistfacade.model.WorkListFacadePackage"
+            genModel="model/WorkListFacade.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="wlf"
+            class="com.tibco.xpd.worklistfacade.util.WorkListFacadeResourceFactoryImpl"/>
+   </extension>
+    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://www.tibco.com/XPD/workListFacade1.0.0" 
+       class = "com.tibco.xpd.worklistfacade.provider.WorkListFacadeItemProviderAdapterFactory" 
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+     </extension>
+
+</plugin>

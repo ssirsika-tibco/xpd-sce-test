@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_7t_98HeLEd6lopv0n_ivKQ" xpdExt:DisplayName="ScriptPackage" Name="ScriptPackage">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2009-07-23</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>glewis</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:DataFields>
+    <xpdl2:DataField Id="__tX9s3eLEd6lopv0n_ivKQ" xpdExt:DisplayName="Field2" Name="Field2">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="STRING">
+          <xpdl2:Length>50</xpdl2:Length>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_DE0agHeMEd6lopv0n_ivKQ" xpdExt:DisplayName="Field" Name="Field">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="WeatherSummary.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_px5b8HqEEd6FyrVWuCLULw"/>
+      </xpdl2:DataType>
+    </xpdl2:DataField>
+  </xpdl2:DataFields>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="__tX9tHeLEd6lopv0n_ivKQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="__tX9o3eLEd6lopv0n_ivKQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="__tX9tXeLEd6lopv0n_ivKQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="__tX9o3eLEd6lopv0n_ivKQ" iProcessExt:NextParamSequenceNum="1" xpdExt:DisplayName="ScriptPackage" Name="ScriptPackage">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Participants>
+        <xpdl2:Participant Id="_pGyJ8HqmEd63X4FptXsdgQ" xpdExt:DisplayName="Participant" Name="Participant">
+          <xpdl2:ParticipantType Type="ROLE"/>
+          <iProcessExt:ParticipantProperties UseRoleSemantics="false"/>
+        </xpdl2:Participant>
+      </xpdl2:Participants>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="__tX9pHeLEd6lopv0n_ivKQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="__tX9tXeLEd6lopv0n_ivKQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="__tX9pneLEd6lopv0n_ivKQ" Name="UserTask" xpdExt:Visibility="Private" xpdExt:DisplayName="User Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskUser Implementation="Unspecified">
+                <xpdl2:Performers>
+                  <xpdl2:Performer>-defined-in-Activity-Performer-</xpdl2:Performer>
+                </xpdl2:Performers>
+                <xpdl2:MessageIn Id="__tX9p3eLEd6lopv0n_ivKQ"/>
+                <xpdl2:MessageOut Id="__tX9qHeLEd6lopv0n_ivKQ"/>
+              </xpdl2:TaskUser>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_pGyJ8HqmEd63X4FptXsdgQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__tX9tXeLEd6lopv0n_ivKQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="198.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Offer="OfferAll" xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <iProcessExt:TaskProperties NoDeleteOnWithdraw="false" IgnoreCaseSuspend="false">
+            <iProcessExt:Prediction UseDeadlineForDuration="false" DontIncludeAsFutureWorkItem="false"/>
+            <iProcessExt:UserTask Forwardable="false" CopyEnabled="false"/>
+          </iProcessExt:TaskProperties>
+          <xpdExt:AssociatedParameters/>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nnsVwHqmEd63X4FptXsdgQ" xpdExt:Visibility="Private">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="31.0" LaneId="__tX9tXeLEd6lopv0n_ivKQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="436.0" YCoordinate="157.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_NsyxkHt4Ed6J_bG5XVZvCA" Name="ScriptTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Script Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">Field=factory_examples_soapworx_com_roguewave_www_WeatherSummary_xsd_mypackage1.createClassinner();</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="__tX9tXeLEd6lopv0n_ivKQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="333.0" YCoordinate="158.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <iProcessExt:TaskProperties NoDeleteOnWithdraw="false" IgnoreCaseSuspend="false">
+            <iProcessExt:Prediction UseDeadlineForDuration="false" DontIncludeAsFutureWorkItem="false"/>
+          </iProcessExt:TaskProperties>
+          <xpdExt:Audit>
+            <xpdExt:AuditEvent Type="Initiated">
+              <xpdExt:Information ScriptGrammar="Text"></xpdExt:Information>
+            </xpdExt:AuditEvent>
+          </xpdExt:Audit>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="__tX9r3eLEd6lopv0n_ivKQ" xpdExt:DisplayName="" Name="" From="__tX9pHeLEd6lopv0n_ivKQ" To="__tX9pneLEd6lopv0n_ivKQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_oCtd0XqmEd63X4FptXsdgQ" xpdExt:DisplayName="" Name="" From="_NsyxkHt4Ed6J_bG5XVZvCA" To="_nnsVwHqmEd63X4FptXsdgQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Ns8ikHt4Ed6J_bG5XVZvCA" xpdExt:DisplayName="" Name="" From="__tX9pneLEd6lopv0n_ivKQ" To="_NsyxkHt4Ed6J_bG5XVZvCA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="ActiveMatrix BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <iProcessExt:ProcessProperties UseWorkingDays="true" IgnoreBlankAddressees="false" EnableCasePrediction="false" NormaliseCaseData="true" CaseDescOnStart="Required" AutoPurge="false"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="7"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

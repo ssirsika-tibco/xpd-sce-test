@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" name="root" version="4.0.1">
+  <include>qfs.qft</include>
+  <include>../../UtilProcedures/StandardStudioOperationsAndProcedures.qft</include>
+  <PackageRoot id="_3">
+    <Procedure id="_6" name="1) Export Om to Tibco Directory Engine Test">
+      <comment>Procedure that ensures that the export export OM to TIBCO DE works fine as mentioned http://confluence.tibco.com/display/BPM/6.4+Export+OM+to+TIBCO+Directory+Engine+Test
+
+@author 	kthombar
+@since 	TBS 4.1.0</comment>
+      <ProcedureCall id="_uu1Q9"
+                     procedure="business_studio_operations.projectOperations.importBpmArchivedProjectInStudio">
+        <variable name="projectLocationOnDirectory">${ArchivedFileLocation:6_MiscellaneousTestArchivedFileLocation}/6_4_ExportOmToTibcoDirectoryEngineTestProjects.zip</variable>
+      </ProcedureCall>
+      <BasicSequence id="_uu1QA" name="Open OM in Project explorer">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/OrgProject"
+                        event="MOUSE_MPRC" id="_uu1QB" modifiers="16" x="-33"
+                        y="10"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/OrgProject/Organization"
+                        event="MOUSE_MPRC" id="_uu1QC" modifiers="16" x="-29"
+                        y="9"/>
+      </BasicSequence>
+      <BasicSequence id="_uu1QJ" name="Export OM to DE">
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/OrgProject/Organization/OrgProject.om"
+                        event="MOUSE_MPRC" id="_uu1QK" modifiers="4"
+                        popup="true"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menu-common.export.menu"
+                            event="SELECTION" id="_uu1QL"/>
+        <SelectionEventStep client="BusinessStudio"
+                            component="menuitemExport_to_TIBCO_Directory_Engine"
+                            event="SELECTION" id="_uu1QM"/>
+        <ComponentWaiter client="BusinessStudio" component="DEExportWizard"
+                         id="_uu1QN"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="buttonFinish11" event="MOUSE_MPRC"
+                        id="_uu1QO" modifiers="16"/>
+        <ComponentWaiter absence="true" client="BusinessStudio"
+                         component="DEExportWizard" id="_uu1QQ"/>
+        <MouseEventStep clicks="1" client="BusinessStudio"
+                        component="Project_Explorer@/OrgProject/Organization/OrgProject.xml"
+                        event="MOUSE_MPRC" id="_uu1QP" modifiers="16"/>
+      </BasicSequence>
+      <ProcedureCall id="_uu1RP"
+                     procedure="business_studio_operations.projectOperations.deleteProject">
+        <variable name="projectName">OrgProject</variable>
+      </ProcedureCall>
+    </Procedure>
+  </PackageRoot>
+  <ExtraSequence id="_4"/>
+  <WindowList id="_5">
+    <WindowStep class="Window" engine="swt"
+                feature="Modeling - TIBCO Business Studio" height="1056"
+                id="WorkbenchWindow3" name="WorkbenchWindow" uid="_uu1QD"
+                width="1936">
+      <ComponentStep class="MenuBar"
+                     feature="Popup InvokerName: Project Explorer"
+                     height="485" id="popup-Project_Explorer2"
+                     name="popup-Project Explorer" uid="_uu1QE" width="235">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Menu</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Menu</extrafeature>
+        <extrafeature name="qfs:type" negate="false" regexp="false" state="0">Menu:MenuBar</extrafeature>
+        <ComponentStep class="MenuItem" classcount="29" classindex="12"
+                       feature="Export" height="19"
+                       id="menu-common.export.menu"
+                       name="menu-common.export.menu" uid="_uu1QF" width="231"
+                       x="2" y="200">
+          <extrafeature name="qfs:class" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                        state="0">MenuItem</extrafeature>
+          <extrafeature name="qfs:label" negate="false" regexp="false"
+                        state="1">Export</extrafeature>
+          <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                        state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          <ComponentStep class="MenuItem"
+                         feature="Export to TIBCO Directory Engine"
+                         height="19"
+                         id="menuitemExport_to_TIBCO_Directory_Engine"
+                         uid="_uu1QG" width="235" x="2" y="49">
+            <extrafeature name="imagehash" negate="false" regexp="false"
+                          state="1">923314334</extrafeature>
+            <extrafeature name="qfs:class" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+            <extrafeature name="qfs:genericclass" negate="false"
+                          regexp="false" state="0">MenuItem</extrafeature>
+            <extrafeature name="qfs:label" negate="false" regexp="false"
+                          state="1">Export to TIBCO Directory Engine</extrafeature>
+            <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                          state="0">org.eclipse.swt.widgets.MenuItem</extrafeature>
+          </ComponentStep>
+        </ComponentStep>
+      </ComponentStep>
+    </WindowStep>
+    <WindowStep class="Dialog" engine="swt"
+                feature="Export to Directory Engine" height="604"
+                id="DEExportWizard" modal="true" name="DEExportWizard"
+                uid="_uu1QH" width="525">
+      <ComponentStep class="Button" classcount="2" classindex="0"
+                     feature="Finish" height="25" id="buttonFinish11"
+                     name="buttonFinish" uid="_uu1QI" width="92" x="316"
+                     y="558">
+        <extrafeature name="qfs:class" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+        <extrafeature name="qfs:genericclass" negate="false" regexp="false"
+                      state="0">Button</extrafeature>
+        <extrafeature name="qfs:label" negate="false" regexp="false"
+                      state="1">Finish</extrafeature>
+        <extrafeature name="qfs:systemclass" negate="false" regexp="false"
+                      state="0">org.eclipse.swt.widgets.Button</extrafeature>
+      </ComponentStep>
+    </WindowStep>
+  </WindowList>
+</RootStep>

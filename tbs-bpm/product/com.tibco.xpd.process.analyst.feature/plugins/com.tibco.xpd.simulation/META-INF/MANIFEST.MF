@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName_notrans
+Bundle-SymbolicName: com.tibco.xpd.simulation; singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-Vendor: %providerName_notrans
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ com.tibco.xpd.xpdl2
+Eclipse-LazyStart: true
+Export-Package: com.tibco.xpd.simulation,
+ com.tibco.xpd.simulation.impl,
+ com.tibco.xpd.simulation.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

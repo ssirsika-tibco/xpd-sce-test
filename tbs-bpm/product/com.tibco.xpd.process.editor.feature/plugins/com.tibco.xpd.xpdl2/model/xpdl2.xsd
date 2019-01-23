@@ -1,0 +1,2024 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="xpdl2" ecore:package="com.tibco.xpd.xpdl2" targetNamespace="http://www.wfmc.org/2008/XPDL2.1">
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
+  <xsd:element name="Package" type="xpdl2:Package"/>
+  <xsd:simpleType ecore:name="AccessLevelType" name="AccessLevel_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PUBLIC"/>
+      <xsd:enumeration value="PRIVATE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:implements="xpdl2:FlowContainer" ecore:name="ActivitySet" name="ActivitySet_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:opposite="activitySets" ecore:reference="xpdl2:ProcessType" name="process" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:ExtendedAttributesContainer xpdl2:GraphicalNode xpdl2:DescribedElement xpdl2:OtherElementsContainer" ecore:name="Activity" name="Activity_._type">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getOutgoingTransitions" type="xpdl2:Transition_._type" upperBound="-1"/>
+        <operation name="getIncomingTransitions" type="xpdl2:Transition_._type" upperBound="-1"/>
+        <operation name="getPerformerList" type="xpdl2:Performer_._type" upperBound="-1"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="limit" form="qualified" minOccurs="0" name="Limit" type="xpdl2:Limit_._type"/>
+          <xsd:element ecore:name="route" form="qualified" minOccurs="0" name="Route" type="xpdl2:Route_._type"/>
+          <xsd:element ecore:name="implementation" ecore:opposite="activity" form="qualified" minOccurs="0" name="Implementation" type="xpdl2:Implementation_._7_._type"/>
+          <xsd:element ecore:name="blockActivity" form="qualified" minOccurs="0" name="BlockActivity" type="xpdl2:BlockActivity_._type"/>
+          <xsd:element ecore:name="event" form="qualified" minOccurs="0" name="Event" type="xpdl2:Event_._type"/>
+          <xsd:element ecore:name="transaction" form="qualified" minOccurs="0" name="Transaction" type="xpdl2:Transaction_._type"/>
+          <xsd:element ecore:name="performer" form="qualified" minOccurs="0" name="Performer" type="xpdl2:Performer_._type"/>
+          <xsd:element ecore:name="performers" ecore:resolveProxies="true" form="qualified" minOccurs="0" name="Performers" type="xpdl2:Performers_._type"/>
+          <xsd:element ecore:name="priority" form="qualified" minOccurs="0" name="Priority" type="xpdl2:Priority_._type"/>
+          <xsd:element ecore:name="deadline" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Deadline" type="xpdl2:Deadline_._type"/>
+          <xsd:element ecore:name="simulationInformation" form="qualified" minOccurs="0" name="SimulationInformation" type="xpdl2:SimulationInformation_._type"/>
+          <xsd:element ecore:name="icon" form="qualified" minOccurs="0" name="Icon" type="xpdl2:Icon_._type"/>
+          <xsd:element ecore:name="documentation" form="qualified" minOccurs="0" name="Documentation" type="xpdl2:Documentation_._type"/>
+          <xsd:element ecore:name="transitionRestrictions" form="qualified" maxOccurs="unbounded" minOccurs="0" name="TransitionRestriction" type="xpdl2:TransitionRestriction_._type"/>
+          <xsd:element ecore:name="dataFields" form="qualified" maxOccurs="unbounded" minOccurs="0" name="DataField" type="xpdl2:DataField_._type"/>
+          <xsd:element ecore:name="inputSets" form="qualified" maxOccurs="unbounded" minOccurs="0" name="InputSet" type="xpdl2:InputSet_._type"/>
+          <xsd:element ecore:name="outputSets" form="qualified" minOccurs="0" name="OutputSet" type="xpdl2:OutputSet_._type"/>
+          <xsd:element ecore:name="ioRules" form="qualified" minOccurs="0" name="IORules" type="xpdl2:IORules_._type"/>
+          <xsd:element ecore:name="loop" form="qualified" minOccurs="0" name="Loop" type="xpdl2:Loop_._type"/>
+          <xsd:element ecore:name="assignments" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Assignment" type="xpdl2:Assignment_._type"/>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+          <xsd:element ecore:name="extensions" form="qualified" minOccurs="0" name="Extensions" type="xsd:anyType"/>
+        </xsd:sequence>
+        <xsd:attribute default="Automatic" ecore:name="finishMode" name="FinishMode" type="xpdl2:FinishMode_._type"/>
+        <xsd:attribute default="false" ecore:name="isATransaction" name="IsATransaction" type="xsd:boolean"/>
+        <xsd:attribute ecore:name="startActivity" name="StartActivity" type="xsd:boolean">
+          <xsd:annotation>
+            <xsd:documentation> Designates the first activity to be executed when the process is instantiated. Used when there is no other way to determine this Conflicts with BPMN StartEvent and no process definition should use both.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="Automatic" ecore:name="startMode" name="StartMode" type="xpdl2:StartMode_._type"/>
+        <xsd:attribute default="1" ecore:name="startQuantity" name="StartQuantity" type="xsd:integer"/>
+        <xsd:attribute default="None" ecore:name="status" name="Status" type="xpdl2:Status_._type">
+          <xsd:annotation>
+            <xsd:documentation> BPMN: Status values are assigned during execution. Status can be treated as a property and used in expressions local to an Activity. It is unclear that status belongs in the XPDL document.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:opposite="activities" ecore:reference="xpdl2:FlowContainer" name="flowContainer" type="xsd:anyURI"/>
+        <xsd:attribute ecore:changeable="false" ecore:derived="true" ecore:reference="xpdl2:ProcessType" ecore:transient="true" name="process" type="xsd:anyURI"/>
+        <xsd:attribute default="false" ecore:name="isForCompensation" name="IsForCompensation" type="xsd:boolean"/>
+        <xsd:attribute default="1" ecore:name="completionQuantity" name="CompletionQuantity" type="xsd:integer"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="AdHocOrderingType" name="AdHocOrdering_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Sequential"/>
+      <xsd:enumeration value="Parallel"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ApplicationType">
+    <xsd:sequence>
+      <xsd:element ecore:name="ejb" form="qualified" minOccurs="0" name="Ejb" type="xpdl2:Ejb_._type">
+        <xsd:annotation>
+          <xsd:documentation> Call EJB component -- There can be max one formal parameter that is OUT, if it exists it has to be the last formal parameter. no INOUT formal parameters</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:name="pojo" form="qualified" minOccurs="0" name="Pojo" type="xpdl2:Pojo_._type">
+        <xsd:annotation>
+          <xsd:documentation> Call method on Java class -- There can be max one formal parameter that is OUT, if it exists it has to be the last formal parameter. no INOUT formal parameters</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:name="xslt" form="qualified" minOccurs="0" name="Xslt" type="xpdl2:Xslt_._type">
+        <xsd:annotation>
+          <xsd:documentation> Execute Tranformation -- Formal Parameters restrictions: one IN and one OUT formal parameters or only one INOUT formal parameter</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:name="script" form="qualified" minOccurs="0" name="Script" type="xpdl2:Script_._type">
+        <xsd:annotation>
+          <xsd:documentation> Execute Script -- No additional restrictions for formal parameters. The suggestion: every Formal Parameter should be registered in the script scope as a global variable</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:name="webService" form="qualified" minOccurs="0" name="WebService" type="xpdl2:WebService_._type">
+        <xsd:annotation>
+          <xsd:documentation> For WSDL 1.2 -- Invoke WebService, all IN Fprmal Parameters will be mapped to input message, all OUT Formal Parameters will be maped from output message</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:name="businessRule" form="qualified" minOccurs="0" name="BusinessRule" type="xpdl2:BusinessRule_._type">
+        <xsd:annotation>
+          <xsd:documentation>Invoke business rule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:name="form" form="qualified" minOccurs="0" name="Form" type="xpdl2:Form_._type">
+        <xsd:annotation>
+          <xsd:documentation>Placeholder for all form related additional information.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:anyAttribute ecore:name="anyAttribute" namespace="##other"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:ExtendedAttributesContainer xpdl2:FormalParametersContainer xpdl2:DescribedElement" ecore:name="Application" name="Application_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="type" form="qualified" minOccurs="0" name="Type" type="xpdl2:ApplicationType"/>
+          <xsd:element ecore:name="externalReference" form="qualified" minOccurs="0" name="ExternalReference" type="xpdl2:ExternalReference_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="ApplicationsContainer">
+    <xsd:sequence>
+      <xsd:element ecore:name="applications" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Application" type="xpdl2:Application_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ArrayType" name="ArrayType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="basicType" form="qualified" minOccurs="0" name="BasicType" type="xpdl2:BasicType_._type"/>
+          <xsd:element ecore:name="declaredType" form="qualified" minOccurs="0" name="DeclaredType" type="xpdl2:DeclaredType_._type"/>
+          <xsd:element ecore:name="schemaType" form="qualified" minOccurs="0" name="SchemaType" type="xpdl2:SchemaType_._type"/>
+          <xsd:element ecore:name="externalReference" form="qualified" minOccurs="0" name="ExternalReference" type="xpdl2:ExternalReference_._type"/>
+          <xsd:element ecore:name="recordType" form="qualified" minOccurs="0" name="RecordType" type="xpdl2:RecordType_._type"/>
+          <xsd:element ecore:name="unionType" form="qualified" minOccurs="0" name="UnionType" type="xpdl2:UnionType_._type"/>
+          <xsd:element ecore:name="enumerationType" form="qualified" minOccurs="0" name="EnumerationType" type="xpdl2:EnumerationType_._type"/>
+          <xsd:element ecore:name="arrayType" form="qualified" minOccurs="0" name="ArrayType" type="xpdl2:ArrayType_._type"/>
+          <xsd:element ecore:name="listType" form="qualified" minOccurs="0" name="ListType" type="xpdl2:ListType_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="lowerIndex" name="LowerIndex" type="xsd:NMTOKEN" use="required"/>
+        <xsd:attribute ecore:name="upperIndex" name="UpperIndex" type="xsd:NMTOKEN" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:GraphicalNode" ecore:name="Artifact" name="Artifact_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+          <xsd:element ecore:name="dataObject" form="qualified" minOccurs="0" name="DataObject" type="xpdl2:DataObject_._type"/>
+          <xsd:element ecore:name="group" form="qualified" minOccurs="0" name="Group" type="xpdl2:Group"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:default="DataObject" ecore:name="artifactType" name="ArtifactType" type="xpdl2:ArtifactType_._type" use="required"/>
+        <xsd:attribute ecore:name="textAnnotation" name="TextAnnotation" type="xsd:string"/>
+        <xsd:attribute ecore:opposite="artifacts" ecore:reference="xpdl2:Package" name="package" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ArtifactInput">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherElementsContainer">
+        <xsd:attribute ecore:name="artifactId" name="ArtifactId" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute ecore:name="requiredForStart" ecore:unsettable="false" name="RequiredForStart" type="xsd:boolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="ArtifactType" name="ArtifactType_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="DataObject"/>
+      <xsd:enumeration value="Group"/>
+      <xsd:enumeration value="Annotation"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Assignment" name="Assignment_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherElementsContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="target" form="qualified" name="Target" type="xpdl2:ExpressionType">
+            <xsd:annotation>
+              <xsd:documentation> lvalue expression of the assignment, in XPDL may be the name of a DataField, in BPMN name of a Property, in XPATH a reference</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ecore:name="expression" form="qualified" name="Expression" type="xpdl2:ExpressionType">
+            <xsd:annotation>
+              <xsd:documentation>rvalue expression of the assignment</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute default="Start" ecore:name="assignTime" name="AssignTime" type="xpdl2:AssignTime_._type"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="AssigmentsContainer">
+    <xsd:sequence>
+      <xsd:element ecore:name="assignments" form="qualified" minOccurs="0" name="Assignment" type="xpdl2:Assignment_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="AssignTimeType" name="AssignTime_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Start"/>
+      <xsd:enumeration value="End"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="AssociationDirectionType" name="AssociationDirection_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None"/>
+      <xsd:enumeration value="To"/>
+      <xsd:enumeration value="From"/>
+      <xsd:enumeration value="Both"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:implements="xpdl2:GraphicalConnector" ecore:name="Association" name="Association_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="None" ecore:name="associationDirection" name="AssociationDirection" type="xpdl2:AssociationDirection_._type"/>
+        <xsd:attribute ecore:name="source" name="Source" type="xpdl2:IdReferenceString" use="required"/>
+        <xsd:attribute ecore:name="target" name="Target" type="xpdl2:IdReferenceString" use="required"/>
+        <xsd:attribute ecore:opposite="associations" ecore:reference="xpdl2:Package" name="package" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="BasicType" name="BasicType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="length" form="qualified" minOccurs="0" name="Length" type="xpdl2:Length_._type"/>
+          <xsd:element ecore:name="precision" form="qualified" minOccurs="0" name="Precision" type="xpdl2:Precision_._type"/>
+          <xsd:element ecore:name="scale" form="qualified" minOccurs="0" name="Scale" type="xpdl2:Scale_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:default="STRING" ecore:name="type" name="Type" type="xpdl2:Type_._2_._type" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="BasicTypeType" name="Type_._2_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="STRING"/>
+      <xsd:enumeration value="FLOAT"/>
+      <xsd:enumeration value="INTEGER"/>
+      <xsd:enumeration value="REFERENCE"/>
+      <xsd:enumeration value="DATE"/>
+      <xsd:enumeration value="TIME"/>
+      <xsd:enumeration value="DATETIME"/>
+      <xsd:enumeration value="BOOLEAN"/>
+      <xsd:enumeration value="PERFORMER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="BlockActivity" name="BlockActivity_._type">
+    <xsd:attribute ecore:name="activitySetId" name="ActivitySetId" type="xpdl2:IdReferenceString" use="required"/>
+    <xsd:attribute ecore:name="startActivityId" name="StartActivityId" type="xpdl2:IdReferenceString"/>
+    <xsd:attribute ecore:name="view" ecore:unsettable="false" name="ViewType" type="xpdl2:View_._type"/>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="BPMNModelPortabilityConformance" name="BPMNModelPortabilityConformance_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NONE"/>
+      <xsd:enumeration value="SIMPLE"/>
+      <xsd:enumeration value="STANDARD"/>
+      <xsd:enumeration value="COMPLETE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="BusinessRuleApplication" name="BusinessRule_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="ruleName" form="qualified" name="RuleName" type="xpdl2:RuleName_._type"/>
+      <xsd:element ecore:name="location" form="qualified" name="Location" type="xpdl2:Location_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="CatchThrow" name="CatchThrow_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CATCH"/>
+      <xsd:enumeration value="THROW"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Category" name="Category_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Class" name="Class_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Codepage" name="Codepage_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Condition" mixed="true" name="Condition_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="expression" form="qualified" minOccurs="0" name="Expression" type="xpdl2:ExpressionType"/>
+        </xsd:sequence>
+        <xsd:attribute default="CONDITION" ecore:name="type" name="Type" type="xpdl2:Type_._type"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="ConditionType" name="Type_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CONDITION"/>
+      <xsd:enumeration value="OTHERWISE"/>
+      <xsd:enumeration value="EXCEPTION"/>
+      <xsd:enumeration value="DEFAULTEXCEPTION"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="ConformanceClass" name="ConformanceClass_._type">
+    <xsd:attribute default="NON_BLOCKED" ecore:name="graphConformance" name="GraphConformance" type="xpdl2:GraphConformance_._type"/>
+    <xsd:attribute ecore:name="bpmnModelPortabilityConformance" ecore:unsettable="false" name="BPMNModelPortabilityConformance" type="xpdl2:BPMNModelPortabilityConformance_._type"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ConnectorGraphicsInfo" name="ConnectorGraphicsInfo_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="coordinates" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Coordinates" type="xpdl2:Coordinates_._type"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="borderColor" name="BorderColor" type="xsd:string"/>
+    <xsd:attribute ecore:name="fillColor" name="FillColor" type="xsd:string"/>
+    <xsd:attribute default="true" ecore:name="isVisible" name="IsVisible" type="xsd:boolean"/>
+    <xsd:attribute ecore:name="pageId" name="PageId" type="xpdl2:IdReferenceString"/>
+    <xsd:attribute ecore:name="style" name="Style" type="xsd:string"/>
+    <xsd:attribute ecore:name="toolId" name="ToolId" type="xsd:NMTOKEN"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Coordinates" name="Coordinates_._type">
+    <xsd:attribute ecore:name="xCoordinate" name="XCoordinate" type="xsd:double"/>
+    <xsd:attribute ecore:name="yCoordinate" name="YCoordinate" type="xsd:double"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Cost" name="Cost_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CostStructure" name="CostStructure_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="resourceCosts" ecore:resolveProxies="true" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ResourceCosts" type="xpdl2:ResourceCosts"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="fixedCost" name="FixedCost" type="xsd:integer"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CostUnit" name="CostUnit_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="CountryKey" name="Countrykey_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:ExtendedAttributesContainer xpdl2:OtherElementsContainer" ecore:name="DataField" name="DataField_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:ProcessRelevantData">
+        <xsd:sequence>
+          <xsd:element ecore:name="initialValue" form="qualified" minOccurs="0" name="InitialValue" type="xpdl2:ExpressionType"/>
+        </xsd:sequence>
+        <xsd:attribute default="false" ecore:name="correlation" name="Correlation" type="xsd:boolean">
+          <xsd:annotation>
+            <xsd:documentation>Used in BPMN to support mapping to BPEL</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="FALSE" ecore:name="deprecatedDataIsArray" name="IsArray" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="DataFieldsContainer">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getDataField" type="xpdl2:DataField_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="dataFields" form="qualified" maxOccurs="unbounded" minOccurs="0" name="DataField" type="xpdl2:DataField_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherAttributesContainer" ecore:name="DataMapping" name="DataMapping_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherElementsContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="actual" form="qualified" name="Actual" type="xpdl2:ExpressionType"/>
+          <xsd:element ecore:name="testValue" form="qualified" name="TestValue" type="xpdl2:ExpressionType"/>
+        </xsd:sequence>
+        <xsd:attribute default="IN" ecore:name="direction" name="Direction" type="xpdl2:Direction_._type"/>
+        <xsd:attribute ecore:name="formal" name="Formal" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:DataFieldsContainer xpdl2:OtherElementsContainer" ecore:name="DataObject" name="DataObject_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:attribute ecore:name="deprecatedProducedAtCompletion" name="ProducedAtCompletion" type="xsd:boolean" use="required"/>
+        <xsd:attribute ecore:name="deprecatedRequiredForStart" name="RequiredForStart" type="xsd:boolean" use="required"/>
+        <xsd:attribute ecore:name="state" name="State" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:name="DataType" name="DataType_._type"/>
+  <xsd:complexType ecore:name="Deadline" name="Deadline_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="deadlineDuration" form="qualified" minOccurs="0" name="DeadlineDuration" type="xpdl2:ExpressionType"/>
+      <xsd:element ecore:name="exceptionName" form="qualified" minOccurs="0" name="ExceptionName" type="xpdl2:ExceptionName_._type">
+        <xsd:annotation>
+          <xsd:documentation>This name should match that specified in Transition/Condition/Expression</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute default="ASYNCHR" ecore:name="execution" name="Execution" type="xpdl2:Execution_._type"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeclaredType" name="DeclaredType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:attribute ecore:name="typeDeclarationId" name="Id" type="xpdl2:IdReferenceString" use="required"/>
+        <xsd:attribute ecore:name="name" name="Name" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeprecatedResultCompensation" name="ResultCompensation_._type">
+    <xsd:attribute ecore:name="activityId" name="ActivityId" type="xpdl2:IdReferenceString">
+      <xsd:annotation>
+        <xsd:documentation> This supplies the Id of the Activity to be Compensated. Used only for intermediate events or end events in the seuence flow. Events attached to the boundary of an activity already know the Id.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="DeprecatedTriggerRule" name="TriggerRule_._type">
+    <xsd:attribute ecore:name="ruleName" name="RuleName" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>This is the nameof a Rule element.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="DescribedElement">
+    <xsd:sequence>
+      <xsd:element ecore:name="description" ecore:resolveProxies="true" form="qualified" minOccurs="0" name="Description" type="xpdl2:Description_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Description" name="Description_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="DirectionType" name="Direction_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="IN"/>
+      <xsd:enumeration value="OUT"/>
+      <xsd:enumeration value="INOUT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Documentation" name="Documentation_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Duration" name="Duration_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="DurationUnitType" name="DurationUnit_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="YEAR" value="Y"/>
+      <xsd:enumeration ecore:name="MONTH" value="M"/>
+      <xsd:enumeration ecore:name="DAY" value="D"/>
+      <xsd:enumeration ecore:name="HOUR" value="h"/>
+      <xsd:enumeration ecore:name="MINUT" value="m"/>
+      <xsd:enumeration ecore:name="SECOND" value="s"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="EjbApplication" name="Ejb_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="jndiName" form="qualified" name="JndiName" type="xpdl2:JndiName_._type"/>
+      <xsd:element ecore:name="homeClass" form="qualified" name="HomeClass" type="xpdl2:HomeClass_._type"/>
+      <xsd:element ecore:name="method" form="qualified" name="Method" type="xpdl2:Method_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="EndEvent" name="EndEvent_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:Event_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="triggerResultMessage" form="qualified" minOccurs="0" name="TriggerResultMessage" type="xpdl2:TriggerResultMessage_._type"/>
+          <xsd:element ecore:name="resultError" form="qualified" minOccurs="0" name="ResultError" type="xpdl2:ResultError_._type"/>
+          <xsd:element ecore:name="triggerResultCompensation" form="qualified" minOccurs="0" name="TriggerResultCompensation" type="xpdl2:TriggerResultCompensation_._type"/>
+          <xsd:element ecore:name="triggerResultSignal" form="qualified" minOccurs="0" name="TriggerResultSignal" type="xpdl2:TriggerResultSignal_._type"/>
+          <xsd:element ecore:name="resultMultiple" form="qualified" minOccurs="0" name="ResultMultiple" type="xpdl2:ResultMultiple_._type"/>
+          <xsd:element ecore:name="deprecatedTriggerResultLink" form="qualified" minOccurs="0" name="TriggerResultLink" type="xpdl2:TriggerResultLink_._type"/>
+          <xsd:element ecore:name="deprecatedResultCompensation" form="qualified" minOccurs="0" name="ResultCompensation" type="xpdl2:ResultCompensation_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="WebService" ecore:name="implementation" name="Implementation" type="xpdl2:Implementation_._type">
+          <xsd:annotation>
+            <xsd:documentation> Required if the Trigger or Result is Message</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="None" ecore:name="result" name="Result" type="xpdl2:Result_._type"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="EndPoint" name="EndPoint_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="externalReference" form="qualified" name="ExternalReference" type="xpdl2:ExternalReference_._type"/>
+    </xsd:sequence>
+    <xsd:attribute default="WSDL" ecore:name="endPointType" name="EndPointType" type="xpdl2:EndPointType_._type"/>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="EndPointTypeType" name="EndPointType_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="WSDL"/>
+      <xsd:enumeration value="Service"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="EnumerationType" name="EnumerationType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="enumerationValue" form="qualified" maxOccurs="unbounded" name="EnumerationValue" type="xpdl2:EnumerationValue_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="EnumerationValue" name="EnumerationValue_._type">
+    <xsd:attribute ecore:name="name" name="Name" type="xsd:NMTOKEN" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:name="Event" name="Event_._type">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getEventTriggerTypeNode" type="xsd:anyType"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ExceptionName" name="ExceptionName_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="ExclusiveType" name="Exclusive_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Data"/>
+      <xsd:enumeration value="Event"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="ExecutionType" name="Execution_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ASYNCHR"/>
+      <xsd:enumeration value="SYNCHR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Expression" mixed="true" name="ExpressionType">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getText" type="xsd:string"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:choice ecore:featureMap="group" maxOccurs="unbounded"/>
+      <xsd:any ecore:name="any" namespace="##any"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="scriptGrammar" name="ScriptGrammar" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ExtendedAttribute" mixed="true" name="ExtendedAttribute_._type">
+    <xsd:sequence>
+      <xsd:choice ecore:featureMap="group" maxOccurs="unbounded"/>
+      <xsd:any ecore:name="any" namespace="##any"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="name" name="Name" type="xsd:NMTOKEN" use="required"/>
+    <xsd:attribute ecore:name="value" name="Value" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="ExtendedAttributesContainer">
+    <xsd:sequence>
+      <xsd:element ecore:name="extendedAttributes" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ExtendedAttribute" type="xpdl2:ExtendedAttribute_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:ExtendedAttributesContainer" ecore:name="ExternalPackage" name="ExternalPackage_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:attribute name="href" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ExternalReference" name="ExternalReference_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:attribute name="location" type="xsd:anyURI" use="required"/>
+        <xsd:attribute name="namespace" type="xsd:anyURI"/>
+        <xsd:attribute name="xref" type="xsd:NMTOKEN"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="FinishModeType" name="FinishMode_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Automatic"/>
+      <xsd:enumeration value="Manual"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="FlowContainer">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getActivity" type="xpdl2:Activity_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getTransition" type="xpdl2:Transition_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="findStartActivities" type="xpdl2:Activity_._type" upperBound="-1"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="activities" ecore:opposite="flowContainer" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Activity" type="xpdl2:Activity_._type"/>
+      <xsd:element ecore:name="transitions" ecore:opposite="flowContainer" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Transition" type="xpdl2:Transition_._type"/>
+    </xsd:sequence>
+    <xsd:attribute default="false" ecore:name="adHoc" name="AdHoc" type="ecore:EBoolean">
+      <xsd:annotation>
+        <xsd:documentation>BPMN: for Embedded subprocess</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="adHocCompletionCondition" name="AdHocCompletionCondition" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>BPMN: for Embedded subprocess</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute default="Parallel" ecore:name="adHocOrdering" name="AdHocOrdering" type="xpdl2:AdHocOrdering_._type">
+      <xsd:annotation>
+        <xsd:documentation>BPMN: for Embedded subprocess</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="defaultStartActivityId" name="DefaultStartActivityId" type="xpdl2:IdReferenceString"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="FormalParameter" name="FormalParameter_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:ProcessRelevantData">
+        <xsd:attribute default="IN" ecore:name="mode" name="Mode" type="xpdl2:Mode_._type"/>
+        <xsd:attribute default="false" ecore:name="required" name="Required" type="ecore:EBoolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="FormLayout" mixed="true" name="FormLayout_._type"/>
+  <xsd:complexType ecore:name="FormApplication" name="Form_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="formLayout" form="qualified" minOccurs="0" name="FormLayout" type="xpdl2:FormLayout_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="JoinSplitType" name="GatewayType_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="deprecatedAND"/>
+      <xsd:enumeration value="deprecatedXOR"/>
+      <xsd:enumeration value="deprecatedOR"/>
+      <xsd:enumeration value="Complex"/>
+      <xsd:enumeration value="Inclusive"/>
+      <xsd:enumeration value="Exclusive"/>
+      <xsd:enumeration value="Parallel"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="GatewayType" name="GatewayType_._3_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="AND"/>
+      <xsd:enumeration value="XOR"/>
+      <xsd:enumeration value="OR"/>
+      <xsd:enumeration value="Complex"/>
+      <xsd:enumeration value="Inclusive"/>
+      <xsd:enumeration value="Exclusive"/>
+      <xsd:enumeration value="Parallel"/>
+      <xsd:enumeration value="DEPRECATEDXOREVENT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="GraphConformanceType" name="GraphConformance_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="FULL_BLOCKED"/>
+      <xsd:enumeration value="LOOP_BLOCKED"/>
+      <xsd:enumeration value="NON_BLOCKED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="GraphicalNode">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getNodeGraphicsInfoForTool" type="xpdl2:NodeGraphicsInfo_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getIncomingAssociations" type="xpdl2:Association_._type" upperBound="-1"/>
+        <operation name="getOutgoingAssociations" type="xpdl2:Association_._type" upperBound="-1"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="nodeGraphicsInfos" form="qualified" maxOccurs="unbounded" minOccurs="0" name="NodeGraphicsInfo" type="xpdl2:NodeGraphicsInfo_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="GraphicalConnector">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getConnectorGraphicsInfoForTool" type="xpdl2:ConnectorGraphicsInfo_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getIncomingAssociations" type="xpdl2:Association_._type" upperBound="-1"/>
+        <operation name="getOutgoingAssociations" type="xpdl2:Association_._type" upperBound="-1"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="connectorGraphicsInfos" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ConnectorGraphicsInfo" type="xpdl2:ConnectorGraphicsInfo_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:implements="xpdl2:OtherElementsContainer" ecore:interface="true" name="Group">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="category" form="qualified" minOccurs="0" name="Category" type="xpdl2:Category_._type"/>
+          <xsd:element ecore:name="object" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="HomeClass" name="HomeClass_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Icon" name="Icon_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute ecore:name="height" name="HEIGHT" type="xsd:integer"/>
+        <xsd:attribute default="RoundRectangle" ecore:name="shape" name="SHAPE" type="xpdl2:SHAPE_._type"/>
+        <xsd:attribute ecore:name="width" name="WIDTH" type="xsd:integer"/>
+        <xsd:attribute ecore:name="xCoord" name="XCOORD" type="xsd:integer"/>
+        <xsd:attribute ecore:name="yCoord" name="YCOORD" type="xsd:integer"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:instanceClass="java.lang.String" name="IdReferenceString">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="ImplementationType" name="Implementation_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="WebService"/>
+      <xsd:enumeration value="Other"/>
+      <xsd:enumeration value="Unspecified"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" ecore:name="Implementation" name="Implementation_._7_._type">
+    <xsd:attribute ecore:opposite="implementation" ecore:reference="xpdl2:Activity_._type" name="activity" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="InputSet" name="InputSet_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="input" form="qualified" maxOccurs="unbounded" name="Input" type="xpdl2:Input_._type"/>
+      <xsd:element ecore:name="artifactInput" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ArtifactInput" type="xpdl2:ArtifactInput"/>
+      <xsd:element ecore:name="propertyInput" form="qualified" maxOccurs="unbounded" minOccurs="0" name="PropertyInput" type="xpdl2:PropertyInput"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Input" name="Input_._type">
+    <xsd:attribute ecore:name="artifactId" name="ArtifactId" type="xpdl2:IdReferenceString" use="required"/>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="InstantiationType" name="Instantiation_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ONCE"/>
+      <xsd:enumeration value="MULTIPLE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="IntermediateEvent" name="IntermediateEvent_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:Event_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="triggerResultMessage" form="qualified" minOccurs="0" name="TriggerResultMessage" type="xpdl2:TriggerResultMessage_._type"/>
+          <xsd:element ecore:name="triggerTimer" form="qualified" minOccurs="0" name="TriggerTimer" type="xpdl2:TriggerTimer_._type"/>
+          <xsd:element ecore:name="resultError" form="qualified" minOccurs="0" name="ResultError" type="xpdl2:ResultError_._type"/>
+          <xsd:element ecore:name="triggerResultCompensation" form="qualified" minOccurs="0" name="TriggerResultCompensation" type="xpdl2:TriggerResultCompensation_._type"/>
+          <xsd:element ecore:name="triggerConditional" form="qualified" minOccurs="0" name="TriggerConditional" type="xpdl2:TriggerConditional_._type"/>
+          <xsd:element ecore:name="triggerResultLink" form="qualified" minOccurs="0" name="TriggerResultLink" type="xpdl2:TriggerResultLink_._type"/>
+          <xsd:element ecore:name="triggerIntermediateMultiple" form="qualified" minOccurs="0" name="TriggerIntermediateMultiple" type="xpdl2:TriggerIntermediateMultiple_._type"/>
+          <xsd:element ecore:name="triggerResultCancel" form="qualified" minOccurs="0" name="TriggerResultCancel" type="xpdl2:TriggerResultCancel_._type"/>
+          <xsd:element ecore:name="triggerResultSignal" form="qualified" minOccurs="0" name="TriggerResultSignal" type="xpdl2:TriggerResultSignal_._type"/>
+          <xsd:element ecore:name="deprecatedTriggerRule" form="qualified" minOccurs="0" name="TriggerRule" type="xpdl2:TriggerRule_._type"/>
+          <xsd:element ecore:name="deprecatedResultCompensation" form="qualified" minOccurs="0" name="ResultCompensation" type="xpdl2:ResultCompensation_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="WebService" ecore:name="implementation" name="Implementation" type="xpdl2:Implementation_._type">
+          <xsd:annotation>
+            <xsd:documentation>Required if the Trigger is Message</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="target" name="Target" type="xpdl2:IdReferenceString">
+          <xsd:annotation>
+            <xsd:documentation> A Target MAY be included for the Intermediate Event. The Target MUST be an activity (Sub-Process or Task). This means that the Intermediate Event is attached to the boundary of the activity and is used to signify an exception or compensation for that activity.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:default="None" ecore:name="trigger" name="Trigger" type="xpdl2:Trigger_._type" use="required"/>
+        <xsd:anyAttribute ecore:name="anyAttribute" namespace="##other"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="IORules" name="IORules_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="expression" form="qualified" maxOccurs="unbounded" name="Expression" type="xpdl2:ExpressionType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="IsArrayType" name="IsArray_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="FALSE"/>
+      <xsd:enumeration value="TRUE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="JndiName" name="JndiName_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Join" name="Join_._type">
+    <xsd:attribute ecore:name="incomingCondtion" name="IncomingCondtion" type="xsd:string"/>
+    <xsd:attribute default="AND" ecore:name="type" name="Type" type="xpdl2:GatewayType_._type"/>
+    <xsd:attribute default="" ecore:name="exclusiveType" name="ExclusiveType" type="xpdl2:Exclusive_._type"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="LayoutInfo" name="LayoutInfo_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherElementsContainer">
+        <xsd:attribute ecore:name="pixelsPerMillimeter" ecore:unsettable="false" name="PixelsPerMillimeter" type="xsd:float"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:GraphicalNode xpdl2:OtherElementsContainer" ecore:name="Lane" name="Lane_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+          <xsd:element ecore:name="performers" form="qualified" minOccurs="0" name="Performers" type="xpdl2:Performers_._type"/>
+          <xsd:element ecore:name="nestedLane" form="qualified" maxOccurs="unbounded" minOccurs="0" name="NestedLane" type="xpdl2:Lane_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="deprecatedParentLane" name="ParentLane" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute ecore:name="deprecatedParentPoolId" name="ParentPool" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute ecore:opposite="lanes" ecore:reference="xpdl2:Pool_._type" name="parentPool" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Length" name="Length_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Limit" name="Limit_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ListType" name="ListType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="basicType" form="qualified" minOccurs="0" name="BasicType" type="xpdl2:BasicType_._type"/>
+          <xsd:element ecore:name="declaredType" form="qualified" minOccurs="0" name="DeclaredType" type="xpdl2:DeclaredType_._type"/>
+          <xsd:element ecore:name="schemaType" form="qualified" minOccurs="0" name="SchemaType" type="xpdl2:SchemaType_._type"/>
+          <xsd:element ecore:name="externalReference" form="qualified" minOccurs="0" name="ExternalReference" type="xpdl2:ExternalReference_._type"/>
+          <xsd:element ecore:name="recordType" form="qualified" minOccurs="0" name="RecordType" type="xpdl2:RecordType_._type"/>
+          <xsd:element ecore:name="unionType" form="qualified" minOccurs="0" name="UnionType" type="xpdl2:UnionType_._type"/>
+          <xsd:element ecore:name="enumerationType" form="qualified" minOccurs="0" name="EnumerationType" type="xpdl2:EnumerationType_._type"/>
+          <xsd:element ecore:name="arrayType" form="qualified" minOccurs="0" name="ArrayType" type="xpdl2:ArrayType_._type"/>
+          <xsd:element ecore:name="listType" form="qualified" minOccurs="0" name="ListType" type="xpdl2:ListType_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Location" name="Location_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:anyURI"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="LoopMultiInstance" name="LoopMultiInstance_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherElementsContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="mICondition" form="qualified" minOccurs="0" name="MI_Condition" type="xpdl2:ExpressionType"/>
+          <xsd:element ecore:name="complexMIFlowCondition" form="qualified" minOccurs="0" name="ComplexMI_FlowCondition" type="xpdl2:ExpressionType"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="loopCounter" name="LoopCounter" type="xsd:integer">
+          <xsd:annotation>
+            <xsd:documentation> This is updated at run time to count the number of executions of the loop and is available as a property to be used in expressions. Does this belong in the XPDL?</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="All" ecore:name="mIFlowCondition" name="MI_FlowCondition" type="xpdl2:MI_FlowCondition_._type"/>
+        <xsd:attribute ecore:default="Sequential" ecore:name="mIOrdering" name="MI_Ordering" type="xpdl2:MI_Ordering_._type" use="required"/>
+        <xsd:attribute ecore:name="attributeComplexMI_FlowCondition" name="ComplexMI_FlowCondition" type="xsd:string"/>
+        <xsd:attribute ecore:name="attributeMI_Condition" name="MI_Condition" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="LoopStandard" name="LoopStandard_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherElementsContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="loopCondition" form="qualified" minOccurs="0" name="LoopCondition" type="xpdl2:ExpressionType"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="loopCounter" name="LoopCounter" type="xsd:integer">
+          <xsd:annotation>
+            <xsd:documentation> This is updated at run time to count the number of executions of the loop and is available as a property to be used in expressions. Does this belong in the XPDL?</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="loopMaximum" name="LoopMaximum" type="xsd:integer"/>
+        <xsd:attribute ecore:default="Before" ecore:name="testTime" name="TestTime" type="xpdl2:TestTime_._type" use="required"/>
+        <xsd:attribute ecore:name="attributeLoopCondition" name="LoopCondition" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Loop" name="Loop_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="loopStandard" form="qualified" minOccurs="0" name="LoopStandard" type="xpdl2:LoopStandard_._type"/>
+      <xsd:element ecore:name="loopMultiInstance" form="qualified" minOccurs="0" name="LoopMultiInstance" type="xpdl2:LoopMultiInstance_._type"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:default="Standard" ecore:name="loopType" name="LoopType" type="xpdl2:LoopType_._type" use="required"/>
+    <xsd:anyAttribute ecore:name="anyAttribute" namespace="##other"/>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="LoopType" name="LoopType_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Standard"/>
+      <xsd:enumeration value="MultiInstance"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Member" name="Member_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="basicType" form="qualified" minOccurs="0" name="BasicType" type="xpdl2:BasicType_._type"/>
+      <xsd:element ecore:name="declaredType" form="qualified" minOccurs="0" name="DeclaredType" type="xpdl2:DeclaredType_._type"/>
+      <xsd:element ecore:name="schemaType" form="qualified" minOccurs="0" name="SchemaType" type="xpdl2:SchemaType_._type"/>
+      <xsd:element ecore:name="externalReference" form="qualified" minOccurs="0" name="ExternalReference" type="xpdl2:ExternalReference_._type"/>
+      <xsd:element ecore:name="recordType" form="qualified" minOccurs="0" name="RecordType" type="xpdl2:RecordType_._type"/>
+      <xsd:element ecore:name="unionType" form="qualified" minOccurs="0" name="UnionType" type="xpdl2:UnionType_._type"/>
+      <xsd:element ecore:name="enumerationType" form="qualified" minOccurs="0" name="EnumerationType" type="xpdl2:EnumerationType_._type"/>
+      <xsd:element ecore:name="arrayType" form="qualified" minOccurs="0" name="ArrayType" type="xpdl2:ArrayType_._type"/>
+      <xsd:element ecore:name="listType" form="qualified" minOccurs="0" name="ListType" type="xpdl2:ListType_._type"/>
+    </xsd:sequence>
+    <xsd:anyAttribute ecore:name="anyAttribute" namespace="##other"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:GraphicalConnector xpdl2:OtherElementsContainer" ecore:name="MessageFlow" name="MessageFlow_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="message" form="qualified" minOccurs="0" name="Message" type="xpdl2:MessageType"/>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="source" name="Source" type="xpdl2:IdReferenceString" use="required"/>
+        <xsd:attribute ecore:name="target" name="Target" type="xpdl2:IdReferenceString" use="required"/>
+        <xsd:attribute ecore:opposite="messageFlows" ecore:reference="xpdl2:Package" name="package" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="Message" name="MessageType">
+    <xsd:annotation>
+      <xsd:documentation>Formal Parameters defined by WSDL. Must constraint the parameters to either all in or all out, because Message is in a single direction</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="actualParameters" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ActualParameter" type="xpdl2:ExpressionType"/>
+          <xsd:element ecore:name="dataMappings" form="qualified" maxOccurs="unbounded" minOccurs="0" name="DataMapping" type="xpdl2:DataMapping_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="faultName" name="FaultName" type="xsd:NMTOKEN"/>
+        <xsd:attribute ecore:name="from" name="From" type="xpdl2:IdReferenceString">
+          <xsd:annotation>
+            <xsd:documentation>This must be the name of a Participant</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="to" name="To" type="xpdl2:IdReferenceString">
+          <xsd:annotation>
+            <xsd:documentation>This must be the name of a participant</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Method" name="Method_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="MIFlowConditionType" name="MI_FlowCondition_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None"/>
+      <xsd:enumeration value="One"/>
+      <xsd:enumeration value="All"/>
+      <xsd:enumeration value="Complex"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="MIOrderingType" name="MI_Ordering_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Sequential"/>
+      <xsd:enumeration value="Parallel"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="ModeType" name="Mode_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="IN"/>
+      <xsd:enumeration value="OUT"/>
+      <xsd:enumeration value="INOUT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="ModificationDate" name="ModificationDate_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MyRole" name="MyRole_._type">
+    <xsd:attribute ecore:name="roleName" name="RoleName" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:implements="xpdl2:OtherAttributesContainer" name="NamedElement">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:UniqueIdElement">
+        <xsd:attribute ecore:name="name" name="Name" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="NodeGraphicsInfo" name="NodeGraphicsInfo_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="coordinates" form="qualified" minOccurs="0" name="Coordinates" type="xpdl2:Coordinates_._type"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="borderColor" name="BorderColor" type="xsd:string"/>
+    <xsd:attribute ecore:name="fillColor" name="FillColor" type="xsd:string"/>
+    <xsd:attribute ecore:name="height" name="Height" type="xsd:double"/>
+    <xsd:attribute default="true" ecore:name="isVisible" name="IsVisible" type="xsd:boolean"/>
+    <xsd:attribute ecore:name="laneId" name="LaneId" type="xpdl2:IdReferenceString"/>
+    <xsd:attribute ecore:name="page" name="Page" type="xsd:NMTOKEN"/>
+    <xsd:attribute ecore:name="shape" name="Shape" type="xsd:string"/>
+    <xsd:attribute ecore:name="toolId" name="ToolId" type="xsd:string"/>
+    <xsd:attribute ecore:name="width" name="Width" type="xsd:double"/>
+    <xsd:attribute ecore:name="pageId" name="PageId" type="xpdl2:IdReferenceString"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="No" name="No_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:Implementation_._7_._type"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Object" name="Object_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="categories" form="qualified" minOccurs="0" name="Category" type="xpdl2:Category_._type"/>
+          <xsd:element ecore:name="documentation" form="qualified" minOccurs="0" name="Documentation" type="xpdl2:Documentation_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="OrientationType" name="Orientation_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="HORIZONTAL"/>
+      <xsd:enumeration value="VERTICAL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="OtherAttributesContainer">
+    <xsd:anyAttribute ecore:name="otherAttributes" namespace="##other"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" mixed="true" name="OtherElementsContainer">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getOtherElement" type="xsd:anyType">
+          <parameter name="elementName" type="xsd:string"/>
+        </operation>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="OutputSet" name="OutputSet_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="output" form="qualified" maxOccurs="unbounded" name="Output" type="xpdl2:Output_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Output" name="Output_._type">
+    <xsd:attribute ecore:name="artifactId" name="ArtifactId" type="xpdl2:IdReferenceString" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherAttributesContainer" ecore:name="PackageHeader" name="PackageHeader_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DescribedElement">
+        <xsd:sequence>
+          <xsd:element ecore:changeable="false" ecore:name="xpdlVersion" form="qualified" name="XPDLVersion" type="ecore:EString"/>
+          <xsd:element ecore:name="vendor" form="qualified" name="Vendor" type="ecore:EString"/>
+          <xsd:element ecore:name="created" form="qualified" name="Created" type="ecore:EString"/>
+          <xsd:element ecore:name="documentation" form="qualified" minOccurs="0" name="Documentation" type="xpdl2:Documentation_._type"/>
+          <xsd:element ecore:name="priorityUnit" form="qualified" minOccurs="0" name="PriorityUnit" type="xpdl2:PriorityUnit_._type"/>
+          <xsd:element ecore:name="costUnit" form="qualified" minOccurs="0" name="CostUnit" type="xpdl2:CostUnit_._type"/>
+          <xsd:element ecore:name="vendorExtensions" form="qualified" minOccurs="0" name="VendorExtensions" type="xpdl2:VendorExtensions_._type"/>
+          <xsd:element ecore:name="layoutInfo" form="qualified" minOccurs="0" name="LayoutInfo" type="xpdl2:LayoutInfo_._type"/>
+          <xsd:element ecore:name="modificationDate" form="qualified" minOccurs="0" name="ModificationDate" type="xpdl2:ModificationDate_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:ExtendedAttributesContainer xpdl2:ApplicationsContainer xpdl2:ParticipantsContainer xpdl2:DataFieldsContainer xpdl2:OtherElementsContainer" name="Package">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getProcess" type="xpdl2:ProcessType">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getExternalPackage" type="xpdl2:ExternalPackage_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getTypeDeclaration" type="xpdl2:TypeDeclaration_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getPartnerLinkType" type="xpdl2:PartnerLinkType_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getPool" type="xpdl2:Pool_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getMessageFlow" type="xpdl2:MessageFlow_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getMessageFlowFrom" type="xpdl2:MessageFlow_._type" upperBound="-1">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getMessageFlowTo" type="xpdl2:MessageFlow_._type" upperBound="-1">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getAssociation" type="xpdl2:Association_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getArtifact" type="xpdl2:Artifact_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="findNamedElement" type="xpdl2:NamedElement">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="packageHeader" form="qualified" name="PackageHeader" type="xpdl2:PackageHeader_._type"/>
+          <xsd:element ecore:name="redefinableHeader" form="qualified" minOccurs="0" name="RedefinableHeader" type="xpdl2:RedefinableHeader_._type"/>
+          <xsd:element ecore:name="conformanceClass" form="qualified" minOccurs="0" name="ConformanceClass" type="xpdl2:ConformanceClass_._type"/>
+          <xsd:element ecore:name="script" form="qualified" minOccurs="0" name="Script" type="xpdl2:Script_._type"/>
+          <xsd:element ecore:name="externalPackages" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ExternalPackage" type="xpdl2:ExternalPackage_._type"/>
+          <xsd:element ecore:name="typeDeclarations" form="qualified" maxOccurs="unbounded" minOccurs="0" name="TypeDeclaration" type="xpdl2:TypeDeclaration_._type"/>
+          <xsd:element ecore:name="partnerLinkTypes" form="qualified" maxOccurs="unbounded" minOccurs="0" name="PartnerLinkType" type="xpdl2:PartnerLinkType_._type"/>
+          <xsd:element ecore:name="pools" ecore:opposite="parentPackage" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Pool" type="xpdl2:Pool_._type"/>
+          <xsd:element ecore:name="messageFlows" ecore:opposite="package" form="qualified" maxOccurs="unbounded" minOccurs="0" name="MessageFlow" type="xpdl2:MessageFlow_._type"/>
+          <xsd:element ecore:name="associations" ecore:opposite="package" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Association" type="xpdl2:Association_._type"/>
+          <xsd:element ecore:name="artifacts" ecore:opposite="package" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Artifact" type="xpdl2:Artifact_._type"/>
+          <xsd:element ecore:name="processes" ecore:opposite="package" form="qualified" maxOccurs="unbounded" minOccurs="0" name="WorkflowProcess" type="xpdl2:ProcessType"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="language" name="Language" type="xsd:string"/>
+        <xsd:attribute ecore:name="queryLanguage" name="QueryLanguage" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" name="Page">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:attribute ecore:name="height" ecore:unsettable="false" name="Height" type="xsd:double"/>
+        <xsd:attribute ecore:name="width" ecore:unsettable="false" name="Width" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Pages">
+    <xsd:sequence>
+      <xsd:element ecore:name="page" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Page" type="xpdl2:Page"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="ParticipantsContainer">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getParticipant" type="xpdl2:Participant_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="participants" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Participant" type="xpdl2:Participant_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:ExtendedAttributesContainer xpdl2:DescribedElement xpdl2:OtherElementsContainer" ecore:name="Participant" name="Participant_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="participantType" form="qualified" name="ParticipantType" type="xpdl2:ParticipantType_._type"/>
+          <xsd:element ecore:name="externalReference" form="qualified" minOccurs="0" name="ExternalReference" type="xpdl2:ExternalReference_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="ParticipantType" name="Type_._1_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RESOURCE_SET"/>
+      <xsd:enumeration value="RESOURCE"/>
+      <xsd:enumeration value="ROLE"/>
+      <xsd:enumeration value="ORGANIZATIONAL_UNIT"/>
+      <xsd:enumeration value="HUMAN"/>
+      <xsd:enumeration value="SYSTEM"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="ParticipantTypeElem" name="ParticipantType_._type">
+    <xsd:attribute ecore:default="RESOURCE_SET" ecore:name="type" name="Type" type="xpdl2:Type_._1_._type" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="PartnerLink" name="PartnerLink_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:UniqueIdElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="myRole" form="qualified" minOccurs="0" name="MyRole" type="xpdl2:MyRole_._type"/>
+          <xsd:element ecore:name="partnerRole" form="qualified" minOccurs="0" name="PartnerRole" type="xpdl2:PartnerRole_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="partnerLinkTypeId" name="PartnerLinkTypeId" type="xpdl2:IdReferenceString" use="required"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="PartnerLinkType" name="PartnerLinkType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:UniqueIdElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="role" form="qualified" maxOccurs="2" name="Role" type="xpdl2:Role_._type"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="PartnerRole" name="PartnerRole_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="endPoint" form="qualified" name="EndPoint" type="xpdl2:EndPoint_._type"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="portName" name="PortName" type="xsd:string"/>
+    <xsd:attribute ecore:name="roleName" name="RoleName" type="xsd:string" use="required"/>
+    <xsd:attribute ecore:name="serviceName" name="ServiceName" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Partner" name="Partner_._type">
+    <xsd:attribute ecore:name="partnerLinkId" name="PartnerLinkId" type="xsd:NMTOKEN" use="required"/>
+    <xsd:attribute ecore:default="MyRole" ecore:name="roleType" name="RoleType" type="xpdl2:RoleType_._type" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Performer" name="Performer_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xpdl2:IdReferenceString"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Performers" name="Performers_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="performers" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Performer" type="xpdl2:Performer_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="PojoApplication" name="Pojo_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="class" form="qualified" name="Class" type="xpdl2:Class_._type"/>
+      <xsd:element ecore:name="method" form="qualified" name="Method" type="xpdl2:Method_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:GraphicalNode xpdl2:OtherElementsContainer" ecore:name="Pool" name="Pool_._type">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getLane" type="xpdl2:Lane_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="lanes" ecore:opposite="parentPool" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Lane" type="xpdl2:Lane_._type"/>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="boundaryVisible" name="BoundaryVisible" type="xsd:boolean" use="required"/>
+        <xsd:attribute default="HORIZONTAL" ecore:name="orientation" name="Orientation" type="xpdl2:Orientation_._type"/>
+        <xsd:attribute ecore:name="participantId" name="Participant" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute ecore:name="processId" name="Process" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute ecore:opposite="pools" ecore:reference="xpdl2:Package" name="parentPackage" type="xsd:anyURI"/>
+        <xsd:attribute ecore:name="mainPool" ecore:unsettable="false" name="MainPool" type="ecore:EBoolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Precision" name="Precision_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:short"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Priority" name="Priority_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="PriorityUnit" name="PriorityUnit_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ProcessHeader" name="ProcessHeader_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DescribedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="created" form="qualified" minOccurs="0" name="Created" type="ecore:EString"/>
+          <xsd:element ecore:name="priority" form="qualified" minOccurs="0" name="Priority" type="xpdl2:Priority_._type"/>
+          <xsd:element ecore:name="limit" form="qualified" minOccurs="0" name="Limit" type="xpdl2:Limit_._type"/>
+          <xsd:element ecore:name="validFrom" form="qualified" minOccurs="0" name="ValidFrom" type="xpdl2:ValidFrom_._type"/>
+          <xsd:element ecore:name="validTo" form="qualified" minOccurs="0" name="ValidTo" type="xpdl2:ValidTo_._type"/>
+          <xsd:element ecore:name="timeEstimation" form="qualified" minOccurs="0" name="TimeEstimation" type="xpdl2:TimeEstimation_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="Y" ecore:name="durationUnit" name="DurationUnit" type="xpdl2:DurationUnit_._type"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:FlowContainer xpdl2:ExtendedAttributesContainer xpdl2:FormalParametersContainer xpdl2:AssigmentsContainer xpdl2:DataFieldsContainer xpdl2:ParticipantsContainer xpdl2:ApplicationsContainer xpdl2:OtherElementsContainer" ecore:name="Process" name="ProcessType">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getActivitySet" type="xpdl2:ActivitySet_._type">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+        <operation name="getProcessData" type="xpdl2:ProcessRelevantData">
+          <parameter name="id" type="xsd:string"/>
+        </operation>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="processHeader" form="qualified" name="ProcessHeader" type="xpdl2:ProcessHeader_._type"/>
+          <xsd:element ecore:name="redefinableHeader" form="qualified" minOccurs="0" name="RedefinableHeader" type="xpdl2:RedefinableHeader_._type"/>
+          <xsd:element ecore:name="partnerLinks" form="qualified" maxOccurs="unbounded" minOccurs="0" name="PartnerLink" type="xpdl2:PartnerLink_._type"/>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+          <xsd:element ecore:name="extensions" form="qualified" minOccurs="0" name="Extensions" type="xsd:anyType"/>
+          <xsd:element ecore:name="activitySets" ecore:opposite="process" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ActivitySet" type="xpdl2:ActivitySet_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="PUBLIC" ecore:name="accessLevel" name="AccessLevel" type="xpdl2:AccessLevel_._type"/>
+        <xsd:attribute ecore:name="defaultStartActivitySetId" name="DefaultStartActivitySetId" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute default="false" ecore:name="enableInstanceCompensation" name="EnableInstanceCompensation" type="xsd:boolean"/>
+        <xsd:attribute default="None" ecore:name="processType" name="ProcessType" type="xpdl2:ProcessType_._type">
+          <xsd:annotation>
+            <xsd:documentation>BPMN:</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="None" ecore:name="status" name="Status" type="xpdl2:Status_._type">
+          <xsd:annotation>
+            <xsd:documentation> BPMN: Status values are assigned during execution. Status can be treated as a property and used in expressions local to a Process. It is unclear that status belongs in the XPDL document.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="false" ecore:name="suppressJoinFailure" name="SuppressJoinFailure" type="xsd:boolean"/>
+        <xsd:attribute ecore:opposite="processes" ecore:reference="xpdl2:Package" name="package" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:interface="true" name="FormalParametersContainer">
+    <xsd:sequence>
+      <xsd:element ecore:name="formalParameters" form="qualified" maxOccurs="unbounded" minOccurs="0" name="FormalParameter" type="xpdl2:FormalParameter_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" ecore:implements="xpdl2:DescribedElement" ecore:interface="true" name="ProcessRelevantData">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="dataType" form="qualified" name="DataType" type="xpdl2:DataType_._type"/>
+          <xsd:element ecore:name="length" form="qualified" minOccurs="0" name="Length" type="xpdl2:Length_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="isArray" name="IsArray" type="ecore:EBoolean"/>
+        <xsd:attribute ecore:name="readOnly" name="ReadOnly" type="ecore:EBoolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="ProcessType" name="ProcessType_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None"/>
+      <xsd:enumeration value="Private"/>
+      <xsd:enumeration value="Abstract"/>
+      <xsd:enumeration value="Collaboration"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" name="PropertyInput">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:attribute ecore:name="propertyId" name="PropertyId" type="xsd:ID"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="PublicationStatusType" name="PublicationStatus_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDER_REVISION"/>
+      <xsd:enumeration value="RELEASED"/>
+      <xsd:enumeration value="UNDER_TEST"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="RecordType" name="RecordType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="member" form="qualified" maxOccurs="unbounded" name="Member" type="xpdl2:Member_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="RedefinableHeader" name="RedefinableHeader_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="author" form="qualified" minOccurs="0" name="Author" nillable="true" type="ecore:EString"/>
+          <xsd:element ecore:name="version" form="qualified" minOccurs="0" name="Version" nillable="true" type="ecore:EString"/>
+          <xsd:element ecore:name="codepage" form="qualified" minOccurs="0" name="Codepage" type="xpdl2:Codepage_._type"/>
+          <xsd:element ecore:name="countrykey" form="qualified" minOccurs="0" name="Countrykey" type="xpdl2:Countrykey_._type"/>
+          <xsd:element ecore:name="responsibles" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Responsible" type="xpdl2:Responsible_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="UNDER_REVISION" ecore:name="publicationStatus" name="PublicationStatus" type="xpdl2:PublicationStatus_._type"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Reference" name="Reference_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:Implementation_._7_._type">
+        <xsd:attribute ecore:name="activityId" name="ActivityId" type="xpdl2:IdReferenceString" use="required">
+          <xsd:annotation>
+            <xsd:documentation> Should be the Id of an activity which invokes a subflow (independent or embedded) or a task. In the BPMN speck this atribute is called ProcessRef</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ResourceCosts">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:attribute ecore:name="resourceCost" name="ResourceCost" type="xsd:decimal"/>
+        <xsd:attribute ecore:name="costUnitOfTime" name="CostUnitOfTime" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Responsible" name="Responsible_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="ResultError" name="ResultError_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:attribute ecore:name="errorCode" name="ErrorCode" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ResultMultiple" name="ResultMultiple_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="triggerResultMessage" form="qualified" minOccurs="0" name="TriggerResultMessage" type="xpdl2:TriggerResultMessage_._type"/>
+          <xsd:element ecore:name="triggerResultLink" form="qualified" minOccurs="0" name="TriggerResultLink" type="xpdl2:TriggerResultLink_._type"/>
+          <xsd:element ecore:name="resultCompensation" form="qualified" minOccurs="0" name="ResultCompensation" type="xpdl2:TriggerResultCompensation_._type"/>
+          <xsd:element ecore:name="resultError" form="qualified" minOccurs="0" name="ResultError" type="xpdl2:ResultError_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="ResultType" name="Result_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None"/>
+      <xsd:enumeration value="Message"/>
+      <xsd:enumeration value="Error"/>
+      <xsd:enumeration value="Cancel"/>
+      <xsd:enumeration value="Compensation"/>
+      <xsd:enumeration value="Signal"/>
+      <xsd:enumeration value="Terminate"/>
+      <xsd:enumeration value="Multiple"/>
+      <xsd:enumeration value="DeprecatedLink"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Role" name="Role_._type">
+    <xsd:attribute ecore:name="name" name="Name" type="xsd:string" use="required"/>
+    <xsd:attribute name="portType" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="RoleType" name="RoleType_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MyRole"/>
+      <xsd:enumeration value="PartnerRole"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Route" name="Route_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherElementsContainer">
+        <xsd:attribute default="XOR" ecore:name="gatewayType" name="GatewayType" type="xpdl2:GatewayType_._type">
+          <xsd:annotation>
+            <xsd:documentation> Used when needed for BPMN Gateways. Gate and sequence information is associated with the Transition Element.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="Data" ecore:name="deprecatedXorType" name="XORType" type="xpdl2:XorType_._type">
+          <xsd:annotation>
+            <xsd:documentation> Used when needed for BPMN Gateways. Gate and sequence information is associated with the Transition Element.
+This element is deprecated in XPDL2.1</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="false" ecore:name="deprecatedInstantiate" name="Instantiate" type="xsd:boolean"/>
+        <xsd:attribute default="false" ecore:name="markerVisible" name="MarkerVisible" type="xsd:boolean">
+          <xsd:annotation>
+            <xsd:documentation>Applicable only to XOR Gateways</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="incomingCondition" name="IncomingCondition" type="ecore:EString"/>
+        <xsd:attribute ecore:name="outgoingCondition" name="OutgoingCondition" type="ecore:EString"/>
+        <xsd:attribute default="" ecore:name="exclusiveType" name="ExclusiveType" type="xpdl2:Exclusive_._type">
+          <xsd:annotation>
+            <xsd:documentation> Used when needed for BPMN Gateways. Gate and sequence information is associated with the Transition Element.
+This element is deprecated in XPDL2.1</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="RuleName" name="RuleName_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Rule" name="Rule_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="expression" form="qualified" name="Expression" type="xpdl2:ExpressionType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Scale" name="Scale_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:short"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Schema" name="SchemaType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:sequence>
+          <xsd:any ecore:name="any" namespace="##other"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Script" name="Script_._type">
+    <xsd:sequence>
+      <xsd:any ecore:name="any" namespace="##other"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="grammar" name="Grammar" type="xsd:anyURI"/>
+    <xsd:attribute ecore:name="type" name="Type" type="xsd:string" use="required"/>
+    <xsd:attribute ecore:name="version" name="Version" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Service" name="Service_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="endPoint" form="qualified" name="EndPoint" type="xpdl2:EndPoint_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="portName" name="PortName" type="xsd:string" use="required"/>
+        <xsd:attribute ecore:name="serviceName" name="ServiceName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="SHAPEType" name="SHAPE_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RoundRectangle"/>
+      <xsd:enumeration value="Rectangle"/>
+      <xsd:enumeration value="Ellipse"/>
+      <xsd:enumeration value="Diamond"/>
+      <xsd:enumeration ecore:value="5" value="UpTriangle"/>
+      <xsd:enumeration ecore:value="6" value="DownTriangle"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="SimulationInformation" name="SimulationInformation_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="cost" form="qualified" name="Cost" type="xpdl2:Cost_._type"/>
+      <xsd:element ecore:name="timeEstimation" form="qualified" name="TimeEstimation" type="xpdl2:TimeEstimation_._type"/>
+    </xsd:sequence>
+    <xsd:attribute default="ONCE" ecore:name="instantiation" name="Instantiation" type="xpdl2:Instantiation_._type"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Split" name="Split_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="transitionRefs" form="qualified" maxOccurs="unbounded" minOccurs="0" name="TransitionRef" type="xpdl2:TransitionRef_._type"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="outgoingCondition" name="OutgoingCondition" type="xsd:string"/>
+    <xsd:attribute default="AND" ecore:name="type" name="Type" type="xpdl2:GatewayType_._type"/>
+    <xsd:attribute default="" ecore:name="exclusiveType" name="ExclusiveType" type="xpdl2:Exclusive_._type"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="StartEvent" name="StartEvent_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:Event_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="triggerResultMessage" form="qualified" minOccurs="0" name="TriggerResultMessage" type="xpdl2:TriggerResultMessage_._type"/>
+          <xsd:element ecore:name="triggerTimer" form="qualified" minOccurs="0" name="TriggerTimer" type="xpdl2:TriggerTimer_._type"/>
+          <xsd:element ecore:name="triggerConditional" form="qualified" minOccurs="0" name="TriggerConditional" type="xpdl2:TriggerConditional_._type"/>
+          <xsd:element ecore:name="triggerResultSignal" form="qualified" minOccurs="0" name="TriggerResultSignal" type="xpdl2:TriggerResultSignal_._type"/>
+          <xsd:element ecore:name="triggerMultiple" form="qualified" minOccurs="0" name="TriggerMultiple" type="xpdl2:TriggerMultiple_._type"/>
+          <xsd:element ecore:name="deprecatedTriggerRule" form="qualified" minOccurs="0" name="TriggerRule" type="xpdl2:TriggerRule_._type"/>
+          <xsd:element ecore:name="deprecatedTriggerResultLink" form="qualified" minOccurs="0" name="TriggerResultLink" type="xpdl2:TriggerResultLink_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="WebService" ecore:name="implementation" name="Implementation" type="xpdl2:Implementation_._type">
+          <xsd:annotation>
+            <xsd:documentation>Required if the Trigger is Message</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:default="None" ecore:name="trigger" name="Trigger" type="xpdl2:Trigger_._type" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="StartModeType" name="StartMode_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Automatic"/>
+      <xsd:enumeration value="Manual"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="StatusType" name="Status_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None"/>
+      <xsd:enumeration value="Ready"/>
+      <xsd:enumeration value="Active"/>
+      <xsd:enumeration value="Cancelled"/>
+      <xsd:enumeration value="Aborting"/>
+      <xsd:enumeration value="Aborted"/>
+      <xsd:enumeration value="Completing"/>
+      <xsd:enumeration value="Completed"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:implements="xpdl2:OtherAttributesContainer" ecore:name="SubFlow" name="SubFlow_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:Implementation_._7_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="actualParameters" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ActualParameter" type="xpdl2:ExpressionType"/>
+          <xsd:element ecore:name="dataMappings" form="qualified" maxOccurs="unbounded" minOccurs="0" name="DataMapping" type="xpdl2:DataMapping_._type"/>
+          <xsd:element ecore:name="endPoint" form="qualified" minOccurs="0" name="EndPoint" type="xpdl2:EndPoint_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="SYNCHR" ecore:name="execution" name="Execution" type="xpdl2:Execution_._type"/>
+        <xsd:attribute ecore:name="instanceDataField" name="InstanceDataField" type="xpdl2:IdReferenceString">
+          <xsd:annotation>
+            <xsd:documentation> Used to store the instance id of the subflow instantiated by the activity. This is then available later on (e.g. for correlation, messaging etc.) especially in the case of asynchronous invocation.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="processId" name="Id" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute ecore:name="packageRefId" name="PackageRef" type="xpdl2:IdReferenceString">
+          <xsd:annotation>
+            <xsd:documentation>BPMN: needed for independent subprocess</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="startActivityId" name="StartActivityId" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute ecore:name="startActivitySetId" name="StartActivitySetId" type="xpdl2:IdReferenceString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TaskApplication" name="TaskApplication_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DescribedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="actualParameters" form="qualified" maxOccurs="unbounded" minOccurs="0" name="ActualParameter" type="xpdl2:ExpressionType"/>
+          <xsd:element ecore:name="dataMappings" form="qualified" maxOccurs="unbounded" minOccurs="0" name="DataMapping" type="xpdl2:DataMapping_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="packageRef" name="PackageRef" type="xpdl2:IdReferenceString"/>
+        <xsd:attribute ecore:name="applicationId" name="Id" type="xpdl2:IdReferenceString"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TaskManual" name="TaskManual_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="performers" form="qualified" maxOccurs="unbounded" name="Performer" type="xpdl2:Performer_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="TaskReceive" name="TaskReceive_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="message" form="qualified" name="Message" type="xpdl2:MessageType"/>
+          <xsd:element ecore:name="webServiceOperation" form="qualified" minOccurs="0" name="WebServiceOperation" type="xpdl2:WebServiceOperation_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="WebService" ecore:name="implementation" name="Implementation" type="xpdl2:Implementation_._type">
+          <xsd:annotation>
+            <xsd:documentation>Required if the Task is Receive</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="instantiate" name="Instantiate" type="xsd:boolean" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TaskReference" name="TaskReference_._type">
+    <xsd:attribute ecore:name="taskRef" name="TaskRef" type="xpdl2:IdReferenceString" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TaskScript" name="TaskScript_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="script" form="qualified" name="Script" type="xpdl2:ExpressionType">
+        <xsd:annotation>
+          <xsd:documentation>BPMN</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="TaskSend" name="TaskSend_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="message" form="qualified" name="Message" type="xpdl2:MessageType"/>
+          <xsd:element ecore:name="webServiceOperation" form="qualified" minOccurs="0" name="WebServiceOperation" type="xpdl2:WebServiceOperation_._type"/>
+          <xsd:element ecore:name="webServiceFaultCatch" form="qualified" maxOccurs="unbounded" minOccurs="0" name="WebServiceFaultCatch" type="xpdl2:WebServiceFaultCatch_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="WebService" ecore:name="implementation" name="Implementation" type="xpdl2:Implementation_._type">
+          <xsd:annotation>
+            <xsd:documentation>Required if the Task is Send</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="TaskService" name="TaskService_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="messageIn" form="qualified" name="MessageIn" type="xpdl2:MessageType"/>
+          <xsd:element ecore:name="messageOut" form="qualified" name="MessageOut" type="xpdl2:MessageType"/>
+          <xsd:element ecore:name="webServiceOperation" form="qualified" minOccurs="0" name="WebServiceOperation" type="xpdl2:WebServiceOperation_._type"/>
+          <xsd:element ecore:name="webServiceFaultCatch" form="qualified" maxOccurs="unbounded" minOccurs="0" name="WebServiceFaultCatch" type="xpdl2:WebServiceFaultCatch_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="WebService" ecore:name="implementation" name="Implementation" type="xpdl2:Implementation_._type">
+          <xsd:annotation>
+            <xsd:documentation>Required if the Task is Service</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Task" name="Task_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:Implementation_._7_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="taskService" form="qualified" minOccurs="0" name="TaskService" type="xpdl2:TaskService_._type"/>
+          <xsd:element ecore:name="taskReceive" form="qualified" minOccurs="0" name="TaskReceive" type="xpdl2:TaskReceive_._type"/>
+          <xsd:element ecore:name="taskManual" form="qualified" minOccurs="0" name="TaskManual" type="xpdl2:TaskManual_._type"/>
+          <xsd:element ecore:name="taskReference" form="qualified" minOccurs="0" name="TaskReference" type="xpdl2:TaskReference_._type"/>
+          <xsd:element ecore:name="taskScript" form="qualified" minOccurs="0" name="TaskScript" type="xpdl2:TaskScript_._type"/>
+          <xsd:element ecore:name="taskSend" form="qualified" minOccurs="0" name="TaskSend" type="xpdl2:TaskSend_._type"/>
+          <xsd:element ecore:name="taskUser" form="qualified" minOccurs="0" name="TaskUser" type="xpdl2:TaskUser_._type"/>
+          <xsd:element ecore:name="taskApplication" form="qualified" minOccurs="0" name="TaskApplication" type="xpdl2:TaskApplication_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="TaskUser" name="TaskUser_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="performers" form="qualified" maxOccurs="unbounded" name="Performer" type="xpdl2:Performer_._type"/>
+          <xsd:element ecore:name="messageIn" form="qualified" name="MessageIn" type="xpdl2:MessageType"/>
+          <xsd:element ecore:name="messageOut" form="qualified" name="MessageOut" type="xpdl2:MessageType"/>
+          <xsd:element ecore:name="webServiceOperation" form="qualified" minOccurs="0" name="WebServiceOperation" type="xpdl2:WebServiceOperation_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="WebService" ecore:name="implementation" name="Implementation" type="xpdl2:Implementation_._type">
+          <xsd:annotation>
+            <xsd:documentation>Required if the Task is User</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="TestTimeType" name="TestTime_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Before"/>
+      <xsd:enumeration value="After"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="TimeEstimation" name="TimeEstimation_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="waitingTime" form="qualified" minOccurs="0" name="WaitingTime" type="xpdl2:WaitingTime_._type"/>
+      <xsd:element ecore:name="workingTime" form="qualified" minOccurs="0" name="WorkingTime" type="xpdl2:WorkingTime_._type"/>
+      <xsd:element ecore:name="duration" form="qualified" minOccurs="0" name="Duration" type="xpdl2:Duration_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="TransactionMethodType" name="TransactionMethod_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Compensate"/>
+      <xsd:enumeration value="Store"/>
+      <xsd:enumeration value="Image"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="Transaction" name="Transaction_._type">
+    <xsd:attribute ecore:name="transactionId" name="TransactionId" type="xsd:string" use="required"/>
+    <xsd:attribute ecore:default="Compensate" ecore:name="transactionMethod" name="TransactionMethod" type="xpdl2:TransactionMethod_._type" use="required"/>
+    <xsd:attribute ecore:name="transactionProtocol" name="TransactionProtocol" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TransitionRef" name="TransitionRef_._type">
+    <xsd:attribute ecore:default="" ecore:name="id" ecore:unsettable="false" name="Id" type="xpdl2:IdReferenceString" use="required"/>
+    <xsd:attribute ecore:name="name" name="Name" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TransitionRestriction" name="TransitionRestriction_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="join" form="qualified" minOccurs="0" name="Join" type="xpdl2:Join_._type"/>
+      <xsd:element ecore:name="split" form="qualified" minOccurs="0" name="Split" type="xpdl2:Split_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:ExtendedAttributesContainer xpdl2:GraphicalConnector xpdl2:DescribedElement" ecore:name="Transition" name="Transition_._type">
+    <xsd:annotation>
+      <xsd:appinfo ecore:key="operations" source="http://www.eclipse.org/emf/2002/Ecore">
+        <operation name="getProcess" type="xpdl2:ProcessType">
+          <annotation source="http://www.eclipse.org/emf/2002/GenModel">
+            <detail key="documentation">Parent process, note: when the direct parent of the activity or transition is an activity set, this method will return parent process of it</detail>
+          </annotation>
+        </operation>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="condition" form="qualified" minOccurs="0" name="Condition" type="xpdl2:Condition_._type"/>
+          <xsd:element ecore:name="assignments" form="qualified" maxOccurs="unbounded" minOccurs="0" name="Assignment" type="xpdl2:Assignment_._type"/>
+          <xsd:element ecore:name="object" form="qualified" minOccurs="0" name="Object" type="xpdl2:Object_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="from" name="From" type="xpdl2:IdReferenceString" use="required"/>
+        <xsd:attribute default="1" ecore:name="quantity" name="Quantity" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>Used only in BPMN. Specifies number of tokens on outgoing transition.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:name="to" name="To" type="xpdl2:IdReferenceString" use="required"/>
+        <xsd:attribute ecore:opposite="transitions" ecore:reference="xpdl2:FlowContainer" name="flowContainer" type="xsd:anyURI"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TriggerIntermediateMultiple" name="TriggerIntermediateMultiple_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="triggerResultMessage" form="qualified" minOccurs="0" name="TriggerResultMessage" type="xpdl2:TriggerResultMessage_._type"/>
+          <xsd:element ecore:name="triggerTimer" form="qualified" minOccurs="0" name="TriggerTimer" type="xpdl2:TriggerTimer_._type"/>
+          <xsd:element ecore:name="resultError" form="qualified" minOccurs="0" name="ResultError" type="xpdl2:ResultError_._type"/>
+          <xsd:element ecore:name="triggerResultCompensation" form="qualified" minOccurs="0" name="TriggerResultCompensation" type="xpdl2:TriggerResultCompensation_._type"/>
+          <xsd:element ecore:name="deprecatedResultCompensation" form="qualified" minOccurs="0" name="ResultCompensation" type="xpdl2:ResultCompensation_._type"/>
+          <xsd:element ecore:name="triggerConditional" form="qualified" minOccurs="0" name="TriggerConditional" type="xpdl2:TriggerConditional_._type"/>
+          <xsd:element ecore:name="triggerResultLink" form="qualified" minOccurs="0" name="TriggerResultLink" type="xpdl2:TriggerResultLink_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TriggerMultiple" name="TriggerMultiple_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="triggerResultMessage" form="qualified" minOccurs="0" name="TriggerResultMessage" type="xpdl2:TriggerResultMessage_._type"/>
+          <xsd:element ecore:name="triggerTimer" form="qualified" minOccurs="0" name="TriggerTimer" type="xpdl2:TriggerTimer_._type"/>
+          <xsd:element ecore:name="triggerConditional" form="qualified" minOccurs="0" name="TriggerConditional" type="xpdl2:TriggerConditional_._type"/>
+          <xsd:element ecore:name="triggerResultLink" form="qualified" minOccurs="0" name="TriggerResultLink" type="xpdl2:TriggerResultLink_._type"/>
+          <xsd:element ecore:name="deprecatedTriggerRule" form="qualified" minOccurs="0" name="TriggerRule" type="xpdl2:TriggerRule_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TriggerResultCancel" name="TriggerResultCancel_._type"/>
+  <xsd:complexType ecore:name="TriggerResultCompensation" name="TriggerResultCompensation_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:attribute ecore:name="activityId" name="ActivityId" type="xpdl2:IdReferenceString">
+          <xsd:annotation>
+            <xsd:documentation> This supplies the Id of the Activity to be Compensated. Used only for intermediate events or end events in the seuence flow. Events attached to the boundary of an activity already know the Id.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="TriggerResultSignal" name="TriggerResultSignal_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="properties" form="qualified" name="Properties" type="xpdl2:ExpressionType"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="catchThrow" name="CatchThrow" type="xpdl2:CatchThrow_._type"/>
+        <xsd:attribute ecore:name="name" name="Name" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TriggerResultLink" name="TriggerResultLink_._type">
+    <xsd:attribute ecore:name="deprecatedLinkId" name="LinkId" type="xsd:NMTOKEN" use="required"/>
+    <xsd:attribute ecore:name="deprecatedProcessRef" name="ProcessRef" type="xpdl2:IdReferenceString" use="required">
+      <xsd:annotation>
+        <xsd:documentation>This must identify a Process. Should be the Id of a process.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute default="CATCH" ecore:name="catchThrow" name="CatchThrow" type="xpdl2:CatchThrow_._type"/>
+    <xsd:attribute ecore:name="name" name="Name" type="xpdl2:IdReferenceString" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:implements="xpdl2:OtherElementsContainer" ecore:name="TriggerResultMessage" name="TriggerResultMessage_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="message" form="qualified" name="Message" type="xpdl2:MessageType"/>
+          <xsd:element ecore:name="webServiceOperation" form="qualified" minOccurs="0" name="WebServiceOperation" type="xpdl2:WebServiceOperation_._type"/>
+        </xsd:sequence>
+        <xsd:attribute default="CATCH" ecore:name="catchThrow" name="CatchThrow" type="xpdl2:CatchThrow_._type"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TriggerConditional" name="TriggerConditional_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="expression" ecore:resolveProxies="true" form="qualified" minOccurs="0" name="Expression" type="xpdl2:ExpressionType"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="conditionName" name="ConditionName" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>This is the nameof a Rule element.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TriggerTimer" name="TriggerTimer_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="timeDate" ecore:resolveProxies="true" form="qualified" name="TimeDate" type="xpdl2:ExpressionType"/>
+          <xsd:element ecore:name="timeCycle" ecore:resolveProxies="true" form="qualified" name="TimeCycle" type="xpdl2:ExpressionType"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="deprecatedTimeCycle" name="TimeCycle" type="xsd:string"/>
+        <xsd:attribute ecore:name="deprecatedTimeDate" name="TimeDate" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>One of TimeDate or TimeCycle must be present</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="TriggerType" name="Trigger_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None"/>
+      <xsd:enumeration value="Message"/>
+      <xsd:enumeration value="Timer"/>
+      <xsd:enumeration value="Error"/>
+      <xsd:enumeration value="Cancel"/>
+      <xsd:enumeration value="Conditional"/>
+      <xsd:enumeration value="Link"/>
+      <xsd:enumeration value="Compensation"/>
+      <xsd:enumeration value="Multiple"/>
+      <xsd:enumeration value="Signal"/>
+      <xsd:enumeration value="DeprecatedRule"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:implements="xpdl2:ExtendedAttributesContainer xpdl2:DescribedElement" ecore:name="TypeDeclaration" name="TypeDeclaration_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:NamedElement">
+        <xsd:sequence>
+          <xsd:element ecore:name="basicType" form="qualified" minOccurs="0" name="BasicType" type="xpdl2:BasicType_._type"/>
+          <xsd:element ecore:name="declaredType" form="qualified" minOccurs="0" name="DeclaredType" type="xpdl2:DeclaredType_._type"/>
+          <xsd:element ecore:name="schemaType" form="qualified" minOccurs="0" name="SchemaType" type="xpdl2:SchemaType_._type"/>
+          <xsd:element ecore:name="externalReference" form="qualified" minOccurs="0" name="ExternalReference" type="xpdl2:ExternalReference_._type"/>
+          <xsd:element ecore:name="recordType" form="qualified" minOccurs="0" name="RecordType" type="xpdl2:RecordType_._type"/>
+          <xsd:element ecore:name="unionType" form="qualified" minOccurs="0" name="UnionType" type="xpdl2:UnionType_._type"/>
+          <xsd:element ecore:name="enumerationType" form="qualified" minOccurs="0" name="EnumerationType" type="xpdl2:EnumerationType_._type"/>
+          <xsd:element ecore:name="arrayType" form="qualified" minOccurs="0" name="ArrayType" type="xpdl2:ArrayType_._type"/>
+          <xsd:element ecore:name="listType" form="qualified" minOccurs="0" name="ListType" type="xpdl2:ListType_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="UnionType" name="UnionType_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:DataType_._type">
+        <xsd:sequence>
+          <xsd:element ecore:name="member" form="qualified" maxOccurs="unbounded" name="Member" type="xpdl2:Member_._type"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="UniqueIdElement">
+    <xsd:attribute ecore:changeable="false" ecore:name="id" name="Id" type="xsd:ID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ValidFrom" name="ValidFrom_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ValidTo" name="ValidTo_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="VendorExtensions" name="VendorExtensions_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="vendorExtension" form="qualified" maxOccurs="unbounded" minOccurs="0" name="VendorExtension" type="xpdl2:VendorExtension_._type"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="VendorExtension" name="VendorExtension_._type">
+    <xsd:attribute name="extensionDescription" type="xsd:anyURI"/>
+    <xsd:attribute name="schemaLocation" type="xsd:anyURI" use="required"/>
+    <xsd:attribute ecore:name="toolId" name="ToolId" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="ViewType" name="View_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="COLLAPSED"/>
+      <xsd:enumeration value="EXPANDED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="WaitingTime" name="WaitingTime_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="WebServiceFaultCatch" name="WebServiceFaultCatch_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="message" form="qualified" minOccurs="0" name="Message" type="xpdl2:MessageType"/>
+      <xsd:element ecore:name="blockActivity" form="qualified" minOccurs="0" name="BlockActivity" type="xpdl2:BlockActivity_._type"/>
+      <xsd:element ecore:name="transitionRef" form="qualified" minOccurs="0" name="TransitionRef" type="xpdl2:TransitionRef_._type"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="faultName" name="FaultName" type="xsd:NMTOKEN"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="WebServiceOperation" name="WebServiceOperation_._type">
+    <xsd:complexContent>
+      <xsd:extension base="xpdl2:OtherAttributesContainer">
+        <xsd:sequence>
+          <xsd:element ecore:name="partner" form="qualified" minOccurs="0" name="Partner" type="xpdl2:Partner_._type"/>
+          <xsd:element ecore:name="service" form="qualified" minOccurs="0" name="Service" type="xpdl2:Service_._type"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:name="operationName" name="OperationName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="WebServiceApplication" name="WebService_._type">
+    <xsd:sequence>
+      <xsd:element ecore:name="webServiceOperation" form="qualified" name="WebServiceOperation" type="xpdl2:WebServiceOperation_._type"/>
+      <xsd:element ecore:name="webServiceFaultCatch" form="qualified" maxOccurs="unbounded" minOccurs="0" name="WebServiceFaultCatch" type="xpdl2:WebServiceFaultCatch_._type"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="inputMsgName" name="InputMsgName" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>The name of inputMessage as defined in the WSDL which will help in uniquely identifying the operation to be invoked</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="outputMsgName" name="OutputMsgName" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The name of inputMessage as defined in the WSDL which will help in uniquely identifying the operation to be invoked</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="WorkingTime" name="WorkingTime_._type">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"/>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="XsltApplication" name="Xslt_._type">
+    <xsd:attribute name="location" type="xsd:anyURI"/>
+  </xsd:complexType>
+  <xsd:simpleType ecore:name="DeprecatedXorType" name="XorType_._type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="DATA"/>
+      <xsd:enumeration value="EVENT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

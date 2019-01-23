@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://www.tibco.com/studio_junits_configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.tibco.com/studio_junits_configuration studio_junits.xsd">	
+	<!--  Set location of the previous test workspace to copy the daa from Exports/daa to Goldfiles-->
+	<projects genDaaLocation="C:\src\ws\junit-workspace" goldDaaLocation = "C:\src\repo\tbs-trunk\tbs-bpm\AcceptanceTests\AMX-BPM\ProcessManagerUseCases">		
+		<!-- Modify this list to contain projects only , which require update of GoldFile-->
+		
+		<include name="UC1RaDynamicSubProc"/>
+		<include name="UC11_BMidOrderedAny"/>
+		<include name="UC20_CaseDataSignalUATProject"/>
+		<include name="UC1RcDSPImplementCrossProjInterface"/>
+		<include name="UC16_CaseService_UpdateCaseData"/>
+		<include name="UC1Ch-ProcessFramework"/>
+		<include name="UC20_SampleBizDataProject"/>
+		<include name="UC18B_EventSubProcess_OrderProcessingProject"/>
+		<include name="UC1TSignalEvents"/>
+		<include name="UC11_AXsdAnySimple"/>
+		<include name="UC18A_EventSubProcess_OrderProcessingProject"/>
+		<include name="UC16_Claims-Business-Data"/>
+		<include name="UC17_AdhocActivity_ClaimSubmissionProject"/>
+		<include name="UC1WbFaultHandlingSubproc"/>
+		<include name="UC18C_EventSubProcess_OrderProcessingProject"/>
+		
+		
+		<!--include name="com.example.addresslookup.lib"/>
+		<include name="com.example.addresslookup.pojo"/>		
+		<include name="com.example.addresslookup.pojo2"/>
+		<include name="com.example.hospitalbilling.pojo"/>		
+
+		<include name="com.sample.surgerylookup"/>
+		<include name="com.tibco.processframework.pojo"/>
+		<include name="mediation.soa"/>
+		<include name="surgerylookup.soa"/>
+		<include name="surgerylookup-saml.soa"/>
+		<include name="UC2OrgModel"/-->
+		
+		
+		<!-- 
+		<include name ="UC1AaNoneStartEventWithBOMParams"/>			
+		<include name="UC1ANoneStartEventWithScriptTask"/> 
+		<include name="UC1BaMsgStartEventSoapJmsProviderAbstractWsdl"/>			
+		<include name="UC1BaSoapJmsConsumerForAbstractWsdl"/>		
+		<include name="UC1BbMsgStartEventSoapJmsProviderAbstractOp"/>
+		<include name="UC1BbSoapJmsConsumerForAbstractOp"/>
+		<include name="UC1BcMsgStartEventSoapJmsProviderConcreteOp"/>
+		<include name="UC1BcSoapJmsConsumerForConcreteOp"/>
+		<include name="UC1BMsgStartEventWithScriptTask"/>
+		<include name="UC1CaWSInvoke"/>
+		<include name="UC1CbDocLiteralWSInvoke"/>
+		<include name="UC1CcWSInvokeJavaScript"/>		
+		<include name="UC1CdRPCLiteralWSInvokeJavaScript"/>
+		<include name="UC1CfWSInvokeJavaScriptCDS"/>
+		<include name="UC1CgWSCorrelationSingleApplication"/>
+		<include name="UC1Ch-ProcessFramework"/>
+		<include name="UC1Ch-ProcessFrameworkWS"/>
+		<include name="UC1Ci-WSInvokeSaml"/>	
+		<include name="UC1Cj-JmsWSInvoke-ServiceTask"/>	
+		<include name="UC1CjWSInvokeMultOpsOnePorttype"/>
+		<include name="UC1Ck-JmsWsInvoke-IntermediateThrow"/>
+		<include name="UC1Cl-JmsInvoke_MessageEnd"/>
+		<include name="UC1DMsgStartEventWithIntermediateEvent"/>
+		<include name="UC1E-EarlyBoundDBTask-INSERT"/>
+		<include name="UC1F-EarlyBoundDBTask-UPDATE"/>
+		<include name="UC1GCorrelationAndPick"/>
+		<include name="UC1GaCorrAndPickUsingBOM"/>
+		<include name="UC1H-EarlyBoundDBTask-DELETE"/>
+		<include name="UC1IEnhancedPOJO"/>
+		<include name="UC1IPOJO"/>
+		<include name="UC1JEmail"/>
+		<include name="UC1KPOJOWithLibrary"/>
+		<include name="UC1LEarlyBoundDBTaskSELECT"/>
+		<include name="UC1M-SubProcessWithInPackage"/>
+		<include name="UC1N-SubProcessAcrossPackage"/>
+		<include name="UC1ODBTaskSTOREDPROC"/>
+		<include name="UC1PaTaskStandardLoop"/>
+		<include name="UC1PbMultiInstanceSequentialLoop"/>
+		<include name="UC1PcMultiInstanceParallelLoop"/>
+		<include name="UC1Qa-ActivityScripts"/>
+		<include name="UC1RaDynamicSubProc"/>
+		<include name="UC1RbInterfaceForCrossProjectDSP"/>
+		<include name="UC1RcDSPImplementCrossProjInterface"/>
+		<include name="UC1RdParentChildAssociationMappings"/>
+		<include name="UC1RSub-SubProcessAcrossProject"/>
+		<include name="UC1RMain-SubProcessAcrossProject"/>				
+		<include name="UC1SSimpleDynamicSubProc"/>
+		<include name="UC1TSignalEvents"/>
+		<include name="UC1TaSignalEvents"/>
+		<include name="UC1UDynamicInstanceAdd"/>		
+		<include name="UC1WaFaultHandlingWS"/> 
+		<include name="UC1WbFaultHandlingSubproc"/>
+		<include name="UC10MsgStartEventImportedWsdlContainsSchema"/> 
+		<include name="UC10MsgStartEventImportedWsdlHasInlineSchema"/>
+		<include name="UC10MsgStartEventImportedWsdlUsesImportedXsd"/>
+		<include name="UC10MsgStartEventWsdlImportCase19"/>		
+		<include name="UC10MsgStartEventWsdlImportCase20"/>
+		<include name="UC10MsgStartEventWsdlImportCase26"/>
+		<include name="UC11_AXsdAnySimple"/>
+		<include name="UC11_BMidOrderedAny"/>
+		
+		-->
+		
+	</projects>
+	
+	
+
+</Configuration>

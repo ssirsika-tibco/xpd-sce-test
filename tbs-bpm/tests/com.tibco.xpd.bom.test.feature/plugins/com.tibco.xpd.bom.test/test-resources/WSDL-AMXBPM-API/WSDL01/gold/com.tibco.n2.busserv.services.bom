@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.busserv.services2" name="com.tibco.n2.busserv.services">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i3-E0RUHEeGvy5vcBZd45A" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i3-E0hUHEeGvy5vcBZd45A" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i3-E0xUHEeGvy5vcBZd45A" key="created" value="1321969394717"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i3-E1BUHEeGvy5vcBZd45A" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.busserv.servicesBusinessService" name="BusinessService">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_iUgLYBUHEeGvy5vcBZd45A" body="Get information about and interact with deployed business services."/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessServicelistCategories" name="listCategories">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="listCategoriesparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businesslistCategoriesType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="listCategoriesresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businesslistCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3alistCategoriesResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessServicequeryCategories" name="queryCategories">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="queryCategoriesparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessqueryCategoriesType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="queryCategoriesresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessqueryCategoriesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryCategoriesResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessServicelistBusinessServices" name="listBusinessServices">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="listBusinessServicesparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businesslistBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="listBusinessServicesresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businesslistBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3alistBusinessServicesResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessServicequeryBusinessServices" name="queryBusinessServices">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="queryBusinessServicesparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessqueryBusinessServicesType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="queryBusinessServicesresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessqueryBusinessServicesResponseType?com.tibco.n2.busserv.api.business%3a%3aqueryBusinessServicesResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessServicestartBusinessService" name="startBusinessService">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="startBusinessServiceparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessstartBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="startBusinessServiceresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessstartBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3astartBusinessServiceResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessServiceupdateBusinessService" name="updateBusinessService">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="updateBusinessServiceparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessupdateBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="updateBusinessServiceresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessupdateBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3aupdateBusinessServiceResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessServiceinjectBusinessServiceEvent" name="injectBusinessServiceEvent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="injectBusinessServiceEventparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessinjectBusinessServiceEventType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="injectBusinessServiceEventresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businessinjectBusinessServiceEventResponseType?com.tibco.n2.busserv.api.business%3a%3ainjectBusinessServiceEventResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="BusinessServicecancelBusinessService" name="cancelBusinessService">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="cancelBusinessServiceparameters" name="parameters">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businesscancelBusinessServiceType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceType?"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="cancelBusinessServiceresponse" name="response" direction="return">
+          <type xmi:type="uml:Class" href="com.tibco.n2.busserv.api.business.bom#com.tibco.n2.busserv.api.businesscancelBusinessServiceResponseType?com.tibco.n2.busserv.api.business%3a%3acancelBusinessServiceResponseType?"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_iUXBcRUHEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUXBchUHEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_iUXBcxUHEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUXBdBUHEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_iUXogBUHEeGvy5vcBZd45A" base_Package="com.tibco.n2.busserv.services2?com.tibco.n2.busserv.services?" xsdTargetNamespace="http://services.busserv.n2.tibco.com" xsdSchemaLocation="busserv.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_iUhZgBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.busserv.servicesBusinessService?com.tibco.n2.busserv.services%3a%3aBusinessService?" xsdName="BusinessService" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i3-E0BUHEeGvy5vcBZd45A" displayLabel="BusinessService" base_NamedElement="com.tibco.n2.busserv.servicesBusinessService?com.tibco.n2.busserv.services%3a%3aBusinessService?"/>
+  <notation:Diagram xmi:id="_i3-E1RUHEeGvy5vcBZd45A" type="Business Object Model" element="com.tibco.n2.busserv.services2?com.tibco.n2.busserv.services?" name="com.tibco.n2.busserv.services" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_i3-E1hUHEeGvy5vcBZd45A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_i3-E1xUHEeGvy5vcBZd45A"/>
+  </notation:Diagram>
+</xmi:XMI>

@@ -1,0 +1,45 @@
+import wsdlSchema;
+import xmlSchema;
+import type;
+import uml;
+import com::tibco::xpd::bom::xsdtransform::exports::template;
+
+extension org::openarchitectureware::xsd::lib::qname;
+extension org::openarchitectureware::xsd::lib::map;
+extension com::tibco::xpd::bom::wsdltransform::exports::template::Bom2Wsdl reexport;
+extension com::tibco::xpd::bom::xsdtransform::exports::template::IncrementalPreserveBom2Xsd reexport;
+	
+// create a DocumentRoot for every sub-Epackage
+Object incrementalPreserveTransformToWsdl(ExportTransformationData data, Class tempClass, String bomFullPathUri) :
+	let wsdlSchemaRoot = new WsdlSchemaDocumentRoot :
+	let tDefin = new TDefinitions :
+	let ttypes = new TTypes :
+	let typesList = {} :
+	let docRootList = incrementalPreserveTransform(data, tempClass, bomFullPathUri) :
+	let namespace = getNamespace(tempClass.getModel(), true) :
+	docRootList.collect(e|e.schema.^import.setSchemaLocation(null)) ->
+	wsdlSchemaRoot.xMLNSPrefixMap.put("xsd","http://www.w3.org/2001/XMLSchema") ->	
+	docRootList.typeSelect(XmlSchemaDocumentRoot).collect(e | addXSDSchemaToWsdlExt(data, ttypes, e.schema, wsdlSchemaRoot)) ->			
+	typesList.add(ttypes) ->
+	tDefin.setTypes(typesList) ->
+	addPortTypesFromClass(data, tempClass, tDefin, docRootList, wsdlSchemaRoot) ->
+	tDefin.setTargetNamespace(namespace) ->
+	wsdlSchemaRoot.setDefinitions(tDefin) ->
+	docRootList.add(wsdlSchemaRoot) ->
+	
+	wsdlSchemaRoot;
+
+addPortTypesFromClass(ExportTransformationData data, Class tempClass, TDefinitions tDefin, List[XmlSchemaDocumentRoot] docRootList, WsdlSchemaDocumentRoot wsdlSchemaRoot) :	
+	tDefin.setPortType({}) ->
+	tDefin.setMessage({}) ->
+	(tempClass.ownedOperation != null && tempClass.ownedOperation.size > 0) ? (
+		createPortType(data, tempClass, tDefin, docRootList, wsdlSchemaRoot)
+	) : null;	
+	
+addXSDSchemaToWsdlExt(ExportTransformationData data, TTypes ttypes, SchemaType schemaType, WsdlSchemaDocumentRoot wsdlSchemaRoot) :
+	let prefixForNamespace = data.getPrefixForNamespace(schemaType.targetNamespace) :
+	//ttypes.any.add(xmlSchema::XmlSchemaDocumentRoot::schema, schemaType) -> // this is now used for oaw 4.3.1	
+	ttypes.any.addFrom(schemaType.eContainer) -> // this is now used for oaw 4.3.1	
+	//addSchema(ttypes.any, schemaType) ->    // this is needed for oaw 4.3.0 or lower
+	wsdlSchemaRoot.xMLNSPrefixMap.put(prefixForNamespace, schemaType.targetNamespace);
+

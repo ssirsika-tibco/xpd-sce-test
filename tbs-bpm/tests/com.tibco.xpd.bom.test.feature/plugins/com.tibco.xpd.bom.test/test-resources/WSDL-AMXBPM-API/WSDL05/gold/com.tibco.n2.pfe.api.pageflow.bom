@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.pfe.api.pageflow2" name="com.tibco.n2.pfe.api.pageflow">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NzmUURUhEeGeRrbRLAepWg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NzmUUhUhEeGeRrbRLAepWg" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NzmUUxUhEeGeRrbRLAepWg" key="created" value="1321980420245"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NzmUVBUhEeGeRrbRLAepWg" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowlistPageFlowsResponseType" name="listPageFlowsResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listPageFlowsResponseTypestartPosition" name="startPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NSlR8BUhEeGeRrbRLAepWg" body="**PRIVATE API - Reserved for internal use** &#xA;&#xA;Position in the list of the first item on this page. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NSiOohUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NSiOoRUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listPageFlowsResponseTypeendPosition" name="endPosition">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NS-TgBUhEeGeRrbRLAepWg" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Position in the list of the last item on this page. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NS7QMxUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NS7QMhUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listPageFlowsResponseTypetotalItems" name="totalItems">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NTYjMBUhEeGeRrbRLAepWg" body="**PRIVATE API - Reserved for internal use**&#xA;&#xA;Total number of items in the list. (If this value is -1 the Page Flow Engine did not build the count of total number of items.) "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NTVf4hUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NTVf4RUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="listPageFlowsResponseTypepageFlowTemplate" name="pageFlowTemplate" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition30?com.tibco.n2.pfe.api.pageflow%3a%3aComposition30?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonPageFlowTemplate?com.tibco.n2.pfe.api.common%3a%3aPageFlowTemplate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NTxkwxUhEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NTxkwhUhEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition30" name="Composition30" memberEnd="listPageFlowsResponseTypepageFlowTemplate?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3apageFlowTemplate? Composition30listpageflowsresponsetype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition30%3a%3alistpageflowsresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition30listpageflowsresponsetype" name="listpageflowsresponsetype" type="com.tibco.n2.pfe.api.pageflowlistPageFlowsResponseType?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType?" association="com.tibco.n2.pfe.api.pageflowComposition30?com.tibco.n2.pfe.api.pageflow%3a%3aComposition30?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NTyL0hUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NTyL0RUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowstartPageFlowType" name="startPageFlowType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startPageFlowTypepageFlowDefinition" name="pageFlowDefinition" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition31?com.tibco.n2.pfe.api.pageflow%3a%3aComposition31?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonPFETemplate?com.tibco.n2.pfe.api.common%3a%3aPFETemplate?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NUc6MxUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NUc6MhUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startPageFlowTypeformalParams" name="formalParams" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition32?com.tibco.n2.pfe.api.pageflow%3a%3aComposition32?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeeddataPayload?com.tibco.n2.common.datafeed%3a%3adataPayload?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NUsx0RUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NUsx0BUhEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startPageFlowTyperesponsePayloadMode" name="responsePayloadMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NVAT0BUhEeGeRrbRLAepWg" body="Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). &#xA;&#xA;If not specified, the default value is JSON.&#xA;&#xA;(RSS is currently not supported.)&#xA; "/>
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeedpayloadModeType?com.tibco.n2.common.datafeed%3a%3apayloadModeType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NU_FshUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NU_FsRUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startPageFlowTypecacheTimeout" name="cacheTimeout">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NVcYsBUhEeGeRrbRLAepWg" body="Timeout value (in minutes) for the pageflow activity. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NVZVYhUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NVZVYRUhEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition31" name="Composition31" memberEnd="startPageFlowTypepageFlowDefinition?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3apageFlowDefinition? Composition31startpageflowtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition31%3a%3astartpageflowtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition31startpageflowtype" name="startpageflowtype" type="com.tibco.n2.pfe.api.pageflowstartPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType?" association="com.tibco.n2.pfe.api.pageflowComposition31?com.tibco.n2.pfe.api.pageflow%3a%3aComposition31?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NUdhQhUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NUdhQRUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition32" name="Composition32" memberEnd="startPageFlowTypeformalParams?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3aformalParams? Composition32startpageflowtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition32%3a%3astartpageflowtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition32startpageflowtype" name="startpageflowtype" type="com.tibco.n2.pfe.api.pageflowstartPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType?" association="com.tibco.n2.pfe.api.pageflowComposition32?com.tibco.n2.pfe.api.pageflow%3a%3aComposition32?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NUtY4hUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NUtY4RUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowstartPageFlowResponseType" name="startPageFlowResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="startPageFlowResponseTypepageResponse" name="pageResponse" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition33?com.tibco.n2.pfe.api.pageflow%3a%3aComposition33?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NWI8QxUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NWI8QhUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition33" name="Composition33" memberEnd="startPageFlowResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType%3a%3apageResponse? Composition33startpageflowresponsetype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition33%3a%3astartpageflowresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition33startpageflowresponsetype" name="startpageflowresponsetype" type="com.tibco.n2.pfe.api.pageflowstartPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType?" association="com.tibco.n2.pfe.api.pageflowComposition33?com.tibco.n2.pfe.api.pageflow%3a%3aComposition33?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NWJjURUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NWJjUBUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowupdatePageFlowType" name="updatePageFlowType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updatePageFlowTypecontext" name="context" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition34?com.tibco.n2.pfe.api.pageflow%3a%3aComposition34?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonRequestContext?com.tibco.n2.pfe.api.common%3a%3aRequestContext?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NW1f0xUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NW1f0hUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updatePageFlowTypepageFields" name="pageFields" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition35?com.tibco.n2.pfe.api.pageflow%3a%3aComposition35?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeeddataPayload?com.tibco.n2.common.datafeed%3a%3adataPayload?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NXGlkBUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NXF-ghUhEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updatePageFlowTyperesponsePayloadMode" name="responsePayloadMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NXXrUBUhEeGeRrbRLAepWg" body="Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). &#xA;&#xA;If not specified, the default value is JSON.&#xA;&#xA;(RSS is currently not supported.) "/>
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeedpayloadModeType?com.tibco.n2.common.datafeed%3a%3apayloadModeType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NXWdMhUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NXWdMRUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition34" name="Composition34" memberEnd="updatePageFlowTypecontext?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3acontext? Composition34updatepageflowtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition34%3a%3aupdatepageflowtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition34updatepageflowtype" name="updatepageflowtype" type="com.tibco.n2.pfe.api.pageflowupdatePageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType?" association="com.tibco.n2.pfe.api.pageflowComposition34?com.tibco.n2.pfe.api.pageflow%3a%3aComposition34?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NW2G4hUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NW2G4RUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition35" name="Composition35" memberEnd="updatePageFlowTypepageFields?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3apageFields? Composition35updatepageflowtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition35%3a%3aupdatepageflowtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition35updatepageflowtype" name="updatepageflowtype" type="com.tibco.n2.pfe.api.pageflowupdatePageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType?" association="com.tibco.n2.pfe.api.pageflowComposition35?com.tibco.n2.pfe.api.pageflow%3a%3aComposition35?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NXGlkxUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NXGlkhUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowupdatePageFlowResponseType" name="updatePageFlowResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="updatePageFlowResponseTypepageResponse" name="pageResponse" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition36?com.tibco.n2.pfe.api.pageflow%3a%3aComposition36?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NX-IQxUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NX-IQhUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition36" name="Composition36" memberEnd="updatePageFlowResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType%3a%3apageResponse? Composition36updatepageflowresponsetype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition36%3a%3aupdatepageflowresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition36updatepageflowresponsetype" name="updatepageflowresponsetype" type="com.tibco.n2.pfe.api.pageflowupdatePageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType?" association="com.tibco.n2.pfe.api.pageflowComposition36?com.tibco.n2.pfe.api.pageflow%3a%3aComposition36?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NX-vURUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NX-vUBUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventType" name="injectPageFlowEventType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="injectPageFlowEventTypeeventDefinition" name="eventDefinition" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition37?com.tibco.n2.pfe.api.pageflow%3a%3aComposition37?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonEventDefinitionType?com.tibco.n2.pfe.api.common%3a%3aEventDefinitionType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NYqr0xUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NYqr0hUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="injectPageFlowEventTypeformalParams" name="formalParams" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition38?com.tibco.n2.pfe.api.pageflow%3a%3aComposition38?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeeddataPayload?com.tibco.n2.common.datafeed%3a%3adataPayload?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NY8YoRUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NY8YoBUhEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="injectPageFlowEventTyperesponsePayloadMode" name="responsePayloadMode">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NZOsgBUhEeGeRrbRLAepWg" body="Enumerated value defining the format of the data payload to be used in the response message (XML or JSON). &#xA;&#xA;If not specified, the default value is JSON.&#xA;&#xA;(RSS is currently not supported.) "/>
+        <type xmi:type="uml:Enumeration" href="com.tibco.n2.common.datafeed.bom#com.tibco.n2.common.datafeedpayloadModeType?com.tibco.n2.common.datafeed%3a%3apayloadModeType?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NZNeYhUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NZNeYRUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition37" name="Composition37" memberEnd="injectPageFlowEventTypeeventDefinition?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aeventDefinition? Composition37injectpagefloweventtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition37%3a%3ainjectpagefloweventtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition37injectpagefloweventtype" name="injectpagefloweventtype" type="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType?" association="com.tibco.n2.pfe.api.pageflowComposition37?com.tibco.n2.pfe.api.pageflow%3a%3aComposition37?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NYrS4hUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NYrS4RUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition38" name="Composition38" memberEnd="injectPageFlowEventTypeformalParams?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aformalParams? Composition38injectpagefloweventtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition38%3a%3ainjectpagefloweventtype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition38injectpagefloweventtype" name="injectpagefloweventtype" type="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType?" association="com.tibco.n2.pfe.api.pageflowComposition38?com.tibco.n2.pfe.api.pageflow%3a%3aComposition38?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NY8YpBUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NY8YoxUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventResponseType" name="injectPageFlowEventResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="injectPageFlowEventResponseTypepageResponse" name="pageResponse" aggregation="composite" association="com.tibco.n2.pfe.api.pageflowComposition39?com.tibco.n2.pfe.api.pageflow%3a%3aComposition39?">
+        <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonPageResponse?com.tibco.n2.pfe.api.common%3a%3aPageResponse?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NZ4z0BUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NZ4MwhUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.pfe.api.pageflowComposition39" name="Composition39" memberEnd="injectPageFlowEventResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType%3a%3apageResponse? Composition39injectpagefloweventresponsetype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition39%3a%3ainjectpagefloweventresponsetype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition39injectpagefloweventresponsetype" name="injectpagefloweventresponsetype" type="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventResponseType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType?" association="com.tibco.n2.pfe.api.pageflowComposition39?com.tibco.n2.pfe.api.pageflow%3a%3aComposition39?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NZ4z0xUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NZ4z0hUhEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowcancelPageFlowType" name="cancelPageFlowType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="cancelPageFlowTypeprocessInstanceId" name="processInstanceId">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NavIYBUhEeGeRrbRLAepWg" body="ID of the pageflow process instance that is to be cancelled. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NassIhUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NassIRUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.pfe.api.pageflowcancelPageFlowResponseType" name="cancelPageFlowResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="cancelPageFlowResponseTypestatus" name="status">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_NbhLgBUhEeGeRrbRLAepWg" body="Status of the specified pageflow instance. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NbfWURUhEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NbfWUBUhEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_MnKWYRUhEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MnKWYhUhEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_MnKWYxUhEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MnKWZBUhEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_MnK9cBUhEeGeRrbRLAepWg" base_Package="com.tibco.n2.pfe.api.pageflow2?com.tibco.n2.pfe.api.pageflow?" xsdTargetNamespace="http://pageflow.api.pfe.n2.tibco.com" xsdSchemaLocation="pflow.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_NR7KoBUhEeGeRrbRLAepWg" base_Package="com.tibco.n2.pfe.api.pageflow2?com.tibco.n2.pfe.api.pageflow?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NR7xsBUhEeGeRrbRLAepWg" name="listPageFlows" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup="">
+      <type xmi:type="uml:Class" href="com.tibco.n2.pfe.api.common.bom#com.tibco.n2.pfe.api.commonListingRequest?com.tibco.n2.pfe.api.common%3a%3aListingRequest?"/>
+    </elements>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NT4ScBUhEeGeRrbRLAepWg" name="listPageFlowsResponse" type="com.tibco.n2.pfe.api.pageflowlistPageFlowsResponseType?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NVifUBUhEeGeRrbRLAepWg" name="startPageFlow" type="com.tibco.n2.pfe.api.pageflowstartPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NWNNsBUhEeGeRrbRLAepWg" name="startPageFlowResponse" type="com.tibco.n2.pfe.api.pageflowstartPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NXcj0BUhEeGeRrbRLAepWg" name="updatePageFlow" type="com.tibco.n2.pfe.api.pageflowupdatePageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NYCZsBUhEeGeRrbRLAepWg" name="updatePageFlowResponse" type="com.tibco.n2.pfe.api.pageflowupdatePageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NZTlABUhEeGeRrbRLAepWg" name="injectPageFlowEvent" type="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NZ9FQBUhEeGeRrbRLAepWg" name="injectPageFlowEventResponse" type="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventResponseType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NayLsBUhEeGeRrbRLAepWg" name="cancelPageFlow" type="com.tibco.n2.pfe.api.pageflowcancelPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_NbkO0BUhEeGeRrbRLAepWg" name="cancelPageFlowResponse" type="com.tibco.n2.pfe.api.pageflowcancelPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType?" isAnonymous="true" targetNamespace="http://pageflow.api.pfe.n2.tibco.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NSHX4BUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowlistPageFlowsResponseType?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NT0BABUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NSiOoBUhEeGeRrbRLAepWg" base_Property="listPageFlowsResponseTypestartPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3astartPosition?" xsdName="startPosition" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NT0BABUhEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_NSi1sBUhEeGeRrbRLAepWg" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listPageFlowsResponseTypestartPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3astartPosition?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_NSjcwBUhEeGeRrbRLAepWg" base_Property="listPageFlowsResponseTypestartPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3astartPosition?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NS7QMRUhEeGeRrbRLAepWg" base_Property="listPageFlowsResponseTypeendPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3aendPosition?" xsdName="endPosition" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NT0BABUhEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_NS73QBUhEeGeRrbRLAepWg" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listPageFlowsResponseTypeendPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3aendPosition?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_NS9FYBUhEeGeRrbRLAepWg" base_Property="listPageFlowsResponseTypeendPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3aendPosition?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NTVf4BUhEeGeRrbRLAepWg" base_Property="listPageFlowsResponseTypetotalItems?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3atotalItems?" xsdName="totalItems" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NT0BABUhEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_NTWG8BUhEeGeRrbRLAepWg" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="listPageFlowsResponseTypetotalItems?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3atotalItems?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_NTWuABUhEeGeRrbRLAepWg" base_Property="listPageFlowsResponseTypetotalItems?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3atotalItems?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NTyy4BUhEeGeRrbRLAepWg" base_Property="listPageFlowsResponseTypepageFlowTemplate?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3apageFlowTemplate?" xsdName="pageFlowTemplate" xsdForm="unqualified" xsdType="PageFlowTemplate" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NT0BABUhEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NUD4oBUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowstartPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NVdm0BUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NUdhQxUhEeGeRrbRLAepWg" base_Property="startPageFlowTypepageFlowDefinition?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3apageFlowDefinition?" xsdName="pageFlowDefinition" xsdForm="unqualified" xsdType="PFETemplate" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NVdm0BUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NUtY4xUhEeGeRrbRLAepWg" base_Property="startPageFlowTypeformalParams?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3aformalParams?" xsdName="formalParams" xsdForm="unqualified" xsdType="dataPayload" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NVdm0BUhEeGeRrbRLAepWg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NU_FsBUhEeGeRrbRLAepWg" base_Property="startPageFlowTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3aresponsePayloadMode?" xsdName="responsePayloadMode" xsdForm="unqualified" xsdType="df:payloadModeType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NVdm0BUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NVZVYBUhEeGeRrbRLAepWg" base_Property="startPageFlowTypecacheTimeout?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3acacheTimeout?" xsdName="cacheTimeout" xsdForm="unqualified" xsdType="long" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NVdm0BUhEeGeRrbRLAepWg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_NVZ8cBUhEeGeRrbRLAepWg" integerLength="-1" integerUpper="9223372036854775807" integerLower="-9223372036854775808" integerSubType="fixedLength" base_Property="startPageFlowTypecacheTimeout?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3acacheTimeout?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_NVbKkBUhEeGeRrbRLAepWg" base_Property="startPageFlowTypecacheTimeout?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3acacheTimeout?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="9223372036854775807" xsdMinExclusiveValue="" xsdMinInclusiveValue="-9223372036854775808"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NVuFgBUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowstartPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NWKxcBUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NWJjUhUhEeGeRrbRLAepWg" base_Property="startPageFlowResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType%3a%3apageResponse?" xsdName="pageResponse" xsdForm="unqualified" xsdType="PageResponse" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NWKxcBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NWbQIBUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowupdatePageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NXY5cBUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NW2t8BUhEeGeRrbRLAepWg" base_Property="updatePageFlowTypecontext?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3acontext?" xsdName="context" xsdForm="unqualified" xsdType="RequestContext" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NXY5cBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NXHMoBUhEeGeRrbRLAepWg" base_Property="updatePageFlowTypepageFields?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3apageFields?" xsdName="pageFields" xsdForm="unqualified" xsdType="dataPayload" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NXY5cBUhEeGeRrbRLAepWg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NXWdMBUhEeGeRrbRLAepWg" base_Property="updatePageFlowTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3aresponsePayloadMode?" xsdName="responsePayloadMode" xsdForm="unqualified" xsdType="df:payloadModeType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NXY5cBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NXpYIBUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowupdatePageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NX_9cBUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NX-vUhUhEeGeRrbRLAepWg" base_Property="updatePageFlowResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType%3a%3apageResponse?" xsdName="pageResponse" xsdForm="unqualified" xsdType="PageResponse" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NX_9cBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NYP1EBUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NZP6oBUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NYrS4xUhEeGeRrbRLAepWg" base_Property="injectPageFlowEventTypeeventDefinition?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aeventDefinition?" xsdName="eventDefinition" xsdForm="unqualified" xsdType="EventDefinitionType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NZP6oBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NY8_sBUhEeGeRrbRLAepWg" base_Property="injectPageFlowEventTypeformalParams?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aformalParams?" xsdName="formalParams" xsdForm="unqualified" xsdType="dataPayload" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NZP6oBUhEeGeRrbRLAepWg" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NZNeYBUhEeGeRrbRLAepWg" base_Property="injectPageFlowEventTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aresponsePayloadMode?" xsdName="responsePayloadMode" xsdForm="unqualified" xsdType="df:payloadModeType" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NZP6oBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NZiOgBUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventResponseType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NZ6pABUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NZ5a4BUhEeGeRrbRLAepWg" base_Property="injectPageFlowEventResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType%3a%3apageResponse?" xsdName="pageResponse" xsdForm="unqualified" xsdType="PageResponse" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NZ6pABUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NaMV0BUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowcancelPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NawWgBUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NassIBUhEeGeRrbRLAepWg" base_Property="cancelPageFlowTypeprocessInstanceId?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType%3a%3aprocessInstanceId?" xsdName="processInstanceId" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NawWgBUhEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_NatTMBUhEeGeRrbRLAepWg" textLength="-1" base_Property="cancelPageFlowTypeprocessInstanceId?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType%3a%3aprocessInstanceId?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_NbBcQBUhEeGeRrbRLAepWg" base_Class="com.tibco.n2.pfe.api.pageflowcancelPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_NbiZoBUhEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_NbevQRUhEeGeRrbRLAepWg" base_Property="cancelPageFlowResponseTypestatus?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType%3a%3astatus?" xsdName="status" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_NbiZoBUhEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_NbfWUhUhEeGeRrbRLAepWg" textLength="-1" base_Property="cancelPageFlowResponseTypestatus?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType%3a%3astatus?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb8pUBUhEeGeRrbRLAepWg" base_Element="_NS-TgBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb8pURUhEeGeRrbRLAepWg" base_Element="_NX-IQhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb9QYBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition30?com.tibco.n2.pfe.api.pageflow%3a%3aComposition30?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb9QYRUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition31?com.tibco.n2.pfe.api.pageflow%3a%3aComposition31?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb9QYhUhEeGeRrbRLAepWg" base_Element="startPageFlowResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType%3a%3apageResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb93cBUhEeGeRrbRLAepWg" base_Element="_NUc6MhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb93cRUhEeGeRrbRLAepWg" base_Element="_NZ4z0BUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb93chUhEeGeRrbRLAepWg" base_Element="_NVcYsBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb93cxUhEeGeRrbRLAepWg" base_Element="_NWJjUBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb-egBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowupdatePageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb-egRUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowstartPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb-eghUhEeGeRrbRLAepWg" base_Element="_NU_FshUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb_FkBUhEeGeRrbRLAepWg" base_Element="_NXGlkBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb_FkRUhEeGeRrbRLAepWg" base_Element="_NWJjURUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb_FkhUhEeGeRrbRLAepWg" base_Element="listPageFlowsResponseTypetotalItems?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3atotalItems?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb_soBUhEeGeRrbRLAepWg" base_Element="_NY8YoBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb_soRUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowstartPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb_sohUhEeGeRrbRLAepWg" base_Element="updatePageFlowTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3aresponsePayloadMode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Nb_soxUhEeGeRrbRLAepWg" base_Element="_NZNeYhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcATsBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowcancelPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcATsRUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowlistPageFlowsResponseType?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcATshUhEeGeRrbRLAepWg" base_Element="_NUc6MxUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcA6wBUhEeGeRrbRLAepWg" base_Element="_NZOsgBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcA6wRUhEeGeRrbRLAepWg" base_Element="cancelPageFlowTypeprocessInstanceId?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType%3a%3aprocessInstanceId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcA6whUhEeGeRrbRLAepWg" base_Element="updatePageFlowResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType%3a%3apageResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcA6wxUhEeGeRrbRLAepWg" base_Element="_NWI8QhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcBh0BUhEeGeRrbRLAepWg" base_Element="_NY8YoxUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcBh0RUhEeGeRrbRLAepWg" base_Element="_NYrS4hUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcCI4BUhEeGeRrbRLAepWg" base_Element="_NXWdMhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcCI4RUhEeGeRrbRLAepWg" base_Element="_NX-vURUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcCI4hUhEeGeRrbRLAepWg" base_Element="Composition34updatepageflowtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition34%3a%3aupdatepageflowtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcCI4xUhEeGeRrbRLAepWg" base_Element="_NbfWURUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcCv8BUhEeGeRrbRLAepWg" base_Element="_NYqr0hUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcCv8RUhEeGeRrbRLAepWg" base_Element="_NassIRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcCv8hUhEeGeRrbRLAepWg" base_Element="listPageFlowsResponseTypestartPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3astartPosition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcDXABUhEeGeRrbRLAepWg" base_Element="injectPageFlowEventTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aresponsePayloadMode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcDXARUhEeGeRrbRLAepWg" base_Element="_NWI8QxUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcDXAhUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition35?com.tibco.n2.pfe.api.pageflow%3a%3aComposition35?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcD-EBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventResponseType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcD-ERUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition33?com.tibco.n2.pfe.api.pageflow%3a%3aComposition33?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcD-EhUhEeGeRrbRLAepWg" base_Element="startPageFlowTypeformalParams?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3aformalParams?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcElIBUhEeGeRrbRLAepWg" base_Element="_NX-vUBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcElIRUhEeGeRrbRLAepWg" base_Element="Composition39injectpagefloweventresponsetype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition39%3a%3ainjectpagefloweventresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcElIhUhEeGeRrbRLAepWg" base_Element="_NavIYBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcFMMBUhEeGeRrbRLAepWg" base_Element="_NXXrUBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcFMMRUhEeGeRrbRLAepWg" base_Element="_NXWdMRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcFMMhUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowupdatePageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcFMMxUhEeGeRrbRLAepWg" base_Element="Composition38injectpagefloweventtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition38%3a%3ainjectpagefloweventtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcFzQBUhEeGeRrbRLAepWg" base_Element="_NUdhQRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcFzQRUhEeGeRrbRLAepWg" base_Element="_NXGlkhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcFzQhUhEeGeRrbRLAepWg" base_Element="_NZNeYRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcGaUBUhEeGeRrbRLAepWg" base_Element="_NbhLgBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcGaURUhEeGeRrbRLAepWg" base_Element="_NTYjMBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcGaUhUhEeGeRrbRLAepWg" base_Element="Composition35updatepageflowtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition35%3a%3aupdatepageflowtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcGaUxUhEeGeRrbRLAepWg" base_Element="_NU_FsRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcHBYBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition36?com.tibco.n2.pfe.api.pageflow%3a%3aComposition36?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcHBYRUhEeGeRrbRLAepWg" base_Element="_NW1f0hUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcHBYhUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition38?com.tibco.n2.pfe.api.pageflow%3a%3aComposition38?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcHocBUhEeGeRrbRLAepWg" base_Element="_NTVf4hUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcHocRUhEeGeRrbRLAepWg" base_Element="_NS7QMxUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcHochUhEeGeRrbRLAepWg" base_Element="Composition32startpageflowtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition32%3a%3astartpageflowtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcHocxUhEeGeRrbRLAepWg" base_Element="Composition31startpageflowtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition31%3a%3astartpageflowtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcIPgBUhEeGeRrbRLAepWg" base_Element="_NTyL0hUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcIPgRUhEeGeRrbRLAepWg" base_Element="injectPageFlowEventTypeformalParams?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aformalParams?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcIPghUhEeGeRrbRLAepWg" base_Element="_NXGlkxUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcI2kBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition37?com.tibco.n2.pfe.api.pageflow%3a%3aComposition37?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcI2kRUhEeGeRrbRLAepWg" base_Element="_NVAT0BUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcI2khUhEeGeRrbRLAepWg" base_Element="_NUsx0RUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcI2kxUhEeGeRrbRLAepWg" base_Element="_NW2G4hUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcJdoBUhEeGeRrbRLAepWg" base_Element="_NYrS4RUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcJdoRUhEeGeRrbRLAepWg" base_Element="_NSlR8BUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcJdohUhEeGeRrbRLAepWg" base_Element="_NXF-ghUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcKEsBUhEeGeRrbRLAepWg" base_Element="injectPageFlowEventTypeeventDefinition?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aeventDefinition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcKEsRUhEeGeRrbRLAepWg" base_Element="_NZ4z0hUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcKEshUhEeGeRrbRLAepWg" base_Element="startPageFlowTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3aresponsePayloadMode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcKrwBUhEeGeRrbRLAepWg" base_Element="_NUdhQhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcKrwRUhEeGeRrbRLAepWg" base_Element="_NY8YoRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcKrwhUhEeGeRrbRLAepWg" base_Element="_NYqr0xUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcKrwxUhEeGeRrbRLAepWg" base_Element="_NS7QMhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcLS0BUhEeGeRrbRLAepWg" base_Element="_NSiOoRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcLS0RUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition34?com.tibco.n2.pfe.api.pageflow%3a%3aComposition34?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcL54BUhEeGeRrbRLAepWg" base_Element="_NZ4MwhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcL54RUhEeGeRrbRLAepWg" base_Element="listPageFlowsResponseTypepageFlowTemplate?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3apageFlowTemplate?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcL54hUhEeGeRrbRLAepWg" base_Element="_NZ4z0xUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcMg8BUhEeGeRrbRLAepWg" base_Element="updatePageFlowTypecontext?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3acontext?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcMg8RUhEeGeRrbRLAepWg" base_Element="_NY8YpBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcMg8hUhEeGeRrbRLAepWg" base_Element="_NW1f0xUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcNIABUhEeGeRrbRLAepWg" base_Element="_NTyL0RUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcO9MBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition32?com.tibco.n2.pfe.api.pageflow%3a%3aComposition32?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcO9MRUhEeGeRrbRLAepWg" base_Element="_NassIhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcPkQBUhEeGeRrbRLAepWg" base_Element="_NVZVYhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcPkQRUhEeGeRrbRLAepWg" base_Element="Composition36updatepageflowresponsetype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition36%3a%3aupdatepageflowresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcPkQhUhEeGeRrbRLAepWg" base_Element="listPageFlowsResponseTypeendPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3aendPosition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcPkQxUhEeGeRrbRLAepWg" base_Element="startPageFlowTypepageFlowDefinition?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3apageFlowDefinition?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcQLUBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowComposition39?com.tibco.n2.pfe.api.pageflow%3a%3aComposition39?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcQLURUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowcancelPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcQLUhUhEeGeRrbRLAepWg" base_Element="_NVZVYRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcQyYBUhEeGeRrbRLAepWg" base_Element="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcQyYRUhEeGeRrbRLAepWg" base_Element="Composition37injectpagefloweventtype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition37%3a%3ainjectpagefloweventtype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcQyYhUhEeGeRrbRLAepWg" base_Element="cancelPageFlowResponseTypestatus?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType%3a%3astatus?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcRZcBUhEeGeRrbRLAepWg" base_Element="_NUtY4hUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcRZcRUhEeGeRrbRLAepWg" base_Element="_MnKWYxUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcRZchUhEeGeRrbRLAepWg" base_Element="_NW2G4RUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcRZcxUhEeGeRrbRLAepWg" base_Element="_NbfWUBUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcSAgBUhEeGeRrbRLAepWg" base_Element="Composition33startpageflowresponsetype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition33%3a%3astartpageflowresponsetype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcSAgRUhEeGeRrbRLAepWg" base_Element="_NTVf4RUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcSAghUhEeGeRrbRLAepWg" base_Element="startPageFlowTypecacheTimeout?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3acacheTimeout?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcSnkBUhEeGeRrbRLAepWg" base_Element="_NX-IQxUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcSnkRUhEeGeRrbRLAepWg" base_Element="_NTxkwhUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcSnkhUhEeGeRrbRLAepWg" base_Element="_NTxkwxUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcTOoBUhEeGeRrbRLAepWg" base_Element="_NUtY4RUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcTOoRUhEeGeRrbRLAepWg" base_Element="_NSiOohUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcTOohUhEeGeRrbRLAepWg" base_Element="_MnKWYRUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcTOoxUhEeGeRrbRLAepWg" base_Element="_NUsx0BUhEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcT1sBUhEeGeRrbRLAepWg" base_Element="updatePageFlowTypepageFields?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3apageFields?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcT1sRUhEeGeRrbRLAepWg" base_Element="injectPageFlowEventResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType%3a%3apageResponse?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_NcT1shUhEeGeRrbRLAepWg" base_Element="Composition30listpageflowsresponsetype?com.tibco.n2.pfe.api.pageflow%3a%3aComposition30%3a%3alistpageflowsresponsetype?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzEv4BUhEeGeRrbRLAepWg" displayLabel="cancelPageFlowType" base_NamedElement="com.tibco.n2.pfe.api.pageflowcancelPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzF-ABUhEeGeRrbRLAepWg" displayLabel="cancelPageFlowResponseType" base_NamedElement="com.tibco.n2.pfe.api.pageflowcancelPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzHzMBUhEeGeRrbRLAepWg" displayLabel="injectPageFlowEventType" base_NamedElement="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzJBUBUhEeGeRrbRLAepWg" displayLabel="injectPageFlowEventResponseType" base_NamedElement="com.tibco.n2.pfe.api.pageflowinjectPageFlowEventResponseType?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzKPcBUhEeGeRrbRLAepWg" displayLabel="listPageFlowsResponseType" base_NamedElement="com.tibco.n2.pfe.api.pageflowlistPageFlowsResponseType?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzLdkBUhEeGeRrbRLAepWg" displayLabel="startPageFlowType" base_NamedElement="com.tibco.n2.pfe.api.pageflowstartPageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzNSwBUhEeGeRrbRLAepWg" displayLabel="startPageFlowResponseType" base_NamedElement="com.tibco.n2.pfe.api.pageflowstartPageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzPH8BUhEeGeRrbRLAepWg" displayLabel="updatePageFlowType" base_NamedElement="com.tibco.n2.pfe.api.pageflowupdatePageFlowType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzQWEBUhEeGeRrbRLAepWg" displayLabel="updatePageFlowResponseType" base_NamedElement="com.tibco.n2.pfe.api.pageflowupdatePageFlowResponseType?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzRkMBUhEeGeRrbRLAepWg" displayLabel="processInstanceId" base_NamedElement="cancelPageFlowTypeprocessInstanceId?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowType%3a%3aprocessInstanceId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzSyUBUhEeGeRrbRLAepWg" displayLabel="status" base_NamedElement="cancelPageFlowResponseTypestatus?com.tibco.n2.pfe.api.pageflow%3a%3acancelPageFlowResponseType%3a%3astatus?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzUAcBUhEeGeRrbRLAepWg" displayLabel="eventDefinition" base_NamedElement="injectPageFlowEventTypeeventDefinition?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aeventDefinition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzUngBUhEeGeRrbRLAepWg" displayLabel="formalParams" base_NamedElement="injectPageFlowEventTypeformalParams?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aformalParams?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzV1oBUhEeGeRrbRLAepWg" displayLabel="responsePayloadMode" base_NamedElement="injectPageFlowEventTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventType%3a%3aresponsePayloadMode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzXDwBUhEeGeRrbRLAepWg" displayLabel="pageResponse" base_NamedElement="injectPageFlowEventResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3ainjectPageFlowEventResponseType%3a%3apageResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzYR4BUhEeGeRrbRLAepWg" displayLabel="endPosition" base_NamedElement="listPageFlowsResponseTypeendPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3aendPosition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzZgABUhEeGeRrbRLAepWg" displayLabel="pageFlowTemplate" base_NamedElement="listPageFlowsResponseTypepageFlowTemplate?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3apageFlowTemplate?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzauIBUhEeGeRrbRLAepWg" displayLabel="startPosition" base_NamedElement="listPageFlowsResponseTypestartPosition?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3astartPosition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Nzb8QBUhEeGeRrbRLAepWg" displayLabel="totalItems" base_NamedElement="listPageFlowsResponseTypetotalItems?com.tibco.n2.pfe.api.pageflow%3a%3alistPageFlowsResponseType%3a%3atotalItems?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzdKYBUhEeGeRrbRLAepWg" displayLabel="cacheTimeout" base_NamedElement="startPageFlowTypecacheTimeout?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3acacheTimeout?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzeYgBUhEeGeRrbRLAepWg" displayLabel="formalParams" base_NamedElement="startPageFlowTypeformalParams?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3aformalParams?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Nze_kBUhEeGeRrbRLAepWg" displayLabel="pageFlowDefinition" base_NamedElement="startPageFlowTypepageFlowDefinition?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3apageFlowDefinition?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzgNsBUhEeGeRrbRLAepWg" displayLabel="responsePayloadMode" base_NamedElement="startPageFlowTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowType%3a%3aresponsePayloadMode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Nzhb0BUhEeGeRrbRLAepWg" displayLabel="pageResponse" base_NamedElement="startPageFlowResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3astartPageFlowResponseType%3a%3apageResponse?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Nzip8BUhEeGeRrbRLAepWg" displayLabel="context" base_NamedElement="updatePageFlowTypecontext?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3acontext?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Nzj4EBUhEeGeRrbRLAepWg" displayLabel="pageFields" base_NamedElement="updatePageFlowTypepageFields?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3apageFields?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzlGMBUhEeGeRrbRLAepWg" displayLabel="responsePayloadMode" base_NamedElement="updatePageFlowTyperesponsePayloadMode?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowType%3a%3aresponsePayloadMode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_NzmUUBUhEeGeRrbRLAepWg" displayLabel="pageResponse" base_NamedElement="updatePageFlowResponseTypepageResponse?com.tibco.n2.pfe.api.pageflow%3a%3aupdatePageFlowResponseType%3a%3apageResponse?"/>
+  <notation:Diagram xmi:id="_Nzm7YBUhEeGeRrbRLAepWg" type="Business Object Model" element="com.tibco.n2.pfe.api.pageflow2?com.tibco.n2.pfe.api.pageflow?" name="com.tibco.n2.pfe.api.pageflow" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Nzm7YRUhEeGeRrbRLAepWg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_Nzm7YhUhEeGeRrbRLAepWg"/>
+  </notation:Diagram>
+</xmi:XMI>

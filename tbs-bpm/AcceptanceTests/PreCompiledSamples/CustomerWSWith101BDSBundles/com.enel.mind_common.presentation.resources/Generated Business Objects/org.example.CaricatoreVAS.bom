@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.CaricatoreVAS" name="org.example.CaricatoreVAS">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IaxBKA93EeW3MruGqUCC5Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IaxBKQ93EeW3MruGqUCC5Q" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IaxBKg93EeW3MruGqUCC5Q" key="created" value="1433947604513"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IaxBKw93EeW3MruGqUCC5Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IbqY8A93EeW3MruGqUCC5Q" key="checksum" value="870810284"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.CaricatoreVASServiziPartner" name="ServiziPartner">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ServiziPartnerCodiceUnivoco" name="codiceUnivoco" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaBaMw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaBaMg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ServiziPartnerFatturazioneEE" name="fatturazioneEE" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaBaOA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaBaNw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ServiziPartnerSaldoAnnoContrattuale" name="saldoAnnoContrattuale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaBaPQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaBaPA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ServiziPartnerAttributi" name="attributi" type="org.example.CaricatoreVASAttributi?org.example.CaricatoreVAS%3a%3aAttributi?" aggregation="composite" association="org.example.CaricatoreVASComposition0?org.example.CaricatoreVAS%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaBaTw93EeW3MruGqUCC5Q" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaBaTg93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ServiziPartnerCodiceContratto" name="codiceContratto" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaLLNA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaLLMw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.CaricatoreVASAttributi" name="Attributi">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AttributiNome" name="nome" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaBaRA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaBaQw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="AttributiValore" name="valore" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaBaSQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaBaSA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="org.example.CaricatoreVASComposition0" name="Composition0" memberEnd="ServiziPartnerAttributi?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3aattributi? Composition0servizipartner?org.example.CaricatoreVAS%3a%3aComposition0%3a%3aservizipartner?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0servizipartner" name="servizipartner" type="org.example.CaricatoreVASServiziPartner?org.example.CaricatoreVAS%3a%3aServiziPartner?" association="org.example.CaricatoreVASComposition0?org.example.CaricatoreVAS%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaBaUg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaBaUQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.CaricatoreVASInserimentoVASType" name="InserimentoVASType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASTypeIdBPM" name="idBPM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaLLPA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaLLOw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASTypeCanale" name="canale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaLLQQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaLLQA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASTypeinsOffertaMemo" name="insOffertaMemo" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaLLRg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaLLRQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.CaricatoreVASInserimentoVASResponseType" name="InserimentoVASResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASResponseTypeEsito" name="esito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaU8OA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaU8Nw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASResponseTypeCodice" name="codice" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaU8PQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaU8PA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASResponseTypeDescrizione" name="descrizione" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaU8Qg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaU8QQ93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASResponseTypePOD" name="POD" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaU8Rw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaU8Rg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASResponseTypeIdBPM" name="idBPM" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaeGIw93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaeGIg93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASResponseTypeCodiceContrattoPartner" name="codiceContrattoPartner" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaeGKA93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaeGJw93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASResponseTypeSorgenteEsito" name="sorgenteEsito" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaeGLQ93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaeGLA93EeW3MruGqUCC5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InserimentoVASResponseTypeIdTransazioneCanale" name="idTransazioneCanale" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IaeGMg93EeW3MruGqUCC5Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IaeGMQ93EeW3MruGqUCC5Q"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.CaricatoreVASCaricatoreVAS" name="CaricatoreVAS">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="CaricatoreVASInserimentoVAS" name="InserimentoVAS">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="InserimentoVASparameters" name="parameters" type="org.example.CaricatoreVASInserimentoVASType?org.example.CaricatoreVAS%3a%3aInserimentoVASType?"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="InserimentoVASparameters2" name="parameters" type="org.example.CaricatoreVASInserimentoVASResponseType?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType?" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_IZ4QQQ93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IZ4QQg93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_IZ4QQw93EeW3MruGqUCC5Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IZ4QRA93EeW3MruGqUCC5Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_IZ4QRQ93EeW3MruGqUCC5Q" base_Package="org.example.CaricatoreVAS?org.example.CaricatoreVAS?" xsdTargetNamespace="http://www.example.org/CaricatoreVAS/" xsdSchemaLocation="CaricatoreVAS.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.10.0.qualifier" bomWsdlSources="CaricatoreVAS.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_IZ4QRw93EeW3MruGqUCC5Q" base_Class="org.example.CaricatoreVASServiziPartner?org.example.CaricatoreVAS%3a%3aServiziPartner?" xsdName="ServiziPartner" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_IaLLNg93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaBaMQ93EeW3MruGqUCC5Q" base_Property="ServiziPartnerCodiceUnivoco?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3acodiceUnivoco?" xsdName="CodiceUnivoco" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaLLNg93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaBaNA93EeW3MruGqUCC5Q" textLength="-1" base_Property="ServiziPartnerCodiceUnivoco?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3acodiceUnivoco?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaBaNg93EeW3MruGqUCC5Q" base_Property="ServiziPartnerFatturazioneEE?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3afatturazioneEE?" xsdName="FatturazioneEE" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaLLNg93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaBaOQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="ServiziPartnerFatturazioneEE?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3afatturazioneEE?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaBaOw93EeW3MruGqUCC5Q" base_Property="ServiziPartnerSaldoAnnoContrattuale?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3asaldoAnnoContrattuale?" xsdName="SaldoAnnoContrattuale" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaLLNg93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaBaPg93EeW3MruGqUCC5Q" textLength="-1" base_Property="ServiziPartnerSaldoAnnoContrattuale?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3asaldoAnnoContrattuale?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_IaBaQA93EeW3MruGqUCC5Q" base_Class="org.example.CaricatoreVASAttributi?org.example.CaricatoreVAS%3a%3aAttributi?" xsdName="Attributi" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_IaBaSw93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaBaQg93EeW3MruGqUCC5Q" base_Property="AttributiNome?org.example.CaricatoreVAS%3a%3aAttributi%3a%3anome?" xsdName="Nome" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaBaSw93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaBaRQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="AttributiNome?org.example.CaricatoreVAS%3a%3aAttributi%3a%3anome?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaBaRw93EeW3MruGqUCC5Q" base_Property="AttributiValore?org.example.CaricatoreVAS%3a%3aAttributi%3a%3avalore?" xsdName="Valore" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaBaSw93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaBaSg93EeW3MruGqUCC5Q" textLength="-1" base_Property="AttributiValore?org.example.CaricatoreVAS%3a%3aAttributi%3a%3avalore?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaLLMA93EeW3MruGqUCC5Q" base_Property="ServiziPartnerAttributi?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3aattributi?" xsdName="Attributi" xsdForm="unqualified" xsdType="Attributi" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaLLNg93EeW3MruGqUCC5Q" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaLLMg93EeW3MruGqUCC5Q" base_Property="ServiziPartnerCodiceContratto?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3acodiceContratto?" xsdName="CodiceContratto" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaLLNg93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaLLNQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="ServiziPartnerCodiceContratto?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3acodiceContratto?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_IaLLOA93EeW3MruGqUCC5Q" base_Class="org.example.CaricatoreVASInserimentoVASType?org.example.CaricatoreVAS%3a%3aInserimentoVASType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_IaU8MA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaLLOg93EeW3MruGqUCC5Q" base_Property="InserimentoVASTypeIdBPM?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3aidBPM?" xsdName="IdBPM" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaU8MA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaLLPQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASTypeIdBPM?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3aidBPM?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaLLPw93EeW3MruGqUCC5Q" base_Property="InserimentoVASTypeCanale?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3acanale?" xsdName="Canale" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaU8MA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaLLQg93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASTypeCanale?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3acanale?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaLLRA93EeW3MruGqUCC5Q" base_Property="InserimentoVASTypeinsOffertaMemo?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3ainsOffertaMemo?" xsdName="insOffertaMemo" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaU8MA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaLLRw93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASTypeinsOffertaMemo?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3ainsOffertaMemo?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_IaU8MQ93EeW3MruGqUCC5Q" base_Package="org.example.CaricatoreVAS?org.example.CaricatoreVAS?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_IaU8Mg93EeW3MruGqUCC5Q" name="InserimentoVAS" type="org.example.CaricatoreVASInserimentoVASType?org.example.CaricatoreVAS%3a%3aInserimentoVASType?" isAnonymous="true" targetNamespace="http://www.example.org/CaricatoreVAS/" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_IaeGNQ93EeW3MruGqUCC5Q" name="InserimentoVASResponse" type="org.example.CaricatoreVASInserimentoVASResponseType?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType?" isAnonymous="true" targetNamespace="http://www.example.org/CaricatoreVAS/" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_IaU8NA93EeW3MruGqUCC5Q" base_Class="org.example.CaricatoreVASInserimentoVASResponseType?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_IaeGNA93EeW3MruGqUCC5Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaU8Ng93EeW3MruGqUCC5Q" base_Property="InserimentoVASResponseTypeEsito?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aesito?" xsdName="Esito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaeGNA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaU8OQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASResponseTypeEsito?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaU8Ow93EeW3MruGqUCC5Q" base_Property="InserimentoVASResponseTypeCodice?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3acodice?" xsdName="Codice" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaeGNA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaU8Pg93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASResponseTypeCodice?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3acodice?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaU8QA93EeW3MruGqUCC5Q" base_Property="InserimentoVASResponseTypeDescrizione?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3adescrizione?" xsdName="Descrizione" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaeGNA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaU8Qw93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASResponseTypeDescrizione?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaU8RQ93EeW3MruGqUCC5Q" base_Property="InserimentoVASResponseTypePOD?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aPOD?" xsdName="POD" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaeGNA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaU8SA93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASResponseTypePOD?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aPOD?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaeGIQ93EeW3MruGqUCC5Q" base_Property="InserimentoVASResponseTypeIdBPM?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aidBPM?" xsdName="IdBPM" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaeGNA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaeGJA93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASResponseTypeIdBPM?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aidBPM?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaeGJg93EeW3MruGqUCC5Q" base_Property="InserimentoVASResponseTypeCodiceContrattoPartner?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3acodiceContrattoPartner?" xsdName="CodiceContrattoPartner" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaeGNA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaeGKQ93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASResponseTypeCodiceContrattoPartner?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3acodiceContrattoPartner?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaeGKw93EeW3MruGqUCC5Q" base_Property="InserimentoVASResponseTypeSorgenteEsito?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3asorgenteEsito?" xsdName="SorgenteEsito" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaeGNA93EeW3MruGqUCC5Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaeGLg93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASResponseTypeSorgenteEsito?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3asorgenteEsito?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_IaeGMA93EeW3MruGqUCC5Q" base_Property="InserimentoVASResponseTypeIdTransazioneCanale?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aidTransazioneCanale?" xsdName="IdTransazioneCanale" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_IaeGNA93EeW3MruGqUCC5Q" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_IaeGMw93EeW3MruGqUCC5Q" textLength="-1" base_Property="InserimentoVASResponseTypeIdTransazioneCanale?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aidTransazioneCanale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3IA93EeW3MruGqUCC5Q" base_Element="AttributiNome?org.example.CaricatoreVAS%3a%3aAttributi%3a%3anome?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3IQ93EeW3MruGqUCC5Q" base_Element="_IaBaRA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Ig93EeW3MruGqUCC5Q" base_Element="_IaBaUg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Iw93EeW3MruGqUCC5Q" base_Element="_IaeGIw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3JA93EeW3MruGqUCC5Q" base_Element="org.example.CaricatoreVASAttributi?org.example.CaricatoreVAS%3a%3aAttributi?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3JQ93EeW3MruGqUCC5Q" base_Element="_IaU8Nw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Jg93EeW3MruGqUCC5Q" base_Element="InserimentoVASResponseTypeCodiceContrattoPartner?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3acodiceContrattoPartner?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Jw93EeW3MruGqUCC5Q" base_Element="_IaU8PA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3KA93EeW3MruGqUCC5Q" base_Element="_IaU8Qg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3KQ93EeW3MruGqUCC5Q" base_Element="_IZ4QQw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Kg93EeW3MruGqUCC5Q" base_Element="_IaBaMg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Kw93EeW3MruGqUCC5Q" base_Element="InserimentoVASResponseTypeSorgenteEsito?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3asorgenteEsito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3LA93EeW3MruGqUCC5Q" base_Element="_IaeGJw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3LQ93EeW3MruGqUCC5Q" base_Element="ServiziPartnerCodiceUnivoco?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3acodiceUnivoco?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Lg93EeW3MruGqUCC5Q" base_Element="_IaLLRQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Lw93EeW3MruGqUCC5Q" base_Element="ServiziPartnerAttributi?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3aattributi?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3MA93EeW3MruGqUCC5Q" base_Element="_IaBaSA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3MQ93EeW3MruGqUCC5Q" base_Element="_IaLLOw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Mg93EeW3MruGqUCC5Q" base_Element="_IaBaMw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Mw93EeW3MruGqUCC5Q" base_Element="_IaLLPA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3NA93EeW3MruGqUCC5Q" base_Element="_IaU8Rg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3NQ93EeW3MruGqUCC5Q" base_Element="_IaU8PQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Ng93EeW3MruGqUCC5Q" base_Element="org.example.CaricatoreVASInserimentoVASType?org.example.CaricatoreVAS%3a%3aInserimentoVASType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Nw93EeW3MruGqUCC5Q" base_Element="_IaBaQw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3OA93EeW3MruGqUCC5Q" base_Element="_IaLLRg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3OQ93EeW3MruGqUCC5Q" base_Element="_IaBaTg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Og93EeW3MruGqUCC5Q" base_Element="InserimentoVASResponseTypeIdBPM?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aidBPM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Ow93EeW3MruGqUCC5Q" base_Element="_IaBaPA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3PA93EeW3MruGqUCC5Q" base_Element="_IaeGMQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3PQ93EeW3MruGqUCC5Q" base_Element="org.example.CaricatoreVASComposition0?org.example.CaricatoreVAS%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Pg93EeW3MruGqUCC5Q" base_Element="_IaBaTw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Pw93EeW3MruGqUCC5Q" base_Element="_IaeGLQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3QA93EeW3MruGqUCC5Q" base_Element="InserimentoVASResponseTypePOD?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aPOD?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3QQ93EeW3MruGqUCC5Q" base_Element="_IaeGIg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Qg93EeW3MruGqUCC5Q" base_Element="org.example.CaricatoreVASServiziPartner?org.example.CaricatoreVAS%3a%3aServiziPartner?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Qw93EeW3MruGqUCC5Q" base_Element="ServiziPartnerSaldoAnnoContrattuale?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3asaldoAnnoContrattuale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3RA93EeW3MruGqUCC5Q" base_Element="InserimentoVASTypeIdBPM?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3aidBPM?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3RQ93EeW3MruGqUCC5Q" base_Element="_IaeGLA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Rg93EeW3MruGqUCC5Q" base_Element="_IaeGMg93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Rw93EeW3MruGqUCC5Q" base_Element="_IaLLNA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3SA93EeW3MruGqUCC5Q" base_Element="_IaBaUQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3SQ93EeW3MruGqUCC5Q" base_Element="InserimentoVASResponseTypeDescrizione?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3adescrizione?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Sg93EeW3MruGqUCC5Q" base_Element="InserimentoVASResponseTypeCodice?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3acodice?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Sw93EeW3MruGqUCC5Q" base_Element="Composition0servizipartner?org.example.CaricatoreVAS%3a%3aComposition0%3a%3aservizipartner?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3TA93EeW3MruGqUCC5Q" base_Element="_IaBaOA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3TQ93EeW3MruGqUCC5Q" base_Element="InserimentoVASResponseTypeEsito?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aesito?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Tg93EeW3MruGqUCC5Q" base_Element="InserimentoVASResponseTypeIdTransazioneCanale?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aidTransazioneCanale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Tw93EeW3MruGqUCC5Q" base_Element="ServiziPartnerFatturazioneEE?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3afatturazioneEE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3UA93EeW3MruGqUCC5Q" base_Element="AttributiValore?org.example.CaricatoreVAS%3a%3aAttributi%3a%3avalore?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3UQ93EeW3MruGqUCC5Q" base_Element="ServiziPartnerCodiceContratto?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3acodiceContratto?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Ug93EeW3MruGqUCC5Q" base_Element="_IaLLQA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Uw93EeW3MruGqUCC5Q" base_Element="_IaU8OA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3VA93EeW3MruGqUCC5Q" base_Element="InserimentoVASTypeinsOffertaMemo?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3ainsOffertaMemo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3VQ93EeW3MruGqUCC5Q" base_Element="InserimentoVASTypeCanale?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3acanale?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Vg93EeW3MruGqUCC5Q" base_Element="_IaBaPQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Vw93EeW3MruGqUCC5Q" base_Element="_IaLLQQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3WA93EeW3MruGqUCC5Q" base_Element="_IaU8Rw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3WQ93EeW3MruGqUCC5Q" base_Element="org.example.CaricatoreVASInserimentoVASResponseType?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Wg93EeW3MruGqUCC5Q" base_Element="_IZ4QQQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Ww93EeW3MruGqUCC5Q" base_Element="_IaBaSQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3XA93EeW3MruGqUCC5Q" base_Element="_IaBaNw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3XQ93EeW3MruGqUCC5Q" base_Element="_IaLLMw93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Xg93EeW3MruGqUCC5Q" base_Element="_IaU8QQ93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Ian3Xw93EeW3MruGqUCC5Q" base_Element="_IaeGKA93EeW3MruGqUCC5Q"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Ian3YQ93EeW3MruGqUCC5Q" base_Class="org.example.CaricatoreVASCaricatoreVAS?org.example.CaricatoreVAS%3a%3aCaricatoreVAS?" xsdName="CaricatoreVAS" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBEQ93EeW3MruGqUCC5Q" displayLabel="Attributi" base_NamedElement="org.example.CaricatoreVASAttributi?org.example.CaricatoreVAS%3a%3aAttributi?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBEg93EeW3MruGqUCC5Q" displayLabel="CaricatoreVAS" base_NamedElement="org.example.CaricatoreVASCaricatoreVAS?org.example.CaricatoreVAS%3a%3aCaricatoreVAS?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBEw93EeW3MruGqUCC5Q" displayLabel="ServiziPartner" base_NamedElement="org.example.CaricatoreVASServiziPartner?org.example.CaricatoreVAS%3a%3aServiziPartner?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBFA93EeW3MruGqUCC5Q" displayLabel="InserimentoVASType" base_NamedElement="org.example.CaricatoreVASInserimentoVASType?org.example.CaricatoreVAS%3a%3aInserimentoVASType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBFQ93EeW3MruGqUCC5Q" displayLabel="InserimentoVASResponseType" base_NamedElement="org.example.CaricatoreVASInserimentoVASResponseType?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBFg93EeW3MruGqUCC5Q" displayLabel="Nome" base_NamedElement="AttributiNome?org.example.CaricatoreVAS%3a%3aAttributi%3a%3anome?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBFw93EeW3MruGqUCC5Q" displayLabel="Valore" base_NamedElement="AttributiValore?org.example.CaricatoreVAS%3a%3aAttributi%3a%3avalore?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBGA93EeW3MruGqUCC5Q" displayLabel="Attributi" base_NamedElement="ServiziPartnerAttributi?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3aattributi?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBGQ93EeW3MruGqUCC5Q" displayLabel="CodiceContratto" base_NamedElement="ServiziPartnerCodiceContratto?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3acodiceContratto?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBGg93EeW3MruGqUCC5Q" displayLabel="CodiceUnivoco" base_NamedElement="ServiziPartnerCodiceUnivoco?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3acodiceUnivoco?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBGw93EeW3MruGqUCC5Q" displayLabel="FatturazioneEE" base_NamedElement="ServiziPartnerFatturazioneEE?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3afatturazioneEE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBHA93EeW3MruGqUCC5Q" displayLabel="SaldoAnnoContrattuale" base_NamedElement="ServiziPartnerSaldoAnnoContrattuale?org.example.CaricatoreVAS%3a%3aServiziPartner%3a%3asaldoAnnoContrattuale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBHQ93EeW3MruGqUCC5Q" displayLabel="Canale" base_NamedElement="InserimentoVASTypeCanale?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3acanale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBHg93EeW3MruGqUCC5Q" displayLabel="IdBPM" base_NamedElement="InserimentoVASTypeIdBPM?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3aidBPM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBHw93EeW3MruGqUCC5Q" displayLabel="insOffertaMemo" base_NamedElement="InserimentoVASTypeinsOffertaMemo?org.example.CaricatoreVAS%3a%3aInserimentoVASType%3a%3ainsOffertaMemo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBIA93EeW3MruGqUCC5Q" displayLabel="Codice" base_NamedElement="InserimentoVASResponseTypeCodice?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3acodice?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBIQ93EeW3MruGqUCC5Q" displayLabel="CodiceContrattoPartner" base_NamedElement="InserimentoVASResponseTypeCodiceContrattoPartner?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3acodiceContrattoPartner?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBIg93EeW3MruGqUCC5Q" displayLabel="Descrizione" base_NamedElement="InserimentoVASResponseTypeDescrizione?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3adescrizione?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBIw93EeW3MruGqUCC5Q" displayLabel="Esito" base_NamedElement="InserimentoVASResponseTypeEsito?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aesito?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBJA93EeW3MruGqUCC5Q" displayLabel="IdBPM" base_NamedElement="InserimentoVASResponseTypeIdBPM?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aidBPM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBJQ93EeW3MruGqUCC5Q" displayLabel="IdTransazioneCanale" base_NamedElement="InserimentoVASResponseTypeIdTransazioneCanale?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aidTransazioneCanale?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBJg93EeW3MruGqUCC5Q" displayLabel="POD" base_NamedElement="InserimentoVASResponseTypePOD?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3aPOD?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_IaxBJw93EeW3MruGqUCC5Q" displayLabel="SorgenteEsito" base_NamedElement="InserimentoVASResponseTypeSorgenteEsito?org.example.CaricatoreVAS%3a%3aInserimentoVASResponseType%3a%3asorgenteEsito?"/>
+  <notation:Diagram xmi:id="_IaxBLA93EeW3MruGqUCC5Q" type="Business Object Model" element="org.example.CaricatoreVAS?org.example.CaricatoreVAS?" name="org.example.CaricatoreVAS" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_IaxBLQ93EeW3MruGqUCC5Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_IaxBLg93EeW3MruGqUCC5Q"/>
+  </notation:Diagram>
+</xmi:XMI>

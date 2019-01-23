@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/bpmmuti/CRMCambioTaglia.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://xmlns.enel.com/mercato/libero/interface/bpmmuti/crmcambiotaglia" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/interface/bpmmuti/crmcambiotaglia" tibex:src="file:/D:/PROGETTI/MIND/share/CRMCambioTagliaAbstract.wsdl">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/bpmmuti/CRMCambioTaglia.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpmmuti/CRMCambioTaglia.xsd">
+            <xs:element name="CRMCambioTagliaRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ID_DELAYED_RELEASE" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Chiave_BPM" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ID_Linea_Ordine" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito_Sempre" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Codice_Esito_Sempre" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Descrizione_Esito_Sempre" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Esito_Sap_Isu" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Codice_Esito_Sap_Isu" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Descrizione_Esito_Sap_Isu" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CRMCambioTagliaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Esito_CRM" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Codice_Esito_CRM" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Descrizione_Esito_CRM" type="xs:string"/>
+                        <xs:element name="Tecnico_Desc_Esito" type="xs:string"/>
+                        <xs:element name="Tecnico_Esito" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:portType name="CRMCambioTagliaRequestPortType">
+        <wsdl:operation name="CRMCambioTaglia">
+            <wsdl:input message="tns:CRMCambioTagliaRequest"/>
+            <wsdl:output message="tns:CRMCambioTagliaResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="CRMCambioTagliaRequest">
+        <wsdl:part element="ns0:CRMCambioTagliaRequest" name="partBody"/>
+    </wsdl:message>
+    <wsdl:message name="CRMCambioTagliaResponse">
+        <wsdl:part element="ns0:CRMCambioTagliaResponse" name="partBody"/>
+    </wsdl:message>
+</wsdl:definitions>

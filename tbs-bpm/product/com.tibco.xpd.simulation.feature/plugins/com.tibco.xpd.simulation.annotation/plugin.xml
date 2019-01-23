@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="com.tibco.xpd.processwidget.diagramAnnotation">
+      <annotationSource factory="com.tibco.xpd.simulation.annotation.SimulationAnnotationFactoryProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.tibco.xpd.simulation.ui.SimulationPreferencePage"
+            class="com.tibco.xpd.simulation.annotation.preferences.AnnotationSelectionPage"
+            id="com.tibco.xpd.simulation.annotation.preferences.AnnotationSelectionPage"
+            name="%annotationSelectionLabel"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="com.tibco.xpd.simulation.annotation.preferences.PreferenceInitializer"/>
+   </extension>
+
+</plugin>

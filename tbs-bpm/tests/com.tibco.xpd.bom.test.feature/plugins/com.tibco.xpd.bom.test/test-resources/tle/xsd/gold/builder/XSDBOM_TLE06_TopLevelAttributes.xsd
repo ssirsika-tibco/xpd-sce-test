@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE06_topLevelAttributes" xmlns:tns1="http://www.example.org/XSDBOM_TLE06_topLevelAttributes"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE06_topLevelAttributes">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/UC1WaFaultHandlingWS/Business Objects/org.example.XSDBOM_TLE06_topLevelAttributes.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:attribute name="attrString" type="xsd:string"/>
+  <xsd:simpleType name="gday_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\-\-\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrGDay" type="tns1:gday_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="gmonth_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\-\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrGMonth" type="tns1:gmonth_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="gmonthday_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\-\-(0[1-9]|[1][0-2])\-(0[1-9]|[12][0-9]|3[01])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrGMonthDay" type="tns1:gmonthday_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="gyear_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(\-\d{4,}|\d{4,})(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrGYear" type="tns1:gyear_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="gyearmonth_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(\-\d{4,}|\d{4,})(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))\-(0[1-9]|[1][0-2])(|Z|[+-](0[0-9]|[1][0-3]):(0[0-9]|[12345][0-9]))"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrGYearMonth" type="tns1:gyearmonth_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="id_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrId" type="tns1:id_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="idref_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrIdRef" type="tns1:idref_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="idrefs_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*( [\i-[:]][\c-[:]]*)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrIdRefs" type="tns1:idrefs_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="language_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="([a-zA-Z]{2}|[iI]-[a-zA-Z]+|[xX]-[a-zA-Z]{1,8})(-[a-zA-Z]{1,8})*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrLanguage" type="tns1:language_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="name_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\i\c*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrName" type="tns1:name_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="ncname_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrNCName" type="tns1:ncname_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="nmtoken_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\c+"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrNMToken" type="tns1:nmtoken_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="nmtokens_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\c+( \c+)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrNMTokens" type="tns1:nmtokens_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="normalizedstring_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^&#x9;&#xA;&#xD;]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrNormalizedString" type="tns1:normalizedstring_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="qname_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="([\i-[:]][\c-[:]]*:)?[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrQName" type="tns1:qname_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="entity_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrENTITY" type="tns1:entity_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="entities_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[\i-[:]][\c-[:]]*( [\i-[:]][\c-[:]]*)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrENTITIES" type="tns1:entities_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="token_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^ \t\n\r]+([ ][^ \t\n\r]+)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrToken" type="tns1:token_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="byte_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="-128"/>
+      <xsd:maxInclusive value="127"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrByte" type="tns1:byte_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="unsignedbyte_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrUnsignedByte" type="tns1:unsignedbyte_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="short_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="-32768"/>
+      <xsd:maxInclusive value="32767"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrShort" type="tns1:short_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="unsignedshort_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="65535"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrUnsignedShort" type="tns1:unsignedshort_StudioGeneratedTemplate"/>
+  <xsd:attribute name="attrInt" type="xsd:int"/>
+  <xsd:attribute name="attrInteger" type="xsd:integer"/>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrLong" type="tns1:long_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="negativeinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:maxInclusive value="-1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrNegativeInteger" type="tns1:negativeinteger_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="nonnegativeinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrNonNegativeInteger" type="tns1:nonnegativeinteger_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="positiveinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrPositiveInteger" type="tns1:positiveinteger_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="nonpositiveinteger_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:maxInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrNonPositiveInteger" type="tns1:nonpositiveinteger_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="unsignedint_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="4294967295"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrUnsignedInt" type="tns1:unsignedint_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="unsignedlong_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="18446744073709551615"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrUnsignedLong" type="tns1:unsignedlong_StudioGeneratedTemplate"/>
+  <xsd:attribute name="attrDecimal" type="xsd:decimal"/>
+  <xsd:simpleType name="float_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-340.28235E+36"/>
+      <xsd:maxInclusive value="340.28235E+36"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrFloat" type="tns1:float_StudioGeneratedTemplate"/>
+  <xsd:simpleType name="double_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="-179.76931348623157E+306"/>
+      <xsd:maxInclusive value="179.76931348623157E+306"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:attribute name="attrDouble" type="tns1:double_StudioGeneratedTemplate"/>
+  <xsd:attribute name="attrBoolean" type="xsd:boolean"/>
+  <xsd:attribute name="attrDate" type="xsd:date"/>
+  <xsd:attribute name="attrTime" type="xsd:time"/>
+  <xsd:attribute name="attrDateTime" type="xsd:dateTime"/>
+  <xsd:attribute name="attrAnyURI" type="xsd:anyURI"/>
+  <xsd:attribute name="attrDuration" type="xsd:duration"/>
+</xsd:schema>

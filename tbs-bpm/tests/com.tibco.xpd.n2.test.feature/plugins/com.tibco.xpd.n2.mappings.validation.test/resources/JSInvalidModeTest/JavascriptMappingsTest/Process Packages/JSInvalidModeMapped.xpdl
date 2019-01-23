@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_bMQTkCxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="JSInvalidModeMapped" Name="JSInvalidModeMapped">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-03-10</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>rsomayaj</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_dx9xlyxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_bMQTkSxBEd-CE6Vw68VQCQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_dx9xmCxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="354.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_bMQTkSxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="JSInvalidModeMapped" Name="JSInvalidModeMapped">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_0Ad0HixBEd-CE6Vw68VQCQ" Name="datePin" Mode="IN" Required="false" xpdExt:DisplayName="datePin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0HyxBEd-CE6Vw68VQCQ" Name="dateTimePinout" Mode="OUT" Required="false" xpdExt:DisplayName="dateTimePinout">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0ICxBEd-CE6Vw68VQCQ" Name="performerPin" Mode="IN" Required="false" xpdExt:DisplayName="performerPin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0ISxBEd-CE6Vw68VQCQ" Name="textPout" Mode="OUT" Required="false" xpdExt:DisplayName="textPout">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0IixBEd-CE6Vw68VQCQ" Name="integerPout" Mode="OUT" Required="false" xpdExt:DisplayName="integerPout">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0IyxBEd-CE6Vw68VQCQ" Name="textPin" Mode="IN" Required="false" xpdExt:DisplayName="textPin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0JCxBEd-CE6Vw68VQCQ" Name="performerPOut" Mode="OUT" Required="false" xpdExt:DisplayName="performerPOut">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="PERFORMER"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0JSxBEd-CE6Vw68VQCQ" Name="dateTimePin" Mode="IN" Required="false" xpdExt:DisplayName="dateTimePin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATETIME"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0JixBEd-CE6Vw68VQCQ" Name="booleanPinout" Mode="OUT" Required="false" xpdExt:DisplayName="booleanPinout">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0JyxBEd-CE6Vw68VQCQ" Name="decimalPout" Mode="OUT" Required="false" xpdExt:DisplayName="decimalPout">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0KCxBEd-CE6Vw68VQCQ" Name="datePinout" Mode="OUT" Required="false" xpdExt:DisplayName="datePinout">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="DATE"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0KSxBEd-CE6Vw68VQCQ" Name="booleanPin" Mode="IN" Required="false" xpdExt:DisplayName="booleanPin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="BOOLEAN"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0KixBEd-CE6Vw68VQCQ" Name="decimalPin" Mode="IN" Required="false" xpdExt:DisplayName="decimalPin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="FLOAT">
+              <xpdl2:Precision>10</xpdl2:Precision>
+              <xpdl2:Scale>2</xpdl2:Scale>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_0Ad0KyxBEd-CE6Vw68VQCQ" Name="integerPin" Mode="IN" Required="false" xpdExt:DisplayName="integerPin">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>10</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_nZ_b5yxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="Field4" Name="Field4" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nZ_b6CxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="Field3" Name="Field3" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nZ_b6SxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="Field2" Name="Field2" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nZ_b6ixBEd-CE6Vw68VQCQ" xpdExt:DisplayName="Field" Name="Field" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_nZ_b6yxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="Field5" Name="Field5" ReadOnly="false">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_nZ_bwCxBEd-CE6Vw68VQCQ" Name="Elementsincludedbecauseelementmapped" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Elements included because element mapped">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_NsjXwixCEd-CE6Vw68VQCQ"/>
+                <xpdl2:MessageOut Id="_NsjXwyxCEd-CE6Vw68VQCQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPOut</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field2</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field3</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field4</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Field5</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="105.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="123.0">
+              <xpdl2:Coordinates XCoordinate="183.0" YCoordinate="284.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+            <xpdExt:WorkItemPriority InitialPriority="50"/>
+          </xpdExt:ActivityResourcePatterns>
+          <iProcessExt:TaskProperties NoDeleteOnWithdraw="false" IgnoreCaseSuspend="false">
+            <iProcessExt:Prediction UseDeadlineForDuration="false" DontIncludeAsFutureWorkItem="false"/>
+            <iProcessExt:WebServiceTask InvocationStyle="AutoDelayedRelease"/>
+          </iProcessExt:TaskProperties>
+          <xpdExt:AssociatedParameters>
+            <xpdExt:AssociatedParameter FormalParam="booleanPin" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="booleanPinout" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="datePin" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="dateTimePin" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="Field4" Mode="IN" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="performerPin" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="Field3" Mode="IN" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="textPout" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="datePinout" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="textPin" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="Field2" Mode="IN" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Field5" Mode="IN" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="decimalPin" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="integerPin" Mode="IN" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="Field" Mode="OUT" Mandatory="false">
+              <xpdl2:Description/>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="integerPout" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="performerPOut" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="dateTimePinout" Mode="OUT" Mandatory="false"/>
+            <xpdExt:AssociatedParameter FormalParam="decimalPout" Mode="OUT" Mandatory="false"/>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_bwyxBEd-CE6Vw68VQCQ" Name="ReceiveTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Receive Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskReceive xpdExt:ImplementationType="WebService" Implementation="WebService" Instantiate="false">
+                <xpdl2:Message Id="_wV6N4SxBEd-CE6Vw68VQCQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPOut</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskReceive>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="235.0" YCoordinate="114.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <iProcessExt:TaskProperties NoDeleteOnWithdraw="false" IgnoreCaseSuspend="false">
+            <iProcessExt:Prediction UseDeadlineForDuration="false" DontIncludeAsFutureWorkItem="false"/>
+          </iProcessExt:TaskProperties>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_bxixBEd-CE6Vw68VQCQ" Name="ReplyToReceiveTask" xpdExt:Visibility="Private" xpdExt:DisplayName="Reply To: Receive Task">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskSend xpdExt:ReplyToActivityId="_nZ_bwyxBEd-CE6Vw68VQCQ" xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:Message Id="_wWD-4CxBEd-CE6Vw68VQCQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskSend>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="349.0" YCoordinate="126.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <iProcessExt:TaskProperties NoDeleteOnWithdraw="false" IgnoreCaseSuspend="false">
+            <iProcessExt:Prediction UseDeadlineForDuration="false" DontIncludeAsFutureWorkItem="false"/>
+          </iProcessExt:TaskProperties>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_bySxBEd-CE6Vw68VQCQ" Name="SendOneWay" xpdExt:Visibility="Private" xpdExt:DisplayName="Send One Way">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskSend xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:Message Id="_A-BaMSxDEd-CE6Vw68VQCQ"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Alias="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskSend>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="454.0" YCoordinate="300.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_byyxBEd-CE6Vw68VQCQ" Name="StartRequestResponse" xpdExt:Visibility="Private" xpdExt:DisplayName="Start Request Response">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="false" CatchThrow="CATCH">
+                <xpdl2:Message Id="_nZ_bzCxBEd-CE6Vw68VQCQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPOut</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" xpdExt:SecurityProfile="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="53.0" YCoordinate="113.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:ScriptInformation Id="_sIo8MCxBEd-CE6Vw68VQCQ" Direction="OUT">
+            <xpdExt:Expression ScriptGrammar="JavaScript"></xpdExt:Expression>
+          </xpdExt:ScriptInformation>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_bzSxBEd-CE6Vw68VQCQ" Name="ReplyToStartRequestResponse" xpdExt:Visibility="Private" xpdExt:DisplayName="Reply To: Start Request Response">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_nZ_byyxBEd-CE6Vw68VQCQ" CatchThrow="THROW">
+                <xpdl2:Message Id="_u5X-cCxBEd-CE6Vw68VQCQ"/>
+                <xpdl2:WebServiceOperation xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" xpdExt:SecurityProfile="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="71.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="69.0">
+              <xpdl2:Coordinates XCoordinate="585.0" YCoordinate="125.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_bzyxBEd-CE6Vw68VQCQ" Name="CatchIntermediateMessageEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Catch Intermediate Message Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="false" CatchThrow="CATCH">
+                <xpdl2:Message Id="_nZ_b0CxBEd-CE6Vw68VQCQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPOut</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" xpdExt:SecurityProfile="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="84.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="64.0">
+              <xpdl2:Coordinates XCoordinate="144.0" YCoordinate="113.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_b0SxBEd-CE6Vw68VQCQ" Name="ReplyToCatchIntermediateMessageEvent" xpdExt:Visibility="Private" xpdExt:DisplayName="Reply To: Catch Intermediate Message Event">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:ReplyToActivityId="_nZ_bzyxBEd-CE6Vw68VQCQ" CatchThrow="THROW">
+                <xpdl2:Message Id="_v0Y1MCxBEd-CE6Vw68VQCQ"/>
+                <xpdl2:WebServiceOperation xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" xpdExt:SecurityProfile="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="97.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="64.0">
+              <xpdl2:Coordinates XCoordinate="445.0" YCoordinate="125.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_b0yxBEd-CE6Vw68VQCQ" Name="StartRequestOnly" xpdExt:Visibility="Private" xpdExt:DisplayName="Start Request Only">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="false" CatchThrow="CATCH">
+                <xpdl2:Message Id="_nZ_b1CxBEd-CE6Vw68VQCQ">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">booleanPinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">datePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePinout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">decimalPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">integerPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">performerPOut</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPout</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping Direction="OUT" Formal="parameters">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">textPin</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:Message>
+                <xpdl2:WebServiceOperation xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" xpdExt:SecurityProfile="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="56.0" YCoordinate="284.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_b1SxBEd-CE6Vw68VQCQ" Name="EndSendOneWay" xpdExt:Visibility="Private" xpdExt:DisplayName="End Send One Way">
+          <xpdl2:Event>
+            <xpdl2:EndEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Result="Message">
+              <xpdl2:TriggerResultMessage CatchThrow="THROW">
+                <xpdl2:Message Id="_nZ_b1ixBEd-CE6Vw68VQCQ"/>
+                <xpdl2:WebServiceOperation xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" xpdExt:SecurityProfile="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:EndEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="58.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="70.0">
+              <xpdl2:Coordinates XCoordinate="604.0" YCoordinate="315.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_b1yxBEd-CE6Vw68VQCQ" xpdExt:Visibility="Private">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent Target="_nZ_bwCxBEd-CE6Vw68VQCQ" Trigger="Error">
+              <xpdl2:ResultError ErrorCode="fault">
+                <xpdExt:ErrorThrowerInfo ThrowerId="_nZ_bwCxBEd-CE6Vw68VQCQ" ThrowerContainerId="_bMQTkSxBEd-CE6Vw68VQCQ" ThrowerType="ProcessActivity"/>
+                <xpdExt:CatchErrorMappings>
+                  <xpdExt:Message Id="_Pf49oCxCEd-CE6Vw68VQCQ">
+                    <xpdl2:DataMappings>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">booleanPin</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">booleanPinout</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">datePin</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">datePinout</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePin</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">dateTimePinout</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">decimalPin</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">decimalPout</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">integerPin</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">integerPout</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">performerPin</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">performerPOut</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">textPout</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">textPin</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field2</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field3</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field5</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                      <xpdl2:DataMapping Direction="OUT" Formal="fault">
+                        <xpdl2:Actual ScriptGrammar="JavaScript">Field4</xpdl2:Actual>
+                      </xpdl2:DataMapping>
+                    </xpdl2:DataMappings>
+                  </xpdExt:Message>
+                </xpdExt:CatchErrorMappings>
+              </xpdl2:ResultError>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="31.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+            <xpdl2:NodeGraphicsInfo ToolId="XPD.BorderEventPosition">
+              <xpdl2:Coordinates XCoordinate="51.973684210526315" YCoordinate="0.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_nZ_b2SxBEd-CE6Vw68VQCQ" Name="IntermediateSendOneWay" xpdExt:Visibility="Private" xpdExt:DisplayName="Intermediate Send One Way">
+          <xpdl2:Event>
+            <xpdl2:IntermediateEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage CatchThrow="THROW">
+                <xpdl2:Message Id="_nZ_b2ixBEd-CE6Vw68VQCQ"/>
+                <xpdl2:WebServiceOperation xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="" xpdExt:SecurityProfile="" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="SimpleXSD.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="SimpleXSD" OperationName="NewOperation">
+                  <xpdExt:ExternalReference location="SimpleXSD.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:IntermediateEvent>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="58.0" LaneId="_dx9xmCxBEd-CE6Vw68VQCQ" Width="64.0">
+              <xpdl2:Coordinates XCoordinate="604.0" YCoordinate="239.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_nZ_b2yxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="" Name="" From="_nZ_byyxBEd-CE6Vw68VQCQ" To="_nZ_bzyxBEd-CE6Vw68VQCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nZ_b3CxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="" Name="" From="_nZ_bzyxBEd-CE6Vw68VQCQ" To="_nZ_bwyxBEd-CE6Vw68VQCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nZ_b3SxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="" Name="" From="_nZ_bwyxBEd-CE6Vw68VQCQ" To="_nZ_bxixBEd-CE6Vw68VQCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nZ_b3ixBEd-CE6Vw68VQCQ" xpdExt:DisplayName="" Name="" From="_nZ_bxixBEd-CE6Vw68VQCQ" To="_nZ_b0SxBEd-CE6Vw68VQCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_nZ_b3yxBEd-CE6Vw68VQCQ" xpdExt:DisplayName="" Name="" From="_nZ_b0SxBEd-CE6Vw68VQCQ" To="_nZ_bzSxBEd-CE6Vw68VQCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+        <xpdl2:ExtendedAttribute Name="WorkflowProcessSimulationData"><simulation:WorkflowProcessSimulationData>
+            <simulation:ParameterDistribution ParameterId="datePin"/>
+            <simulation:ParameterDistribution ParameterId="dateTimePinout"/>
+            <simulation:ParameterDistribution ParameterId="performerPin"/>
+            <simulation:ParameterDistribution ParameterId="textPout"/>
+            <simulation:ParameterDistribution ParameterId="integerPout"/>
+            <simulation:ParameterDistribution ParameterId="textPin"/>
+            <simulation:ParameterDistribution ParameterId="performerPOut"/>
+            <simulation:ParameterDistribution ParameterId="dateTimePin"/>
+            <simulation:ParameterDistribution ParameterId="booleanPinout"/>
+            <simulation:ParameterDistribution ParameterId="decimalPout"/>
+            <simulation:ParameterDistribution ParameterId="datePinout"/>
+            <simulation:ParameterDistribution ParameterId="booleanPin"/>
+            <simulation:ParameterDistribution ParameterId="decimalPin"/>
+            <simulation:ParameterDistribution ParameterId="integerPin"/>
+          </simulation:WorkflowProcessSimulationData></xpdl2:ExtendedAttribute>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

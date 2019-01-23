@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.tibco.xpd.om.transform.de/src" modelPluginID="com.tibco.xpd.om.transform.de"
+    modelName="De" importerID="org.eclipse.xsd.ecore.importer" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>directory-model-2.0.xsd</foreignModel>
+  <genPackages prefix="De" basePackage="com.tibco.n2.directory.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="de.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="de.ecore#//AllocationMethod">
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//AllocationMethod/ANY"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//AllocationMethod/NEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//AllocationMethod/THIS"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//AllocationMethod/PLUGIN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="de.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/Decimal"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/Date"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/Time"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/DateTime"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/Enum"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/EnumSet"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//DataType/Set"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="de.ecore#//ResourceType">
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//ResourceType/durable"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//ResourceType/consumable"/>
+      <genEnumLiterals ecoreEnumLiteral="de.ecore#//ResourceType/human"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="de.ecore#//AllocationMethodObject"/>
+    <genDataTypes ecoreDataType="de.ecore#//DataTypeObject"/>
+    <genDataTypes ecoreDataType="de.ecore#//ResourceTypeObject"/>
+    <genDataTypes ecoreDataType="de.ecore#//VersionNumber"/>
+    <genClasses ecoreClass="de.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/string"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/integer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/decimal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/dateTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/boolean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/enum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/enumSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Attribute/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//Attribute/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//AttributeType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//AttributeType/enum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//AttributeType/dataType"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//Capability">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//Capability/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//CapabilityCategory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//CapabilityCategory/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//CapabilityCategory/capabilityCategory"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//CapabilityCategory/capability"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//CapabilityHolding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//CapabilityHolding/capability"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//DocumentRoot/model"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="de.ecore#//EntityType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//EntityType/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//Feature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//Feature/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Feature/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Feature/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//Group">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//Group/choiceGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Group/reqCapability"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Group/privilegeHeld"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//Group/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Group/systemAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Group/allocMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Group/plugin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Group/undeliveredQueue"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//GroupHolding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//GroupHolding/group"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//Location">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Location/locale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Location/timezone"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//LocationType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//LocationType/locale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//LocationType/timezone"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//MetaModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//MetaModel/choiceGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//MetaModel/locationType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//MetaModel/positionType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//MetaModel/orgUnitType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//MetaModel/organizationType"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//ModelOrgUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//ModelOrgUnit/modelPosition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//ModelOrgUnit/modelOrgUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//ModelTemplate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//ModelTemplate/instanceIdAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//ModelType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//ModelType/metaModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//ModelType/choiceGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/modelTemplate"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/capability"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/capabilityCategory"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/privilege"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/privilegeCategory"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//ModelType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/organization"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/resourceAttribute"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//ModelType/systemAction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//ModelType/resource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//ModelType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//ModelType/version"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="de.ecore#//NamedEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//NamedEntity/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//NamedEntity/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//NamedEntity/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//NamedEntity/name"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//Organization">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//Organization/choiceGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Organization/orgUnit"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Organization/systemAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Organization/allocMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//Organization/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Organization/plugin"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//OrganizationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//OrganizationType/orgUnitFeature"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//OrgUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//OrgUnit/modelTemplateRef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//OrgUnit/position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//OrgUnit/orgUnit"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//OrgUnitBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//OrgUnitBase/choiceGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//OrgUnitBase/privilegeHeld"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//OrgUnitBase/systemAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//OrgUnitBase/allocMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//OrgUnitBase/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//OrgUnitBase/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//OrgUnitBase/plugin"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//OrgUnitType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//OrgUnitType/choiceGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//OrgUnitType/positionFeature"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//OrgUnitType/orgUnitFeature"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//Position">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//Position/choiceGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Position/reqCapability"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Position/privilegeHeld"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Position/systemAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Position/allocMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//Position/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Position/idealNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//Position/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Position/plugin"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//PositionHolding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//PositionHolding/position"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//PositionType"/>
+    <genClasses ecoreClass="de.ecore#//Privilege">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//Privilege/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//PrivilegeCategory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//PrivilegeCategory/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//PrivilegeCategory/privilegeCategory"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//PrivilegeCategory/privilege"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//PrivilegeHolding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//PrivilegeHolding/privilege"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="de.ecore#//QualifiedHolding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/string"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/integer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/decimal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/dateTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/boolean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/enum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/enumSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//QualifiedHolding/element"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//Qualifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Qualifier/enum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Qualifier/dataType"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//Resource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute de.ecore#//Resource/choiceGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Resource/capabilityHeld"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Resource/positionHeld"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Resource/groupHeld"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference de.ecore#//Resource/attributeValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Resource/endDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Resource/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Resource/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Resource/ldapAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Resource/ldapDn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//Resource/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Resource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Resource/resourceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//Resource/startDate"/>
+    </genClasses>
+    <genClasses ecoreClass="de.ecore#//SystemAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//SystemAction/reqPrivilege"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//SystemAction/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute de.ecore#//SystemAction/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="de.ecore#//TypedEntity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference de.ecore#//TypedEntity/attributeValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference de.ecore#//TypedEntity/definition"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

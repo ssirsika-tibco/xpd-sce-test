@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by Kevin Gee (Tibco Software Limited) -->
+<xs:schema xmlns="http://attributefacade.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://attributefacade.common.n2.tibco.com" version="1.0">
+	<xs:complexType name="WorkListAttributeFacadeType">
+		<xs:annotation>
+			<xs:documentation>Definition of the Work Item Attribute facade.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="alias" maxOccurs="unbounded" type="AttributeAliasType">
+				<xs:annotation>
+					<xs:documentation>List of aliases for this Work Item Attribute Facade.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="version" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="AttributeAliasType">
+		<xs:attribute name="attributeName" use="required">
+			<xs:annotation>
+				<xs:documentation>Real name of a Work Item attribute.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="attributeAlias">
+			<xs:annotation>
+				<xs:documentation>Alias to be used for this Work Item attribute.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="WorkListAttributeFacade" type="WorkListAttributeFacadeType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

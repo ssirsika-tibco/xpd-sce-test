@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_IduyYOEAEd-Watvve-g_vA" xpdExt:DisplayName="Consumer" Name="Consumer">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-10-26</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>rsomayaj</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_L114hOESEd-Watvve-g_vA" xpdExt:DisplayName="ConsumerProcess-ServiceTask ConsumerProcess" Name="ConsumerProcessServiceTaskConsumerProcess">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_jNOOpOESEd-Watvve-g_vA" xpdExt:DisplayName="ClaimSearch-GetClaim ClaimSearch" Name="ClaimSearchGetClaimClaimSearch">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Outbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+          </xpdExt:Outbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+    <xpdl2:Participant Id="_21CRoQ9HEeC_-vBGW6QV3A" xpdExt:DisplayName="ClaimSearch (API Activity EndPoint)" Name="Consumer_ClaimSearch">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:ParticipantSharedResource>
+        <xpdExt:WebService>
+          <xpdExt:Inbound>
+            <xpdExt:VirtualBinding Name="Virtualization"/>
+            <xpdExt:SoapHttpBinding Name="SoapOverHttp" BindingStyle="DocumentLiteral" SoapVersion="1.1" EndpointUrlPath="/UC7DDocLitConsumerGeneratedWSDLandRefBOM/Consumer/ClaimSearch" HttpConnectorInstanceName="httpConnector"/>
+          </xpdExt:Inbound>
+        </xpdExt:WebService>
+      </xpdExt:ParticipantSharedResource>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_ZDviZ-EAEd-Watvve-g_vA" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_IduyYeEAEd-Watvve-g_vA">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_ZDviaOEAEd-Watvve-g_vA" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:Associations>
+    <xpdl2:Association Id="_dWjLcA9PEeCsvs3Hr8pIsw" Name="" AssociationDirection="None" Source="_bmQSgQ9PEeCsvs3Hr8pIsw" Target="_5Gmu0A9LEeCsvs3Hr8pIsw">
+      <xpdl2:Object Id="_dWjLcQ9PEeCsvs3Hr8pIsw"/>
+      <xpdl2:ConnectorGraphicsInfos>
+        <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+      </xpdl2:ConnectorGraphicsInfos>
+    </xpdl2:Association>
+  </xpdl2:Associations>
+  <xpdl2:Artifacts>
+    <xpdl2:Artifact Id="_bmQSgQ9PEeCsvs3Hr8pIsw" ArtifactType="Annotation" TextAnnotation="Quite complex scripts in this task">
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" Height="20.0" LaneId="_ZDviaOEAEd-Watvve-g_vA" Width="0.0">
+          <xpdl2:Coordinates XCoordinate="144.0" YCoordinate="41.0"/>
+        </xpdl2:NodeGraphicsInfo>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Artifact>
+  </xpdl2:Artifacts>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_IduyYeEAEd-Watvve-g_vA" xpdExt:FlowRoutingStyle="UncenteredOnTasks" xpdExt:DisplayName="ClaimSearch" xpdExt:ApiEndPointParticipant="_21CRoQ9HEeC_-vBGW6QV3A" iProcessExt:MaxStepIndex="9" Name="ClaimSearch">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:DataFields>
+        <xpdl2:DataField Id="_4M3GwOEREd-Watvve-g_vA" xpdExt:DisplayName="Insurance" Name="Insurance">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Insurance.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_FKr6AOEQEd-Watvve-g_vA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_8-Wf0OEREd-Watvve-g_vA" xpdExt:DisplayName="Customer" Name="Customer">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Customer.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_xbz7oOEPEd-Watvve-g_vA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="__qn40OEREd-Watvve-g_vA" xpdExt:DisplayName="Claim" Name="Claim">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Insurance.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_nvhnEOEQEd-Watvve-g_vA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_CiNxAOESEd-Watvve-g_vA" xpdExt:DisplayName="claimId" Name="claimId">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_zpb0IA9OEeCsvs3Hr8pIsw" xpdExt:DisplayName="addr" Name="addr">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Customer.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_9tP4EOEPEd-Watvve-g_vA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+        <xpdl2:DataField Id="_KbM7wA9PEeCsvs3Hr8pIsw" xpdExt:DisplayName="claim" Name="claim">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="Insurance.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="_nvhnEOEQEd-Watvve-g_vA"/>
+          </xpdl2:DataType>
+        </xpdl2:DataField>
+      </xpdl2:DataFields>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_ZDviaeEAEd-Watvve-g_vA" Name="BusinessServiceStarter" xpdExt:DisplayName="Business Service Starter" iProcessExt:StepIndex="4">
+          <xpdl2:Event>
+            <xpdl2:StartEvent xpdExt:ImplementationType="WebService" Implementation="WebService" Trigger="Message">
+              <xpdl2:TriggerResultMessage xpdExt:Generated="true" CatchThrow="CATCH">
+                <xpdl2:Message Id="_21CRoA9HEeC_-vBGW6QV3A"/>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://schemas.xmlsoap.org/soap/http" xpdExt:Alias="_21CRoQ9HEeC_-vBGW6QV3A" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="InsuraceClaimsSearch-Consumer.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ClaimSearch" OperationName="BusinessServiceStarter">
+                  <xpdExt:ExternalReference location="InsuraceClaimsSearch-Consumer.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TriggerResultMessage>
+            </xpdl2:StartEvent>
+          </xpdl2:Event>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_21CRoQ9HEeC_-vBGW6QV3A</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_ZDviaOEAEd-Watvve-g_vA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_ZDviauEAEd-Watvve-g_vA" Name="Success" xpdExt:DisplayName="Success" iProcessExt:StepIndex="5">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_ZDviaOEAEd-Watvve-g_vA" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_3gAn2OEREd-Watvve-g_vA" Name="GetClaim" xpdExt:Visibility="Private" xpdExt:DisplayName="GetClaim" iProcessExt:StepIndex="6">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskService xpdExt:ImplementationType="WebService" Implementation="WebService">
+                <xpdl2:MessageIn Id="_m-BmzuESEd-Watvve-g_vA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="Insurance">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Insurance</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="false" Direction="IN" Formal="Customer">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Customer</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                    <xpdl2:DataMapping xpdExt:SourcePrimitiveProperty="true" Direction="IN" Formal="claimId">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">claimId</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageIn>
+                <xpdl2:MessageOut Id="_m-Bmz-ESEd-Watvve-g_vA">
+                  <xpdl2:DataMappings>
+                    <xpdl2:DataMapping xpdExt:TargetPrimitiveProperty="false" Direction="OUT" Formal="Claim">
+                      <xpdl2:Actual ScriptGrammar="JavaScript">Claim</xpdl2:Actual>
+                    </xpdl2:DataMapping>
+                  </xpdl2:DataMappings>
+                </xpdl2:MessageOut>
+                <xpdl2:WebServiceOperation xpdExt:SecurityProfile="" xpdExt:Transport="http://www.tibco.com/service_virtualisation" xpdExt:Alias="_jNOOpOESEd-Watvve-g_vA" OperationName="">
+                  <xpdl2:Service xpdExt:IsRemote="true" PortName="" ServiceName="">
+                    <xpdl2:EndPoint EndPointType="WSDL">
+                      <xpdl2:ExternalReference location="ClaimSearch-GetClaim.wsdl"/>
+                    </xpdl2:EndPoint>
+                  </xpdl2:Service>
+                </xpdl2:WebServiceOperation>
+                <xpdExt:PortTypeOperation PortTypeName="ClaimSearch" OperationName="GetClaim">
+                  <xpdExt:ExternalReference location="ClaimSearch-GetClaim.wsdl"/>
+                </xpdExt:PortTypeOperation>
+              </xpdl2:TaskService>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_jNOOpOESEd-Watvve-g_vA</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ZDviaOEAEd-Watvve-g_vA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="268.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+          <xpdExt:AssociatedParameters DisableImplicitAssociation="false">
+            <xpdExt:AssociatedParameter FormalParam="Insurance" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Customer" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="claimId" Mode="IN" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+            <xpdExt:AssociatedParameter FormalParam="Claim" Mode="OUT" Mandatory="false">
+              <xpdl2:Description></xpdl2:Description>
+            </xpdExt:AssociatedParameter>
+          </xpdExt:AssociatedParameters>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_5Gmu0A9LEeCsvs3Hr8pIsw" Name="InitializingGetClaimsdata" xpdExt:Visibility="Private" xpdExt:DisplayName="Initializing Get Claims data" iProcessExt:StepIndex="7">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">claimId=200;&#xD;
+Customer=com_example_customer_Factory.createCust();&#xD;
+&#xD;
+addr=com_example_customer_Factory.createAddress();&#xD;
+addr.hno=12;&#xD;
+addr.postcode=&quot;Sn21&quot;;&#xD;
+addr.streetname=&quot;Kirkby&quot;;&#xD;
+Customer.address.add(addr);&#xD;
+&#xD;
+Customer.id=&quot;1234&quot;;&#xD;
+Customer.name=&quot;Ted&quot;;&#xD;
+&#xD;
+Insurance=com_example_insurance_Factory.createInsurance();&#xD;
+&#xD;
+Insurance.address=ScriptUtil.copy(addr);&#xD;
+&#xD;
+Insurance.claims=com_example_insurance_Factory.createClaims();&#xD;
+claim=com_example_insurance_Factory.createClaim();&#xD;
+claim.customer=ScriptUtil.copy(Customer);&#xD;
+claim.policynumber=1234;&#xD;
+Insurance.claims.claim.add(claim);&#xD;
+&#xD;
+Insurance.name=&quot;Insured'RUS&quot;;&#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="64.0" LaneId="_ZDviaOEAEd-Watvve-g_vA" Width="96.0">
+              <xpdl2:Coordinates XCoordinate="144.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_a8aEQg9PEeCsvs3Hr8pIsw" iProcessExt:StepIndex="8">
+          <xpdl2:Route GatewayType="Exclusive" MarkerVisible="true" ExclusiveType="Data"/>
+          <xpdl2:TransitionRestrictions>
+            <xpdl2:TransitionRestriction>
+              <xpdl2:Split Type="Exclusive" ExclusiveType="Data">
+                <xpdl2:TransitionRefs>
+                  <xpdl2:TransitionRef Id="_ZDvia-EAEd-Watvve-g_vA"/>
+                  <xpdl2:TransitionRef Id="_f-ihYw9PEeCsvs3Hr8pIsw"/>
+                </xpdl2:TransitionRefs>
+              </xpdl2:Split>
+            </xpdl2:TransitionRestriction>
+          </xpdl2:TransitionRestrictions>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="43.0" LaneId="_ZDviaOEAEd-Watvve-g_vA" Width="41.0">
+              <xpdl2:Coordinates XCoordinate="365.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_f-ihYg9PEeCsvs3Hr8pIsw" Name="fail" xpdExt:Visibility="Private" xpdExt:DisplayName="fail" iProcessExt:StepIndex="9">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="255,0,0" FillColor="255,219,74" Height="27.0" LaneId="_ZDviaOEAEd-Watvve-g_vA" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="365.0" YCoordinate="266.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_ZDvia-EAEd-Watvve-g_vA" xpdExt:DisplayName="" Name="" From="_a8aEQg9PEeCsvs3Hr8pIsw" To="_ZDviauEAEd-Watvve-g_vA">
+          <xpdl2:Condition Type="CONDITION">
+<xpdl2:Expression ScriptGrammar="JavaScript">Claim.policynumber==claimId+100;</xpdl2:Expression>
+</xpdl2:Condition>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_3gAn2-EREd-Watvve-g_vA" xpdExt:DisplayName="" Name="" From="_5Gmu0A9LEeCsvs3Hr8pIsw" To="_3gAn2OEREd-Watvve-g_vA">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.StartAnchorPosition"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_5Gmu0Q9LEeCsvs3Hr8pIsw" xpdExt:DisplayName="" Name="" From="_ZDviaeEAEd-Watvve-g_vA" To="_5Gmu0A9LEeCsvs3Hr8pIsw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_a8jOMA9PEeCsvs3Hr8pIsw" xpdExt:DisplayName="" Name="" From="_3gAn2OEREd-Watvve-g_vA" To="_a8aEQg9PEeCsvs3Hr8pIsw">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_f-ihYw9PEeCsvs3Hr8pIsw" Name="" From="_a8aEQg9PEeCsvs3Hr8pIsw" To="_f-ihYg9PEeCsvs3Hr8pIsw">
+          <xpdl2:Condition Type="OTHERWISE"/>
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="16"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="13"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QueryGDS" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl">
+    <wsdl:types>
+        <xsd:schema xmlns:pref="http://www.xyzcorp/procureservice/Airline" xmlns:pref1="http://www.xyzcorp/procureservice/Car" xmlns:pref2="http://www.xyzcorp/procureservice/Hotel" targetNamespace="http://www.amsbqa.com/Linda07/WSDLEmbedXSD1/XSD1importXSD2/Query/wsdl">
+            <xsd:import namespace="http://www.xyzcorp/procureservice/Airline" schemaLocation="schemas/airline/Airline.xsd"/>
+            <xsd:import namespace="http://www.xyzcorp/procureservice/Car" schemaLocation="schemas/car/Car.xsd"/>
+            <xsd:import namespace="http://www.xyzcorp/procureservice/Hotel" schemaLocation="schemas/hotel/Hotel.xsd"/>
+            <xsd:element name="searchAirline" type="tns:AirlineSearch"/>
+            <xsd:element name="searchAirlineResponse" type="tns:AirlineSearchResults"/>
+            <xsd:complexType name="AirlineSearch">
+                <xsd:sequence>
+                    <xsd:element name="roundTrip" type="xsd:boolean"/>
+                    <xsd:element name="origin" type="xsd:string"/>
+                    <xsd:element name="destination" type="xsd:string"/>
+                    <xsd:element name="departureDate" type="xsd:date"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="returnDate" type="xsd:date"/>
+                    <xsd:element name="noOfPassengers" type="xsd:int"/>
+                    <xsd:element name="timePreference" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="AirlineSearchResults">
+                <xsd:sequence>
+                    <xsd:element name="departingFlights" type="tns:DepartingFlights"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="returningFlights" type="tns:ReturningFlights"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="DepartingFlights">
+                <xsd:sequence>
+                    <xsd:element name="origin" type="xsd:string"/>
+                    <xsd:element name="destination" type="xsd:string"/>
+                    <xsd:element name="date" type="xsd:date"/>
+                    <xsd:element name="flights">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element maxOccurs="unbounded" minOccurs="0" name="flight" type="pref:FlightPlan"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ReturningFlights">
+                <xsd:sequence>
+                    <xsd:element name="origin" type="xsd:string"/>
+                    <xsd:element name="destination" type="xsd:string"/>
+                    <xsd:element name="date" type="xsd:date"/>
+                    <xsd:element name="flights">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element maxOccurs="unbounded" minOccurs="0" name="flight" type="pref:FlightPlan"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="searchAirline_fault">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="searchAirline_fault" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="searchHotel" type="tns:HotelSearch"/>
+            <xsd:element name="searchHotelResponse" type="tns:HotelSearchResults"/>
+            <xsd:element name="searchHotel_fault">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="searchHotel_fault" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="HotelSearch">
+                <xsd:sequence>
+                    <xsd:element name="country" type="xsd:string"/>
+                    <xsd:element name="city" type="xsd:string"/>
+                    <xsd:element name="state" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="nearAddress" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="hotelName" type="xsd:string"/>
+                    <xsd:element name="checkInDate" type="xsd:date"/>
+                    <xsd:element name="checkOutDate" type="xsd:date"/>
+                    <xsd:element name="rooms" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="nonSmoking" type="xsd:boolean"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="HotelSearchResults">
+                <xsd:sequence>
+                    <xsd:element name="city" type="xsd:string"/>
+                    <xsd:element name="checkInDate" type="xsd:date"/>
+                    <xsd:element name="checkOutDate" type="xsd:date"/>
+                    <xsd:element name="noOfNights" type="xsd:int"/>
+                    <xsd:element name="hotels">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="hotel" type="pref2:HotelDetails"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="searchCar" type="tns:CarSearch"/>
+            <xsd:element name="searchCarResponse" type="tns:CarSearchResults"/>
+            <xsd:element name="searchCar_fault">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="searchCar_fault" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="CarSearch">
+                <xsd:sequence>
+                    <xsd:element name="country" type="xsd:string"/>
+                    <xsd:element name="state" type="xsd:string"/>
+                    <xsd:element name="pickUpCity" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="dropOffCity" type="xsd:string"/>
+                    <xsd:element name="pickUpDate" type="xsd:dateTime"/>
+                    <xsd:element name="dropOffDate" type="xsd:dateTime"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="rentalAgency" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="carType" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="carMake" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="nonSmoking" type="xsd:boolean"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CarSearchResults">
+                <xsd:sequence>
+                    <xsd:element name="pickUpCity" type="xsd:string"/>
+                    <xsd:element name="pickUpDate" type="xsd:dateTime"/>
+                    <xsd:element name="dropOffDate" type="xsd:dateTime"/>
+                    <xsd:element name="noOfDays" type="xsd:int"/>
+                    <xsd:element name="rentalAgencies">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element maxOccurs="unbounded" minOccurs="0" name="rentalAgency" type="pref1:RentalAgencyDetails">                        </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="searchAirlineRequest">
+        <wsdl:part element="tns:searchAirline" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="searchAirlineResponse">
+        <wsdl:part element="tns:searchAirlineResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="searchAirline_faultMsg">
+        <wsdl:part element="tns:searchAirline_fault" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="searchHotelRequest">
+        <wsdl:part element="tns:searchHotel" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="searchHotelResponse">
+        <wsdl:part element="tns:searchHotelResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="searchHotel_faultMsg">
+        <wsdl:part element="tns:searchHotel_fault" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="searchCarRequest">
+        <wsdl:part element="tns:searchCar" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="searchCarResponse">
+        <wsdl:part element="tns:searchCarResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="searchCar_faultMsg">
+        <wsdl:part element="tns:searchCar_fault" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="QueryGDS">
+        <wsdl:operation name="searchAirline">
+            <wsdl:input message="tns:searchAirlineRequest"/>
+            <wsdl:output message="tns:searchAirlineResponse"/>
+            <wsdl:fault message="tns:searchAirline_faultMsg" name="fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="searchHotel">
+            <wsdl:input message="tns:searchHotelRequest"/>
+            <wsdl:output message="tns:searchHotelResponse"/>
+            <wsdl:fault message="tns:searchHotel_faultMsg" name="fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="searchCar">
+            <wsdl:input message="tns:searchCarRequest"/>
+            <wsdl:output message="tns:searchCarResponse"/>
+            <wsdl:fault message="tns:searchCar_faultMsg" name="fault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

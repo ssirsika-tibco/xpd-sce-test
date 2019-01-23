@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/XSDBOM_TLE2_ComplexElementType"
+	xmlns:tns="http://www.example.org/XSDBOM_TLE2_ComplexElementType"
+	elementFormDefault="qualified">
+
+	<!--
+		Tests 3.4 as described in 'BDS Support for Handling - Studio BOM
+		Import'.
+	-->
+
+	<element name="PersonElement1" type="tns:Person" id="elem1"></element>
+	<element name="PersonElement2" type="tns:Person" 
+		nillable="true" final="#all"></element>
+	<element name="PersonElement3" type="tns:Person"></element>
+	<element name="PersonElement4" type="tns:Person" final="#all"/>
+
+	<complexType name="Person">
+		<sequence>
+			<element name="name" minOccurs="1" maxOccurs="1">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="50"></maxLength>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+
+
+</schema>

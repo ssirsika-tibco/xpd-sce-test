@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/SimpleChoice" xmlns:tns1="http://example.com/SimpleChoice"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/SimpleChoice">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_Choice01_SimpleChoice/Business Objects/com.example.SimpleChoice.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Plane" id="com.example.SimpleChoicePlane" abstract="false"
+      mixed="false" name="Plane">
+    <xsd:choice>
+      <xsd:element ecore:name="freightDetails" id="PlanefreightDetails" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="freightDetails" type="xsd:string"/>
+      <xsd:element ecore:name="passengers" id="Planepassengers" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="passengers" type="xsd:int"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:schema>

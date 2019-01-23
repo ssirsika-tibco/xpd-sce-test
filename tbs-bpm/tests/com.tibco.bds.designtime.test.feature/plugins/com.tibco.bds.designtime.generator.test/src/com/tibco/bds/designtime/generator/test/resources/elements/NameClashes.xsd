@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://example.com/NameClashes" targetNamespace="http://example.com/NameClashes" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+	<xs:complexType name="MatchingElementsButCase" ecore:name="MatchingElementsButCase">
+		<xs:sequence>
+			<xs:element name="attr1" type="xs:string" ecore:name="attr11"/>
+			<xs:element name="Attr1" type="xs:int" ecore:name="attr1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MatchingElementAndAttribute" ecore:name="MatchingElementAndAttribute">
+		<xs:sequence>
+			<xs:element name="clash" type="xs:string" ecore:name="clash"/>
+		</xs:sequence>
+		<xs:attribute name="clash" type="xs:int" ecore:name="clash1"/>
+	</xs:complexType>
+</xs:schema>

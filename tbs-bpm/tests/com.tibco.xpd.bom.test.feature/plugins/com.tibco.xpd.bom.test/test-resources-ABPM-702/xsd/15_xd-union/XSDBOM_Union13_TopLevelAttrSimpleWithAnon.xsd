@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/Unions"
+	targetNamespace="http://example.com/Unions">
+
+	<xs:attribute name="myTopAttr">
+		<xs:simpleType>
+			<xs:union memberTypes="xs:decimal xs:string xs:int">
+				<xs:simpleType>
+					<xs:restriction base="xs:boolean"></xs:restriction>
+				</xs:simpleType>
+				<xs:simpleType>
+					<xs:restriction base="xs:string"></xs:restriction>
+				</xs:simpleType>
+				<xs:simpleType>
+					<xs:restriction base="xs:gDay"></xs:restriction>
+				</xs:simpleType>
+			</xs:union>
+		</xs:simpleType>
+	</xs:attribute>
+
+</xs:schema>

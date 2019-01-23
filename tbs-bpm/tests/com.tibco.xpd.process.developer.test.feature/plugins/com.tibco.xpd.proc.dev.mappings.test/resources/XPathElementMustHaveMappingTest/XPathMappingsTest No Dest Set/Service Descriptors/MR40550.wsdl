@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/SidsWSDLFile/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SidsWSDLFile" targetNamespace="http://www.example.org/SidsWSDLFile/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/SidsWSDLFile/">
+      <xsd:element name="InputParams">
+        <xsd:complexType>
+          <xsd:sequence>
+
+
+          	<xsd:element name="multiplicityUnset"
+          		type="tns:StringTypeElementWithRequiredChildren">
+          	</xsd:element>
+          	<xsd:element name="multiplicitySet"
+          		type="tns:StringTypeElementWithRequiredChildren"
+          		minOccurs="0" maxOccurs="1">
+          	</xsd:element>
+
+
+
+          	<xsd:element name="multipleSequence"
+          		type="tns:StringTypeElementWithRequiredChildren"
+          		minOccurs="0" maxOccurs="unbounded">
+          	</xsd:element>
+          	<xsd:element name="finiteMultiplicity"
+          		type="tns:StringTypeElementWithRequiredChildren"
+          		maxOccurs="2" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="strArr" type="xsd:string" minOccurs="0"
+          		maxOccurs="5">
+          	</xsd:element>
+          	<xsd:element name="integerTypedElementWithMultSet" type="tns:IntElementWithReqdElement" minOccurs="0" maxOccurs="1"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+
+      <xsd:complexType name="StringTypeElementWithRequiredChildren">
+      	<xsd:simpleContent>
+      		<xsd:extension base="xsd:string">
+
+      			<xsd:attribute name="Reqd1" type="xsd:string"
+      				use="required">
+      			</xsd:attribute>
+      			<xsd:attribute name="Opt2"
+      				type="xsd:string" use="optional">
+      			</xsd:attribute>
+      		</xsd:extension>
+      	</xsd:simpleContent>
+      </xsd:complexType>
+    
+      <xsd:complexType name="NewComplexType">
+      	<xsd:sequence>
+      		<xsd:element name="NewElement" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TestSequenceMultiplicityOperationResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TestMultiplicityInputParams"
+      	type="tns:TestMultiplicityInputParamsType">
+      </xsd:element>
+
+      <xsd:complexType name="TestMultiplicityInputParamsType">
+      	<xsd:sequence minOccurs="0" maxOccurs="1">
+      		<xsd:element name="stringBaseTypeWithRequiredChildren" type="tns:StringTypeElementWithRequiredChildren"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NewOperation_fault">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="NewOperation_fault"
+      				type="xsd:string">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="IntElementWithReqdElement">
+      	<xsd:simpleContent>
+      		<xsd:extension base="xsd:int">
+      			<xsd:attribute name="ReqdInt" type="xsd:int"
+      				use="required">
+      			</xsd:attribute>
+      			<xsd:attribute name="OptionInt"
+      				type="xsd:int" use="optional">
+      			</xsd:attribute>
+      		</xsd:extension>
+      	</xsd:simpleContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part element="tns:InputParams" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part element="tns:InputParams" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="TestSequenceMultiplicityOperationRequest">
+  	<wsdl:part name="parameters" element="tns:TestMultiplicityInputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TestSequenceMultiplicityOperationResponse">
+  	<wsdl:part name="parameters" element="tns:TestSequenceMultiplicityOperationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NewOperation_faultMsg">
+  	<wsdl:part name="parameters" element="tns:InputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MR40550">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:NewOperationResponse"/>
+            <wsdl:fault name="fault" message="tns:NewOperation_faultMsg"></wsdl:fault>
+        </wsdl:operation>
+    <wsdl:operation name="TestSequenceMultiplicityOperation">
+    	<wsdl:input message="tns:TestSequenceMultiplicityOperationRequest"></wsdl:input>
+    	<wsdl:output message="tns:TestSequenceMultiplicityOperationResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SidsWSDLFileSOAP" type="tns:MR40550">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="NewOperation">
+  		<soap:operation
+  			soapAction="http://www.example.org/SidsWSDLFile/NewOperation" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="TestSequenceMultiplicityOperation">
+  		<soap:operation
+  			soapAction="http://www.example.org/SidsWSDLFile/TestSequenceMultiplicityOperation" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MR40550">
+    <wsdl:port binding="tns:SidsWSDLFileSOAP" name="SidsWSDLFileSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

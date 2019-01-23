@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="urn:CorticonService" xmlns:cc="urn:Corticon" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="urn:CorticonService">
+  <types>
+    <xsd:schema xmlns:tns="urn:Corticon" targetNamespace="urn:Corticon" elementFormDefault="qualified">
+      <xsd:element name="CorticonRequest" type="tns:CorticonRequestType" />
+      <xsd:element name="CorticonResponse" type="tns:CorticonResponseType" />
+      <xsd:complexType name="CorticonRequestType">
+        <xsd:sequence>
+          <xsd:element name="WorkDocuments" type="tns:WorkDocumentsType" />
+        </xsd:sequence>
+        <xsd:attribute name="decisionServiceName" use="required" type="xsd:string" />
+        <xsd:attribute name="decisionServiceTargetVersion" use="optional" type="xsd:nonNegativeInteger" />
+        <xsd:attribute name="decisionServiceEffectiveTimestamp" use="optional" type="xsd:dateTime" />
+      </xsd:complexType>
+      <xsd:complexType name="CorticonResponseType">
+        <xsd:sequence>
+          <xsd:element name="WorkDocuments" type="tns:WorkDocumentsType" />
+          <xsd:element name="Messages" type="tns:MessagesType" />
+        </xsd:sequence>
+        <xsd:attribute name="decisionServiceName" use="required" type="xsd:string" />
+        <xsd:attribute name="decisionServiceTargetVersion" use="optional" type="xsd:nonNegativeInteger" />
+        <xsd:attribute name="decisionServiceEffectiveTimestamp" use="optional" type="xsd:dateTime" />
+      </xsd:complexType>
+      <xsd:complexType name="WorkDocumentsType">
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="Aircraft" type="tns:AircraftType" minOccurs="0" />
+          <xsd:element name="Cargo" type="tns:CargoType" minOccurs="0" />
+          <xsd:element name="FlightPlan" type="tns:FlightPlanType" />
+        </xsd:choice>
+        <xsd:attribute name="messageType" fixed="HIER" use="optional" />
+      </xsd:complexType>
+      <xsd:complexType name="MessagesType">
+        <xsd:sequence>
+          <xsd:element name="Message" type="tns:MessageType" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+        <xsd:attribute name="version" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MessageType">
+        <xsd:sequence>
+          <xsd:element name="severity">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="Info" />
+                <xsd:enumeration value="Warning" />
+                <xsd:enumeration value="Violation" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="text" type="xsd:string" />
+          <xsd:element name="entityReference">
+            <xsd:complexType>
+              <xsd:attribute name="href" type="xsd:anyURI" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AircraftType">
+        <xsd:sequence>
+          <xsd:element name="aircraftType" type="xsd:string" nillable="false" minOccurs="0" />
+          <xsd:element name="maxCargoVolume" type="xsd:decimal" nillable="false" minOccurs="0" />
+          <xsd:element name="maxCargoWeight" type="xsd:decimal" nillable="false" minOccurs="0" />
+          <xsd:element name="tailNumber" type="xsd:string" nillable="false" minOccurs="0" />
+          <xsd:element name="flightPlan" type="tns:FlightPlanType" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="optional" />
+        <xsd:attribute name="href" type="xsd:anyURI" use="optional" />
+      </xsd:complexType>
+      <xsd:complexType name="CargoType">
+        <xsd:sequence>
+          <xsd:element name="manifestNumber" type="xsd:string" nillable="false" minOccurs="0" />
+          <xsd:element name="packaging" type="xsd:string" nillable="false" minOccurs="0" />
+          <xsd:element name="volume" type="xsd:decimal" nillable="false" minOccurs="0" />
+          <xsd:element name="weight" type="xsd:decimal" nillable="false" minOccurs="0" />
+          <xsd:element name="flightPlan" type="tns:FlightPlanType" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="optional" />
+        <xsd:attribute name="href" type="xsd:anyURI" use="optional" />
+      </xsd:complexType>
+      <xsd:complexType name="FlightPlanType">
+        <xsd:sequence>
+          <xsd:element name="flightNumber" type="xsd:long" nillable="false" minOccurs="0" />
+          <xsd:element name="aircraft" type="tns:AircraftType" minOccurs="0" />
+          <xsd:element name="cargo" type="tns:CargoType" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="optional" />
+        <xsd:attribute name="href" type="xsd:anyURI" use="optional" />
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="CorticonRequestIn">
+    <part name="parameters" element="cc:CorticonRequest" />
+  </message>
+  <message name="CorticonResponseOut">
+    <part name="parameters" element="cc:CorticonResponse" />
+  </message>
+  <portType name="CargoDecisionServiceSoap">
+    <operation name="processRequest">
+      <input message="tns:CorticonRequestIn" />
+      <output message="tns:CorticonResponseOut" />
+    </operation>
+  </portType>
+  <binding name="CargoDecisionServiceSoap" type="tns:CargoDecisionServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="processRequest">
+      <soap:operation soapAction="urn:Corticon" style="document" />
+      <input>
+        <soap:body use="literal" namespace="urn:Corticon" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="urn:Corticon" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CargoDecisionService">
+    <documentation>InsertDecisionServiceDescription</documentation>
+    <port name="CargoDecisionServiceSoap" binding="tns:CargoDecisionServiceSoap">
+      <soap:address location="http://localhost:8080/axis/services/Corticon" />
+    </port>
+  </service>
+</definitions>
+

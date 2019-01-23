@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName_notrans
+Bundle-SymbolicName: com.tibco.xpd.presentation.core.edit;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: com.tibco.xpd.presentation.channels.provider.ChannelsEditPlugin$Implementation
+Bundle-Vendor: %providerName_notrans
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: com.tibco.xpd.presentation.channels.provider,
+ com.tibco.xpd.presentation.channeltypes.provider
+Require-Bundle: org.eclipse.core.runtime,
+ com.tibco.xpd.presentation.core;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

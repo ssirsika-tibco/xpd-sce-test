@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:tns="http://xmlns.enel.com/mercato/libero/wsdl/GestioneErrori/bpm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://xmlns.enel.com/mercato/libero/schema/GestioneErroriSchema.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/wsdl/GestioneErrori/bpm">
+    <wsdl:types>
+        <xs:schema xmlns="http://xmlns.enel.com/mercato/libero/schema/GestioneErroriSchema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.enel.com/mercato/libero/schema/GestioneErroriSchema.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="SubmitTaskReqType">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="correlationId" type="xs:string"/>
+                        <xs:element name="submitToken">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="RETRY"/>
+                                    <xs:enumeration value="FORCE"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SubmitTaskRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:SubmitTaskReqType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="GestioneErroriWSDLService">
+        <wsdl:port name="GestioneErroriEndPoint" binding="tns:GestioneErroriEndPointBinding">
+            <soap:address location="http://localhost:999/Processes/GestioneErrori/GestioneErroriWSDL-service/GestioneErroriEndPoint"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="GestioneErroriPortType">
+        <wsdl:operation name="submitTask">
+            <wsdl:input message="tns:SubmitTaskReqMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GestioneErroriEndPointBinding" type="tns:GestioneErroriPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="submitTask">
+            <soap:operation style="document" soapAction="/Processes/GestionErrori/GestioneErroriWSDL-service/GestioneErroriEndPoint/submitTask"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="partbody"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="SubmitTaskReqMessage">
+        <wsdl:part name="partbody" element="ns0:SubmitTaskRequest"/>
+    </wsdl:message>
+</wsdl:definitions>

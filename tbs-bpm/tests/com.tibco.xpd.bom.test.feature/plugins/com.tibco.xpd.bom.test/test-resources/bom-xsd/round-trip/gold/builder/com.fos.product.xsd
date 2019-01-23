@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://fos.com/product" xmlns:tns1="http://fos.com/product" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://fos.com/product">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/FOS_BOM/Business Objects/Product.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="Product" id="_U43OsIdREeOtab1uXoFDhg" name="Product">
+    <xsd:sequence>
+      <xsd:element ecore:name="productID" id="_XcpaEIdREeOtab1uXoFDhg" maxOccurs="1"
+          minOccurs="0" name="productID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element ecore:name="productName" id="_YVefgIdREeOtab1uXoFDhg" maxOccurs="1"
+          minOccurs="0" name="productName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Products" id="_kesUEIdREeOtab1uXoFDhg" name="Products">
+    <xsd:sequence>
+      <xsd:element ecore:name="products" id="_llT944dREeOtab1uXoFDhg" maxOccurs="unbounded"
+          minOccurs="0" name="products" type="Product"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProductElement" type="Product"/>
+  <xsd:element name="ProductsElement" type="Products"/>
+</xsd:schema>

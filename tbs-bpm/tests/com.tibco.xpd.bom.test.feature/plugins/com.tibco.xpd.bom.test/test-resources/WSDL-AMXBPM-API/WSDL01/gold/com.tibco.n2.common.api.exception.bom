@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.common.api.exception2" name="com.tibco.n2.common.api.exception">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i0sHURUHEeGvy5vcBZd45A" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i0sHUhUHEeGvy5vcBZd45A" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i0suYBUHEeGvy5vcBZd45A" key="created" value="1321969394374"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i0suYRUHEeGvy5vcBZd45A" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.api.exceptionErrorLine" name="ErrorLine">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hHoIkBUHEeGvy5vcBZd45A" body="Single error or warning message, containing an error code, message string and parameters. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ErrorLinecode" name="code">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hHSKUBUHEeGvy5vcBZd45A" body="Code associated with this error. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hHPuEBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hHPHAhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ErrorLinemessage" name="message">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hHaGIBUHEeGvy5vcBZd45A" body="Default English form of the error message. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hHYQ8hUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hHYQ8RUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ErrorLineparameter" name="parameter">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hHkeMBUHEeGvy5vcBZd45A" body="Array of parameter values that can be applied to a foreign language message. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hHiB8hUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hHiB8RUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.api.exceptionDetailedErrorLine" name="DetailedErrorLine">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_hIRBwBUHEeGvy5vcBZd45A" body="Extension of ErrorLine, which adds a line number, column number and severity level. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_hITeABUHEeGvy5vcBZd45A" general="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DetailedErrorLinelineNumber" name="lineNumber">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hH0V0BUHEeGvy5vcBZd45A" body="Line number on which the error occurred. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hHxSghUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hHxSgRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DetailedErrorLinecolumnNumber" name="columnNumber">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_hH9fwBUHEeGvy5vcBZd45A" body="Column number in which the error occurred. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hH7DghUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hH7DgRUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DetailedErrorLineseverity" name="severity" type="com.tibco.n2.common.api.exceptionseverityType?com.tibco.n2.common.api.exception%3a%3aseverityType?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hIHQwBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hIGpshUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="com.tibco.n2.common.api.exceptionseverityType" name="severityType">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hIKUEBUHEeGvy5vcBZd45A" name="WARNING"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hIK7IRUHEeGvy5vcBZd45A" name="ERROR"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_hIK7IxUHEeGvy5vcBZd45A" name="INFORMATION"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.api.exceptionDetailedException" name="DetailedException">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DetailedExceptionerror" name="error" type="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?" aggregation="composite" association="com.tibco.n2.common.api.exceptionComposition0?com.tibco.n2.common.api.exception%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hJhmARUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hJhmABUHEeGvy5vcBZd45A"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.common.api.exceptionComposition0" name="Composition0" memberEnd="DetailedExceptionerror?com.tibco.n2.common.api.exception%3a%3aDetailedException%3a%3aerror? Composition0detailedexception?com.tibco.n2.common.api.exception%3a%3aComposition0%3a%3adetailedexception?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0detailedexception" name="detailedexception" type="com.tibco.n2.common.api.exceptionDetailedException?com.tibco.n2.common.api.exception%3a%3aDetailedException?" association="com.tibco.n2.common.api.exceptionComposition0?com.tibco.n2.common.api.exception%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hJhmBBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hJhmAxUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.api.exceptionInternalServiceFaultType" name="InternalServiceFaultType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InternalServiceFaultTypeerror" name="error" type="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?" aggregation="composite" association="com.tibco.n2.common.api.exceptionComposition1?com.tibco.n2.common.api.exception%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hLYnMhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hLYnMRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.common.api.exceptionComposition1" name="Composition1" memberEnd="InternalServiceFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType%3a%3aerror? Composition1internalservicefaulttype?com.tibco.n2.common.api.exception%3a%3aComposition1%3a%3ainternalservicefaulttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1internalservicefaulttype" name="internalservicefaulttype" type="com.tibco.n2.common.api.exceptionInternalServiceFaultType?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType?" association="com.tibco.n2.common.api.exceptionComposition1?com.tibco.n2.common.api.exception%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hLZOQRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hLZOQBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.api.exceptionDeploymentParameterFaultType" name="DeploymentParameterFaultType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="DeploymentParameterFaultTypeerror" name="error" type="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?" aggregation="composite" association="com.tibco.n2.common.api.exceptionComposition2?com.tibco.n2.common.api.exception%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hLsJMxUHEeGvy5vcBZd45A" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hLsJMhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.common.api.exceptionComposition2" name="Composition2" memberEnd="DeploymentParameterFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType%3a%3aerror? Composition2deploymentparameterfaulttype?com.tibco.n2.common.api.exception%3a%3aComposition2%3a%3adeploymentparameterfaulttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition2deploymentparameterfaulttype" name="deploymentparameterfaulttype" type="com.tibco.n2.common.api.exceptionDeploymentParameterFaultType?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType?" association="com.tibco.n2.common.api.exceptionComposition2?com.tibco.n2.common.api.exception%3a%3aComposition2?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hLswQRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hLswQBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.api.exceptionWorkTypeFaultType" name="WorkTypeFaultType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="WorkTypeFaultTypeerror" name="error" type="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?" aggregation="composite" association="com.tibco.n2.common.api.exceptionComposition3?com.tibco.n2.common.api.exception%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hMA5UxUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hMA5UhUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.common.api.exceptionComposition3" name="Composition3" memberEnd="WorkTypeFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType%3a%3aerror? Composition3worktypefaulttype?com.tibco.n2.common.api.exception%3a%3aComposition3%3a%3aworktypefaulttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition3worktypefaulttype" name="worktypefaulttype" type="com.tibco.n2.common.api.exceptionWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType?" association="com.tibco.n2.common.api.exceptionComposition3?com.tibco.n2.common.api.exception%3a%3aComposition3?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hMBgYhUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hMBgYRUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.api.exceptionInvalidWorkTypeFaultType" name="InvalidWorkTypeFaultType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="InvalidWorkTypeFaultTypeerror" name="error" type="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?" aggregation="composite" association="com.tibco.n2.common.api.exceptionComposition4?com.tibco.n2.common.api.exception%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hMVpcRUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hMVpcBUHEeGvy5vcBZd45A" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.common.api.exceptionComposition4" name="Composition4" memberEnd="InvalidWorkTypeFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType%3a%3aerror? Composition4invalidworktypefaulttype?com.tibco.n2.common.api.exception%3a%3aComposition4%3a%3ainvalidworktypefaulttype?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition4invalidworktypefaulttype" name="invalidworktypefaulttype" type="com.tibco.n2.common.api.exceptionInvalidWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType?" association="com.tibco.n2.common.api.exceptionComposition4?com.tibco.n2.common.api.exception%3a%3aComposition4?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hMVpdBUHEeGvy5vcBZd45A" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hMVpcxUHEeGvy5vcBZd45A" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hGYycRUHEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hGYychUHEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hGYycxUHEeGvy5vcBZd45A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hGYydBUHEeGvy5vcBZd45A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_hGZZgBUHEeGvy5vcBZd45A" base_Package="com.tibco.n2.common.api.exception2?com.tibco.n2.common.api.exception?" xsdTargetNamespace="http://exception.api.common.n2.tibco.com" xsdSchemaLocation="comexception.xsd"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hHIZUBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?" xsdName="ErrorLine" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hHlsUBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hHPHARUHEeGvy5vcBZd45A" base_Property="ErrorLinecode?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3acode?" xsdName="code" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hHPuERUHEeGvy5vcBZd45A" textLength="-1" base_Property="ErrorLinecode?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3acode?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hHYQ8BUHEeGvy5vcBZd45A" base_Property="ErrorLinemessage?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3amessage?" xsdName="message" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hHY4ABUHEeGvy5vcBZd45A" textLength="-1" base_Property="ErrorLinemessage?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3amessage?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hHiB8BUHEeGvy5vcBZd45A" base_Property="ErrorLineparameter?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3aparameter?" xsdName="parameter" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hHlsUBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="*"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hHipABUHEeGvy5vcBZd45A" textLength="-1" base_Property="ErrorLineparameter?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3aparameter?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hHp9wBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.common.api.exceptionDetailedErrorLine?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine?" xsdName="DetailedErrorLine" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hHxSgBUHEeGvy5vcBZd45A" base_Property="DetailedErrorLinelineNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3alineNumber?" xsdName="lineNumber" xsdForm="unqualified" xsdUse="optional" xsdType="int" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hHx5kBUHEeGvy5vcBZd45A" integerLength="-1" base_Property="DetailedErrorLinelineNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3alineNumber?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_hHygoBUHEeGvy5vcBZd45A" base_Property="DetailedErrorLinelineNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3alineNumber?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hH7DgBUHEeGvy5vcBZd45A" base_Property="DetailedErrorLinecolumnNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3acolumnNumber?" xsdName="columnNumber" xsdForm="unqualified" xsdUse="optional" xsdType="int" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hH7qkBUHEeGvy5vcBZd45A" integerLength="-1" base_Property="DetailedErrorLinecolumnNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3acolumnNumber?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_hH8RoBUHEeGvy5vcBZd45A" base_Property="DetailedErrorLinecolumnNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3acolumnNumber?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hIGpsRUHEeGvy5vcBZd45A" base_Property="DetailedErrorLineseverity?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3aseverity?" xsdName="severity" xsdForm="unqualified" xsdUse="required" xsdEnumLiterals="WARNING, ERROR, INFORMATION" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_hIH30BUHEeGvy5vcBZd45A" textLength="-1" base_Property="DetailedErrorLineseverity?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3aseverity?"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hIJF8RUHEeGvy5vcBZd45A" base_Enumeration="com.tibco.n2.common.api.exceptionseverityType?com.tibco.n2.common.api.exception%3a%3aseverityType?" xsdSimpleTypeName="severityType" xsdSimpleTypeId="" xsdRestrictionId="" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hIK7IBUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hIKUEBUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aWARNING?" xsdId="WARNING" xsdValue="WARNING"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hIK7IhUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hIK7IRUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aERROR?" xsdId="ERROR" xsdValue="ERROR"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_hILiMBUHEeGvy5vcBZd45A" base_EnumerationLiteral="_hIK7IxUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aINFORMATION?" xsdId="INFORMATION" xsdValue="INFORMATION"/>
+  <XsdNotationProfile:XsdBasedEnumeration xmi:id="_hILiMRUHEeGvy5vcBZd45A" base_Enumeration="com.tibco.n2.common.api.exceptionseverityType?com.tibco.n2.common.api.exception%3a%3aseverityType?" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_hIMJQBUHEeGvy5vcBZd45A" base_Property="DetailedErrorLineseverity?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3aseverity?" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_hIMwUBUHEeGvy5vcBZd45A" base_Property="DetailedErrorLineseverity?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3aseverity?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hJXN8BUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.common.api.exceptionDetailedException?com.tibco.n2.common.api.exception%3a%3aDetailedException?" xsdName="DetailedException" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hJjbMBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hJiNEBUHEeGvy5vcBZd45A" base_Property="DetailedExceptionerror?com.tibco.n2.common.api.exception%3a%3aDetailedException%3a%3aerror?" xsdName="error" xsdForm="unqualified" xsdType="ErrorLine" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hJjbMBUHEeGvy5vcBZd45A" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hLOPIBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.common.api.exceptionInternalServiceFaultType?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hLbDcBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hLZOQhUHEeGvy5vcBZd45A" base_Property="InternalServiceFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType%3a%3aerror?" xsdName="error" xsdForm="unqualified" xsdType="ErrorLine" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hLbDcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_hLc4oBUHEeGvy5vcBZd45A" base_Package="com.tibco.n2.common.api.exception2?com.tibco.n2.common.api.exception?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hLdfsBUHEeGvy5vcBZd45A" name="InternalServiceFault" type="com.tibco.n2.common.api.exceptionInternalServiceFaultType?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType?" isAnonymous="true" targetNamespace="http://exception.api.common.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hLxBsBUHEeGvy5vcBZd45A" name="DeploymentParameterFault" type="com.tibco.n2.common.api.exceptionDeploymentParameterFaultType?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType?" isAnonymous="true" targetNamespace="http://exception.api.common.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hMFKwBUHEeGvy5vcBZd45A" name="WorkTypeFault" type="com.tibco.n2.common.api.exceptionWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType?" isAnonymous="true" targetNamespace="http://exception.api.common.n2.tibco.com" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_hMZT0BUHEeGvy5vcBZd45A" name="InvalidWorkTypeFault" type="com.tibco.n2.common.api.exceptionInvalidWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType?" isAnonymous="true" targetNamespace="http://exception.api.common.n2.tibco.com" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hLhxIBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.common.api.exceptionDeploymentParameterFaultType?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hLulcBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hLswQhUHEeGvy5vcBZd45A" base_Property="DeploymentParameterFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType%3a%3aerror?" xsdName="error" xsdForm="unqualified" xsdType="ErrorLine" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hLulcBUHEeGvy5vcBZd45A" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hL16MBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.common.api.exceptionWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hMDVkBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hMCHcBUHEeGvy5vcBZd45A" base_Property="WorkTypeFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType%3a%3aerror?" xsdName="error" xsdForm="unqualified" xsdType="ErrorLine" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hMDVkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_hMKqUBUHEeGvy5vcBZd45A" base_Class="com.tibco.n2.common.api.exceptionInvalidWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_hMXeoBUHEeGvy5vcBZd45A" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_hMWQgBUHEeGvy5vcBZd45A" base_Property="InvalidWorkTypeFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType%3a%3aerror?" xsdName="error" xsdForm="unqualified" xsdType="ErrorLine" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_hMXeoBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMgokRUHEeGvy5vcBZd45A" base_Element="_hLswQRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMgokhUHEeGvy5vcBZd45A" base_Element="_hJhmBBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMhPoBUHEeGvy5vcBZd45A" base_Element="ErrorLinemessage?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3amessage?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMhPoRUHEeGvy5vcBZd45A" base_Element="_hHPHAhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMh2sBUHEeGvy5vcBZd45A" base_Element="InternalServiceFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType%3a%3aerror?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMh2sRUHEeGvy5vcBZd45A" base_Element="_hGYycRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMh2shUHEeGvy5vcBZd45A" base_Element="ErrorLinecode?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3acode?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMidwBUHEeGvy5vcBZd45A" base_Element="ErrorLineparameter?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3aparameter?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMidwRUHEeGvy5vcBZd45A" base_Element="_hIGpshUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMjE0BUHEeGvy5vcBZd45A" base_Element="_hIRBwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMjE0RUHEeGvy5vcBZd45A" base_Element="_hIK7IxUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aINFORMATION?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMjE0hUHEeGvy5vcBZd45A" base_Element="_hHaGIBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMjr4BUHEeGvy5vcBZd45A" base_Element="_hHYQ8RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMjr4RUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionseverityType?com.tibco.n2.common.api.exception%3a%3aseverityType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMjr4hUHEeGvy5vcBZd45A" base_Element="_hHSKUBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMkS8BUHEeGvy5vcBZd45A" base_Element="DetailedErrorLinelineNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3alineNumber?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMkS8RUHEeGvy5vcBZd45A" base_Element="_hMA5UxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMkS8hUHEeGvy5vcBZd45A" base_Element="_hMVpcRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMk6ABUHEeGvy5vcBZd45A" base_Element="_hLsJMhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMk6ARUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionDeploymentParameterFaultType?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMk6AhUHEeGvy5vcBZd45A" base_Element="_hHiB8hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMlhEBUHEeGvy5vcBZd45A" base_Element="_hGYycxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMlhERUHEeGvy5vcBZd45A" base_Element="_hLYnMhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMlhEhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionComposition4?com.tibco.n2.common.api.exception%3a%3aComposition4?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMmIIBUHEeGvy5vcBZd45A" base_Element="_hHiB8RUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMmIIRUHEeGvy5vcBZd45A" base_Element="Composition1internalservicefaulttype?com.tibco.n2.common.api.exception%3a%3aComposition1%3a%3ainternalservicefaulttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMmIIhUHEeGvy5vcBZd45A" base_Element="_hJhmABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMmvMBUHEeGvy5vcBZd45A" base_Element="_hLswQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMmvMRUHEeGvy5vcBZd45A" base_Element="_hLZOQBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMmvMhUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionInternalServiceFaultType?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMnWQBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionComposition1?com.tibco.n2.common.api.exception%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMnWQRUHEeGvy5vcBZd45A" base_Element="_hMA5UhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMn9UBUHEeGvy5vcBZd45A" base_Element="_hHoIkBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMn9URUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionDetailedErrorLine?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMokYBUHEeGvy5vcBZd45A" base_Element="Composition2deploymentparameterfaulttype?com.tibco.n2.common.api.exception%3a%3aComposition2%3a%3adeploymentparameterfaulttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMokYRUHEeGvy5vcBZd45A" base_Element="_hHxSgRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMokYhUHEeGvy5vcBZd45A" base_Element="_hHYQ8hUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMpLcBUHEeGvy5vcBZd45A" base_Element="_hMVpcBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMpLcRUHEeGvy5vcBZd45A" base_Element="_hMVpdBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMpLchUHEeGvy5vcBZd45A" base_Element="_hH0V0BUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMpygBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionComposition0?com.tibco.n2.common.api.exception%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMpygRUHEeGvy5vcBZd45A" base_Element="DeploymentParameterFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType%3a%3aerror?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMpyghUHEeGvy5vcBZd45A" base_Element="_hMBgYRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMpygxUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionInvalidWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMqZkBUHEeGvy5vcBZd45A" base_Element="_hLYnMRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMqZkRUHEeGvy5vcBZd45A" base_Element="_hH7DghUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMqZkhUHEeGvy5vcBZd45A" base_Element="_hIK7IRUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aERROR?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMrAoBUHEeGvy5vcBZd45A" base_Element="Composition0detailedexception?com.tibco.n2.common.api.exception%3a%3aComposition0%3a%3adetailedexception?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMrAoRUHEeGvy5vcBZd45A" base_Element="_hH9fwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMrAohUHEeGvy5vcBZd45A" base_Element="DetailedExceptionerror?com.tibco.n2.common.api.exception%3a%3aDetailedException%3a%3aerror?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMrnsBUHEeGvy5vcBZd45A" base_Element="WorkTypeFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType%3a%3aerror?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMrnsRUHEeGvy5vcBZd45A" base_Element="Composition4invalidworktypefaulttype?com.tibco.n2.common.api.exception%3a%3aComposition4%3a%3ainvalidworktypefaulttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMrnshUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionDetailedException?com.tibco.n2.common.api.exception%3a%3aDetailedException?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMsOwBUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMsOwRUHEeGvy5vcBZd45A" base_Element="_hMVpcxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMsOwhUHEeGvy5vcBZd45A" base_Element="InvalidWorkTypeFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType%3a%3aerror?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMs10BUHEeGvy5vcBZd45A" base_Element="_hHxSghUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMs10RUHEeGvy5vcBZd45A" base_Element="_hHPuEBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMs10hUHEeGvy5vcBZd45A" base_Element="_hHkeMBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMs10xUHEeGvy5vcBZd45A" base_Element="_hJhmARUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMtc4BUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMuD8BUHEeGvy5vcBZd45A" base_Element="_hIKUEBUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aWARNING?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMuD8RUHEeGvy5vcBZd45A" base_Element="DetailedErrorLineseverity?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3aseverity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMuD8hUHEeGvy5vcBZd45A" base_Element="Composition3worktypefaulttype?com.tibco.n2.common.api.exception%3a%3aComposition3%3a%3aworktypefaulttype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMurABUHEeGvy5vcBZd45A" base_Element="_hMBgYhUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMurARUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionComposition2?com.tibco.n2.common.api.exception%3a%3aComposition2?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMurAhUHEeGvy5vcBZd45A" base_Element="_hITeABUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMurAxUHEeGvy5vcBZd45A" base_Element="_hIHQwBUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMvSEBUHEeGvy5vcBZd45A" base_Element="_hJhmAxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMvSERUHEeGvy5vcBZd45A" base_Element="com.tibco.n2.common.api.exceptionComposition3?com.tibco.n2.common.api.exception%3a%3aComposition3?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMvSEhUHEeGvy5vcBZd45A" base_Element="_hLsJMxUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMv5IBUHEeGvy5vcBZd45A" base_Element="DetailedErrorLinecolumnNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3acolumnNumber?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMv5IRUHEeGvy5vcBZd45A" base_Element="_hH7DgRUHEeGvy5vcBZd45A"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_hMv5IhUHEeGvy5vcBZd45A" base_Element="_hLZOQRUHEeGvy5vcBZd45A"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0ONQBUHEeGvy5vcBZd45A" displayLabel="DetailedErrorLine" base_NamedElement="com.tibco.n2.common.api.exceptionDetailedErrorLine?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0PbYBUHEeGvy5vcBZd45A" displayLabel="DetailedException" base_NamedElement="com.tibco.n2.common.api.exceptionDetailedException?com.tibco.n2.common.api.exception%3a%3aDetailedException?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0QpgBUHEeGvy5vcBZd45A" displayLabel="ErrorLine" base_NamedElement="com.tibco.n2.common.api.exceptionErrorLine?com.tibco.n2.common.api.exception%3a%3aErrorLine?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0R3oBUHEeGvy5vcBZd45A" displayLabel="DeploymentParameterFaultType" base_NamedElement="com.tibco.n2.common.api.exceptionDeploymentParameterFaultType?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0TFwBUHEeGvy5vcBZd45A" displayLabel="InternalServiceFaultType" base_NamedElement="com.tibco.n2.common.api.exceptionInternalServiceFaultType?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0U68BUHEeGvy5vcBZd45A" displayLabel="InvalidWorkTypeFaultType" base_NamedElement="com.tibco.n2.common.api.exceptionInvalidWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0WwIBUHEeGvy5vcBZd45A" displayLabel="WorkTypeFaultType" base_NamedElement="com.tibco.n2.common.api.exceptionWorkTypeFaultType?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0X-QBUHEeGvy5vcBZd45A" displayLabel="columnNumber" base_NamedElement="DetailedErrorLinecolumnNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3acolumnNumber?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0ZMYBUHEeGvy5vcBZd45A" displayLabel="lineNumber" base_NamedElement="DetailedErrorLinelineNumber?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3alineNumber?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0aagBUHEeGvy5vcBZd45A" displayLabel="severity" base_NamedElement="DetailedErrorLineseverity?com.tibco.n2.common.api.exception%3a%3aDetailedErrorLine%3a%3aseverity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0booBUHEeGvy5vcBZd45A" displayLabel="severityType" base_NamedElement="com.tibco.n2.common.api.exceptionseverityType?com.tibco.n2.common.api.exception%3a%3aseverityType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0dd0BUHEeGvy5vcBZd45A" displayLabel="ERROR" base_NamedElement="_hIK7IRUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aERROR?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0eE4BUHEeGvy5vcBZd45A" displayLabel="INFORMATION" base_NamedElement="_hIK7IxUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aINFORMATION?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0f6EBUHEeGvy5vcBZd45A" displayLabel="WARNING" base_NamedElement="_hIKUEBUHEeGvy5vcBZd45A?com.tibco.n2.common.api.exception%3a%3aseverityType%3a%3aWARNING?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0hvQBUHEeGvy5vcBZd45A" displayLabel="error" base_NamedElement="DetailedExceptionerror?com.tibco.n2.common.api.exception%3a%3aDetailedException%3a%3aerror?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0kLgBUHEeGvy5vcBZd45A" displayLabel="parameter" base_NamedElement="ErrorLineparameter?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3aparameter?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0lZoBUHEeGvy5vcBZd45A" displayLabel="code" base_NamedElement="ErrorLinecode?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3acode?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0mnwBUHEeGvy5vcBZd45A" displayLabel="message" base_NamedElement="ErrorLinemessage?com.tibco.n2.common.api.exception%3a%3aErrorLine%3a%3amessage?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0nO0BUHEeGvy5vcBZd45A" displayLabel="error" base_NamedElement="DeploymentParameterFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aDeploymentParameterFaultType%3a%3aerror?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0pEABUHEeGvy5vcBZd45A" displayLabel="error" base_NamedElement="InternalServiceFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aInternalServiceFaultType%3a%3aerror?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0q5MBUHEeGvy5vcBZd45A" displayLabel="error" base_NamedElement="InvalidWorkTypeFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aInvalidWorkTypeFaultType%3a%3aerror?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_i0sHUBUHEeGvy5vcBZd45A" displayLabel="error" base_NamedElement="WorkTypeFaultTypeerror?com.tibco.n2.common.api.exception%3a%3aWorkTypeFaultType%3a%3aerror?"/>
+  <notation:Diagram xmi:id="_i0suYhUHEeGvy5vcBZd45A" type="Business Object Model" element="com.tibco.n2.common.api.exception2?com.tibco.n2.common.api.exception?" name="com.tibco.n2.common.api.exception" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_i0suYxUHEeGvy5vcBZd45A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_i0suZBUHEeGvy5vcBZd45A"/>
+  </notation:Diagram>
+</xmi:XMI>

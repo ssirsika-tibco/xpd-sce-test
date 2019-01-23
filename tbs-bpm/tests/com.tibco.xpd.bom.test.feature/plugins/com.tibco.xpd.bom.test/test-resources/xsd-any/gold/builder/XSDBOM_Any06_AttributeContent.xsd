@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.w3schools.com" xmlns:tns1="http://www.w3schools.com" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.w3schools.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XSDBOM_Any06_AttributeContent/Business Objects/com.w3schools.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="person" id="com.w3schoolsperson" abstract="false" mixed="false"
+      name="person">
+    <xsd:sequence>
+      <xsd:any ecore:name="any" id="personany" namespace="##any" processContents="lax"
+          maxOccurs="5" minOccurs="2"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="person2" id="com.w3schoolsperson2" abstract="false"
+      mixed="false" name="person2">
+    <xsd:sequence>
+      <xsd:any ecore:name="any" id="person2any" namespace="##local" processContents="skip"
+          maxOccurs="1" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="person3" id="com.w3schoolsperson3" abstract="false"
+      mixed="false" name="person3">
+    <xsd:sequence>
+      <xsd:any ecore:name="any" id="person3any" namespace="##other" processContents="strict"
+          maxOccurs="1" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="person4" id="com.w3schoolsperson4" abstract="false"
+      mixed="false" name="person4">
+    <xsd:sequence>
+      <xsd:any ecore:name="any" id="person4any" namespace="http://www.tibco.com tibco.com ##targetNamespace"
+          processContents="strict" maxOccurs="1" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

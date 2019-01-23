@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.RequestOnlyDocLiteral" name="org.example.RequestOnlyDocLiteral">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ltVRwAdTEeSRjauCcgnMbg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ltVRwQdTEeSRjauCcgnMbg" key="author" value="agondal"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ltVRwgdTEeSRjauCcgnMbg" key="created" value="1404905232220"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ltVRwwdTEeSRjauCcgnMbg" key="version" value="3"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_luJKEAdTEeSRjauCcgnMbg" key="checksum" value="2798076651"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.RequestOnlyDocLiteralNewOperationType" name="NewOperationType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewOperationTypein" name="in1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ltPLIwdTEeSRjauCcgnMbg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ltPLIgdTEeSRjauCcgnMbg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.RequestOnlyDocLiteralRequestOnlyDocLiteral" name="RequestOnlyDocLiteral">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="RequestOnlyDocLiteralNewOperation" name="NewOperation">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="NewOperationparameters" name="parameters" type="org.example.RequestOnlyDocLiteralNewOperationType?org.example.RequestOnlyDocLiteral%3a%3aNewOperationType?"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ltLgwQdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ltLgwgdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ltLgwwdTEeSRjauCcgnMbg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ltLgxAdTEeSRjauCcgnMbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_ltMH0AdTEeSRjauCcgnMbg" base_Package="org.example.RequestOnlyDocLiteral?org.example.RequestOnlyDocLiteral?" xsdTargetNamespace="http://www.example.org/RequestOnlyDocLiteral/" xsdSchemaLocation="RequestOnlyDocLiteral.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.8.0.005" bomWsdlSources="RequestOnlyDocLiteral.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_ltNV8AdTEeSRjauCcgnMbg" base_Class="org.example.RequestOnlyDocLiteralNewOperationType?org.example.RequestOnlyDocLiteral%3a%3aNewOperationType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_ltPyMAdTEeSRjauCcgnMbg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_ltPLIQdTEeSRjauCcgnMbg" base_Property="NewOperationTypein?org.example.RequestOnlyDocLiteral%3a%3aNewOperationType%3a%3ain1?" xsdName="in" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_ltPyMAdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_ltQZQAdTEeSRjauCcgnMbg" base_Package="org.example.RequestOnlyDocLiteral?org.example.RequestOnlyDocLiteral?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_ltQZQQdTEeSRjauCcgnMbg" name="NewOperation" type="org.example.RequestOnlyDocLiteralNewOperationType?org.example.RequestOnlyDocLiteral%3a%3aNewOperationType?" isAnonymous="true" targetNamespace="http://www.example.org/RequestOnlyDocLiteral/" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ltRAUAdTEeSRjauCcgnMbg" base_Element="_ltPLIwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ltRAUQdTEeSRjauCcgnMbg" base_Element="NewOperationTypein?org.example.RequestOnlyDocLiteral%3a%3aNewOperationType%3a%3ain1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ltRAUgdTEeSRjauCcgnMbg" base_Element="_ltLgwwdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ltRAUwdTEeSRjauCcgnMbg" base_Element="_ltPLIgdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ltRAVAdTEeSRjauCcgnMbg" base_Element="_ltLgwQdTEeSRjauCcgnMbg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_ltRAVQdTEeSRjauCcgnMbg" base_Element="org.example.RequestOnlyDocLiteralNewOperationType?org.example.RequestOnlyDocLiteral%3a%3aNewOperationType?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_ltSOcAdTEeSRjauCcgnMbg" base_Class="org.example.RequestOnlyDocLiteralRequestOnlyDocLiteral?org.example.RequestOnlyDocLiteral%3a%3aRequestOnlyDocLiteral?" xsdName="RequestOnlyDocLiteral" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ltUqsAdTEeSRjauCcgnMbg" displayLabel="RequestOnlyDocLiteral" base_NamedElement="org.example.RequestOnlyDocLiteralRequestOnlyDocLiteral?org.example.RequestOnlyDocLiteral%3a%3aRequestOnlyDocLiteral?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ltUqsQdTEeSRjauCcgnMbg" displayLabel="NewOperationType" base_NamedElement="org.example.RequestOnlyDocLiteralNewOperationType?org.example.RequestOnlyDocLiteral%3a%3aNewOperationType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_ltUqsgdTEeSRjauCcgnMbg" displayLabel="in" base_NamedElement="NewOperationTypein?org.example.RequestOnlyDocLiteral%3a%3aNewOperationType%3a%3ain1?"/>
+  <notation:Diagram xmi:id="_ltVRxAdTEeSRjauCcgnMbg" type="Business Object Model" element="org.example.RequestOnlyDocLiteral?org.example.RequestOnlyDocLiteral?" name="org.example.RequestOnlyDocLiteral" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_ltVRxQdTEeSRjauCcgnMbg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_ltVRxgdTEeSRjauCcgnMbg"/>
+  </notation:Diagram>
+</xmi:XMI>

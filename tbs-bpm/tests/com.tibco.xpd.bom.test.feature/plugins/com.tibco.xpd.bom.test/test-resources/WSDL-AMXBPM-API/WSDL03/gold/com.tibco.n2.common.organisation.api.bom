@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.tibco.n2.common.organisation.api2" name="com.tibco.n2.common.organisation.api">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_23k58RUfEeGeRrbRLAepWg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_23k58hUfEeGeRrbRLAepWg" key="author" value="glewis"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_23k58xUfEeGeRrbRLAepWg" key="created" value="1321979836815"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_23k59BUfEeGeRrbRLAepWg" key="version" value="1"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="com.tibco.n2.common.organisation.apiOrganisationalEntityType" name="OrganisationalEntityType">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_x0Pi8BUfEeGeRrbRLAepWg" body="Definition of the available organizational entity types.&#xA;&#xA;IMPORTANT:Do not delete or re-position any of the enumeration values. If a value must be removed, simply replace it with a &quot;dummy&quot; value.&#xA;       "/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0Pi8RUfEeGeRrbRLAepWg" name="ORGANIZATION"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0Pi8xUfEeGeRrbRLAepWg" name="ORGANIZATIONALUNIT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0QKARUfEeGeRrbRLAepWg" name="GROUP"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0QKAxUfEeGeRrbRLAepWg" name="POSITION"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0QxEBUfEeGeRrbRLAepWg" name="PRIVILEGE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0QxEhUfEeGeRrbRLAepWg" name="CAPABILITY"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0QxFBUfEeGeRrbRLAepWg" name="RESOURCE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0RYIRUfEeGeRrbRLAepWg" name="LOCATION"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0RYIxUfEeGeRrbRLAepWg" name="ORGANIZATIONTYPE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0R_MRUfEeGeRrbRLAepWg" name="ORGANIZATIONALUNITTYPE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0R_MxUfEeGeRrbRLAepWg" name="POSITIONTYPE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0SmQBUfEeGeRrbRLAepWg" name="LOCATIONTYPE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0SmQhUfEeGeRrbRLAepWg" name="ORGUNITRELATIONSHIPTYPE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0TNUBUfEeGeRrbRLAepWg" name="POSITIONHELD"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0TNUhUfEeGeRrbRLAepWg" name="ORGUNITRELATIONSHIP"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0T0YBUfEeGeRrbRLAepWg" name="ORGUNITFEATURE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0T0YhUfEeGeRrbRLAepWg" name="POSITIONFEATURE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_x0T0ZBUfEeGeRrbRLAepWg" name="PARAMETERDESCRIPTOR"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.organisation.apiXmlOrgModelVersion" name="XmlOrgModelVersion">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_x1bOsBUfEeGeRrbRLAepWg" body="Major version number of the organization model. "/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlOrgModelVersionmodel-version" name="modelversion">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x1YycBUfEeGeRrbRLAepWg" body="Major version number of the organization model in which an organization model entity resides. &#xA;&#xA;If not specified, the default value will be the latest version of the organization model.&#xA;&#xA;(Version numbers must be compatible with, and conform to, the OSGi version number schema. For Directory Engine, only the major part of the version number is significant.) "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_BRY7wHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aInteger?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x1WWMhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x1WWMRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.organisation.apiXmlModelEntityId" name="XmlModelEntityId">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_x2T_gBUfEeGeRrbRLAepWg" body="Unique identifier for an organization model entity.&#xA;&#xA;Used, and extended, throughout Directory Engine to identify an organization model entity. Extends XmlOrgModelVersion, which provides the organization model version attribute.&#xA;       "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ysSlQBUfEeGeRrbRLAepWg" body="Target organization model entity (a position or group) to which resources should be mapped (created), or from which they should or removed. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_ytVHEBUfEeGeRrbRLAepWg" body="Details of the resources to be removed from the target organization model entity. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_zI9TIBUfEeGeRrbRLAepWg" body="Details of the organization model entity for which mapped resources should be returned. &#xA;&#xA;For example, if this is a position, the response will be a list of all resources that are mapped to this position. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_0meaABUfEeGeRrbRLAepWg" body="Definition of the organization model entity that defines the scope of the authorization testing.&#xA;                        Each listed system action will be tested for authorization within the scope of this organization model entity.&#xA;                        If scope is not set, each system action will be tested for authorization against the complete organization model. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_0orZcBUfEeGeRrbRLAepWg" body="Definition of the organization model entity that defines the scope of the authorization testing for the named system action. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_1C5QQBUfEeGeRrbRLAepWg" body="Definition of an organization model entity for whom push destinations should be retrieved. "/>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_2BWckBUfEeGeRrbRLAepWg" body="IDs of the resources for which details are required. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_x2WbwBUfEeGeRrbRLAepWg" general="com.tibco.n2.common.organisation.apiXmlOrgModelVersion?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlModelEntityIdentity-type" name="entitytype" type="com.tibco.n2.common.organisation.apiOrganisationalEntityType?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType?">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x1ijcBUfEeGeRrbRLAepWg" body="Enumarated value defining the type of the organization model entity. "/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x1hVUhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x1hVURUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlModelEntityIdguid" name="guid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x1s7gBUfEeGeRrbRLAepWg" body="Globally unique ID of the organization model entity.&#xA;&#xA;(Although this value is unique across all entities, if the entity exists within more than one major version, it will share the same GUID.) "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x1rGUhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x1rGURUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlModelEntityIdqualifier" name="qualifier">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x14hsBUfEeGeRrbRLAepWg" body="Only applicable in certain circumstances, and only to organization model entities whose entity-type is PRIVILEGE or CAPABILITY. These entities can have an association with other entities - for example, a resource may hold many capabilities, or a position may have many privileges. &#xA;&#xA;These associations can have a qualifying value, according to their nature, to differentiate them. For example, the PRIVILEGE to sign off a purchase order may be qualified with the maximum amount that can be signed off. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x12FchUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x12FcRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlModelEntityIdqualifierSetType" name="qualifierSet" type="com.tibco.n2.common.organisation.apiqualifierSetType?com.tibco.n2.common.organisation.api%3a%3aqualifierSetType?" aggregation="composite" association="com.tibco.n2.common.organisation.apiComposition5?com.tibco.n2.common.organisation.api%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x2Q8MBUfEeGeRrbRLAepWg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x2QVIhUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.organisation.apiqualifierSetType" name="qualifierSetType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="qualifierSetTypevalue" name="value">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x2FWAhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x2FWARUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.tibco.n2.common.organisation.apiComposition5" name="Composition5" memberEnd="XmlModelEntityIdqualifierSetType?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aqualifierSet? Composition5xmlmodelentityid?com.tibco.n2.common.organisation.api%3a%3aComposition5%3a%3axmlmodelentityid?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition5xmlmodelentityid" name="xmlmodelentityid" type="com.tibco.n2.common.organisation.apiXmlModelEntityId?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId?" association="com.tibco.n2.common.organisation.apiComposition5?com.tibco.n2.common.organisation.api%3a%3aComposition5?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x2Q8MxUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x2Q8MhUfEeGeRrbRLAepWg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.organisation.apiXmlParticipantId" name="XmlParticipantId">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_x3LiMBUfEeGeRrbRLAepWg" body="Identifier for a participant, by either GUID or name. &#xA;&#xA;Extension of XmlOrgModelVersion, which provides the organization model version in which the participant resides. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_x3MJQBUfEeGeRrbRLAepWg" general="com.tibco.n2.common.organisation.apiXmlOrgModelVersion?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlParticipantIdentity-type" name="entitytype" type="com.tibco.n2.common.organisation.apiOrganisationalEntityType?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType?">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x2e-oBUfEeGeRrbRLAepWg" body="Category of this organization model entity (used to improve and validate the search). "/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x2dwghUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x2dwgRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlParticipantIdqualifier" name="qualifier">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x2rL4BUfEeGeRrbRLAepWg" body="Qualifier value. This is only applicable in certain circumstances, and only to entities of the entity-type PRIVILEGE or CAPABILITY. &#xA;&#xA;These entities can have an association with other entities - for example, a resource may hold many capbilities a position may have many privileges. Those associations can have a qualifying value, according to their nature, to differentiate them. &#xA;&#xA;For example, the privilege to sign off a purchase order may be qualified with the maximum amount for which the purchase order is made. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x2pWsRUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x2pWsBUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlParticipantIdguid" name="guid">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x27DgBUfEeGeRrbRLAepWg" body="Globally unique identifier for the organization model entity. &#xA;&#xA;This value is unique across all entities. However, if the entity exists within more than one major organization model version, it will share the same GUID. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x24nQhUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x24nQRUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlParticipantIdname" name="name">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x3H30BUfEeGeRrbRLAepWg" body="Name of the organization model entity.&#xA;&#xA;An entity's name will be unique within its entity type and organization model version. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x3GCoBUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x3FbkhUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.organisation.apiXmlResourceQuery" name="XmlResourceQuery">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_x3gSUBUfEeGeRrbRLAepWg" body="Base type for the specification of a resource query. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_x3g5YBUfEeGeRrbRLAepWg" general="com.tibco.n2.common.organisation.apiXmlOrgModelVersion?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlResourceQueryquery" name="query">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x3d2EBUfEeGeRrbRLAepWg" body="Resource query to be executed. The query must conform to the Resource Query Language (RQL) specification. See the product documentation for detailed information about RQL syntax. "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x3bZ0hUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x3bZ0RUfEeGeRrbRLAepWg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.tibco.n2.common.organisation.apiXmlExecuteQuery" name="XmlExecuteQuery">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_x3ymMBUfEeGeRrbRLAepWg" body="Definition of an executable resource query, used to identify a collection of resources that match the criteria specified in the query.&#xA;&#xA;Extension of XmlOrgModelVersion, which provides the organization model version in which the resources to be queried reside. "/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_x31pgBUfEeGeRrbRLAepWg" general="com.tibco.n2.common.organisation.apiXmlResourceQuery?com.tibco.n2.common.organisation.api%3a%3aXmlResourceQuery?"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="XmlExecuteQuerysingleRandomResult" name="singleRandomResult">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_x3wxABUfEeGeRrbRLAepWg" body="Boolean value specifying whether the query should return a single, randomly selected user from the result set (TRUE), or all the resources in the result set (FALSE). "/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_pSJ7cHvAEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aBoolean?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x3vi4hUfEeGeRrbRLAepWg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x3vi4RUfEeGeRrbRLAepWg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_xzQrgRUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xzQrghUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_xzQrgxUfEeGeRrbRLAepWg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xzQrhBUfEeGeRrbRLAepWg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_xzRSkBUfEeGeRrbRLAepWg" base_Package="com.tibco.n2.common.organisation.api2?com.tibco.n2.common.organisation.api?" xsdTargetNamespace="http://api.organisation.common.n2.tibco.com" xsdSchemaLocation="de.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified"/>
+  <XsdNotationProfile:XsdBasedPrimitiveType xmi:id="_x0NtwBUfEeGeRrbRLAepWg" base_Enumeration="com.tibco.n2.common.organisation.apiOrganisationalEntityType?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType?" xsdSimpleTypeName="OrganisationalEntityType" xsdRestrictionBase="string"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0Pi8hUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0Pi8RUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATION?" xsdValue="ORGANIZATION"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0QKABUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0Pi8xUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONALUNIT?" xsdValue="ORGANIZATIONAL_UNIT"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0QKAhUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0QKARUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aGROUP?" xsdValue="GROUP"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0QKBBUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0QKAxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITION?" xsdValue="POSITION"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0QxERUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0QxEBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPRIVILEGE?" xsdValue="PRIVILEGE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0QxExUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0QxEhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aCAPABILITY?" xsdValue="CAPABILITY"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0RYIBUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0QxFBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aRESOURCE?" xsdValue="RESOURCE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0RYIhUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0RYIRUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aLOCATION?" xsdValue="LOCATION"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0R_MBUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0RYIxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONTYPE?" xsdValue="ORGANIZATION_TYPE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0R_MhUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0R_MRUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONALUNITTYPE?" xsdValue="ORGANIZATIONAL_UNIT_TYPE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0R_NBUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0R_MxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONTYPE?" xsdValue="POSITION_TYPE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0SmQRUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0SmQBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aLOCATIONTYPE?" xsdValue="LOCATION_TYPE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0SmQxUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0SmQhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITRELATIONSHIPTYPE?" xsdValue="ORGUNIT_RELATIONSHIP_TYPE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0TNURUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0TNUBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONHELD?" xsdValue="POSITION_HELD"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0TNUxUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0TNUhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITRELATIONSHIP?" xsdValue="ORGUNIT_RELATIONSHIP"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0T0YRUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0T0YBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITFEATURE?" xsdValue="ORGUNIT_FEATURE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0T0YxUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0T0YhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONFEATURE?" xsdValue="POSITION_FEATURE"/>
+  <XsdNotationProfile:XsdBasedEnumerationLiteral xmi:id="_x0UbcBUfEeGeRrbRLAepWg" base_EnumerationLiteral="_x0T0ZBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPARAMETERDESCRIPTOR?" xsdValue="PARAMETER_DESCRIPTOR"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_x1NMQBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.common.organisation.apiXmlOrgModelVersion?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion?" xsdName="XmlOrgModelVersion" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x1WWMBUfEeGeRrbRLAepWg" base_Property="XmlOrgModelVersionmodel-version?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion%3a%3amodelversion?" xsdName="model-version" xsdForm="unqualified" xsdDefault="-1" xsdUse="optional" xsdType="int" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x1W9QBUfEeGeRrbRLAepWg" integerLength="-1" integerDefaultValue="-1" base_Property="XmlOrgModelVersionmodel-version?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion%3a%3amodelversion?"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_x1XkUBUfEeGeRrbRLAepWg" base_Property="XmlOrgModelVersionmodel-version?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion%3a%3amodelversion?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_x1dD4BUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.common.organisation.apiXmlModelEntityId?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId?" xsdName="XmlModelEntityId" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_x2SxYBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x1hVUBUfEeGeRrbRLAepWg" base_Property="XmlModelEntityIdentity-type?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aentitytype?" xsdName="entity-type" xsdForm="unqualified" xsdUse="required" xsdType="OrganisationalEntityType" xsdIsAttribute="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x1rGUBUfEeGeRrbRLAepWg" base_Property="XmlModelEntityIdguid?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aguid?" xsdName="guid" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x1rtYBUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlModelEntityIdguid?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x12FcBUfEeGeRrbRLAepWg" base_Property="XmlModelEntityIdqualifier?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aqualifier?" xsdName="qualifier" xsdForm="unqualified" xsdUse="optional" xsdType="string" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x12sgBUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlModelEntityIdqualifier?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aqualifier?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_x18MEBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.common.organisation.apiqualifierSetType?com.tibco.n2.common.organisation.api%3a%3aqualifierSetType?" xsdName="qualifierSet" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x2FWABUfEeGeRrbRLAepWg" base_Property="qualifierSetTypevalue?com.tibco.n2.common.organisation.api%3a%3aqualifierSetType%3a%3avalue?" xsdName="value" xsdForm="unqualified" xsdUse="required" xsdType="string" xsdIsAttribute="true"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x2F9EBUfEeGeRrbRLAepWg" textLength="-1" base_Property="qualifierSetTypevalue?com.tibco.n2.common.organisation.api%3a%3aqualifierSetType%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x2RjQBUfEeGeRrbRLAepWg" base_Property="XmlModelEntityIdqualifierSetType?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aqualifierSet?" xsdName="qualifierSet" xsdForm="unqualified" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_x2SxYBUfEeGeRrbRLAepWg" xsdMinOccurs="0" xsdMaxOccurs="-1"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_x2ZfEBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.common.organisation.apiXmlParticipantId?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId?" xsdName="XmlParticipantId" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_x3JF8BUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x2dwgBUfEeGeRrbRLAepWg" base_Property="XmlParticipantIdentity-type?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aentitytype?" xsdName="entity-type" xsdForm="unqualified" xsdUse="optional" xsdType="OrganisationalEntityType" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x2ovoRUfEeGeRrbRLAepWg" base_Property="XmlParticipantIdqualifier?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aqualifier?" xsdName="qualifier" xsdForm="unqualified" xsdUse="optional" xsdType="string" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x2pWshUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlParticipantIdqualifier?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aqualifier?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x24nQBUfEeGeRrbRLAepWg" base_Property="XmlParticipantIdguid?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aguid?" xsdName="guid" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_x3JF8BUfEeGeRrbRLAepWg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x25OUBUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlParticipantIdguid?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x3FbkRUfEeGeRrbRLAepWg" base_Property="XmlParticipantIdname?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aname?" xsdName="name" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_x3JF8BUfEeGeRrbRLAepWg" xsdMinOccurs="0"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x3GCoRUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlParticipantIdname?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_x3PMkBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.common.organisation.apiXmlResourceQuery?com.tibco.n2.common.organisation.api%3a%3aXmlResourceQuery?" xsdName="XmlResourceQuery" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_x3edIBUfEeGeRrbRLAepWg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x3bZ0BUfEeGeRrbRLAepWg" base_Property="XmlResourceQueryquery?com.tibco.n2.common.organisation.api%3a%3aXmlResourceQuery%3a%3aquery?" xsdName="query" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_x3edIBUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_x3cA4BUfEeGeRrbRLAepWg" textLength="-1" base_Property="XmlResourceQueryquery?com.tibco.n2.common.organisation.api%3a%3aXmlResourceQuery%3a%3aquery?"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_x3j8sBUfEeGeRrbRLAepWg" base_Class="com.tibco.n2.common.organisation.apiXmlExecuteQuery?com.tibco.n2.common.organisation.api%3a%3aXmlExecuteQuery?" xsdName="XmlExecuteQuery" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_x3vi4BUfEeGeRrbRLAepWg" base_Property="XmlExecuteQuerysingleRandomResult?com.tibco.n2.common.organisation.api%3a%3aXmlExecuteQuery%3a%3asingleRandomResult?" xsdName="singleRandomResult" xsdForm="unqualified" xsdUse="optional" xsdType="boolean" xsdIsAttribute="true" xsdMinOccurs="0"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4ETABUfEeGeRrbRLAepWg" base_Element="_x0QxEhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aCAPABILITY?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4E6EBUfEeGeRrbRLAepWg" base_Element="_x0TNUBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONHELD?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4E6ERUfEeGeRrbRLAepWg" base_Element="_x1WWMhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4E6EhUfEeGeRrbRLAepWg" base_Element="_x1YycBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4FhIBUfEeGeRrbRLAepWg" base_Element="_x0QxFBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aRESOURCE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4FhIRUfEeGeRrbRLAepWg" base_Element="_x0R_MRUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONALUNITTYPE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4GIMBUfEeGeRrbRLAepWg" base_Element="_x2rL4BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4GIMRUfEeGeRrbRLAepWg" base_Element="_x2Q8MxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4GIMhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.common.organisation.apiOrganisationalEntityType?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4GvQBUfEeGeRrbRLAepWg" base_Element="XmlModelEntityIdqualifierSetType?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aqualifierSet?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4GvQRUfEeGeRrbRLAepWg" base_Element="_x3MJQBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4GvQhUfEeGeRrbRLAepWg" base_Element="_x2Q8MBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4GvQxUfEeGeRrbRLAepWg" base_Element="_x2QVIhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4HWUBUfEeGeRrbRLAepWg" base_Element="_xzQrgxUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4HWURUfEeGeRrbRLAepWg" base_Element="_x31pgBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4HWUhUfEeGeRrbRLAepWg" base_Element="_x3gSUBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4H9YBUfEeGeRrbRLAepWg" base_Element="_x3bZ0hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4H9YRUfEeGeRrbRLAepWg" base_Element="_x0T0YhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONFEATURE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4H9YhUfEeGeRrbRLAepWg" base_Element="_x2WbwBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4IkcBUfEeGeRrbRLAepWg" base_Element="XmlModelEntityIdguid?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4IkcRUfEeGeRrbRLAepWg" base_Element="_x2dwghUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4IkchUfEeGeRrbRLAepWg" base_Element="_x0SmQBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aLOCATIONTYPE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4JLgBUfEeGeRrbRLAepWg" base_Element="_x0QxEBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPRIVILEGE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4JLgRUfEeGeRrbRLAepWg" base_Element="XmlOrgModelVersionmodel-version?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion%3a%3amodelversion?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4JLghUfEeGeRrbRLAepWg" base_Element="_x1WWMRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4JykBUfEeGeRrbRLAepWg" base_Element="_x3wxABUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4JykRUfEeGeRrbRLAepWg" base_Element="_x1s7gBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4JykhUfEeGeRrbRLAepWg" base_Element="XmlModelEntityIdqualifier?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aqualifier?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4KZoBUfEeGeRrbRLAepWg" base_Element="_x3vi4RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4KZoRUfEeGeRrbRLAepWg" base_Element="_x1hVUhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4KZohUfEeGeRrbRLAepWg" base_Element="_x3LiMBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4LAsBUfEeGeRrbRLAepWg" base_Element="_x27DgBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4LAsRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.common.organisation.apiXmlOrgModelVersion?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4LnwBUfEeGeRrbRLAepWg" base_Element="_x0T0ZBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPARAMETERDESCRIPTOR?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4LnwRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.common.organisation.apiXmlModelEntityId?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4LnwhUfEeGeRrbRLAepWg" base_Element="_x1bOsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4MO0BUfEeGeRrbRLAepWg" base_Element="_x3d2EBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4MO0RUfEeGeRrbRLAepWg" base_Element="_x0QKAxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITION?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4MO0hUfEeGeRrbRLAepWg" base_Element="_x2e-oBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4M14BUfEeGeRrbRLAepWg" base_Element="_x0Pi8BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4M14RUfEeGeRrbRLAepWg" base_Element="_x0R_MxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONTYPE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4M14hUfEeGeRrbRLAepWg" base_Element="_x0TNUhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITRELATIONSHIP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4Nc8BUfEeGeRrbRLAepWg" base_Element="_x3ymMBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4Nc8RUfEeGeRrbRLAepWg" base_Element="_x3bZ0RUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4Nc8hUfEeGeRrbRLAepWg" base_Element="XmlParticipantIdguid?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aguid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4Nc8xUfEeGeRrbRLAepWg" base_Element="XmlParticipantIdqualifier?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aqualifier?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4OEABUfEeGeRrbRLAepWg" base_Element="_x3vi4hUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4OEARUfEeGeRrbRLAepWg" base_Element="_x2Q8MhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4OEAhUfEeGeRrbRLAepWg" base_Element="_x3GCoBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4OrEBUfEeGeRrbRLAepWg" base_Element="_x1ijcBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4OrERUfEeGeRrbRLAepWg" base_Element="_x24nQhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4OrEhUfEeGeRrbRLAepWg" base_Element="XmlParticipantIdentity-type?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aentitytype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4PSIBUfEeGeRrbRLAepWg" base_Element="XmlParticipantIdname?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aname?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4PSIRUfEeGeRrbRLAepWg" base_Element="_x2T_gBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4PSIhUfEeGeRrbRLAepWg" base_Element="Composition5xmlmodelentityid?com.tibco.n2.common.organisation.api%3a%3aComposition5%3a%3axmlmodelentityid?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4P5MBUfEeGeRrbRLAepWg" base_Element="_x2FWARUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4P5MRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.common.organisation.apiComposition5?com.tibco.n2.common.organisation.api%3a%3aComposition5?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4P5MhUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.common.organisation.apiqualifierSetType?com.tibco.n2.common.organisation.api%3a%3aqualifierSetType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4QgQBUfEeGeRrbRLAepWg" base_Element="_x2pWsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4QgQRUfEeGeRrbRLAepWg" base_Element="XmlResourceQueryquery?com.tibco.n2.common.organisation.api%3a%3aXmlResourceQuery%3a%3aquery?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4QgQhUfEeGeRrbRLAepWg" base_Element="_x12FchUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4QgQxUfEeGeRrbRLAepWg" base_Element="_x2dwgRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4RHUBUfEeGeRrbRLAepWg" base_Element="_x12FcRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4RHURUfEeGeRrbRLAepWg" base_Element="_x1hVURUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4RuYBUfEeGeRrbRLAepWg" base_Element="_x24nQRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4RuYRUfEeGeRrbRLAepWg" base_Element="_x0QKARUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aGROUP?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4RuYhUfEeGeRrbRLAepWg" base_Element="_x3g5YBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4RuYxUfEeGeRrbRLAepWg" base_Element="_x3FbkhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4SVcBUfEeGeRrbRLAepWg" base_Element="_x0Pi8RUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATION?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4SVcRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.common.organisation.apiXmlExecuteQuery?com.tibco.n2.common.organisation.api%3a%3aXmlExecuteQuery?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4SVchUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.common.organisation.apiXmlResourceQuery?com.tibco.n2.common.organisation.api%3a%3aXmlResourceQuery?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4S8gBUfEeGeRrbRLAepWg" base_Element="_x2pWsRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4S8gRUfEeGeRrbRLAepWg" base_Element="_x0RYIRUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aLOCATION?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4TjkBUfEeGeRrbRLAepWg" base_Element="XmlModelEntityIdentity-type?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aentitytype?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4TjkRUfEeGeRrbRLAepWg" base_Element="com.tibco.n2.common.organisation.apiXmlParticipantId?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4TjkhUfEeGeRrbRLAepWg" base_Element="_x1rGUhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4UKoBUfEeGeRrbRLAepWg" base_Element="_x14hsBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4UKoRUfEeGeRrbRLAepWg" base_Element="_x0SmQhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITRELATIONSHIPTYPE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4UKohUfEeGeRrbRLAepWg" base_Element="_x0RYIxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONTYPE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4UKoxUfEeGeRrbRLAepWg" base_Element="_xzQrgRUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4UxsBUfEeGeRrbRLAepWg" base_Element="_x2FWAhUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4UxsRUfEeGeRrbRLAepWg" base_Element="_x3H30BUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4UxshUfEeGeRrbRLAepWg" base_Element="_x1rGURUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4VYwBUfEeGeRrbRLAepWg" base_Element="_x0Pi8xUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONALUNIT?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4VYwRUfEeGeRrbRLAepWg" base_Element="XmlExecuteQuerysingleRandomResult?com.tibco.n2.common.organisation.api%3a%3aXmlExecuteQuery%3a%3asingleRandomResult?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4VYwhUfEeGeRrbRLAepWg" base_Element="_x0T0YBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITFEATURE?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_x4V_0BUfEeGeRrbRLAepWg" base_Element="qualifierSetTypevalue?com.tibco.n2.common.organisation.api%3a%3aqualifierSetType%3a%3avalue?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yxE-oBUfEeGeRrbRLAepWg" base_Element="_ysSlQBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_yxIpABUfEeGeRrbRLAepWg" base_Element="_ytVHEBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_zRb5sBUfEeGeRrbRLAepWg" base_Element="_zI9TIBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0vEVUBUfEeGeRrbRLAepWg" base_Element="_0orZcBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_0vH_sBUfEeGeRrbRLAepWg" base_Element="_0meaABUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_1FEagBUfEeGeRrbRLAepWg" base_Element="_1C5QQBUfEeGeRrbRLAepWg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_2FFGABUfEeGeRrbRLAepWg" base_Element="_2BWckBUfEeGeRrbRLAepWg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_228AwBUfEeGeRrbRLAepWg" displayLabel="OrganisationalEntityType" base_NamedElement="com.tibco.n2.common.organisation.apiOrganisationalEntityType?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_229O4BUfEeGeRrbRLAepWg" displayLabel="XmlExecuteQuery" base_NamedElement="com.tibco.n2.common.organisation.apiXmlExecuteQuery?com.tibco.n2.common.organisation.api%3a%3aXmlExecuteQuery?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_22-dABUfEeGeRrbRLAepWg" displayLabel="XmlModelEntityId" base_NamedElement="com.tibco.n2.common.organisation.apiXmlModelEntityId?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_22_EEBUfEeGeRrbRLAepWg" displayLabel="XmlOrgModelVersion" base_NamedElement="com.tibco.n2.common.organisation.apiXmlOrgModelVersion?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23ASMBUfEeGeRrbRLAepWg" displayLabel="XmlParticipantId" base_NamedElement="com.tibco.n2.common.organisation.apiXmlParticipantId?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23BgUBUfEeGeRrbRLAepWg" displayLabel="XmlResourceQuery" base_NamedElement="com.tibco.n2.common.organisation.apiXmlResourceQuery?com.tibco.n2.common.organisation.api%3a%3aXmlResourceQuery?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23D8kBUfEeGeRrbRLAepWg" displayLabel="CAPABILITY" base_NamedElement="_x0QxEhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aCAPABILITY?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23FKsBUfEeGeRrbRLAepWg" displayLabel="GROUP" base_NamedElement="_x0QKARUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aGROUP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23FxwBUfEeGeRrbRLAepWg" displayLabel="LOCATION" base_NamedElement="_x0RYIRUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aLOCATION?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23G_4BUfEeGeRrbRLAepWg" displayLabel="LOCATION_TYPE" base_NamedElement="_x0SmQBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aLOCATIONTYPE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23IOABUfEeGeRrbRLAepWg" displayLabel="ORGANIZATION" base_NamedElement="_x0Pi8RUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATION?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23JcIBUfEeGeRrbRLAepWg" displayLabel="ORGANIZATIONAL_UNIT" base_NamedElement="_x0Pi8xUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONALUNIT?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23KqQBUfEeGeRrbRLAepWg" displayLabel="ORGANIZATIONAL_UNIT_TYPE" base_NamedElement="_x0R_MRUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONALUNITTYPE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23LRUBUfEeGeRrbRLAepWg" displayLabel="ORGANIZATION_TYPE" base_NamedElement="_x0RYIxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGANIZATIONTYPE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23MfcBUfEeGeRrbRLAepWg" displayLabel="ORGUNIT_FEATURE" base_NamedElement="_x0T0YBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITFEATURE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23NtkBUfEeGeRrbRLAepWg" displayLabel="ORGUNIT_RELATIONSHIP" base_NamedElement="_x0TNUhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITRELATIONSHIP?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23O7sBUfEeGeRrbRLAepWg" displayLabel="ORGUNIT_RELATIONSHIP_TYPE" base_NamedElement="_x0SmQhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aORGUNITRELATIONSHIPTYPE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23PiwBUfEeGeRrbRLAepWg" displayLabel="PARAMETER_DESCRIPTOR" base_NamedElement="_x0T0ZBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPARAMETERDESCRIPTOR?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23Qw4BUfEeGeRrbRLAepWg" displayLabel="POSITION" base_NamedElement="_x0QKAxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITION?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23R_ABUfEeGeRrbRLAepWg" displayLabel="POSITION_FEATURE" base_NamedElement="_x0T0YhUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONFEATURE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23TNIBUfEeGeRrbRLAepWg" displayLabel="POSITION_HELD" base_NamedElement="_x0TNUBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONHELD?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23UbQBUfEeGeRrbRLAepWg" displayLabel="POSITION_TYPE" base_NamedElement="_x0R_MxUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPOSITIONTYPE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23VCUBUfEeGeRrbRLAepWg" displayLabel="PRIVILEGE" base_NamedElement="_x0QxEBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aPRIVILEGE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23WQcBUfEeGeRrbRLAepWg" displayLabel="RESOURCE" base_NamedElement="_x0QxFBUfEeGeRrbRLAepWg?com.tibco.n2.common.organisation.api%3a%3aOrganisationalEntityType%3a%3aRESOURCE?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23XekBUfEeGeRrbRLAepWg" displayLabel="singleRandomResult" base_NamedElement="XmlExecuteQuerysingleRandomResult?com.tibco.n2.common.organisation.api%3a%3aXmlExecuteQuery%3a%3asingleRandomResult?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23YssBUfEeGeRrbRLAepWg" displayLabel="qualifierSet" base_NamedElement="XmlModelEntityIdqualifierSetType?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aqualifierSet?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23Z60BUfEeGeRrbRLAepWg" displayLabel="qualifierSetType" base_NamedElement="com.tibco.n2.common.organisation.apiqualifierSetType?com.tibco.n2.common.organisation.api%3a%3aqualifierSetType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23ah4BUfEeGeRrbRLAepWg" displayLabel="value" base_NamedElement="qualifierSetTypevalue?com.tibco.n2.common.organisation.api%3a%3aqualifierSetType%3a%3avalue?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23bwABUfEeGeRrbRLAepWg" displayLabel="entity-type" base_NamedElement="XmlModelEntityIdentity-type?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aentitytype?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23c-IBUfEeGeRrbRLAepWg" displayLabel="guid" base_NamedElement="XmlModelEntityIdguid?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aguid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23eMQBUfEeGeRrbRLAepWg" displayLabel="qualifier" base_NamedElement="XmlModelEntityIdqualifier?com.tibco.n2.common.organisation.api%3a%3aXmlModelEntityId%3a%3aqualifier?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23faYBUfEeGeRrbRLAepWg" displayLabel="model-version" base_NamedElement="XmlOrgModelVersionmodel-version?com.tibco.n2.common.organisation.api%3a%3aXmlOrgModelVersion%3a%3amodelversion?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23gogBUfEeGeRrbRLAepWg" displayLabel="guid" base_NamedElement="XmlParticipantIdguid?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aguid?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23h2oBUfEeGeRrbRLAepWg" displayLabel="name" base_NamedElement="XmlParticipantIdname?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aname?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23idsBUfEeGeRrbRLAepWg" displayLabel="entity-type" base_NamedElement="XmlParticipantIdentity-type?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aentitytype?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23jr0BUfEeGeRrbRLAepWg" displayLabel="qualifier" base_NamedElement="XmlParticipantIdqualifier?com.tibco.n2.common.organisation.api%3a%3aXmlParticipantId%3a%3aqualifier?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_23k58BUfEeGeRrbRLAepWg" displayLabel="query" base_NamedElement="XmlResourceQueryquery?com.tibco.n2.common.organisation.api%3a%3aXmlResourceQuery%3a%3aquery?"/>
+  <notation:Diagram xmi:id="_23mvIBUfEeGeRrbRLAepWg" type="Business Object Model" element="com.tibco.n2.common.organisation.api2?com.tibco.n2.common.organisation.api?" name="com.tibco.n2.common.organisation.api" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_23mvIRUfEeGeRrbRLAepWg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_23mvIhUfEeGeRrbRLAepWg"/>
+  </notation:Diagram>
+</xmi:XMI>

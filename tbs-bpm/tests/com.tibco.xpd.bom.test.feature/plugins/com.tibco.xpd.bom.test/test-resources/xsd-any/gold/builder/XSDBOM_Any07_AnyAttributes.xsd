@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/NewXMLSchema2" xmlns:tns1="http://www.example.org/NewXMLSchema2"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/NewXMLSchema2">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD3877/Business Objects/org.example.NewXMLSchema2.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType ecore:name="customer" id="org.example.NewXMLSchema2customer" abstract="false"
+      mixed="false" name="customer">
+    <xsd:anyAttribute ecore:name="anyAttribute" id="customeranyAttribute" namespace="##any"
+        processContents="strict"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="customer2" id="org.example.NewXMLSchema2customer2"
+      abstract="false" mixed="false" name="customer2">
+    <xsd:anyAttribute ecore:name="anyAttribute" id="customer2anyAttribute" namespace="##local"
+        processContents="skip"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="customer3" id="org.example.NewXMLSchema2customer3"
+      abstract="false" mixed="false" name="customer3">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:customer5">
+        <xsd:anyAttribute ecore:name="anyAttribute" id="customer3anyAttribute" namespace="##local"
+            processContents="skip"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="customer5" id="org.example.NewXMLSchema2customer5"
+      abstract="false" mixed="false" name="customer5"/>
+  <xsd:complexType ecore:name="customer4" id="org.example.NewXMLSchema2customer4"
+      abstract="false" mixed="false" name="customer4">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:boolean">
+        <xsd:anyAttribute ecore:name="anyAttribute" id="customer4anyAttribute" namespace="##local"
+            processContents="skip"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="elemWithAnonComplex" nillable="false">
+    <xsd:complexType ecore:name="elemWithAnonComplexType" id="org.example.NewXMLSchema2elemWithAnonComplexType"
+        mixed="false">
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:integer">
+          <xsd:anyAttribute ecore:name="anyAttribute" id="elemWithAnonComplexTypeanyAttribute"
+              namespace="##targetNamespace" processContents="skip"/>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="anonComplexType" nillable="false">
+    <xsd:complexType ecore:name="anonComplexTypeType" id="org.example.NewXMLSchema2anonComplexTypeType"
+        mixed="false">
+      <xsd:anyAttribute ecore:name="anyAttribute" id="anonComplexTypeTypeanyAttribute"
+          namespace="##any" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

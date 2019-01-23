@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="com.enel.mind.UpdateChiaviAnagSAP" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/aggiornamento_crm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IntegrationCRM" targetNamespace="com.enel.mind.UpdateChiaviAnagSAP" tibex:ServiceTask="_b5AeUKCEEeOgypk58SLXxg" tibex:XPDL="IntegrationCRM.xpdl" tibex:process="_D-LHwKCCEeOgypk58SLXxg">
+  <wsdl:types>
+    <xsd:schema xmlns="com.enel.mind.UpdateChiaviAnagSAP" targetNamespace="com.enel.mind.UpdateChiaviAnagSAP"/>
+    <xsd:schema xmlns="http://mind.enel.com/aggiornamento_crm" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/aggiornamento_crm" targetNamespace="http://mind.enel.com/aggiornamento_crm">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/com.enel.mind_common.integration.crm.resource/Business Objects/com.enel.mind.aggiornamentocrm.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="UpdateChiaviAnagSAPRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceClienteMasterCRM">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="chiaveUnivocaBeneCRM">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BPSapSD">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="contoContrattualeSapSD">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idBpm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="UpdateChiaviAnagSAPResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codiceEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizioneEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sistemaSorgenteEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="UpdateChiaviAnagSAPRequestElement" type="UpdateChiaviAnagSAPRequest"/>
+      <xsd:element name="UpdateChiaviAnagSAPResponseElement" type="UpdateChiaviAnagSAPResponse"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateChiaviAnagSAPProcess_UpdateChiaviAnagSAPServiceCall_INPUT">
+    <wsdl:part element="ttns:UpdateChiaviAnagSAPRequestElement" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateChiaviAnagSAPProcess_UpdateChiaviAnagSAPServiceCall_OUTPUT">
+    <wsdl:part element="ttns:UpdateChiaviAnagSAPResponseElement" name="response"/>
+  </wsdl:message>
+  <wsdl:portType name="UpdateChiaviAnagSAPProcess" tibex:FlowContainer="_D-LHwKCCEeOgypk58SLXxg">
+    <wsdl:operation name="UpdateChiaviAnagSAPServiceCall">
+      <wsdl:input message="ns:UpdateChiaviAnagSAPProcess_UpdateChiaviAnagSAPServiceCall_INPUT" tibex:Event="_b5AeUKCEEeOgypk58SLXxg"/>
+      <wsdl:output message="ns:UpdateChiaviAnagSAPProcess_UpdateChiaviAnagSAPServiceCall_OUTPUT" tibex:Event="_b5AeUKCEEeOgypk58SLXxg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

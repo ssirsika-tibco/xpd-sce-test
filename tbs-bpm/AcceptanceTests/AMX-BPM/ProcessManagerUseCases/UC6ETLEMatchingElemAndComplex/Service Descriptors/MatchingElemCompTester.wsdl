@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ext="http://example.com/MatchingElemAndComplex" xmlns:tns="http://www.example.org/MatchingElemCompTester/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MatchingElemCompTester" targetNamespace="http://www.example.org/MatchingElemCompTester/">
+	<wsdl:import location="MatchingElemAndComplex.xsd" namespace="http://example.com/MatchingElemAndComplex"></wsdl:import>
+    <wsdl:message name="TesterOperationRequest">
+		<wsdl:part name="inputCar" type="ext:Car"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="TesterOperationResponse">
+    	<wsdl:part name="OutputCar" type="ext:Car"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="MatchingElAndComplex">
+    	<wsdl:operation name="TesterOperation">
+    		<wsdl:input message="tns:TesterOperationRequest"></wsdl:input>
+    		<wsdl:output message="tns:TesterOperationResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType></wsdl:definitions>

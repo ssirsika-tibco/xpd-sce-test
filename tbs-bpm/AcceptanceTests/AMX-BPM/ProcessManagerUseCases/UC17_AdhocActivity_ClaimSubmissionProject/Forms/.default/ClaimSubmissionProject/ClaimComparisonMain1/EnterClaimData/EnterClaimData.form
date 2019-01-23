@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:et="http://www.tibco.com/forms/model/elemtypes" xmlns:form="http://www.tibco.com/forms/model/form" xmlns:gwt="http://www.tibco.com/forms/model/gwt" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" generated="true" generatorSource="Claim%20Submission%20Project.xpdl#_dFLGoD5dEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Process%20Packages%26t=xpdl2%3aActivity%26q=ClaimSubmissionProject%3a%3aClaimComparisonMain1%26n=EnterClaimData?" formatVersion="3.0.0">
+  <form:externalResources>
+    <form:externalResource name="resource.common" uri="pathmap://FORMS_RESOURCES/common.properties" internal="true" localized="true"/>
+    <form:externalResource name="resource.form" uri=".default/ClaimSubmissionProject/ClaimComparisonMain1/EnterClaimData/EnterClaimData.properties" sfRelative="true" internal="true" localized="true"/>
+  </form:externalResources>
+  <form:dataModel>
+    <form:parameter generated="true" generatorSource="Claim%20Submission%20Project.xpdl#_yv670D5dEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ClaimSubmissionProject%3a%3aClaimComparisonMain1%26n=ClaimData?" name="data.ClaimData" label="Claim Data" dataType="uml:Class ClaimSubmissionProject.bom#_1mEw8D5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.claimsubmissionproject%26n=Claim?" type="com.example.claimsubmissionproject::Claim" inout="INOUT"/>
+  </form:dataModel>
+  <form:services/>
+  <form:actions/>
+  <form:conditions/>
+  <form:rules>
+    <form:rule generated="true" name="rule.cancel" label="Cancel">
+      <form:event source="#control.cancel" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.cancel.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.cancel"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.close" label="Close">
+      <form:event source="#control.close" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.close.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.close"/>
+    </form:rule>
+    <form:rule generated="true" name="rule.submit" label="Submit">
+      <form:event source="#control.submit" eventType="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#select" subject="form.control.submit.select"/>
+      <form:action ref="pathmap://FORMS_LIBRARIES/Standard.library.elemtypes#action.submit"/>
+    </form:rule>
+  </form:rules>
+  <form:bindings>
+    <form:binding generated="true" direction="bothways" name="_0nTmcEktEeSl-ZIQI9DJ2Q">
+      <form:source target="data.ClaimData" feature="http://www.tibco.com/forms/model/form#//Datum/value" data="form.data.ClaimData.value"/>
+      <form:destination target="pane.ClaimData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value" data="form.pane.ClaimData.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0nUNgEktEeSl-ZIQI9DJ2Q">
+      <form:source target="pane.ClaimData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ClaimSubmissionProject.bom#_3vUVYD5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=ID?" data="form.pane.ClaimData.value.ID"/>
+      <form:destination target="control.ClaimData_ID" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClaimData_ID.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0nU0kEktEeSl-ZIQI9DJ2Q">
+      <form:source target="pane.ClaimData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ClaimSubmissionProject.bom#_3-QwUD5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=claimCode?" data="form.pane.ClaimData.value.claimCode"/>
+      <form:destination target="control.ClaimData_claimCode" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClaimData_claimCode.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0nVboEktEeSl-ZIQI9DJ2Q">
+      <form:source target="pane.ClaimData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ClaimSubmissionProject.bom#_4M3NAD5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=claimerName?" data="form.pane.ClaimData.value.claimerName"/>
+      <form:destination target="control.ClaimData_claimerName" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClaimData_claimerName.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0nVboUktEeSl-ZIQI9DJ2Q">
+      <form:source target="pane.ClaimData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ClaimSubmissionProject.bom#_4cuN8D5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=claimReceivedDate?" data="form.pane.ClaimData.value.claimReceivedDate"/>
+      <form:destination target="control.ClaimData_claimReceivedDate" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClaimData_claimReceivedDate.value"/>
+    </form:binding>
+    <form:binding generated="true" direction="bothways" name="_0nWCsEktEeSl-ZIQI9DJ2Q">
+      <form:source target="pane.ClaimData" feature="http://www.tibco.com/forms/model/elemtypes#//SingletonPanePropertySet/value ClaimSubmissionProject.bom#_4vex4D5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=claimEvaluation?" data="form.pane.ClaimData.value.claimEvaluation"/>
+      <form:destination target="control.ClaimData_claimEvaluation" feature="http://www.tibco.com/forms/model/form#//Control/value" data="form.control.ClaimData_claimEvaluation.value"/>
+    </form:binding>
+  </form:bindings>
+  <form:targets>
+    <form:target ref="iProcessWorkspace_10.7"/>
+  </form:targets>
+  <form:defaults>
+    <form:labelProperties position="top"/>
+  </form:defaults>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" name="pane.content" paneType="com.tibco.forms.panes.vertical">
+    <form:label>Enter Claim Data</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="true"/>
+    <form:defaults>
+      <form:labelProperties position="top"/>
+    </form:defaults>
+    <form:pane generated="true" generatorSource="Claim%20Submission%20Project.xpdl#_yv670D5dEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Process%20Packages%26t=xpdl2%3aDataField%26q=ClaimSubmissionProject%3a%3aClaimComparisonMain1%26n=ClaimData?" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.vertical" dataType="uml:Class ClaimSubmissionProject.bom#_1mEw8D5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aClass%26q=com.example.claimsubmissionproject%26n=Claim?" name="pane.ClaimData" paneType="com.tibco.forms.panes.vertical">
+      <form:label>Claim Data</form:label>
+      <form:hint/>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:defaults>
+        <form:labelProperties position="left"/>
+      </form:defaults>
+      <form:control generated="true" generatorSource="ClaimSubmissionProject.bom#_3vUVYD5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=ID?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClaimData_ID">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:numeric>true</et:numeric>
+          <et:formatRef>resource.common.format_integer</et:formatRef>
+        </form:propertySet>
+        <form:label>ID</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="ClaimSubmissionProject.bom#_3-QwUD5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=claimCode?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClaimData_claimCode">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>Claim Code</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="ClaimSubmissionProject.bom#_4M3NAD5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=claimerName?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClaimData_claimerName">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:displayLength>40</et:displayLength>
+          <et:maxLength>50</et:maxLength>
+        </form:propertySet>
+        <form:label>Claimer Name</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="ClaimSubmissionProject.bom#_4cuN8D5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=claimReceivedDate?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.date" controlType="com.tibco.forms.controls.date" name="control.ClaimData_claimReceivedDate">
+        <form:propertySet xsi:type="et:DatePropertySet">
+          <et:minRelative>true</et:minRelative>
+          <et:maxRelative>true</et:maxRelative>
+          <et:year min="-20" max="20"/>
+        </form:propertySet>
+        <form:label>Claim Received Date</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+      <form:control generated="true" generatorSource="ClaimSubmissionProject.bom#_4vex4D5aEeS9ur8e37DqxA?p=UC17_AdhocActivity_ClaimSubmissionProject%26s=Business%20Objects%26t=uml%3aProperty%26q=com.example.claimsubmissionproject%3a%3aClaim%26n=claimEvaluation?" elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.textinput" controlType="com.tibco.forms.controls.textinput" name="control.ClaimData_claimEvaluation">
+        <form:propertySet xsi:type="et:TextPropertySet">
+          <et:numeric>true</et:numeric>
+          <et:formatRef>resource.common.format_decimal</et:formatRef>
+        </form:propertySet>
+        <form:label>Claim Evaluation</form:label>
+        <form:hint/>
+        <form:visible>true</form:visible>
+        <form:enabled>true</form:enabled>
+        <form:required>false</form:required>
+      </form:control>
+    </form:pane>
+  </form:pane>
+  <form:pane gwt:toolbar="true" styleClass="toolbar" elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.horizontal" name="pane.toolbar" paneType="com.tibco.forms.panes.horizontal">
+    <form:label>Toolbar</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.cancel">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Cancel</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.close">
+      <form:propertySet xsi:type="et:ButtonPropertySet"/>
+      <form:label>Close</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+    <form:control elementType="form:ControlType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.controls.button" controlType="com.tibco.forms.controls.button" name="control.submit">
+      <form:propertySet xsi:type="et:ButtonPropertySet">
+        <et:type>primary</et:type>
+      </form:propertySet>
+      <form:label>Submit</form:label>
+      <form:visible>true</form:visible>
+      <form:enabled>true</form:enabled>
+      <form:required>false</form:required>
+    </form:control>
+  </form:pane>
+  <form:pane elementType="form:PaneType pathmap://FORMS_UI_ELEMENT_TYPES/UIElementTypes.library.elemtypes#com.tibco.forms.panes.messages" name="pane.messages" paneType="com.tibco.forms.panes.messages">
+    <form:propertySet xsi:type="et:MessagesPanePropertySet"/>
+    <form:label>Invalid Entries</form:label>
+    <form:visible>true</form:visible>
+    <form:enabled>true</form:enabled>
+    <form:labelProperties visible="false"/>
+  </form:pane>
+</form:form>

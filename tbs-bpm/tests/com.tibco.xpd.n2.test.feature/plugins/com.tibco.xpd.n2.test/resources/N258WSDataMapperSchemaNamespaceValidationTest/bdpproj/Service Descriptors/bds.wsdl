@@ -1,0 +1,1960 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by smorgan (Tibco Software Limited) --><wsdl:definitions xmlns:doc="http://document.api.bds.tibco.com" xmlns:dto="http://api.bds.tibco.com" xmlns:exception="http://exception.api.bds.tibco.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://exception.api.common.n2.tibco.com" xmlns:service="http://services.bds.tibco.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.bds.tibco.com" tibex:src="file:/home/ssirsika/Temp/XSD-8007/bds.wsdl">
+	<wsdl:types>
+		<!-- Exceptions -->
+		<xs:schema targetNamespace="http://exception.api.bds.tibco.com">
+			<xs:include schemaLocation="bds-exception.xsd"/>
+		</xs:schema>
+		<!-- Types -->
+		<xs:schema targetNamespace="http://api.bds.tibco.com">
+			<xs:include schemaLocation="bds.xsd"/>
+		</xs:schema>
+		<!-- Types for Document Service -->
+		<xs:schema targetNamespace="http://document.api.bds.tibco.com">
+			<xs:include schemaLocation="bds-document-service.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="createCaseRequest">
+		<wsdl:part element="dto:CreateCaseRequest" name="createCaseRequest"/>
+	</wsdl:message>
+	<wsdl:message name="createCaseResponse">
+		<wsdl:part element="dto:CreateCaseResponse" name="createCaseResponse"/>
+	</wsdl:message>
+	<wsdl:message name="deleteCaseByCIDRequest">
+		<wsdl:part element="dto:DeleteCaseByCIDRequest" name="deleteCaseByCIDRequest"/>
+	</wsdl:message>
+	<wsdl:message name="deleteCaseByCIDResponse">
+		<wsdl:part element="dto:DeleteCaseByCIDResponse" name="deleteCaseByCIDResponse"/>
+	</wsdl:message>
+	<wsdl:message name="deleteCaseByRefRequest">
+		<wsdl:part element="dto:DeleteCaseByRefRequest" name="deleteCaseByRefRequest"/>
+	</wsdl:message>
+	<wsdl:message name="deleteCaseByRefResponse">
+		<wsdl:part element="dto:DeleteCaseByRefResponse" name="deleteCaseByRefResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseReferencesForDataViewRequest">
+		<wsdl:part element="dto:GetCaseReferencesForDataViewRequest" name="getCaseReferencesForDataViewRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseReferencesForDataViewResponse">
+		<wsdl:part element="dto:GetCaseReferencesForDataViewResponse" name="getCaseReferencesForDataViewResponse"/>
+	</wsdl:message>
+	<wsdl:message name="findAllCasesRequest">
+		<wsdl:part element="dto:FindAllCasesRequest" name="findAllCasesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="findAllCasesResponse">
+		<wsdl:part element="dto:FindAllCasesResponse" name="findAllCasesResponse"/>
+	</wsdl:message>
+	<wsdl:message name="findCaseByCIDRequest">
+		<wsdl:part element="dto:FindCaseByCIDRequest" name="findCaseByCIDRequest"/>
+	</wsdl:message>
+	<wsdl:message name="findCaseByCIDResponse">
+		<wsdl:part element="dto:FindCaseByCIDResponse" name="findCaseByCIDResponse"/>
+	</wsdl:message>
+	<wsdl:message name="findCaseByCriteriaRequest">
+		<wsdl:part element="dto:FindCaseByCriteriaRequest" name="findCaseByCriteriaRequest"/>
+	</wsdl:message>
+	<wsdl:message name="findCaseByCriteriaResponse">
+		<wsdl:part element="dto:FindCaseByCriteriaResponse" name="findCaseByCriteriaResponse"/>
+	</wsdl:message>
+	<wsdl:message name="findCaseByExampleRequest">
+		<wsdl:part element="dto:FindCaseByExampleRequest" name="findCaseByExampleRequest"/>
+	</wsdl:message>
+	<wsdl:message name="findCaseByExampleResponse">
+		<wsdl:part element="dto:FindCaseByExampleResponse" name="findCaseByExampleResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getAuditInfoRequest">
+		<wsdl:part element="dto:GetAuditInfoRequest" name="getAuditInfoRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getAuditInfoResponse">
+		<wsdl:part element="dto:GetAuditInfoResponse" name="getAuditInfoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseClassInfoRequest">
+		<wsdl:part element="dto:GetCaseClassInfoRequest" name="getCaseClassInfoRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseClassInfoResponse">
+		<wsdl:part element="dto:GetCaseClassInfoResponse" name="getCaseClassInfoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseModelRequest">
+		<wsdl:part element="dto:GetCaseModelRequest" name="getCaseModelRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseModelResponse">
+		<wsdl:part element="dto:GetCaseModelResponse" name="getCaseModelResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseModelBasicInfoRequest">
+		<wsdl:part element="dto:GetCaseModelBasicInfoRequest" name="getCaseModelBasicInfoRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseModelBasicInfoResponse">
+		<wsdl:part element="dto:GetCaseModelBasicInfoResponse" name="getCaseModelBasicInfoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="linkCaseRequest">
+		<wsdl:part element="dto:LinkCaseRequest" name="linkCaseRequest"/>
+	</wsdl:message>
+	<wsdl:message name="linkCaseResponse">
+		<wsdl:part element="dto:LinkCaseResponse" name="linkCaseResponse"/>
+	</wsdl:message>
+	<wsdl:message name="navigateCaseRequest">
+		<wsdl:part element="dto:NavigateCaseRequest" name="navigateCaseRequest"/>
+	</wsdl:message>
+	<wsdl:message name="navigateCaseResponse">
+		<wsdl:part element="dto:NavigateCaseResponse" name="navigateCaseResponse"/>
+	</wsdl:message>
+	<wsdl:message name="navigateCaseByCriteriaRequest">
+		<wsdl:part element="dto:NavigateCaseByCriteriaRequest" name="navigateCaseByCriteriaRequest"/>
+	</wsdl:message>
+	<wsdl:message name="navigateCaseByCriteriaResponse">
+		<wsdl:part element="dto:NavigateCaseByCriteriaResponse" name="navigateCaseByCriteriaResponse"/>
+	</wsdl:message>
+	<wsdl:message name="notifyDDLExecutionRequest">
+		<wsdl:part element="dto:NotifyDDLExecutionRequest" name="notifyDDLExecutionRequest"/>
+	</wsdl:message>
+	<wsdl:message name="notifyDDLExecutionResponse">
+		<wsdl:part element="dto:NotifyDDLExecutionResponse" name="notifyDDLExecutionResponse"/>
+	</wsdl:message>
+	<wsdl:message name="createDataViewRequest">
+		<wsdl:part element="dto:CreateDataViewRequest" name="createDataViewRequest"/>
+	</wsdl:message>
+	<wsdl:message name="createDataViewResponse">
+		<wsdl:part element="dto:CreateDataViewResponse" name="createDataViewResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getDataViewDetailsRequest">
+		<wsdl:part element="dto:GetDataViewDetailsRequest" name="getDataViewDetailsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getDataViewDetailsResponse">
+		<wsdl:part element="dto:GetDataViewDetailsResponse" name="getDataViewDetailsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="editDataViewRequest">
+		<wsdl:part element="dto:EditDataViewRequest" name="editDataViewRequest"/>
+	</wsdl:message>
+	<wsdl:message name="editDataViewResponse">
+		<wsdl:part element="dto:EditDataViewResponse" name="editDataViewResponse"/>
+	</wsdl:message>
+	<wsdl:message name="deleteDataViewRequest">
+		<wsdl:part element="dto:DeleteDataViewRequest" name="deleteDataViewRequest"/>
+	</wsdl:message>
+	<wsdl:message name="deleteDataViewResponse">
+		<wsdl:part element="dto:DeleteDataViewResponse" name="deleteDataViewResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getDataViewCategoriesRequest">
+		<wsdl:part element="dto:GetDataViewCategoriesRequest" name="getDataViewCategoriesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getDataViewCategoriesResponse">
+		<wsdl:part element="dto:GetDataViewCategoriesResponse" name="getDataViewCategoriesResponse"/>
+	</wsdl:message>
+	<wsdl:message name="readCaseRequest">
+		<wsdl:part element="dto:ReadCaseRequest" name="readCaseRequest"/>
+	</wsdl:message>
+	<wsdl:message name="readCaseResponse">
+		<wsdl:part element="dto:ReadCaseResponse" name="readCaseResponse"/>
+	</wsdl:message>
+	<wsdl:message name="unlinkCaseRequest">
+		<wsdl:part element="dto:UnlinkCaseRequest" name="unlinkCaseRequest"/>
+	</wsdl:message>
+	<wsdl:message name="unlinkCaseResponse">
+		<wsdl:part element="dto:UnlinkCaseResponse" name="unlinkCaseResponse"/>
+	</wsdl:message>
+	<wsdl:message name="updateCaseRequest">
+		<wsdl:part element="dto:UpdateCaseRequest" name="updateCaseRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateCaseResponse">
+		<wsdl:part element="dto:UpdateCaseResponse" name="updateCaseRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateDBScriptsRequest">
+		<wsdl:part element="dto:UpdateDBScriptsRequest" name="updateDBScriptsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="updateDBScriptsResponse">
+		<wsdl:part element="dto:UpdateDBScriptsResponse" name="updateDBScriptsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="createDocumentRequest">
+		<wsdl:part element="doc:CreateDocumentRequest" name="createDocumentRequest"/>
+	</wsdl:message>
+	<wsdl:message name="createDocumentResponse">
+		<wsdl:part element="doc:CreateDocumentResponse" name="createCaseResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getDocumentMetadataRequest">
+		<wsdl:part element="doc:GetDocumentMetadataRequest" name="getDocumentRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getDocumentMetadataResponse">
+		<wsdl:part element="doc:GetDocumentMetadataResponse" name="getDocumentResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getDocumentContentRequest">
+		<wsdl:part element="doc:GetDocumentContentRequest" name="getDocumentContentRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getDocumentContentResponse">
+		<wsdl:part element="doc:GetDocumentContentResponse" name="getDocumentContentResponse"/>
+	</wsdl:message>
+	<wsdl:message name="deleteDocumentRequest">
+		<wsdl:part element="doc:DeleteDocumentRequest" name="deleteDocumentRequest"/>
+	</wsdl:message>
+	<wsdl:message name="deleteDocumentResponse">
+		<wsdl:part element="doc:DeleteDocumentResponse" name="deleteDocumentResponse"/>
+	</wsdl:message>
+	<wsdl:message name="moveDocumentRequest">
+		<wsdl:part element="doc:MoveDocumentRequest" name="moveDocumentRequest"/>
+	</wsdl:message>
+	<wsdl:message name="moveDocumentResponse">
+		<wsdl:part element="doc:MoveDocumentResponse" name="moveDocumentResponse"/>
+	</wsdl:message>
+	<wsdl:message name="linkDocumentRequest">
+		<wsdl:part element="doc:LinkDocumentRequest" name="linkDocumentRequest"/>
+	</wsdl:message>
+	<wsdl:message name="linkDocumentResponse">
+		<wsdl:part element="doc:LinkDocumentResponse" name="linkDocumentResponse"/>
+	</wsdl:message>
+	<wsdl:message name="unlinkDocumentRequest">
+		<wsdl:part element="doc:UnlinkDocumentRequest" name="unlinkDocumentRequest"/>
+	</wsdl:message>
+	<wsdl:message name="unlinkDocumentResponse">
+		<wsdl:part element="doc:UnlinkDocumentResponse" name="unlinkDocumentResponse"/>
+	</wsdl:message>
+	<wsdl:message name="findDocumentsRequest">
+		<wsdl:part element="doc:FindDocumentsRequest" name="findDocumentsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="findDocumentsResponse">
+		<wsdl:part element="doc:FindDocumentsResponse" name="findDocumentsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="getFolderContentRequest">
+		<wsdl:part element="doc:GetFolderContentRequest" name="getFolderContentRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getFolderContentResponse">
+		<wsdl:part element="doc:GetFolderContentResponse" name="getFolderContentResponse"/>
+	</wsdl:message>
+	<wsdl:message name="deleteOrphanedFoldersRequest">
+		<wsdl:part element="doc:DeleteOrphanedFoldersRequest" name="deleteOrphanedFoldersRequest"/>
+	</wsdl:message>
+	<wsdl:message name="deleteOrphanedFoldersResponse">
+		<wsdl:part element="doc:DeleteOrphanedFoldersResponse" name="deleteOrphanedFoldersResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ownerReferenceFault">
+		<wsdl:part element="exception:OwnerReferenceFault" name="ownerReferenceFault"/>
+	</wsdl:message>
+	<wsdl:message name="documentReferenceFault">
+		<wsdl:part element="exception:DocumentReferenceFault" name="documentReferenceFault"/>
+	</wsdl:message>
+	<wsdl:message name="folderReferenceFault">
+		<wsdl:part element="exception:FolderReferenceFault" name="folderReferenceFault"/>
+	</wsdl:message>
+	<wsdl:message name="documentStoreAccessFault">
+		<wsdl:part element="exception:DocumentStoreAccessFault" name="documentStoreAccessFault"/>
+	</wsdl:message>
+	<wsdl:message name="caseDataAccessFault">
+		<wsdl:part element="exception:CaseDataAccessFault" name="caseDataAccessFault"/>
+	</wsdl:message>
+	<wsdl:message name="caseDataChangedFault">
+		<wsdl:part element="exception:CaseDataChangedFault" name="caseDataChangedFault"/>
+	</wsdl:message>
+	<wsdl:message name="caseModelIncorrectStateFault">
+		<wsdl:part element="exception:CaseModelIncorrectStateFault" name="caseModelIncorrectStateFault"/>
+	</wsdl:message>
+	<wsdl:message name="caseModelReferenceFault">
+		<wsdl:part element="exception:CaseModelReferenceFault" name="caseModelReferenceFault"/>
+	</wsdl:message>
+	<wsdl:message name="caseReferenceFault">
+		<wsdl:part element="exception:CaseReferenceFault" name="caseReferenceFault"/>
+	</wsdl:message>
+	<wsdl:message name="dataViewReferenceFault">
+		<wsdl:part element="exception:DataViewReferenceFault" name="dataViewReferenceFault"/>
+	</wsdl:message>
+	<wsdl:message name="internalServiceFault">
+		<wsdl:part element="exception:InternalServiceFault" name="internalServiceFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidCaseModelFault">
+		<wsdl:part element="exception:InvalidCaseModelFault" name="invalidCaseModelFault"/>
+	</wsdl:message>
+	<wsdl:message name="invalidDataFault">
+		<wsdl:part element="exception:InvalidDataFault" name="invalidDataFault"/>
+	</wsdl:message>
+	<wsdl:message name="securityFault">
+		<wsdl:part element="exception:SecurityFault" name="securityFault"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseSummaryRequest">
+		<wsdl:part element="dto:GetCaseSummaryRequest" name="getCaseSummaryRequest"/>
+	</wsdl:message>
+	<wsdl:message name="getCaseSummaryResponse">
+		<wsdl:part element="dto:GetCaseSummaryResponse" name="getCaseSummaryResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="BusinessDataServicesAdminService">
+		<wsdl:documentation>BDS Service that provides access to DDLs corresponding to Case DataStore Tables</wsdl:documentation>
+		<wsdl:operation name="getCaseModelBasicInfo">
+			<wsdl:documentation>Obtain Basic CaseModel Information from BDS</wsdl:documentation>
+			<wsdl:input message="service:getCaseModelBasicInfoRequest" name="getCaseModelBasicInfoRequest">
+				<wsdl:documentation>Request message (uses dto:GetCaseModelBasicInfoRequest element): Optionally identifies Application Name of the Model to return, if none then all are returned.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getCaseModelBasicInfoResponse" name="getCaseModelBasicInfoResponse">
+				<wsdl:documentation>Response message (uses dto:GetCaseModelBasicInfoResponse element): For each Case Model matched by the Request the Response document contains: Case Model ID; Application/Case Model Name and Major Version.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidCaseModelFault" name="InvalidCaseModelFault">
+				<wsdl:documentation>Error message (uses ex:InvalidCaseModelFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCaseModel">
+			<wsdl:documentation>Obtain CaseModel(Including Create/Update DDLs) Information from BDS  </wsdl:documentation>
+			<wsdl:input message="service:getCaseModelRequest" name="getCaseModelRequest">
+				<wsdl:documentation>Request message (uses dto:GetCaseModelRequest element): Optionally identifies Application Name of the Model to return, if none then all are returned.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getCaseModelResponse" name="getCaseModelResponse">
+				<wsdl:documentation>Response message (uses dto:GetCaseModelResponse element): For each Case Model matched by the Request the Response document contains: Case Model ID; Application/Case Model Name; Current Version Number; Installed Version; Create, Update and Drop Scripts; freeze details and state.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidCaseModelFault" name="InvalidCaseModelFault">
+				<wsdl:documentation>Error message (uses ex:InvalidCaseModelFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCaseClassInfo">
+			<wsdl:documentation>Obtain details of case classes and their attributes</wsdl:documentation>
+			<wsdl:input message="service:getCaseClassInfoRequest" name="getCaseClassInfoRequest">
+				<wsdl:documentation>Request message (uses dto:GetCaseClassInfoRequest element): Identifies the Case Type and Case Model Version OR the Case Model Id and optionally some Case Classes to return.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getCaseClassInfoResponse" name="getCaseClassInfoResponse">
+				<wsdl:documentation>Response message (uses dto:GetCaseClassInfoResponse element): Contains information about the requested Case Classes, for each Case Class it returns the name of the class and a list of its attributes.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>TODO</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAuditInfo">
+			<wsdl:documentation>Retrieve Audit Information for a given Case Model</wsdl:documentation>
+			<wsdl:input message="service:getAuditInfoRequest" name="getAuditInfoRequest">
+				<wsdl:documentation>Request message (uses dto:GetAuditInfoRequest element): Identifies Case Model to get the audit information from by ID.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getAuditInfoResponse" name="getAuditInfoResponse">
+				<wsdl:documentation>Response message (uses dto:GetAuditInfoResponse element): Contains information about changes made to the selected Case Model.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidCaseModelFault" name="InvalidCaseModelFault">
+				<wsdl:documentation>Error message (uses ex:InvalidCaseModelFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="notifyDDLExecution">
+			<wsdl:documentation>Notifies BDS of DBA execution of DDLs provided by BDS</wsdl:documentation>
+			<wsdl:input message="service:notifyDDLExecutionRequest" name="notifyDDLExecutionRequest">
+				<wsdl:documentation>Request message (uses dto:NotifyDDLExecutionRequest element): Identifies the Case Model to change by ID, the change to make to its state, whether to validate the DDL has been executed and details of who made the change for the audit.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:notifyDDLExecutionResponse" name="notifyDDLExecutionResponse">
+				<wsdl:documentation>Response message (uses dto:NotifyDDLExecutionResponse element): No information is returned.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseModelIncorrectStateFault" name="CaseModelIncorrectStateFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelIncorrectStateFault element): An error occurred when case data model is found to be in an incorrect state.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidCaseModelFault" name="InvalidCaseModelFault">
+				<wsdl:documentation>Error message (uses ex:InvalidCaseModelFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateDBScripts">
+			<wsdl:documentation>Updates DDL in BDS</wsdl:documentation>
+			<wsdl:input message="service:updateDBScriptsRequest" name="updateDBScriptsRequest">
+				<wsdl:documentation>Request message (uses dto:UpdateDBScriptsRequest element): Identifies the Case Model to change by ID, the DB scripts being changed and information about who is making the changes.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:updateDBScriptsResponse" name="updateDBScriptsResponse">
+				<wsdl:documentation>Response message (uses dto:UpdateDBScriptsResponse element): No information is returned.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseModelIncorrectStateFault" name="CaseModelIncorrectStateFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelIncorrectStateFault element): An error occurred when case data model is found to be in an incorrect state.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidCaseModelFault" name="InvalidCaseModelFault">
+				<wsdl:documentation>Error message (uses ex:InvalidCaseModelFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="BusinessDataServices">
+		<wsdl:documentation>Business Data Services Service.
+ Note:  This Service is intended primarily for external (i.e. outside AMX BPM) clients </wsdl:documentation>
+		<wsdl:operation name="createCase">
+			<wsdl:documentation>Inserts new Case information in Case DataStore</wsdl:documentation>
+			<wsdl:input message="service:createCaseRequest" name="createCaseRequest">
+				<wsdl:documentation>Request message (uses dto:CreateCaseRequest element): Identifies the Case Type and Case Model Version of the objects to be created and contains one or more objects to be create.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:createCaseResponse" name="createCaseResponse">
+				<wsdl:documentation>Response message (uses dto:CreateCaseResponse element): Contains references to the objects created.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="readCase">
+			<wsdl:documentation>Reads existing Case information from Case DataStore</wsdl:documentation>
+			<wsdl:input message="service:readCaseRequest" name="readCaseRequest">
+				<wsdl:documentation>Request message (uses dto:ReadCaseRequest element): Identifies the Case References of the global objects to be read.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:readCaseResponse" name="readCaseResponse">
+				<wsdl:documentation>Response message (uses dto:ReadCaseResponse element): Contains  Case Reference/Case Payload pairs for each global object read.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseReferenceFault" name="CaseReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseReferenceFault element): An error occurred while attempting to find a global data object from a global data reference.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateCase">
+			<wsdl:documentation>Updates existing Case information in Case DataStore</wsdl:documentation>
+			<wsdl:input message="service:updateCaseRequest" name="updateCaseRequest">
+				<wsdl:documentation>Request message (uses dto:UpdateCaseRequest element): Contains  Case Reference/Case Payload pairs for each global object to be updated.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:updateCaseResponse" name="updateCaseResponse">
+				<wsdl:documentation>Response message (uses dto:UpdateCaseResponse element): Contains updated references to the objects that were updated.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseReferenceFault" name="CaseReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseReferenceFault element): An error occurred while attempting to find a global data object from a global data reference.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataChangedFault" name="CaseDataChangedFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataChangedFault element): Failed to update a case data object because it has been updated by something else.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteCaseByCID">
+			<wsdl:documentation>Deletes existing Case Information from Case DataStore</wsdl:documentation>
+			<wsdl:input message="service:deleteCaseByCIDRequest" name="deleteCaseByCIDRequest">
+				<wsdl:documentation>Request message (uses dto:DeleteCaseByCIDRequest element): Identifies the Case Type and Case Model Version of the objects to be deleted and contains one or more objects containing the CIDs of the objects to be deleted.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:deleteCaseByCIDResponse" name="deleteCaseByCIDResponse">
+				<wsdl:documentation>Response message (uses dto:DeleteCaseByCIDResponse element): No information returned.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataChangedFault" name="CaseDataChangedFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataChangedFault element): Failed to update a case data object because it has been updated by something else.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteCaseByRef">
+			<wsdl:documentation>Deletes existing Case Information from Case DataStore</wsdl:documentation>
+			<wsdl:input message="service:deleteCaseByRefRequest" name="deleteCaseByRefRequest">
+				<wsdl:documentation>Request message (uses dto:DeleteCaseByRefRequest element): Identifies the Case References of the global objects to be deleted.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:deleteCaseByRefResponse" name="deleteCaseByRefResponse">
+				<wsdl:documentation>Response message (uses dto:DeleteCaseByRefResponse element): No information returned.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseReferenceFault" name="CaseReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseReferenceFault element): An error occurred while attempting to find a global data object from a global data reference.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataChangedFault" name="CaseDataChangedFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataChangedFault element): Failed to update a case data object because it has been updated by something else.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findCaseByCID">
+			<wsdl:documentation>Using a Case Identifier(CID), find Case from Case DataStore </wsdl:documentation>
+			<wsdl:input message="service:findCaseByCIDRequest" name="findCaseByCIDRequest">
+				<wsdl:documentation>Request message (uses dto:FindCaseByCIDRequest element): Identifies the Case Type and Case Model Version of the object to be found and an object containing the CID of the object to be found.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:findCaseByCIDResponse" name="findCaseByCIDResponse">
+				<wsdl:documentation>Response message (uses dto:FindCaseByCIDResponse element): Contains the Case Reference of the object found.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findCaseByCriteria">
+			<wsdl:documentation>Using a flexible Criteria, find case from Case DataStore</wsdl:documentation>
+			<wsdl:input message="service:findCaseByCriteriaRequest" name="findCaseByCriteriaRequest">
+				<wsdl:documentation>Request message (uses dto:FindCaseByCriteriaRequest element): Identifies query to be run, the zero based item to start with and the maximum number of items to fetch (or -1 for all).</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:findCaseByCriteriaResponse" name="findCaseByCriteriaResponse">
+				<wsdl:documentation>Response message (uses dto:FindCaseByCriteriaResponse element): Contains Case References to the objects found and a flag to say if there are more results that can be fetched.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCaseReferencesForDataView">
+			<wsdl:documentation>Find case objects that match a view</wsdl:documentation>
+			<wsdl:input message="service:getCaseReferencesForDataViewRequest" name="getCaseReferencesForDataViewRequest">
+				<wsdl:documentation>Request message (uses dto:GetCaseReferencesForDataViewRequest element): Contains the name or ID of an existing view, or the definition of a view, and optionally can include parameter assignments, sort attributes and pagination options.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getCaseReferencesForDataViewResponse" name="getCaseReferencesForDataViewResponse">
+				<wsdl:documentation>Response message (uses dto:GetCaseReferencesForDataViewResponse element): Contains Case References to the objects found and a flag to say if there are more results that can be fetched.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:dataViewReferenceFault" name="DataViewReferenceFault">
+				<wsdl:documentation>TODO</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>TODO</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findAllCases">
+			<wsdl:documentation>For a given CaseType, find all cases from Case DataStore</wsdl:documentation>
+			<wsdl:input message="service:findAllCasesRequest" name="findAllCasesRequest">
+				<wsdl:documentation>Request message (uses dto:FindAllCasesRequest element): Identifies the Case Type and Case Model Version of the objects to be find and optionally zero based Start Index (defaults to 0) and Page Size (defaults to -1 to return all items).</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:findAllCasesResponse" name="findAllCasesResponse">
+				<wsdl:documentation>Response message (uses dto:FindAllCasesResponse element): Contains references to the objects found and if Page Size in the request was not -1 then a flag is returned to say whether there are more records.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findCaseByExample">
+			<wsdl:documentation>Based on a CID or Searchable Attribute, find Case(s) from Case DataStore</wsdl:documentation>
+			<wsdl:input message="service:findCaseByExampleRequest" name="findCaseByExampleRequest">
+				<wsdl:documentation>Request message (uses dto:FindCaseByExampleRequest element): Identifies the Case Type and Case Model Version of the objects to be found and an Object Payload that contains any searchable attributes that must match the items to return and optionally zero based Start Index (defaults to 0) and Page Size (defaults to -1 to return all items).</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:findCaseByExampleResponse" name="findCaseByExampleResponse">
+				<wsdl:documentation>Response message (uses dto:FindCaseByExampleResponse element): Contains references to the objects that match the specified searchable attributes and if Page Size in the request was not -1 then a flag is returned to say whether there are more records.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="createDataView">
+			<wsdl:documentation>Creates a view definition</wsdl:documentation>
+			<wsdl:input message="service:createDataViewRequest" name="createDataViewRequest">
+				<wsdl:documentation>Request message (uses dto:CreateDataViewRequest element): Identifies: the Case Type; Case Model Version; Data View Name and optionally a Data View Description; Condition; Sort Attributes and a number of Categories in order to create a new Data View.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:createDataViewResponse" name="createDataViewResponse">
+				<wsdl:documentation>Response message (uses dto:CreateDataViewResponse element): Contains the Data View ID of the new Data View.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>TODO</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDataViewDetails">
+			<wsdl:documentation>Reads a view definition</wsdl:documentation>
+			<wsdl:input message="service:getDataViewDetailsRequest" name="getDataViewDetailsRequest">
+				<wsdl:documentation>Request message (uses dto:GetDataViewDetailsRequest element): Identifies the Data Views to retrieve by one of the following: View ID; View Name; Application Name and Major Version; Case Type and Major Version or Category.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getDataViewDetailsResponse" name="getDataViewDetailsResponse">
+				<wsdl:documentation>Response message (uses dto:GetDataViewDetailsResponse element): Contains View IDs and View Definitions that match the request.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:dataViewReferenceFault" name="DataViewReferenceFault">
+				<wsdl:documentation>TODO</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="editDataView">
+			<wsdl:documentation>Updates a view definition</wsdl:documentation>
+			<wsdl:input message="service:editDataViewRequest" name="editDataViewRequest">
+				<wsdl:documentation>Request message (uses dto:EditDataViewRequest element): Identifies the Data View to be updated by ID and contains the new definition of the Data View.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:editDataViewResponse" name="editDataViewResponse">
+				<wsdl:documentation>Response message (uses dto:EditDataViewResponse element): No information is returned.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:dataViewReferenceFault" name="DataViewReferenceFault">
+				<wsdl:documentation>TODO</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>TODO</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteDataView">
+			<wsdl:documentation>Deletes a view definition</wsdl:documentation>
+			<wsdl:input message="service:deleteDataViewRequest" name="deleteDataViewRequest">
+				<wsdl:documentation>Request message (uses dto:DeleteDataViewRequest element): Identifies the Data View to be deleted by ID or Name.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:deleteDataViewResponse" name="deleteDataViewResponse">
+				<wsdl:documentation>Response message (uses dto:DeleteDataViewResponse element): No information is returned.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:dataViewReferenceFault" name="DataViewReferenceFault">
+				<wsdl:documentation>TODO</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDataViewCategories">
+			<wsdl:documentation>Deletes a view definition</wsdl:documentation>
+			<wsdl:input message="service:getDataViewCategoriesRequest" name="getDataViewCategoriesRequest">
+				<wsdl:documentation>Request message (uses dto:GetDataViewCategoriesRequest element): Identifies the Search Term and Max Depth for the Categories to get.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getDataViewCategoriesResponse" name="getDataViewCategoriesResponse">
+				<wsdl:documentation>Response message (uses dto:GetDataViewCategoriesResponse element): Contains a list of zero or more Categories.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFsault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="navigateCase">
+			<wsdl:documentation>Navigate to an associated Case from existing Case </wsdl:documentation>
+			<wsdl:input message="service:navigateCaseRequest" name="navigateCaseRequest">
+				<wsdl:documentation>Request message (uses dto:NavigateCaseRequest element): Identifies Source Case Reference and Relationship to Navigate and optional pagination parameters (0-based Start Index (default 0) and Page Size (-1 for all - default -1)).</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:navigateCaseResponse" name="navigateCaseResponse">
+				<wsdl:documentation>Response message (uses dto:NavigateCaseResponse element): Contains references to the objects at the remote end of the relationship.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseReferenceFault" name="CaseReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseReferenceFault element): An error occurred while attempting to find a global data object from a global data reference.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="navigateCaseByCriteria">
+			<wsdl:documentation>Navigate to an associated Case based on flexible Criteria</wsdl:documentation>
+			<wsdl:input message="service:navigateCaseByCriteriaRequest" name="navigateCaseByCriteriaRequest">
+				<wsdl:documentation>Request message (uses dto:NavigateCaseByCriteriaRequest element): Source Case Reference; Query and optionally query parameters and pagination parameters (0-based Start Index (default 0) and Page Size (-1 for all - default -1)).</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:navigateCaseByCriteriaResponse" name="navigateCaseByCriteriaResponse">
+				<wsdl:documentation>Response message (uses dto:NavigateCaseByCriteriaResponse element): Contains references to the objects that match the navigation query.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseReferenceFault" name="CaseReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseReferenceFault element): An error occurred while attempting to find a global data object from a global data reference.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="linkCase">
+			<wsdl:documentation>Create an association between a number of cases</wsdl:documentation>
+			<wsdl:input message="service:linkCaseRequest" name="linkCaseRequest">
+				<wsdl:documentation>Request message (uses dto:LinkCaseRequest element): Identifies the Source Case Reference, Relationship and the Case References of the objects to be linked.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:linkCaseResponse" name="linkCaseResponse">
+				<wsdl:documentation>Response message (uses dto:LinkCaseResponse element): Contains the updated Source Case Reference.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseReferenceFault" name="CaseReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseReferenceFault element): An error occurred while attempting to find a global data object from a global data reference.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="unlinkCase">
+			<wsdl:documentation>Delete association between previously associated cases</wsdl:documentation>
+			<wsdl:input message="service:unlinkCaseRequest" name="unlinkCaseRequest">
+				<wsdl:documentation>Request message (uses dto:UnlinkCaseRequest element): Identifies the Source Case Reference, Relationship and the Case References of the objects to be unlinked.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:unlinkCaseResponse" name="unlinkCaseResponse">
+				<wsdl:documentation>Response message (uses dto:UnlinkCaseResponse element): Contains the updated Source Case Reference.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:caseReferenceFault" name="CaseReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseReferenceFault element): An error occurred while attempting to find a global data object from a global data reference.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCaseSummary">
+			<wsdl:documentation>Gets summary information about the given case</wsdl:documentation>
+			<wsdl:input message="service:getCaseSummaryRequest" name="getCaseSummaryRequest"/>
+			<wsdl:output message="service:getCaseSummaryResponse" name="getCaseSummaryResponse"/>
+			<wsdl:fault message="service:caseReferenceFault" name="CaseReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseReferenceFault element): An error occurred while attempting to find a global data object from a global data reference.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseDataAccessFault" name="CaseDataAccessFault">
+				<wsdl:documentation>Error message (uses ex:CaseDataAccessFault element): An error occurred while accessing global case data store.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:caseModelReferenceFault" name="CaseModelReferenceFault">
+				<wsdl:documentation>Error message (uses ex:CaseModelReferenceFault element): An error occurred while attempting to access a case data model.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>Error message (uses ex:InternalServiceFault element): An internal service fault occurred.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>Error message (uses ex:SecurityFault element): The request failed due to authentication or authorisation failure.</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="DocumentService">
+		<wsdl:documentation>A service for manipulating documents.</wsdl:documentation>
+		<wsdl:operation name="createDocument">
+			<wsdl:documentation>Creates a document in the Document Store, within the folder of the specified owner (e.g. case object)</wsdl:documentation>
+			<wsdl:input message="service:createDocumentRequest" name="createDocumentRequest">
+				<wsdl:documentation>Request message. Contains document content (or URL for) and other context data.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:createDocumentResponse" name="createDocumentResponse">
+				<wsdl:documentation>Response message. Contains a new document reference.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:ownerReferenceFault" name="OwnerReferenceFault">
+				<wsdl:documentation>If the folder owner (e.g. case reference) was not valid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDocumentMetadata">
+			<wsdl:documentation>Returns document metadata, given a document reference (e.g. name etc)</wsdl:documentation>
+			<wsdl:input message="service:getDocumentMetadataRequest" name="getDocumentMetadataRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getDocumentMetadataResponse" name="getDocumentMetadataResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:documentReferenceFault" name="DocumentReferenceFault">
+				<wsdl:documentation>If the provided document reference is of an invalid format, or does not correspond to an existing document.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDocumentContent">
+			<wsdl:documentation>Retrieves the binary content of the specified document</wsdl:documentation>
+			<wsdl:input message="service:getDocumentContentRequest" name="getDocumentContentRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getDocumentContentResponse" name="getDocumentContentResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:documentReferenceFault" name="DocumentReferenceFault">
+				<wsdl:documentation>If the provided document reference is of an invalid format, or does not correspond to an existing document.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteDocument">
+			<wsdl:documentation>Deletes the specified document</wsdl:documentation>
+			<wsdl:input message="service:deleteDocumentRequest" name="deleteDocumentRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:deleteDocumentResponse" name="deleteDocumentResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:documentReferenceFault" name="DocumentReferenceFault">
+				<wsdl:documentation>If the provided document reference is of an invalid format, or does not correspond to an existing document.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="moveDocument">
+			<wsdl:documentation>Moves an existing document from one folder to another</wsdl:documentation>
+			<wsdl:input message="service:moveDocumentRequest" name="moveDocumentRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:moveDocumentResponse" name="moveDocumentResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:ownerReferenceFault" name="OwnerReferenceFault">
+				<wsdl:documentation>If the folder owner (e.g. case reference) was not valid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentReferenceFault" name="DocumentReferenceFault">
+				<wsdl:documentation>If the provided document reference is of an invalid format, or does not correspond to an existing document.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="linkDocument">
+			<wsdl:documentation>Links an existing document to a folder without removing it from its existing containing folder(s)</wsdl:documentation>
+			<wsdl:input message="service:linkDocumentRequest" name="linkDocumentRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:linkDocumentResponse" name="linkDocumentResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:ownerReferenceFault" name="OwnerReferenceFault"/>
+			<wsdl:fault message="service:documentReferenceFault" name="DocumentReferenceFault">
+				<wsdl:documentation>If the provided document reference is of an invalid format, or does not correspond to an existing document.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="unlinkDocument">
+			<wsdl:documentation>Unlinks a document from a folder</wsdl:documentation>
+			<wsdl:input message="service:unlinkDocumentRequest" name="unlinkDocumentRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:unlinkDocumentResponse" name="unlinkDocumentResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:ownerReferenceFault" name="OwnerReferenceFault">
+				<wsdl:documentation>If the folder owner (e.g. case reference) was not valid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentReferenceFault" name="DocumentReferenceFault">
+				<wsdl:documentation>If the provided document reference is of an invalid format, or does not correspond to an existing document.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findDocuments">
+			<wsdl:documentation>Finds documents that belong to a given owner, constrained by either name or a query string </wsdl:documentation>
+			<wsdl:input message="service:findDocumentsRequest" name="findDocumentsRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:findDocumentsResponse" name="findDocumentsResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<!-- Only possible if ECM facade throws specific exception for bad CMISQL -->
+			<wsdl:fault message="service:ownerReferenceFault" name="OwnerReferenceFault">
+				<wsdl:documentation>If the document owner (e.g. case reference) was not valid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getFolderContent">
+			<wsdl:documentation>Obtains the contents (documents and/or nested folders) for a given folder, or the folder of a given owner</wsdl:documentation>
+			<wsdl:input message="service:getFolderContentRequest" name="getFolderContentRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:getFolderContentResponse" name="getFolderContentResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:ownerReferenceFault" name="OwnerReferenceFault">
+				<wsdl:documentation>If the folder owner (e.g. case reference) was not valid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:folderReferenceFault" name="FolderReferenceFault">
+				<wsdl:documentation>If the provided folder reference is of an invalid format, or does not correspond to an existing folder.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteOrphanedFolders">
+			<wsdl:documentation>Deletes any folder for which the owning object has ceased to exist</wsdl:documentation>
+			<wsdl:input message="service:deleteOrphanedFoldersRequest" name="deleteOrphanedFoldersRequest">
+				<wsdl:documentation>Request message.</wsdl:documentation>
+			</wsdl:input>
+			<wsdl:output message="service:deleteOrphanedFoldersResponse" name="deleteOrphanedFoldersResponse">
+				<wsdl:documentation>Response message.</wsdl:documentation>
+			</wsdl:output>
+			<wsdl:fault message="service:invalidDataFault" name="InvalidDataFault">
+				<wsdl:documentation>If an input parameter (apart from references) was invalid.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:documentStoreAccessFault" name="DocumentStoreAccessFault">
+				<wsdl:documentation>If a problem occurs accessing the Document Store repository.</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:securityFault" name="SecurityFault">
+				<wsdl:documentation>If the caller lacks the security rights to perform the operation</wsdl:documentation>
+			</wsdl:fault>
+			<wsdl:fault message="service:internalServiceFault" name="InternalServiceFault">
+				<wsdl:documentation>If the service malfunctions (due to a reason other than bad data from the caller)</wsdl:documentation>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BusinessDataServicesAdminService_EP" type="service:BusinessDataServicesAdminService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getCaseClassInfo">
+			<soap:operation soapAction="getCaseClassInfo" style="document"/>
+			<wsdl:input name="getCaseClassInfoRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getCaseClassInfoResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCaseModel">
+			<soap:operation soapAction="getCaseModel" style="document"/>
+			<wsdl:input name="getCaseModelRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getCaseModelResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidCaseModelFault">
+				<soap:fault name="InvalidCaseModelFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCaseModelBasicInfo">
+			<soap:operation soapAction="getCaseModelBasicInfo" style="document"/>
+			<wsdl:input name="getCaseModelBasicInfoRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getCaseModelBasicInfoResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidCaseModelFault">
+				<soap:fault name="InvalidCaseModelFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAuditInfo">
+			<soap:operation soapAction="getAuditInfo" style="document"/>
+			<wsdl:input name="getAuditInfoRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getAuditInfoResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidCaseModelFault">
+				<soap:fault name="InvalidCaseModelFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="notifyDDLExecution">
+			<soap:operation soapAction="notifyDDLExecution" style="document"/>
+			<wsdl:input name="notifyDDLExecutionRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="notifyDDLExecutionResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidCaseModelFault">
+				<soap:fault name="InvalidCaseModelFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelIncorrectStateFault">
+				<soap:fault name="CaseModelIncorrectStateFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateDBScripts">
+			<soap:operation soapAction="updateDBScripts" style="document"/>
+			<wsdl:input name="updateDBScriptsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="updateDBScriptsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidCaseModelFault">
+				<soap:fault name="InvalidCaseModelFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelIncorrectStateFault">
+				<soap:fault name="CaseModelIncorrectStateFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="BusinessDataServices_EP" type="service:BusinessDataServices">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="createCase">
+			<soap:operation soapAction="createCase" style="document"/>
+			<wsdl:input name="createCaseRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="createCaseResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="readCase">
+			<soap:operation soapAction="readCase" style="document"/>
+			<wsdl:input name="readCaseRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="readCaseResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseReferenceFault">
+				<soap:fault name="CaseReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateCase">
+			<soap:operation soapAction="updateCase" style="document"/>
+			<wsdl:input name="updateCaseRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="updateCaseResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseDataChangedFault">
+				<soap:fault name="CaseDataChangedFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseReferenceFault">
+				<soap:fault name="CaseReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteCaseByCID">
+			<soap:operation soapAction="deleteCaseByCID" style="document"/>
+			<wsdl:input name="deleteCaseByCIDRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteCaseByCIDResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseDataChangedFault">
+				<soap:fault name="CaseDataChangedFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteCaseByRef">
+			<soap:operation soapAction="deleteCaseByRef" style="document"/>
+			<wsdl:input name="deleteCaseByRefRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteCaseByRefResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseDataChangedFault">
+				<soap:fault name="CaseDataChangedFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseReferenceFault">
+				<soap:fault name="CaseReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findCaseByCID">
+			<soap:operation soapAction="findCaseByCID" style="document"/>
+			<wsdl:input name="findCaseByCIDRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findCaseByCIDResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findCaseByCriteria">
+			<soap:operation soapAction="findCaseByCriteria" style="document"/>
+			<wsdl:input name="findCaseByCriteriaRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findCaseByCriteriaResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCaseReferencesForDataView">
+			<soap:operation soapAction="getCaseReferencesForDataView" style="document"/>
+			<wsdl:input name="getCaseReferencesForDataViewRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getCaseReferencesForDataViewResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DataViewReferenceFault">
+				<soap:fault name="DataViewReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findAllCases">
+			<soap:operation soapAction="findAllCases" style="document"/>
+			<wsdl:input name="findAllCasesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findAllCasesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findCaseByExample">
+			<soap:operation soapAction="findCaseByExample" style="document"/>
+			<wsdl:input name="findCaseByExampleRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findCaseByExampleResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="createDataView">
+			<soap:operation soapAction="createDataView" style="document"/>
+			<wsdl:input name="createDataViewRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="createDataViewResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDataViewDetails">
+			<soap:operation soapAction="getDataViewDetails" style="document"/>
+			<wsdl:input name="getDataViewDetailsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getDataViewDetailsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DataViewReferenceFault">
+				<soap:fault name="DataViewReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="editDataView">
+			<soap:operation soapAction="editDataView" style="document"/>
+			<wsdl:input name="editDataViewRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="editDataViewResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DataViewReferenceFault">
+				<soap:fault name="DataViewReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteDataView">
+			<soap:operation soapAction="deleteDataView" style="document"/>
+			<wsdl:input name="deleteDataViewRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteDataViewResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DataViewReferenceFault">
+				<soap:fault name="DataViewReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDataViewCategories">
+			<soap:operation soapAction="getDataViewCategories" style="document"/>
+			<wsdl:input name="getDataViewCategoriesRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getDataViewCategoriesResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="navigateCase">
+			<soap:operation soapAction="navigateCase" style="document"/>
+			<wsdl:input name="navigateCaseRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="navigateCaseResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseReferenceFault">
+				<soap:fault name="CaseReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="navigateCaseByCriteria">
+			<soap:operation soapAction="navigateCaseByCriteria" style="document"/>
+			<wsdl:input name="navigateCaseByCriteriaRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="navigateCaseByCriteriaResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseReferenceFault">
+				<soap:fault name="CaseReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="linkCase">
+			<soap:operation soapAction="linkCase" style="document"/>
+			<wsdl:input name="linkCaseRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="linkCaseResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseReferenceFault">
+				<soap:fault name="CaseReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="unlinkCase">
+			<soap:operation soapAction="unlinkCase" style="document"/>
+			<wsdl:input name="unlinkCaseRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="unlinkCaseResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseReferenceFault">
+				<soap:fault name="CaseReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCaseSummary">
+			<soap:operation soapAction="getCaseSummary" style="document"/>
+			<wsdl:input name="getCaseSummaryRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getCaseSummaryResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="CaseDataAccessFault">
+				<soap:fault name="CaseDataAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseModelReferenceFault">
+				<soap:fault name="CaseModelReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="CaseReferenceFault">
+				<soap:fault name="CaseReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="DocumentService_EP" type="service:DocumentService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="createDocument">
+			<soap:operation soapAction="createDocument" style="document"/>
+			<wsdl:input name="createDocumentRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="createDocumentResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="OwnerReferenceFault">
+				<soap:fault name="OwnerReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDocumentMetadata">
+			<soap:operation soapAction="getDocumentMetadata" style="document"/>
+			<wsdl:input name="getDocumentMetadataRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getDocumentMetadataResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DocumentReferenceFault">
+				<soap:fault name="DocumentReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDocumentContent">
+			<soap:operation soapAction="getDocumentContent" style="document"/>
+			<wsdl:input name="getDocumentContentRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getDocumentContentResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DocumentReferenceFault">
+				<soap:fault name="DocumentReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteDocument">
+			<soap:operation soapAction="deleteDocument" style="document"/>
+			<wsdl:input name="deleteDocumentRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteDocumentResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DocumentReferenceFault">
+				<soap:fault name="DocumentReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="moveDocument">
+			<soap:operation soapAction="moveDocument" style="document"/>
+			<wsdl:input name="moveDocumentRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="moveDocumentResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="OwnerReferenceFault">
+				<soap:fault name="OwnerReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentReferenceFault">
+				<soap:fault name="DocumentReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="linkDocument">
+			<soap:operation soapAction="linkDocument" style="document"/>
+			<wsdl:input name="linkDocumentRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="linkDocumentResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="OwnerReferenceFault">
+				<soap:fault name="OwnerReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentReferenceFault">
+				<soap:fault name="DocumentReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="unlinkDocument">
+			<soap:operation soapAction="unlinkDocument" style="document"/>
+			<wsdl:input name="unlinkDocumentRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="unlinkDocumentResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="OwnerReferenceFault">
+				<soap:fault name="OwnerReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentReferenceFault">
+				<soap:fault name="DocumentReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="findDocuments">
+			<soap:operation soapAction="findDocuments" style="document"/>
+			<wsdl:input name="findDocumentsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findDocumentsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="OwnerReferenceFault">
+				<soap:fault name="OwnerReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getFolderContent">
+			<soap:operation soapAction="getFolderContent" style="document"/>
+			<wsdl:input name="getFolderContentRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getFolderContentResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="OwnerReferenceFault">
+				<soap:fault name="OwnerReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="FolderReferenceFault">
+				<soap:fault name="FolderReferenceFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="deleteOrphanedFolders">
+			<soap:operation soapAction="deleteOrphanedFolders" style="document"/>
+			<wsdl:input name="deleteOrphanedFoldersRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deleteOrphanedFoldersResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="InvalidDataFault">
+				<soap:fault name="InvalidDataFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="DocumentStoreAccessFault">
+				<soap:fault name="DocumentStoreAccessFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="SecurityFault">
+				<soap:fault name="SecurityFault" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="InternalServiceFault">
+				<soap:fault name="InternalServiceFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="BusinessDataServicesAdminService">
+		<wsdl:port binding="service:BusinessDataServicesAdminService_EP" name="BusinessDataServicesAdminService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/BusinessDataServicesAdminService"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="BusinessDataServices">
+		<wsdl:port binding="service:BusinessDataServices_EP" name="BusinessDataServices_EP">
+			<soap:address location="http://localhost:8080/amxbpm/BusinessDataServices"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="DocumentService">
+		<wsdl:port binding="service:DocumentService_EP" name="DocumentService_EP">
+			<soap:address location="http://localhost:8080/amxbpm/DocumentService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/WS37491Dot4Invoke/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WS37491Dot4Invoke" targetNamespace="http://www.example.org/WS37491Dot4Invoke/">
+  <wsdl:message name="GetDataRequest">
+    <wsdl:part name="param_bool" type="xsd:boolean"/>
+    <wsdl:part name="param_date" type="xsd:date"></wsdl:part>
+    <wsdl:part name="param_float" type="xsd:float"></wsdl:part>
+    <wsdl:part name="param_int" type="xsd:int"></wsdl:part>
+    <wsdl:part name="pramstr" type="xsd:string"></wsdl:part>
+    <wsdl:part name="param_time" type="xsd:time"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetDataResponse">
+    <wsdl:part name="param_bool" type="xsd:boolean"/>
+    <wsdl:part name="param_date" type="xsd:date"></wsdl:part>
+    <wsdl:part name="param_float" type="xsd:float"></wsdl:part>
+    <wsdl:part name="param_int" type="xsd:int"></wsdl:part>
+    <wsdl:part name="param_time" type="xsd:time"></wsdl:part>
+    <wsdl:part name="parmstr" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WS37491Dot4Invoke">
+    <wsdl:operation name="GetData">
+      <wsdl:input message="tns:GetDataRequest"/>
+      <wsdl:output message="tns:GetDataResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS37491Dot4InvokeSOAP" type="tns:WS37491Dot4Invoke">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://www.example.org/WS37491Dot4Invoke/GetData"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS37491Dot4Invoke">
+    <wsdl:port binding="tns:WS37491Dot4InvokeSOAP" name="WS37491Dot4InvokeSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

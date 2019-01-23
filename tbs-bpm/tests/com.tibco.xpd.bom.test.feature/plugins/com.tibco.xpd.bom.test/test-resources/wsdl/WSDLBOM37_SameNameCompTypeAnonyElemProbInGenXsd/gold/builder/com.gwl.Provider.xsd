@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://gwl.com/Provider.xsd" xmlns:tns2="http://gwl.com/Provider.xsd" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://gwl.com/Provider.xsd">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/Test4700/Generated Business Objects/com.gwl.Provider.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="TaxIdNumberType" id="com.gwl.ProviderTaxIdNumberType2"
+      name="TaxIdNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="9"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="ProviderType" id="com.gwl.ProviderProviderType" abstract="false"
+      mixed="false" name="ProviderType">
+    <xsd:sequence>
+      <xsd:element ecore:name="status" id="ProviderTypeStatusType" form="qualified"
+          maxOccurs="1" minOccurs="0" name="Status">
+        <xsd:complexType ecore:name="StatusType" id="com.gwl.ProviderStatusType" mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="activeCode" form="qualified" maxOccurs="1" minOccurs="1"
+                name="ActiveCode" type="xsd:string"/>
+            <xsd:element ecore:name="activeDescription" form="qualified" maxOccurs="1"
+                minOccurs="0" name="ActiveDescription" type="xsd:string"/>
+            <xsd:element ecore:name="inactiveDate" form="qualified" maxOccurs="1"
+                minOccurs="0" name="InactiveDate" type="xsd:date"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="Provider" nillable="false" type="ProviderType"/>
+</xsd:schema>

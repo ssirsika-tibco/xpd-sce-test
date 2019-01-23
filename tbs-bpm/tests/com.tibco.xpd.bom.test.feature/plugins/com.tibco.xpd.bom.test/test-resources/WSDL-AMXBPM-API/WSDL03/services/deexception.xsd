@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Michael Atkins (TIBCO Software) -->
+<xs:schema xmlns="http://exception.api.de.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:comex="http://exception.api.common.n2.tibco.com" targetNamespace="http://exception.api.de.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://exception.api.common.n2.tibco.com" schemaLocation="comexception.xsd"/>
+	<xs:element name="InternalServiceFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidServiceRequestFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidEntityReferenceFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidOrgModelVersionFault" type="comex:DetailedException"/>
+	<xs:element name="OrgModelDeploymentFault" type="comex:DetailedException"/>
+	<xs:element name="OrgModelUndeploymentFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidLDAPFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidLDAPResourceFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidLDAPSearchFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidLDAPSourceFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidLDAPContainerFault" type="comex:DetailedException"/>
+	<xs:element name="InternalDAOErrorFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidResourceMappingFault" type="comex:DetailedException"/>
+	<xs:element name="NoUndeliveredGroupFault" type="comex:DetailedException"/>
+	<xs:element name="NoSuchNamedEntityFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidQueryFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidModelImportFault" type="comex:DetailedException"/>
+	<xs:element name="InvalidEntityTypeFault" type="comex:DetailedException"/>
+	<xs:element name="AssignmentNotAllowedFault" type="comex:DetailedException">
+		<xs:annotation>
+			<xs:documentation>Fault returned by mapping service if a mapping is not allowed due to Organizational restrictions.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+    <xs:element name="SecurityFault" type="comex:DetailedException">
+      <xs:annotation>
+        <xs:documentation>The used to report all Security related faults. Including:
+ + An attempt to check authorisation for an unknown System Action.
+ + An attempt to check System Action authorisation for an unauthenicated user.
+ + An attempt to perform an unauthorised System Action.</xs:documentation>
+      </xs:annotation>
+    </xs:element>
+</xs:schema>

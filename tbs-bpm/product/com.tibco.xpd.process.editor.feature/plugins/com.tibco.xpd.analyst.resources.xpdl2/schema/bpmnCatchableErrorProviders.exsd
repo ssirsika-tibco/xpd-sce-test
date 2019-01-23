@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.analyst.resources.xpdl2" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.analyst.resources.xpdl2" id="bpmnCatchableErrorProviders" name="Bpmn Catchable Errors"/>
+      </appinfo>
+      <documentation>
+         For Bpmn Catch Error Events attached to task boundaries, the process editor allows the user to from a the possible errors that can be throw by the task (or, in the case of sub-processes, tasks within the task).
+&lt;p&gt;
+Because certain task types have contributable implementations (such as Service Task), it therefore makes sense to also make the handling of &quot;what errors can be thrown by this task&quot; contributable.
+&lt;p&gt;
+This extension point allows for this.
+&lt;p&gt;
+Each contributed class is asked whether is applicable to a given activity - if it reports that it is then it is asked for a list of possible errors that can be thrown at runtime - This is doen via the ErrorBrowser element.
+
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="ErrorBrowser"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="ErrorBrowser">
+      <annotation>
+         <documentation>
+            Each ErrorBrowser contributes a class that implements &lt;code&gt;com.tibco.xpd.analyst.resources.xpdl2.errorEvents.IBpmnCatchableErrorsContributor.class&lt;/code&gt;that is used to extract a list of errors possibly thrown by a given activity.
+&lt;p&gt;
+The class is first asked whether it is applicable (understands) the given activity type.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A class that implements &lt;code&gt;com.tibco.xpd.analyst.resources.xpdl2.errorEvents.IBpmnCatchableErrorsProvider.class&lt;/code&gt;that is used to extract a list of errors possibly thrown by a given activity.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.analyst.resources.xpdl2.errorEvents.IBpmnCatchableErrorsProvider"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.2
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         See &lt;code&gt;com.tibco.xpd.analyst.resources.xpdl2.errorEvents.IBpmnCatchableErrorsContributor.class&lt;/code&gt;
+
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         None
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004-2009. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

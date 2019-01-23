@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="org.example.NewWSDLFileDM" name="org.example.NewWSDLFileDM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GEXT0gUvEeaVtJUWCNFJ6Q" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GEXT0wUvEeaVtJUWCNFJ6Q" key="author" value="sajain"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GEXT1AUvEeaVtJUWCNFJ6Q" key="created" value="1460961051021"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GEXT1QUvEeaVtJUWCNFJ6Q" key="version" value="4"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GE3qIAUvEeaVtJUWCNFJ6Q" key="checksum" value="1479184446"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.NewWSDLFileDMNewOperationDMType" name="NewOperationDMType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewOperationDMTypein" name="in1" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GENi0wUvEeaVtJUWCNFJ6Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GENi0gUvEeaVtJUWCNFJ6Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.NewWSDLFileDMNewOperationResponseType" name="NewOperationResponseType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="NewOperationResponseTypeout" name="out" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GEQmIwUvEeaVtJUWCNFJ6Q" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GEQmIgUvEeaVtJUWCNFJ6Q" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="org.example.NewWSDLFileDMNewWSDLFileDM" name="NewWSDLFileDM">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="NewWSDLFileDMNewOperationDM" name="NewOperationDM">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="NewOperationDMparameters" name="parameters" type="org.example.NewWSDLFileDMNewOperationDMType?org.example.NewWSDLFileDM%3a%3aNewOperationDMType?"/>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_GEJ4cQUvEeaVtJUWCNFJ6Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GEJ4cgUvEeaVtJUWCNFJ6Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_GEJ4cwUvEeaVtJUWCNFJ6Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GEJ4dAUvEeaVtJUWCNFJ6Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_GEKfgAUvEeaVtJUWCNFJ6Q" base_Package="org.example.NewWSDLFileDM?org.example.NewWSDLFileDM?" xsdTargetNamespace="http://www.example.org/NewWSDLFileDM/" xsdSchemaLocation="NewWSDLFileDM.wsdl" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.11.0.005" bomWsdlSources="NewWSDLFileDM.wsdl"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_GELtoAUvEeaVtJUWCNFJ6Q" base_Class="org.example.NewWSDLFileDMNewOperationDMType?org.example.NewWSDLFileDM%3a%3aNewOperationDMType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_GEOJ4AUvEeaVtJUWCNFJ6Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_GENi0QUvEeaVtJUWCNFJ6Q" base_Property="NewOperationDMTypein?org.example.NewWSDLFileDM%3a%3aNewOperationDMType%3a%3ain1?" xsdName="in" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_GEOJ4AUvEeaVtJUWCNFJ6Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_GENi1AUvEeaVtJUWCNFJ6Q" textLength="-1" base_Property="NewOperationDMTypein?org.example.NewWSDLFileDM%3a%3aNewOperationDMType%3a%3ain1?"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_GEOw8AUvEeaVtJUWCNFJ6Q" base_Package="org.example.NewWSDLFileDM?org.example.NewWSDLFileDM?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_GEOw8QUvEeaVtJUWCNFJ6Q" name="NewOperationDM" type="org.example.NewWSDLFileDMNewOperationDMType?org.example.NewWSDLFileDM%3a%3aNewOperationDMType?" isAnonymous="true" targetNamespace="http://www.example.org/NewWSDLFileDM/" substitutionGroup=""/>
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_GER0QQUvEeaVtJUWCNFJ6Q" name="NewOperationResponse" type="org.example.NewWSDLFileDMNewOperationResponseType?org.example.NewWSDLFileDM%3a%3aNewOperationResponseType?" isAnonymous="true" targetNamespace="http://www.example.org/NewWSDLFileDM/" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_GEPYAQUvEeaVtJUWCNFJ6Q" base_Class="org.example.NewWSDLFileDMNewOperationResponseType?org.example.NewWSDLFileDM%3a%3aNewOperationResponseType?" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true" xsdIsAnonType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_GER0QAUvEeaVtJUWCNFJ6Q" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_GEQmIQUvEeaVtJUWCNFJ6Q" base_Property="NewOperationResponseTypeout?org.example.NewWSDLFileDM%3a%3aNewOperationResponseType%3a%3aout?" xsdName="out" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_GER0QAUvEeaVtJUWCNFJ6Q"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_GERNMAUvEeaVtJUWCNFJ6Q" textLength="-1" base_Property="NewOperationResponseTypeout?org.example.NewWSDLFileDM%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GESbUAUvEeaVtJUWCNFJ6Q" base_Element="_GENi0gUvEeaVtJUWCNFJ6Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GESbUQUvEeaVtJUWCNFJ6Q" base_Element="_GENi0wUvEeaVtJUWCNFJ6Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GESbUgUvEeaVtJUWCNFJ6Q" base_Element="NewOperationDMTypein?org.example.NewWSDLFileDM%3a%3aNewOperationDMType%3a%3ain1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GESbUwUvEeaVtJUWCNFJ6Q" base_Element="_GEJ4cQUvEeaVtJUWCNFJ6Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GESbVAUvEeaVtJUWCNFJ6Q" base_Element="NewOperationResponseTypeout?org.example.NewWSDLFileDM%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GETCYAUvEeaVtJUWCNFJ6Q" base_Element="org.example.NewWSDLFileDMNewOperationResponseType?org.example.NewWSDLFileDM%3a%3aNewOperationResponseType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GETCYQUvEeaVtJUWCNFJ6Q" base_Element="_GEJ4cwUvEeaVtJUWCNFJ6Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GETCYgUvEeaVtJUWCNFJ6Q" base_Element="org.example.NewWSDLFileDMNewOperationDMType?org.example.NewWSDLFileDM%3a%3aNewOperationDMType?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GETCYwUvEeaVtJUWCNFJ6Q" base_Element="_GEQmIgUvEeaVtJUWCNFJ6Q"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_GETCZAUvEeaVtJUWCNFJ6Q" base_Element="_GEQmIwUvEeaVtJUWCNFJ6Q"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_GETpcQUvEeaVtJUWCNFJ6Q" base_Class="org.example.NewWSDLFileDMNewWSDLFileDM?org.example.NewWSDLFileDM%3a%3aNewWSDLFileDM?" xsdName="NewWSDLFileDM" xsdIsComplexType="false"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_GEWFsQUvEeaVtJUWCNFJ6Q" displayLabel="NewWSDLFileDM" base_NamedElement="org.example.NewWSDLFileDMNewWSDLFileDM?org.example.NewWSDLFileDM%3a%3aNewWSDLFileDM?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_GEWswAUvEeaVtJUWCNFJ6Q" displayLabel="NewOperationDMType" base_NamedElement="org.example.NewWSDLFileDMNewOperationDMType?org.example.NewWSDLFileDM%3a%3aNewOperationDMType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_GEWswQUvEeaVtJUWCNFJ6Q" displayLabel="NewOperationResponseType" base_NamedElement="org.example.NewWSDLFileDMNewOperationResponseType?org.example.NewWSDLFileDM%3a%3aNewOperationResponseType?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_GEXT0AUvEeaVtJUWCNFJ6Q" displayLabel="in" base_NamedElement="NewOperationDMTypein?org.example.NewWSDLFileDM%3a%3aNewOperationDMType%3a%3ain1?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_GEXT0QUvEeaVtJUWCNFJ6Q" displayLabel="out" base_NamedElement="NewOperationResponseTypeout?org.example.NewWSDLFileDM%3a%3aNewOperationResponseType%3a%3aout?"/>
+  <notation:Diagram xmi:id="_GEX64AUvEeaVtJUWCNFJ6Q" type="Business Object Model" element="org.example.NewWSDLFileDM?org.example.NewWSDLFileDM?" name="org.example.NewWSDLFileDM" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_GEX64QUvEeaVtJUWCNFJ6Q"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_GEX64gUvEeaVtJUWCNFJ6Q"/>
+  </notation:Diagram>
+</xmi:XMI>

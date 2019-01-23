@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feature id="com.tibco.bx.extension.designtime.feature" label="%featureName" provider-name="%providerName" version="1.16.0.qualifier">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.emf" version="2.13.0" match="compatible"/>
+      <import feature="com.tibco.bx.extension.model.feature.eclipse" version="1.13.100" match="compatible"/>
+      <import feature="com.tibco.bx.designtime.feature" version="1.16.0" match="compatible"/>
+      <import feature="com.tibco.bx.amx.designtime.feature" version="1.16.0" match="compatible"/>
+      <import feature="com.tibco.xpd.wm.feature" version="2.0.0" match="compatible"/>
+   </requires>
+
+   <plugin download-size="0" id="com.tibco.bx.extension.email.converter" install-size="0" unpack="false" version="1.16.0.qualifier"/>
+   <plugin download-size="0" id="com.tibco.bx.extension.database.converter" install-size="0" unpack="false" version="1.16.0.qualifier"/>
+   <plugin download-size="0" id="com.tibco.bx.extension.java.converter" install-size="0" unpack="false" version="1.16.0.qualifier"/>
+
+</feature>

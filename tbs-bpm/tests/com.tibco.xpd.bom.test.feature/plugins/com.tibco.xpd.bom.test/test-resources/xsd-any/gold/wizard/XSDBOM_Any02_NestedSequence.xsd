@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.w3schools.com" xmlns:tns1="http://www.w3schools.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.w3schools.com" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfsdfsd/Business Objects/XSDBOM_Any02_NestedSequence.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="com.w3schools_person" abstract="false" mixed="false" name="person">
+    <xsd:sequence>
+      <xsd:element id="person_firstname" form="qualified" maxOccurs="1" minOccurs="1"
+          name="firstname">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element id="person_lastname" form="qualified" maxOccurs="1" minOccurs="1"
+          name="lastname">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:any ecore:name="any" id="person_any_" namespace="##any" processContents="strict" maxOccurs="1"
+          minOccurs="1"/>
+      <xsd:sequence>
+        <xsd:any ecore:name="any1" id="person_any__" namespace="##any" processContents="strict" maxOccurs="1"
+            minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://api.ec.n2.tibco.com" xmlns:tns1="http://api.ec.n2.tibco.com" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:tns2="http://base.api.ec.n2.tibco.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.ec.n2.tibco.com">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.n2.ec.api.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://base.api.ec.n2.tibco.com" schemaLocation="com.tibco.n2.ec.api.base.xsd"/>
+  <xsd:complexType ecore:name="registerComponentObject" id="com.tibco.n2.ec.apiregisterComponentObject"
+      abstract="false" mixed="false" name="registerComponentObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="component" id="registerComponentObjectComponent" maxOccurs="1"
+          minOccurs="1" ref="tns2:Component"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="registerComponentResponseObject" id="com.tibco.n2.ec.apiregisterComponentResponseObject"
+      abstract="false" mixed="false" name="registerComponentResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="component" id="registerComponentResponseObjectComponent"
+          maxOccurs="1" minOccurs="1" ref="tns2:Component"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="registerAttributesObject" id="com.tibco.n2.ec.apiregisterAttributesObject"
+      abstract="false" mixed="false" name="registerAttributesObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="componentId" id="registerAttributesObjectcomponentId"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="componentId" type="tns1:long_StudioGeneratedTemplate"/>
+      <xsd:element ecore:name="attributeDefinition" id="registerAttributesObjectAttributeDefinition"
+          maxOccurs="unbounded" minOccurs="1" ref="tns2:AttributeDefinition"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="registerAttributesResponseObject" id="com.tibco.n2.ec.apiregisterAttributesResponseObject"
+      abstract="false" mixed="false" name="registerAttributesResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="attributeDefinition" id="registerAttributesResponseObjectAttributeDefinition"
+          maxOccurs="unbounded" minOccurs="1" ref="tns2:AttributeDefinition"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="batchEventObject" id="com.tibco.n2.ec.apibatchEventObject"
+      abstract="false" mixed="false" name="batchEventObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="eventBatch" id="batchEventObjectEventBatch" maxOccurs="1"
+          minOccurs="1" ref="tns2:EventBatch"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="eventObject" id="com.tibco.n2.ec.apieventObject" abstract="false"
+      mixed="false" name="eventObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="event" id="eventObjectEvent" maxOccurs="1" minOccurs="1"
+          ref="tns2:Event"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="eventResponseObject" id="com.tibco.n2.ec.apieventResponseObject"
+      abstract="false" mixed="false" name="eventResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="eventResponseObjectid" form="unqualified" maxOccurs="1"
+          minOccurs="1" name="id" type="tns1:long_StudioGeneratedTemplate"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="registerQueryObject" id="com.tibco.n2.ec.apiregisterQueryObject"
+      abstract="false" mixed="false" name="registerQueryObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="tag" id="registerQueryObjecttag" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="tag" type="xsd:string"/>
+      <xsd:element ecore:name="query" id="registerQueryObjectQuery" maxOccurs="1"
+          minOccurs="1" ref="tns2:Query"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="registerQueryResponseObject" id="com.tibco.n2.ec.apiregisterQueryResponseObject"
+      abstract="false" mixed="false" name="registerQueryResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="queryIdentifier" id="registerQueryResponseObjectQueryIdentifier"
+          maxOccurs="1" minOccurs="1" ref="tns2:QueryIdentifier"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="getComponentsObject" id="com.tibco.n2.ec.apigetComponentsObject"
+      abstract="false" mixed="false" name="getComponentsObject"/>
+  <xsd:complexType ecore:name="getComponentsResponseObject" id="com.tibco.n2.ec.apigetComponentsResponseObject"
+      abstract="false" mixed="false" name="getComponentsResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="component" id="getComponentsResponseObjectComponent"
+          maxOccurs="unbounded" minOccurs="1" ref="tns2:Component"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="unRegisterQueryObject" id="com.tibco.n2.ec.apiunRegisterQueryObject"
+      abstract="false" mixed="false" name="unRegisterQueryObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="queryIdentifier" id="unRegisterQueryObjectQueryIdentifier"
+          maxOccurs="1" minOccurs="1" ref="tns2:QueryIdentifier"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="unRegisterQueryResponseObject" id="com.tibco.n2.ec.apiunRegisterQueryResponseObject"
+      abstract="false" mixed="false" name="unRegisterQueryResponseObject"/>
+  <xsd:complexType ecore:name="isQueryRegisteredObject" id="com.tibco.n2.ec.apiisQueryRegisteredObject"
+      abstract="false" mixed="false" name="isQueryRegisteredObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="queryIdentifier" id="isQueryRegisteredObjectQueryIdentifier"
+          maxOccurs="1" minOccurs="1" ref="tns2:QueryIdentifier"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="queryRegisteredResponseObject" id="com.tibco.n2.ec.apiqueryRegisteredResponseObject"
+      abstract="false" mixed="false" name="queryRegisteredResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="result" id="queryRegisteredResponseObjectresult" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="result" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="getAllAttributesObject" id="com.tibco.n2.ec.apigetAllAttributesObject"
+      abstract="false" mixed="false" name="getAllAttributesObject"/>
+  <xsd:complexType ecore:name="getAttributesObject" id="com.tibco.n2.ec.apigetAttributesObject"
+      abstract="false" mixed="false" name="getAttributesObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="componentId" id="getAttributesObjectcomponentId" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="componentId" type="tns1:long_StudioGeneratedTemplate"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="attributesResponseObject" id="com.tibco.n2.ec.apiattributesResponseObject"
+      abstract="false" mixed="false" name="attributesResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="attributeDefinition" id="attributesResponseObjectAttributeDefinition"
+          maxOccurs="unbounded" minOccurs="1" ref="tns2:AttributeDefinition"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="executeRegisteredQueryObject" id="com.tibco.n2.ec.apiexecuteRegisteredQueryObject"
+      abstract="false" mixed="false" name="executeRegisteredQueryObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="queryIdentifier" id="executeRegisteredQueryObjectQueryIdentifier"
+          maxOccurs="1" minOccurs="1" ref="tns2:QueryIdentifier"/>
+      <xsd:element ecore:name="queryOptions" id="executeRegisteredQueryObjectQueryOptions"
+          maxOccurs="1" minOccurs="1" ref="tns2:QueryOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="executeQueryObject" id="com.tibco.n2.ec.apiexecuteQueryObject"
+      abstract="false" mixed="false" name="executeQueryObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="query" id="executeQueryObjectQuery" maxOccurs="1" minOccurs="1"
+          ref="tns2:Query"/>
+      <xsd:element ecore:name="queryOptions" id="executeQueryObjectQueryOptions" maxOccurs="1"
+          minOccurs="1" ref="tns2:QueryOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="queryResponseObject" id="com.tibco.n2.ec.apiqueryResponseObject"
+      abstract="false" mixed="false" name="queryResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="result" id="queryResponseObjectResult" maxOccurs="1"
+          minOccurs="1" ref="tns2:Result"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="genericQueryResponseObject" id="com.tibco.n2.ec.apigenericQueryResponseObject"
+      abstract="false" mixed="false" name="genericQueryResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="genericResult" id="genericQueryResponseObjectGenericResult"
+          maxOccurs="1" minOccurs="1" ref="tns2:GenericResult"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="lookupQueryByTagObject" id="com.tibco.n2.ec.apilookupQueryByTagObject"
+      abstract="false" mixed="false" name="lookupQueryByTagObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="tag" id="lookupQueryByTagObjecttag" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="tag" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="lookupQueryByTagResponseObject" id="com.tibco.n2.ec.apilookupQueryByTagResponseObject"
+      abstract="false" mixed="false" name="lookupQueryByTagResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="queryInfo" id="lookupQueryByTagResponseObjectQueryInfo"
+          maxOccurs="1" minOccurs="1" ref="tns2:QueryInfo"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestMeasureObject" id="com.tibco.n2.ec.apirequestMeasureObject"
+      abstract="false" mixed="false" name="requestMeasureObject">
+    <xsd:annotation>
+      <xsd:documentation>**PRIVATE API - Reserved for internal use** </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="measureType" id="requestMeasureObjectmeasureType" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="measureType" type="tns2:MeasureType"/>
+      <xsd:element ecore:name="id" id="requestMeasureObjectid" form="unqualified"
+          maxOccurs="unbounded" minOccurs="1" name="id" type="tns2:MeasureId"/>
+      <xsd:element ecore:name="duration" id="requestMeasureObjectduration" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="duration" type="tns2:MeasureDuration"/>
+      <xsd:element ecore:name="options" id="requestMeasureObjectoptions" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="options" type="tns2:MeasureOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestMeasureResponseObject" id="com.tibco.n2.ec.apirequestMeasureResponseObject"
+      abstract="false" mixed="false" name="requestMeasureResponseObject">
+    <xsd:annotation>
+      <xsd:documentation>**PRIVATE API - Reserved for internal use** </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="measure" id="requestMeasureResponseObjectmeasure" form="unqualified"
+          maxOccurs="unbounded" minOccurs="1" name="measure" type="tns2:Measure"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestProcessDurationMeasureObject" id="com.tibco.n2.ec.apirequestProcessDurationMeasureObject"
+      abstract="false" mixed="false" name="requestProcessDurationMeasureObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="requestProcessDurationMeasureObjectid" form="unqualified"
+          maxOccurs="unbounded" minOccurs="1" name="id" type="tns2:ProcessTemplateId"/>
+      <xsd:element ecore:name="duration" id="requestProcessDurationMeasureObjectduration"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="duration" type="tns2:MeasureDuration"/>
+      <xsd:element ecore:name="options" id="requestProcessDurationMeasureObjectoptions"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="options" type="tns2:MeasureOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestProcessDurationMeasureResponseObject" id="com.tibco.n2.ec.apirequestProcessDurationMeasureResponseObject"
+      abstract="false" mixed="false" name="requestProcessDurationMeasureResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="measure" id="requestProcessDurationMeasureResponseObjectmeasure"
+          form="unqualified" maxOccurs="unbounded" minOccurs="1" name="measure" type="tns2:ProcessDurationMeasure"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestProcessTemplateMeasureObject" id="com.tibco.n2.ec.apirequestProcessTemplateMeasureObject"
+      abstract="false" mixed="false" name="requestProcessTemplateMeasureObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="requestProcessTemplateMeasureObjectid" form="unqualified"
+          maxOccurs="unbounded" minOccurs="1" name="id" type="tns2:ProcessTemplateId"/>
+      <xsd:element ecore:name="duration" id="requestProcessTemplateMeasureObjectduration"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="duration" type="tns2:MeasureDuration"/>
+      <xsd:element ecore:name="options" id="requestProcessTemplateMeasureObjectoptions"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="options" type="tns2:MeasureOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestProcessTemplateMeasureResponseObject" id="com.tibco.n2.ec.apirequestProcessTemplateMeasureResponseObject"
+      abstract="false" mixed="false" name="requestProcessTemplateMeasureResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="measure" id="requestProcessTemplateMeasureResponseObjectmeasure"
+          form="unqualified" maxOccurs="unbounded" minOccurs="1" name="measure" type="tns2:ProcessTemplateMeasure"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestWorkItemPerformanceForTemplateObject" id="com.tibco.n2.ec.apirequestWorkItemPerformanceForTemplateObject"
+      abstract="false" mixed="false" name="requestWorkItemPerformanceForTemplateObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="requestWorkItemPerformanceForTemplateObjectid"
+          form="unqualified" maxOccurs="unbounded" minOccurs="1" name="id" type="tns2:ProcessTemplateId"/>
+      <xsd:element ecore:name="duration" id="requestWorkItemPerformanceForTemplateObjectduration"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="duration" type="tns2:MeasureDuration"/>
+      <xsd:element ecore:name="options" id="requestWorkItemPerformanceForTemplateObjectoptions"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="options" type="tns2:MeasureOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestWorkItemPerformanceForTemplateResponseObject"
+      id="com.tibco.n2.ec.apirequestWorkItemPerformanceForTemplateResponseObject"
+      abstract="false" mixed="false" name="requestWorkItemPerformanceForTemplateResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="measure" id="requestWorkItemPerformanceForTemplateResponseObjectmeasure"
+          form="unqualified" maxOccurs="unbounded" minOccurs="1" name="measure" type="tns2:WorkItemMeasure"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestWorkItemPerformanceForResourceObject" id="com.tibco.n2.ec.apirequestWorkItemPerformanceForResourceObject"
+      abstract="false" mixed="false" name="requestWorkItemPerformanceForResourceObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="id" id="requestWorkItemPerformanceForResourceObjectid"
+          form="unqualified" maxOccurs="unbounded" minOccurs="1" name="id" type="tns2:ResourceId"/>
+      <xsd:element ecore:name="duration" id="requestWorkItemPerformanceForResourceObjectduration"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="duration" type="tns2:MeasureDuration"/>
+      <xsd:element ecore:name="options" id="requestWorkItemPerformanceForResourceObjectoptions"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="options" type="tns2:MeasureOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestWorkItemPerformanceForResourceResponseObject"
+      id="com.tibco.n2.ec.apirequestWorkItemPerformanceForResourceResponseObject"
+      abstract="false" mixed="false" name="requestWorkItemPerformanceForResourceResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="measure" id="requestWorkItemPerformanceForResourceResponseObjectmeasure"
+          form="unqualified" maxOccurs="unbounded" minOccurs="1" name="measure" type="tns2:WorkItemMeasure"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestGenericMeasureObject" id="com.tibco.n2.ec.apirequestGenericMeasureObject"
+      abstract="false" mixed="false" name="requestGenericMeasureObject">
+    <xsd:annotation>
+      <xsd:documentation>**PRIVATE API - Reserved for internal use** </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="measureType" id="requestGenericMeasureObjectmeasureType"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="measureType" type="xsd:string"/>
+      <xsd:element ecore:name="id" id="requestGenericMeasureObjectid" form="unqualified"
+          maxOccurs="unbounded" minOccurs="1" name="id" type="tns2:BasicMeasureId"/>
+      <xsd:element ecore:name="duration" id="requestGenericMeasureObjectduration"
+          form="unqualified" maxOccurs="1" minOccurs="1" name="duration" type="tns2:MeasureDuration"/>
+      <xsd:element ecore:name="options" id="requestGenericMeasureObjectoptions" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="options" type="tns2:MeasureOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="requestGenericMeasureResponseObject" id="com.tibco.n2.ec.apirequestGenericMeasureResponseObject"
+      abstract="false" mixed="false" name="requestGenericMeasureResponseObject">
+    <xsd:annotation>
+      <xsd:documentation>**PRIVATE API - Reserved for internal use** </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="measure" id="requestGenericMeasureResponseObjectmeasure"
+          form="unqualified" maxOccurs="unbounded" minOccurs="1" name="measure" type="tns2:Measure"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="doPurgeAuditRequestObject" id="com.tibco.n2.ec.apidoPurgeAuditRequestObject"
+      abstract="false" mixed="false" name="doPurgeAuditRequestObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="options" id="doPurgeAuditRequestObjectoptions" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="options" type="tns2:PurgeOptions"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="doPurgeAuditResponseObject" id="com.tibco.n2.ec.apidoPurgeAuditResponseObject"
+      abstract="false" mixed="false" name="doPurgeAuditResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="status" id="doPurgeAuditResponseObjectstatus" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="status" type="tns2:PurgeStatus"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="stopPurgeAuditRequestObject" id="com.tibco.n2.ec.apistopPurgeAuditRequestObject"
+      abstract="false" mixed="false" name="stopPurgeAuditRequestObject"/>
+  <xsd:complexType ecore:name="stopPurgeAuditResponseObject" id="com.tibco.n2.ec.apistopPurgeAuditResponseObject"
+      abstract="false" mixed="false" name="stopPurgeAuditResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="status" id="stopPurgeAuditResponseObjectstatus" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="status" type="tns2:PurgeStatus"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="checkPurgeAuditRequestObject" id="com.tibco.n2.ec.apicheckPurgeAuditRequestObject"
+      abstract="false" mixed="false" name="checkPurgeAuditRequestObject"/>
+  <xsd:complexType ecore:name="checkPurgeAuditResponseObject" id="com.tibco.n2.ec.apicheckPurgeAuditResponseObject"
+      abstract="false" mixed="false" name="checkPurgeAuditResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="status" id="checkPurgeAuditResponseObjectstatus" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="status" type="tns2:PurgeStatus"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="getConfigurationRequestObject" id="com.tibco.n2.ec.apigetConfigurationRequestObject"
+      abstract="false" mixed="false" name="getConfigurationRequestObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="area" id="getConfigurationRequestObjectarea" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="area" type="tns2:ConfigurationArea"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="getConfigurationResponseObject" id="com.tibco.n2.ec.apigetConfigurationResponseObject"
+      abstract="false" mixed="false" name="getConfigurationResponseObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="entry" id="getConfigurationResponseObjectentry" form="unqualified"
+          maxOccurs="unbounded" minOccurs="1" name="entry" type="tns2:ConfigurationEntry"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="setConfigurationRequestObject" id="com.tibco.n2.ec.apisetConfigurationRequestObject"
+      abstract="false" mixed="false" name="setConfigurationRequestObject">
+    <xsd:sequence>
+      <xsd:element ecore:name="area" id="setConfigurationRequestObjectarea" form="unqualified"
+          maxOccurs="1" minOccurs="1" name="area" type="tns2:ConfigurationArea"/>
+      <xsd:element ecore:name="entry" id="setConfigurationRequestObjectentry" form="unqualified"
+          maxOccurs="unbounded" minOccurs="1" name="entry" type="tns2:ConfigurationEntry"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="setConfigurationResponseObject" id="com.tibco.n2.ec.apisetConfigurationResponseObject"
+      abstract="false" mixed="false" name="setConfigurationResponseObject"/>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="executeGenericQueryResponse" nillable="false"
+      type="genericQueryResponseObject"/>
+  <xsd:element abstract="false" name="executeGenericQueryRequest" nillable="false"
+      type="executeQueryObject"/>
+  <xsd:element abstract="false" name="executeRegisteredGenericQueryRequest" nillable="false"
+      type="executeRegisteredQueryObject"/>
+  <xsd:element abstract="false" name="executeRegisteredGenericQueryResponse" nillable="false"
+      type="genericQueryResponseObject"/>
+  <xsd:element abstract="false" name="getAllAttributesRequest" nillable="false" type="getAllAttributesObject"/>
+  <xsd:element abstract="false" name="getAllAttributesResponse" nillable="false" type="attributesResponseObject"/>
+  <xsd:element abstract="false" name="getAttributesRequest" nillable="false" type="getAttributesObject"/>
+  <xsd:element abstract="false" name="getAttributesResponse" nillable="false" type="attributesResponseObject"/>
+  <xsd:element abstract="false" name="isQueryRegisteredRequest" nillable="false" type="isQueryRegisteredObject"/>
+  <xsd:element abstract="false" name="isQueryRegisteredResponse" nillable="false"
+      type="queryRegisteredResponseObject"/>
+  <xsd:element abstract="false" name="registerQueryRequest" nillable="false" type="registerQueryObject"/>
+  <xsd:element abstract="false" name="registerQueryResponse" nillable="false" type="registerQueryResponseObject"/>
+  <xsd:element abstract="false" name="unRegisterQueryRequest" nillable="false" type="unRegisterQueryObject"/>
+  <xsd:element abstract="false" name="unRegisterQueryResponse" nillable="false" type="unRegisterQueryResponseObject"/>
+  <xsd:element abstract="false" name="getComponentsRequest" nillable="false" type="getComponentsObject"/>
+  <xsd:element abstract="false" name="getComponentsResponse" nillable="false" type="getComponentsResponseObject"/>
+  <xsd:element abstract="false" name="lookupQueryByTagRequest" nillable="false" type="lookupQueryByTagObject"/>
+  <xsd:element abstract="false" name="lookupQueryByTagResponse" nillable="false" type="lookupQueryByTagResponseObject"/>
+  <xsd:element abstract="false" name="eventResponse" nillable="false" type="eventResponseObject"/>
+  <xsd:element abstract="false" name="eventRequest" nillable="false" type="eventObject"/>
+  <xsd:element abstract="false" name="batchEventRequest" nillable="false" type="batchEventObject"/>
+  <xsd:element abstract="false" name="registerComponentRequest" nillable="false" type="registerComponentObject"/>
+  <xsd:element abstract="false" name="registerComponentResponse" nillable="false"
+      type="registerComponentResponseObject"/>
+  <xsd:element abstract="false" name="registerAttributesRequest" nillable="false"
+      type="registerAttributesObject"/>
+  <xsd:element abstract="false" name="registerAttributesResponse" nillable="false"
+      type="registerAttributesResponseObject"/>
+  <xsd:element abstract="false" name="requestMeasureRequest" nillable="false" type="requestMeasureObject"/>
+  <xsd:element abstract="false" name="requestMeasureResponse" nillable="false" type="requestMeasureResponseObject"/>
+  <xsd:element abstract="false" name="requestGenericMeasureRequest" nillable="false"
+      type="requestGenericMeasureObject"/>
+  <xsd:element abstract="false" name="requestGenericMeasureResponse" nillable="false"
+      type="requestGenericMeasureResponseObject"/>
+  <xsd:element abstract="false" name="requestProcessTemplateMeasureRequest" nillable="false"
+      type="requestProcessTemplateMeasureObject"/>
+  <xsd:element abstract="false" name="requestProcessTemplateMeasureResponse" nillable="false"
+      type="requestProcessTemplateMeasureResponseObject"/>
+  <xsd:element abstract="false" name="requestProcessDurationMeasureRequest" nillable="false"
+      type="requestProcessDurationMeasureObject"/>
+  <xsd:element abstract="false" name="requestProcessDurationMeasureResponse" nillable="false"
+      type="requestProcessDurationMeasureResponseObject"/>
+  <xsd:element abstract="false" name="requestWorkItemPerformanceForTemplateRequest"
+      nillable="false" type="requestWorkItemPerformanceForTemplateObject"/>
+  <xsd:element abstract="false" name="requestWorkItemPerformanceForTemplateResponse"
+      nillable="false" type="requestWorkItemPerformanceForTemplateResponseObject"/>
+  <xsd:element abstract="false" name="requestWorkItemPerformanceForResourceRequest"
+      nillable="false" type="requestWorkItemPerformanceForResourceObject"/>
+  <xsd:element abstract="false" name="requestWorkItemPerformanceForResourceResponse"
+      nillable="false" type="requestWorkItemPerformanceForResourceResponseObject"/>
+  <xsd:element abstract="false" name="doPurgeAuditRequest" nillable="false" type="doPurgeAuditRequestObject"/>
+  <xsd:element abstract="false" name="doPurgeAuditResponse" nillable="false" type="doPurgeAuditResponseObject"/>
+  <xsd:element abstract="false" name="stopPurgeAuditRequest" nillable="false" type="stopPurgeAuditRequestObject"/>
+  <xsd:element abstract="false" name="stopPurgeAuditResponse" nillable="false" type="stopPurgeAuditResponseObject"/>
+  <xsd:element abstract="false" name="checkPurgeAuditRequest" nillable="false" type="checkPurgeAuditRequestObject"/>
+  <xsd:element abstract="false" name="checkPurgeAuditResponse" nillable="false" type="checkPurgeAuditResponseObject"/>
+  <xsd:element abstract="false" name="getConfigurationRequest" nillable="false" type="getConfigurationRequestObject"/>
+  <xsd:element abstract="false" name="getConfigurationResponse" nillable="false" type="getConfigurationResponseObject"/>
+  <xsd:element abstract="false" name="setConfigurationRequest" nillable="false" type="setConfigurationRequestObject"/>
+  <xsd:element abstract="false" name="setConfigurationResponse" nillable="false" type="setConfigurationResponseObject"/>
+</xsd:schema>

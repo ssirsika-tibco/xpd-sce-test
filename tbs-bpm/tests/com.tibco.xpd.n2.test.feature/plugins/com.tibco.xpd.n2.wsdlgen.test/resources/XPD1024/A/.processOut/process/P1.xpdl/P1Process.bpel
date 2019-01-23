@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="yes" name="P1Process"
+    suppressJoinFailure="yes" tibex:explicitCompensation="yes"
+    tibex:xpdlId="_trI68a69Ed-npZiqlhmLeQ"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:ns="http://www.tibco.com/bs3.0/_trI68K69Ed-npZiqlhmLeQ"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tns="http://example.com/cc1"
+    xmlns:tns1="http://example.com/cc1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <bpws:documentation/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/"
+        location="P1.wsdl" namespace="http://www.tibco.com/bs3.0/_trI68K69Ed-npZiqlhmLeQ"/>
+    <bpws:partnerLinks>
+        <bpws:partnerLink name="P1_P1Process"
+            partnerLinkType="ns:P1Process_PLT" partnerRole="P1ProcessProvider"/>
+    </bpws:partnerLinks>
+    <bpws:variables>
+        <bpws:variable name="ext1" tibex:class="com.example.b1.FFFF"
+            tibex:parameter="in" tibex:xpdlId="_E9HzsK6-Ed-npZiqlhmLeQ"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="yes" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:flow name="flow">
+        <bpws:links>
+            <bpws:link
+                name="_xdcH5669Ed-npZiqlhmLeQ to _xdcH6K69Ed-npZiqlhmLeQ" tibex:xpdlId="_xdcH6a69Ed-npZiqlhmLeQ"/>
+        </bpws:links>
+        <bpws:scope name="StartEvent" tibex:type="startEvent" tibex:xpdlId="_xdcH5669Ed-npZiqlhmLeQ">
+            <bpws:sources>
+                <bpws:source linkName="_xdcH5669Ed-npZiqlhmLeQ to _xdcH6K69Ed-npZiqlhmLeQ"/>
+            </bpws:sources>
+            <bpws:variables>
+                <bpws:variable
+                    messageType="ns:P1Process_StartEvent_INPUT" name="v_7f443af4"/>
+            </bpws:variables>
+            <bpws:sequence name="sequence">
+                <bpws:receive createInstance="yes" name="receive"
+                    operation="StartEvent" partnerLink="P1_P1Process"
+                    portType="ns:P1Process" variable="v_7f443af4"/>
+                <bpws:assign name="assign" validate="no">
+                    <bpws:copy tibex:objectName="FFFF"
+                        tibex:objectNamespace="http://example.com/b1" tibex:transform="XmlToObject">
+                        <bpws:from part="ext1" variable="v_7f443af4"/>
+                        <bpws:to variable="ext1"/>
+                    </bpws:copy>
+                </bpws:assign>
+            </bpws:sequence>
+        </bpws:scope>
+        <bpws:empty name="EndEvent" tibex:type="endEvent" tibex:xpdlId="_xdcH6K69Ed-npZiqlhmLeQ">
+            <bpws:targets>
+                <bpws:target linkName="_xdcH5669Ed-npZiqlhmLeQ to _xdcH6K69Ed-npZiqlhmLeQ"/>
+            </bpws:targets>
+        </bpws:empty>
+    </bpws:flow>
+</bpws:process>

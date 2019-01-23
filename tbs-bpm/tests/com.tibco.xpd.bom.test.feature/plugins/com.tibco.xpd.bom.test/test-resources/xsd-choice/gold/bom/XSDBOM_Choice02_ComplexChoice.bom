@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PrimitiveTypeFacets="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0" xmlns:XsdNotationProfile="http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/PrimitiveTypeFacets/_8TmTUMtlEdy7K9XeCH7Hrw/0 pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw http:///schemas/XsdNotationProfile/_LmHW0PHtEd2z3-vLsCwuEg/1 pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg">
+  <uml:Model xmi:id="com.example.ComplexChoice" name="com.example.ComplexChoice">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QiprgU1WEeSLJZkJre4IDg" source="model.metadata">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QiqSkE1WEeSLJZkJre4IDg" key="author" value="bharge"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QiqSkU1WEeSLJZkJre4IDg" key="created" value="1412602960057"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QiqSkk1WEeSLJZkJre4IDg" key="version" value="3"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.ComplexChoicePlane" name="Plane">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="PlanefreightDetails" name="freightDetails" type="com.example.ComplexChoiceBox?com.example.ComplexChoice%3a%3aBox?" aggregation="composite" association="com.example.ComplexChoiceComposition0?com.example.ComplexChoice%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QiJ8Qk1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QiJ8QU1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Planeseats" name="seats" type="com.example.ComplexChoiceSeatInfo?com.example.ComplexChoice%3a%3aSeatInfo?" aggregation="composite" association="com.example.ComplexChoiceComposition1?com.example.ComplexChoice%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QiZz401WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QiZz4k1WEeSLJZkJre4IDg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.ComplexChoiceBox" name="Box">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="Boxcapacity" name="capacity" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QiFDwE1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QiEcsk1WEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.ComplexChoiceComposition0" name="Composition0" memberEnd="PlanefreightDetails?com.example.ComplexChoice%3a%3aPlane%3a%3afreightDetails? Composition0plane?com.example.ComplexChoice%3a%3aComposition0%3a%3aplane?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition0plane" name="plane" type="com.example.ComplexChoicePlane?com.example.ComplexChoice%3a%3aPlane?" association="com.example.ComplexChoiceComposition0?com.example.ComplexChoice%3a%3aComposition0?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QiKjUU1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QiKjUE1WEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="com.example.ComplexChoiceSeatInfo" name="SeatInfo">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SeatInfosize" name="size" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_gzTqYHvBEdy0U8_1u7Q20g?BomPrimitiveTypes%3a%3aDecimal?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QiR4EE1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QiRRAk1WEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="SeatInfocolour" name="colour" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://BOM_TYPES/BomPrimitiveTypes.library.uml#_AGoC4HcNEdytQ9AWEvOuug?BomPrimitiveTypes%3a%3aText?"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QiWJg01WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QiWJgk1WEeSLJZkJre4IDg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="com.example.ComplexChoiceComposition1" name="Composition1" memberEnd="Planeseats?com.example.ComplexChoice%3a%3aPlane%3a%3aseats? Composition1plane?com.example.ComplexChoice%3a%3aComposition1%3a%3aplane?">
+      <ownedEnd xmi:type="uml:Property" xmi:id="Composition1plane" name="plane" type="com.example.ComplexChoicePlane?com.example.ComplexChoice%3a%3aPlane?" association="com.example.ComplexChoiceComposition1?com.example.ComplexChoice%3a%3aComposition1?">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qiaa8U1WEeSLJZkJre4IDg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qiaa8E1WEeSLJZkJre4IDg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Qh4PcU1WEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qh4Pck1WEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_LmHW0fHtEd2z3-vLsCwuEg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://XSD_NOTATION_TYPES/XsdNotation.profile.uml#_rcgvMcXQEd24G-GaruVVqA?XsdNotationProfile?"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Qh42gE1WEeSLJZkJre4IDg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qh42gU1WEeSLJZkJre4IDg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_8TmTUstlEdy7K9XeCH7Hrw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://BOM_TYPES/PrimitiveTypeFacets.profile.uml#_3A574HcJEdytQ9AWEvOuug?PrimitiveTypeFacets?"/>
+    </profileApplication>
+  </uml:Model>
+  <XsdNotationProfile:XsdBasedModel xmi:id="_Qh5dkE1WEeSLJZkJre4IDg" base_Package="com.example.ComplexChoice?com.example.ComplexChoice?" xsdTargetNamespace="http://example.com/ComplexChoice" xsdSchemaLocation="Temp/XSDBOM_Choice02_ComplexChoice.xsd" xsdAttributeForm="unqualified" xsdElementForm="unqualified" xsdStudioVersion="3.9.0.qualifier"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_Qh8g4E1WEeSLJZkJre4IDg" base_Class="com.example.ComplexChoicePlane?com.example.ComplexChoice%3a%3aPlane?" xsdName="Plane" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_QibCAE1WEeSLJZkJre4IDg" name="MS1_1_1" isChoice="true"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_QiBZYE1WEeSLJZkJre4IDg" base_Class="com.example.ComplexChoiceBox?com.example.ComplexChoice%3a%3aBox?" xsdName="Box" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_QiHgAE1WEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_QiEcsU1WEeSLJZkJre4IDg" base_Property="Boxcapacity?com.example.ComplexChoice%3a%3aBox%3a%3acapacity?" xsdName="capacity" xsdForm="unqualified" xsdType="double" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_QiHgAE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_QiFDwU1WEeSLJZkJre4IDg" base_Property="Boxcapacity?com.example.ComplexChoice%3a%3aBox%3a%3acapacity?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="1.7976931348623157E308" xsdMinExclusiveValue="" xsdMinInclusiveValue="-1.7976931348623157E308"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_QiFq0E1WEeSLJZkJre4IDg" decimalUpper="1.7976931348623157E308" decimalLower="-1.7976931348623157E308" base_Property="Boxcapacity?com.example.ComplexChoice%3a%3aBox%3a%3acapacity?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_QiKjUk1WEeSLJZkJre4IDg" base_Property="PlanefreightDetails?com.example.ComplexChoice%3a%3aPlane%3a%3afreightDetails?" xsdName="freightDetails" xsdForm="unqualified" xsdType="Box" xsdExplicitGroupHierarchy="C1" xsdParentSequence="_QibCAE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedClass xmi:id="_QiONsU1WEeSLJZkJre4IDg" base_Class="com.example.ComplexChoiceSeatInfo?com.example.ComplexChoice%3a%3aSeatInfo?" xsdName="SeatInfo" xsdMixed="false" xsdAbstract="false" xsdIsComplexType="true">
+    <xsdSequenceList xmi:type="XsdNotationProfile:XsdSequence" xmi:id="_QiX-sE1WEeSLJZkJre4IDg" name="MS1_1_1"/>
+  </XsdNotationProfile:XsdBasedClass>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_QiRRAU1WEeSLJZkJre4IDg" base_Property="SeatInfosize?com.example.ComplexChoice%3a%3aSeatInfo%3a%3asize?" xsdName="size" xsdForm="unqualified" xsdType="double" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_QiX-sE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedRestriction xmi:id="_QiR4EU1WEeSLJZkJre4IDg" base_Property="SeatInfosize?com.example.ComplexChoice%3a%3aSeatInfo%3a%3asize?" xsdMaxExclusiveValue="" xsdMaxInclusiveValue="1.7976931348623157E308" xsdMinExclusiveValue="" xsdMinInclusiveValue="-1.7976931348623157E308"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_QiSfIE1WEeSLJZkJre4IDg" decimalUpper="1.7976931348623157E308" decimalLower="-1.7976931348623157E308" base_Property="SeatInfosize?com.example.ComplexChoice%3a%3aSeatInfo%3a%3asize?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_QiWJgU1WEeSLJZkJre4IDg" base_Property="SeatInfocolour?com.example.ComplexChoice%3a%3aSeatInfo%3a%3acolour?" xsdName="colour" xsdForm="unqualified" xsdType="string" xsdExplicitGroupHierarchy="S1" xsdParentSequence="_QiX-sE1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:RestrictedType xmi:id="_QiWwkE1WEeSLJZkJre4IDg" textLength="-1" base_Property="SeatInfocolour?com.example.ComplexChoice%3a%3aSeatInfo%3a%3acolour?"/>
+  <XsdNotationProfile:XsdBasedProperty xmi:id="_Qiaa8k1WEeSLJZkJre4IDg" base_Property="Planeseats?com.example.ComplexChoice%3a%3aPlane%3a%3aseats?" xsdName="seats" xsdForm="unqualified" xsdType="SeatInfo" xsdExplicitGroupHierarchy="C1" xsdParentSequence="_QibCAE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:TopLevelElements xmi:id="_QifTcE1WEeSLJZkJre4IDg" base_Package="com.example.ComplexChoice?com.example.ComplexChoice?">
+    <elements xmi:type="XsdNotationProfile:TopLevelElement" xmi:id="_QifTcU1WEeSLJZkJre4IDg" name="Boeing" type="com.example.ComplexChoicePlane?com.example.ComplexChoice%3a%3aPlane?" targetNamespace="http://example.com/ComplexChoice" substitutionGroup=""/>
+  </XsdNotationProfile:TopLevelElements>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QifTck1WEeSLJZkJre4IDg" base_Element="_QiRRAk1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qif6gE1WEeSLJZkJre4IDg" base_Element="_QiWJgk1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qif6gU1WEeSLJZkJre4IDg" base_Element="_QiFDwE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qif6gk1WEeSLJZkJre4IDg" base_Element="SeatInfosize?com.example.ComplexChoice%3a%3aSeatInfo%3a%3asize?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qif6g01WEeSLJZkJre4IDg" base_Element="SeatInfocolour?com.example.ComplexChoice%3a%3aSeatInfo%3a%3acolour?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qif6hE1WEeSLJZkJre4IDg" base_Element="PlanefreightDetails?com.example.ComplexChoice%3a%3aPlane%3a%3afreightDetails?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QighkE1WEeSLJZkJre4IDg" base_Element="com.example.ComplexChoicePlane?com.example.ComplexChoice%3a%3aPlane?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QighkU1WEeSLJZkJre4IDg" base_Element="_QiEcsk1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qighkk1WEeSLJZkJre4IDg" base_Element="Boxcapacity?com.example.ComplexChoice%3a%3aBox%3a%3acapacity?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QihIoE1WEeSLJZkJre4IDg" base_Element="_QiWJg01WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QihIoU1WEeSLJZkJre4IDg" base_Element="_Qiaa8E1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QihIok1WEeSLJZkJre4IDg" base_Element="_QiJ8QU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QihIo01WEeSLJZkJre4IDg" base_Element="_Qh42gE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QihIpE1WEeSLJZkJre4IDg" base_Element="com.example.ComplexChoiceComposition0?com.example.ComplexChoice%3a%3aComposition0?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QihvsE1WEeSLJZkJre4IDg" base_Element="_QiKjUU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QihvsU1WEeSLJZkJre4IDg" base_Element="Planeseats?com.example.ComplexChoice%3a%3aPlane%3a%3aseats?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qihvsk1WEeSLJZkJre4IDg" base_Element="_Qiaa8U1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qihvs01WEeSLJZkJre4IDg" base_Element="com.example.ComplexChoiceSeatInfo?com.example.ComplexChoice%3a%3aSeatInfo?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QihvtE1WEeSLJZkJre4IDg" base_Element="_QiZz4k1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QiiWwE1WEeSLJZkJre4IDg" base_Element="com.example.ComplexChoiceComposition1?com.example.ComplexChoice%3a%3aComposition1?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QiiWwU1WEeSLJZkJre4IDg" base_Element="Composition0plane?com.example.ComplexChoice%3a%3aComposition0%3a%3aplane?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QiiWwk1WEeSLJZkJre4IDg" base_Element="_Qh4PcU1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QiiWw01WEeSLJZkJre4IDg" base_Element="Composition1plane?com.example.ComplexChoice%3a%3aComposition1%3a%3aplane?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_QiiWxE1WEeSLJZkJre4IDg" base_Element="com.example.ComplexChoiceBox?com.example.ComplexChoice%3a%3aBox?"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qii90E1WEeSLJZkJre4IDg" base_Element="_QiJ8Qk1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qii90U1WEeSLJZkJre4IDg" base_Element="_QiZz401WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qii90k1WEeSLJZkJre4IDg" base_Element="_QiKjUE1WEeSLJZkJre4IDg"/>
+  <XsdNotationProfile:XsdBasedElement xmi:id="_Qii9001WEeSLJZkJre4IDg" base_Element="_QiR4EE1WEeSLJZkJre4IDg"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QikL8E1WEeSLJZkJre4IDg" displayLabel="Box" base_NamedElement="com.example.ComplexChoiceBox?com.example.ComplexChoice%3a%3aBox?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QikzAE1WEeSLJZkJre4IDg" displayLabel="Plane" base_NamedElement="com.example.ComplexChoicePlane?com.example.ComplexChoice%3a%3aPlane?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QilaEE1WEeSLJZkJre4IDg" displayLabel="SeatInfo" base_NamedElement="com.example.ComplexChoiceSeatInfo?com.example.ComplexChoice%3a%3aSeatInfo?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QimBIE1WEeSLJZkJre4IDg" displayLabel="capacity" base_NamedElement="Boxcapacity?com.example.ComplexChoice%3a%3aBox%3a%3acapacity?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QinPQE1WEeSLJZkJre4IDg" displayLabel="freightDetails" base_NamedElement="PlanefreightDetails?com.example.ComplexChoice%3a%3aPlane%3a%3afreightDetails?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_Qin2UE1WEeSLJZkJre4IDg" displayLabel="seats" base_NamedElement="Planeseats?com.example.ComplexChoice%3a%3aPlane%3a%3aseats?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QipEcE1WEeSLJZkJre4IDg" displayLabel="colour" base_NamedElement="SeatInfocolour?com.example.ComplexChoice%3a%3aSeatInfo%3a%3acolour?"/>
+  <PrimitiveTypeFacets:LabeledElement xmi:id="_QiprgE1WEeSLJZkJre4IDg" displayLabel="size" base_NamedElement="SeatInfosize?com.example.ComplexChoice%3a%3aSeatInfo%3a%3asize?"/>
+  <notation:Diagram xmi:id="_QiqSk01WEeSLJZkJre4IDg" type="Business Object Model" element="com.example.ComplexChoice?com.example.ComplexChoice?" name="com.example.ComplexChoice" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_QiqSlE1WEeSLJZkJre4IDg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_QiqSlU1WEeSLJZkJre4IDg"/>
+  </notation:Diagram>
+</xmi:XMI>

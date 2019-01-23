@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksemprericezioneesiti"
+    xmlns:tns12="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksemprericezioneesiti"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://xmlns.enel.com/mercato/libero/schema/bpm/receivetasksemprericezioneesiti">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/com.enel.mind_integration.utiliy.resource/Generated Business Objects/com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesiti.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element abstract="false" name="SempreRicezioneEsitiRequest" nillable="false">
+    <xsd:complexType ecore:name="SempreRicezioneEsitiRequestType" id="com.enel.xmlns.mercato.libero.schema.bpm.receivetasksemprericezioneesitiSempreRicezioneEsitiRequestType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="correlationID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="correlationID" type="xsd:string"/>
+        <xsd:element ecore:name="esito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="esito" type="xsd:string"/>
+        <xsd:element ecore:name="codiceEsito" form="qualified" maxOccurs="1" minOccurs="0"
+            name="codiceEsito" type="xsd:string"/>
+        <xsd:element ecore:name="descrizioneEsito" form="qualified" maxOccurs="1"
+            minOccurs="0" name="descrizioneEsito" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/XSDBOM_TLE12_ComplexTypeExtension" xmlns:tns1="http://www.example.org/XSDBOM_TLE12_ComplexTypeExtension"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.example.org/XSDBOM_TLE12_ComplexTypeExtension">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/fdsfsd/Business Objects/XSDBOM_TLE12A_ComplexTypeExtension.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType id="org.example.xsdbo.m.tle1._2.complex.type.extension_Person"
+      abstract="false" mixed="false" name="Person">
+    <xsd:sequence>
+      <xsd:element id="Person_surname" form="qualified" maxOccurs="1" minOccurs="1"
+          name="surname">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string"/>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element abstract="false" name="Child" nillable="false">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="Person">
+          <xsd:sequence>
+            <xsd:element id="Child__Type_school" form="qualified" maxOccurs="1" minOccurs="1"
+                name="school">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="AnonymousNested" nillable="false">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="Person">
+          <xsd:sequence>
+            <xsd:element id="AnonymousNested__Type_address__Type" form="qualified"
+                maxOccurs="1" minOccurs="1" name="address">
+              <xsd:complexType id="org.example.xsdbo.m.tle1._2.complex.type.extension_address__Type"
+                  mixed="false">
+                <xsd:sequence>
+                  <xsd:element form="qualified" maxOccurs="1" minOccurs="1" name="firstline">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string"/>
+                    </xsd:simpleType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element id="AnonymousNested__Type_city" form="qualified" maxOccurs="1"
+                minOccurs="1" name="city">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element id="AnonymousNested__Type_country" form="qualified" maxOccurs="1"
+                minOccurs="1" name="country">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string"/>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

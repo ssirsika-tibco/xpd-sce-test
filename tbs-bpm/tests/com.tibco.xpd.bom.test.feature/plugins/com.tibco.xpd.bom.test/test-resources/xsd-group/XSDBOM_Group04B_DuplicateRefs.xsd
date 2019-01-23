@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/XSDBOM_Group04B_DuplicateRefs"
+	xmlns:tns="http://www.example.org/XSDBOM_Group04B_DuplicateRefs"
+	elementFormDefault="qualified">
+
+	<group name="groupA">
+		<sequence>
+			<element name="groupAElem1" type="string"></element>			
+		</sequence>
+	</group>	
+	
+	<group name="groupB">
+		<sequence>
+			<element name="groupBElem1" type="string"></element>	
+			<group ref="tns:groupA"></group>		
+		</sequence>
+	</group>
+
+	<complexType name="PersonDetails">
+		<sequence>
+			<group ref="tns:groupA"></group>						
+			<group ref="tns:groupB"></group>
+		</sequence>		
+	</complexType>
+
+
+
+
+</schema>

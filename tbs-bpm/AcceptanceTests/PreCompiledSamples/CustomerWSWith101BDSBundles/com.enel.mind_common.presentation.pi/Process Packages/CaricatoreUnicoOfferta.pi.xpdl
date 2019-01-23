@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_Vmzf8MF_EeOwq7jJw-l7Qg" xpdExt:DisplayName="CaricatoreUnicoOfferta.pi" Name="CaricatoreUnicoOffertapi">
+  <xpdl2:PackageHeader xpdExt:Language="it_IT">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2014-04-11</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>EUR</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>egiusro</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_XtvXR8F_EeOwq7jJw-l7Qg" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_Vmzf8cF_EeOwq7jJw-l7Qg">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_XtvXSMF_EeOwq7jJw-l7Qg" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_Vmzf8cF_EeOwq7jJw-l7Qg" xpdExt:DisplayName="CaricatoreUnicoOffertapi-Process" Name="CaricatoreUnicoOffertapiProcess">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_XtvXScF_EeOwq7jJw-l7Qg" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_XtvXSMF_EeOwq7jJw-l7Qg" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_XtvXSsF_EeOwq7jJw-l7Qg" Name="EndEvent" xpdExt:DisplayName="End Event">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="30.0" LaneId="_XtvXSMF_EeOwq7jJw-l7Qg" Width="30.0">
+              <xpdl2:Coordinates XCoordinate="592.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_XtvXS8F_EeOwq7jJw-l7Qg" xpdExt:DisplayName="" Name="" From="_XtvXScF_EeOwq7jJw-l7Qg" To="_XtvXSsF_EeOwq7jJw-l7Qg">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="18"/>
+    <xpdl2:ExtendedAttribute Name="OriginalFormatVersion" Value="14"/>
+  </xpdl2:ExtendedAttributes>
+  <xpdExt:ProcessInterfaces>
+    <xpdExt:ProcessInterface Id="_aEvq4MF_EeOwq7jJw-l7Qg" xpdExt:DisplayName="CaricatoreUnicoOfferta.pi" Name="CaricatoreUnicoOffertapi" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_RfhsF8GAEeOwq7jJw-l7Qg" Name="request" Mode="IN" Required="true" xpdExt:DisplayName="request">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.caricatoreunicoofferta.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaInput"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_RfhsGsGAEeOwq7jJw-l7Qg" Name="receiveEsitoCaricamento" Mode="INOUT" Required="false" xpdExt:DisplayName="receiveEsitoCaricamento">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.schema.ReceiveEsitoCaricamentoOfferta_2014R1.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.schema.ReceiveEsitoCaricamentoOfferta_2014R1RicezioneEsitoCaricamentoResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_RfhsHMGAEeOwq7jJw-l7Qg" Name="Num_Siti" Mode="IN" Required="false" xpdExt:DisplayName="Num_Siti">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="INTEGER">
+              <xpdl2:Precision>9</xpdl2:Precision>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_RfhsHcGAEeOwq7jJw-l7Qg" Name="I_TipoOfferta" Mode="IN" Required="false" xpdExt:DisplayName="I_TipoOfferta">
+          <xpdl2:DataType>
+            <xpdl2:BasicType Type="STRING">
+              <xpdl2:Length>50</xpdl2:Length>
+            </xpdl2:BasicType>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_ZzBhYcGCEeOwq7jJw-l7Qg" Name="responseInsOfferta" ReadOnly="false" Mode="OUT" Required="false" xpdExt:DisplayName="responseInsOfferta">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.mind.caricatoreunicoofferta.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.mind.caricatoreunicooffertaCaricatoreUnicoOffertaOutput"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_cAYRIMF_EeOwq7jJw-l7Qg" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_qqjlMAWcEeS7h6L8ENaj-g" xpdExt:DisplayName="CaricatoreUnicoVendita-Interface" Name="CaricatoreUnicoVenditaInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_twcYEAWcEeS7h6L8ENaj-g" Name="InserimentoOffertaVenditaRequest" Mode="IN" Required="false" xpdExt:DisplayName="InserimentoOffertaVenditaRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaricatoreUnicoOfferta.mind.enel.com.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_xlBc8AWcEeS7h6L8ENaj-g" Name="InserimentoOffertaVenditaResponse" Mode="OUT" Required="false" xpdExt:DisplayName="InserimentoOffertaVenditaResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaricatoreUnicoOfferta.mind.enel.com.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="CaricatoreUnicoOfferta.mind.enel.comInsOffertaVenditaResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_s0d4AAWcEeS7h6L8ENaj-g" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+    <xpdExt:ProcessInterface Id="_h5rFAAd2EeSDape3fupixA" xpdExt:DisplayName="CaricatoreOfferteAnnullate-Interface" Name="CaricatoreOfferteAnnullateInterface" XpdInterfaceType="ProcessInterface">
+      <xpdl2:FormalParameters>
+        <xpdl2:FormalParameter Id="_NYzzkAd3EeSDape3fupixA" Name="InserimentoOfferteAnnullateRequest" Mode="IN" Required="false" xpdExt:DisplayName="InserimentoOfferteAnnullateRequest">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaricatoreUnicoOfferta.mind.enel.com.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_QUapEAd3EeSDape3fupixA" Name="InserimentoOfferteAnnullateResponse" Mode="IN" Required="false" xpdExt:DisplayName="InserimentoOfferteAnnullateResponse">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="CaricatoreUnicoOfferta.mind.enel.com.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="CaricatoreUnicoOfferta.mind.enel.comInsOfferteAnnullateResponseType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+        <xpdl2:FormalParameter Id="_dRLdoAd7EeSDape3fupixA" Name="EsitoOfferteAnnullate" Mode="INOUT" Required="false" xpdExt:DisplayName="EsitoOfferteAnnullate">
+          <xpdl2:DataType>
+            <xpdl2:ExternalReference location="com.enel.xmlns.mercato.libero.schema.amxbpm.receiveesitoofferteannullate.bom" namespace="http://www.eclipse.org/uml2/3.0.0/UML" xref="com.enel.xmlns.mercato.libero.schema.amxbpm.receiveesitoofferteannullateRicezioneEsitoCaricamentoOfferteAnnullateType"/>
+          </xpdl2:DataType>
+        </xpdl2:FormalParameter>
+      </xpdl2:FormalParameters>
+      <xpdExt:WsdlGeneration SoapBindingStyle="RpcLiteral"/>
+      <xpdExt:StartMethods>
+        <xpdExt:StartMethod Id="_kthFoAd2EeSDape3fupixA" xpdExt:DisplayName="Start Event" Name="StartEvent" Visibility="Public"/>
+      </xpdExt:StartMethods>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdExt:ProcessInterface>
+  </xpdExt:ProcessInterfaces>
+</xpdl2:Package>

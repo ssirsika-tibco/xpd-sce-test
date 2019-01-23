@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (x64) (http://www.altova.com) by Kevin Gee (Tibco Software Ltd) -->
+<xs:schema xmlns="http://ldapservice.api.de.n2.tibco.com" xmlns:de="http://api.de.n2.tibco.com" xmlns:orgdto="http://api.organisation.common.n2.tibco.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ldapservice.api.de.n2.tibco.com" version="1.0">
+	<xs:import namespace="http://api.organisation.common.n2.tibco.com" schemaLocation="organisation.xsd"/>
+	<xs:import namespace="http://api.de.n2.tibco.com" schemaLocation="de.xsd"/>
+	<xs:element name="listLDAPSources">
+		<xs:annotation>
+			<xs:documentation>Request element for listLDAPSource operation. 
+
+This operation returns the alias by which all known LDAP connection shared resources are identified.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element default="0" name="empty" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listLDAPSourcesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listLDAPSource operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="LdapSource">
+					<xs:annotation>
+						<xs:documentation>Details of each LDAP connection shared resource that is registered with the runtime platform.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="ldap-alias" type="xs:string" use="required">
+							<xs:annotation>
+								<xs:documentation>Alias by which the LDAP connection shared resource is registered with the AMX platform.</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listLDAPEntities">
+		<xs:annotation>
+			<xs:documentation>Request element for listLDAPEntities operation. 
+
+This operation lists the resources that are, or can be, derived from the LDAP container identified by its "container-id". The request attribute "existing-only" determines whether only existing resources are included in the response.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="orgdto:XmlOrgModelVersion">
+					<xs:attribute name="container-id" type="xs:long" use="required">
+						<xs:annotation>
+							<xs:documentation>Identifier of the container whose LDAP entities are to be returned.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute default="false" name="existing-only" type="xs:boolean" use="optional">
+						<xs:annotation>
+							<xs:documentation>Whether the response should include:
+
+- (true) only those LDAP resources that already exist in the organization model.
+
+- (false) all LDAP resources in the LDAP source.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listLDAPEntitiesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listLDAPEntities operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="LdapResource" type="de:XmlResourceDetail">
+					<xs:annotation>
+						<xs:documentation>Details of each resource available in the specified LDAP container.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listContainerResources">
+		<xs:annotation>
+			<xs:documentation>Request element for listLContainerResources operation. 
+
+This operation returns the details of those resources that originate from the LDAP container identified in the request. 
+
+If the given LDAP container ID is 0, the result will contain those resources created via the bootstrapping import (the admin users) or those resources originating from an LDAP container that has since been deleted.
+
+If the given LDAP container ID is not recognised, the result will be contain no resources (instead of raising an exception).
+       
+A resource's details will only include those that relate to the organization model version identified in the request. If the given organization model version number is -1, the latest organization model version is assumed.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="orgdto:XmlOrgModelVersion">
+					<xs:attribute name="container-id" type="xs:long" use="required">
+						<xs:annotation>
+							<xs:documentation>Identifier of the LDAP container for which human resources should be listed.
+If the LDAP Container ID is 0, the response will contain the resources created via the bootstrapping import (the administrative users).
+If the LDAP Container ID is not recognised, the response will contain no resources.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listContainerResourcesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listContainerResources operation.		</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="LdapResource" type="de:XmlResourceDetail">
+					<xs:annotation>
+						<xs:documentation>Details of each existing organization model human resource derived from the specified LDAP container.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listLDAPAttributes">
+		<xs:annotation>
+			<xs:documentation>Request element for listLDAPAttributes operation. 
+
+This operation lists the values of the LDAP attributes held by the LDAP entry identified by the given "alias" and "dn". If specified, only those attributes named by the req-attributes elements will be included in the response. Otherwise, all attributes will be included.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="req-attributes" type="de:XmlLdapAttributeSimple">
+					<xs:annotation>
+						<xs:documentation>Names of the resource attributes for which data should be returned.
+If no resource attributes are specified all data values will be returned.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="alias" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>LDAP alias of the LDAP source from which attribute data should be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="dn" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>Distinguished Name of the LDAP entity for which attribute data should be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listLDAPAttributesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listLDAPAttributes operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="req-attributes" type="de:XmlLdapAttribute">
+					<xs:annotation>
+						<xs:documentation>Details of each attribute and its values.
+If no matching data values are found then null values will be returned.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listLDAPAttributeNames">
+		<xs:annotation>
+			<xs:documentation>Request element for listLDAPAttributeNames operation.
+
+This operation lists the names of those attributes that are available from the LDAP entries identified by a search of the LDAP connection shared resource. The LDAP connection is identified by its alias, and the search is limited to the LDAP Query given in the filter.
+
+A base-dn also limits the search to the LDAP entries that lie within that branch of the LDAP directory.
+
+A sample of the values held by the resulting named attributes can be requested by specifying a sample-data-number. This value specifies the number of sample values to be returned for each named attribute.
+
+
+The response also includes the number of LDAP entries identified in the search. 
+        </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="alias" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>LDAP alias of the LDAP source from which attribute data should be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="filter" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>LDAP filter expression that can be (optionally) used to limit the LDAP entries for which data should be returned.
+
+For example, this could be a simple expression such as "uid=*" to return data only for all LDAP entries that have a valid UID attribute.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute default="0" name="sample-data-number" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>The number of random example entities to be returned.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="base-dn" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>Additional base DN that will be used to restrict the results. This base DN is relative and in addition to the base DN specified when creating the LDAP alias.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="listLDAPAttributeNamesResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for listLDAPAttributeNames operation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="Names">
+					<xs:annotation>
+						<xs:documentation>List of LDAP attribute names that exist in the specified LDAP source.
+
+Only the attribute name is returned. No data values are returned.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded" minOccurs="0">
+							<xs:element name="AttributeName" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="LdapEntry">
+					<xs:annotation>
+						<xs:documentation>List of sample entries from the LDAP source. This sample data is random, and simply includes up to the maximum number of entries requested.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="LdapAttribute" type="de:XmlLdapAttributeSimple">
+								<xs:annotation>
+									<xs:documentation>Details of each attribute.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="entity-count" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Count of the total number of rows this query would return from the LDAP source.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

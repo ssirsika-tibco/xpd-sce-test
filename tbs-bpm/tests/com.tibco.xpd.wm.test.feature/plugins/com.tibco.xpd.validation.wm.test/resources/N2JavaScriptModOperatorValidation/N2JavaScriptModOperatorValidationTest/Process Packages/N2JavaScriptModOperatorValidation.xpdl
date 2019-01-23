@@ -1,0 +1,2647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl2:Package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.tibco.com/XPD/database1.0.0" xmlns:eaijava="http://www.tibco.com/XPD/EAIJava1.0.0" xmlns:email="http://www.tibco.com/XPD/email1.0.0" xmlns:iProcessExt="http://www.tibco.com/XPD/iProcessExt1.0.0" xmlns:orchestrator="http://www.tibco.com/XPD/orchestrator1.0.0" xmlns:order="http://www.tibco.com/XPD/order1.0.0" xmlns:simulation="http://www.tibco.com/xpd/Simulation1.0.1" xmlns:xpdExt="http://www.tibco.com/XPD/xpdExtension1.0.0" xmlns:xpdl2="http://www.wfmc.org/2008/XPDL2.1" xsi:schemaLocation="http://www.wfmc.org/2008/XPDL2.1 http://www.wfmc.org/standards/bpmnxpdl_31.xsd" Id="_bDDHsEJPEd-TAbApJLDDCQ" xpdExt:DisplayName="N2JavaScriptModValidation" Name="N2JavaScriptModValidation">
+  <xpdl2:PackageHeader xpdExt:Language="en_GB">
+    <xpdl2:XPDLVersion>2.1</xpdl2:XPDLVersion>
+    <xpdl2:Vendor>TIBCO</xpdl2:Vendor>
+    <xpdl2:Created>2010-04-07</xpdl2:Created>
+    <xpdl2:Description></xpdl2:Description>
+    <xpdl2:Documentation></xpdl2:Documentation>
+    <xpdl2:CostUnit>GBP</xpdl2:CostUnit>
+  </xpdl2:PackageHeader>
+  <xpdl2:RedefinableHeader PublicationStatus="UNDER_REVISION">
+    <xpdl2:Author>bharge</xpdl2:Author>
+    <xpdl2:Version>1.0.0.qualifier</xpdl2:Version>
+  </xpdl2:RedefinableHeader>
+  <xpdl2:TypeDeclarations>
+    <xpdl2:TypeDeclaration Id="_Ipnc6EJQEd-TAbApJLDDCQ" xpdExt:DisplayName="TextTypeDeclaration" Name="TextTypeDeclaration">
+      <xpdl2:BasicType Type="STRING">
+        <xpdl2:Length>50</xpdl2:Length>
+      </xpdl2:BasicType>
+    </xpdl2:TypeDeclaration>
+  </xpdl2:TypeDeclarations>
+  <xpdl2:Participants>
+    <xpdl2:Participant Id="_b2aFAEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="InvalidModOperatorScripts (API Activity EndPoint)" Name="N2JavaScriptModValidation_InvalidModOperatorScripts">
+      <xpdl2:ParticipantType Type="SYSTEM"/>
+      <xpdExt:SharedResource Type="WebService" URI="/N2JavaScriptModValidation/InvalidModOperatorScripts"/>
+    </xpdl2:Participant>
+  </xpdl2:Participants>
+  <xpdl2:DataFields>
+    <xpdl2:DataField Id="_Ipnc4kJQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldPerformer" Name="fieldPerformer" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="PERFORMER"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc40JQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldInteger" Name="fieldInteger" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="INTEGER">
+          <xpdl2:Precision>10</xpdl2:Precision>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc5EJQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldDecimalNumber" Name="fieldDecimalNumber" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="FLOAT">
+          <xpdl2:Precision>10</xpdl2:Precision>
+          <xpdl2:Scale>2</xpdl2:Scale>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc5UJQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldDateTime" Name="fieldDateTime" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="DATETIME"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc5kJQEd-TAbApJLDDCQ" xpdExt:DisplayName="customer" Name="customer" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_g8LG4OPLEd6fm9D0kjLv3A"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc50JQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldBoolean" Name="fieldBoolean" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="BOOLEAN"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc6UJQEd-TAbApJLDDCQ" xpdExt:DisplayName="person" Name="person" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_avU-oOCgEd6xgPEp5GHMsA"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc6kJQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldBooleanArr" Name="fieldBooleanArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="BOOLEAN"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc60JQEd-TAbApJLDDCQ" xpdExt:DisplayName="personArr" Name="personArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_avU-oOCgEd6xgPEp5GHMsA"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc7EJQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldStr" Name="fieldStr" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="STRING">
+          <xpdl2:Length>50</xpdl2:Length>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc7UJQEd-TAbApJLDDCQ" xpdExt:DisplayName="accountArr" Name="accountArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_nmd0oOPLEd6fm9D0kjLv3A"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc7kJQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldTextTypeDeclaration" Name="fieldTextTypeDeclaration" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:DeclaredType Id="_Ipnc6EJQEd-TAbApJLDDCQ"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc70JQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldTime" Name="fieldTime" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="TIME"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc8EJQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldDate" Name="fieldDate" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="DATE"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc8UJQEd-TAbApJLDDCQ" xpdExt:DisplayName="account" Name="account" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_nmd0oOPLEd6fm9D0kjLv3A"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc8kJQEd-TAbApJLDDCQ" xpdExt:DisplayName="fieldStrArr" Name="fieldStrArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:BasicType Type="STRING">
+          <xpdl2:Length>50</xpdl2:Length>
+        </xpdl2:BasicType>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+    <xpdl2:DataField Id="_Ipnc80JQEd-TAbApJLDDCQ" xpdExt:DisplayName="customerArr" Name="customerArr" IsArray="true" ReadOnly="false">
+      <xpdl2:DataType>
+        <xpdl2:ExternalReference location="N2JavaScriptValidation.bom" namespace="http://www.eclipse.org/uml2/2.1.0/UML" xref="_g8LG4OPLEd6fm9D0kjLv3A"/>
+      </xpdl2:DataType>
+      <xpdl2:InitialValue/>
+    </xpdl2:DataField>
+  </xpdl2:DataFields>
+  <xpdl2:Pools>
+    <xpdl2:Pool Id="_-9TIhUJPEd-TAbApJLDDCQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_9Q0_oEJPEd-TAbApJLDDCQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_-9TIhkJPEd-TAbApJLDDCQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+    <xpdl2:Pool Id="_gcSdR0JPEd-TAbApJLDDCQ" xpdExt:DisplayName="Pool" Name="Pool" BoundaryVisible="true" Process="_bEPagEJPEd-TAbApJLDDCQ">
+      <xpdl2:Lanes>
+        <xpdl2:Lane Id="_gcSdSEJPEd-TAbApJLDDCQ" xpdExt:DisplayName="Lane" Name="Lane">
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo Height="314.0"/>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Lane>
+      </xpdl2:Lanes>
+      <xpdl2:NodeGraphicsInfos>
+        <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="223,179,0" IsVisible="true"/>
+      </xpdl2:NodeGraphicsInfos>
+    </xpdl2:Pool>
+  </xpdl2:Pools>
+  <xpdl2:WorkflowProcesses>
+    <xpdl2:WorkflowProcess Id="_bEPagEJPEd-TAbApJLDDCQ" xpdExt:DisplayName="InvalidModOperatorScripts" xpdExt:ApiEndPointParticipant="_b2aFAEJUEd-TAbApJLDDCQ" Name="InvalidModOperatorScripts">
+      <xpdl2:ProcessHeader>
+        <xpdl2:Description></xpdl2:Description>
+      </xpdl2:ProcessHeader>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_gcSdSUJPEd-TAbApJLDDCQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="27.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="27.0">
+              <xpdl2:Coordinates XCoordinate="55.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_DJbqYEJTEd-TAbApJLDDCQ" Name="ModulusOperatortoSTRINGTEXTPERFORMER" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to STRING, TEXT, PERFORMER">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to literal String&#xD;
+ fieldStr % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ fieldStr % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ fieldStr % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ fieldStr % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ fieldStr % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ fieldStr % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ fieldStr % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ fieldStr % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ fieldStr % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ fieldStr % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ fieldStr % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ fieldStr % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ fieldStr % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ fieldStr % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ fieldStr % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ fieldStr % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ fieldStr % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ fieldStr % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ fieldStr % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ fieldStr % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ fieldStr % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ fieldStr % person.attId;&#xD;
+ //Modulus operator to process time&#xD;
+ fieldStr % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ fieldStr % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ fieldStr % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ fieldStr % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ fieldStr % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ fieldStr % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ fieldStr % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ fieldStr % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to complex type &#xD;
+ fieldStr % account; &#xD;
+  //Modulus operator to BOM Attachment&#xD;
+ fieldStr % person.attAttachment;&#xD;
+ &#xD;
+&#xD;
+ &#xD;
+ &#xD;
+ //Modulus operator to literal String&#xD;
+ account.att3Str % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ account.att3Str % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ account.att3Str % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ account.att3Str % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ account.att3Str % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ account.att3Str % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ account.att3Str % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ account.att3Str % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ account.att3Str % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ account.att3Str % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ account.att3Str % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ account.att3Str % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ account.att3Str % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ account.att3Str % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ account.att3Str % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ account.att3Str % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ account.att3Str % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ account.att3Str % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ account.att3Str % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ account.att3Str % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ account.att3Str % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ account.att3Str % person.attId;&#xD;
+ //Modulus operator to process time&#xD;
+ account.att3Str % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ account.att3Str % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ account.att3Str % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ account.att3Str % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ account.att3Str % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ account.att3Str % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ account.att3Str % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ account.att3Str % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to complex type &#xD;
+ account.att3Str % account;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ account.att3Str % person.attAttachment;&#xD;
+ &#xD;
+ &#xD;
+ //Modulus operator to literal String&#xD;
+ fieldPerformer % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ fieldPerformer % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ fieldPerformer % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ fieldPerformer % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ fieldPerformer % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ fieldPerformer % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ fieldPerformer % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ fieldPerformer % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ fieldPerformer % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ fieldPerformer % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ fieldPerformer % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ fieldPerformer % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ fieldPerformer % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ fieldPerformer % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ fieldPerformer % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ fieldPerformer % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ fieldPerformer % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ fieldPerformer % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ fieldPerformer % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ fieldPerformer % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ fieldPerformer % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ fieldPerformer % person.attId;&#xD;
+ //Modulus operator to process time&#xD;
+ fieldPerformer % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ fieldPerformer % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ fieldPerformer % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ fieldPerformer % fieldPerformer;  &#xD;
+ //Modulus operator to process performer&#xD;
+ fieldPerformer % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ fieldPerformer % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ fieldPerformer % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ fieldPerformer % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to complex type &#xD;
+ fieldPerformer % account;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ fieldPerformer % person.attAttachment;&#xD;
+ &#xD;
+ </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="127.0">
+              <xpdl2:Coordinates XCoordinate="184.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Lrr_UEJTEd-TAbApJLDDCQ" Name="ModulusOperatortoBoolean" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Boolean">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to literal String&#xD;
+ fieldBoolean % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ fieldBoolean % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ fieldBoolean % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ fieldBoolean % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ fieldBoolean % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ fieldBoolean % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ fieldBoolean % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ fieldBoolean % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ fieldBoolean % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ fieldBoolean % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ fieldBoolean % 123.234; &#xD;
+ //Modulus operator to process performer&#xD;
+ fieldBoolean % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ fieldBoolean % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ fieldBoolean % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ fieldBoolean % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+  //Modulus operator to complex type &#xD;
+ fieldBoolean % account;&#xD;
+ //Modulus operator to process date&#xD;
+ fieldBoolean % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ fieldBoolean % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ fieldBoolean % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ fieldBoolean % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ fieldBoolean % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ fieldBoolean % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ fieldBoolean % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ fieldBoolean % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ fieldBoolean % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ fieldBoolean % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ fieldBoolean % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ fieldBoolean % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ fieldBoolean % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ fieldBoolean % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ fieldBoolean % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ fieldBoolean % person.attURL;  &#xD;
+ &#xD;
+ &#xD;
+ &#xD;
+ //Modulus operator to complex type &#xD;
+ person.attBoolean % account;&#xD;
+ //Modulus operator to process date&#xD;
+ person.attBoolean % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attBoolean % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attBoolean % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attBoolean % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attBoolean % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attBoolean % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attBoolean % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attBoolean % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attBoolean % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attBoolean % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attBoolean % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attBoolean % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attBoolean % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attBoolean % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attBoolean % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attBoolean % person.attURL;  &#xD;
+ //Modulus operator to literal String&#xD;
+ person.attBoolean % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attBoolean % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attBoolean % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attBoolean % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attBoolean % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attBoolean % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attBoolean % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attBoolean % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attBoolean % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attBoolean % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attBoolean % 123.234; &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attBoolean % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attBoolean % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attBoolean % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attBoolean % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="83.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="126.0">
+              <xpdl2:Coordinates XCoordinate="364.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PrYvEEJTEd-TAbApJLDDCQ" Name="ModulusOperatortoInteger" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Integer">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript"> //Modulus operator to literal String&#xD;
+ fieldInteger % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ fieldInteger % fieldStr; &#xD;
+ //Modulus operator to BOM Text&#xD;
+ fieldInteger % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ fieldInteger % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ fieldInteger % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ fieldInteger % fieldBoolean;&#xD;
+ //Modulus operator to complex type &#xD;
+ fieldInteger % account;&#xD;
+ //Modulus operator to process date&#xD;
+ fieldInteger % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ fieldInteger % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ fieldInteger % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ fieldInteger % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ fieldInteger % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ fieldInteger % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ fieldInteger % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ fieldInteger % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ fieldInteger % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ fieldInteger % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ fieldInteger % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ fieldInteger % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ fieldInteger % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ fieldInteger % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ fieldInteger % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ fieldInteger % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ fieldInteger % fieldPerformer;  &#xD;
+ &#xD;
+ &#xD;
+ &#xD;
+ &#xD;
+ &#xD;
+ //Modulus operator to literal String&#xD;
+ person.attInt % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attInt % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attInt % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attInt % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attInt % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attInt % fieldBoolean;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attInt % account;&#xD;
+ //Modulus operator to process date&#xD;
+ person.attInt % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attInt % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attInt % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attInt % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attInt % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attInt % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attInt % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attInt % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attInt % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attInt % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attInt % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attInt % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attInt % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attInt % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attInt % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attInt % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attInt % fieldPerformer;  &#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="84.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="116.0">
+              <xpdl2:Coordinates XCoordinate="531.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_UIInMEJTEd-TAbApJLDDCQ" Name="ModulusOperatortoDecimal" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Decimal">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">&#xD;
+ //Modulus operator to literal String&#xD;
+ person.attDec % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attDec % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attDec % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attDec % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attDec % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attDec % fieldBoolean;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attDec % account;&#xD;
+ //Modulus operator to process date&#xD;
+ person.attDec % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attDec % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attDec % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attDec % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attDec % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attDec % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attDec % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attDec % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attDec % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attDec % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attDec % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attDec % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attDec % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attDec % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attDec % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attDec % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attDec % fieldPerformer;  &#xD;
+ &#xD;
+ &#xD;
+ &#xD;
+ //Modulus operator to literal String&#xD;
+ fieldDecimalNumber % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ fieldDecimalNumber % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ fieldDecimalNumber % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ fieldDecimalNumber % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ fieldDecimalNumber % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ fieldDecimalNumber % fieldBoolean;&#xD;
+ //Modulus operator to complex type &#xD;
+ fieldDecimalNumber % account;&#xD;
+ //Modulus operator to process date&#xD;
+ fieldDecimalNumber % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ fieldDecimalNumber % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ fieldDecimalNumber % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ fieldDecimalNumber % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ fieldDecimalNumber % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ fieldDecimalNumber % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ fieldDecimalNumber % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ fieldDecimalNumber % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ fieldDecimalNumber % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ fieldDecimalNumber % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ fieldDecimalNumber % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ fieldDecimalNumber % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ fieldDecimalNumber % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ fieldDecimalNumber % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ fieldDecimalNumber % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ fieldDecimalNumber % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ fieldDecimalNumber % fieldPerformer;   &#xD;
+&#xD;
+ </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="84.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="116.0">
+              <xpdl2:Coordinates XCoordinate="686.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_umofQEJTEd-TAbApJLDDCQ" Name="ModulusOperatortoComplexType" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Complex Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">&#xD;
+  //Modulus operator to literal String&#xD;
+  account % &quot;&quot;;&#xD;
+  //Modulus operator to process String&#xD;
+  account % fieldStr;  &#xD;
+  //Modulus operator to BOM Text&#xD;
+  account % account.att3Str;&#xD;
+  //Modulus operator to literal boolean&#xD;
+  account % true;    &#xD;
+  //Modulus operator to BOM boolean&#xD;
+  account % person.attBoolean;&#xD;
+  //Modulus operator to process boolean&#xD;
+  account % fieldBoolean;&#xD;
+  //Modulus operator to BOM integer&#xD;
+  account % person.attInt;&#xD;
+  //Modulus operator to process integer&#xD;
+  account % fieldInteger;&#xD;
+  //Modulus operator to integer&#xD;
+  account % 11;&#xD;
+  //Modulus operator to BOM decimal&#xD;
+  account % person.attDec; &#xD;
+  //Modulus operator to decimal&#xD;
+  account % 123.234;&#xD;
+  //Modulus operator to process date&#xD;
+  account % fieldDate;&#xD;
+  //Modulus operator to BOM date&#xD;
+  account % person.attDate;&#xD;
+  //Modulus operator to Date&#xD;
+  account % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+  //Modulus operator to process date time&#xD;
+  account % fieldDateTime;&#xD;
+  //Modulus operator to BOM date time&#xD;
+  account % person.attDateTime; &#xD;
+  //Modulus operator to Datetime&#xD;
+  account % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+  //Modulus operator to BOM date time zone&#xD;
+  account % person.attDateTimeAndTimeZone;&#xD;
+  //Modulus operator to Datetimetz&#xD;
+  account % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+  //Modulus operator to BOM duration&#xD;
+  account % person.attDuration; &#xD;
+  //Modulus operator to Duration&#xD;
+  account % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+  //Modulus operator to BOM id&#xD;
+  account % person.attId;&#xD;
+  //Modulus operator to BOM Attachment&#xD;
+  account % person.attAttachment;&#xD;
+  //Modulus operator to process time&#xD;
+  account % fieldTime;&#xD;
+  //Modulus operator to BOM time&#xD;
+  account % person.attTime;&#xD;
+  //Modulus operator to time&#xD;
+  account % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+  //Modulus operator to BOM url&#xD;
+  account % person.attURL;  &#xD;
+  //Modulus operator to process performer&#xD;
+  account % fieldPerformer;  &#xD;
+  //Modulus operator to process decimal number&#xD;
+  account % fieldDecimalNumber;&#xD;
+  //Modulus operator to BigInteger&#xD;
+  account % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+  //Modulus operator to BigDecimal&#xD;
+  account % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+  //Modulus operator to complex type &#xD;
+  account % account;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="109.0">
+              <xpdl2:Coordinates XCoordinate="2415.0" YCoordinate="152.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_wj8ggEJTEd-TAbApJLDDCQ" Name="ModulusOperatortoDate" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Date">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">&#xD;
+ //Modulus operator to process date&#xD;
+ fieldDate % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ fieldDate % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ fieldDate % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ fieldDate % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ fieldDate % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ fieldDate % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ fieldDate % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ fieldDate % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to literal String&#xD;
+ fieldDate % &quot;&quot;;&#xD;
+ fieldDate % &quot;2009-10-10&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ fieldDate % fieldStr;   &#xD;
+ //Modulus operator to BOM Text&#xD;
+ fieldDate % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ fieldDate % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ fieldDate % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ fieldDate % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ fieldDate % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ fieldDate % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ fieldDate % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ fieldDate % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ fieldDate % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ fieldDate % 123.234;&#xD;
+ //Modulus operator to BOM duration&#xD;
+ fieldDate % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ fieldDate % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ fieldDate % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ fieldDate % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ fieldDate % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ fieldDate % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ fieldDate % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ fieldDate % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ fieldDate % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ fieldDate % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ fieldDate % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ fieldDate % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ &#xD;
+  &#xD;
+ &#xD;
+ //Modulus operator to literal String&#xD;
+ person.attDate % &quot;&quot;;&#xD;
+ person.attDate % &quot;2009-10-10&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attDate % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attDate % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attDate % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attDate % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attDate % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attDate % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attDate % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attDate % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attDate % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attDate % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attDate % 123.234;&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attDate % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attDate % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attDate % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attDate % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attDate % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attDate % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attDate % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attDate % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attDate % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attDate % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attDate % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attDate % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to process date&#xD;
+ person.attDate % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attDate % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attDate % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attDate % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attDate % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attDate % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attDate % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attDate % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="116.0">
+              <xpdl2:Coordinates XCoordinate="849.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_1I4rUEJTEd-TAbApJLDDCQ" Name="ModulusOperatortoDateTime" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to DateTime">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">&#xD;
+ //Modulus operator to process date&#xD;
+ fieldDateTime % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ fieldDateTime % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ fieldDateTime % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ fieldDateTime % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ fieldDateTime % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ fieldDateTime % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ fieldDateTime % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ fieldDateTime % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to literal String&#xD;
+ fieldDateTime % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ fieldDateTime % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ fieldDateTime % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ fieldDateTime % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ fieldDateTime % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ fieldDateTime % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ fieldDateTime % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ fieldDateTime % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ fieldDateTime % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ fieldDateTime % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ fieldDateTime % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ fieldDateTime % 123.234;&#xD;
+ //Modulus operator to BOM duration&#xD;
+ fieldDateTime % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ fieldDateTime % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ fieldDateTime % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ fieldDateTime % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ fieldDateTime % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ fieldDateTime % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ fieldDateTime % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ fieldDateTime % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ fieldDateTime % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ fieldDateTime % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ fieldDateTime % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ fieldDateTime % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+  &#xD;
+ &#xD;
+ &#xD;
+ //Modulus operator to literal String&#xD;
+ person.attDateTime % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attDateTime % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attDateTime % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attDateTime % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attDateTime % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attDateTime % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attDateTime % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attDateTime % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attDateTime % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attDateTime % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attDateTime % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attDateTime % 123.234;&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attDateTime % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attDateTime % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attDateTime % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attDateTime % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attDateTime % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attDateTime % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attDateTime % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attDateTime % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attDateTime % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attDateTime % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attDateTime % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attDateTime % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to process date&#xD;
+ person.attDateTime % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attDateTime % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attDateTime % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attDateTime % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attDateTime % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attDateTime % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attDateTime % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attDateTime % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="118.0">
+              <xpdl2:Coordinates XCoordinate="1013.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_676Z4EJTEd-TAbApJLDDCQ" Name="ModulusOperatortoDateTimeandTimeZone" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Date Time and Time Zone">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">&#xD;
+ //Modulus operator to process date&#xD;
+ person.attDateTimeAndTimeZone % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attDateTimeAndTimeZone % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attDateTimeAndTimeZone % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attDateTimeAndTimeZone % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attDateTimeAndTimeZone % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attDateTimeAndTimeZone % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attDateTimeAndTimeZone % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attDateTimeAndTimeZone % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+  //Modulus operator to literal String&#xD;
+ person.attDateTimeAndTimeZone % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attDateTimeAndTimeZone % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attDateTimeAndTimeZone % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attDateTimeAndTimeZone % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attDateTimeAndTimeZone % person.attBoolean;&#xD;
+ //Modulus operator to process boolean &#xD;
+ person.attDateTimeAndTimeZone % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attDateTimeAndTimeZone % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attDateTimeAndTimeZone % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attDateTimeAndTimeZone % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attDateTimeAndTimeZone % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attDateTimeAndTimeZone % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attDateTimeAndTimeZone % 123.234;&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attDateTimeAndTimeZone % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attDateTimeAndTimeZone % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attDateTimeAndTimeZone % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attDateTimeAndTimeZone % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attDateTimeAndTimeZone % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attDateTimeAndTimeZone % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attDateTimeAndTimeZone % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attDateTimeAndTimeZone % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attDateTimeAndTimeZone % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attDateTimeAndTimeZone % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attDateTimeAndTimeZone % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attDateTimeAndTimeZone % ScriptUtil.createBigDecimal(&quot;1111&quot;);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="1176.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_A88IMEJUEd-TAbApJLDDCQ" Name="ModulusOperatortoDuration" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Duration">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to literal String&#xD;
+ person.attDuration % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attDuration % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attDuration % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attDuration % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attDuration % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attDuration % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attDuration % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attDuration % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attDuration % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attDuration % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attDuration % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attDuration % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ person.attDuration % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attDuration % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attDuration % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attDuration % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attDuration % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attDuration % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attDuration % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attDuration % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attDuration % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attDuration % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attDuration % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attDuration % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attDuration % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attDuration % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attDuration % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attDuration % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attDuration % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attDuration % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attDuration % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attDuration % DateTimeUtil.createDuration(&quot;&quot;); </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="109.0">
+              <xpdl2:Coordinates XCoordinate="1330.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_F1aTAEJUEd-TAbApJLDDCQ" Name="ModulusOperatortoId" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Id">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to literal boolean&#xD;
+ person.attId % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attId % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attId % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attId % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attId % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attId % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attId % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attId % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attId % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ person.attId % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attId % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attId % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attId % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attId % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attId % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attId % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attId % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attId % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attId % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attId % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attId % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attId % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attId % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attId % person.attURL;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attId % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attId % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attId % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to literal String&#xD;
+ person.attId % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attId % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attId % account.att3Str;&#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attId % person.attId; &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attId % fieldPerformer;  &#xD;
+</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="107.0">
+              <xpdl2:Coordinates XCoordinate="1479.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_JAgWAEJUEd-TAbApJLDDCQ" Name="ModulusOperatortoAttachment" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Attachment">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript"> //Modulus operator to literal String&#xD;
+ person.attAttachment % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attAttachment % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attAttachment % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attAttachment % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attAttachment % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attAttachment % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attAttachment % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attAttachment % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attAttachment % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attAttachment % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attAttachment % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attAttachment % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ person.attAttachment % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attAttachment % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attAttachment % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attAttachment % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attAttachment % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attAttachment % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attAttachment % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attAttachment % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attAttachment % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attAttachment % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attAttachment % person.attId;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attAttachment % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attAttachment % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attAttachment % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attAttachment % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attAttachment % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attAttachment % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attAttachment % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attAttachment % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attAttachment % person.attAttachment;</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="112.0">
+              <xpdl2:Coordinates XCoordinate="1643.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_PelzwEJUEd-TAbApJLDDCQ" Name="ModulusOperatortoTime" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Time">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">&#xD;
+ //Modulus operator to process date time&#xD;
+ fieldTime % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ fieldTime % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ fieldTime % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ fieldTime % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ fieldTime % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to process time&#xD;
+ fieldTime % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ fieldTime % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ fieldTime % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+  //Modulus operator to literal String&#xD;
+ fieldTime % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ fieldTime % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ fieldTime % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ fieldTime % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ fieldTime % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ fieldTime % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ fieldTime % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ fieldTime % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ fieldTime % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ fieldTime % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ fieldTime % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ fieldTime % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ fieldTime % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ fieldTime % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ fieldTime % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ fieldTime % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ fieldTime % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ fieldTime % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ fieldTime % person.attAttachment;&#xD;
+ //Modulus operator to BOM url&#xD;
+ fieldTime % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ fieldTime % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ fieldTime % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ fieldTime % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ fieldTime % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+  &#xD;
+ &#xD;
+ //Modulus operator to literal String&#xD;
+ person.attTime % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attTime % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attTime % account.att3Str;&#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attTime % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attTime % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attTime % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attTime % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attTime % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attTime % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attTime % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attTime % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attTime % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ person.attTime % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attTime % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attTime % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attTime % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attTime % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attTime % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attTime % person.attAttachment;&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attTime % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attTime % fieldPerformer;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attTime % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attTime % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attTime % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attTime % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attTime % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attTime % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attTime % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attTime % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to process time&#xD;
+ person.attTime % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attTime % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attTime % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ &#xD;
+ </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="118.0">
+              <xpdl2:Coordinates XCoordinate="1801.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Se9NcEJUEd-TAbApJLDDCQ" Name="ModulusOperatortoURI" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to URI">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to literal String&#xD;
+ person.attURL % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ person.attURL % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ person.attURL % account.att3Str;&#xD;
+ //Modulus operator to BOM url&#xD;
+ person.attURL % person.attURL;  &#xD;
+ //Modulus operator to process performer&#xD;
+ person.attURL % fieldPerformer;  &#xD;
+ //Modulus operator to literal boolean&#xD;
+ person.attURL % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ person.attURL % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ person.attURL % fieldBoolean;&#xD;
+ //Modulus operator to BOM integer&#xD;
+ person.attURL % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attURL % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attURL % 11;&#xD;
+ //Modulus operator to complex type &#xD;
+ person.attURL % account;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attURL % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attURL % 123.234;&#xD;
+ //Modulus operator to process date&#xD;
+ person.attURL % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ person.attURL % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ person.attURL % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ person.attURL % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ person.attURL % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ person.attURL % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ person.attURL % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ person.attURL % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ person.attURL % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ person.attURL % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ person.attURL % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ person.attURL % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ person.attURL % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ person.attURL % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ person.attURL % DateTimeUtil.createTime(&quot;10:00&quot;);&#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attURL % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attURL % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attURL % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ &#xD;
+ </xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="108.0">
+              <xpdl2:Coordinates XCoordinate="1958.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_XS9H8EJUEd-TAbApJLDDCQ" Name="ModulusOperatortoBigInteger" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Big Integer">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to literal String&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % account.att3Str;&#xD;
+&#xD;
+ //Modulus operator to process performer&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % fieldPerformer;  &#xD;
+  //Modulus operator to literal boolean&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % fieldBoolean;&#xD;
+ //Modulus operator to complex type &#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % account;&#xD;
+ //Modulus operator to process date&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % DateTimeUtil.createTime(&quot;10:00&quot;);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="111.0">
+              <xpdl2:Coordinates XCoordinate="2115.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_Y7tOcEJUEd-TAbApJLDDCQ" Name="ModulusOperatortoBigDecimal" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Modulus Operator to Big Decimal">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to literal String&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % &quot;&quot;;&#xD;
+ //Modulus operator to process String&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % fieldStr;  &#xD;
+ //Modulus operator to BOM Text&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % account.att3Str;&#xD;
+ //Modulus operator to process performer&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % fieldPerformer;  &#xD;
+   //Modulus operator to literal boolean&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % true;    &#xD;
+ //Modulus operator to BOM boolean&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attBoolean;&#xD;
+ //Modulus operator to process boolean&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % fieldBoolean;&#xD;
+ //Modulus operator to complex type &#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % account;&#xD;
+ //Modulus operator to process date&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % fieldDate;&#xD;
+ //Modulus operator to BOM date&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attDate;&#xD;
+ //Modulus operator to Date&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % DateTimeUtil.createDate(&quot;2009-08-19&quot;);&#xD;
+ //Modulus operator to process date time&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % fieldDateTime;&#xD;
+ //Modulus operator to BOM date time&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attDateTime; &#xD;
+ //Modulus operator to Datetime&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % DateTimeUtil.createDatetime(&quot;2009-08-19T16:21&quot;);&#xD;
+ //Modulus operator to BOM date time zone&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attDateTimeAndTimeZone;&#xD;
+ //Modulus operator to Datetimetz&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % DateTimeUtil.createDatetimetz(&quot;2009-08-19T09:00-05:00&quot;);&#xD;
+ //Modulus operator to BOM duration&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attDuration; &#xD;
+ //Modulus operator to Duration&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % DateTimeUtil.createDuration(&quot;&quot;); &#xD;
+ //Modulus operator to BOM id&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attId;&#xD;
+ //Modulus operator to BOM Attachment&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attAttachment;&#xD;
+ //Modulus operator to process time&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % fieldTime;&#xD;
+ //Modulus operator to BOM time&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attTime;&#xD;
+ //Modulus operator to time&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % DateTimeUtil.createTime(&quot;10:00&quot;);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_b2aFAEJUEd-TAbApJLDDCQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="2267.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_pOv_IEJUEd-TAbApJLDDCQ" xpdExt:Visibility="Private">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="31.0" LaneId="_gcSdSEJPEd-TAbApJLDDCQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="2522.0" YCoordinate="151.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_DJbqYUJTEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_gcSdSUJPEd-TAbApJLDDCQ" To="_DJbqYEJTEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_Lr1wUEJTEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_DJbqYEJTEd-TAbApJLDDCQ" To="_Lrr_UEJTEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_PrYvEUJTEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_Lrr_UEJTEd-TAbApJLDDCQ" To="_PrYvEEJTEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_qyu6YEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_PrYvEEJTEd-TAbApJLDDCQ" To="_UIInMEJTEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_rfR3UEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_UIInMEJTEd-TAbApJLDDCQ" To="_wj8ggEJTEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.183673469387756" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_r4wuUEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_wj8ggEJTEd-TAbApJLDDCQ" To="_1I4rUEJTEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.30150753768844" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_sR8DUEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_1I4rUEJTEd-TAbApJLDDCQ" To="_676Z4EJTEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.94897959183674" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_tE5xUEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_676Z4EJTEd-TAbApJLDDCQ" To="_A88IMEJUEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_vhDqsEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_A88IMEJUEd-TAbApJLDDCQ" To="_F1aTAEJUEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.84656084656085" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_yXly8EJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_F1aTAEJUEd-TAbApJLDDCQ" To="_JAgWAEJUEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.567010309278345" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_0tfTUEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_JAgWAEJUEd-TAbApJLDDCQ" To="_PelzwEJUEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_1MotcEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_PelzwEJUEd-TAbApJLDDCQ" To="_Se9NcEJUEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.63829787234043" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_1kB5wEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_Se9NcEJUEd-TAbApJLDDCQ" To="_XS9H8EJUEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.84455958549223" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_15CgcEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_XS9H8EJUEd-TAbApJLDDCQ" To="_Y7tOcEJUEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.204081632653065" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_2lvOYEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_Y7tOcEJUEd-TAbApJLDDCQ" To="_umofQEJTEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_3FVUcEJUEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_umofQEJTEd-TAbApJLDDCQ" To="_pOv_IEJUEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="49.00657378472295" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+    </xpdl2:WorkflowProcess>
+    <xpdl2:WorkflowProcess Id="_9Q0_oEJPEd-TAbApJLDDCQ" xpdExt:DisplayName="ValidModOperatorScripts" Name="ValidModOperatorScripts">
+      <xpdl2:ProcessHeader/>
+      <xpdl2:Activities>
+        <xpdl2:Activity Id="_MUQwckJVEd-TAbApJLDDCQ" Name="StartEvent" xpdExt:DisplayName="Start Event">
+          <xpdl2:Event>
+            <xpdl2:StartEvent Trigger="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="45.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="57.0">
+              <xpdl2:Coordinates XCoordinate="32.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwc0JVEd-TAbApJLDDCQ" Name="ModulusOperatortoSTRINGTEXTPERFORMER" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to STRING, TEXT, PERFORMER">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="127.0">
+              <xpdl2:Coordinates XCoordinate="161.0" YCoordinate="160.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwdEJVEd-TAbApJLDDCQ" Name="ModulusOperatortoBoolean" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Boolean">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="83.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="126.0">
+              <xpdl2:Coordinates XCoordinate="341.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwdUJVEd-TAbApJLDDCQ" Name="ModulusOperatortoInteger" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Integer">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to BOM integer&#xD;
+ fieldInteger % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ fieldInteger % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ fieldInteger % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ fieldInteger % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ fieldInteger % 123.234; &#xD;
+ //Modulus operator to process decimal number&#xD;
+ fieldInteger % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ fieldInteger % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ fieldInteger % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ &#xD;
+ &#xD;
+  //Modulus operator to BOM integer&#xD;
+ person.attInt % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attInt % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attInt % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attInt % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attInt % 123.234; &#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attInt % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attInt % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attInt % ScriptUtil.createBigDecimal(&quot;1111&quot;);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="84.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="116.0">
+              <xpdl2:Coordinates XCoordinate="508.0" YCoordinate="160.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwdkJVEd-TAbApJLDDCQ" Name="ModulusOperatortoDecimal" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Decimal">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to BOM integer&#xD;
+ person.attDec % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ person.attDec % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ person.attDec % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ person.attDec % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ person.attDec % 123.234;&#xD;
+ //Modulus operator to process decimal number&#xD;
+ person.attDec % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ person.attDec % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ person.attDec % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ &#xD;
+ &#xD;
+  //Modulus operator to BOM integer&#xD;
+ fieldDecimalNumber % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ fieldDecimalNumber % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ fieldDecimalNumber % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ fieldDecimalNumber % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ fieldDecimalNumber % 123.234;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ fieldDecimalNumber % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ fieldDecimalNumber % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ fieldDecimalNumber % ScriptUtil.createBigDecimal(&quot;1111&quot;);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="84.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="116.0">
+              <xpdl2:Coordinates XCoordinate="663.0" YCoordinate="160.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwd0JVEd-TAbApJLDDCQ" Name="ModulusOperatortoDate" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Date">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="116.0">
+              <xpdl2:Coordinates XCoordinate="826.0" YCoordinate="160.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQweEJVEd-TAbApJLDDCQ" Name="ModulusOperatortoDateTime" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to DateTime">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="81.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="118.0">
+              <xpdl2:Coordinates XCoordinate="990.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQweUJVEd-TAbApJLDDCQ" Name="ModulusOperatortoDateTimeandTimeZone" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Date Time and Time Zone">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="1153.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwekJVEd-TAbApJLDDCQ" Name="ModulusOperatortoDuration" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Duration">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="109.0">
+              <xpdl2:Coordinates XCoordinate="1307.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwe0JVEd-TAbApJLDDCQ" Name="ModulusOperatortoId" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Id">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="107.0">
+              <xpdl2:Coordinates XCoordinate="1456.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwfEJVEd-TAbApJLDDCQ" Name="ModulusOperatortoAttachment" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Attachment">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="112.0">
+              <xpdl2:Coordinates XCoordinate="1620.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwfUJVEd-TAbApJLDDCQ" Name="ModulusOperatortoTime" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Time">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="118.0">
+              <xpdl2:Coordinates XCoordinate="1778.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwfkJVEd-TAbApJLDDCQ" Name="ModulusOperatortoURI" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to URI">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="80.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="108.0">
+              <xpdl2:Coordinates XCoordinate="1935.0" YCoordinate="160.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwf0JVEd-TAbApJLDDCQ" Name="ModulusOperatortoBigInteger" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Big Integer">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript"> //Modulus operator to BOM integer&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % 123.234;&#xD;
+ //Modulus operator to BOM url&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % bi1;  &#xD;
+ //Modulus operator to process decimal number&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ var bi1 = ScriptUtil.createBigInteger(&quot;1111&quot;);&#xD;
+ bi1 % ScriptUtil.createBigDecimal(&quot;1111&quot;);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="111.0">
+              <xpdl2:Coordinates XCoordinate="2092.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwgEJVEd-TAbApJLDDCQ" Name="ModulusOperatortoBigDecimal" IsATransaction="false" xpdExt:Visibility="Private" xpdExt:RequireNewTransaction="false" xpdExt:DisplayName="Modulus Operator to Big Decimal">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript>
+                <xpdl2:Script ScriptGrammar="JavaScript">//Modulus operator to BOM integer&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attInt;&#xD;
+ //Modulus operator to process integer&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % fieldInteger;&#xD;
+ //Modulus operator to integer&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % 11;&#xD;
+ //Modulus operator to BOM decimal&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % person.attDec; &#xD;
+ //Modulus operator to decimal&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % 123.234;&#xD;
+ //Modulus operator to BOM url&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % bd1;  &#xD;
+  //Modulus operator to process decimal number&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % fieldDecimalNumber;&#xD;
+ //Modulus operator to BigInteger&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ //Modulus operator to BigDecimal&#xD;
+ var bd1 = ScriptUtil.createBigDecimal(&quot;1111&quot;);&#xD;
+ bd1 % ScriptUtil.createBigDecimal(&quot;1111&quot;);</xpdl2:Script>
+              </xpdl2:TaskScript>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:Performers>
+            <xpdl2:Performer>_b2aFAEJUEd-TAbApJLDDCQ</xpdl2:Performer>
+          </xpdl2:Performers>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="82.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="114.0">
+              <xpdl2:Coordinates XCoordinate="2244.0" YCoordinate="159.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwgUJVEd-TAbApJLDDCQ" Name="ModulusOperatortoComplexType" xpdExt:Visibility="Private" xpdExt:DisplayName="Modulus Operator to Complex Type">
+          <xpdl2:Implementation>
+            <xpdl2:Task>
+              <xpdl2:TaskScript/>
+            </xpdl2:Task>
+          </xpdl2:Implementation>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="76.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="109.0">
+              <xpdl2:Coordinates XCoordinate="2392.0" YCoordinate="156.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+          <xpdl2:Extensions/>
+          <xpdExt:ActivityResourcePatterns>
+            <xpdExt:AllocationStrategy xpdExt:Strategy="SYSTEM_DETERMINED"/>
+          </xpdExt:ActivityResourcePatterns>
+        </xpdl2:Activity>
+        <xpdl2:Activity Id="_MUQwgkJVEd-TAbApJLDDCQ" xpdExt:Visibility="Private">
+          <xpdl2:Event>
+            <xpdl2:EndEvent Result="None"/>
+          </xpdl2:Event>
+          <xpdl2:NodeGraphicsInfos>
+            <xpdl2:NodeGraphicsInfo BorderColor="0,0,128" FillColor="255,219,74" Height="31.0" LaneId="_-9TIhkJPEd-TAbApJLDDCQ" Width="31.0">
+              <xpdl2:Coordinates XCoordinate="2499.0" YCoordinate="155.0"/>
+            </xpdl2:NodeGraphicsInfo>
+          </xpdl2:NodeGraphicsInfos>
+        </xpdl2:Activity>
+      </xpdl2:Activities>
+      <xpdl2:Transitions>
+        <xpdl2:Transition Id="_MUQwg0JVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwckJVEd-TAbApJLDDCQ" To="_MUQwc0JVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwhEJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwc0JVEd-TAbApJLDDCQ" To="_MUQwdEJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwhUJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwdEJVEd-TAbApJLDDCQ" To="_MUQwdUJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwhkJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwdUJVEd-TAbApJLDDCQ" To="_MUQwdkJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwh0JVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwdkJVEd-TAbApJLDDCQ" To="_MUQwd0JVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.183673469387756" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwiEJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwd0JVEd-TAbApJLDDCQ" To="_MUQweEJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.30150753768844" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwiUJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQweEJVEd-TAbApJLDDCQ" To="_MUQweUJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.94897959183674" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwikJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQweUJVEd-TAbApJLDDCQ" To="_MUQwekJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwi0JVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwekJVEd-TAbApJLDDCQ" To="_MUQwe0JVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.84656084656085" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwjEJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwe0JVEd-TAbApJLDDCQ" To="_MUQwfEJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.567010309278345" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwjUJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwfEJVEd-TAbApJLDDCQ" To="_MUQwfUJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwjkJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwfUJVEd-TAbApJLDDCQ" To="_MUQwfkJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.63829787234043" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwj0JVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwfkJVEd-TAbApJLDDCQ" To="_MUQwf0JVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="59.84455958549223" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwkEJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwf0JVEd-TAbApJLDDCQ" To="_MUQwgEJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="60.204081632653065" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwkUJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwgEJVEd-TAbApJLDDCQ" To="_MUQwgUJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+        <xpdl2:Transition Id="_MUQwkkJVEd-TAbApJLDDCQ" xpdExt:DisplayName="" Name="" From="_MUQwgUJVEd-TAbApJLDDCQ" To="_MUQwgkJVEd-TAbApJLDDCQ">
+          <xpdl2:ConnectorGraphicsInfos>
+            <xpdl2:ConnectorGraphicsInfo BorderColor="0,0,128" ToolId="XPD.ConnectionInfo"/>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.EndAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="49.00657378472295" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+            <xpdl2:ConnectorGraphicsInfo ToolId="XPD.LabelAnchorPosition">
+              <xpdl2:Coordinates XCoordinate="50.0" YCoordinate="0.0"/>
+              <xpdl2:Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </xpdl2:ConnectorGraphicsInfo>
+          </xpdl2:ConnectorGraphicsInfos>
+        </xpdl2:Transition>
+      </xpdl2:Transitions>
+      <xpdl2:ExtendedAttributes>
+        <xpdl2:ExtendedAttribute Name="Destination" Value="BPM"/>
+      </xpdl2:ExtendedAttributes>
+      <xpdl2:Extensions/>
+      <xpdExt:WsdlGeneration xpdExt:BindingType="RPCLiteral"/>
+    </xpdl2:WorkflowProcess>
+  </xpdl2:WorkflowProcesses>
+  <xpdl2:ExtendedAttributes>
+    <xpdl2:ExtendedAttribute Name="CreatedBy" Value="TIBCO Business Studio"/>
+    <xpdl2:ExtendedAttribute Name="FormatVersion" Value="8"/>
+  </xpdl2:ExtendedAttributes>
+</xpdl2:Package>

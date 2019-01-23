@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<XMLSchema:schema xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:doc_2006-03-01="http://s3.amazonaws.com/doc/2006-03-01/" elementFormDefault="qualified" targetNamespace="http://s3.amazonaws.com/doc/2006-03-01/">
+  <XMLSchema:complexType name="MetadataEntry">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Name" type="XMLSchema:string"/>
+      <XMLSchema:element name="Value" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="Status">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Code" type="XMLSchema:int"/>
+      <XMLSchema:element name="Description" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="Result">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Status" type="doc_2006-03-01:Status"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="CreateBucketResult">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="BucketName" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="BucketLoggingStatus">
+    <XMLSchema:sequence>
+      <XMLSchema:element minOccurs="0" name="LoggingEnabled" type="doc_2006-03-01:LoggingSettings"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="LoggingSettings">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="TargetBucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="TargetPrefix" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="TargetGrants" type="doc_2006-03-01:AccessControlList"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="Grantee"/>
+  <XMLSchema:complexType name="User">
+    <XMLSchema:complexContent>
+      <XMLSchema:extension base="doc_2006-03-01:Grantee"/>
+    </XMLSchema:complexContent>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="AmazonCustomerByEmail">
+    <XMLSchema:complexContent>
+      <XMLSchema:extension base="doc_2006-03-01:User">
+        <XMLSchema:sequence>
+          <XMLSchema:element name="EmailAddress" type="XMLSchema:string"/>
+        </XMLSchema:sequence>
+      </XMLSchema:extension>
+    </XMLSchema:complexContent>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="CanonicalUser">
+    <XMLSchema:complexContent>
+      <XMLSchema:extension base="doc_2006-03-01:User">
+        <XMLSchema:sequence>
+          <XMLSchema:element name="ID" type="XMLSchema:string"/>
+          <XMLSchema:element minOccurs="0" name="DisplayName" type="XMLSchema:string"/>
+        </XMLSchema:sequence>
+      </XMLSchema:extension>
+    </XMLSchema:complexContent>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="Group">
+    <XMLSchema:complexContent>
+      <XMLSchema:extension base="doc_2006-03-01:Grantee">
+        <XMLSchema:sequence>
+          <XMLSchema:element name="URI" type="XMLSchema:string"/>
+        </XMLSchema:sequence>
+      </XMLSchema:extension>
+    </XMLSchema:complexContent>
+  </XMLSchema:complexType>
+  <XMLSchema:simpleType name="Permission">
+    <XMLSchema:restriction base="XMLSchema:string">
+      <XMLSchema:enumeration value="READ"/>
+      <XMLSchema:enumeration value="WRITE"/>
+      <XMLSchema:enumeration value="READ_ACP"/>
+      <XMLSchema:enumeration value="WRITE_ACP"/>
+      <XMLSchema:enumeration value="FULL_CONTROL"/>
+    </XMLSchema:restriction>
+  </XMLSchema:simpleType>
+  <XMLSchema:simpleType name="StorageClass">
+    <XMLSchema:restriction base="XMLSchema:string">
+      <XMLSchema:enumeration value="STANDARD"/>
+      <XMLSchema:enumeration value="UNKNOWN"/>
+    </XMLSchema:restriction>
+  </XMLSchema:simpleType>
+  <XMLSchema:complexType name="Grant">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Grantee" type="doc_2006-03-01:Grantee"/>
+      <XMLSchema:element name="Permission" type="doc_2006-03-01:Permission"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="AccessControlList">
+    <XMLSchema:sequence>
+      <XMLSchema:element maxOccurs="100" minOccurs="0" name="Grant" type="doc_2006-03-01:Grant"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="CreateBucketConfiguration">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="LocationConstraint" type="doc_2006-03-01:LocationConstraint"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="LocationConstraint">
+    <XMLSchema:simpleContent>
+      <XMLSchema:extension base="XMLSchema:string"/>
+    </XMLSchema:simpleContent>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="AccessControlPolicy">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Owner" type="doc_2006-03-01:CanonicalUser"/>
+      <XMLSchema:element name="AccessControlList" type="doc_2006-03-01:AccessControlList"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetObjectResult">
+    <XMLSchema:complexContent>
+      <XMLSchema:extension base="doc_2006-03-01:Result">
+        <XMLSchema:sequence>
+          <XMLSchema:element maxOccurs="unbounded" minOccurs="0" name="Metadata" type="doc_2006-03-01:MetadataEntry"/>
+          <XMLSchema:element name="Data" nillable="true" type="XMLSchema:base64Binary"/>
+          <XMLSchema:element name="LastModified" type="XMLSchema:dateTime"/>
+          <XMLSchema:element name="ETag" type="XMLSchema:string"/>
+        </XMLSchema:sequence>
+      </XMLSchema:extension>
+    </XMLSchema:complexContent>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="PutObjectResult">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="ETag" type="XMLSchema:string"/>
+      <XMLSchema:element name="LastModified" type="XMLSchema:dateTime"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListEntry">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element name="LastModified" type="XMLSchema:dateTime"/>
+      <XMLSchema:element name="ETag" type="XMLSchema:string"/>
+      <XMLSchema:element name="Size" type="XMLSchema:long"/>
+      <XMLSchema:element minOccurs="0" name="Owner" type="doc_2006-03-01:CanonicalUser"/>
+      <XMLSchema:element name="StorageClass" type="doc_2006-03-01:StorageClass"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="PrefixEntry">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Prefix" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListBucketResult">
+    <XMLSchema:sequence>
+      <XMLSchema:element maxOccurs="unbounded" minOccurs="0" name="Metadata" type="doc_2006-03-01:MetadataEntry"/>
+      <XMLSchema:element name="Name" type="XMLSchema:string"/>
+      <XMLSchema:element name="Prefix" type="XMLSchema:string"/>
+      <XMLSchema:element name="Marker" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="NextMarker" type="XMLSchema:string"/>
+      <XMLSchema:element name="MaxKeys" type="XMLSchema:int"/>
+      <XMLSchema:element minOccurs="0" name="Delimiter" type="XMLSchema:string"/>
+      <XMLSchema:element name="IsTruncated" type="XMLSchema:boolean"/>
+      <XMLSchema:element maxOccurs="unbounded" minOccurs="0" name="Contents" type="doc_2006-03-01:ListEntry"/>
+      <XMLSchema:element maxOccurs="unbounded" minOccurs="0" name="CommonPrefixes" type="doc_2006-03-01:PrefixEntry"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListAllMyBucketsEntry">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Name" type="XMLSchema:string"/>
+      <XMLSchema:element name="CreationDate" type="XMLSchema:dateTime"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListAllMyBucketsResult">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Owner" type="doc_2006-03-01:CanonicalUser"/>
+      <XMLSchema:element name="Buckets" type="doc_2006-03-01:ListAllMyBucketsList"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListAllMyBucketsList">
+    <XMLSchema:sequence>
+      <XMLSchema:element maxOccurs="unbounded" minOccurs="0" name="Bucket" type="doc_2006-03-01:ListAllMyBucketsEntry"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:simpleType name="MetadataDirective">
+    <XMLSchema:restriction base="XMLSchema:string">
+      <XMLSchema:enumeration value="COPY"/>
+      <XMLSchema:enumeration value="REPLACE"/>
+    </XMLSchema:restriction>
+  </XMLSchema:simpleType>
+  <XMLSchema:complexType name="CopyObjectResult">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="LastModified" type="XMLSchema:dateTime"/>
+      <XMLSchema:element name="ETag" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="RequestPaymentConfiguration">
+    <XMLSchema:sequence>
+      <XMLSchema:element maxOccurs="1" minOccurs="1" name="Payer" type="doc_2006-03-01:Payer"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:simpleType name="Payer">
+    <XMLSchema:restriction base="XMLSchema:string">
+      <XMLSchema:enumeration value="BucketOwner"/>
+      <XMLSchema:enumeration value="Requester"/>
+    </XMLSchema:restriction>
+  </XMLSchema:simpleType>
+  <XMLSchema:simpleType name="mySimpleElem">
+    <XMLSchema:restriction base="XMLSchema:string"/>
+  </XMLSchema:simpleType>
+  <XMLSchema:complexType name="GetBucketAccessControlPolicy">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="SetObjectAccessControlPolicyResponse">
+    <XMLSchema:sequence/>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="DeleteBucketResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="DeleteBucketResponse" type="doc_2006-03-01:Status"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListBucket">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Prefix" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Marker" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="MaxKeys" type="XMLSchema:int"/>
+      <XMLSchema:element minOccurs="0" name="Delimiter" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetObject">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element name="GetMetadata" type="XMLSchema:boolean"/>
+      <XMLSchema:element name="GetData" type="XMLSchema:boolean"/>
+      <XMLSchema:element name="InlineData" type="XMLSchema:boolean"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="PostResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Location" type="XMLSchema:anyURI"/>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element name="ETag" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetBucketAccessControlPolicyResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="GetBucketAccessControlPolicyResponse" type="doc_2006-03-01:AccessControlPolicy"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="PutObjectResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="PutObjectResponse" type="doc_2006-03-01:PutObjectResult"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListAllMyBucketsResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="ListAllMyBucketsResponse" type="doc_2006-03-01:ListAllMyBucketsResult"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetObjectAccessControlPolicyResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="GetObjectAccessControlPolicyResponse" type="doc_2006-03-01:AccessControlPolicy"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetObjectAccessControlPolicy">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListAllMyBuckets">
+    <XMLSchema:sequence>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="PutObjectInline">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element maxOccurs="100" minOccurs="0" name="Metadata" type="doc_2006-03-01:MetadataEntry"/>
+      <XMLSchema:element name="Data" type="XMLSchema:base64Binary"/>
+      <XMLSchema:element name="ContentLength" type="XMLSchema:long"/>
+      <XMLSchema:element minOccurs="0" name="AccessControlList" type="doc_2006-03-01:AccessControlList"/>
+      <XMLSchema:element minOccurs="0" name="StorageClass" type="doc_2006-03-01:StorageClass"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="ListBucketResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="ListBucketResponse" type="doc_2006-03-01:ListBucketResult"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="DeleteObjectResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="DeleteObjectResponse" type="doc_2006-03-01:Status"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="SetObjectAccessControlPolicy">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element name="AccessControlList" type="doc_2006-03-01:AccessControlList"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="DeleteBucket">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="SetBucketAccessControlPolicy">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AccessControlList" type="doc_2006-03-01:AccessControlList"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="CreateBucketResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="CreateBucketReturn" type="doc_2006-03-01:CreateBucketResult"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetBucketLoggingStatus">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="PutObjectInlineResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="PutObjectInlineResponse" type="doc_2006-03-01:PutObjectResult"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="SetBucketLoggingStatusResponse">
+    <XMLSchema:sequence/>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetBucketLoggingStatusResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="GetBucketLoggingStatusResponse" type="doc_2006-03-01:BucketLoggingStatus"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="SetBucketAccessControlPolicyResponse">
+    <XMLSchema:sequence/>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="CopyObjectResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="CopyObjectResult" type="doc_2006-03-01:CopyObjectResult"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="CreateBucket">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AccessControlList" type="doc_2006-03-01:AccessControlList"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetObjectResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="GetObjectResponse" type="doc_2006-03-01:GetObjectResult"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="SetBucketLoggingStatus">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+      <XMLSchema:element name="BucketLoggingStatus" type="doc_2006-03-01:BucketLoggingStatus"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetObjectExtended">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element name="GetMetadata" type="XMLSchema:boolean"/>
+      <XMLSchema:element name="GetData" type="XMLSchema:boolean"/>
+      <XMLSchema:element name="InlineData" type="XMLSchema:boolean"/>
+      <XMLSchema:element minOccurs="0" name="ByteRangeStart" type="XMLSchema:long"/>
+      <XMLSchema:element minOccurs="0" name="ByteRangeEnd" type="XMLSchema:long"/>
+      <XMLSchema:element minOccurs="0" name="IfModifiedSince" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="IfUnmodifiedSince" type="XMLSchema:dateTime"/>
+      <XMLSchema:element maxOccurs="100" minOccurs="0" name="IfMatch" type="XMLSchema:string"/>
+      <XMLSchema:element maxOccurs="100" minOccurs="0" name="IfNoneMatch" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="ReturnCompleteObjectOnConditionFailure" type="XMLSchema:boolean"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="CopyObject">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="SourceBucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="SourceKey" type="XMLSchema:string"/>
+      <XMLSchema:element name="DestinationBucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="DestinationKey" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="MetadataDirective" type="doc_2006-03-01:MetadataDirective"/>
+      <XMLSchema:element maxOccurs="100" minOccurs="0" name="Metadata" type="doc_2006-03-01:MetadataEntry"/>
+      <XMLSchema:element minOccurs="0" name="AccessControlList" type="doc_2006-03-01:AccessControlList"/>
+      <XMLSchema:element minOccurs="0" name="CopySourceIfModifiedSince" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="CopySourceIfUnmodifiedSince" type="XMLSchema:dateTime"/>
+      <XMLSchema:element maxOccurs="100" minOccurs="0" name="CopySourceIfMatch" type="XMLSchema:string"/>
+      <XMLSchema:element maxOccurs="100" minOccurs="0" name="CopySourceIfNoneMatch" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="StorageClass" type="doc_2006-03-01:StorageClass"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="PutObject">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element maxOccurs="100" minOccurs="0" name="Metadata" type="doc_2006-03-01:MetadataEntry"/>
+      <XMLSchema:element name="ContentLength" type="XMLSchema:long"/>
+      <XMLSchema:element minOccurs="0" name="AccessControlList" type="doc_2006-03-01:AccessControlList"/>
+      <XMLSchema:element minOccurs="0" name="StorageClass" type="doc_2006-03-01:StorageClass"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="DeleteObject">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="Bucket" type="XMLSchema:string"/>
+      <XMLSchema:element name="Key" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="AWSAccessKeyId" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Timestamp" type="XMLSchema:dateTime"/>
+      <XMLSchema:element minOccurs="0" name="Signature" type="XMLSchema:string"/>
+      <XMLSchema:element minOccurs="0" name="Credential" type="XMLSchema:string"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+  <XMLSchema:complexType name="GetObjectExtendedResponse">
+    <XMLSchema:sequence>
+      <XMLSchema:element name="GetObjectResponse" type="doc_2006-03-01:GetObjectResult"/>
+    </XMLSchema:sequence>
+  </XMLSchema:complexType>
+</XMLSchema:schema>

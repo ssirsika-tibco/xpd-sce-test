@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.tibco.com/bx/2009/management/processManagerType" xmlns:tns1="http://www.tibco.com/bx/2009/management/processManagerType"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/bx/2009/management/processManagerType">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/XPD6080/Generated Business Objects/com.tibco.bx._2009.management.processManagerType.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType ecore:name="AttributeType" id="com.tibco.bx._2009.management.processManagerTypeAttributeType"
+      name="AttributeType">
+    <xsd:annotation>
+      <xsd:documentation>Enumeration values used to tag process template attributes and process instance attributes into different categories. 
+
+(Do not delete or re-position any of the enumeration values. If a value must be removed, simply replace it with a &quot;dummy&quot; value.) </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:name="FILTERABLE" value="FILTERABLE"/>
+      <xsd:enumeration ecore:name="SORTABLE" value="SORTABLE"/>
+      <xsd:enumeration ecore:name="DISPLAYABLE" value="DISPLAYABLE"/>
+      <xsd:enumeration ecore:name="HALTONLY" value="HALT_ONLY"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType ecore:name="NameTypePair" id="com.tibco.bx._2009.management.processManagerTypeNameTypePair"
+      abstract="false" mixed="false" name="NameTypePair">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a name/type pair. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="name" id="NameTypePairname" form="qualified" maxOccurs="1"
+          minOccurs="1" name="name" type="xsd:string"/>
+      <xsd:element ecore:name="type" id="NameTypePairtype" form="qualified" maxOccurs="1"
+          minOccurs="1" name="type" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="NameValuePair" id="com.tibco.bx._2009.management.processManagerTypeNameValuePair"
+      abstract="false" mixed="false" name="NameValuePair">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a name/value pair. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="name" id="NameValuePairname" form="qualified" maxOccurs="1"
+          minOccurs="1" name="name" type="xsd:string"/>
+      <xsd:element ecore:name="value" id="NameValuePairvalue" form="qualified" maxOccurs="1"
+          minOccurs="1" name="value" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ActivityInstanceStatus" id="com.tibco.bx._2009.management.processManagerTypeActivityInstanceStatus"
+      abstract="false" mixed="false" name="ActivityInstanceStatus">
+    <xsd:annotation>
+      <xsd:documentation>Type to summarize the current status of an instance of an activity in a process. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="activityID" id="ActivityInstanceStatusactivityID" form="qualified"
+          maxOccurs="1" minOccurs="1" name="activityID" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="activityName" id="ActivityInstanceStatusactivityName"
+          form="qualified" maxOccurs="1" minOccurs="1" name="activityName" nillable="true"
+          type="xsd:string"/>
+      <xsd:element ecore:name="activityState" id="ActivityInstanceStatusactivityState"
+          form="qualified" maxOccurs="1" minOccurs="1" name="activityState" nillable="true"
+          type="xsd:string"/>
+      <xsd:element ecore:name="startTime" id="ActivityInstanceStatusstartTime" form="qualified"
+          maxOccurs="1" minOccurs="1" name="startTime" nillable="true" type="xsd:dateTime"/>
+      <xsd:element ecore:name="completionTime" id="ActivityInstanceStatuscompletionTime"
+          form="qualified" maxOccurs="1" minOccurs="1" name="completionTime" nillable="true"
+          type="xsd:dateTime"/>
+      <xsd:element ecore:name="deadlineExpirationTime" id="ActivityInstanceStatusdeadlineExpirationTime"
+          form="qualified" maxOccurs="1" minOccurs="1" name="deadlineExpirationTime"
+          nillable="true" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="BasicProcessTemplate" id="com.tibco.bx._2009.management.processManagerTypeBasicProcessTemplate"
+      abstract="false" mixed="false" name="BasicProcessTemplate">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process template. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="processQName" id="BasicProcessTemplateprocessQName"
+          form="qualified" maxOccurs="1" minOccurs="1" name="processQName" type="QualifiedProcessName"/>
+      <xsd:element ecore:name="description" id="BasicProcessTemplatedescription" form="qualified"
+          maxOccurs="1" minOccurs="0" name="description" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="QualifiedProcessName" id="com.tibco.bx._2009.management.processManagerTypeQualifiedProcessName"
+      abstract="false" mixed="false" name="QualifiedProcessName">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe the fully qualified name of a process template. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="moduleName" id="QualifiedProcessNamemoduleName" form="qualified"
+          maxOccurs="1" minOccurs="1" name="moduleName" type="xsd:string"/>
+      <xsd:element ecore:name="processName" id="QualifiedProcessNameprocessName" form="qualified"
+          maxOccurs="1" minOccurs="1" name="processName" type="xsd:string"/>
+      <xsd:element ecore:name="version" id="QualifiedProcessNameversion" form="qualified"
+          maxOccurs="1" minOccurs="1" name="version" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="InstanceAttribute" id="com.tibco.bx._2009.management.processManagerTypeInstanceAttribute"
+      abstract="false" mixed="false" name="InstanceAttribute">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process instance attribute. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:NameTypePair">
+        <xsd:sequence>
+          <xsd:element ecore:name="processQName" id="InstanceAttributeprocessQName"
+              form="qualified" maxOccurs="1" minOccurs="1" name="processQName" type="QualifiedProcessName"/>
+          <xsd:element ecore:name="viewtype" id="InstanceAttributeviewtype" form="qualified"
+              maxOccurs="1" minOccurs="1" name="viewtype" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="OperationInfo" id="com.tibco.bx._2009.management.processManagerTypeOperationInfo"
+      abstract="false" mixed="false" name="OperationInfo">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a starter operation. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="operationName" id="OperationInfooperationName" form="qualified"
+          maxOccurs="1" minOccurs="1" name="operationName" type="xsd:string"/>
+      <xsd:element ecore:name="parameters" id="OperationInfoparameters" form="qualified"
+          maxOccurs="1" minOccurs="1" name="parameters" nillable="true" type="TemplateAttributes"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TemplateAttributes" id="com.tibco.bx._2009.management.processManagerTypeTemplateAttributes"
+      abstract="false" mixed="false" name="TemplateAttributes">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of template attributes. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="templateAttribute" id="TemplateAttributestemplateAttribute"
+          form="qualified" maxOccurs="unbounded" minOccurs="0" name="templateAttribute"
+          type="TemplateAttribute"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="TemplateAttribute" id="com.tibco.bx._2009.management.processManagerTypeTemplateAttribute"
+      abstract="false" mixed="false" name="TemplateAttribute">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process template attribute. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns1:NameTypePair"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Page" id="com.tibco.bx._2009.management.processManagerTypePage"
+      abstract="false" mixed="false" name="Page">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a page of data. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element ecore:name="processTemplates" id="PageprocessTemplates" form="qualified"
+          maxOccurs="1" minOccurs="1" name="processTemplates" nillable="true" type="ProcessTemplates"/>
+      <xsd:element ecore:name="processInstances" id="PageprocessInstances" form="qualified"
+          maxOccurs="1" minOccurs="1" name="processInstances" nillable="true" type="ProcessInstances"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ProcessTemplates" id="com.tibco.bx._2009.management.processManagerTypeProcessTemplates"
+      abstract="false" mixed="false" name="ProcessTemplates">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of process templates. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="processTemplate" id="ProcessTemplatesprocessTemplate"
+          form="qualified" maxOccurs="unbounded" minOccurs="0" name="processTemplate"
+          type="ProcessTemplate"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ProcessTemplate" id="com.tibco.bx._2009.management.processManagerTypeProcessTemplate"
+      abstract="false" mixed="false" name="ProcessTemplate">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process template. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="basicTemplate" id="ProcessTemplatebasicTemplate" form="qualified"
+          maxOccurs="1" minOccurs="1" name="basicTemplate" type="BasicProcessTemplate"/>
+      <xsd:element ecore:name="state" id="ProcessTemplatestate" form="qualified" maxOccurs="1"
+          minOccurs="0" name="state" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="priority" id="ProcessTemplatepriority" form="qualified"
+          maxOccurs="1" minOccurs="0" name="priority" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="creationTime" id="ProcessTemplatecreationTime" form="qualified"
+          maxOccurs="1" minOccurs="0" name="creationTime" nillable="true" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ProcessInstances" id="com.tibco.bx._2009.management.processManagerTypeProcessInstances"
+      abstract="false" mixed="false" name="ProcessInstances">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of process instances. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="processInstance" id="ProcessInstancesprocessInstance"
+          form="qualified" maxOccurs="unbounded" minOccurs="0" name="processInstance"
+          type="ProcessInstance"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ProcessInstance" id="com.tibco.bx._2009.management.processManagerTypeProcessInstance"
+      abstract="false" mixed="false" name="ProcessInstance">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a process instance. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="processQName" id="ProcessInstanceprocessQName" form="qualified"
+          maxOccurs="1" minOccurs="0" name="processQName" type="QualifiedProcessName"/>
+      <xsd:element ecore:name="id" id="ProcessInstanceid" form="qualified" maxOccurs="1"
+          minOccurs="0" name="id" type="xsd:string"/>
+      <xsd:element ecore:name="state" id="ProcessInstancestate" form="qualified" maxOccurs="1"
+          minOccurs="0" name="state" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="startTime" id="ProcessInstancestartTime" form="qualified"
+          maxOccurs="1" minOccurs="0" name="startTime" nillable="true" type="xsd:dateTime"/>
+      <xsd:element ecore:name="completionTime" id="ProcessInstancecompletionTime"
+          form="qualified" maxOccurs="1" minOccurs="0" name="completionTime" nillable="true"
+          type="xsd:dateTime"/>
+      <xsd:element ecore:name="priority" id="ProcessInstancepriority" form="qualified"
+          maxOccurs="1" minOccurs="0" name="priority" nillable="true" type="xsd:int"/>
+      <xsd:element ecore:name="waitingWorkCount" id="ProcessInstancewaitingWorkCount"
+          form="qualified" maxOccurs="1" minOccurs="0" name="waitingWorkCount" nillable="true"
+          type="xsd:int"/>
+      <xsd:element ecore:name="parentProcessID" id="ProcessInstanceparentProcessID"
+          form="qualified" maxOccurs="1" minOccurs="0" name="parentProcessID" nillable="true"
+          type="xsd:string"/>
+      <xsd:element ecore:name="userID" id="ProcessInstanceuserID" form="qualified"
+          maxOccurs="1" minOccurs="0" name="userID" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="failedActivityName" id="ProcessInstancefailedActivityName"
+          form="qualified" maxOccurs="1" minOccurs="0" name="failedActivityName" nillable="true"
+          type="xsd:string"/>
+      <xsd:element ecore:name="activityFaultName" id="ProcessInstanceactivityFaultName"
+          form="qualified" maxOccurs="1" minOccurs="0" name="activityFaultName" nillable="true"
+          type="xsd:string"/>
+      <xsd:element ecore:name="activityFaultData" id="ProcessInstanceactivityFaultData"
+          form="qualified" maxOccurs="1" minOccurs="0" name="activityFaultData" nillable="true"
+          type="xsd:string"/>
+      <xsd:element ecore:name="customAttributes" id="ProcessInstancecustomAttributesType"
+          form="qualified" maxOccurs="1" minOccurs="0" name="customAttributes" nillable="true">
+        <xsd:complexType ecore:name="customAttributesType" id="com.tibco.bx._2009.management.processManagerTypecustomAttributesType"
+            mixed="false">
+          <xsd:sequence>
+            <xsd:element ecore:name="customAttribute" form="qualified" maxOccurs="unbounded"
+                minOccurs="0" name="customAttribute" type="NameValuePair"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="QualifiedProcessNames" id="com.tibco.bx._2009.management.processManagerTypeQualifiedProcessNames"
+      abstract="false" mixed="false" name="QualifiedProcessNames">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of qualified process names. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="qualifiedProcessName" id="QualifiedProcessNamesqualifiedProcessName"
+          maxOccurs="unbounded" minOccurs="1" ref="tns1:qualifiedProcessName"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="StarterOperation" id="com.tibco.bx._2009.management.processManagerTypeStarterOperation"
+      abstract="false" mixed="false" name="StarterOperation">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a starter operation. 
+
+A starter operation is a way for an external (to Process Manager) application to create a process instance from a process template that has one and only one starter event, which must be a none starter event.  </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="processQName" id="StarterOperationprocessQName" form="qualified"
+          maxOccurs="1" minOccurs="1" name="processQName" type="QualifiedProcessName"/>
+      <xsd:element ecore:name="operation" id="StarterOperationoperation" form="qualified"
+          maxOccurs="1" minOccurs="1" name="operation" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationPointTaskType" id="com.tibco.bx._2009.management.processManagerTypeMigrationPointTaskType"
+      abstract="false" mixed="false" name="MigrationPointTaskType">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a task that is a valid migration point. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="name" id="MigrationPointTaskTypename" form="unqualified"
+        name="name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of a task that is a valid migration point for this process template. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationPointProcessType" id="com.tibco.bx._2009.management.processManagerTypeMigrationPointProcessType"
+      abstract="false" mixed="false" name="MigrationPointProcessType">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of migration points for a process template. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="task" id="MigrationPointProcessTypetask" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="task" type="MigrationPointTaskType"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="name" id="MigrationPointProcessTypename" form="unqualified"
+        name="name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of process template. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationPointModuleType" id="com.tibco.bx._2009.management.processManagerTypeMigrationPointModuleType"
+      abstract="false" mixed="false" name="MigrationPointModuleType">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of migration points for a module/version set. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="process" id="MigrationPointModuleTypeprocess" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="process" type="MigrationPointProcessType"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="name" id="MigrationPointModuleTypename" form="unqualified"
+        name="name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of module. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="version" id="MigrationPointModuleTypeversion" form="unqualified"
+        name="version" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Version number of module. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationPointTypes" id="com.tibco.bx._2009.management.processManagerTypeMigrationPointTypes"
+      abstract="false" mixed="false" name="MigrationPointTypes">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of migration points. Each migration point consists of a unique set of module name, module version, process template name and task name. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="module" id="MigrationPointTypesmodule" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="module" type="MigrationPointModuleType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationRuleTaskType" id="com.tibco.bx._2009.management.processManagerTypeMigrationRuleTaskType"
+      abstract="false" mixed="false" name="MigrationRuleTaskType">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe the task from which migration is to take place, and the version number of the module to which the process instance should be migrated. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="fromTask" id="MigrationRuleTaskTypefromTask" form="unqualified"
+        name="fromTask" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the task defining the point in the process from which the process instance should be migrated. (This task must be a valid migration point.) </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="toVersion" id="MigrationRuleTaskTypetoVersion" form="unqualified"
+        name="toVersion" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Version number of the module (process template) to which the process instance should be migrated. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="description" id="MigrationRuleTaskTypedescription"
+        form="unqualified" name="description" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>(Optional) Explanation of this migration rule. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationRuleProcessType" id="com.tibco.bx._2009.management.processManagerTypeMigrationRuleProcessType"
+      abstract="false" mixed="false" name="MigrationRuleProcessType">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of migration rules for a process template from which migration is to take place. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="migrate" id="MigrationRuleProcessTypemigrate" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="migrate" type="MigrationRuleTaskType"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="name" id="MigrationRuleProcessTypename" form="unqualified"
+        name="name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the process template from which migration is to take place. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationRuleModuleType" id="com.tibco.bx._2009.management.processManagerTypeMigrationRuleModuleType"
+      abstract="false" mixed="false" name="MigrationRuleModuleType">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of migration rules for: a module, and the module version from which migration is to take place. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="process" id="MigrationRuleModuleTypeprocess" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="process" type="MigrationRuleProcessType"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="name" id="MigrationRuleModuleTypename" form="unqualified"
+        name="name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the module from which migration is to take place. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="version" id="MigrationRuleModuleTypeversion" form="unqualified"
+        name="version" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Version number of the module from which migration is to take place. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationRuleTypes" id="com.tibco.bx._2009.management.processManagerTypeMigrationRuleTypes"
+      abstract="false" mixed="false" name="MigrationRuleTypes">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of migration rules. 
+
+Each migration rule consists of a unique set of module name, module version from which to migrate, process template name, task name from which to migrate, and module version to which to migrate. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="module" id="MigrationRuleTypesmodule" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="module" type="MigrationRuleModuleType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationRuleTaskTypeList" id="com.tibco.bx._2009.management.processManagerTypeMigrationRuleTaskTypeList"
+      abstract="false" mixed="false" name="MigrationRuleTaskTypeList">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe task-level migration rules. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:name="fromTask" id="MigrationRuleTaskTypeListfromTask" form="unqualified"
+        name="fromTask" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the task from which migration is to take place. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="toVersion" id="MigrationRuleTaskTypeListtoVersion"
+        form="unqualified" name="toVersion" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Version number (of the module) to which a process instance is to migrate. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="description" id="MigrationRuleTaskTypeListdescription"
+        form="unqualified" name="description" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>(Optional) Explanation of the migration rule. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="creationTime" id="MigrationRuleTaskTypeListcreationTime"
+        form="unqualified" name="creationTime" type="xsd:dateTime" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Date/time on which the rule was created. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationRuleProcessTypeList" id="com.tibco.bx._2009.management.processManagerTypeMigrationRuleProcessTypeList"
+      abstract="false" mixed="false" name="MigrationRuleProcessTypeList">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe process template-level migration rules. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="migrate" id="MigrationRuleProcessTypeListmigrate" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="migrate" type="MigrationRuleTaskTypeList"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="name" id="MigrationRuleProcessTypeListname" form="unqualified"
+        name="name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the process template from which migration is to take place. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationRuleModuleTypeList" id="com.tibco.bx._2009.management.processManagerTypeMigrationRuleModuleTypeList"
+      abstract="false" mixed="false" name="MigrationRuleModuleTypeList">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe module-level migration rules. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="process" id="MigrationRuleModuleTypeListprocess" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="process" type="MigrationRuleProcessTypeList"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="name" id="MigrationRuleModuleTypeListname" form="unqualified"
+        name="name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name of the module from which migration is to take place. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:name="version" id="MigrationRuleModuleTypeListversion" form="unqualified"
+        name="version" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Version number (of the module) from which migration is to take place. </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="MigrationRuleTypesList" id="com.tibco.bx._2009.management.processManagerTypeMigrationRuleTypesList"
+      abstract="false" mixed="false" name="MigrationRuleTypesList">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe a list of migration rules. Each migration rule consists of unique set of module name, module version from which to migrate, process template name, task name from which to migrate, and module version to which to migrate. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="module" id="MigrationRuleTypesListmodule" form="qualified"
+          maxOccurs="unbounded" minOccurs="0" name="module" type="MigrationRuleModuleTypeList"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="QualifiedTaskName" id="com.tibco.bx._2009.management.processManagerTypeQualifiedTaskName"
+      abstract="false" mixed="false" name="QualifiedTaskName">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe the fully qualified name of a task. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="moduleName" id="QualifiedTaskNamemoduleName" form="qualified"
+          maxOccurs="1" minOccurs="1" name="moduleName" type="xsd:string"/>
+      <xsd:element ecore:name="processName" id="QualifiedTaskNameprocessName" form="qualified"
+          maxOccurs="1" minOccurs="1" name="processName" type="xsd:string"/>
+      <xsd:element ecore:name="version" id="QualifiedTaskNameversion" form="qualified"
+          maxOccurs="1" minOccurs="1" name="version" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="taskName" id="QualifiedTaskNametaskName" form="qualified"
+          maxOccurs="1" minOccurs="1" name="taskName" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="BasicFaultType" id="com.tibco.bx._2009.management.processManagerTypeBasicFaultType"
+      abstract="false" mixed="false" name="BasicFaultType">
+    <xsd:annotation>
+      <xsd:documentation>Type for all fault elements. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="reason" id="BasicFaultTypereason" form="qualified"
+          maxOccurs="1" minOccurs="1" name="reason" nillable="true" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="ProcessIdDBInfo" id="com.tibco.bx._2009.management.processManagerTypeProcessIdDBInfo"
+      abstract="false" mixed="false" name="ProcessIdDBInfo">
+    <xsd:annotation>
+      <xsd:documentation>Type to describe the PVM database information corresponding to a PVM ID. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:name="processId" id="ProcessIdDBInfoprocessId" form="qualified"
+          maxOccurs="1" minOccurs="1" name="processId" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="objectSpace" id="ProcessIdDBInfoobjectSpace" form="qualified"
+          maxOccurs="1" minOccurs="1" name="objectSpace" nillable="true" type="xsd:string"/>
+      <xsd:element ecore:name="dbId" id="ProcessIdDBInfodbId" form="qualified" maxOccurs="1"
+          minOccurs="1" name="dbId" nillable="true" type="tns1:long_StudioGeneratedTemplate"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="long_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="-9223372036854775808"/>
+      <xsd:maxInclusive value="9223372036854775807"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="qualifiedProcessName" nillable="false" type="QualifiedProcessName"/>
+  <xsd:element abstract="false" name="itemCount" nillable="false" type="xsd:int"/>
+  <xsd:element abstract="false" name="success" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="isSet" nillable="false" type="xsd:boolean"/>
+  <xsd:element abstract="false" name="pagingID" nillable="false" type="xsd:int"/>
+  <xsd:element abstract="false" name="processID" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="queryString" nillable="false" type="xsd:string"/>
+  <xsd:element abstract="false" name="activityInstanceStatus" nillable="false" type="ActivityInstanceStatus"/>
+  <xsd:element abstract="false" name="operationInfo" nillable="false" type="OperationInfo"/>
+  <xsd:element abstract="false" name="page" nillable="false" type="Page"/>
+  <xsd:element abstract="false" name="processInstances" nillable="false" type="ProcessInstances"/>
+  <xsd:element abstract="false" name="processTemplates" nillable="false" type="ProcessTemplates"/>
+  <xsd:element abstract="false" name="qualifiedProcessNames" nillable="false" type="QualifiedProcessNames"/>
+  <xsd:element abstract="false" name="starterOperation" nillable="false" type="StarterOperation"/>
+  <xsd:element abstract="false" name="templateAttributes" nillable="false" type="TemplateAttributes"/>
+  <xsd:element abstract="false" name="getProcessInstanceStatusOutput" nillable="false"
+      type="ProcessInstance"/>
+  <xsd:element abstract="false" name="migrationPoints" nillable="false" type="MigrationPointTypes"/>
+  <xsd:element abstract="false" name="migrationRules" nillable="false" type="MigrationRuleTypes"/>
+  <xsd:element abstract="false" name="migrationRuleList" nillable="false" type="MigrationRuleTypesList"/>
+  <xsd:element abstract="false" name="qualifiedTaskName" nillable="false" type="QualifiedTaskName"/>
+  <xsd:element abstract="false" name="illegalArgumentFault" nillable="false" type="BasicFaultType"/>
+  <xsd:element abstract="false" name="illegalStateFault" nillable="false" type="BasicFaultType"/>
+  <xsd:element abstract="false" name="operationFailedFault" nillable="false" type="BasicFaultType"/>
+  <xsd:element abstract="false" name="processIdDBInfo" nillable="false" type="ProcessIdDBInfo"/>
+  <xsd:element abstract="false" name="basicProcessTemplates" nillable="false">
+    <xsd:complexType ecore:name="basicProcessTemplatesType" id="com.tibco.bx._2009.management.processManagerTypebasicProcessTemplatesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="basicProcessTemplate" form="qualified" maxOccurs="unbounded"
+            minOccurs="0" name="basicProcessTemplate" type="BasicProcessTemplate"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="instanceAttributes" nillable="false">
+    <xsd:complexType ecore:name="instanceAttributesType" id="com.tibco.bx._2009.management.processManagerTypeinstanceAttributesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="instanceAttribute" form="qualified" maxOccurs="unbounded"
+            minOccurs="0" name="instanceAttribute" type="InstanceAttribute"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="processInstanceSummary" nillable="false">
+    <xsd:complexType ecore:name="processInstanceSummaryType" id="com.tibco.bx._2009.management.processManagerTypeprocessInstanceSummaryType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="summary" form="qualified" maxOccurs="1" minOccurs="1"
+            name="summary" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="starterOperations" nillable="false">
+    <xsd:complexType ecore:name="starterOperationsType" id="com.tibco.bx._2009.management.processManagerTypestarterOperationsType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="starterOperation" form="qualified" maxOccurs="unbounded"
+            minOccurs="0" name="starterOperation" type="StarterOperation"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="createProcessInstanceInput" nillable="false">
+    <xsd:complexType ecore:name="createProcessInstanceInputType" id="com.tibco.bx._2009.management.processManagerTypecreateProcessInstanceInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processQName" form="qualified" maxOccurs="1" minOccurs="1"
+            name="processQName" type="QualifiedProcessName"/>
+        <xsd:element ecore:name="operationName" form="qualified" maxOccurs="1" minOccurs="1"
+            name="operationName" type="xsd:string"/>
+        <xsd:element ecore:name="parameterMap" form="qualified" maxOccurs="1" minOccurs="1"
+            name="parameterMap">
+          <xsd:complexType ecore:name="parameterMapType" id="com.tibco.bx._2009.management.processManagerTypeparameterMapType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="parameter" form="qualified" maxOccurs="unbounded"
+                  minOccurs="0" name="parameter" type="NameValuePair"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getActivityInstanceStatusInput" nillable="false">
+    <xsd:complexType ecore:name="getActivityInstanceStatusInputType" id="com.tibco.bx._2009.management.processManagerTypegetActivityInstanceStatusInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="processID" type="xsd:string"/>
+        <xsd:element ecore:name="activityName" form="qualified" maxOccurs="1" minOccurs="1"
+            name="activityName" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getParameterValueInput" nillable="false">
+    <xsd:complexType ecore:name="getParameterValueInputType" id="com.tibco.bx._2009.management.processManagerTypegetParameterValueInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="processID" type="xsd:string"/>
+        <xsd:element ecore:name="parameterName" form="qualified" maxOccurs="1" minOccurs="1"
+            name="parameterName" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getParameterValueOutput" nillable="false">
+    <xsd:complexType ecore:name="getParameterValueOutputType" id="com.tibco.bx._2009.management.processManagerTypegetParameterValueOutputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="parameterValue" form="qualified" maxOccurs="1" minOccurs="1"
+            name="parameterValue" type="xsd:anyType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="getAvailableProcessInstanceVariablesInput" nillable="false">
+    <xsd:complexType ecore:name="getAvailableProcessInstanceVariablesInputType" id="com.tibco.bx._2009.management.processManagerTypegetAvailableProcessInstanceVariablesInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="processID" type="xsd:string"/>
+        <xsd:element ecore:name="variableName" form="qualified" maxOccurs="1" minOccurs="0"
+            name="variableName" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="availableProcessInstanceVariables" nillable="false">
+    <xsd:complexType ecore:name="availableProcessInstanceVariablesType" id="com.tibco.bx._2009.management.processManagerTypeavailableProcessInstanceVariablesType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="variable" form="qualified" maxOccurs="unbounded"
+            minOccurs="0" name="variable">
+          <xsd:complexType ecore:name="variableType" id="com.tibco.bx._2009.management.processManagerTypevariableType"
+              mixed="false">
+            <xsd:complexContent mixed="false">
+              <xsd:extension base="tns1:NameValuePair">
+                <xsd:sequence>
+                  <xsd:element ecore:name="type" id="variableTypeType" form="qualified"
+                      maxOccurs="1" minOccurs="1" name="Type" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listProcessInstanceAttributesInput" nillable="false">
+    <xsd:complexType ecore:name="listProcessInstanceAttributesInputType" id="com.tibco.bx._2009.management.processManagerTypelistProcessInstanceAttributesInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processQName" form="qualified" maxOccurs="1" minOccurs="1"
+            name="processQName" type="QualifiedProcessName"/>
+        <xsd:element ecore:name="attributeType" form="qualified" maxOccurs="1" minOccurs="1"
+            name="attributeType" type="tns1:AttributeType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listSetofProcessInstanceAttributesInput" nillable="false">
+    <xsd:complexType ecore:name="listSetofProcessInstanceAttributesInputType" id="com.tibco.bx._2009.management.processManagerTypelistSetofProcessInstanceAttributesInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="qualifiedProcessNames" maxOccurs="1" minOccurs="1"
+            ref="tns1:qualifiedProcessNames"/>
+        <xsd:element ecore:name="attributeType" form="qualified" maxOccurs="1" minOccurs="1"
+            name="attributeType" type="tns1:AttributeType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="listProcessTemplateAttributesInput" nillable="false">
+    <xsd:complexType ecore:name="listProcessTemplateAttributesInputType" id="com.tibco.bx._2009.management.processManagerTypelistProcessTemplateAttributesInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="attributeType" form="qualified" maxOccurs="1" minOccurs="1"
+            name="attributeType" type="tns1:AttributeType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="queryProcessInstancesAltInput" nillable="false">
+    <xsd:complexType ecore:name="queryProcessInstancesAltInputType" id="com.tibco.bx._2009.management.processManagerTypequeryProcessInstancesAltInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="select" form="qualified" maxOccurs="1" minOccurs="1"
+            name="select" type="xsd:string"/>
+        <xsd:element ecore:name="where" form="qualified" maxOccurs="1" minOccurs="1"
+            name="where" type="xsd:string"/>
+        <xsd:element ecore:name="orderBy" form="qualified" maxOccurs="1" minOccurs="1"
+            name="orderBy" type="xsd:string"/>
+        <xsd:element ecore:name="pageSize" form="qualified" maxOccurs="1" minOccurs="1"
+            name="pageSize" type="xsd:int"/>
+        <xsd:element ecore:name="attributeMap" form="qualified" maxOccurs="1" minOccurs="1"
+            name="attributeMap" type="TemplateAttributes"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="queryProcessInstancesInput" nillable="false">
+    <xsd:complexType ecore:name="queryProcessInstancesInputType" id="com.tibco.bx._2009.management.processManagerTypequeryProcessInstancesInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="query" form="qualified" maxOccurs="1" minOccurs="1"
+            name="query" type="xsd:string"/>
+        <xsd:element ecore:name="pageSize" form="qualified" maxOccurs="1" minOccurs="1"
+            name="pageSize" type="xsd:int"/>
+        <xsd:element ecore:name="attributeMap" form="qualified" maxOccurs="1" minOccurs="1"
+            name="attributeMap" type="TemplateAttributes"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="queryProcessInstancesOutput" nillable="false">
+    <xsd:complexType ecore:name="queryProcessInstancesOutputType" id="com.tibco.bx._2009.management.processManagerTypequeryProcessInstancesOutputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processInstances" form="qualified" maxOccurs="1"
+            minOccurs="1" name="processInstances" type="ProcessInstances"/>
+        <xsd:element ecore:name="pagingID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="pagingID" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="queryProcessTemplatesAltInput" nillable="false">
+    <xsd:complexType ecore:name="queryProcessTemplatesAltInputType" id="com.tibco.bx._2009.management.processManagerTypequeryProcessTemplatesAltInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="select" form="qualified" maxOccurs="1" minOccurs="1"
+            name="select" type="xsd:string"/>
+        <xsd:element ecore:name="where" form="qualified" maxOccurs="1" minOccurs="1"
+            name="where" type="xsd:string"/>
+        <xsd:element ecore:name="orderBy" form="qualified" maxOccurs="1" minOccurs="1"
+            name="orderBy" type="xsd:string"/>
+        <xsd:element ecore:name="pageSize" form="qualified" maxOccurs="1" minOccurs="1"
+            name="pageSize" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="queryProcessTemplatesInput" nillable="false">
+    <xsd:complexType ecore:name="queryProcessTemplatesInputType" id="com.tibco.bx._2009.management.processManagerTypequeryProcessTemplatesInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="query" form="qualified" maxOccurs="1" minOccurs="1"
+            name="query" type="xsd:string"/>
+        <xsd:element ecore:name="pageSize" form="qualified" maxOccurs="1" minOccurs="1"
+            name="pageSize" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="queryProcessTemplatesOutput" nillable="false">
+    <xsd:complexType ecore:name="queryProcessTemplatesOutputType" id="com.tibco.bx._2009.management.processManagerTypequeryProcessTemplatesOutputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processTemplates" form="qualified" maxOccurs="1"
+            minOccurs="1" name="processTemplates" type="ProcessTemplates"/>
+        <xsd:element ecore:name="pagingID" form="qualified" maxOccurs="1" minOccurs="0"
+            name="pagingID" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="setAvailableProcessInstanceVariablesInput" nillable="false">
+    <xsd:complexType ecore:name="setAvailableProcessInstanceVariablesInputType" id="com.tibco.bx._2009.management.processManagerTypesetAvailableProcessInstanceVariablesInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="processID" type="xsd:string"/>
+        <xsd:element ecore:name="variableMap" form="qualified" maxOccurs="1" minOccurs="1"
+            name="variableMap">
+          <xsd:complexType ecore:name="variableMapType" id="com.tibco.bx._2009.management.processManagerTypevariableMapType"
+              mixed="false">
+            <xsd:sequence>
+              <xsd:element ecore:name="variable" form="qualified" maxOccurs="unbounded"
+                  minOccurs="1" name="variable" type="NameValuePair"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="setDeadlineExpirationInput" nillable="false">
+    <xsd:complexType ecore:name="setDeadlineExpirationInputType" id="com.tibco.bx._2009.management.processManagerTypesetDeadlineExpirationInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="activityID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="activityID" type="xsd:string"/>
+        <xsd:element ecore:name="expirationTime" form="qualified" maxOccurs="1" minOccurs="1"
+            name="expirationTime" type="xsd:dateTime"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="short_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="-32768"/>
+      <xsd:maxInclusive value="32767"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="setPriorityInput" nillable="false">
+    <xsd:complexType ecore:name="setPriorityInputType" id="com.tibco.bx._2009.management.processManagerTypesetPriorityInputType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="processID" form="qualified" maxOccurs="1" minOccurs="1"
+            name="processID" type="xsd:string"/>
+        <xsd:element ecore:name="priority" form="qualified" maxOccurs="1" minOccurs="1"
+            name="priority" type="tns1:short_StudioGeneratedTemplate"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

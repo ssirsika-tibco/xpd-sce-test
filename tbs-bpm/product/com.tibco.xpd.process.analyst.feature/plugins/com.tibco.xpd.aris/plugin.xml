@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="com.tibco.xpd.resources.ui.importWizard.bpm.category"
+            class="com.tibco.xpd.aris.arisxml.imports.ImportWizard"
+            icon="icons/aris_haus_16px.gif"
+            id="com.tibco.xpd.importwizard.aris"
+            name="%importWizard.aris.name">
+         <description>
+            %importWizard.aris.description
+         </description>
+      </wizard>
+   </extension>
+
+</plugin>

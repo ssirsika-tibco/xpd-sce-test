@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://example.com/userdefinedbomreferencingelementfromimportedschematest_rt_userdefinedbom"
+    xmlns:tns1="http://example.com/userdefinedbomreferencingelementfromimportedschematest_rt_userdefinedbom"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns2="http://www.example.org/UserDefinedBOMReferencingElementFromImportedSchemaTest_rt_ImportedFile"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/userdefinedbomreferencingelementfromimportedschematest_rt_userdefinedbom">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/UserDefinedBOMReferencingElementFromImportedSchemaTest_rt/Business Objects/UserDefinedBOMReferencingElementFromImportedSchemaTest_rt_UserDefinedBOM.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.example.org/UserDefinedBOMReferencingElementFromImportedSchemaTest_rt_ImportedFile"
+      schemaLocation="org.example.UserDefinedBOMReferencingElementFromImportedSchemaTest_rt_ImportedFile.xsd"/>
+  <xsd:complexType ecore:name="Class1" id="_1GCE4O3yEeKE4ZBG66RSKQ" name="Class1">
+    <xsd:sequence>
+      <xsd:element ecore:name="attribute1" id="_1gGxwO3yEeKE4ZBG66RSKQ" maxOccurs="1"
+          minOccurs="0" ref="tns2:EmployeeAddress"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Class1Element" type="Class1"/>
+</xsd:schema>

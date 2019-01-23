@@ -1,0 +1,132 @@
+package com.tibco.www.bx._2010.debugging.debuggerType;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+/**
+ * <p>
+ * Java class for anonymous complex type.
+ * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ * 
+ * <pre>
+ * &lt;complexType>
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="processId" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="location" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="expression" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="language" type="{http://www.tibco.com/bx/2010/debugging/debuggerType}ConditionLanguage"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = { "processId", "location", "expression", "language" })
+@XmlRootElement(name = "addTestpointInput")
+public class AddTestpointInput {
+
+	@XmlElement(required = true)
+	protected String processId;
+	@XmlElement(required = true)
+	protected String location;
+	@XmlElement(required = true)
+	protected String expression;
+	@XmlElement(required = true)
+	protected ConditionLanguage language;
+
+	/**
+	 * Gets the value of the processId property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getProcessId() {
+		return processId;
+	}
+
+	/**
+	 * Sets the value of the processId property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setProcessId(String value) {
+		this.processId = value;
+	}
+
+	/**
+	 * Gets the value of the location property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getLocation() {
+		return location;
+	}
+
+	/**
+	 * Sets the value of the location property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setLocation(String value) {
+		this.location = value;
+	}
+
+	/**
+	 * Gets the value of the expression property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getExpression() {
+		return expression;
+	}
+
+	/**
+	 * Sets the value of the expression property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setExpression(String value) {
+		this.expression = value;
+	}
+
+	/**
+	 * Gets the value of the language property.
+	 * 
+	 * @return possible object is {@link ConditionLanguage }
+	 * 
+	 */
+	public ConditionLanguage getLanguage() {
+		return language;
+	}
+
+	/**
+	 * Sets the value of the language property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link ConditionLanguage }
+	 * 
+	 */
+	public void setLanguage(ConditionLanguage value) {
+		this.language = value;
+	}
+
+}

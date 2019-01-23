@@ -1,0 +1,40 @@
+<%@ jet	package="com.tibco.bx.composite.core.templates" 
+imports="java.util.List"
+class="CliDataXmlGenerator" %>
+<% 	String daaName = (String)((Object[])argument)[0];
+	String description = daaName.substring(0,daaName.lastIndexOf("."));
+	List<String> referencedResource = (List<String>)((Object[])argument)[1];
+%>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<amxdata_base:Enterprise
+    xmlns:amxdata="http://tibco.com/amxadministrator/command/line/types"
+    xmlns:amxdata_base="http://tibco.com/amxadministrator/command/line/types_base"
+    xmlns:amxdata_reference="http://tibco.com/amxadministrator/command/line/types_reference"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tibco.com/amxadministrator/command/line/types_base ../schemas/amxdata_base.xsd http://tibco.com/amxadministrator/command/line/types ../schemas/amxdata.xsd">
+    <Environment xsi:type="amxdata:Environment" name="IntegrationEnvironment" description="integration environment" contact="TIBCO">
+           <Node xsi:type="amxdata:Node" name="IntegrationNode">
+           		<% for(String s:referencedResource){%>
+				 <ResourceInstance
+			            xsi:type="amxdata:ResourceInstance"
+			            name="<%=s%>"
+			            resourceTemplateName="<%=s%>"
+			            />
+            	<%}%>
+            </Node>
+	        <Application
+	            xsi:type="amxdata:Application"
+	            name="<%=description%>"
+	            contact="TIBCO Inc."
+	            description="<%=description%>">
+	            <Node name="IntegrationNode" environmentName="IntegrationEnvironment"/>
+	            <ApplicationTemplate xsi:type="amxdata_reference:ApplicationTemplate_reference" name="<%=description%>"/>
+	        </Application>
+    	</Environment>
+
+    <DAA xsi:type="amxdata:DAA" description="<%=description%>" location="<%=daaName%>" importResourceTemplates="true"/>
+
+</amxdata_base:Enterprise>
+
+

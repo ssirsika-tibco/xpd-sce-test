@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+
+
+
+
+
+
+
+   
+   <extension
+         point="com.tibco.xpd.resources.specialFolders">
+      <folder
+            kind="bpelOutput"
+            multiple="false"
+            name=".processOut"
+            unsettable="true">
+      </folder>
+   </extension>
+   <extension
+         id="bpelBuilder"
+         name="%bpel.builderTitle"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true"
+            isConfigurable="true">
+         <run class="com.tibco.xpd.n2.bpel.builder.BPELBuilder"/>
+      </builder>
+   </extension>
+   <extension
+         id="bpelNature"
+         name="%bpel.natureTitle"
+         point="org.eclipse.core.resources.natures">
+          <builder id="com.tibco.xpd.n2.bpel.bpelBuilder"/>
+      <runtime>
+         <run class="com.tibco.xpd.n2.bpel.nature.BPELNature"/>
+      </runtime>
+      <requires-nature
+            id="com.tibco.xpd.wsdltobom.wsdlBomNature">
+      </requires-nature>
+      <requires-nature
+            id="com.tibco.xpd.n2.daa.cleanBpmFolderNature">
+      </requires-nature>
+    </extension>
+    <extension
+       point="com.tibco.xpd.resources.projectAsset">
+    <asset
+          configurator="com.tibco.xpd.n2.bpel.asset.BPELAssetNatureConfigurator"
+          extends="com.tibco.xpd.asset.businessProcess"
+          id="com.tibco.xpd.asset.n2.bpel"
+          name="BPEL Asset"
+          visible="false">
+       <description>
+          BPEL Asset
+       </description>
+       <bindings>
+          <nature
+                id="com.tibco.xpd.n2.bpel.bpelNature">
+          </nature>
+          <globalDestination
+                id="com.tibco.xpd.n2.core.n2GlobalDestination">
+          </globalDestination>
+       </bindings>
+    </asset>
+ </extension>
+    <extension
+          point="org.eclipse.team.core.ignore">
+       <ignore
+             enabled="true"
+             pattern=".processOut">
+       </ignore>
+    </extension>
+</plugin>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema"
+	xmlns:tns="http://www.example.org/NewXMLSchema" elementFormDefault="qualified">
+
+	<element name="topElemAll" type="string" block="#all"></element>
+	<complexType name="myComplexAll" block="#all">
+		<sequence>
+			<element name="elemAll" block="#all" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<element name="topElemRest" type="string" block="restriction"></element>
+	<complexType name="myComplexRest" block="restriction">
+		<sequence>
+			<element name="elemRest" block="restriction" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<element name="topElemExtension" type="string" block="extension"></element>
+	<complexType name="myComplexExtension" block="extension">
+		<sequence>
+			<element name="elemExtension" block="extension" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<element name="topElemSubst" type="string" block="substitution"></element>
+	<complexType name="myComplex" block="#all">
+		<sequence>
+			<element name="elemSubst" block="substitution" type="string"></element>
+		</sequence>
+	</complexType>
+
+</schema>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="com.enel.mind.LetturaMetadatiDM2" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/getdatiinesito" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Presentation_GetDatiInesitoPostaNonRecapitata" targetNamespace="com.enel.mind.LetturaMetadatiDM2" tibex:ServiceTask="_MxbvDEUuEeOOVarfYVMyXQ" tibex:XPDL="Presentation_GetDatiInesitoPostaNonRecapitata.xpdl" tibex:process="_jTJFAEJHEeOds_Fs5Kx-NA">
+  <wsdl:types>
+    <xsd:schema xmlns="com.enel.mind.LetturaMetadatiDM2" targetNamespace="com.enel.mind.LetturaMetadatiDM2"/>
+    <xsd:schema xmlns="http://mind.enel.com/getdatiinesito" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/getdatiinesito" targetNamespace="http://mind.enel.com/getdatiinesito">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/MIND_Presentation/Business Objects/com.enel.mind.getdatiinesito.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="GetDatiInesitoRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="numriferimento">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="12"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="progressivo">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="12"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idbpm">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetDatiInesitoResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codPlico" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="flagVocal" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sorgenteEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetDatiInesitoRequestElement" type="GetDatiInesitoRequest"/>
+      <xsd:element name="GetDatiInesitoResponseElement" type="GetDatiInesitoResponse"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDatiInesitoPostaNonRecapitataProcess_LetturaMetadatiDM2_INPUT">
+    <wsdl:part element="ttns:GetDatiInesitoRequestElement" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="GetDatiInesitoPostaNonRecapitataProcess_LetturaMetadatiDM2_OUTPUT">
+    <wsdl:part element="ttns:GetDatiInesitoResponseElement" name="response"/>
+  </wsdl:message>
+  <wsdl:portType name="GetDatiInesitoPostaNonRecapitataProcess" tibex:FlowContainer="_jTJFAEJHEeOds_Fs5Kx-NA">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="LetturaMetadatiDM2">
+      <wsdl:input message="ns:GetDatiInesitoPostaNonRecapitataProcess_LetturaMetadatiDM2_INPUT" tibex:Event="_MxbvDEUuEeOOVarfYVMyXQ"/>
+      <wsdl:output message="ns:GetDatiInesitoPostaNonRecapitataProcess_LetturaMetadatiDM2_OUTPUT" tibex:Event="_MxbvDEUuEeOOVarfYVMyXQ"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

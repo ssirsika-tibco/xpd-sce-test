@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:tns="http://xmlns.enel.com/mercato/libero/service/integration/weaAbstract" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://www.tibco.com/schemas/Muti_Integration_59_2014R3/Processes/Integration/Wea/AbstractWSDL/GetNotificaAT.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.enel.com/mercato/libero/service/integration/weaAbstract">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Muti_Integration_59_2014R3/Processes/Integration/Wea/AbstractWSDL/GetNotificaAT.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/schemas/Muti_Integration_59_2014R3/Processes/Integration/Wea/AbstractWSDL/GetNotificaAT.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="GetNotificaATRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Token" type="xs:string"/>
+                        <xs:element name="NumeroFattura" type="xs:string"/>
+                        <xs:element name="DataFattura" type="xs:date"/>
+                        <xs:element name="IdBpm" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetNotificaATResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Esito" type="xs:string"/>
+                        <xs:element name="Codice" type="xs:string"/>
+                        <xs:element name="Descrizione" type="xs:string" minOccurs="0"/>
+                        <xs:element name="SistemaSorgenteEsito" type="xs:string" minOccurs="0"/>
+                        <xs:element name="AttachmentXml" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="NomeFile" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="Contenuto" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="AttachmentHtml" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="NomeFile" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="Contenuto" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:portType name="WeaPortType">
+        <wsdl:operation name="GetNotificaAT">
+            <wsdl:input message="tns:GetNotificaATRequest"/>
+            <wsdl:output message="tns:GetNotificaATResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="GetNotificaATRequest">
+        <wsdl:part name="input" element="ns0:GetNotificaATRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetNotificaATResponse">
+        <wsdl:part name="output" element="ns0:GetNotificaATResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

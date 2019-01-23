@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:atleastonce="http://www.tibco.com/wrm/policy/atleastonce" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:pbu="http://www.tibco.com/wrm/policy/pbu" xmlns:pfe="http://xsd.tns.tibco.com/n2/models/pfe/1.0" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:service="http://xsd.tns.tibco.com/bx/amx/model" xmlns:soapbt="http://xsd.tns.tibco.com/amf/models/sca/binding/soap" xmlns:startservicefirst="http://www.tibco.com/wrm/policy/startservicefirst" xmlns:threading="http://www.tibco.com/wrm/policy/threading" xmlns:transactedoneway="http://www.tibco.com/wrm/policy/transactedoneway" xmlns:wrm="http://www.tibco.com/wrm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmi:id="_g-mHwRWzEemSRKQf6yktTg" targetNamespace="http://www.example.com/com.example.uc12_restserviceforactivities" name="com.example.uc12_restserviceforactivities" compositeext:version="1.0.0.20140709131251219" compositeext:formatVersion="2">
+  <sca:service xmi:id="_iHmXMBWzEemSRKQf6yktTg" name="UC1ReplyImmediateRequestActivityProcess" promote="UC12_RESTServiceForActivitiesProcessFlow/UC1ReplyImmediateRequestActivityProcess">
+    <sca:interface.wsdl xmi:id="_iHmXMRWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC1ReplyImmediateRequestActivityProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    <sca:binding.sca xmi:id="_iHnlUBWzEemSRKQf6yktTg" name="Virtualization"/>
+    <soapbt:binding.soap.service xmi:id="_iKYlcBWzEemSRKQf6yktTg" name="UC1ReplyImmediateRequestActivityProcess_EP" transportBindingType="HTTP" attachmentStyle="RPC" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.0" policySets="wrm:WRMPolicySetsResource_authentication.usernameToken" requires="scaext:clientAuthentication.usernameToken" scaext:policySetLocations="resources/WRMPolicySetsResource.policysets">
+      <operationConfiguration xmi:id="_iKmA0BWzEemSRKQf6yktTg" operation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.0/@eOperations.0" action="CatchMessageEvent1" actionNeeded="true">
+        <messageConfiguration xmi:id="_iKmA0RWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.0">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iKmA0hWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.0/@eParts.0"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_iKmA0xWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.1" messageDirection="OUTPUT">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iKmA1BWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.1/@eParts.0"/>
+        </messageConfiguration>
+        <bindingType xmi:id="_iKmA1RWzEemSRKQf6yktTg" style="RPC"/>
+      </operationConfiguration>
+      <inboundConfiguration xsi:type="soapbt:HttpTransportConfiguration" xmi:id="_iLnUgBWzEemSRKQf6yktTg" endpointURI="/UC12_RESTServiceForActivities/UC1ReplyImmediateRequestActivityProcess"/>
+      <defaultBindingType xmi:id="_iKlZwBWzEemSRKQf6yktTg" style="RPC"/>
+    </soapbt:binding.soap.service>
+    <scact:bindingAdjunct xmi:id="_iHoMYBWzEemSRKQf6yktTg" bindingName="Virtualization"/>
+    <scact:bindingAdjunct xmi:id="_iKmn4BWzEemSRKQf6yktTg" bindingName="UC1ReplyImmediateRequestActivityProcess_EP">
+      <sca:property xmi:id="_iKmn4RWzEemSRKQf6yktTg" mustSupply="true" name="HttpInboundConnectionConfig" type="xsd:string" scaext:simpleValue="httpConnector"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_iHpagBWzEemSRKQf6yktTg" name="UC2RequestActivityWithGeneratedWSDLProcess" promote="UC12_RESTServiceForActivitiesProcessFlow/UC2RequestActivityWithGeneratedWSDLProcess">
+    <sca:interface.wsdl xmi:id="_iHpagRWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC2RequestActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    <sca:binding.sca xmi:id="_iHpaghWzEemSRKQf6yktTg" name="Virtualization"/>
+    <soapbt:binding.soap.service xmi:id="_iLpJsBWzEemSRKQf6yktTg" name="UC2RequestActivityWithGeneratedWSDLProcess_EP" transportBindingType="HTTP" attachmentStyle="RPC" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.1" policySets="wrm:WRMPolicySetsResource_authentication.usernameToken" requires="scaext:clientAuthentication.usernameToken" scaext:policySetLocations="resources/WRMPolicySetsResource.policysets">
+      <operationConfiguration xmi:id="_iLpwwRWzEemSRKQf6yktTg" operation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.1/@eOperations.0" action="CatchMessageEvent2" actionNeeded="true">
+        <messageConfiguration xmi:id="_iLpwwhWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.2">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iLpwwxWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.2/@eParts.0"/>
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iLpwxBWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.2/@eParts.1"/>
+        </messageConfiguration>
+        <bindingType xmi:id="_iLpwxRWzEemSRKQf6yktTg" style="RPC"/>
+      </operationConfiguration>
+      <inboundConfiguration xsi:type="soapbt:HttpTransportConfiguration" xmi:id="_iLqX0BWzEemSRKQf6yktTg" endpointURI="/UC12_RESTServiceForActivities/UC2RequestActivityWithGeneratedWSDLProcess"/>
+      <defaultBindingType xmi:id="_iLpwwBWzEemSRKQf6yktTg" style="RPC"/>
+    </soapbt:binding.soap.service>
+    <scact:bindingAdjunct xmi:id="_iHpagxWzEemSRKQf6yktTg" bindingName="Virtualization"/>
+    <scact:bindingAdjunct xmi:id="_iLpwxxWzEemSRKQf6yktTg" bindingName="UC2RequestActivityWithGeneratedWSDLProcess_EP">
+      <sca:property xmi:id="_iLpwyBWzEemSRKQf6yktTg" mustSupply="true" name="HttpInboundConnectionConfig" type="xsd:string" scaext:simpleValue="httpConnector"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_iHpahBWzEemSRKQf6yktTg" name="UC3RequestReplyActivityWithGeneratedWSDLProcess" promote="UC12_RESTServiceForActivitiesProcessFlow/UC3RequestReplyActivityWithGeneratedWSDLProcess">
+    <sca:interface.wsdl xmi:id="_iHpahRWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC3RequestReplyActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    <sca:binding.sca xmi:id="_iHpahhWzEemSRKQf6yktTg" name="Virtualization"/>
+    <soapbt:binding.soap.service xmi:id="_iLq-4BWzEemSRKQf6yktTg" name="UC3RequestReplyActivityWithGeneratedWSDLProcess_EP" transportBindingType="HTTP" attachmentStyle="RPC" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.2" policySets="wrm:WRMPolicySetsResource_authentication.usernameToken" requires="scaext:clientAuthentication.usernameToken" scaext:policySetLocations="resources/WRMPolicySetsResource.policysets">
+      <operationConfiguration xmi:id="_iLrl8RWzEemSRKQf6yktTg" operation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.2/@eOperations.0" action="CatchMessageEvent3" actionNeeded="true">
+        <messageConfiguration xmi:id="_iLrl8hWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.3">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iLrl8xWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.3/@eParts.0"/>
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iLrl9BWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.3/@eParts.1"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_iLrl9RWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.4" messageDirection="OUTPUT">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iLrl9hWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.4/@eParts.0"/>
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iLrl9xWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@eMessages.4/@eParts.1"/>
+        </messageConfiguration>
+        <bindingType xmi:id="_iLrl-BWzEemSRKQf6yktTg" style="RPC"/>
+      </operationConfiguration>
+      <inboundConfiguration xsi:type="soapbt:HttpTransportConfiguration" xmi:id="_iLsNABWzEemSRKQf6yktTg" endpointURI="/UC12_RESTServiceForActivities/UC3RequestReplyActivityWithGeneratedWSDLProcess"/>
+      <defaultBindingType xmi:id="_iLrl8BWzEemSRKQf6yktTg" style="RPC"/>
+    </soapbt:binding.soap.service>
+    <scact:bindingAdjunct xmi:id="_iHpahxWzEemSRKQf6yktTg" bindingName="Virtualization"/>
+    <scact:bindingAdjunct xmi:id="_iLrl-hWzEemSRKQf6yktTg" bindingName="UC3RequestReplyActivityWithGeneratedWSDLProcess_EP">
+      <sca:property xmi:id="_iLrl-xWzEemSRKQf6yktTg" mustSupply="true" name="HttpInboundConnectionConfig" type="xsd:string" scaext:simpleValue="httpConnector"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_iHpaiBWzEemSRKQf6yktTg" name="RequestOnlyWSDLdocLiteralSOAP_Provider" promote="UC12_RESTServiceForActivitiesProcessFlow/RequestOnlyWSDLdocLiteralSOAP_Provider">
+    <sca:interface.wsdl xmi:id="_iHpaiRWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLdocLiteral/#wsdl.interface(RequestOnlyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl"/>
+    <sca:binding.sca xmi:id="_iHpaihWzEemSRKQf6yktTg" name="Virtualization"/>
+    <soapbt:binding.soap.service xmi:id="_iLs0EBWzEemSRKQf6yktTg" name="RequestOnlyWSDLdocLiteral_EP" transportBindingType="HTTP" attachmentStyle="DOCUMENT" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl#//@ePortTypes.0" policySets="wrm:WRMPolicySetsResource_authentication.usernameToken" requires="scaext:clientAuthentication.usernameToken" scaext:policySetLocations="resources/WRMPolicySetsResource.policysets">
+      <operationConfiguration xmi:id="_iLuCMRWzEemSRKQf6yktTg" operation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl#//@ePortTypes.0/@eOperations.0" action="NewOperation" actionNeeded="true">
+        <messageConfiguration xmi:id="_iLuCMhWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl#//@eMessages.0">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iLuCMxWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl#//@eMessages.0/@eParts.0"/>
+        </messageConfiguration>
+        <bindingType xmi:id="_iLuCNBWzEemSRKQf6yktTg"/>
+      </operationConfiguration>
+      <inboundConfiguration xsi:type="soapbt:HttpTransportConfiguration" xmi:id="_iLvQUBWzEemSRKQf6yktTg" endpointURI="/RequestOnlyWSDLdocLiteral/RequestOnlyWSDLdocLiteralSOAP"/>
+      <defaultBindingType xmi:id="_iLuCMBWzEemSRKQf6yktTg"/>
+    </soapbt:binding.soap.service>
+    <scact:bindingAdjunct xmi:id="_iHpaixWzEemSRKQf6yktTg" bindingName="Virtualization"/>
+    <scact:bindingAdjunct xmi:id="_iLuCNhWzEemSRKQf6yktTg" bindingName="RequestOnlyWSDLdocLiteral_EP">
+      <sca:property xmi:id="_iLuCNxWzEemSRKQf6yktTg" mustSupply="true" name="HttpInboundConnectionConfig" type="xsd:string" scaext:simpleValue="httpConnector"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_iHpajBWzEemSRKQf6yktTg" name="RequestOnlyWSDLrpcLiteralSOAP_Provider" promote="UC12_RESTServiceForActivitiesProcessFlow/RequestOnlyWSDLrpcLiteralSOAP_Provider">
+    <sca:interface.wsdl xmi:id="_iHqBkBWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLrpcLiteral/#wsdl.interface(RequestOnlyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl"/>
+    <sca:binding.sca xmi:id="_iHqBkRWzEemSRKQf6yktTg" name="Virtualization"/>
+    <soapbt:binding.soap.service xmi:id="_iLxFgBWzEemSRKQf6yktTg" name="RequestOnlyWSDLrpcLiteral_EP" transportBindingType="HTTP" attachmentStyle="RPC" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl#//@ePortTypes.0" policySets="wrm:WRMPolicySetsResource_authentication.usernameToken" requires="scaext:clientAuthentication.usernameToken" scaext:policySetLocations="resources/WRMPolicySetsResource.policysets">
+      <operationConfiguration xmi:id="_iLxFghWzEemSRKQf6yktTg" operation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl#//@ePortTypes.0/@eOperations.0" action="NewOperation" actionNeeded="true">
+        <messageConfiguration xmi:id="_iLxFgxWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl#//@eMessages.0">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iLxFhBWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl#//@eMessages.0/@eParts.0"/>
+        </messageConfiguration>
+        <bindingType xmi:id="_iLxFhRWzEemSRKQf6yktTg" style="RPC"/>
+      </operationConfiguration>
+      <inboundConfiguration xsi:type="soapbt:HttpTransportConfiguration" xmi:id="_iLyToBWzEemSRKQf6yktTg" endpointURI="/RequestOnlyWSDLrpcLiteral/RequestOnlyWSDLrpcLiteralSOAP"/>
+      <defaultBindingType xmi:id="_iLxFgRWzEemSRKQf6yktTg" style="RPC"/>
+    </soapbt:binding.soap.service>
+    <scact:bindingAdjunct xmi:id="_iHqBkhWzEemSRKQf6yktTg" bindingName="Virtualization"/>
+    <scact:bindingAdjunct xmi:id="_iLxFhxWzEemSRKQf6yktTg" bindingName="RequestOnlyWSDLrpcLiteral_EP">
+      <sca:property xmi:id="_iLxFiBWzEemSRKQf6yktTg" mustSupply="true" name="HttpInboundConnectionConfig" type="xsd:string" scaext:simpleValue="httpConnector"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_iHqBkxWzEemSRKQf6yktTg" name="RequestReplyWSDLdocLiteralSOAP_Provider" promote="UC12_RESTServiceForActivitiesProcessFlow/RequestReplyWSDLdocLiteralSOAP_Provider">
+    <sca:interface.wsdl xmi:id="_iHqBlBWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLdocLiteral/#wsdl.interface(RequestReplyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl"/>
+    <sca:binding.sca xmi:id="_iHqBlRWzEemSRKQf6yktTg" name="Virtualization"/>
+    <soapbt:binding.soap.service xmi:id="_iL0I0BWzEemSRKQf6yktTg" name="RequestReplyWSDLdocLiteral_EP" transportBindingType="HTTP" attachmentStyle="DOCUMENT" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@ePortTypes.0" policySets="wrm:WRMPolicySetsResource_authentication.usernameToken" requires="scaext:clientAuthentication.usernameToken" scaext:policySetLocations="resources/WRMPolicySetsResource.policysets">
+      <operationConfiguration xmi:id="_iL0v4BWzEemSRKQf6yktTg" operation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@ePortTypes.0/@eOperations.0" action="NewOperation" actionNeeded="true">
+        <messageConfiguration xmi:id="_iL0v4RWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@eMessages.0">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iL0v4hWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@eMessages.0/@eParts.0"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_iL0v4xWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@eMessages.1" messageDirection="OUTPUT">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iL0v5BWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@eMessages.1/@eParts.0"/>
+        </messageConfiguration>
+        <bindingType xmi:id="_iL0v5RWzEemSRKQf6yktTg"/>
+      </operationConfiguration>
+      <inboundConfiguration xsi:type="soapbt:HttpTransportConfiguration" xmi:id="_iL1-ABWzEemSRKQf6yktTg" endpointURI="/RequestReplyWSDLdocLiteral/RequestReplyWSDLdocLiteralSOAP"/>
+      <defaultBindingType xmi:id="_iL0I0RWzEemSRKQf6yktTg"/>
+    </soapbt:binding.soap.service>
+    <scact:bindingAdjunct xmi:id="_iHqBlhWzEemSRKQf6yktTg" bindingName="Virtualization"/>
+    <scact:bindingAdjunct xmi:id="_iL0v5xWzEemSRKQf6yktTg" bindingName="RequestReplyWSDLdocLiteral_EP">
+      <sca:property xmi:id="_iL0v6BWzEemSRKQf6yktTg" mustSupply="true" name="HttpInboundConnectionConfig" type="xsd:string" scaext:simpleValue="httpConnector"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:service xmi:id="_iHqBlxWzEemSRKQf6yktTg" name="RequestReplyWSDLrpcLiteralSOAP_Provider" promote="UC12_RESTServiceForActivitiesProcessFlow/RequestReplyWSDLrpcLiteralSOAP_Provider">
+    <sca:interface.wsdl xmi:id="_iHqBmBWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLrpcLiteral/#wsdl.interface(RequestReplyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl"/>
+    <sca:binding.sca xmi:id="_iHqBmRWzEemSRKQf6yktTg" name="Virtualization"/>
+    <soapbt:binding.soap.service xmi:id="_iL3MIBWzEemSRKQf6yktTg" name="RequestReplyWSDLrpcLiteral_EP" transportBindingType="HTTP" attachmentStyle="RPC" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@ePortTypes.0" policySets="wrm:WRMPolicySetsResource_authentication.usernameToken" requires="scaext:clientAuthentication.usernameToken" scaext:policySetLocations="resources/WRMPolicySetsResource.policysets">
+      <operationConfiguration xmi:id="_iL3zMRWzEemSRKQf6yktTg" operation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@ePortTypes.0/@eOperations.0" action="NewOperation" actionNeeded="true">
+        <messageConfiguration xmi:id="_iL3zMhWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@eMessages.0">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iL3zMxWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@eMessages.0/@eParts.0"/>
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iL3zNBWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@eMessages.0/@eParts.1"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_iL3zNRWzEemSRKQf6yktTg" message=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@eMessages.1" messageDirection="OUTPUT">
+          <messagePartConfigurations xsi:type="soapbt:BodyPartConfiguration" xmi:id="_iL3zNhWzEemSRKQf6yktTg" messagePart=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@eMessages.1/@eParts.0"/>
+        </messageConfiguration>
+        <bindingType xmi:id="_iL3zNxWzEemSRKQf6yktTg" style="RPC"/>
+      </operationConfiguration>
+      <inboundConfiguration xsi:type="soapbt:HttpTransportConfiguration" xmi:id="_iL5BUBWzEemSRKQf6yktTg" endpointURI="/RequestReplyWSDLrpcLiteral/RequestReplyWSDLrpcLiteralSOAP"/>
+      <defaultBindingType xmi:id="_iL3zMBWzEemSRKQf6yktTg" style="RPC"/>
+    </soapbt:binding.soap.service>
+    <scact:bindingAdjunct xmi:id="_iHqBmhWzEemSRKQf6yktTg" bindingName="Virtualization"/>
+    <scact:bindingAdjunct xmi:id="_iL3zORWzEemSRKQf6yktTg" bindingName="RequestReplyWSDLrpcLiteral_EP">
+      <sca:property xmi:id="_iL3zOhWzEemSRKQf6yktTg" mustSupply="true" name="HttpInboundConnectionConfig" type="xsd:string" scaext:simpleValue="httpConnector"/>
+    </scact:bindingAdjunct>
+  </sca:service>
+  <sca:component xmi:id="_iHb_IBWzEemSRKQf6yktTg" name="UC12_RESTServiceForActivitiesProcessFlow" compositeext:version="1.0.0.20140709131251219" policySets="pbu:PrepareBeforeUndeploy_WRMComponent" requires="scaext:prepareBeforeUndeploy" scaext:policySetLocations="resources/PrepareBeforeUndeploy.policysets">
+    <scaext:implementation xsi:type="service:N2PEServiceImplementation" xmi:id="_iHb_IRWzEemSRKQf6yktTg">
+      <serviceType xmi:id="_iHb_IhWzEemSRKQf6yktTg">
+        <sca:service xmi:id="_iHb_IxWzEemSRKQf6yktTg" name="UC1ReplyImmediateRequestActivityProcess">
+          <sca:interface.wsdl xmi:id="_iHb_JBWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC1ReplyImmediateRequestActivityProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+        </sca:service>
+        <sca:service xmi:id="_iHb_JRWzEemSRKQf6yktTg" name="UC2RequestActivityWithGeneratedWSDLProcess">
+          <sca:interface.wsdl xmi:id="_iHb_JhWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC2RequestActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+        </sca:service>
+        <sca:service xmi:id="_iHb_JxWzEemSRKQf6yktTg" name="UC3RequestReplyActivityWithGeneratedWSDLProcess">
+          <sca:interface.wsdl xmi:id="_iHb_KBWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC3RequestReplyActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+        </sca:service>
+        <sca:service xmi:id="_iHb_KRWzEemSRKQf6yktTg" name="RequestOnlyWSDLdocLiteralSOAP_Provider">
+          <sca:interface.wsdl xmi:id="_iHb_KhWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLdocLiteral/#wsdl.interface(RequestOnlyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl"/>
+        </sca:service>
+        <sca:service xmi:id="_iHb_KxWzEemSRKQf6yktTg" name="RequestOnlyWSDLrpcLiteralSOAP_Provider">
+          <sca:interface.wsdl xmi:id="_iHb_LBWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLrpcLiteral/#wsdl.interface(RequestOnlyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl"/>
+        </sca:service>
+        <sca:service xmi:id="_iHb_LRWzEemSRKQf6yktTg" name="RequestReplyWSDLdocLiteralSOAP_Provider">
+          <sca:interface.wsdl xmi:id="_iHb_LhWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLdocLiteral/#wsdl.interface(RequestReplyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl"/>
+        </sca:service>
+        <sca:service xmi:id="_iHb_LxWzEemSRKQf6yktTg" name="RequestReplyWSDLrpcLiteralSOAP_Provider">
+          <sca:interface.wsdl xmi:id="_iHb_MBWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLrpcLiteral/#wsdl.interface(RequestReplyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl"/>
+        </sca:service>
+      </serviceType>
+      <serviceModel xmi:id="_iHb_MRWzEemSRKQf6yktTg" moduleName="/UC12_RESTServiceForActivities/Process Packages/UC12_RESTServiceForActivities.xpdl" moduleVersion="1" name="UC12_RESTServiceForActivities" namespace="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA" scriptDescriptorFileName="/UC12_RESTServiceForActivities/.bpm/com.example.uc12_restserviceforactivities.scripts">
+        <processes xmi:id="_iHcmMBWzEemSRKQf6yktTg" processName="UC1ReplyImmediateRequestActivityProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC1ReplyImmediateRequestActivityProcess.bpel"/>
+        <processes xmi:id="_iHcmMRWzEemSRKQf6yktTg" processName="UC2RequestActivityWithGeneratedWSDLProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC2RequestActivityWithGeneratedWSDLProcess.bpel"/>
+        <processes xmi:id="_iHcmMhWzEemSRKQf6yktTg" processName="UC3RequestReplyActivityWithGeneratedWSDLProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC3RequestReplyActivityWithGeneratedWSDLProcess.bpel"/>
+        <processes xmi:id="_iHcmMxWzEemSRKQf6yktTg" processName="UC4RequestActWithUserDefWSDLdocProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC4RequestActWithUserDefWSDLdocProcess.bpel"/>
+        <processes xmi:id="_iHcmNBWzEemSRKQf6yktTg" processName="UC5RequestActWithUserDefWSDLrpcProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC5RequestActWithUserDefWSDLrpcProcess.bpel"/>
+        <processes xmi:id="_iHcmNRWzEemSRKQf6yktTg" processName="UC6RequestReplyActWithUserDefWSDLdocProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC6RequestReplyActWithUserDefWSDLdocProcess.bpel"/>
+        <processes xmi:id="_iHcmNhWzEemSRKQf6yktTg" processName="UC7RequestReplyActWithUserDefWSDLrpcProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC7RequestReplyActWithUserDefWSDLrpcProcess.bpel"/>
+        <interfaces xmi:id="_iHcmNxWzEemSRKQf6yktTg" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.0" name="UC1ReplyImmediateRequestActivityProcess">
+          <operations xmi:id="_iHcmOBWzEemSRKQf6yktTg" operationName="CatchMessageEvent1" componentServiceName="UC1ReplyImmediateRequestActivityProcess">
+            <operationImplementations xmi:id="_iHcmORWzEemSRKQf6yktTg" processName="UC1ReplyImmediateRequestActivityProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC1ReplyImmediateRequestActivityProcess.bpel">
+              <componentServices xmi:id="_iHcmOhWzEemSRKQf6yktTg" name="UC1ReplyImmediateRequestActivityProcess" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.0"/>
+            </operationImplementations>
+          </operations>
+        </interfaces>
+        <interfaces xmi:id="_iHcmOxWzEemSRKQf6yktTg" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.1" name="UC2RequestActivityWithGeneratedWSDLProcess">
+          <operations xmi:id="_iHcmPBWzEemSRKQf6yktTg" operationName="CatchMessageEvent2" componentServiceName="UC2RequestActivityWithGeneratedWSDLProcess">
+            <operationImplementations xmi:id="_iHcmPRWzEemSRKQf6yktTg" processName="UC2RequestActivityWithGeneratedWSDLProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC2RequestActivityWithGeneratedWSDLProcess.bpel">
+              <componentServices xmi:id="_iHcmPhWzEemSRKQf6yktTg" name="UC2RequestActivityWithGeneratedWSDLProcess" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.1"/>
+            </operationImplementations>
+          </operations>
+        </interfaces>
+        <interfaces xmi:id="_iHcmPxWzEemSRKQf6yktTg" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.2" name="UC3RequestReplyActivityWithGeneratedWSDLProcess">
+          <operations xmi:id="_iHcmQBWzEemSRKQf6yktTg" operationName="CatchMessageEvent3" componentServiceName="UC3RequestReplyActivityWithGeneratedWSDLProcess">
+            <operationImplementations xmi:id="_iHcmQRWzEemSRKQf6yktTg" processName="UC3RequestReplyActivityWithGeneratedWSDLProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC3RequestReplyActivityWithGeneratedWSDLProcess.bpel">
+              <componentServices xmi:id="_iHcmQhWzEemSRKQf6yktTg" name="UC3RequestReplyActivityWithGeneratedWSDLProcess" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.2"/>
+            </operationImplementations>
+          </operations>
+        </interfaces>
+        <interfaces xmi:id="_iHcmQxWzEemSRKQf6yktTg" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl#//@ePortTypes.0" name="RequestOnlyWSDLdocLiteralSOAP_Provider">
+          <operations xmi:id="_iHcmRBWzEemSRKQf6yktTg" operationName="NewOperation" componentServiceName="RequestOnlyWSDLdocLiteralSOAP_Provider">
+            <operationImplementations xmi:id="_iHcmRRWzEemSRKQf6yktTg" processName="UC4RequestActWithUserDefWSDLdocProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC4RequestActWithUserDefWSDLdocProcess.bpel">
+              <componentServices xmi:id="_iHcmRhWzEemSRKQf6yktTg" name="RequestOnlyWSDLdocLiteralSOAP_Provider" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl#//@ePortTypes.0"/>
+            </operationImplementations>
+          </operations>
+        </interfaces>
+        <interfaces xmi:id="_iHcmRxWzEemSRKQf6yktTg" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl#//@ePortTypes.0" name="RequestOnlyWSDLrpcLiteralSOAP_Provider">
+          <operations xmi:id="_iHcmSBWzEemSRKQf6yktTg" operationName="NewOperation" componentServiceName="RequestOnlyWSDLrpcLiteralSOAP_Provider">
+            <operationImplementations xmi:id="_iHcmSRWzEemSRKQf6yktTg" processName="UC5RequestActWithUserDefWSDLrpcProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC5RequestActWithUserDefWSDLrpcProcess.bpel">
+              <componentServices xmi:id="_iHcmShWzEemSRKQf6yktTg" name="RequestOnlyWSDLrpcLiteralSOAP_Provider" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl#//@ePortTypes.0"/>
+            </operationImplementations>
+          </operations>
+        </interfaces>
+        <interfaces xmi:id="_iHcmSxWzEemSRKQf6yktTg" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@ePortTypes.0" name="RequestReplyWSDLdocLiteralSOAP_Provider">
+          <operations xmi:id="_iHcmTBWzEemSRKQf6yktTg" operationName="NewOperation" componentServiceName="RequestReplyWSDLdocLiteralSOAP_Provider">
+            <operationImplementations xmi:id="_iHcmTRWzEemSRKQf6yktTg" processName="UC6RequestReplyActWithUserDefWSDLdocProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC6RequestReplyActWithUserDefWSDLdocProcess.bpel">
+              <componentServices xmi:id="_iHcmThWzEemSRKQf6yktTg" name="RequestReplyWSDLdocLiteralSOAP_Provider" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@ePortTypes.0"/>
+            </operationImplementations>
+          </operations>
+        </interfaces>
+        <interfaces xmi:id="_iHcmTxWzEemSRKQf6yktTg" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@ePortTypes.0" name="RequestReplyWSDLrpcLiteralSOAP_Provider">
+          <operations xmi:id="_iHcmUBWzEemSRKQf6yktTg" operationName="NewOperation" componentServiceName="RequestReplyWSDLrpcLiteralSOAP_Provider">
+            <operationImplementations xmi:id="_iHcmURWzEemSRKQf6yktTg" processName="UC7RequestReplyActWithUserDefWSDLrpcProcess" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/process/UC12_RESTServiceForActivities.xpdl/UC7RequestReplyActWithUserDefWSDLrpcProcess.bpel">
+              <componentServices xmi:id="_iHcmUhWzEemSRKQf6yktTg" name="RequestReplyWSDLrpcLiteralSOAP_Provider" portType=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@ePortTypes.0"/>
+            </operationImplementations>
+          </operations>
+        </interfaces>
+      </serviceModel>
+    </scaext:implementation>
+    <sca:service xmi:id="_iHiFwBWzEemSRKQf6yktTg" name="UC1ReplyImmediateRequestActivityProcess" policySets="threading:ThreadingPolicy_WRMComponent atleastonce:AtLeastOnce_WRMComponent" requires="sca:atLeastOnce" scaext:policySetLocations="resources/ThreadPolicy.policysets resources/AtLeastOncePolicy.policysets">
+      <sca:interface.wsdl xmi:id="_iHis0BWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC1ReplyImmediateRequestActivityProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    </sca:service>
+    <sca:service xmi:id="_iHis0RWzEemSRKQf6yktTg" name="UC2RequestActivityWithGeneratedWSDLProcess" policySets="threading:ThreadingPolicy_WRMComponent transactedoneway:TransactedOneWay_WRMComponent" requires="sca:transactedOneWay" scaext:policySetLocations="resources/ThreadPolicy.policysets resources/TransactedOneWay.policysets">
+      <sca:interface.wsdl xmi:id="_iHis0hWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC2RequestActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    </sca:service>
+    <sca:service xmi:id="_iHis0xWzEemSRKQf6yktTg" name="UC3RequestReplyActivityWithGeneratedWSDLProcess" policySets="threading:ThreadingPolicy_WRMComponent atleastonce:AtLeastOnce_WRMComponent" requires="sca:atLeastOnce" scaext:policySetLocations="resources/ThreadPolicy.policysets resources/AtLeastOncePolicy.policysets">
+      <sca:interface.wsdl xmi:id="_iHis1BWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC3RequestReplyActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    </sca:service>
+    <sca:service xmi:id="_iHis1RWzEemSRKQf6yktTg" name="RequestOnlyWSDLdocLiteralSOAP_Provider" policySets="threading:ThreadingPolicy_WRMComponent transactedoneway:TransactedOneWay_WRMComponent" requires="sca:transactedOneWay" scaext:policySetLocations="resources/ThreadPolicy.policysets resources/TransactedOneWay.policysets">
+      <sca:interface.wsdl xmi:id="_iHis1hWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLdocLiteral/#wsdl.interface(RequestOnlyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl"/>
+    </sca:service>
+    <sca:service xmi:id="_iHis1xWzEemSRKQf6yktTg" name="RequestOnlyWSDLrpcLiteralSOAP_Provider" policySets="threading:ThreadingPolicy_WRMComponent transactedoneway:TransactedOneWay_WRMComponent" requires="sca:transactedOneWay" scaext:policySetLocations="resources/ThreadPolicy.policysets resources/TransactedOneWay.policysets">
+      <sca:interface.wsdl xmi:id="_iHis2BWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLrpcLiteral/#wsdl.interface(RequestOnlyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl"/>
+    </sca:service>
+    <sca:service xmi:id="_iHis2RWzEemSRKQf6yktTg" name="RequestReplyWSDLdocLiteralSOAP_Provider" policySets="threading:ThreadingPolicy_WRMComponent atleastonce:AtLeastOnce_WRMComponent" requires="sca:atLeastOnce" scaext:policySetLocations="resources/ThreadPolicy.policysets resources/AtLeastOncePolicy.policysets">
+      <sca:interface.wsdl xmi:id="_iHis2hWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLdocLiteral/#wsdl.interface(RequestReplyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl"/>
+    </sca:service>
+    <sca:service xmi:id="_iHis2xWzEemSRKQf6yktTg" name="RequestReplyWSDLrpcLiteralSOAP_Provider" policySets="threading:ThreadingPolicy_WRMComponent atleastonce:AtLeastOnce_WRMComponent" requires="sca:atLeastOnce" scaext:policySetLocations="resources/ThreadPolicy.policysets resources/AtLeastOncePolicy.policysets">
+      <sca:interface.wsdl xmi:id="_iHis3BWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLrpcLiteral/#wsdl.interface(RequestReplyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/process/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_iJyvkBWzEemSRKQf6yktTg" name="UC12_RESTServiceForActivitiesPageFlow" compositeext:version="1.0.0.20140709131251219" policySets="pbu:PrepareBeforeUndeploy_WRMComponent" requires="scaext:prepareBeforeUndeploy" scaext:policySetLocations="resources/PrepareBeforeUndeploy.policysets">
+    <scaext:implementation xsi:type="pfe:PFESpecification" xmi:id="_iJzWoBWzEemSRKQf6yktTg">
+      <serviceType xmi:id="_iJzWoRWzEemSRKQf6yktTg">
+        <sca:reference xmi:id="_iJzWohWzEemSRKQf6yktTg" name="Partic_5GcG09M5EeKy4JXTETBfew">
+          <sca:interface.wsdl xmi:id="_iJzWoxWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC1ReplyImmediateRequestActivityProcess)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+        </sca:reference>
+        <sca:reference xmi:id="_iJzWpBWzEemSRKQf6yktTg" name="Partic_fCrtwFmaEeKls7uMAhgaQ">
+          <sca:interface.wsdl xmi:id="_iJzWpRWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC2RequestActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+        </sca:reference>
+        <sca:reference xmi:id="_iJzWphWzEemSRKQf6yktTg" name="Partic_fdZ651maEeKls7uMAhgaQ">
+          <sca:interface.wsdl xmi:id="_iJzWpxWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC3RequestReplyActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+        </sca:reference>
+        <sca:reference xmi:id="_iJzWqBWzEemSRKQf6yktTg" name="Partic_h3GWIFmaEeKls7uMAhgaQ">
+          <sca:interface.wsdl xmi:id="_iJzWqRWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLdocLiteral/#wsdl.interface(RequestOnlyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl"/>
+        </sca:reference>
+        <sca:reference xmi:id="_iJzWqhWzEemSRKQf6yktTg" name="Partic_gkQ1QlmaEeKls7uMAhgaQ">
+          <sca:interface.wsdl xmi:id="_iJzWqxWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLrpcLiteral/#wsdl.interface(RequestOnlyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl"/>
+        </sca:reference>
+        <sca:reference xmi:id="_iJzWrBWzEemSRKQf6yktTg" name="Partic_hAs5olmaEeKls7uMAhgaQ">
+          <sca:interface.wsdl xmi:id="_iJzWrRWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLdocLiteral/#wsdl.interface(RequestReplyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl"/>
+        </sca:reference>
+        <sca:reference xmi:id="_iJzWrhWzEemSRKQf6yktTg" name="Partic_3D5uQ1wPEeKBrdgP1Z1nQ">
+          <sca:interface.wsdl xmi:id="_iJzWrxWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLrpcLiteral/#wsdl.interface(RequestReplyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl"/>
+        </sca:reference>
+      </serviceType>
+      <serviceModel xmi:id="_iJzWsBWzEemSRKQf6yktTg" moduleName="/UC12_RESTServiceForActivities/Process Packages/UC12_RESTServiceForActivities.xpdl" moduleVersion="1" name="UC12_RESTServiceForActivities" namespace="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA" scriptDescriptorFileName="/UC12_RESTServiceForActivities/.bpm/com.example.uc12_restserviceforactivities.scripts">
+        <processes xmi:id="_iJzWsRWzEemSRKQf6yktTg" processName="UC1ReplyImmediateRequestActivityProcess_CatchMessageEvent1" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC1ReplyImmediateRequestActivityProcess_CatchMessageEvent1.bpel"/>
+        <processes xmi:id="_iJzWshWzEemSRKQf6yktTg" processName="UC2RequestActivityWithGeneratedWSDLProcess_CatchMessageEvent2" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC2RequestActivityWithGeneratedWSDLProcess_CatchMessageEvent2.bpel"/>
+        <processes xmi:id="_iJzWsxWzEemSRKQf6yktTg" processName="UC3RequestReplyActivityWithGeneratedWSDLProcess_CatchMessageEvent3" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC3RequestReplyActivityWithGeneratedWSDLProcess_CatchMessageEvent3.bpel"/>
+        <processes xmi:id="_iJzWtBWzEemSRKQf6yktTg" processName="UC4RequestActWithUserDefWSDLdocProcess_CatchMessageEvent4" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC4RequestActWithUserDefWSDLdocProcess_CatchMessageEvent4.bpel"/>
+        <processes xmi:id="_iJzWtRWzEemSRKQf6yktTg" processName="UC5RequestActWithUserDefWSDLrpcProcess_CatchMessageEvent5" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC5RequestActWithUserDefWSDLrpcProcess_CatchMessageEvent5.bpel"/>
+        <processes xmi:id="_iJzWthWzEemSRKQf6yktTg" processName="UC6RequestReplyActWithUserDefWSDLdocProcess_CatchMessageEvent6" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC6RequestReplyActWithUserDefWSDLdocProcess_CatchMessageEvent6.bpel"/>
+        <processes xmi:id="_iJzWtxWzEemSRKQf6yktTg" processName="UC7RequestReplyActWithUserDefWSDLrpcProcess_CatchStartEvent7" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC7RequestReplyActWithUserDefWSDLrpcProcess_CatchStartEvent7.bpel"/>
+        <interfaces xmi:id="_iJzWuBWzEemSRKQf6yktTg" portType=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.0" name="Partic_5GcG09M5EeKy4JXTETBfew">
+          <operations xmi:id="_iJzWuRWzEemSRKQf6yktTg" operationName="CatchMessageEvent1" componentServiceName="Partic_5GcG09M5EeKy4JXTETBfew"/>
+        </interfaces>
+        <interfaces xmi:id="_iJzWuhWzEemSRKQf6yktTg" portType=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.1" name="Partic_fCrtwFmaEeKls7uMAhgaQ">
+          <operations xmi:id="_iJzWuxWzEemSRKQf6yktTg" operationName="CatchMessageEvent2" componentServiceName="Partic_fCrtwFmaEeKls7uMAhgaQ"/>
+        </interfaces>
+        <interfaces xmi:id="_iJzWvBWzEemSRKQf6yktTg" portType=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl#//@ePortTypes.2" name="Partic_fdZ651maEeKls7uMAhgaQ">
+          <operations xmi:id="_iJzWvRWzEemSRKQf6yktTg" operationName="CatchMessageEvent3" componentServiceName="Partic_fdZ651maEeKls7uMAhgaQ"/>
+        </interfaces>
+        <interfaces xmi:id="_iJzWvhWzEemSRKQf6yktTg" portType=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl#//@ePortTypes.0" name="Partic_h3GWIFmaEeKls7uMAhgaQ">
+          <operations xmi:id="_iJzWvxWzEemSRKQf6yktTg" operationName="NewOperation" componentServiceName="Partic_h3GWIFmaEeKls7uMAhgaQ"/>
+        </interfaces>
+        <interfaces xmi:id="_iJzWwBWzEemSRKQf6yktTg" portType=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl#//@ePortTypes.0" name="Partic_gkQ1QlmaEeKls7uMAhgaQ">
+          <operations xmi:id="_iJzWwRWzEemSRKQf6yktTg" operationName="NewOperation" componentServiceName="Partic_gkQ1QlmaEeKls7uMAhgaQ"/>
+        </interfaces>
+        <interfaces xmi:id="_iJzWwhWzEemSRKQf6yktTg" portType=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl#//@ePortTypes.0" name="Partic_hAs5olmaEeKls7uMAhgaQ">
+          <operations xmi:id="_iJzWwxWzEemSRKQf6yktTg" operationName="NewOperation" componentServiceName="Partic_hAs5olmaEeKls7uMAhgaQ"/>
+        </interfaces>
+        <interfaces xmi:id="_iJzWxBWzEemSRKQf6yktTg" portType=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl#//@ePortTypes.0" name="Partic_3D5uQ1wPEeKBrdgP1Z1nQ">
+          <operations xmi:id="_iJzWxRWzEemSRKQf6yktTg" operationName="NewOperation" componentServiceName="Partic_3D5uQ1wPEeKBrdgP1Z1nQ"/>
+        </interfaces>
+      </serviceModel>
+      <businessService xmi:id="_iJzWxhWzEemSRKQf6yktTg" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC2RequestActivityWithGeneratedWSDLProcess_CatchMessageEvent2.bpel" processName="UC2RequestActivityWithGeneratedWSDLProcess_CatchMessageEvent2" category="_$_TIBCO_REST_SERVICE_$_"/>
+      <businessService xmi:id="_iJzWxxWzEemSRKQf6yktTg" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC3RequestReplyActivityWithGeneratedWSDLProcess_CatchMessageEvent3.bpel" processName="UC3RequestReplyActivityWithGeneratedWSDLProcess_CatchMessageEvent3" category="_$_TIBCO_REST_SERVICE_$_"/>
+      <businessService xmi:id="_iJzWyBWzEemSRKQf6yktTg" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC1ReplyImmediateRequestActivityProcess_CatchMessageEvent1.bpel" processName="UC1ReplyImmediateRequestActivityProcess_CatchMessageEvent1" category="_$_TIBCO_REST_SERVICE_$_"/>
+      <businessService xmi:id="_iJzWyRWzEemSRKQf6yktTg" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC7RequestReplyActWithUserDefWSDLrpcProcess_CatchStartEvent7.bpel" processName="UC7RequestReplyActWithUserDefWSDLrpcProcess_CatchStartEvent7" category="_$_TIBCO_REST_SERVICE_$_"/>
+      <businessService xmi:id="_iJzWyhWzEemSRKQf6yktTg" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC6RequestReplyActWithUserDefWSDLdocProcess_CatchMessageEvent6.bpel" processName="UC6RequestReplyActWithUserDefWSDLdocProcess_CatchMessageEvent6" category="_$_TIBCO_REST_SERVICE_$_"/>
+      <businessService xmi:id="_iJzWyxWzEemSRKQf6yktTg" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC4RequestActWithUserDefWSDLdocProcess_CatchMessageEvent4.bpel" processName="UC4RequestActWithUserDefWSDLdocProcess_CatchMessageEvent4" category="_$_TIBCO_REST_SERVICE_$_"/>
+      <businessService xmi:id="_iJzWzBWzEemSRKQf6yktTg" processFileName="/UC12_RESTServiceForActivities/.bpm/.processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC5RequestActWithUserDefWSDLrpcProcess_CatchMessageEvent5.bpel" processName="UC5RequestActWithUserDefWSDLrpcProcess_CatchMessageEvent5" category="_$_TIBCO_REST_SERVICE_$_"/>
+    </scaext:implementation>
+    <sca:reference xmi:id="_iJ6EUBWzEemSRKQf6yktTg" name="Partic_5GcG09M5EeKy4JXTETBfew" wiredByImpl="false" policySets="atleastonce:AtLeastOnce_WRMComponent startservicefirst:StartServiceFirst_WRMReference" requires="sca:atLeastOnce" scaext:policySetLocations="resources/AtLeastOncePolicy.policysets resources/StartServiceFirstPolicy.policysets">
+      <sca:interface.wsdl xmi:id="_iJ6EURWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC1ReplyImmediateRequestActivityProcess)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    </sca:reference>
+    <sca:reference xmi:id="_iJ6EUhWzEemSRKQf6yktTg" name="Partic_fCrtwFmaEeKls7uMAhgaQ" wiredByImpl="false" policySets="startservicefirst:StartServiceFirst_WRMReference transactedoneway:TransactedOneWay_WRMComponent" requires="sca:transactedOneWay" scaext:policySetLocations="resources/StartServiceFirstPolicy.policysets resources/TransactedOneWay.policysets">
+      <sca:interface.wsdl xmi:id="_iJ6EUxWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC2RequestActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    </sca:reference>
+    <sca:reference xmi:id="_iJ6EVBWzEemSRKQf6yktTg" name="Partic_fdZ651maEeKls7uMAhgaQ" wiredByImpl="false" policySets="atleastonce:AtLeastOnce_WRMComponent startservicefirst:StartServiceFirst_WRMReference" requires="sca:atLeastOnce" scaext:policySetLocations="resources/AtLeastOncePolicy.policysets resources/StartServiceFirstPolicy.policysets">
+      <sca:interface.wsdl xmi:id="_iJ6EVRWzEemSRKQf6yktTg" interface="http://www.tibco.com/bs3.0/_4PE2EFjcEeKzdM-tKc7NZA#wsdl.interface(UC3RequestReplyActivityWithGeneratedWSDLProcess)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/UC12_RESTServiceForActivities.wsdl"/>
+    </sca:reference>
+    <sca:reference xmi:id="_iJ6EVhWzEemSRKQf6yktTg" name="Partic_h3GWIFmaEeKls7uMAhgaQ" wiredByImpl="false" policySets="startservicefirst:StartServiceFirst_WRMReference transactedoneway:TransactedOneWay_WRMComponent" requires="sca:transactedOneWay" scaext:policySetLocations="resources/StartServiceFirstPolicy.policysets resources/TransactedOneWay.policysets">
+      <sca:interface.wsdl xmi:id="_iJ6EVxWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLdocLiteral/#wsdl.interface(RequestOnlyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLdocLiteral.wsdl"/>
+    </sca:reference>
+    <sca:reference xmi:id="_iJ6rYBWzEemSRKQf6yktTg" name="Partic_gkQ1QlmaEeKls7uMAhgaQ" wiredByImpl="false" policySets="startservicefirst:StartServiceFirst_WRMReference transactedoneway:TransactedOneWay_WRMComponent" requires="sca:transactedOneWay" scaext:policySetLocations="resources/StartServiceFirstPolicy.policysets resources/TransactedOneWay.policysets">
+      <sca:interface.wsdl xmi:id="_iJ6rYRWzEemSRKQf6yktTg" interface="http://www.example.org/RequestOnlyWSDLrpcLiteral/#wsdl.interface(RequestOnlyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestOnlyWSDLrpcLiteral.wsdl"/>
+    </sca:reference>
+    <sca:reference xmi:id="_iJ6rYhWzEemSRKQf6yktTg" name="Partic_hAs5olmaEeKls7uMAhgaQ" wiredByImpl="false" policySets="atleastonce:AtLeastOnce_WRMComponent startservicefirst:StartServiceFirst_WRMReference" requires="sca:atLeastOnce" scaext:policySetLocations="resources/AtLeastOncePolicy.policysets resources/StartServiceFirstPolicy.policysets">
+      <sca:interface.wsdl xmi:id="_iJ6rYxWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLdocLiteral/#wsdl.interface(RequestReplyWSDLdocLiteral)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLdocLiteral.wsdl"/>
+    </sca:reference>
+    <sca:reference xmi:id="_iJ6rZBWzEemSRKQf6yktTg" name="Partic_3D5uQ1wPEeKBrdgP1Z1nQ" wiredByImpl="false" policySets="atleastonce:AtLeastOnce_WRMComponent startservicefirst:StartServiceFirst_WRMReference" requires="sca:atLeastOnce" scaext:policySetLocations="resources/AtLeastOncePolicy.policysets resources/StartServiceFirstPolicy.policysets">
+      <sca:interface.wsdl xmi:id="_iJ6rZRWzEemSRKQf6yktTg" interface="http://www.example.org/RequestReplyWSDLrpcLiteral/#wsdl.interface(RequestReplyWSDLrpcLiteral)" scaext:wsdlLocation=".processOut/pageflow/UC12_RESTServiceForActivities.xpdl/RequestReplyWSDLrpcLiteral.wsdl"/>
+    </sca:reference>
+  </sca:component>
+  <sca:wire xmi:id="_iKIt0BWzEemSRKQf6yktTg" source="UC12_RESTServiceForActivitiesPageFlow/Partic_5GcG09M5EeKy4JXTETBfew" target="UC12_RESTServiceForActivitiesProcessFlow/UC1ReplyImmediateRequestActivityProcess"/>
+  <sca:wire xmi:id="_iKJU4BWzEemSRKQf6yktTg" source="UC12_RESTServiceForActivitiesPageFlow/Partic_fCrtwFmaEeKls7uMAhgaQ" target="UC12_RESTServiceForActivitiesProcessFlow/UC2RequestActivityWithGeneratedWSDLProcess"/>
+  <sca:wire xmi:id="_iKJU4RWzEemSRKQf6yktTg" source="UC12_RESTServiceForActivitiesPageFlow/Partic_fdZ651maEeKls7uMAhgaQ" target="UC12_RESTServiceForActivitiesProcessFlow/UC3RequestReplyActivityWithGeneratedWSDLProcess"/>
+  <sca:wire xmi:id="_iKJU4hWzEemSRKQf6yktTg" source="UC12_RESTServiceForActivitiesPageFlow/Partic_h3GWIFmaEeKls7uMAhgaQ" target="UC12_RESTServiceForActivitiesProcessFlow/RequestOnlyWSDLdocLiteralSOAP_Provider"/>
+  <sca:wire xmi:id="_iKJU4xWzEemSRKQf6yktTg" source="UC12_RESTServiceForActivitiesPageFlow/Partic_gkQ1QlmaEeKls7uMAhgaQ" target="UC12_RESTServiceForActivitiesProcessFlow/RequestOnlyWSDLrpcLiteralSOAP_Provider"/>
+  <sca:wire xmi:id="_iKJU5BWzEemSRKQf6yktTg" source="UC12_RESTServiceForActivitiesPageFlow/Partic_hAs5olmaEeKls7uMAhgaQ" target="UC12_RESTServiceForActivitiesProcessFlow/RequestReplyWSDLdocLiteralSOAP_Provider"/>
+  <sca:wire xmi:id="_iKJ78BWzEemSRKQf6yktTg" source="UC12_RESTServiceForActivitiesPageFlow/Partic_3D5uQ1wPEeKBrdgP1Z1nQ" target="UC12_RESTServiceForActivitiesProcessFlow/RequestReplyWSDLrpcLiteralSOAP_Provider"/>
+</sca:composite>

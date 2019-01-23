@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/referenced2" xmlns:tns2="http://www.example.org/referenced2"
+    xmlns:tns3="http://www.example.org/referenced" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/referenced2">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/64564564/Business Objects/org.example.referenced2.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://www.example.org/referenced" schemaLocation="XSDBOM_TLE14_ElementsWithTypeOutsideSchema2.xsd"/>
+  <xsd:simpleType id="org.example.referenced2_referenced2Simple2" name="referenced2Simple">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType id="org.example.referenced2_referenced2Enum" name="referenced2Enum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ENUMLIT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType id="org.example.referenced2_referenced2Complex" abstract="false"
+      mixed="false" name="referenced2Complex"/>
+  <xsd:element abstract="false" name="referenced2Elem2" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="tns3:referencedSimple"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="referenced2Elem3" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="tns3:referencedEnum"/>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element abstract="false" name="referenced2Elem" nillable="false" type="tns3:referencedComplex"/>
+</xsd:schema>

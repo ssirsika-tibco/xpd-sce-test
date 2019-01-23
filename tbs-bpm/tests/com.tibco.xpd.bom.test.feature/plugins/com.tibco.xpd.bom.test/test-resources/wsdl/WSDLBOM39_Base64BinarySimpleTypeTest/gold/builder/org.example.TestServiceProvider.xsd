@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns="http://www.example.org/TestServiceProvider/" xmlns:tns1="http://www.example.org/TestServiceProvider/"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/TestServiceProvider/">
+  <xsd:annotation>
+    <xsd:documentation>BOMORIGIN::/TestServiceConsumer/Generated Business Objects/org.example.TestServiceProvider.bom</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="base64binary_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?)*(([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[A-Za-z0-9+/])|([A-Za-z0-9+/] ?[A-Za-z0-9+/] ?[AEIMQUYcgkosw048] ?=)|([A-Za-z0-9+/] ?[AQgw] ?= ?=)))?"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="hexbinary_StudioGeneratedTemplate">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="([0-9a-fA-F][0-9a-fA-F])*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="MyBase64Binary" id="org.example.TestServiceProviderMyBase64Binary2"
+      name="MyBase64Binary">
+    <xsd:restriction base="tns1:base64binary_StudioGeneratedTemplate">
+      <xsd:maxLength fixed="false" value="12"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="MyString" id="org.example.TestServiceProviderMyString2"
+      name="MyString">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength fixed="false" value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="MyHexBinary" id="org.example.TestServiceProviderMyHexBinary2"
+      name="MyHexBinary">
+    <xsd:restriction base="tns1:hexbinary_StudioGeneratedTemplate">
+      <xsd:maxLength fixed="false" value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element abstract="false" name="NewOperation" nillable="false">
+    <xsd:complexType ecore:name="NewOperationType" id="org.example.TestServiceProviderNewOperationType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="in1" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="in" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element abstract="false" name="NewOperationResponse" nillable="false">
+    <xsd:complexType ecore:name="NewOperationResponseType" id="org.example.TestServiceProviderNewOperationResponseType"
+        mixed="false">
+      <xsd:sequence>
+        <xsd:element ecore:name="out" form="unqualified" maxOccurs="1" minOccurs="1"
+            name="out" type="tns1:MyBase64Binary"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

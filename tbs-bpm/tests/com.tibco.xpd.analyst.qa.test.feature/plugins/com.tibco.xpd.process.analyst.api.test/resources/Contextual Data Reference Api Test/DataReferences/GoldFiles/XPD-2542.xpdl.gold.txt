@@ -1,0 +1,297 @@
+Testing: XPD-2542.xpdl
+==================================================================
+  Test Process: XPD2542-Process
+  ==================================================================
+    Test Activity: Catch Message Event
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingOut(Input To Process)'
+    Referenced Data 'Complete'. Reference Contexts: 'completeScript(Complete Script)'
+    Referenced Data 'CorrelationField'. Reference Contexts: 'mappingOut(Input To Process)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'mappingOut(Input To Process)'
+    ------------------------------------------------------------------
+    Test Activity: Reply To: Catch Message Event
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingIn(Output From process)'
+    Referenced Data 'Mapping Out'. Reference Contexts: 'mappingIn(Output From process)'
+    ------------------------------------------------------------------
+    Test Activity: Explicit Assoc And Scripts
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'explicitAssociation(Explicit Association In Interface)' 'initiateScript(Initiate Script)' 'completeScript(Complete Script)' 'cancelScript(Cancel Script)' 'timeoutScript(Timeout Script)' 'scheduleScript(Schedule Script)' 'openScript(Open Script)' 'closeScript(Close Script)' 'submitScript(Submit Script)'
+    Referenced Data 'Cancel'. Reference Contexts: 'cancelScript(Cancel Script)'
+    Referenced Data 'Close'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'explicitAssociation(Explicit Association In Interface)' 'closeScript(Close Script)'
+    Referenced Data 'Complete'. Reference Contexts: 'completeScript(Complete Script)'
+    Referenced Data 'Initiate'. Reference Contexts: 'initiateScript(Initiate Script)'
+    Referenced Data 'Open'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'explicitAssociation(Explicit Association In Interface)' 'openScript(Open Script)'
+    Referenced Data 'Performer'. Reference Contexts: 'activityPerformer(Activity Performer)'
+    Referenced Data 'Schedule'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'explicitAssociation(Explicit Association In Interface)' 'scheduleScript(Schedule Script)'
+    Referenced Data 'Submit'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'explicitAssociation(Explicit Association In Interface)' 'submitScript(Submit Script)'
+    Referenced Data 'Throw/Catch Signal 1'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'explicitAssociation(Explicit Association In Interface)'
+    Referenced Data 'Timeout'. Reference Contexts: 'timeoutScript(Timeout Script)'
+    Referenced Data 'UserTask Explicit 1'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'explicitAssociation(Explicit Association In Interface)'
+    Referenced Data 'UserTask Explicit 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'explicitAssociation(Explicit Association In Interface)'
+    ------------------------------------------------------------------
+    Test Activity: Catch Signal Event
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingOut(Map From Signal)'
+    Referenced Data 'SignalMappingScript'. Reference Contexts: 'mappingOut(Map From Signal)'
+    Referenced Data 'Throw/Catch Signal 1'. Reference Contexts: 'mappingOut(Map From Signal)'
+    Referenced Data 'Throw/Catch Signal 2'. Reference Contexts: 'mappingOut(Map From Signal)'
+    Referenced Data 'UserTask Explicit 1'. Reference Contexts: 'mappingOut(Map From Signal)'
+    Referenced Data 'UserTask Explicit 2'. Reference Contexts: 'mappingOut(Map From Signal)'
+    ------------------------------------------------------------------
+    Test Activity: Catch Message Event 2
+    ------------------------------------------------------------------
+    Referenced Data 'CorrelationField'. Reference Contexts: 'mappingOut(Input To Process)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'mappingOut(Input To Process)' 'explicitAssociation(Explicit Association In Interface)'
+    ------------------------------------------------------------------
+    Test Activity: Throw Signal Event
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'explicitAssociation(Explicit Association In Interface)'
+    Referenced Data 'SignalMappingScript'. Reference Contexts: 'explicitAssociation(Explicit Association In Interface)'
+    Referenced Data 'Throw/Catch Signal 1'. Reference Contexts: 'explicitAssociation(Explicit Association In Interface)'
+    Referenced Data 'Throw/Catch Signal 2'. Reference Contexts: 'explicitAssociation(Explicit Association In Interface)'
+    ------------------------------------------------------------------
+    Test Activity: Implicit Association
+    ------------------------------------------------------------------
+    Referenced Data 'Additional Loop Instance'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'loopScripts(Loop Scripts)'
+    Referenced Data 'AllContexts'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'loopScripts(Loop Scripts)'
+    Referenced Data 'Calendar References'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Cancel'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Close'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Complete'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Complex Flow Condition'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'loopScripts(Loop Scripts)'
+    Referenced Data 'Conditional Flow Script'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'CorrelationField'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Database'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Error Code'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Error Detail'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Initiate'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Java In'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Java Out'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Loop Expression'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'loopScripts(Loop Scripts)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Mapping Out'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Open'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Package Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Performer'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'activityPerformer(Activity Performer)'
+    Referenced Data 'RuntimeIdentifier'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Schedule'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'ScriptMappingIn'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'ScriptTaskField'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'SignalMappingScript'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Submit'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Throw/Catch Signal 1'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Throw/Catch Signal 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Timeout'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'UserTask Explicit 1'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'UserTask Explicit 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    ------------------------------------------------------------------
+    Test Activity: Timer Event
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'timerEventScript(Timer Event Script)'
+    Referenced Data 'Calendar References'. Reference Contexts: 'calendarReference(Calendar Reference)'
+    Referenced Data 'Timeout'. Reference Contexts: 'timerEventScript(Timer Event Script)'
+    ------------------------------------------------------------------
+    Test Activity: Error Event
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingIn(Output From process)' 'explicitAssociation(Explicit Association In Interface)' 'initiateScript(Initiate Script)'
+    ------------------------------------------------------------------
+    Test Activity: Web Service
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingIn(Input To Service)' 'mappingOut(Output From Service)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'mappingIn(Input To Service)'
+    Referenced Data 'Mapping Out'. Reference Contexts: 'mappingOut(Output From Service)'
+    Referenced Data 'ScriptMappingIn'. Reference Contexts: 'mappingIn(Input To Service)'
+    ------------------------------------------------------------------
+    Test Activity: Catch Specific
+    ------------------------------------------------------------------
+    Referenced Data 'Error Detail'. Reference Contexts: 'mappingOut(Output From Service)'
+    ------------------------------------------------------------------
+    Test Activity: Script Task
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'scriptTaskScript(Script Task Script)'
+    Referenced Data 'Package Data'. Reference Contexts: 'scriptTaskScript(Script Task Script)'
+    Referenced Data 'ScriptTaskField'. Reference Contexts: 'scriptTaskScript(Script Task Script)'
+    ------------------------------------------------------------------
+    Test Activity: Catch All
+    ------------------------------------------------------------------
+    Referenced Data 'Error Code'. Reference Contexts: 'mappingOut(Map From Error)'
+    Referenced Data 'Error Detail'. Reference Contexts: 'mappingOut(Map From Error)'
+    ------------------------------------------------------------------
+    Test Activity: DataBase
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Database'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    ------------------------------------------------------------------
+    Test Activity: Email
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Email Local Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    ------------------------------------------------------------------
+    Test Activity: Java
+    ------------------------------------------------------------------
+    Referenced Data 'Java In'. Reference Contexts: 'mappingIn(Input To Service)'
+    Referenced Data 'Java Out'. Reference Contexts: 'mappingOut(Output From Service)'
+    ------------------------------------------------------------------
+    Test Activity: Reusable Sub-Process
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingIn(Map To Sub-Process)' 'mappingOut(Map From Sub-Process)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'mappingIn(Map To Sub-Process)'
+    Referenced Data 'Mapping Out'. Reference Contexts: 'mappingOut(Map From Sub-Process)'
+    Referenced Data 'RuntimeIdentifier'. Reference Contexts: 'runtimeIdentifier(Runtime Identifier Field)'
+    Referenced Data 'ScriptMappingIn'. Reference Contexts: 'mappingIn(Map To Sub-Process)'
+    ------------------------------------------------------------------
+    Test Activity: Reply To (2): Catch Message Event
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingIn(Output From process)'
+    Referenced Data 'Mapping Out'. Reference Contexts: 'mappingIn(Output From process)'
+    ------------------------------------------------------------------
+    Test Activity: Send Task
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingIn(Input To Service)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'mappingIn(Input To Service)'
+    Referenced Data 'ScriptMappingIn'. Reference Contexts: 'mappingIn(Input To Service)'
+    ------------------------------------------------------------------
+    Test Activity: Receive Task
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingOut(Input To Process)'
+    Referenced Data 'CorrelationField'. Reference Contexts: 'mappingOut(Input To Process)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'mappingOut(Input To Process)'
+    ------------------------------------------------------------------
+    Test Activity: XPath
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingIn(Input To Service)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'mappingIn(Input To Service)'
+    Referenced Data 'Mapping Out'. Reference Contexts: 'mappingOut(Output From Service)'
+    ------------------------------------------------------------------
+    Test Activity: Invoke From Event
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'mappingIn(Input To Service)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'mappingIn(Input To Service)'
+    Referenced Data 'ScriptMappingIn'. Reference Contexts: 'mappingIn(Input To Service)'
+    ------------------------------------------------------------------
+    Test Activity: User Task
+    ------------------------------------------------------------------
+    Referenced Data 'Additional Loop Instance'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'AllContexts'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Calendar References'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Cancel'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Close'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Complete'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Complex Flow Condition'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Conditional Flow Script'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'CorrelationField'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Database'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Embedded Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Error Code'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Error Detail'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Initiate'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Java In'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Java Out'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Loop Expression'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Mapping In'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Mapping Out'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Open'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Package Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Performer'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'activityPerformer(Activity Performer)'
+    Referenced Data 'RuntimeIdentifier'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Schedule'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'ScriptMappingIn'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'ScriptTaskField'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'SignalMappingScript'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Submit'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Throw/Catch Signal 1'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Throw/Catch Signal 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Timeout'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'User Task Local Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'initiateScript(Initiate Script)'
+    Referenced Data 'UserTask Explicit 1'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'UserTask Explicit 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    ------------------------------------------------------------------
+    Test Activity: Email
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Email Sub Local Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Package Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    ------------------------------------------------------------------
+    Test Transition: Conditional Flow
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'sequenceFlowScript(Conditional Flow Script)'
+    Referenced Data 'Conditional Flow Script'. Reference Contexts: 'sequenceFlowScript(Conditional Flow Script)'
+    ------------------------------------------------------------------
+  ==================================================================
+  Test Process: XPD2542-SubProcess
+  ==================================================================
+    Test Activity: Start Event
+    ------------------------------------------------------------------
+    Referenced Data 'IfcIn'. Reference Contexts: 'explicitAssociation(Explicit Association In Interface)'
+    Referenced Data 'IfcIn2'. Reference Contexts: 'explicitAssociation(Explicit Association In Interface)'
+    Referenced Data 'IfcParameter'. Reference Contexts: 'explicitAssociation(Explicit Association In Interface)'
+    ------------------------------------------------------------------
+    Test Activity: Throw Error: Error
+    ------------------------------------------------------------------
+    Referenced Data 'IfcOut'. Reference Contexts: 'explicitAssociation(Explicit Association In Interface)'
+    ------------------------------------------------------------------
+    Test Activity: User Task
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Embedded Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'IfcIn'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'initiateScript(Initiate Script)'
+    Referenced Data 'IfcIn2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'IfcOut'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'IfcParameter'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'In'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'In2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Out'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Package Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Parameter'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Performer'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'activityPerformer(Activity Performer)'
+    Referenced Data 'User Task Local Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)' 'initiateScript(Initiate Script)'
+    Referenced Data 'eMail'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    ------------------------------------------------------------------
+    Test Activity: Email
+    ------------------------------------------------------------------
+    Referenced Data 'AllContexts'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Email Sub Local Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'IfcOut'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'Package Data'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    Referenced Data 'eMail 2'. Reference Contexts: 'taskImplementationData(Activity Implementation)'
+    ------------------------------------------------------------------
+  ==================================================================
+  Test Specific Contexts: 
+  ==================================================================
+Activity: 'Web Service' Context: 'mappingIn(Mapping (Input To Service / Output From Process))' :: AllContexts, Mapping In, ScriptMappingIn
+Activity: 'Web Service' Context: 'mappingOut(Mapping (Output From Service / Input To Process))' :: AllContexts, Mapping Out
+Activity: 'Catch Message Event' Context: 'mappingOut(Mapping (Output From Service / Input To Process))' :: AllContexts, CorrelationField, Mapping In
+Activity: 'Reply To: Catch Message Event' Context: 'mappingIn(Mapping (Input To Service / Output From Process))' :: AllContexts, Mapping Out
+Activity: 'Error Event' Context: 'mappingIn(Mapping (Input To Service / Output From Process))' :: AllContexts
+Activity: 'Reusable Sub-Process' Context: 'mappingIn(Mapping (Input To Service / Output From Process))' :: AllContexts, Mapping In, ScriptMappingIn
+Activity: 'Reusable Sub-Process' Context: 'mappingOut(Mapping (Output From Service / Input To Process))' :: AllContexts, Mapping Out
+Activity: 'Reusable Sub-Process' Context: 'runtimeIdentifier(Runtime Identifier Field)' :: RuntimeIdentifier
+Activity: 'Catch Signal Event' Context: 'mappingOut(Mapping (Output From Service / Input To Process))' :: AllContexts, SignalMappingScript, Throw/Catch Signal 1, Throw/Catch Signal 2, UserTask Explicit 1, UserTask Explicit 2
+Activity: 'Java' Context: 'mappingIn(Mapping (Input To Service / Output From Process))' :: Java In
+Activity: 'Java' Context: 'mappingOut(Mapping (Output From Service / Input To Process))' :: Java Out
+Activity: 'Explicit Assoc And Scripts' Context: 'initiateScript(Initiate Script)' :: AllContexts, Initiate
+Activity: 'Explicit Assoc And Scripts' Context: 'completeScript(Complete Script)' :: AllContexts, Complete
+Activity: 'Explicit Assoc And Scripts' Context: 'cancelScript(Cancel Script)' :: AllContexts, Cancel
+Activity: 'Explicit Assoc And Scripts' Context: 'timeoutScript(Timeout Script)' :: AllContexts, Timeout
+Activity: 'Explicit Assoc And Scripts' Context: 'openScript(Open Script)' :: AllContexts, Open
+Activity: 'Explicit Assoc And Scripts' Context: 'scheduleScript(Schedule Script)' :: AllContexts, Schedule
+Activity: 'Explicit Assoc And Scripts' Context: 'closeScript(Close Script)' :: AllContexts, Close
+Activity: 'Explicit Assoc And Scripts' Context: 'submitScript(Submit Script)' :: AllContexts, Submit
+Activity: 'Script Task' Context: 'scriptTaskScript(Script Task Script)' :: AllContexts, Package Data, ScriptTaskField
+Activity: 'Explicit Assoc And Scripts' Context: 'taskImplementationData(Activity Implementation)' :: AllContexts, Close, Open, Schedule, Submit, Throw/Catch Signal 1, UserTask Explicit 1, UserTask Explicit 2
+Activity: 'DataBase' Context: 'taskImplementationData(Activity Implementation)' :: AllContexts, Database
+Activity: 'Email' Context: 'taskImplementationData(Activity Implementation)' :: AllContexts, Email Local Data, eMail, eMail 2
+  ==================================================================
+==================================================================
+Done

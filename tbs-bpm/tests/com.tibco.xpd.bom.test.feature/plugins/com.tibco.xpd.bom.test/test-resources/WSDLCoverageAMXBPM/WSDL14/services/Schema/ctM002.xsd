@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.amsbqa.com/linda14/WSDLimportsSchema1schema2/schema1"
+	 targetNamespace="http://www.amsbqa.com/linda14/WSDLimportsSchema1schema2/schema1"
+	 elementFormDefault="unqualified"
+	 attributeFormDefault="unqualified">
+	<xs:simpleType name="myType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="fooType">
+		<xs:simpleContent>
+			<xs:extension base="myType">
+				<xs:attribute name="myAttr" type="xs:anySimpleType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="root" type="fooType"/>
+</xs:schema>

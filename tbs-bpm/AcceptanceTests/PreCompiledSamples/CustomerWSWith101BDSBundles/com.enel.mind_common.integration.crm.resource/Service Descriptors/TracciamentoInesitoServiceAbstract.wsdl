@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://www.tibco.com/bs3.0/_EzY-oEbUEeO0xK8sSiBUuQ_CallTracciamento_Inesito__S0h-IEbUEeO0xK8sSiBUuQ" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:ttns="http://mind.enel.com/tracciamentoinesito" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IntegrationCRM" targetNamespace="http://www.tibco.com/bs3.0/_EzY-oEbUEeO0xK8sSiBUuQ_CallTracciamento_Inesito__S0h-IEbUEeO0xK8sSiBUuQ" tibex:ServiceTask="_S0h-IEbUEeO0xK8sSiBUuQ" tibex:XPDL="IntegrationCRM.xpdl" tibex:process="_EzY-oUbUEeO0xK8sSiBUuQ">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/bs3.0/_EzY-oEbUEeO0xK8sSiBUuQ_CallTracciamento_Inesito__S0h-IEbUEeO0xK8sSiBUuQ" targetNamespace="http://www.tibco.com/bs3.0/_EzY-oEbUEeO0xK8sSiBUuQ_CallTracciamento_Inesito__S0h-IEbUEeO0xK8sSiBUuQ">
+      <xsd:simpleType name="string">
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+      <xsd:element name="TracciamentoInesitoProcess_errorCode" type="string"/>
+      <xsd:element name="TracciamentoInesitoProcess_errorDetail" type="string"/>
+      <xsd:simpleType name="integer_3">
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="3"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="TracciamentoInesitoProcess_errorMaxRetries" type="integer_3"/>
+      <xsd:simpleType name="string_50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="TracciamentoInesitoProcess_errorPerformer" type="string_50"/>
+      <xsd:element name="TracciamentoInesitoProcess_errorRetryCount" type="integer_3"/>
+      <xsd:element name="TracciamentoInesitoProcess_errorShortRetries" type="integer_3"/>
+      <xsd:simpleType name="integer_9">
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="9"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="TracciamentoInesitoProcess_errorWaitLongDelayMin" type="integer_9"/>
+      <xsd:element name="TracciamentoInesitoProcess_errorWaitShortDelayMin" type="integer_9"/>
+      <xsd:simpleType name="string_4000">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="TracciamentoInesitoProcess_msgPayload" type="string_4000"/>
+      <xsd:element name="TracciamentoInesitoProcess_parentProcessId" type="string_50"/>
+      <xsd:element name="TracciamentoInesitoProcess_processId" type="string_50"/>
+      <xsd:simpleType name="string_100">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="TracciamentoInesitoProcess_processName" type="string_100"/>
+    </xsd:schema>
+    <xsd:schema xmlns="http://mind.enel.com/tracciamentoinesito" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:tns1="http://mind.enel.com/tracciamentoinesito" targetNamespace="http://mind.enel.com/tracciamentoinesito">
+      <xsd:annotation>
+        <xsd:documentation>
+          <DocumentationElement BOMORIGIN="/com.enel.mind_common.integration.crm.resource/Business Objects/com.enel.mind.tracciamentoattivitainesito.bom"/>
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="TracciamentoInesitoRequest">
+        <xsd:sequence>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="idBpm">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="15" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="tipoAttivita">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="causaleContatto">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="descrizioneAttivita">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="specificaAttivita">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="50" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="statoAttivita">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="30" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="flagInvisibile">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="1" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="idClienteCRM">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="15" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="idOrdineCRM">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="15" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="idOffertaCRM">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="15" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="idAttivitaCRM">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="15" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="numUte">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="9" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="numPratica">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="15" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0" name="podPdr">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="15" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element maxOccurs="1" minOccurs="0"
+        		name="noteAttivita">
+        		<xsd:simpleType>
+        			<xsd:restriction base="xsd:string">
+        				<xsd:maxLength value="255" />
+        			</xsd:restriction>
+        		</xsd:simpleType>
+        	</xsd:element>
+        	<xsd:element name="importoTotale" minOccurs="1">
+                        <xsd:simpleType><xsd:restriction base="xsd:string"></xsd:restriction></xsd:simpleType>
+                    </xsd:element>
+        	<xsd:element name="categoriaCliente" minOccurs="0">
+                        <xsd:simpleType><xsd:restriction base="xsd:string"></xsd:restriction></xsd:simpleType>
+                    </xsd:element>
+        	<xsd:element name="pluriCA" minOccurs="0">
+                        <xsd:simpleType><xsd:restriction base="xsd:string"></xsd:restriction></xsd:simpleType>
+                    </xsd:element>
+        	<xsd:element name="flagFirst" minOccurs="0"><xsd:simpleType><xsd:restriction base="xsd:string"></xsd:restriction></xsd:simpleType></xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TracciamentoInesitoResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="esito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="codice">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="idAttivita">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="descrizione">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="255"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sorgenteEsito">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="50"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TracciamentoInesitoRequestElement" type="TracciamentoInesitoRequest"/>
+      <xsd:element name="TracciamentoInesitoResponseElement" type="TracciamentoInesitoResponse"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="TracciamentoInesitoProcess_CallTracciamento_Inesito_INPUT">
+    <wsdl:part element="ttns:TracciamentoInesitoRequestElement" name="TracciamentoInesitoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="TracciamentoInesitoProcess_CallTracciamento_Inesito_OUTPUT">
+    <wsdl:part element="ttns:TracciamentoInesitoResponseElement" name="TracciamentoInesitoresponse"/>
+  </wsdl:message>
+  <wsdl:message name="TracciamentoInesitoProcess_CallTracciamento_Inesito_GenericErrorEvent_fault">
+    <wsdl:part element="ttns:TracciamentoInesitoResponseElement" name="TracciamentoInesitoresponse"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_errorCode" name="errorCode"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_errorDetail" name="errorDetail"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_errorMaxRetries" name="errorMaxRetries"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_errorPerformer" name="errorPerformer"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_errorRetryCount" name="errorRetryCount"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_errorShortRetries" name="errorShortRetries"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_errorWaitLongDelayMin" name="errorWaitLongDelayMin"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_errorWaitShortDelayMin" name="errorWaitShortDelayMin"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_msgPayload" name="msgPayload"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_parentProcessId" name="parentProcessId"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_processId" name="processId"/>
+    <wsdl:part element="ns:TracciamentoInesitoProcess_processName" name="processName"/>
+  </wsdl:message>
+  <wsdl:portType name="TracciamentoInesitoProcess" tibex:FlowContainer="_EzY-oUbUEeO0xK8sSiBUuQ">
+    <wsdl:documentation>
+      <DocumentationElement Documentation=""/>
+    </wsdl:documentation>
+    <wsdl:operation name="CallTracciamento_Inesito">
+      <wsdl:input message="ns:TracciamentoInesitoProcess_CallTracciamento_Inesito_INPUT" tibex:Event="_S0h-IEbUEeO0xK8sSiBUuQ"/>
+      <wsdl:output message="ns:TracciamentoInesitoProcess_CallTracciamento_Inesito_OUTPUT" tibex:Event="_S0h-IEbUEeO0xK8sSiBUuQ"/>
+      <wsdl:fault message="ns:TracciamentoInesitoProcess_CallTracciamento_Inesito_GenericErrorEvent_fault" name="GenericErrorEvent" tibex:Error="_S0ilOkbUEeO0xK8sSiBUuQ"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
