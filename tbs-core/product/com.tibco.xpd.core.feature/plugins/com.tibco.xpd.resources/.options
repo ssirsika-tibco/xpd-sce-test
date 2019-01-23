@@ -1,0 +1,23 @@
+#----------------------------------------
+# System categories
+#----------------------------------------
+# Turn off general debugging.
+com.tibco.xpd.resources/debug=false
+# Turn off informations.
+com.tibco.xpd.resources/info=false
+# Turns on/off Eclipse error log logging while building.
+com.tibco.xpd.resources/build=false
+# Turns on/off Eclipse error log logging while debugging.
+com.tibco.xpd.resources/logToEclipseLog=false
+
+#----------------------------------------
+# Custom categories (trace-level logging)
+#----------------------------------------
+com.tibco.xpd.resources/workingcopy=false
+
+# Turning on will not affect tracing by specific index id
+com.tibco.xpd.resources/indexer=false
+# Turning on will lead to tracing by specific index id
+com.tibco.xpd.resources/indexer/com.tibco.xpd.bom.xsdtransform.wsdlSchemaIndexer=false
+com.tibco.xpd.resources/indexer/com.tibco.xpd.bomgen.wsdlBomIndexer=false
+com.tibco.xpd.resources/indexer/com.tibco.xpd.bom.resources.indexing.umlProfileIndexer=false

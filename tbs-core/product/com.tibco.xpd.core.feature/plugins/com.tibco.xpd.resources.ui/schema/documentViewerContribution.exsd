@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.resources.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.resources.ui" id="documentViewerContribution" name="documentViewerContribution"/>
+      </appInfo>
+      <documentation>
+         This extension point allows for the contribution of new document generators for a given special folder and extension.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="documentViewerContribution"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="documentViewerContribution">
+      <complexType>
+         <attribute name="specialFolders" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Comma separated values that specify the special folders to be taken into account in the document export generation.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="fileExtensions" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Comma separated values that specify the file extensions to be taken into account in the document export generation.
+
+Note: do not include the dot in the file extension
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="documentGenerator" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The implementation of this class is responsible for the generation of the documentation
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.ui.documentation.engine.AbstractBaseDocGen:"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

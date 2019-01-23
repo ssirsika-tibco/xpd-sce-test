@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="com.tibco.xpd.ui.properties"
+            labelProvider="com.tibco.xpd.ui.properties.descriptor.PropertyLabelProvider"
+            typeMapper="com.tibco.xpd.ui.properties.descriptor.PropertyTypeMapper">
+         <propertyCategory category="general"/>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs contributorId="com.tibco.xpd.ui.properties">
+         <propertyTab
+               category="general"
+               id="com.tibco.xpd.propertyTabs.general"
+               image="images/general.png"
+               label="%property_tab_general"/>
+         <propertyTab
+               afterTab="com.tibco.xpd.propertyTabs.general"
+               category="general"
+               id="com.tibco.xpd.propertyTabs.advanced"
+               image="images/general_adv.png"
+               label="%property_tab_advanced_1"/>
+         <propertyTab
+               afterTab="com.tibco.xpd.propertyTabs.general"
+               category="general"
+               id="com.tibco.xpd.propertyTabs.parameters"
+               image="images/params.png"
+               label="%property_tab_parameters"/>
+         <propertyTab
+               afterTab="com.tibco.xpd.propertyTabs.general"
+               category="general"
+               id="com.tibco.xpd.propertyTabs.visualization"
+               image="images/visual.png"
+               label="%property_tab_appearance"/>
+         <propertyTab
+               afterTab="com.tibco.xpd.propertyTabs.general"
+               category="general"
+               id="com.tibco.xpd.propertyTabs.description"
+               image="images/description.png"
+               label="%property_tab_description"/>
+         <propertyTab
+               afterTab="com.tibco.xpd.propertyTabs.description"
+               category="general"
+               id="com.tibco.xpd.propertyTabs.implementation"
+               label="%property_tab_implementation"/>
+      </propertyTabs>
+      <propertyTabs contributorId="org.eclipse.ui.navigator.ProjectExplorer">
+		 <propertyTab
+		        category="general"
+		        id="com.tibco.xpd.propertyTabs.general"
+		        image="images/general.png"
+		        label="%property_tab_general"/>
+		 <propertyTab
+	            afterTab="com.tibco.xpd.propertyTabs.general"
+	            category="general"
+	            id="com.tibco.xpd.propertyTabs.description"
+	            image="images/description.png"
+	            label="%property_tab_description"/>
+	   </propertyTabs>
+   </extension>
+  <extension
+        name="Contribute our own special advanced properties refresher section to proj explorer (forces adv.props refresh on model change)"
+        point="org.eclipse.ui.views.properties.tabbed.propertySections">
+     <propertySections
+           contributorId="org.eclipse.ui.navigator.ProjectExplorer">
+        <propertySection
+              afterSection="CommonNavigator.section.Resource"
+              class="com.tibco.xpd.ui.properties.advanced.AdvancedTabRefresherSection"
+              enablesFor="1"
+              id="com.tibco.xpd.resources.xpdl2.inputListeningAdvancedPropSection"
+              tab="CommonNavigator.tab.Resource">
+           <input
+                 type="org.eclipse.emf.ecore.EObject">
+           </input>
+        </propertySection>
+     </propertySections>
+  </extension>
+   
+</plugin>

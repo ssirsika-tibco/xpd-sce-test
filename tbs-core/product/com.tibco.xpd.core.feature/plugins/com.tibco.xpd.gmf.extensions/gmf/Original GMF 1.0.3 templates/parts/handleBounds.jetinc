@@ -1,0 +1,7 @@
+<% /* for handleNotificationEvent() method */ %>
+		if (<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getSize_Width().equals(feature) ||
+				<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getSize_Height().equals(feature) ||
+				<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getLocation_X().equals(feature) ||
+				<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.NotationPackage")%>.eINSTANCE.getLocation_Y().equals(feature)) {
+			refreshBounds();
+		}

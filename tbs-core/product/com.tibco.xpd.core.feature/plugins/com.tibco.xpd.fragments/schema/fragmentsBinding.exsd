@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.fragments" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.fragments" id="fragmentsBinding" name="Fragments Binding to Editor"/>
+      </appinfo>
+      <documentation>
+         This extension point allows the binding of a fragment provider to an editor which will provide this fragments when the editor is active.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="binding" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="binding">
+      <annotation>
+         <documentation>
+            Fragment binding.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="0" maxOccurs="1">
+            <element ref="filter" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="editorId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Id of the editor to bind the fragment provider to.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="org.eclipse.ui.editors/editor/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="fragmentId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Id of the fragment to bind to the editor.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="com.tibco.xpd.fragments.fragmentsProvider/provider/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="filter">
+      <annotation>
+         <documentation>
+            Add filters to bind this contributor to the content of the editor.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="filter" type="string">
+            <annotation>
+               <documentation>
+                  Additional filter to bind this content to a given instance of the editor of the specified editor id type.  The object passed to this filter to test will be the &lt;code&gt;org.eclipse.ui.IEditorPart&lt;/code&gt;.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.jface.viewers.IFilter"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.1
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         &lt;pre&gt;
+ &lt;extension
+         point=&quot;com.tibco.xpd.fragments.fragmentsBinding&quot;&gt;
+      &lt;binding
+            editorId=&quot;org.eclipse.uml2.uml.editor.presentation.UMLEditorID&quot;
+            fragmentId=&quot;com.tibco.xpd.bom.fragments.uml&quot;&gt;
+      &lt;/binding&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc. 2004, 2008. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

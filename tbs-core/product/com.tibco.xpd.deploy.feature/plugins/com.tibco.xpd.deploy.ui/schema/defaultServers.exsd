@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.deploy.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.deploy.core" id="addDefaultServer" name="addDefaultServer"/>
+      </appInfo>
+      <documentation>
+         This extenion point can be used to specify details of a deployment server that can be added to the list of pre-configured servers on the creation of workspace.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="DefaultServerProvider" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="DefaultServerProvider">
+      <complexType>
+         <attribute name="providerClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Contributors to this extension point will need to extend &apos;DefaultServerProvider&apos; abstarct class. The contributor implenenation  will be used to create a server and added to the list of pre-configured servers available on creation of workspace.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.deploy.ui.api.DefaultServerProvider:"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="serverId" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         SCF 3.6.4
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         For example, BPM studio can contribute to this extesion point for adding &apos;Local Developement Server&apos; as a pre-configired server when a new workspace is created to be displayed in the Deployment Server view. 
+
+ &lt;extension point=&quot;com.tibco.xpd.deploy.core.defaultServers&quot;&gt;
+     &lt;DefaultServerProvider
+           providerClass=&quot;com.tibco.xpd.n2.resources.N2LocalDevelopmentServer&quot;&gt;
+     &lt;/DefaultServerProvider&gt;
+ &lt;/extension&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         See &lt;code&gt;com.tibco.xpd.deploy.ui.api.DefaultServerProvider&lt;/code&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         None
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004-2014. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

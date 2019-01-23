@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.resources.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.resources.ui" id="typesProvider" name="Types Provider"/>
+      </appinfo>
+      <documentation>
+         This extension point is depricated. Use &lt;code&gt;com.tibco.xpd.resources.ui.pickerContent&lt;/code&gt; instead.
+&lt;br/&gt;
+This extension point allows plugins to define XPD types and associated classes for the following tasks:&lt;br/&gt;
+&lt;li&gt; query content, which are normally elements of XPD models, but also can be other semantic elements like XPD resources.&lt;/li&gt;
+&lt;li&gt;Resolve the results of the query&lt;/li&gt;
+&lt;li&gt;Provide a labelProvider which is designed for the general &lt;code&gt;PickerDialog&lt;/code&gt;&lt;/li&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element deprecated="true" replacement="com.tibco.xpd.resources.ui.pickerContent" />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="typesProvider"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="typesProvider">
+      <annotation>
+         <documentation>
+            Types Provider which registers new types, defines filters, possible resolvers and labelProviders.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="types" minOccurs="0" maxOccurs="1"/>
+            <element ref="filters" minOccurs="0" maxOccurs="1"/>
+            <element ref="resolvers" minOccurs="0" maxOccurs="1"/>
+            <element ref="labelProviders" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Unique Id of this types provider.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="types">
+      <annotation>
+         <documentation>
+            The types for which a types provider is responsible. The validation will assure that no more than one type provider can deal with a certain type.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="type"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="resolvers">
+      <annotation>
+         <documentation>
+            The Resolvers are responsible to find instances of the filtered output by the filters. The output comes in the form of sets of TypedItem&apos;s which has to be mapped to their associated instances.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="resolver" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="filters">
+      <annotation>
+         <documentation>
+            The filters query the model or the resources for the given types (TypeInfo&apos;s). The search can be narrowed by adding resources as a criteria.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="filter" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="labelProviders">
+      <annotation>
+         <documentation>
+            The label provider are responsible to show the retrieved data in the &lt;code&gt;PickerDialog&lt;/code&gt;.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="labelProvider" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="filter">
+      <annotation>
+         <documentation>
+            The filter queries the model or the resources for the given types (TypeInfo&apos;s). The search can be narrowed by adding resources as a criteria.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="typeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The id of the type for which this filter is responsible.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The implementation class of this filter.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.resources.ui.types.ITypeFilterProvider"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="resolver">
+      <annotation>
+         <documentation>
+            The Resolver is responsible to find instances of the filtered output by the filters. The output comes in the form of sets of TypedItem&apos;s which has to be mapped to their associated instances. Resolvers can only deliver output for the types they are registered for.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="typeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The id of the type for which this resolver is responsible.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The implementation class of this resolver.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.resources.ui.types.ITypeResolver"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="type">
+      <annotation>
+         <documentation>
+            The Type element is a descriptor for different types for which queries can be executed.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="typeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique XPD type id.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="groupId" type="string">
+            <annotation>
+               <documentation>
+                  Types can be grouped by this id.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="data" type="string">
+            <annotation>
+               <documentation>
+                  This attribute is provided for possible extra data like a file extension for a File type.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="labelProvider">
+      <annotation>
+         <documentation>
+            The label provider are responsible to show the retrieved data in the &lt;code&gt;PickerDialog&lt;/code&gt;.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="typeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The id of the type for which this label provider is responsible.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The implementation class of this label provider.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.resources.ui.types.ITypeLabelProvider"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.0.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         &lt;extension
+        point=&quot;com.tibco.xpd.resources.ui.typesProvider&quot;&gt;
+     &lt;typesProvider
+           id=&quot;com.tibco.xpd.bom.resources.ui.typesProvider&quot;&gt;
+        &lt;types&gt;
+           &lt;type
+                 groupId=&quot;org.eclipse.emf.ecore.EObject&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Package&quot;&gt;
+           &lt;/type&gt;
+           &lt;type
+                 groupId=&quot;org.eclipse.emf.ecore.EObject&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Class&quot;&gt;
+           &lt;/type&gt;
+           &lt;type
+                 groupId=&quot;org.eclipse.emf.ecore.EObject&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.PrimitiveType&quot;&gt;
+           &lt;/type&gt;
+           &lt;type
+                 groupId=&quot;org.eclipse.emf.ecore.EObject&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.BasePrimitiveType&quot;&gt;
+           &lt;/type&gt;
+           &lt;type
+                 groupId=&quot;org.eclipse.emf.ecore.EObject&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Stereotype&quot;&gt;
+           &lt;/type&gt;
+           &lt;type
+                 groupId=&quot;org.eclipse.emf.ecore.EObject&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Profile&quot;&gt;
+           &lt;/type&gt;
+        &lt;/types&gt;
+        &lt;filters&gt;
+           &lt;filter
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Filter&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Class&quot;&gt;
+           &lt;/filter&gt;
+           &lt;filter
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Filter&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.PrimitiveType&quot;&gt;
+           &lt;/filter&gt;
+           &lt;filter
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Filter&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Package&quot;&gt;
+           &lt;/filter&gt;
+           &lt;filter
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Filter&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.BasePrimitiveType&quot;&gt;
+           &lt;/filter&gt;
+           &lt;filter
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Filter&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Stereotype&quot;&gt;
+           &lt;/filter&gt;
+           &lt;filter
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Filter&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Profile&quot;&gt;
+           &lt;/filter&gt;
+        &lt;/filters&gt;
+        &lt;resolvers&gt;
+           &lt;resolver
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Resolver&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Package&quot;&gt;
+           &lt;/resolver&gt;
+           &lt;resolver
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Resolver&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Class&quot;&gt;
+           &lt;/resolver&gt;
+           &lt;resolver
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Resolver&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.PrimitiveType&quot;&gt;
+           &lt;/resolver&gt;
+           &lt;resolver
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Resolver&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.BasePrimitiveType&quot;&gt;
+           &lt;/resolver&gt;
+           &lt;resolver
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Resolver&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Profile&quot;&gt;
+           &lt;/resolver&gt;
+           &lt;resolver
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.Resolver&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Stereotype&quot;&gt;
+           &lt;/resolver&gt;
+        &lt;/resolvers&gt;
+        &lt;labelProviders&gt;
+           &lt;labelProvider
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.LabelProvider&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Package&quot;&gt;
+           &lt;/labelProvider&gt;
+           &lt;labelProvider
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.LabelProvider&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Class&quot;&gt;
+           &lt;/labelProvider&gt;
+           &lt;labelProvider
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.LabelProvider&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.PrimitiveType&quot;&gt;
+           &lt;/labelProvider&gt;
+           &lt;labelProvider
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.LabelProvider&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.BasePrimitiveType&quot;&gt;
+           &lt;/labelProvider&gt;
+           &lt;labelProvider
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.LabelProvider&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Profile&quot;&gt;
+           &lt;/labelProvider&gt;
+           &lt;labelProvider
+                 class=&quot;com.tibco.xpd.bom.resources.ui.types.internal.LabelProvider&quot;
+                 typeId=&quot;com.tibco.xpd.bom.resources.ui.types.Stereotype&quot;&gt;
+           &lt;/labelProvider&gt;
+        &lt;/labelProviders&gt;
+     &lt;/typesProvider&gt;
+  &lt;/extension&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         See javadoc for...
+&lt;li&gt;&lt;code&gt;com.tibco.xpd.resources.ui.types.ITypeFilterProvider&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;com.tibco.xpd.resources.ui.types.ITypeResolver&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;com.tibco.xpd.resources.ui.types.TypeInfo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;com.tibco.xpd.resources.ui.types.TypedItem&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;com.tibco.xpd.resources.ui.types.TypeProvider&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;com.tibco.xpd.resources.ui.types.TypeUtil&lt;/code&gt;&lt;/li&gt;
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright TIBCO Software Inc. (c) 2008
+      </documentation>
+   </annotation>
+
+</schema>

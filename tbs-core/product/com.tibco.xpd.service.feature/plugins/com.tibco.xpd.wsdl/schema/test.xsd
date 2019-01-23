@@ -1,0 +1,39 @@
+            <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://duke.org" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://duke.org">
+
+                <xsd:complexType name="addNumbersResponse">
+                    <xsd:sequence>
+                        <xsd:element name="return" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="addNumbersResponse" type="tns:addNumbersResponse" />
+
+                <xsd:complexType name="addNumbers">                	<xsd:choice>                		<xsd:sequence>                			<xsd:element name="arg0"
+                				type="xsd:int">
+                			</xsd:element>
+                			<xsd:element name="arg1"
+                				type="xsd:int">
+                			</xsd:element>
+                		</xsd:sequence>
+                		<xsd:sequence>
+                			<xsd:element name="args"
+                				type="xsd:int" maxOccurs="unbounded" minOccurs="1">
+                			</xsd:element>
+                		</xsd:sequence>
+                	</xsd:choice>
+                </xsd:complexType>
+                <xsd:element name="addNumbers" type="tns:addNumbers" />
+
+                <xsd:element name="AddNumbersFault" type="tns:AddNumbersFault" />
+                <xsd:complexType name="AddNumbersFault">
+                    <xsd:sequence>
+                        <xsd:element name="faultInfo" type="xsd:string" />
+                        <xsd:element name="message" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:complexType name="oneWayInt">
+                    <xsd:sequence>
+                        <xsd:element name="arg0" type="xsd:int" />
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="oneWayInt" type="tns:oneWayInt" />
+            </xsd:schema>

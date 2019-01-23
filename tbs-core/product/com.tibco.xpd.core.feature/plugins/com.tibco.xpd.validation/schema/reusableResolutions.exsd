@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.validation" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.validation" id="resolutionReusable" name="Reusable Resolution"/>
+      </appinfo>
+      <documentation>
+         &lt;p&gt;
+This extension point allows the contribution of a validation problem quick-fix resolution that can be easily re-used for any number of validation issues defined in any number of validations destinations/providers.
+&lt;/p&gt;
+&lt;p&gt;
+Unlike the extension point &lt;code&gt;com.tibco.xpd.validation.resolution&lt;/code&gt; which ties a resolution class to a particular validationProvder/Issue contribution, &lt;code&gt;resolutionReusable&lt;/code&gt; can be referenced by the new addition to &lt;code&gt;validationProvider/Issue&lt;/code&gt; which can now have one or more &lt;code&gt;resolution&lt;/code&gt; reference entries.
+&lt;/p&gt;
+&lt;p&gt;
+Simply create a resolution class, contribute it via this extension point then reference it from you &lt;code&gt;validationProvider/Issue/resolution&lt;/code&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="resolution" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="resolution">
+      <annotation>
+         <documentation>
+            &lt;p&gt;
+Contributes a single reusable resolution, with a command providing class, description and image.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique Id o this resolution.
+&lt;p&gt;
+This will be referenced by validationProvider/Issue/resolution contributions.
+&lt;/p&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Class that provides the quick fix resolution.
+&lt;p&gt;
+ Resolutions on EObjects that use the working copy framework can use the abstract class &lt;code&gt;com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution&lt;/code&gt;.
+ &lt;/p&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.validation.resolutions.IResolution"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="label" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The quick fix label
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="image" type="string">
+            <annotation>
+               <documentation>
+                  Image used in the quick-fix dialog
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string">
+            <annotation>
+               <documentation>
+                  Long description of the quick fix.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         v3.3.0
+      </documentation>
+   </annotation>
+
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004, 2009. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

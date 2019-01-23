@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.validation" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.validation" id="resolution" name="ValidationResolution"/>
+      </appinfo>
+      <documentation>
+         &lt;p&gt;
+&lt;b&gt;Note:&lt;/b&gt; A new and simpler method of contributing a Resolution ONCE and referencing it from Issues (opposite of this older extension point) is available using the &lt;code&gt;com.tibco.xpd.valdiations.reusableResolutions&lt;/code&gt; extension point.
+&lt;/p&gt;
+&lt;p&gt;
+The resolution extension point allows plug-ins to define a resolution for a given validation issue (and since 3.1 any EMF constraints).
+&lt;/p&gt;
+
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="resolution" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="resolution">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  id of the issue to resolve (since 3.1 this can also be an EMF constraint id).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  resolution class must implement IResolution and have a zero-argument or default constructor.  Resolutions on EObjects that use the working copy framework can use the abstract class &lt;code&gt;com.tibco.xpd.validation.resolutions.AbstractWorkingCopyResolution&lt;/code&gt;.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.validation.resolutions.IResolution"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="label" type="string" use="required">
+            <annotation>
+               <documentation>
+                  label used in the quick-fix dialog
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="image" type="string">
+            <annotation>
+               <documentation>
+                  image used in the quick-fix dialog
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string">
+            <annotation>
+               <documentation>
+                  description of the resolution
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="canApplyToMultiple" type="boolean">
+            <annotation>
+               <documentation>
+                  set to true if this resolution can be applied to multiple (similar) validation problems (default is true).  If this resolution contains UI (dialogs etc.) then this should be set to false.  If set to true the &quot;Find Similar&quot; option will be available in the quick-fix dialog.  (Since 3.1, this will default to false as Eclipse Ganymede has done away with the &quot;Find Similar&quot; option and instead lists all similar problems by default.)
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004, 2008. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

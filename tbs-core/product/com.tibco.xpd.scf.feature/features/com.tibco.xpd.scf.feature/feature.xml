@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.scf.feature"
+      label="%featureName"
+      version="5.0.0.qualifier"
+      provider-name="%providerName"
+      plugin="com.tibco.xpd.scf.branding">
+
+   <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="com.tibco.xpd.core.feature" version="5.0.0" match="compatible"/>
+      <import feature="com.tibco.xpd.deploy.feature" version="5.0.0" match="compatible"/>
+      <import feature="com.tibco.xpd.service.feature" version="5.0.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.xpd.scf.branding"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+</feature>

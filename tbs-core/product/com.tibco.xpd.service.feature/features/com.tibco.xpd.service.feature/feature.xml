@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.tibco.xpd.service.feature"
+      label="TIBCO Business Studio Service Explorer"
+      version="5.0.0.qualifier"
+      provider-name="%providerName_notrans"
+      plugin="com.tibco.xpd.service.branding">
+
+   <description url="http://www.tibco.com/devnet/business_studio/default.jsp">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL_notrans">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.platform" version="4.7.0" match="compatible"/>
+      <import feature="com.tibco.xpd.core.feature" version="5.0.0" match="compatible"/>
+      <import feature="org.eclipse.emf" version="2.13.0" match="compatible"/>
+      <import feature="org.eclipse.xsd" version="2.13.0" match="compatible"/>
+      <import feature="org.eclipse.gef" version="3.11.0" match="compatible"/>
+      <import feature="org.eclipse.wst.common.fproj" version="3.7.1" match="compatible"/>
+      <import feature="org.eclipse.wst.ws_core.feature" version="3.7.100" match="compatible"/>
+      <import feature="org.eclipse.wst.common_core.feature" version="3.9.1" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.tibco.xpd.registry"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.registry.ui"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.wsdl"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.wsdl.ui"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.tibco.xpd.service.branding"
+         download-size="0"
+         install-size="0"
+         version="5.0.0.qualifier"/>
+
+</feature>

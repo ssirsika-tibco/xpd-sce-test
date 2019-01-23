@@ -1,0 +1,54 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.providers" class="MarkerNavigationProviderGenerator"
+	imports="org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.*"%>
+<%
+final GenDiagram genDiagram = (GenDiagram)((Object[]) argument)[0];
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+<%
+importManager.markImportLocation(stringBuffer);
+importManager.addImport("java.util.Iterator");
+importManager.addImport("java.util.Map");
+importManager.addImport("org.eclipse.core.resources.IMarker");
+importManager.addImport("org.eclipse.gef.EditPart");
+importManager.addImport("org.eclipse.gmf.runtime.diagram.core.util.ViewUtil");
+importManager.addImport("org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor");
+importManager.addImport("org.eclipse.gmf.runtime.emf.ui.providers.marker.AbstractModelMarkerNavigationProvider");
+importManager.addImport("org.eclipse.gmf.runtime.notation.View");
+%>
+
+/**
+ * @generated
+ */	
+public class <%=genDiagram.getMarkerNavigationProviderClassName()%> extends AbstractModelMarkerNavigationProvider {
+	/**
+	 * @generated
+	 */		
+	protected void doGotoMarker(IMarker marker) {
+		String elementId = marker.getAttribute(org.eclipse.gmf.runtime.common.ui.resources.IMarker.ELEMENT_ID, null);
+		if(elementId == null || !(getEditor() instanceof DiagramEditor)) {
+			return;
+		}
+		EditPart targetEditPart = null;
+		DiagramEditor editor = (DiagramEditor)getEditor();
+		Map epartRegistry = editor.getDiagramGraphicalViewer().getEditPartRegistry();
+		for (Iterator it = epartRegistry.entrySet().iterator(); it.hasNext();) {
+			Map.Entry entry = (Map.Entry) it.next();
+			if(entry.getKey() instanceof View) {
+				View view = (View)entry.getKey();
+				String viewId = ViewUtil.getIdStr(view);
+				if(viewId.equals(elementId)) {
+					targetEditPart = (EditPart)entry.getValue();
+					break;
+				} 
+			}
+		}
+		if(targetEditPart != null) {
+			editor.getDiagramGraphicalViewer().select(targetEditPart);			
+			editor.getDiagramGraphicalViewer().reveal(targetEditPart);
+		}
+	}
+}
+<%importManager.emitSortedImports();%>

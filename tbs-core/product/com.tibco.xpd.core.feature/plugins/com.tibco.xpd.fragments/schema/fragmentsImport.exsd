@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.fragments" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.fragments" id="fragmentsMigration" name="Fragments Migration Provider"/>
+      </appinfo>
+      <documentation>
+         This extension allows the registration of a fragments importer.  The importer will specify the project names/natures it recognises as fragment projects that can be imported.  During the import process the importer will be given an opportunity to process its recognised project and import fragment categories/fragments from it.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="importer" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="importer">
+      <annotation>
+         <documentation>
+            Specify an importer that will import fragments from a recognised external fragments projects. NOTE: Either the &lt;i&gt;projectNatures &lt;/i&gt; or  &lt;i&gt;projects &lt;/i&gt; has to be specified.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  importer unique id
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="projectNatures" type="string">
+            <annotation>
+               <documentation>
+                  Comma-separated list of project natures that this importer recognises and can import.  This list will be used to filter the projects that will be listed in the fragments import wizard.  If this value is specified then &lt;i&gt;projects&lt;/i&gt; will be ignored.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="projects" type="string">
+            <annotation>
+               <documentation>
+                  Comma-separated list of project names that this importer recognises and can import.  This list will be used to filter the projects that will be listed in the fragments import wizard.  If &lt;i&gt;projectNatures&lt;/i&gt; have been provided then this list will be ignored.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Fragments import class.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.fragments.FragmentsImporter:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.1
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         &lt;pre&gt;
+&lt;extension
+         point=&quot;com.tibco.xpd.fragments.fragmentsImport&quot;&gt;
+      &lt;importer
+            class=&quot;com.tibco.xpd.MyImporter&quot;
+            id=&quot;com.tibco.xpd.myFragments.importer&quot;
+            projects=&quot;.fragmentsProject&quot;&gt;
+      &lt;/importer&gt;
+&lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc. 2004, 2008. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

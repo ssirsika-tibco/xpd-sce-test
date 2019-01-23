@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="importProjectsEx1" basedir="../">
+
+	<!-- some examples for tbs.importProjects task usage -->
+	
+	<target name="init">
+		<echo>Working directory: ${basedir}</echo>
+	</target>
+	
+	<target name="importProjectsEx0" depends="init" description="generate daa for projects in sepcified location">
+		<tbs.importProjects dir="C:\src\cmd_line_ProjectImport\ImportProjects" file="Socle.zip" />
+	</target>
+	
+	<target name="importProjectsEx1" depends="init" description="generate daa for projects in sepcified location">
+		<tbs.importProjects useArchives="true" skipPostImportTask="false">
+			<fileset dir="C:\src\cmd_line_ProjectImport\ImportProjects" includes="**/*.zip"/>			
+		</tbs.importProjects>		
+	</target>
+	
+	<target name="importProjectsEx2" depends="init" description="generate daa for projects in sepcified location">
+		<tbs.importProjects copyprojects="true">
+			<dirset dir="C:\src\cmd_line_ProjectImport\ImportProjects\TestBPM" />			
+		</tbs.importProjects>		
+	</target>
+	
+	<target name="importProjectsEx3" depends="init" description="generate daa for projects in sepcified location">
+		<tbs.importProjects file="C:\src\cmd_line_ProjectImport\ImportProjects\Socle.zip" useArchives="true"/>	
+	</target>
+	
+	<target name="importProjectsEx4" depends="init" description="generate daa for projects in sepcified location">
+		<echo>before importing...</echo>
+		<tbs.importProjects dir="C:\src\cmd_line_ProjectImport\ImportProjects" file="Socle.zip" useArchives="false"/>	
+		<echo>after importing...</echo>
+	</target>
+
+	<target name="importProjectsEx5" depends="init" description="generate daa for projects in sepcified location">
+		<echo>before importing...</echo>
+		<tbs.importProjects dir="C:\src\cmd_line_ProjectImport\ImportProjects\TestBPM" copyProjects="true"/>	
+		<echo>after importing...</echo>
+	</target>
+	
+</project>

@@ -1,0 +1,63 @@
+<%@ jet package="org.eclipse.gmf.codegen.templates.policies" class="DiagramCanonicalEditPolicyGenerator"
+	imports="java.util.* org.eclipse.emf.codegen.ecore.genmodel.* org.eclipse.gmf.codegen.gmfgen.* org.eclipse.gmf.common.codegen.*"
+	skeleton="../common.skeleton"%>
+<%
+final GenDiagram genDiagram = (GenDiagram) ((Object[]) argument)[0];
+final ImportAssistant importManager = (ImportAssistant) ((Object[]) argument)[1];
+%>
+<%@ include file="../copyright4java.jetinc"%>
+<%importManager.emitPackageStatement(stringBuffer);%>
+
+import java.util.List;
+import java.util.Collection;
+import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.emf.ecore.EObject;
+<%importManager.markImportLocation(stringBuffer);%>
+
+/**
+ * @generated
+ */
+public class <%=genDiagram.getCanonicalEditPolicyClassName()%> extends <%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalConnectionEditPolicy")%> {
+	
+<%
+GenClass modelElementInterface = genDiagram.getDomainDiagramElement();
+if (modelElementInterface != null) {
+	List genNodes = genDiagram.getTopLevelNodes();
+%>
+<%@ include file="../semanticSync.jetinc/getSemanticChildrenList.jetinc"%>
+<%}%>
+
+	/**
+	 * @generated
+	 */
+	protected List getSemanticConnectionsList() {
+		return <%=importManager.getImportedName("java.util.Collections")%>.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected EObject getSourceElement(EObject relationship) {
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected EObject getTargetElement(EObject relationship) {
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean shouldIncludeConnection(Edge connector, Collection children) {
+		return false;
+	}
+
+<%if (modelElementInterface != null) {%>
+<%@ include file="../semanticSync.jetinc/refreshSemanticDiagram.jetinc"%>
+<%}%>
+
+}
+<%importManager.emitSortedImports();%>
