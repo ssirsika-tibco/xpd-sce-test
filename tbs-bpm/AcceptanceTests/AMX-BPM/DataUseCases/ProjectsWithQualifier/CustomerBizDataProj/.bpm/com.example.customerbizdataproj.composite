@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:common="http://xsd.tns.tibco.com/n2/models/common" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:hibernate="http://xsd.tns.tibco.com/amf/models/sharedresource/hibernate" xmlns:pbu="http://www.tibco.com/wrm/policy/pbu" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_4JtxYVjnEeOujN6NvEd9_A" targetNamespace="http://www.example.com/com.example.customerbizdataproj" name="com.example.customerbizdataproj-1" compositeext:version="1.0.0.qualifier" compositeext:formatVersion="2">
-  <sca:property xmi:id="_4KHaAFjnEeOujN6NvEd9_A" mustSupply="true" name="BDSCaseDataStoreResource" type="hibernate:TeneoSessionFactory" scaext:simpleValue="BDSCaseDataStoreResource"/>
-  <sca:component xmi:id="_4KGy8FjnEeOujN6NvEd9_A" name="BDS" compositeext:version="1.0.0.qualifier" policySets="pbu:PrepareBeforeUndeploy_WRMComponent" requires="scaext:prepareBeforeUndeploy" scaext:policySetLocations="resources/PrepareBeforeUndeploy.policysets">
-    <common:implementation.bds xmi:id="_4KGy8VjnEeOujN6NvEd9_A" BDSSpecification="/CustomerBizDataProj/.bpm/bds-spec.bds" version="1.0.0.qualifier"/>
-    <sca:property xmi:id="_4KGy8ljnEeOujN6NvEd9_A" mustSupply="true" name="BDSCaseDataStoreResource" type="hibernate:TeneoSessionFactory" source="$BDSCaseDataStoreResource"/>
-  </sca:component>
-</sca:composite>
