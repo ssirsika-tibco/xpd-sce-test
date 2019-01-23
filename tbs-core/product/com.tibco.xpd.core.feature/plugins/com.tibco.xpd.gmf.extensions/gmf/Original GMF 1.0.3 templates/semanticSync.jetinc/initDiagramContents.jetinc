@@ -1,0 +1,108 @@
+<%
+List genLinks = genDiagram.getLinks();
+%>
+<%@ include file="class2PhantomsCollector.jetinc"%>
+	
+/**
+ * @generated
+ */
+private <%=importManager.getImportedName("java.util.Collection")%> myLinkDescriptors = new <%=importManager.getImportedName("java.util.LinkedList")%>();
+	
+/**
+ * @generated
+ */
+private <%=importManager.getImportedName("java.util.Map")%> myEObject2NodeMap = new <%=importManager.getImportedName("java.util.HashMap")%>();
+
+/**
+ * @generated
+ */
+private void initDiagramContents(<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Diagram")%> diagram, <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> diagramModelObject) {
+	create<%=genDiagram.getUniqueIdentifier()%>Children(diagram, diagramModelObject);
+<%@ include file="collectDiagramPhantoms_header.jetinc"%>
+		<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Node")%> nextNode = ViewService.createNode(diagram, nextResourceObject, <%=importManager.getImportedName(genDiagram.getVisualIDRegistryQualifiedClassName())%>.getType(<%=importManager.getImportedName(phantomNode.getEditPartQualifiedClassName())%>.VISUAL_ID), <%=pluginActivatorClass%>.DIAGRAM_PREFERENCES_HINT);
+		myEObject2NodeMap.put(nextResourceObject, nextNode);
+		create<%=phantomNode.getUniqueIdentifier()%>Children(nextNode, nextResourceObject);
+<%@ include file="collectDiagramPhantoms_footer.jetinc"%>
+<%
+// TODO: remove "createLinks()" method - this task should be done by canonicalEditPolicies
+%>		
+	createLinks(diagram);
+}
+<%
+boolean generateGetCompartment = false;
+
+for (Iterator containers = genDiagram.getAllContainers().iterator(); containers.hasNext();) {
+	GenContainerBase nextContainer = (GenContainerBase) containers.next();
+%>	
+
+/**
+ * @generated
+ */
+private void create<%=nextContainer.getUniqueIdentifier()%>Children(<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%> viewObject, <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> modelObject) {
+<%	{
+		List genNodes = nextContainer.getContainedNodes();%>
+<%@ include file="collectSemanticChildren_header.jetinc"%>
+		<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Node")%> nextNode = ViewService.createNode(viewObject, nextValue, <%=importManager.getImportedName(genDiagram.getVisualIDRegistryQualifiedClassName())%>.getType(<%=importManager.getImportedName(nextNode.getEditPartQualifiedClassName())%>.VISUAL_ID), <%=pluginActivatorClass%>.DIAGRAM_PREFERENCES_HINT);
+		myEObject2NodeMap.put(nextValue, nextNode);
+		create<%=nextNode.getUniqueIdentifier()%>Children(nextNode, nextValue);
+<%@ include file="collectSemanticChildren_footer.jetinc"%>
+<%	}
+
+	if (nextContainer instanceof GenNode) {
+		GenNode nextNode = (GenNode) nextContainer;
+		for (int i = 0; i < nextNode.getCompartments().size(); i++) {
+			generateGetCompartment = true;
+			GenCompartment nextCompartment = (GenCompartment) nextNode.getCompartments().get(i);
+%>
+	<%=i == 0 ? importManager.getImportedName("org.eclipse.gmf.runtime.notation.Node") : ""%> nextCompartment = getCompartment(viewObject, <%=importManager.getImportedName(genDiagram.getVisualIDRegistryQualifiedClassName())%>.getType(<%=importManager.getImportedName(nextCompartment.getEditPartQualifiedClassName())%>.VISUAL_ID));
+	if (nextCompartment != null) {
+		create<%=nextCompartment.getUniqueIdentifier()%>Children(nextCompartment, modelObject);
+	}
+<%
+		}
+	}
+	if (false == nextContainer instanceof GenCompartment) {
+%>
+	storeLinks(modelObject, viewObject.getDiagram());
+<%	}%>
+}
+<%
+}
+
+if (generateGetCompartment) {
+%>
+	
+/**
+ * @generated
+ */
+private <%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Node")%> getCompartment(<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%> node, String name) {
+	for (<%=importManager.getImportedName("java.util.Iterator")%> it = node.getChildren().iterator(); it.hasNext();) {
+		<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%> nextView = (<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%>) it.next();
+		if (nextView instanceof <%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Node")%> && name.equals(nextView.getType())) {
+			return (<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Node")%>) nextView;
+		}
+	}
+	return null;
+}
+<%
+}
+%>
+
+<%boolean createPhantoms = true;%>
+<%@ include file="storeLinks.jetinc"%>
+
+/**
+ * @generated
+ */
+private void createLinks(<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Diagram")%> diagram) {
+	for (<%=importManager.getImportedName("java.util.Iterator")%> it = myLinkDescriptors.iterator(); it.hasNext();) {
+		LinkDescriptor nextLinkDescriptor = (LinkDescriptor) it.next();
+		<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Edge")%> edge = (<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Edge")%>) ViewService.getInstance().createEdge(nextLinkDescriptor.getSemanticAdapter(), diagram, String.valueOf(nextLinkDescriptor.getVisualID()), <%=importManager.getImportedName("org.eclipse.gmf.runtime.diagram.core.util.ViewUtil")%>.APPEND, <%=pluginActivatorClass%>.DIAGRAM_PREFERENCES_HINT);
+		if (edge != null) {
+			edge.setSource((<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Node")%>) myEObject2NodeMap.get(nextLinkDescriptor.getSource()));
+			edge.setTarget((<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Node")%>) myEObject2NodeMap.get(nextLinkDescriptor.getDestination()));
+		}
+	}
+}
+
+<%@ include file="linkDescriptor.jetinc"%>

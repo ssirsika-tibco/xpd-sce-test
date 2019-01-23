@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+    <extension point="org.eclipse.ui.actionSets">
+	  <actionSet
+		id="com.tibco.xpd.core.validate.system.actionSet"
+		label="%validateSystem.label"
+		visible="true">
+	    <action id="org.eclipse.help.internal.ui.HelpAction"
+		  menubarPath="help/additions"
+		  label="%validateSystem.label"
+		  class="com.tibco.xpd.core.validate.system.internal.ValidateSystemAction"
+		  icon="icons/obj16/tibco16.png"
+		  helpContextId="org.eclipse.help.ui.helpContentsMenu"
+		  tooltip="%actionSet.tooltip">
+        </action>
+ 	  </actionSet>
+    </extension>
+
+	<extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.tibco.xpd.core.validate.system.internal.SystemValidationPreferences">
+      </initializer>
+   </extension>
+</plugin>

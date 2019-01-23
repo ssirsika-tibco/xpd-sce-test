@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+  	<extensionContent id="tbsBusinessAnalystSamples" 
+  	name="TIBCO Business Analyst samples" 
+  	alt-style="css/samples.properties" 
+  	style="css/samples.css" 
+  	path="samples/@tbsMainAnchorSamples/content-group/additions"> 
+	 <group style-id="content-group" id="analyst-samples-content-group">
+       		<link style-id="content-link" label="Business Analyst"
+       			url="http://org.eclipse.ui.intro/openBrowser?url=http://www.tibco.com"
+       			id="analyst-samples-content-link">
+          		<text></text>
+       		</link>
+			<group id="analyst-sample-projects-viewer-group" 
+				label="Available sample projects" 
+				expandable="true" 
+				expanded="true">
+				<!-- The only valid contentProvider IDs are analyst-viewer and desgner-viewer -->
+				<contentProvider
+					id="analyst-viewer"
+					pluginId="com.tibco.xpd.branding"
+					class="com.tibco.xpd.branding.wp.samples.SampleProjectsViewer">
+				</contentProvider>
+			</group>
+       </group> 	   
+  	</extensionContent>
+</introContent>

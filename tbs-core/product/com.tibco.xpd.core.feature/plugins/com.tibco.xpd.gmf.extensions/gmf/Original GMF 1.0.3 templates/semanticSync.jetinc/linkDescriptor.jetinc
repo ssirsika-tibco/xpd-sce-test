@@ -1,0 +1,102 @@
+<%
+// an inner class 
+%>/**
+ * @generated
+ */
+private class LinkDescriptor {
+	
+	/**
+   	 * @generated
+     */
+	private <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> mySource;
+		
+	/**
+   	 * @generated
+     */
+	private <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> myDestination;
+	
+	/**
+   	 * @generated
+     */
+	private <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> myLinkElement;
+	
+	/**
+   	 * @generated
+     */
+	private int myVisualID;
+		
+	/**
+   	 * @generated
+     */
+	private <%=importManager.getImportedName("org.eclipse.core.runtime.IAdaptable")%> mySemanticAdapter;
+		
+	/**
+   	 * @generated
+     */
+	protected LinkDescriptor(<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> source, <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> destination, <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> linkElement, int linkVID) {
+		this(source, destination, linkVID);
+		myLinkElement = linkElement;
+		mySemanticAdapter = new <%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter")%>(linkElement);
+	}
+
+	/**
+   	 * @generated
+     */
+	protected LinkDescriptor(<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> source, <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> destination, <%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.type.core.IElementType")%> elementType, int linkVID) {
+		this(source, destination, linkVID);
+		myLinkElement = null;
+		final <%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.type.core.IElementType")%> elementTypeCopy = elementType;
+		mySemanticAdapter = new <%=importManager.getImportedName("org.eclipse.core.runtime.IAdaptable")%>() {
+			public Object getAdapter(Class adapter) {
+				if (<%=importManager.getImportedName("org.eclipse.gmf.runtime.emf.type.core.IElementType")%>.class.equals(adapter)) {
+					return elementTypeCopy;
+				}
+				return null;
+			}
+		};
+	}
+		
+	/**
+   	 * @generated
+     */
+	private LinkDescriptor(<%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> source, <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> destination, int linkVID) {
+		mySource = source;
+		myDestination = destination;
+		myVisualID = linkVID;
+	}
+		
+	/**
+   	 * @generated
+     */
+	protected <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> getSource() {
+		return mySource;
+	}
+		
+	/**
+   	 * @generated
+     */
+	protected <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> getDestination() {
+		return myDestination;
+	}
+	
+	/**
+   	 * @generated
+     */
+	protected <%=importManager.getImportedName("org.eclipse.emf.ecore.EObject")%> getLinkElement() {
+		return myLinkElement;
+	}
+	
+	/**
+   	 * @generated
+     */
+	protected int getVisualID() {
+		return myVisualID;
+	}
+		
+	/**
+   	 * @generated
+     */
+	protected <%=importManager.getImportedName("org.eclipse.core.runtime.IAdaptable")%> getSemanticAdapter() {
+		return mySemanticAdapter;
+	}
+}

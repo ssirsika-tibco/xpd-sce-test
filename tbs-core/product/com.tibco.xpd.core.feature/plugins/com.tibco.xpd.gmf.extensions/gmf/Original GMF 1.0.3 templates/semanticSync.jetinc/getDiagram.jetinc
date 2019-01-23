@@ -1,0 +1,6 @@
+/**
+ * @generated
+ */
+private <%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.Diagram")%> getDiagram() {
+	return ((<%=importManager.getImportedName("org.eclipse.gmf.runtime.notation.View")%>) getHost().getModel()).getDiagram();
+}

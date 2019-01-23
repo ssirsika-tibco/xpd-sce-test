@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.resources.ui">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.resources.ui" id="complexDataType" name="Complex Data Type"/>
+      </appInfo>
+      <documentation>
+         The class &lt;code&gt;com.tibco.xpd.resource.ui.complexdatatype.ComplexDataTypePicker&lt;/code&gt; provides a complex data type browse dialog (picker) where the available type(s) are contributed via this extension point. This picker allows for selection of contributed types from the project navigator content beneath a given project.
+&lt;p&gt;
+2 classes are used to support this behaviour, the &lt;code&gt;ComplexDataTypePicker&lt;/code&gt; itself and the class &lt;code&gt;com.tibco.xpd.resource.ui.complexdatatype.ComplexDataTypeExtPointHelper&lt;/code&gt; that provides an api to gather the extension point information for one or more complex data types (via a list of data type id&apos;s contributed to this extension). The output from this is fed to the &lt;code&gt;ComplexDataTypePicker&lt;/code&gt; and the picker will list only entries from the given project&apos;s navigator content that are relevant to the supported data types.
+&lt;/p&gt;
+&lt;p&gt;
+Each contributor of a complex data type provides a unique Id for the data type, a set of navigator content filters designed to show the required content to allow the user to drill-down and see its data type and a &lt;code&gt;ComplexDataTypeReferenceResolver&lt;/code&gt; class (that allows a selected object to be converted to a string-based reference and back again at a later date).
+&lt;/p&gt;
+&lt;p&gt;
+The decision about what data types are available for selection must be made by the feature that utilises the &lt;code&gt;ComplexDataTypeExtPointHelper&lt;/code&gt; (for instance the TIBCO Process Analyst Feature provides an extension point that allows the binding of complex data types to particular destination environments). Another feature might decide to hard-code the available complex data types it supports for selection (in the case that it has a fixed set of known complex data types).
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <complexType>
+         <sequence>
+            <element ref="complexDataType"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="complexDataType">
+      <annotation>
+         <documentation>
+            &lt;p&gt;
+Specifies a Complex Data Type.&lt;br/&gt;
+&lt;br/&gt;
+Using this information the ComplexDataTypeExtPointHelper class can determine what objects are available for selection for a given complex data type and how these can be converted to a reference (if necessary).
+&lt;/p&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="browseFilters"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Unique Id of this complex data type. This is used with &lt;code&gt;ComplexDataTypeExtPointHelper.getComplexDataTypesMergedInfo()&lt;/code&gt; method to specify which types that user should be able to choose from.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="referenceResolver" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Class that implements ComplexDataTypeRefResolver interface. Specifies a class that can...
+&lt;li&gt;(a) validate that particular object is valid for complex data type.&lt;/li&gt;
+&lt;li&gt;(b) convert to a string reference.&lt;/li&gt;
+&lt;li&gt;(c) dereference the the reference back into object at a later time.&lt;/li&gt;
+&lt;p&gt;
+If your complex data type is an EObject under control of the Studio WorkingCopy framework then consider extending the class &lt;code&gt;com.tibco.xpd.resources.ui.complexdatatype.GenericEObjectReferenceResolver&lt;/code&gt; which provides most of the requirements for referencing EObjects that define complex data types.
+&lt;/p&gt;
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.ui.complexdatatype.ComplexDataTypeRefResolver"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="browseFilters">
+      <annotation>
+         <documentation>
+            Specify the filters that include (or exclude) items from complex data type browse list when this type is available.
+
+Note that parent&apos;s of the objects you require to appear are not automatically included, you must also specify inclusion filter for special folder / file type etc.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <choice>
+               <element ref="specialFolderInclusionFilter"/>
+               <element ref="fileTypeInclusionFilter"/>
+               <element ref="eObjectInclusionFilter"/>
+               <element ref="eObjectExclusionFilter"/>
+               <element ref="customFilter"/>
+            </choice>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="specialFolderInclusionFilter">
+      <annotation>
+         <documentation>
+            Specify Special Folder kind to include in complex data type browse list.
+
+Note that this will automatically include any file type that is valid within the special folder.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="kind" type="string" use="required">
+            <annotation>
+               <documentation>
+                  This should match the &apos;kind&apos; attribute of the con.tibco.xpd.resources.specialFolders/folder/kind attribute.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="fileTypeInclusionFilter">
+      <annotation>
+         <documentation>
+            Specify particular file types (by file name extension) to include in complex data type browse list.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="fileNameExtension" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Specify the file name extension of files to include.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="eObjectInclusionFilter">
+      <annotation>
+         <documentation>
+            Specify EObject sub-class name to include in complex data type browse list.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Name of EObject sub-class to include.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.emf.ecore.EObject"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="eObjectExclusionFilter">
+      <annotation>
+         <documentation>
+            Specify EObject sub-class name to exclude in complex data type browse list. &lt;i&gt;Care should be taken not to exclude types that may be contributed by others.&lt;/i&gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Name of EObject sub-class to exclude.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.emf.ecore.EObject"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="customFilter">
+      <annotation>
+         <documentation>
+            Define you own custom ViewerFilter based filter class.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  ViewerFilter class for custom filter.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jface.viewers.ViewerFilter"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         2.1
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         &lt;p&gt;
+Use this extension point to contribute a new Complex Data Type.
+&lt;/p&gt;
+&lt;p&gt;
+Then to allow user to browse for the type... 
+&lt;li&gt;Use &lt;code&gt;ComplexDataTypeExtPointHelper.getComplexDataTypesMergedInfo(Set complexTypeIds)&lt;/code&gt; to create necessary information for picker to browse for 1 or more data types (complexTypeIds is a set of one or more strings containing Complex Data Type Ids for contributers to this extension)...&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;code&gt;ComplexDataTypesMergedInfo complexTypesInfo = ComplexDataTypeExtPointHelper.getComplexDataTypesMergedInfo(Collections.singleton(&quot;my.complex.data.type.id&quot;));&lt;/code&gt;&lt;br/&gt;
+&lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;li&gt;Construct a &lt;code&gt;ComplexDataTypePicker&lt;/code&gt; using the returned &lt;code&gt;ComplexDataTypesMergedInfo&lt;/code&gt; object...&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+     &lt;code&gt;// The last parameter specifies whether the initial selection and result should convert &lt;br/&gt;
+     // from/to ComplexDataTypeReference objects (via the complex data type contributor&apos;s referenceResolver class. &lt;br/&gt;
+     // (true = convert to reference).&lt;br/&gt;
+     ComplexDataTypePicker picker = new ComplexDataTypePicker(parentShell, project, complexTypesInfo, true);&lt;/code&gt;&lt;br/&gt;
+&lt;br/&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;li&gt;Set the initial selection, open the picker dialog and get the result...&lt;/li&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ &lt;code&gt;// Create ComplexDataTypeReference from whereever you&apos;ve stored your reference and set it as init selection...&lt;br/&gt;
+ if (haveInitialSelection) {&lt;br/&gt;
+  // We&apos;ve told picker to deal only with references, so make sure we pass a ref not the original object.&lt;br/&gt;
+  ComplexDataTypeReference ref = new ComplexDataTypeReference(refLocation, refName, refNameSpace);&lt;br/&gt;
+  picker.setInitialSelection(ref);&lt;br/&gt;
+ }&lt;br/&gt;
+ &lt;br/&gt;
+ int result = picker.open();&lt;br/&gt;
+ if (resilt == Dialog.OK) {&lt;br/&gt;
+  ComplexDataTypeReference newRef = (ComplexDataTypeReference)picker.getFirstResult();&lt;br/&gt;
+  &lt;br/&gt;
+  // Now we can convert the returned reference into one that is appropriate for our own storage of references.&lt;br/&gt;
+  TODO ...&lt;br/&gt;
+ }&lt;br/&gt;
+&lt;br/&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         See javadoc for...
+&lt;li&gt;&lt;code&gt;com.tibco.xpd.resource.ui.complexdatatype.ComplexDataTypePicker&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;com.tibco.xpd.resource.ui.complexdatatype.ComplexDataTypeExtPointHelper&lt;/code&gt;&lt;/li&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright TIBCO Software Inc. (c) 2007
+      </documentation>
+   </annotation>
+
+</schema>

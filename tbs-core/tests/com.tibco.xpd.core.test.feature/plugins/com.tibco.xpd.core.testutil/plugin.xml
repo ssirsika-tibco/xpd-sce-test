@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="testResourceManager" name="Test Resource Manager" schema="schema/testResourceManager.exsd"/>
+   <extension-point id="fileComparator" name="Comparator for a given file" schema="schema/fileComparator.exsd"/>
+   <extension
+         name="Test File Manager for migrating XPDL files on behalf of TestResourceInfo.java"
+         point="com.tibco.xpd.core.testutil.testResourceManager">
+      <TestFileManager
+            fileExtension="xpdl"
+            id="testFileManager.XpdlMigration"
+            priority="High"
+            testFileManager="com.tibco.xpd.core.testutil.testResourceManagers.XpdlMigrationTestFileManager">
+      </TestFileManager>
+      <TestFileManager
+            fileExtension="bom"
+            id="testFileManager.BOMMigration"
+            priority="High"
+            testFileManager="com.tibco.xpd.core.testutil.testResourceManagers.BOMMigrationTestFileManager">
+      </TestFileManager>
+   </extension>
+   <extension
+         point="com.tibco.xpd.core.testutil.fileComparator">
+      <fileComparator
+            class="com.tibco.xpd.core.test.util.WSDLFileComparator">
+         <fileInformation
+               fileName="*.wsdl">
+         </fileInformation>
+      </fileComparator>
+   </extension>
+</plugin>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions targetNamespace="http://systinet.com/uddi/approval_management/5.0"
+             xmlns:tns="http://systinet.com/uddi/approval_management/5.0"
+             xmlns:approval_management_binding="http://systinet.com/uddi/approval_management_binding/5.0"
+	         xmlns="http://schemas.xmlsoap.org/wsdl/"
+	         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <documentation>
+        Copyright 2001-2005 Systinet Corp. All rights reserved.
+        Use is subject to license terms.
+
+        WSDL SOAP/HTTP binding for Approval Management API.
+    </documentation>
+
+    <import namespace="http://systinet.com/uddi/approval_management_binding/5.0" location="approval_management_binding.wsdl"/>
+
+    <service name="approval_management_SoapService">
+        <port binding="approval_management_binding:approval_management_SoapBinding" name="ApprovalManagementApi">
+            <soap:address location="urn:unknown-location-uri"/>
+        </port>
+    </service>
+
+</definitions>

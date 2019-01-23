@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ant.core.antTasks">
+      <antTask
+            class="com.tibco.xpd.ant.task.ImportProjectTask"
+            eclipseRuntime="false"
+            headless="true"
+            library="lib/coreAntTaskDefinitions.jar"
+            name="tbs.importProjects">
+      </antTask>
+   </extension>
+   <extension
+         point="org.eclipse.ant.core.extraClasspathEntries">
+      <extraClasspathEntry
+            eclipseRuntime="false"
+            headless="true"
+            library="lib/coreAntTaskDefinitions.jar">
+      </extraClasspathEntry>
+   </extension>
+
+</plugin>

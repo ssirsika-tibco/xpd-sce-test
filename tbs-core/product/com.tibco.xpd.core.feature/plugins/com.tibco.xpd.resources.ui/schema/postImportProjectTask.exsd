@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.resources.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.resources.ui" id="postImportProjectTask" name="Post Import Project Task"/>
+      </appInfo>
+      <documentation>
+         This task will be called during an import of a project (using the Studio Import Wizard) to allow any clean up in the imported project (e.g. delete any derived resources that will need to be recreated).
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="postImportTask" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="postImportTask">
+      <annotation>
+         <documentation>
+            Task to run after a project has been imported into the workspace.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="0" maxOccurs="1">
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  unique id of this task.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Implement &lt;code&gt;com.tibco.xpd.resources.ui.internal.importexport.IPostImportProjectTask&lt;/code&gt; that will be called during the import of projects.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.resources.ui.imports.IPostImportProjectTask"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string">
+            <annotation>
+               <documentation>
+                  priority value (between 1 and 100, inclusive).  This will set the level at which this task will run compared to others.  The higher the number the later this task will run (defaults to 50).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="appliesToNatureIds" type="string" use="default" value="com.tibco.xpd.resources.xpdNature">
+            <annotation>
+               <documentation>
+                  (Since 3.6.1) The nature id(s) of the project(s) that this post-import task applies to (this is a comma-separated list).  Defaults to &quot;com.tibco.xpd.resources.xpdNature&quot;.  If this task should apply to any set of project natures (including empty set) then specify &quot;*&quot; for this attribute.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         3.5.3
+      </documentation>
+   </annotation>
+
+
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc. 2004, 2013. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         name="NOT REQUIRED IF USE GmfDiagramContextMenuprovider"
+         point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
+      <contributionItemProvider
+            checkPluginLoaded="true"
+            class="com.tibco.xpd.gmf.extensions.providers.NOTREQD_GmfDiagramContributionItemProvider">
+         <Priority name="Medium"/>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupPredefinedItem
+                  id="showPropertiesViewActionXXX"
+                  remove="true"/>
+            <popupMenuGroup
+                  id="propertiesGroup"/>
+            <popupAction
+                  id="showPropertiesViewActionXXX"
+                  path="/propertiesGroup"/>
+         </popupContribution>
+      </contributionItemProvider>
+   </extension>
+
+</plugin>

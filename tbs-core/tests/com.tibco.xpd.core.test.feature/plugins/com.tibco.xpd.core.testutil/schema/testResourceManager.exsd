@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.core.testutil" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.core.testutil" id="testResourceManager" name="Test Resource Manager"/>
+      </appinfo>
+      <documentation>
+         This extension point allows contribution of a Test Resource Manager.
+&lt;p&gt;
+The Test Resource Manager can update any test resource file or project as it is loaded into the runtime Studio Junit test workspace.
+&lt;/p&gt;
+&lt;p&gt;
+For instance this could be used modifying project natures, migrating source files to the latest Studio format version and so on.
+&lt;/p&gt;
+&lt;p&gt;
+Generally, the TestResoruceInfo.createFile() method will be called during a particular TestCase.setUp() (i.e. after the project or file has been loaded into the test workspace and before the testXXX() methods are executed.
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="0" maxOccurs="unbounded">
+            <choice minOccurs="0" maxOccurs="1">
+               <element ref="TestProjectManager"/>
+               <element ref="TestFileManager"/>
+            </choice>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="TestProjectManager">
+      <annotation>
+         <documentation>
+            Allows contribution of an ITestProjectManager implementing class. This contribution can modify any test project created via the TestResourceInfo.createFile() after it has been loaded into the test workspace (but before the test is executed).
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="testProjectManager" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Implements ITestProjectManager interface.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.core.test.util.ITestProjectManager"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="priority">
+            <annotation>
+               <documentation>
+                  Defines the order in which contributions are executed with&quot;Highest&quot; being executed first and &quot;Lowest&quot; being executed last.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="Highest">
+                  </enumeration>
+                  <enumeration value="High">
+                  </enumeration>
+                  <enumeration value="Normal">
+                  </enumeration>
+                  <enumeration value="Low">
+                  </enumeration>
+                  <enumeration value="Lowest">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="TestFileManager">
+      <annotation>
+         <documentation>
+            Allows contribution of an ITestFileManager implementing class. This contribution can modify any test file created via the TestResourceInfo.createFile() after it has been loaded into the test workspace (but before the test is executed).
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="testFileManager" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Implements ITestFileManager interface.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":com.tibco.xpd.core.test.util.ITestFileManager"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="priority">
+            <annotation>
+               <documentation>
+                  Defines the order in which contributions are executed with&quot;Highest&quot; being executed first and &quot;Lowest&quot; being executed last.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="Highest">
+                  </enumeration>
+                  <enumeration value="High">
+                  </enumeration>
+                  <enumeration value="Normal">
+                  </enumeration>
+                  <enumeration value="Low">
+                  </enumeration>
+                  <enumeration value="Lowest">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="fileExtension" type="string" use="default" value="">
+            <annotation>
+               <documentation>
+                  File name extension of files to manage (or empty for all files).
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         3.2
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         None
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         see com.tibco.xpd.core.test.util.ITestFileManager.java and com.tibco.xpd.core.test.util.ITestProjectManager.java
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         None
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) TIBCO Software Inc 2004-2009. All rights reserved.
+      </documentation>
+   </annotation>
+
+</schema>

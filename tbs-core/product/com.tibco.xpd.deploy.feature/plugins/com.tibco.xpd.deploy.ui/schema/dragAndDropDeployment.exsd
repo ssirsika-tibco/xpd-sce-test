@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.deploy.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.tibco.xpd.deploy.ui" id="dragAndDropDeployment" name="Drag And Drop Deployment"/>
+      </appInfo>
+      <documentation>
+         This extension is used to enable drag and drop of files, folders on to servers to activate deployment. 
+&lt;/p&gt;
+In order to contribute to this you will need to define the com.tibco.xpd.deploy.ui.dragAndDropDeployment extension point in your plugin.xml. 
+&lt;/p&gt;
+Next you need to specify which valid server you want to drop the objects on by defining a new targetServer.
+&lt;/p&gt;
+There are 5 attributes here as follows:
+&lt;/p&gt;
+serverTypeId - the server id we are interested in so items can be dropped on to it.
+&lt;/p&gt;
+multiselect - basically defines whether multiple items can be selected for dropping operation.
+&lt;/p&gt;
+sourceSpecialFolderKind - a list of special folder kinds that exist within the draggable item - if one or more special folders are in the item then this is valid for dropping on to the server. However we still have to ensure that the special folder contains at least 1 of the files with extensions defined in the sourceValidExtensions.
+&lt;/p&gt;
+sourceValidExtensions -  Can be emtpy and would mean all file types but also can be a space serarated list of extensions that the draggable object MUST have in order to be considered in the drag drop selection.
+&lt;/p&gt;
+outputSpecialFolderKind - Upon deployment of server once items have been dropped it will try and search for the special folder defined here and deploy the items within it that are defined in the outputValidExtensions.
+&lt;/p&gt;
+outputValidExtensions - When the items are dropped onto the server it tries to deploy the files with extensions that are defined in this. If nothing is defined then all files will be deployed to server.
+&lt;/p&gt;
+Furthermore if you wish to limit what items can be dragged and dropped we can define a dropValidation extension element with a further validDropElements element specifying a particular Instance Object that the draggable item must match.
+&lt;/p&gt;
+Another useful feature is to perform some specific tasks for example before or after deployment. You could simply define a dragAndDropSupportClass extension element pointing to a Class extending BaseDragAndDropDeploymentSupport.
+&lt;/p&gt;
+&lt;/p&gt;
+There is also an alternative, simplified mechanism for handling deployment drop using &apos;delegateServerDropAssistant&apos; element and DropAssistantDelegate delegate.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <choice>
+            <element ref="targetServer" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="delegateServerDropAssistant" minOccurs="0" maxOccurs="unbounded"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="targetServer">
+      <complexType>
+         <sequence>
+            <element ref="dropValidation"/>
+            <element ref="dropSupport" minOccurs="0" maxOccurs="1"/>
+            <element ref="deploymentSynchronization" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="serverTypeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The Id of the server where the files will be deployed
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="multiselect" type="boolean" use="required">
+            <annotation>
+               <documentation>
+                  If multiselect is allowed
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="sourceSpecialFolderKind" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Space separated values of the special folder kinds where the source files will be located.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="sourceValidExtensions" type="string">
+            <annotation>
+               <documentation>
+                  Space separated values of the source valid extensions if left empty all the files under the sourceSpecialFolderKind are considered.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="outputSpecialFolderKind" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The special folder kind where the deployment artefacts will be located
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="outputValidExtensions" type="string">
+            <annotation>
+               <documentation>
+                  Space separated values of the output valid extensions (The files that will be deployed), if left empty all the files under the outputSpecialFolderKind are considered.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="dropValidation">
+      <annotation>
+         <documentation>
+            Allows you to define valid drop elements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="validDropElements"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="validDropElements">
+      <annotation>
+         <documentation>
+            A set of valid elements types that can be dropped into the server
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="instanceof" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="instanceof">
+      <annotation>
+         <documentation>
+            a set of valid elements types that can be dropped into the server
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="value" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.core.resources.IResource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="dropSupport">
+      <complexType>
+         <attribute name="dragAndDropSupportClass" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.deploy.ui.navigator.BaseDragAndDropDeploymentSupport:"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="deploymentSynchronization">
+      <complexType>
+         <attribute name="deployOnlySynchonizedArtifacts" type="boolean">
+            <annotation>
+               <documentation>
+                  This defines whether the deployment should only happen when the deploying artifacts are in synch with the source files.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="deploymentSynchronizer" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.deploy.ui.navigator.BaseDeploymentSynchronizer:"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="delegateServerDropAssistant">
+      <annotation>
+         <documentation>
+            Delegates drop assistance to assocaited drop assistants if there are more then one possible drop assistant for the server the the first one which validates drop to &apos;true&apos; will be carring the drop (order is non deterministic). Only local transfer type is supported by this delegate.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  identifier for this drop assistant.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="dropAssistant" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the delegate drop assistant class.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="com.tibco.xpd.deploy.ui.navigator.DropAssistantDelegate:"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="serverTypeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the type id of the server for this assistant.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier" basedOn="com.tibco.xpd.deploy.core.serverTypes/serverType/@id"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="mustBeConnected" type="boolean">
+            <annotation>
+               <documentation>
+                  if the tested server has to be connected to participate in a drop. Default is &apos;true&apos;.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

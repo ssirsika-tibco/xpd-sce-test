@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+  	<extensionContent id="tbsTopLeft" name="TIBCO Designer samples" alt-style="css/samples.properties" style="css/samples.css" path="tutorials/@"> 
+	 <group style-id="content-group" id="content-group" label="TIBCO Business Studio">
+       		<!-- <link style-id="content-link" label="Tibco Business Studio"
+       			url="http://org.eclipse.ui.intro/openBrowser?url=http://www.tibco.com"
+       			id="tibcoZ">
+       		</link> -->
+       		<text></text>
+       		<link style-id="content-link" label="Business Analyst"
+       			url="http://org.eclipse.ui.intro/openBrowser?url=http://www.tibco.com"
+       			id="tibcoBA">
+          		<text>Try sample tutorials.</text>
+       		</link>
+			<group id="sample-projects">
+				<!-- The only valid contentProvider IDs are analyst-viewer and desgner-viewer -->
+				<contentProvider
+					id="tutorials-analyst-viewer"
+					pluginId="com.tibco.xpd.branding"
+					class="com.tibco.xpd.branding.wp.tutorials.TutorialPackageViewer">
+				</contentProvider>
+			</group>
+       </group> 	   
+  	</extensionContent>
+</introContent>

@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.tibco.xpd.core.help" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.tibco.xpd.core.help" id="xpdHelpContent" name="xpdHelpContent"/>
+      </appinfo>
+      <documentation>
+         Extension to contribute TIBCO help content for a product in the accessed through online/offline urls.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="productHelpContent" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="productHelpContent">
+      <complexType>
+         <attribute name="productId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  ID of the product contributing help.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="productName" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="version" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Version of the product.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="webHelpUrl" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Default url to product web help (for example: &quot;https://docs.tibco.com/pub/business-studio-bpm-edition/3.7.0/doc/html/index.html&quot;)
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="productHelpUrl" type="string">
+            <annotation>
+               <documentation>
+                  Default product help url (for example: &quot;https://docs.tibco.com/products/tibco-business-studio-bpm-edition-3-7-0&quot;).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="downloadUrl" type="string">
+            <annotation>
+               <documentation>
+                  Product documentation download URL. For example:
+&quot;https://docs.tibco.com/pub/business-studio-bpm-edition/3.7.0/tibco-business-studio-bpm-edition-3-7-0_documentation.zip&quot;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="offlineFolderName" type="string">
+            <annotation>
+               <documentation>
+                  Folder name for offline documentation (for example: &quot;tibco-business-studio-bpm-edition-3-7-0_documentation&quot;)
+The default location for tibco help for a project will be:
+${user.home}/TIBCOHelp/{defaultOfflineFolderName}
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="offlineIndexPath" type="string">
+            <annotation>
+               <documentation>
+                  The offline path to the starting help page. It will default to &quot;html/index.html&quot; if not provided.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         SCF 3.6.4
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

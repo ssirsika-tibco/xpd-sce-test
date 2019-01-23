@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <!-- <extension-point id="sampleProjects" name="Sample Projects" schema="schema/sampleProjects.exsd"/>
+   <extension-point id="tutorialProjects" name="Tutorial Projects" schema="schema/tutorialProjects.exsd"/> -->
+	<extension id="prod" name="XPDProduct"
+		point="org.eclipse.core.runtime.products">
+		<product
+			description="%product_description_shortdesc"
+			name="TIBCO Business Studio"
+			application="org.eclipse.ui.ide.workbench">
+			<property
+				name="windowImages"
+				value="launcher/branding/tibco16.png,launcher/branding/tibco32.png,launcher/branding/tibco48.png,launcher/branding/tibco64.png,launcher/branding/tibco128.png"/>
+			<property
+				name="appName"
+				value="TIBCO Business Studio"/>
+			<property
+				name="aboutText"
+         		value="%aboutText"/>
+			<property
+				name="aboutImage"
+				value="icons/about_image.png"/>
+            <property
+	            name="introTitle"
+	            value="%intro_title"/>
+		    <property
+	            name="introBrandingImage"
+	            value="product:icons/welcomepage_icon.png"/>
+		    <property
+	            name="introBrandingImageText"
+	            value="%providerName_notrans"/>
+		    <property
+                name="preferenceCustomization"
+                value="plugin_customization.ini"/>
+		    <property
+                name="startupForegroundColor"
+                value="C8D5EA"/>
+            <property
+                name="startupMessageRect"
+                value="7,405,668,20"/>
+            <property
+                name="startupProgressRect"
+                value="0,425,682,15"/>
+		</product>
+	</extension>
+   <!--
+   ####################
+   	Welcome page theme
+   -->
+      <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <theme
+            default="true"
+            id="com.tibco.xpd.branding.default_theme"
+            name="%theme_title"
+            path="$nl$/themes/default"
+            previewImage="themes/default/preview.png">
+            <property name="workbenchAsRootLink"
+            		value="true"/>
+         <property
+               name="launchbarBackground"
+               value="#689ac3"/>
+
+            <property name="launchbarOverviewIcon"
+            		  value="$theme$graphics/launchbar/overview16.gif"/>
+            <property name="launchbarFirststepsIcon"
+            		  value="$theme$graphics/launchbar/firststeps16.gif"/>
+            <property name="launchbarTutorialsIcon"
+            		  value="$theme$graphics/launchbar/tutorials16.gif"/>
+            <property name="launchbarSamplesIcon"
+            		  value="$theme$graphics/launchbar/samples16.gif"/>
+            <property name="launchbarWhatsnewIcon"
+            		  value="$theme$graphics/launchbar/whatsnew16.gif"/>
+            <property name="launchbarMigrateIcon"
+            		  value="$theme$graphics/launchbar/migrate16.gif"/>
+            <property name="launchbarWebresourcesIcon"
+            		  value="$theme$graphics/launchbar/webresources16.gif"/>
+
+            <property name="highContrast-overview"
+            		  value="$theme$graphics/icons/ctool/overview.gif"/>
+            <property name="highContrast-firststeps"
+            		  value="$theme$graphics/icons/ctool/firststeps.gif"/>
+            <property name="highContrast-tutorials"
+            		  value="$theme$graphics/icons/ctool/tutorials.gif"/>
+            <property name="highContrast-samples"
+            		  value="$theme$graphics/icons/ctool/samples.gif"/>
+            <property name="highContrast-whatsnew"
+            		  value="$theme$graphics/icons/ctool/whatsnew.gif"/>
+            <property name="highContrast-webresources"
+            		  value="$theme$graphics/icons/ctool/webresources.gif"/>
+            <property name="highContrast-migrate"
+            		  value="$theme$graphics/icons/ctool/migrate.gif"/>
+
+            <property name="highContrastNav-overview"
+            		  value="$theme$graphics/icons/ctool/ov_nav_32.gif"/>
+            <property name="highContrastNav-firststeps"
+            		  value="$theme$graphics/icons/ctool/fs_nav_32.gif"/>
+            <property name="highContrastNav-tutorials"
+            		  value="$theme$graphics/icons/ctool/tu_nav_32.gif"/>
+            <property name="highContrastNav-samples"
+            		  value="$theme$graphics/icons/ctool/sa_nav_32.gif"/>
+            <property name="highContrastNav-whatsnew"
+            		  value="$theme$graphics/icons/ctool/wn_nav_32.gif"/>
+            <property name="highContrastNav-webresources"
+            		  value="$theme$graphics/icons/ctool/wr_nav_32.gif"/>
+            <property name="highContrastNav-migrate"
+            		  value="$theme$graphics/icons/ctool/mi_nav_32.gif"/>
+      </theme>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="$nl$/intro/tibcoOverviewMainAnchor.xml"/>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="$nl$/intro/tibcoTutorialsMainAnchor.xml"/>
+      <!-- <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="$nl$/intro/tibcoBusinessAnalystSampleProjectsExtensionContent.xml">
+      </configExtension> -->
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="$nl$/intro/tibcoSolutionDesignerSampleProjectsExtensionContent.xml">
+      </configExtension>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="$nl$/intro/tibcoWebResourcesExtensionContent.xml"/>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="$nl$/intro/tibcoSamplesMainAnchor.xml">
+      </configExtension>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="intro/tibcoWebResourcesMainAnchor.xml">
+      </configExtension>
+   </extension>
+    <extension point="org.eclipse.ui.intro">
+		<introProductBinding
+			introId="org.eclipse.ui.intro.universal"
+			productId=" com.tibco.xpd.branding.prod">
+		</introProductBinding>
+  </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="%cheat_sheets"
+            visible="true"
+            id="org.eclipse.ui.cheatsheets.actionSet">
+         <action
+               label="%cheat_sheets_menu"
+               class="org.eclipse.ui.cheatsheets.CheatSheetExtensionFactory:helpMenuAction"
+               menubarPath="help/group.tutorials"
+               id="org.eclipse.ui.cheatsheets.actions.CheatSheetHelpMenuAction">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+		point="org.eclipse.ui.perspectives">
+		<perspective
+			icon="icons/ModellingPerspective.png"
+			class="com.tibco.xpd.branding.XPDPerspectiveFactory"
+			name="%perspective_modelling_title"
+			id="com.tibco.modeling.perspective" />
+	</extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.tibco.xpd.branding.wp.rss.preferences.PreferencePage"
+            id="com.tibco.xpd.branding.wp.rss.preferences.PreferencePage"
+            name="%preferencePage_title"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="com.tibco.xpd.branding.wp.rss.preferences.PreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.tibco.modeling.perspective">
+         <view
+               id="com.tibco.xpd.deploy.server.view"
+               relationship="stack"
+               relative="org.eclipse.ui.views.ContentOutline">
+         </view>
+         <view
+               id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.views.PropertySheet">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.tibco.xpd.branding.internal.CustomVMConfig">
+      </startup>
+   </extension>
+</plugin>

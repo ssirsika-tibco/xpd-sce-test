@@ -1,0 +1,98 @@
+<project name="Automated Eclipse Testing for Business Studio" default="runJunitTests" basedir=".">	
+	
+	<target name="_initTest">
+		<mkdir dir="${results}/xml" />
+		<mkdir dir="${results}/html" />
+		<mkdir dir="${junit-report-output}" />
+	</target>
+	
+	<!-- top level target to execute junit test for passed feature list & plugin list-->
+	<target name="runJunitTests" depends="_initTest,-load-ant-contrib">
+		<echo> list of plugins to test: ${junitPluginList}</echo>
+		<echo> list of features to test: ${junitFeatureList}</echo>
+		<antcall target="_run-Plugin-Tests"/>				
+		<antcall target="_run-Feature-Tests"/>				
+	</target>
+
+
+	<target name="_run-Feature-Tests" description="Execute junit test for a set of features" if="junitFeatureList">
+		<foreach target="_execute-Feature-Tests" param="junitFeature" inheritall="true" list="${junitFeatureList}">
+		</foreach>	
+	</target>	
+
+	<!--
+	This target will take the junit feature to test, find the plugings having test.xml & run the junit tests
+	-->	
+	<target name="_execute-Feature-Tests" depends="findFeatureDir" description="invoke ant target that wraps eclipse library script to run tests" if="junitFeature">
+			<echo> junit feature to test: ${junitFeatureDir}</echo>
+			<echo> xslt will be used from: ${selfTestFeatureDir}/ExtractTestPluginVersions.xslt</echo>
+			<xslt in="${junitFeatureDir}/feature.xml" out="${junitTestHome}/${junitFeature}_plugin.properties" style="${selfTestFeatureDir}/ExtractTestPluginVersions.xslt"/>
+			<echo> loading properties file:: ${junitTestHome}/${junitFeature}_plugin.properties</echo>
+			<property file="${junitTestHome}/${junitFeature}_plugin.properties"/>
+			<echo>list of plugin read from property file is::${junitTestFeature.pluginList}</echo>
+			<foreach target="_execute-PluginTest" param="pluginName" inheritall="true" list="${junitTestFeature.pluginList}">
+
+			</foreach>
+	</target>
+	
+	<target name="_run-Plugin-Tests" description="invoke ant target that wraps eclipse library script to run tests" if="junitPluginList">
+		<foreach target="_execute-PluginTest" param="pluginName" inheritall="true" list="${junitPluginList}">					
+		</foreach>
+	</target>	
+
+	<target name="_execute-PluginTest" depends="findPluginDir">
+			<echo> eclipse home: ${junitTestHome} </echo>
+			<echo> unqualified plugin name: ${pluginName} </echo>
+			<echo> junit plugin test.xml is located here: ${junitPluginDir}/test.xml</echo>
+			<property name="pluginTestFileLocation" value="${junitPluginDir}/test.xml"/>
+			<available file="${junitPluginDir}/test.xml" property="test-xml-present"/>
+			<if>
+				<equals arg1="${test-xml-present}" arg2="true"/>
+				<then>
+					<echo> test.xml was present so executing junit tests : ${junitPluginDir}/test.xml</echo>
+					<property name="vmargs" value="-Dcom.tibco.target.platform.location=${targetPlatformDefinitionLocation} -Dcom.tibco.forms.preview.port=0 -Dorg.osgi.framework.bootdelegation=javax.xml.* -Xms512m -Xmx1024m -XX:MaxPermSize=384m -XX:InitialCodeCacheSize=64m -XX:ReservedCodeCacheSize=128m -XX:+UnlockDiagnosticVMOptions -XX:+UnsyncloadClass" />
+					<!-- Setting extraVMargs prevents addition of jacocoagent (code coverage) 
+					     to tests which was causing them to hang badly :o(. --> 
+					<property name="extraVMargs" value=""/>
+					<ant antfile="${pluginTestFileLocation}" dir="${junitTestHome}" />
+					<antcall target="feature-gen-results"/>
+				</then>
+				<else>
+					<echo> test.xml was **NOT** present so skipping executing junit tests : ${junitPluginDir}/test.xml</echo>
+				</else>
+			</if>
+	</target>
+
+	<target name="feature-gen-results">
+		<propertyregex property="report" input="${pluginTestFileLocation}" regexp="([^/\\]*)_" select="\1" casesensitive="false" />
+		<echo>REPORT: ${report}</echo>
+		<copy file="${junitTestHome}/${report}.xml" tofile="${results}/xml/${report}_${platform}.xml" failonerror="true" />
+		<xslt style="${junit-xsl}" basedir="${results}/xml" destdir="${results}/html" />
+	</target>
+	
+	<target name="findFeatureDir">
+		<path id="junit.feature.dir">
+			<dirset dir="${featuresDir}">
+				<include name="${junitFeature}_*" />
+			</dirset>
+		</path>
+		<property name="junitFeatureDir" refid="junit.feature.dir"/>
+	</target>
+		
+	<target name="findPluginDir">
+		<path id="junit.plugin.dir">
+			<dirset dir="${pluginsDir}">
+				<include name="${pluginName}_*" />
+			</dirset>
+		</path>
+		<property name="junitPluginDir" refid="junit.plugin.dir"/>
+	</target>
+	
+	<target name="-load-ant-contrib">
+		<taskdef resource="net/sf/antcontrib/antlib.xml">
+			<classpath>
+				<fileset dir="${installation.root}/tools/lib" includes="antpackage.jar" />
+			</classpath>
+		</taskdef>
+	</target>
+</project>

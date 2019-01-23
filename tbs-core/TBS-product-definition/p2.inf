@@ -1,0 +1,7 @@
+#Adds provider property to the product.
+properties.0.name=org.eclipse.equinox.p2.provider
+properties.0.value=TIBCO Software Inc.
+# Adding a studio repository to the product (it actually adding a placeholder URL which will be replaced during installation to local composite repository URL).
+instructions.configure=\
+org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:0,location:https${#58}//bs-p2-local-repo-placeholder/,name:TIBCO Local Product Updates);\
+org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:https${#58}//bs-p2-local-repo-placeholder/,name:TIBCO Local Product Updates);
