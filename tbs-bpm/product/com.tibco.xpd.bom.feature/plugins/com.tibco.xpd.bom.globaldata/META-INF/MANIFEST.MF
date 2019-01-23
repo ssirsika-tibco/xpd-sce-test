@@ -6,12 +6,12 @@ Bundle-Version: 11.0.0.qualifier
 Bundle-Activator: com.tibco.xpd.bom.globaldata.GlobalDataActivator
 Bundle-Vendor: %bundle_vendor_notrans
 Require-Bundle: org.eclipse.ui;bundle-version="[3.4.0,4.0.0)",
- com.tibco.xpd.resources;bundle-version="[5.0.0,6.0.0)",
- org.eclipse.core.expressions;bundle-version="3.4.300",
+ com.tibco.xpd.resources,
+ org.eclipse.core.expressions,
  com.tibco.xpd.validation,
  org.eclipse.uml2.common.edit;bundle-version="1.5.0",
  com.tibco.xpd.bom.resources,
- com.tibco.xpd.bom.types;bundle-version="11.0.0"
+ com.tibco.xpd.bom.types
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy

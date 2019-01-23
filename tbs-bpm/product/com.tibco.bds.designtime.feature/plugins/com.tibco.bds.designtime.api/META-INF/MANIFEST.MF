@@ -6,12 +6,12 @@ Bundle-Version: 11.0.0.qualifier
 Bundle-Vendor: %pluginVendor_label
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0",
- com.tibco.xpd.bom.globaldata;bundle-version="3.6.0",
- com.tibco.xpd.bom.types;bundle-version="3.6.0",
- com.tibco.xpd.bom.modeler.custom;bundle-version="3.6.0",
- com.tibco.bds.shared.eclipse;bundle-version="1.0.0",
+ com.tibco.xpd.bom.globaldata,
+ com.tibco.xpd.bom.types,
+ com.tibco.xpd.bom.modeler.custom,
+ com.tibco.bds.shared.eclipse,
  org.eclipse.uml2.uml,
- com.tibco.xpd.bom.xsdtransform;bundle-version="3.6.0"
+ com.tibco.xpd.bom.xsdtransform
 Export-Package: com.tibco.bds.designtime.api,
  com.tibco.bds.designtime.api.exception,
  com.tibco.bds.designtime.api.internal,
