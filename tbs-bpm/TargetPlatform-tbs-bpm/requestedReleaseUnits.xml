@@ -16,10 +16,6 @@
 		<!--Oxygen dependencies. -->
 		<import feature="com.tibco.xpd.tpcl.oxygen.dependencies.feature" version="1.0.1.001" match="compatible" />
 		
-		<!-- IPE Feature <import feature="com.tibco.tpcl.javax.jms.feature" version="1.1.0" match="compatible"/> -->
-		<!-- AMX Decisions Model <import feature="com.tibco.xpd.decisions.feature" version="1.0.0" match="compatible"/> <import 
-			feature="com.tibco.xpd.tpcl.org.apache.log4j.feature" version="1.2.15" match="compatible"/> -->
-
 		<!-- AMX platform features. -->
 		<import feature="com.tibco.amf.design.core.feature" version="3.6.0.009" match="perfect" />
 		<import feature="com.tibco.amf.design.sca.ui.feature" version="3.6.0.020" match="perfect" />
@@ -48,7 +44,7 @@
 		<import feature="com.tibco.tpcl.org.eclipse.bpel.feature" version="1.10.0.002" match="compatible" />		
 		<import feature="com.tibco.tpcl.com.sun.jmx.remote.optional.feature.eclipse" version="1.10.0" match="compatible"/>
 		<import feature="com.tibco.tpcl.org.apache.commons.httpclient.feature.eclipse" version="3.10.0" match="compatible"/>
-		<import feature="com.tibco.tpcl.org.slf4j.log4j12.feature.eclipse" version="1.7.0" match="compatible"/>
+		<!-- ACE-118 <import feature="com.tibco.tpcl.org.slf4j.log4j12.feature.eclipse" version="1.7.0" match="compatible"/> -->
 		
 
 		<!-- Forms Features -->
@@ -105,15 +101,7 @@
 		<import feature="com.tibco.xpd.process.editor.developer.feature" version="11.0.0" match="compatible" />
 		<import feature="com.tibco.xpd.process.analyst.feature" version="11.0.0" match="compatible" />
 		<import feature="com.tibco.xpd.process.developer.feature" version="11.0.0" match="compatible" />
-		<import feature="com.tibco.xpd.simulation.feature" version="11.0.0" match="compatible" />
 		<import feature="com.tibco.xpd.tpcl.org.google.gson.feature" version="2.8.5" match="compatible"/>
-
-		<!-- RCP Analyst features -->
-		<!--  TODO
-		<import feature="com.tibco.xpd.tpcl.com.hexapixel.widgets.ribbon.feature" version="1.0.200" match="compatible" />
-		<import feature="com.tibco.xpd.rcp.analyst.feature" version="1.7.0" match="compatible" />
-		 -->
-		<import feature="com.tibco.xpd.tpcl.com.hexapixel.widgets.ribbon.feature" version="1.0.100" match="compatible"/>
 
 		<!-- BPM N2 Features -->
 		<import feature="com.tibco.bds.designtime.feature" version="11.0.0" match="compatible" />
@@ -121,11 +109,7 @@
 		<import feature="com.tibco.xpd.n2.feature" version="11.0.0" match="compatible" />
 		<import feature="com.tibco.xpd.wm.feature" version="11.0.0" match="compatible" /> 
 
-		<!-- iProcess to BPM feature and dependencies. -->
-	    <import feature="com.tibco.xpd.iprocess.amxbpm.feature" version="11.0.0" match="compatible"/>
-      	<import feature="com.tibco.xpd.process.ipm.model.feature" version="11.0.0" match="compatible"/>
-	    <import feature="com.tibco.xpd.customer.api.feature" version="11.0.0" match="compatible"/>
-		
+	
 		<!-- BPM Runtime Features -->
 		<import feature="com.tibco.n2.common.model.feature.eclipse" version="2.10.0" match="compatible" />
 		<import feature="com.tibco.n2.de.rqlparser.feature.eclipse" version="1.6.0" match="compatible" />
