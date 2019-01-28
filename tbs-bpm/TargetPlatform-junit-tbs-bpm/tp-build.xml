@@ -61,10 +61,10 @@ Builds target platform based on BPM target platform. Please provide 'ru.fragment
 	<property name="ru.template.file" location="${ru.fragment.file}" />
     
     <!-- The url of the bpm target platform definition used for merge. -->
-	<property name="bpm.tp.url" value="https://emea-swi-svn.emea.tibco.com/svn/technical/xpd/trunk/tbs-bpm/TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" />
+	<property name="bpm.tp.url" value="https://emea-swi-svn.emea.tibco.com/svn/technical/xpd/sce/trunk/tbs-bpm/TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" />
 
     <!-- Build svn URL can only be accessed from build machines (without username/password credentials - autorized by IP) -->
-	<property name="bpm.tp.build.url" value="https://emea-swi-svn.emea.tibco.com/svn-build/technical/xpd/trunk/tbs-bpm/TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" />
+	<property name="bpm.tp.build.url" value="https://emea-swi-svn.emea.tibco.com/svn-build/technical/xpd/sce/trunk/tbs-bpm/TargetPlatform-tbs-bpm/requestedReleaseUnits.xml" />
     
     <!-- Credential file with username and encoded password to access svn -->
 	<property name="credentials.file" location="${user.home}/credentials.properties" />
