@@ -5,7 +5,7 @@ package com.tibco.xpd.bom.test.transform.imports_wsdl_bom;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -35,8 +35,8 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
  * @author glewis
  */
 @SuppressWarnings("nls")
-public class WSDLBOM14_IncludesQualifiedAndUnqualifiedTest extends
-        TransformationTest {
+public class WSDLBOM14_IncludesQualifiedAndUnqualifiedTest
+        extends TransformationTest {
 
     protected String TEST_FILE_NAME = "myTest.bom";
 
@@ -74,180 +74,182 @@ public class WSDLBOM14_IncludesQualifiedAndUnqualifiedTest extends
         assertEquals(0, getErrors(new ArrayList(statusArr)).size());
 
         IFile wsdlFile = outputSpecialFolder.getFolder().getFile(MODEL_FILE);
-        Collection<String> outputBOMNames =
-                WSDLTransformUtil.getOutputBOMNames(wsdlFile);
+
+        /*
+         * SID XPD-8351: Got random results as it assumed order of files (but
+         * it's a HashSet so cannot guarantee, so sort them!!!
+         */
+        List<String> outputBOMNames =
+                new ArrayList(WSDLTransformUtil.getOutputBOMNames(wsdlFile));
+        Collections.sort(outputBOMNames);
 
         IFile xsdBOMfile =
-                outputSpecialFolder.getFolder().getFile(outputBOMNames
-                        .toArray(new String[] {})[1]);
+                outputSpecialFolder.getFolder().getFile(outputBOMNames.get(0));
         WorkingCopy xsdBOMwc =
                 XpdResourcesPlugin.getDefault().getWorkingCopy(xsdBOMfile);
-        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", xsdBOMwc); //$NON-NLS-1$
-        assertTrue("Root element is null or not of type Model", xsdBOMwc.getRootElement() instanceof Model); //$NON-NLS-1$
+        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", //$NON-NLS-1$
+                xsdBOMwc);
+        assertTrue("Root element is null or not of type Model", //$NON-NLS-1$
+                xsdBOMwc.getRootElement() instanceof Model);
         Model xsdBOMModel = (Model) xsdBOMwc.getRootElement();
 
         IFile wsdlBOMfile =
-                outputSpecialFolder.getFolder().getFile(outputBOMNames
-                        .toArray(new String[] {})[0]);
+                outputSpecialFolder.getFolder().getFile(outputBOMNames.get(1));
         WorkingCopy wsdlBOMwc =
                 XpdResourcesPlugin.getDefault().getWorkingCopy(wsdlBOMfile);
-        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", wsdlBOMwc); //$NON-NLS-1$
-        assertTrue("Root element is null or not of type Model", wsdlBOMwc.getRootElement() instanceof Model); //$NON-NLS-1$
+        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", //$NON-NLS-1$
+                wsdlBOMwc);
+        assertTrue("Root element is null or not of type Model", //$NON-NLS-1$
+                wsdlBOMwc.getRootElement() instanceof Model);
         Model wsdlBOMModel = (Model) wsdlBOMwc.getRootElement();
 
         EList<PackageableElement> packagedElements =
                 xsdBOMModel.getPackagedElements();
-        assertEquals("Number of packaged elements in model", 12, packagedElements.size()); //$NON-NLS-1$
+        assertEquals("Number of packaged elements in model", //$NON-NLS-1$
+                12,
+                packagedElements.size());
 
         Class airlinePreference =
                 TransformUtil.assertPackagedElementClass(packagedElements,
                         "AirlinePreference");
 
-        Class frequentFlier =
-                TransformUtil.assertPackagedElementClass(packagedElements,
-                        "FrequentFlier");
+        Class frequentFlier = TransformUtil
+                .assertPackagedElementClass(packagedElements, "FrequentFlier");
 
         Class correlationIdType =
                 TransformUtil.assertPackagedElementClass(packagedElements,
                         "correlationIdType");
 
-        Class password =
-                TransformUtil.assertPackagedElementClass(packagedElements,
-                        "password");
+        Class password = TransformUtil
+                .assertPackagedElementClass(packagedElements, "password");
 
         Class requestInfoType =
                 TransformUtil.assertPackagedElementClass(packagedElements,
                         "requestInfoType");
 
-        Class requestName =
-                TransformUtil.assertPackagedElementClass(packagedElements,
-                        "requestName");
+        Class requestName = TransformUtil
+                .assertPackagedElementClass(packagedElements, "requestName");
 
-        Class userName =
-                TransformUtil.assertPackagedElementClass(packagedElements,
-                        "userName");
+        Class userName = TransformUtil
+                .assertPackagedElementClass(packagedElements, "userName");
 
-        Property seating =
-                TransformUtil.assertAttributeInClass(airlinePreference
-                        .getAllAttributes(),
-                        "seating",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        Property seating = TransformUtil.assertAttributeInClass(
+                airlinePreference.getAllAttributes(),
+                "seating",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 seating,
                 "unqualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property mealType =
-                TransformUtil.assertAttributeInClass(airlinePreference
-                        .getAllAttributes(),
-                        "mealType",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        Property mealType = TransformUtil.assertAttributeInClass(
+                airlinePreference.getAllAttributes(),
+                "mealType",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 mealType,
                 "unqualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property specialRequest =
-                TransformUtil.assertAttributeInClass(airlinePreference
-                        .getAllAttributes(),
-                        "specialRequest",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        Property specialRequest = TransformUtil.assertAttributeInClass(
+                airlinePreference.getAllAttributes(),
+                "specialRequest",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 specialRequest,
                 "unqualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property frequentFlierAtr =
-                TransformUtil.assertAttributeInClass(airlinePreference
-                        .getAllAttributes(), "frequentFlier", "FrequentFlier");
+        Property frequentFlierAtr = TransformUtil.assertAttributeInClass(
+                airlinePreference.getAllAttributes(),
+                "frequentFlier",
+                "FrequentFlier");
 
-        Property airline =
-                TransformUtil.assertAttributeInClass(frequentFlier
-                        .getAllAttributes(),
-                        "airline",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        Property airline = TransformUtil.assertAttributeInClass(
+                frequentFlier.getAllAttributes(),
+                "airline",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 airline,
                 "qualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property freqFlierNumber =
-                TransformUtil.assertAttributeInClass(frequentFlier
-                        .getAllAttributes(),
-                        "freqFlierNumber",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        Property freqFlierNumber = TransformUtil.assertAttributeInClass(
+                frequentFlier.getAllAttributes(),
+                "freqFlierNumber",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 freqFlierNumber,
                 "qualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property correlationId =
-                TransformUtil.assertAttributeInClass(correlationIdType
-                        .getAllAttributes(),
-                        "correlationId",
-                        PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
+        Property correlationId = TransformUtil.assertAttributeInClass(
+                correlationIdType.getAllAttributes(),
+                "correlationId",
+                PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 correlationId,
                 "qualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property passwordProp =
-                TransformUtil.assertAttributeInClass(password
-                        .getAllAttributes(),
-                        "password",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        Property passwordProp = TransformUtil.assertAttributeInClass(
+                password.getAllAttributes(),
+                "password",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 passwordProp,
                 "qualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property reqNameProp =
-                TransformUtil.assertAttributeInClass(requestInfoType
-                        .getAllAttributes(), "requestName", null);
+        Property reqNameProp = TransformUtil.assertAttributeInClass(
+                requestInfoType.getAllAttributes(),
+                "requestName",
+                null);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 reqNameProp,
                 "qualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property passwordProp2 =
-                TransformUtil.assertAttributeInClass(requestInfoType
-                        .getAllAttributes(), "password", null);
+        Property passwordProp2 = TransformUtil.assertAttributeInClass(
+                requestInfoType.getAllAttributes(),
+                "password",
+                null);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 passwordProp2,
                 "unqualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property userNameProp =
-                TransformUtil.assertAttributeInClass(requestInfoType
-                        .getAllAttributes(), "userName", null);
+        Property userNameProp = TransformUtil.assertAttributeInClass(
+                requestInfoType.getAllAttributes(),
+                "userName",
+                null);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 userNameProp,
                 "qualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property correlationIdProp =
-                TransformUtil.assertAttributeInClass(requestInfoType
-                        .getAllAttributes(), "correlationId", null);
+        Property correlationIdProp = TransformUtil.assertAttributeInClass(
+                requestInfoType.getAllAttributes(),
+                "correlationId",
+                null);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 correlationIdProp,
                 "qualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property reqNameProp2 =
-                TransformUtil.assertAttributeInClass(requestName
-                        .getAllAttributes(),
-                        "requestName",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        Property reqNameProp2 = TransformUtil.assertAttributeInClass(
+                requestName.getAllAttributes(),
+                "requestName",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 reqNameProp2,
                 "qualified",
                 XsdStereotypeUtils.XSD_PROPERTY_FORM);
 
-        Property userNameProp2 =
-                TransformUtil.assertAttributeInClass(userName
-                        .getAllAttributes(),
-                        "userName",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        Property userNameProp2 = TransformUtil.assertAttributeInClass(
+                userName.getAllAttributes(),
+                "userName",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertXSDBasedPropertyValue(xsdBOMModel,
                 userNameProp2,
                 "qualified",

@@ -81,22 +81,21 @@ public class WSDLBOM18_InvalidImportTest extends TransformationTest {
                 copy(platformExampleFilesBase + "/wsdl/" + WSDL_DOWNSTREAM,
                         outputPath);
 
-        assertTrue("Failed to create '" + outputPath + "'", outputFile != null
-                && outputFile.exists());
+        assertTrue("Failed to create '" + outputPath + "'",
+                outputFile != null && outputFile.exists());
 
         // Copy xsd to profile folder
         outputPath =
                 EXTERNAL_PATH + "/" + DOWNSTREAM_RELATIVE_PATH + "/" + XSD_NAME;
-        File xsdFile =
-                copy(platformExampleFilesBase + "/wsdl/" + XSD_MASTER,
-                        outputPath);
-        assertTrue("Failed to create '" + outputPath + "'", xsdFile != null
-                && xsdFile.exists());
+        File xsdFile = copy(platformExampleFilesBase + "/wsdl/" + XSD_MASTER,
+                outputPath);
+        assertTrue("Failed to create '" + outputPath + "'",
+                xsdFile != null && xsdFile.exists());
 
         // Run the transformation
-        List<IStatus> result =
-                importWSDLtoBOM(outputFile, outputSpecialFolder.getFolder()
-                        .getFullPath().append("bom1.bom"));
+        List<IStatus> result = importWSDLtoBOM(outputFile,
+                outputSpecialFolder.getFolder().getFullPath()
+                        .append("bom1.bom"));
         checkError(result);
     }
 
@@ -115,21 +114,20 @@ public class WSDLBOM18_InvalidImportTest extends TransformationTest {
                 copy(platformExampleFilesBase + "/wsdl/" + WSDL_UPSTREAM,
                         outputPath);
 
-        assertTrue("Failed to create '" + outputPath + "'", outputFile != null
-                && outputFile.exists());
+        assertTrue("Failed to create '" + outputPath + "'",
+                outputFile != null && outputFile.exists());
 
         // Copy xsd to temp folder
         outputPath = TEMP_PATH + "/" + XSD_NAME;
-        File xsdFile =
-                copy(platformExampleFilesBase + "/wsdl/" + XSD_MASTER,
-                        outputPath);
-        assertTrue("Failed to create '" + outputPath + "'", xsdFile != null
-                && xsdFile.exists());
+        File xsdFile = copy(platformExampleFilesBase + "/wsdl/" + XSD_MASTER,
+                outputPath);
+        assertTrue("Failed to create '" + outputPath + "'",
+                xsdFile != null && xsdFile.exists());
 
         // Run the transformation
-        List<IStatus> result =
-                importWSDLtoBOM(outputFile, outputSpecialFolder.getFolder()
-                        .getFullPath().append("bom2.bom"));
+        List<IStatus> result = importWSDLtoBOM(outputFile,
+                outputSpecialFolder.getFolder().getFullPath()
+                        .append("bom2.bom"));
         checkError(result);
     }
 
@@ -145,21 +143,20 @@ public class WSDLBOM18_InvalidImportTest extends TransformationTest {
                 copy(platformExampleFilesBase + "/wsdl/" + WSDL_ABSOLUTE,
                         outputPath);
 
-        assertTrue("Failed to create '" + outputPath + "'", outputFile != null
-                && outputFile.exists());
+        assertTrue("Failed to create '" + outputPath + "'",
+                outputFile != null && outputFile.exists());
 
         // Copy xsd to profile folder
         outputPath =
                 EXTERNAL_PATH + "/" + DOWNSTREAM_RELATIVE_PATH + "/" + XSD_NAME;
-        File xsdFile =
-                copy(platformExampleFilesBase + "/wsdl/" + XSD_MASTER,
-                        outputPath);
-        assertTrue("Failed to create '" + outputPath + "'", xsdFile != null
-                && xsdFile.exists());
+        File xsdFile = copy(platformExampleFilesBase + "/wsdl/" + XSD_MASTER,
+                outputPath);
+        assertTrue("Failed to create '" + outputPath + "'",
+                xsdFile != null && xsdFile.exists());
 
-        List<IStatus> result =
-                importWSDLtoBOM(outputFile, outputSpecialFolder.getFolder()
-                        .getFullPath().append("bom2.bom"));
+        List<IStatus> result = importWSDLtoBOM(outputFile,
+                outputSpecialFolder.getFolder().getFullPath()
+                        .append("bom2.bom"));
         checkError(result);
     }
 
@@ -172,19 +169,16 @@ public class WSDLBOM18_InvalidImportTest extends TransformationTest {
         /*
          * After XPD-6062, we also validated the imported wsdl/xsd so we should
          * now get validation errors as well
+         * 
+         * Sid XPD-8351 - Now only get one error from latest WSDL validator
+         * (looks like should only ever have been one anyway)
          */
-        assertEquals("Number of errors from the import", 2, result.size());
+        assertEquals("Number of errors from the import", 1, result.size());
         IStatus status = result.get(0);
         assertEquals("Status error level", IStatus.ERROR, status.getSeverity());
-        assertTrue("Expected the error message to start with 'Referenced file contains errors' (got: '"
-                + status.getMessage() + "')",
-                status.getMessage()
-                        .startsWith("Referenced file contains errors"));
-
-        status = result.get(1);
-        assertEquals("Status error level", IStatus.ERROR, status.getSeverity());
-        assertTrue("Expected the error message to start with 'Referenced file contains errors' (got: '"
-                + status.getMessage() + "')",
+        assertTrue(
+                "Expected the error message to start with 'Referenced file contains errors' (got: '"
+                        + status.getMessage() + "')",
                 status.getMessage()
                         .startsWith("Referenced file contains errors"));
     }
@@ -202,9 +196,8 @@ public class WSDLBOM18_InvalidImportTest extends TransformationTest {
         OutputStream os = null;
         try {
 
-            is =
-                    new ResourceSetImpl().getURIConverter()
-                            .createInputStream(URI.createURI(fromPath));
+            is = new ResourceSetImpl().getURIConverter()
+                    .createInputStream(URI.createURI(fromPath));
 
             File outputFile = new File(toPath);
             if (outputFile.exists()) {

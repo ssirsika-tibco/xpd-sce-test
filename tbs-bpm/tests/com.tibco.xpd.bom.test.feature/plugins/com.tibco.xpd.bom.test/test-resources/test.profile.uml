@@ -70,7 +70,9 @@
   <elementImport xmi:id="_MsxBAf11EdyszZuTmZeqoQ">
     <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
   </elementImport>
-  <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_KrxnYP16EdyszZuTmZeqoQ"/>
+  <!-- SID XPD-8351 - Latest UML loader doesn't like this not being a Classifier, but we don't seem to use RedefinableTemplateSignature anywhere in code so I don't think we need to worry too much.
+  <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_KrxnYP16EdyszZuTmZeqoQ"/> 
+  -->
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_BjMrkP11EdyszZuTmZeqoQ" name="Dalek">
     <ownedAttribute xmi:id="_QHrosv11EdyszZuTmZeqoQ" name="base_Association" association="_QHrosP11EdyszZuTmZeqoQ">
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Association"/>

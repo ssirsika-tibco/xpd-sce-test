@@ -5,8 +5,6 @@ package com.tibco.xpd.bom.test.transform.imports_wsdl_bom;
 
 import java.util.Iterator;
 
-import junit.framework.Assert;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
@@ -24,6 +22,8 @@ import com.tibco.xpd.core.test.util.TestResourceInfo;
 import com.tibco.xpd.core.test.util.TestUtil;
 import com.tibco.xpd.resources.WorkingCopy;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
+
+import junit.framework.Assert;
 
 /**
  * WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest
@@ -46,8 +46,8 @@ import com.tibco.xpd.resources.XpdResourcesPlugin;
  * @since
  */
 
-public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
-        AbstractBuildingBaseResourceTest {
+public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest
+        extends AbstractBuildingBaseResourceTest {
 
     private static final String PROJECT_NAME = "Test_6062";
 
@@ -62,7 +62,8 @@ public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
         IProject testProject = getTestProject(PROJECT_NAME);
         assertNotNull(testProject);
         TestUtil.addGlobalDestinationToProject(getTestPlugInId(),
-                "BPM", testProject);//$NON-NLS-1$
+                "BPM", //$NON-NLS-1$
+                testProject);
         buildAndWait();
     }
 
@@ -84,18 +85,15 @@ public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
          */
         for (TestResourceInfo testResource : testResources) {
 
-            IMarker[] markers =
-                    testResource.getTestFile().findMarkers(null,
-                            true,
-                            IResource.DEPTH_INFINITE);
+            IMarker[] markers = testResource.getTestFile()
+                    .findMarkers(null, true, IResource.DEPTH_INFINITE);
 
             boolean hasErrorMarker = false;
             StringBuffer sb = new StringBuffer();
 
             for (IMarker marker : markers) {
-                int markerSeverity =
-                        marker.getAttribute(IMarker.SEVERITY,
-                                IMarker.SEVERITY_WARNING);
+                int markerSeverity = marker.getAttribute(IMarker.SEVERITY,
+                        IMarker.SEVERITY_WARNING);
                 if (markerSeverity == IMarker.SEVERITY_ERROR) {
                     hasErrorMarker = true;
                     sb.append(marker.getAttribute(IMarker.MESSAGE));
@@ -106,10 +104,10 @@ public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
 
             if (hasErrorMarker) {
                 cleanProjectAtEnd = false;
-                fail(String
-                        .format("Found error marker '%1$s' on '%2$s'when none is expected. ",
-                                sb.toString(),
-                                testResource.getTestFileName()));
+                fail(String.format(
+                        "Found error marker '%1$s' on '%2$s'when none is expected. ",
+                        sb.toString(),
+                        testResource.getTestFileName()));
                 return;
             }
         }
@@ -129,20 +127,21 @@ public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
 
         IResource[] members = generatedBomFolder.members();
         for (IResource member : members) {
-            if (member instanceof IFile
-                    && BOMResourcesPlugin.BOM_FILE_EXTENSION.equals(member
-                            .getFileExtension())) {
+            if (member instanceof IFile && BOMResourcesPlugin.BOM_FILE_EXTENSION
+                    .equals(member.getFileExtension())) {
 
                 bomCount++;
 
                 IFile generatedBOMFile = (IFile) member;
 
                 // check resulting bom file is correct
-                WorkingCopy wc =
-                        XpdResourcesPlugin.getDefault()
-                                .getWorkingCopy(generatedBOMFile);
-                assertNotNull("Cannot create WorkingCopy for newly exported BOM file", wc); //$NON-NLS-1$
-                assertTrue("Root element is null or not of type Model", wc.getRootElement() instanceof Model); //$NON-NLS-1$
+                WorkingCopy wc = XpdResourcesPlugin.getDefault()
+                        .getWorkingCopy(generatedBOMFile);
+                assertNotNull(
+                        "Cannot create WorkingCopy for newly exported BOM file", //$NON-NLS-1$
+                        wc);
+                assertTrue("Root element is null or not of type Model", //$NON-NLS-1$
+                        wc.getRootElement() instanceof Model);
 
                 Model model = (Model) wc.getRootElement();
 
@@ -162,19 +161,17 @@ public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
                 while (profilesIter.hasNext()) {
                     Profile profile = profilesIter.next();
 
-                    if (profile
-                            .getName()
-                            .equals(XsdStereotypeUtils.XSD_NOTATION_PROFILE_NAME)) {
+                    if (profile.getName().equals(
+                            XsdStereotypeUtils.XSD_NOTATION_PROFILE_NAME)) {
                         Iterator<Stereotype> ownedStereotypesIter =
                                 profile.getOwnedStereotypes().iterator();
                         while (ownedStereotypesIter.hasNext()) {
                             stereotype = ownedStereotypesIter.next();
                             if (XsdStereotypeUtils.XSD_BASED_MODEL
                                     .equals(stereotype.getName())) {
-                                Object value =
-                                        currentPackage
-                                                .getValue(stereotype,
-                                                        XsdStereotypeUtils.XSD_SCHEMA_LOCATION);
+                                Object value = currentPackage.getValue(
+                                        stereotype,
+                                        XsdStereotypeUtils.XSD_SCHEMA_LOCATION);
                                 if (member.getName()
                                         .equals("org.example.Main.bom"))
                                     Assert.assertEquals("Main.wsdl",
@@ -196,12 +193,27 @@ public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
                                     Assert.assertEquals("Sub2/Sub.wsdl",
                                             value.toString());
                                 else if (member.getName()
-                                        .equals("org.example.xsd1.bom"))
-                                    Assert.assertEquals("XSDs/XSDOne/xsd1.xsd;XSDs/XSDOne/XSD1_Merge1.xsd;XSDs/XSD1_Merge2.xsd",
-                                            value.toString());
-                                else if (member.getName()
+                                        .equals("org.example.xsd1.bom")) {
+                                    /*
+                                     * Sid XPD-8351 Was too dependent on order
+                                     * of XSD's in string. Fixed.
+                                     */
+                                    Assert.assertTrue(
+                                            "Xsds list doesn't contain 'XSDs/XSDOne/xsd1.xsd'",
+                                            value.toString().contains(
+                                                    "XSDs/XSDOne/xsd1.xsd"));
+                                    Assert.assertTrue(
+                                            "Xsds list doesn't contain 'XSDs/XSDOne/XSD1_Merge1.xsd'",
+                                            value.toString().contains(
+                                                    "XSDs/XSDOne/XSD1_Merge1.xsd"));
+                                    Assert.assertTrue(
+                                            "Xsds list doesn't contain 'XSDs/XSD1_Merge2.xsd'",
+                                            value.toString().contains(
+                                                    "XSDs/XSD1_Merge2.xsd"));
+                                } else if (member.getName()
                                         .equals("org.example.xsd3.bom"))
-                                    Assert.assertEquals("XSDs/XSDThree/xsd3.xsd",
+                                    Assert.assertEquals(
+                                            "XSDs/XSDThree/xsd3.xsd",
                                             value.toString());
                                 else if (member.getName()
                                         .equals("org.example.XsdMain.bom"))
@@ -221,10 +233,10 @@ public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
         /*
          * check number of generated BOMs.
          */
-        String msg =
-                String.format("Expected number of generated BOMs: %1s, found: %2$s .",
-                        9,
-                        bomCount);
+        String msg = String.format(
+                "Expected number of generated BOMs: %1s, found: %2$s .",
+                9,
+                bomCount);
 
         assertEquals(msg, 9, bomCount);
 
@@ -243,39 +255,53 @@ public class WSDLBOM49_BOMGenTestForSourcesInDifferentFoldersTest extends
 
     @Override
     protected TestResourceInfo[] getTestResources() {
-        TestResourceInfo[] testResources =
-                new TestResourceInfo[] {
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Business Objects{bom}/Test_6062.bom"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Process Packages{processes}/Test_6062.xpdl"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/AA.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/Main.wsdl"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/Sub1/Sub.wsdl"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/Sub1/Sub1Sub/Sub.wsdl"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/Sub2/Sub.wsdl"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/XSDs/XSD1_Merge2.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/XSDs/XSDOne/XSD1_Merge1.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/XSDs/XSDOne/xsd1.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/XSDs/XSDOne/xsd1b.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/XSDs/XSDThree/xsd3.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/XSDs/XSDTwo/xsd2.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/XSDs/XsdSub.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                        new TestResourceInfo(
-                                "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", "Test_6062/Service Descriptors{wsdl}/XsdMain.xsd"), //$NON-NLS-1$ //$NON-NLS-2$
-                };
+        TestResourceInfo[] testResources = new TestResourceInfo[] {
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Business Objects{bom}/Test_6062.bom"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Process Packages{processes}/Test_6062.xpdl"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/AA.xsd"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/Main.wsdl"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/Sub1/Sub.wsdl"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/Sub1/Sub1Sub/Sub.wsdl"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/Sub2/Sub.wsdl"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/XSDs/XSD1_Merge2.xsd"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/XSDs/XSDOne/XSD1_Merge1.xsd"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/XSDs/XSDOne/xsd1.xsd"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/XSDs/XSDOne/xsd1b.xsd"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/XSDs/XSDThree/xsd3.xsd"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/XSDs/XSDTwo/xsd2.xsd"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/XSDs/XsdSub.xsd"), //$NON-NLS-1$
+                new TestResourceInfo(
+                        "test-resources/bom-xsd/WSDLBOM49_BOMGenTestForSourcesInDifferentFolders", //$NON-NLS-1$
+                        "Test_6062/Service Descriptors{wsdl}/XsdMain.xsd"), //$NON-NLS-1$
+        };
 
         return testResources;
     }

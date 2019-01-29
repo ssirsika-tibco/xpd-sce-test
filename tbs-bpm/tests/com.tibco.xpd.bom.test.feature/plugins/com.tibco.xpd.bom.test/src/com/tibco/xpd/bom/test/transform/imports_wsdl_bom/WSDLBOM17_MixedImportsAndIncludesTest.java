@@ -5,7 +5,7 @@ package com.tibco.xpd.bom.test.transform.imports_wsdl_bom;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -77,75 +77,72 @@ public class WSDLBOM17_MixedImportsAndIncludesTest extends TransformationTest {
         TestUtil.waitForJobs();
 
         IFile wsdlFile = outputSpecialFolder.getFolder().getFile(MODEL_FILE);
-        Collection<String> outputBOMNames =
-                WSDLTransformUtil.getOutputBOMNames(wsdlFile);
+        List<String> outputBOMNames =
+                new ArrayList(WSDLTransformUtil.getOutputBOMNames(wsdlFile));
+        Collections.sort(outputBOMNames);
 
         IFile xsdCommonBOMfile =
-                outputSpecialFolder.getFolder().getFile(outputBOMNames
-                        .toArray(new String[] {})[0]);
-        WorkingCopy xsdCommonWC =
-                XpdResourcesPlugin.getDefault()
-                        .getWorkingCopy(xsdCommonBOMfile);
-        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", xsdCommonWC); //$NON-NLS-1$
-        assertTrue("Root element is null or not of type Model", xsdCommonWC.getRootElement() instanceof Model); //$NON-NLS-1$
+                outputSpecialFolder.getFolder().getFile(outputBOMNames.get(0));
+        WorkingCopy xsdCommonWC = XpdResourcesPlugin.getDefault()
+                .getWorkingCopy(xsdCommonBOMfile);
+        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", //$NON-NLS-1$
+                xsdCommonWC);
+        assertTrue("Root element is null or not of type Model", //$NON-NLS-1$
+                xsdCommonWC.getRootElement() instanceof Model);
         Model xsdCommonBOMModel = (Model) xsdCommonWC.getRootElement();
 
         IFile wsdlBOMfile =
-                outputSpecialFolder.getFolder().getFile(outputBOMNames
-                        .toArray(new String[] {})[1]);
+                outputSpecialFolder.getFolder().getFile(outputBOMNames.get(2));
         WorkingCopy wsdlWC =
                 XpdResourcesPlugin.getDefault().getWorkingCopy(wsdlBOMfile);
-        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", wsdlWC); //$NON-NLS-1$
-        assertTrue("Root element is null or not of type Model", wsdlWC.getRootElement() instanceof Model); //$NON-NLS-1$
+        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", //$NON-NLS-1$
+                wsdlWC);
+        assertTrue("Root element is null or not of type Model", //$NON-NLS-1$
+                wsdlWC.getRootElement() instanceof Model);
         Model wsdlBOMModel = (Model) wsdlWC.getRootElement();
 
         IFile xsdPOCommonBOMfile =
-                outputSpecialFolder.getFolder().getFile(outputBOMNames
-                        .toArray(new String[] {})[2]);
-        WorkingCopy xsdPOCommonWC =
-                XpdResourcesPlugin.getDefault()
-                        .getWorkingCopy(xsdPOCommonBOMfile);
-        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", xsdPOCommonWC); //$NON-NLS-1$
-        assertTrue("Root element is null or not of type Model", xsdPOCommonWC.getRootElement() instanceof Model); //$NON-NLS-1$
+                outputSpecialFolder.getFolder().getFile(outputBOMNames.get(1));
+        WorkingCopy xsdPOCommonWC = XpdResourcesPlugin.getDefault()
+                .getWorkingCopy(xsdPOCommonBOMfile);
+        assertNotNull("Cannot create WorkingCopy for newly exported BOM file", //$NON-NLS-1$
+                xsdPOCommonWC);
+        assertTrue("Root element is null or not of type Model", //$NON-NLS-1$
+                xsdPOCommonWC.getRootElement() instanceof Model);
         Model xsdPOCommonBOMModel = (Model) xsdPOCommonWC.getRootElement();
 
         EList<PackageableElement> packagedElements =
                 xsdCommonBOMModel.getPackagedElements();
         assertEquals("Number of packaged elements in model",
                 3,
-                packagedElements.size()); //$NON-NLS-1$
+                packagedElements.size()); // $NON-NLS-1$
 
         EList<PackageableElement> packagedElements2 =
                 wsdlBOMModel.getPackagedElements();
         assertEquals("Number of packaged elements in model",
                 1,
-                packagedElements2.size()); //$NON-NLS-1$
+                packagedElements2.size()); // $NON-NLS-1$
 
         EList<PackageableElement> packagedElements3 =
                 xsdPOCommonBOMModel.getPackagedElements();
         assertEquals("Number of packaged elements in model",
                 9,
-                packagedElements3.size()); //$NON-NLS-1$
+                packagedElements3.size()); // $NON-NLS-1$
 
-        org.eclipse.uml2.uml.Class wsincludeCls =
-                TransformUtil.assertPackagedElementClass(packagedElements2,
-                        "wsinclude");
+        org.eclipse.uml2.uml.Class wsincludeCls = TransformUtil
+                .assertPackagedElementClass(packagedElements2, "wsinclude");
 
-        org.eclipse.uml2.uml.Class addressTypeCls =
-                TransformUtil.assertPackagedElementClass(packagedElements,
-                        "AddressType");
+        org.eclipse.uml2.uml.Class addressTypeCls = TransformUtil
+                .assertPackagedElementClass(packagedElements, "AddressType");
 
-        org.eclipse.uml2.uml.Class lineItemsTypeCls =
-                TransformUtil.assertPackagedElementClass(packagedElements3,
-                        "LineItemsType");
+        org.eclipse.uml2.uml.Class lineItemsTypeCls = TransformUtil
+                .assertPackagedElementClass(packagedElements3, "LineItemsType");
 
-        org.eclipse.uml2.uml.Class lineItemTypeCls =
-                TransformUtil.assertPackagedElementClass(packagedElements3,
-                        "LineItemType");
+        org.eclipse.uml2.uml.Class lineItemTypeCls = TransformUtil
+                .assertPackagedElementClass(packagedElements3, "LineItemType");
 
-        org.eclipse.uml2.uml.Class partyTypeCls =
-                TransformUtil.assertPackagedElementClass(packagedElements3,
-                        "PartyType");
+        org.eclipse.uml2.uml.Class partyTypeCls = TransformUtil
+                .assertPackagedElementClass(packagedElements3, "PartyType");
 
         org.eclipse.uml2.uml.Class purchaseOrderTypeCls =
                 TransformUtil.assertPackagedElementClass(packagedElements3,
@@ -162,39 +159,37 @@ public class WSDLBOM17_MixedImportsAndIncludesTest extends TransformationTest {
         TransformUtil.assertAttributeInClass(lineItemsTypeCls
                 .getAllAttributes(), "lineItem", lineItemTypeCls.getName());
 
-        TransformUtil
-                .assertAttributeInClass(lineItemTypeCls.getAllAttributes(),
-                        "prodiuctID",
-                        "ProductIDType");
-        TransformUtil
-                .assertAttributeInClass(lineItemTypeCls.getAllAttributes(),
-                        "productName",
-                        PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
+        TransformUtil.assertAttributeInClass(lineItemTypeCls.getAllAttributes(),
+                "prodiuctID",
+                "ProductIDType");
+        TransformUtil.assertAttributeInClass(lineItemTypeCls.getAllAttributes(),
+                "productName",
+                PrimitivesUtil.BOM_PRIMITIVE_TEXT_NAME);
         TransformUtil.assertAttributeInClass(partyTypeCls.getAllAttributes(),
                 "id",
                 PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
         TransformUtil.assertAttributeInClass(partyTypeCls.getAllAttributes(),
                 "address",
                 addressTypeCls.getName());
-        TransformUtil.assertAttributeInClass(purchaseOrderTypeCls
-                .getAllAttributes(),
+        TransformUtil.assertAttributeInClass(
+                purchaseOrderTypeCls.getAllAttributes(),
                 "version",
                 PrimitivesUtil.BOM_PRIMITIVE_DECIMAL_NAME);
-        TransformUtil.assertAttributeInClass(purchaseOrderTypeCls
-                .getAllAttributes(),
+        TransformUtil.assertAttributeInClass(
+                purchaseOrderTypeCls.getAllAttributes(),
                 "poNumber",
                 PrimitivesUtil.BOM_PRIMITIVE_INTEGER_NAME);
-        TransformUtil.assertAttributeInClass(purchaseOrderTypeCls
-                .getAllAttributes(),
+        TransformUtil.assertAttributeInClass(
+                purchaseOrderTypeCls.getAllAttributes(),
                 "poDate",
                 PrimitivesUtil.BOM_PRIMITIVE_DATE_NAME);
         TransformUtil.assertAttributeInClass(purchaseOrderTypeCls
                 .getAllAttributes(), "billtoParty", partyTypeCls.getName());
         TransformUtil.assertAttributeInClass(purchaseOrderTypeCls
                 .getAllAttributes(), "shipToType", partyTypeCls.getName());
-        TransformUtil
-                .assertAttributeInClass(purchaseOrderTypeCls.getAllAttributes(),
-                        "lineItemType",
-                        lineItemsTypeCls.getName());
+        TransformUtil.assertAttributeInClass(
+                purchaseOrderTypeCls.getAllAttributes(),
+                "lineItemType",
+                lineItemsTypeCls.getName());
     }
 }
