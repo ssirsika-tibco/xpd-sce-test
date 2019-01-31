@@ -19,6 +19,15 @@
                 <striplinebreaks />
             </filterchain>
         </loadfile>
+		<loadfile property="bx.product.features" srcFile="bx-product-features.txt">
+            <filterchain>
+                <striplinecomments>
+                    <comment value="#" />
+                </striplinecomments>
+                <suffixlines suffix="," />
+                <striplinebreaks />
+            </filterchain>
+        </loadfile>
         <loadfile property="test.features" srcFile="test-features.txt">
             <filterchain>
                 <striplinecomments>
@@ -39,6 +48,12 @@
         <antcall target="-build">
             <param name="features" value="${product.features}" />
             <param name="feature.type" value="product" />
+        </antcall> 
+    </target>
+	<target name="build-bx-product" depends="init" description="Builds all product features.">
+        <antcall target="-build">
+            <param name="features" value="${bx.product.features}" />
+            <param name="feature.type" value="bx-product" />
         </antcall>
     </target>
 
