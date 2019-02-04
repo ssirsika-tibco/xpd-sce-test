@@ -3,12 +3,15 @@
 <plugin>
    <extension
          point="org.eclipse.ant.core.antTasks">
+<!-- Sid ACE-122 removed com.tibco.xpd.daa related code 
       <antTask
             class="com.tibco.xpd.ant.tasks.BPMGenerateDAATask"
             library="lib/bpm-antTaskDefinitions.jar"
             name="bpm.generateDAA">
       </antTask>
-      <!--<antTask
+      
+-->
+      <!-- Sid - this was aalready removed prior to ACE <antTask
             class="com.tibco.xpd.ant.tasks.ImportProjectTask"
             library="lib/bpm-antTaskDefinitions.jar"
             name="bpm.importProject">
