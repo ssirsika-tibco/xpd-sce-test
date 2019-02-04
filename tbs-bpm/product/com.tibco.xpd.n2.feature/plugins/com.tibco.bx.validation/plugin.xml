@@ -509,9 +509,6 @@
                class="com.tibco.xpd.validation.bpmn.developer.rules.WebServiceReferenceValidationRule">
          </rule>
          <rule
-               class="com.tibco.bx.validation.rules.JavaServiceProjectRule">
-         </rule>
-         <rule
                class="com.tibco.bx.validation.rules.process.SystemParticipantSharedResourceRule">
          </rule>
          <rule
@@ -627,9 +624,6 @@
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.activity.CatchGlobalSignalEventGenericRule">
-         </rule>
-         <rule
-               class="com.tibco.bx.validation.rules.activity.PojoSerializableRule">
          </rule>
          <rule
                class="com.tibco.bx.validation.rules.activity.N2CorrelationDataRequiredRule">
@@ -1263,18 +1257,8 @@
             severity="ERROR">
       </issue>
       <issue
-            id="bx.projectNotFound"
-            message="%bx.projectNotFound"
-            severity="ERROR">
-      </issue>
-      <issue
             id="bx.initialPriorityNotInRangeMAX"
             message="%bx.initialPriorityNotInRangeMAX2"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.manyProjectsWithTheSameId"
-            message="%bx.manyProjectsWithTheSameId"
             severity="ERROR">
       </issue>
       <issue
@@ -2078,16 +2062,6 @@
       <issue
             id="bx.dbActParticSharedResMustHaveJdbcProfName"
             message="%bx.dbActParticSharedResMustHaveJdbcProfName"
-            severity="WARNING">
-      </issue>
-      <issue
-            id="bx.pojoSerializable"
-            message="%bx.pojoSerializable"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="bx.pojoOsgiVersionQualifier"
-            message="%bx.pojoOsgiVersionQualifier"
             severity="WARNING">
       </issue>
       <issue
