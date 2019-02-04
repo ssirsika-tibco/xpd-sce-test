@@ -1,43 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-   <extension
-         point="com.tibco.xpd.daa.compositeContributors">
-      <contributor
-            class="com.tibco.xpd.n2.pe.component.PECompositeContributor"
-            contextId="com.tibco.xpd.amx.bpm"
-            id="com.tibco.xpd.n2.pe.contributor">
-         <dependsOn
-               contributorId="com.tibco.xpd.n2.cds.contributor">
-         </dependsOn>
-      </contributor>
-   </extension>
-   <extension
-			point="com.tibco.bx.composite.core.requirementsResolver">
-      <resolver
-            class="com.tibco.xpd.n2.pe.component.BxBOMRequirementsResolver"
-            implementationTypeId="implementation.bx">
-      </resolver>
-      <resolver
-            class="com.tibco.xpd.n2.pe.component.N2DeploymentRequirementResolver"
-            implementationTypeId="implementation.bx">
-      </resolver>
-      <resolver
-            class="com.tibco.xpd.n2.pe.component.AMXDecisionsRequirementsResolver"
-            implementationTypeId="implementation.bx">
-      </resolver>
-      <resolver
-            class="com.tibco.xpd.n2.pe.component.ProcessToGlobalSignalRequirementResolver"
-            implementationTypeId="implementation.bx">
-      </resolver>
-   </extension>
-   <extension
-         point="com.tibco.amf.tools.componenttype.implementationTypeProvider">
-      <implementation
-            class="com.tibco.xpd.n2.pe.component.PEImplementationTypeProvider"
-            implementationTypeId="com.tibco.xpd.n2.pe.implementation">
-      </implementation>
-   </extension>
+
    <extension
          point="org.eclipse.emf.validation.constraintProviders">
       <constraintProvider

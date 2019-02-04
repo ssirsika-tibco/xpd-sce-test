@@ -78,70 +78,7 @@
             class="com.tibco.n2.common.attributefacade.util.AttributefacadeResourceFactoryImpl"/>
    </extension>
    
-    <extension
-          point="com.tibco.amf.tools.componenttype.implementationType">
-       <implementationType
-             componentTypeResolver="com.tibco.xpd.n2.brm.component.BRMComponentTypeResolver"
-             defaultPalette="false"
-             delegate="com.tibco.xpd.n2.brm.component.BRMImplementationDelegate"
-             name="%brm"
-             typeId="com.tibco.xpd.brm">
-          <implementationTypeResolver
-                ecoreClass="BRMImplementation"
-                ecoreURI="http://xsd.tns.tibco.com/n2/models/common">
-          </implementationTypeResolver>
-       </implementationType>
-    </extension>
-    <extension
-          point="com.tibco.amf.tools.componenttype.implementationType">
-       <implementationType
-             componentTypeResolver="com.tibco.xpd.n2.brm.component.EcComponentTypeResolver"
-             defaultPalette="false"
-             delegate="com.tibco.xpd.n2.brm.component.EcImplementationDelegate"
-             name="%ec"
-             typeId="com.tibco.xpd.ec">
-          <implementationTypeResolver
-                ecoreClass="ECImplementation"
-                ecoreURI="http://xsd.tns.tibco.com/n2/models/common">
-          </implementationTypeResolver>
-       </implementationType>
-    </extension>
-    <extension
-          point="com.tibco.amf.tools.componenttype.implementationTypeProvider">
-       <implementation
-             class="com.tibco.xpd.n2.brm.component.BRMImplementationTypeProvider"
-             implementationTypeId="com.tibco.xpd.brm">
-       </implementation>
-    </extension>
-    <extension
-          point="com.tibco.amf.tools.componenttype.implementationTypeProvider">
-       <implementation
-             class="com.tibco.xpd.n2.brm.component.EcImplementationTypeProvider"
-             implementationTypeId="com.tibco.xpd.ec">
-       </implementation>
-    </extension>
-    <extension
-          point="com.tibco.xpd.daa.compositeContributors">
-       <contributor
-             class="com.tibco.xpd.n2.brm.component.BRMCompositeContributor"
-             contextId="com.tibco.xpd.amx.bpm"
-             id="com.tibco.xpd.n2.brm.contributor">
-          <dependsOn
-                contributorId="com.tibco.xpd.n2.pe.contributor">
-          </dependsOn>
-          <dependsOn
-                contributorId="com.tibco.xpd.n2.ec.contributor">
-          </dependsOn>
-       </contributor>
-    </extension>
-    <extension
-          point="com.tibco.xpd.daa.compositeContributors">
-       <contributor
-             class="com.tibco.xpd.n2.brm.component.EcCompositeContributor"
-             contextId="com.tibco.xpd.amx.bpm"
-             id="com.tibco.xpd.n2.ec.contributor">
-       </contributor>
-    </extension>
+
     
     <extension
          point="org.eclipse.emf.validation.constraintProviders">

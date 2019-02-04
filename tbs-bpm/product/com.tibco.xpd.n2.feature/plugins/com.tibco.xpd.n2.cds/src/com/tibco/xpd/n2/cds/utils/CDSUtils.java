@@ -51,11 +51,9 @@ import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.bom.gen.biz.GenerationException;
 import com.tibco.xpd.bom.resources.BOMResourcesPlugin;
-import com.tibco.xpd.bom.resources.utils.BOMUtils;
 import com.tibco.xpd.bom.resources.wc.BOMWorkingCopy;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.xsdtransform.api.XSDUtil;
-import com.tibco.xpd.daa.internal.util.CompositeUtil;
 import com.tibco.xpd.n2.cds.CDSActivator;
 import com.tibco.xpd.n2.cds.CdsConsts;
 import com.tibco.xpd.n2.cds.script.CdsContentAssistIconProvider;
@@ -188,15 +186,6 @@ public class CDSUtils {
     private static Class defaultMultipleClass = null;
 
     private static Class defaultPaginatedMultipleClass = null;
-
-    public static String getCustomFeatureVersion(IProject project) {
-
-        if (BOMUtils.isBusinessDataProject(project)) {
-
-            return BOMUtils.getBusinessDataBuildVersion(project);
-        }
-        return CompositeUtil.getVersionNumber(project);
-    }
 
     public static IFolder getCDSOutDestFolder(IProject project) {
         if (project != null) {
