@@ -4,14 +4,20 @@
 
 package com.tibco.xpd.resources.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 
 /**
@@ -68,8 +74,8 @@ public final class ProjectUtil2 {
 
         Set<IProject> associatedProjects = new LinkedHashSet<IProject>();
         for (IProject proj : projects) {
-            associatedProjects.addAll(getReferencingProjectsHierarchy(proj,
-                    null));
+            associatedProjects
+                    .addAll(getReferencingProjectsHierarchy(proj, null));
         }
 
         return associatedProjects;
@@ -91,9 +97,8 @@ public final class ProjectUtil2 {
      *             thrown when a cyclic dependency is detected.
      * @since 3.5.1.3
      */
-    public static Set<IProject> getReferencedProjectsHierarchy(
-            IProject project, boolean wantXpdNatureOnly)
-            throws CyclicDependencyException {
+    public static Set<IProject> getReferencedProjectsHierarchy(IProject project,
+            boolean wantXpdNatureOnly) throws CyclicDependencyException {
 
         // Using linkedHashSet to get a predictable list - items ordered in
         // order of insertion
@@ -151,8 +156,8 @@ public final class ProjectUtil2 {
      *            {@link #getReferencingProjectsHierarchy(IProject, Set)}
      * @throws CyclicDependencyException
      */
-    private static void internalGetReferencedProjectsHierarchy(
-            IProject project, Set<IProject> referencedProjectsHierarchy,
+    private static void internalGetReferencedProjectsHierarchy(IProject project,
+            Set<IProject> referencedProjectsHierarchy,
             boolean wantXpdNatureOnly, Set<IProject> alreadyOnHierarchyPathList)
             throws CyclicDependencyException {
         // Get the referencing Projects
@@ -207,7 +212,8 @@ public final class ProjectUtil2 {
                                 alreadyOnHierarchyPathList
                                         .add(referencedProject);
 
-                                internalGetReferencedProjectsHierarchy(referencedProject,
+                                internalGetReferencedProjectsHierarchy(
+                                        referencedProject,
                                         referencedProjectsHierarchy,
                                         wantXpdNatureOnly,
                                         alreadyOnHierarchyPathList);
@@ -294,7 +300,8 @@ public final class ProjectUtil2 {
                              */
                             alreadyOnHierarchyPathList.add(referencingProject);
 
-                            internalGetReferencingProjectsHierarchy(referencingProject,
+                            internalGetReferencingProjectsHierarchy(
+                                    referencingProject,
                                     referencingProjectsHierarchy,
                                     alreadyOnHierarchyPathList);
 
@@ -380,7 +387,8 @@ public final class ProjectUtil2 {
      * determine lines of ancestor projects
      * 
      * @param associatedProjects
-     *            projects that have been found to be ancestors of the specified project
+     *            projects that have been found to be ancestors of the specified
+     *            project
      * @param associatedProjectsOnCurrentLineage
      *            all projects on a current branch of investigation
      * @param projDesc
@@ -408,14 +416,16 @@ public final class ProjectUtil2 {
                             projectsSuperset.get(referencedProj.getName());
                     if ((referencedProjDesc != null)
                             && referencedProjDesc.equals(projDesc)
-                            && !associatedProjects.contains(candidateProjDesc)) {
+                            && !associatedProjects
+                                    .contains(candidateProjDesc)) {
 
                         if (!associatedProjectsOnCurrentLineage
                                 .contains(candidateProjDesc)) {
                             associatedProjects.add(candidateProjDesc);
                             associatedProjectsOnCurrentLineage
                                     .add(candidateProjDesc);
-                            internalGetReferencingProjectsHierarchy(associatedProjects,
+                            internalGetReferencingProjectsHierarchy(
+                                    associatedProjects,
                                     associatedProjectsOnCurrentLineage,
                                     candidateProjDesc,
                                     projectsSuperset);
@@ -499,7 +509,8 @@ public final class ProjectUtil2 {
      * determine lines of ancestor projects
      * 
      * @param associatedProjects
-     *            projects that have been found so far to be ancestors of the specified project
+     *            projects that have been found so far to be ancestors of the
+     *            specified project
      * @param associatedProjectsOnCurrentLineage
      *            all projects on a current branch
      * @param projDesc
@@ -509,22 +520,28 @@ public final class ProjectUtil2 {
      *            <code>IProjectDescription</code>s (used for lookup purposes)
      * @throws CyclicDependencyException
      */
-    
-    
-    
+
     /**
-     * Determines all projects that are referenced, directly or indirectly, by the
-     * specified project. This overloaded version of
-     * <code>internalGetReferencedProjectsHierarchy()</code> should be used
-     * when the project being considered has not been loaded into a workspace
-     * and therefore a <code>Project</code> instance is not available to
-     * determine lines of ancestor projects
+     * Determines all projects that are referenced, directly or indirectly, by
+     * the specified project. This overloaded version of
+     * <code>internalGetReferencedProjectsHierarchy()</code> should be used when
+     * the project being considered has not been loaded into a workspace and
+     * therefore a <code>Project</code> instance is not available to determine
+     * lines of ancestor projects
      * 
-     * @param associatedProjects projects that have been found so far to be descendants of the specified project
-     * @param hangingReferencedProjects collection of referenced projects that are out of scope (i.e. absent from <code>projectSuperset</code>)
-     * @param associatedProjectsOnCurrentLineage all projects on a current branch of investigation
-     * @param projDesc an eclipse project's <code>ProjectDescription</code>
-     * @param projectsSuperset all in-scope projects defined by their <code>IProjectDescription</code>s (used for lookup purposes)
+     * @param associatedProjects
+     *            projects that have been found so far to be descendants of the
+     *            specified project
+     * @param hangingReferencedProjects
+     *            collection of referenced projects that are out of scope (i.e.
+     *            absent from <code>projectSuperset</code>)
+     * @param associatedProjectsOnCurrentLineage
+     *            all projects on a current branch of investigation
+     * @param projDesc
+     *            an eclipse project's <code>ProjectDescription</code>
+     * @param projectsSuperset
+     *            all in-scope projects defined by their
+     *            <code>IProjectDescription</code>s (used for lookup purposes)
      * @throws CyclicDependencyException
      */
     private static void internalGetReferencedProjectsHierarchy(
@@ -551,12 +568,12 @@ public final class ProjectUtil2 {
 
                             associatedProjectsOnCurrentLineage
                                     .add(projReferencedDesc);
-                            ProjectUtil2
-                                    .internalGetReferencedProjectsHierarchy(associatedProjects,
-                                            hangingReferencedProjects,
-                                            associatedProjectsOnCurrentLineage,
-                                            projReferencedDesc,
-                                            projectsSuperset);
+                            ProjectUtil2.internalGetReferencedProjectsHierarchy(
+                                    associatedProjects,
+                                    hangingReferencedProjects,
+                                    associatedProjectsOnCurrentLineage,
+                                    projReferencedDesc,
+                                    projectsSuperset);
                             associatedProjectsOnCurrentLineage
                                     .remove(projReferencedDesc);
                         }
@@ -564,14 +581,89 @@ public final class ProjectUtil2 {
                     } else {
                         throw new CyclicDependencyException();
                     }
-                } else if ((hangingReferencedProjects != null)
-                        && !ProjectUtil.isGeneratedProject(projReferenced
-                                .getName())) {
+                } else if ((hangingReferencedProjects != null) && !ProjectUtil
+                        .isGeneratedProject(projReferenced.getName())) {
                     hangingReferencedProjects.add(projReferenced.getName());
                 }
             }
         }
 
+    }
+
+    /*
+     * Sid ACE-122: Moved 'hasErrorLevelProblemMarkers from CompositeUtil to
+     * this more generic location.
+     */
+
+    /**
+     * For a given Studio Project tells whether there are error level problem
+     * markers on it or on referenced projects.
+     * 
+     * @param studioProject
+     * @return
+     * @throws CoreException
+     */
+    public static boolean hasErrorLevelProblemMarkers(IProject studioProject)
+            throws CoreException {
+        return hasErrorLevelProblemMarkers(
+                Collections.singleton(studioProject));
+    }
+
+    /**
+     * For a given collection of Studio Projects tells whether there are error
+     * level problem markers on it or their referenced projects.
+     * 
+     * @param studioProjects
+     *            collection of projects.
+     * @return true if one of the studioProjects or one of their referenced
+     *         project has error marker.
+     * @throws CoreException
+     */
+    public static boolean hasErrorLevelProblemMarkers(
+            Collection<IProject> studioProjects) throws CoreException {
+        Set<IProject> projectsHierarchy = new HashSet<IProject>();
+        for (IProject studioProject : studioProjects) {
+            Set<IProject> referencedProjectsHierarchy = new HashSet<IProject>();
+            ProjectUtil.getReferencedProjectsHierarchy(studioProject,
+                    referencedProjectsHierarchy);
+            projectsHierarchy.addAll(referencedProjectsHierarchy);
+            projectsHierarchy.add(studioProject);
+        }
+        boolean errorLevelProblemMarker = false;
+        for (IProject eachProject : projectsHierarchy) {
+            if (!eachProject.isAccessible()) {
+                continue;
+            }
+            IMarker[] markers = eachProject
+                    .findMarkers(null, true, IResource.DEPTH_INFINITE);
+            for (int i = 0; i < markers.length; i++) {
+                IMarker marker = markers[i];
+                int severity = marker.getAttribute(IMarker.SEVERITY,
+                        IMarker.SEVERITY_WARNING);
+                if (severity == IMarker.SEVERITY_ERROR) {
+                    errorLevelProblemMarker = true;
+                    // no need to check further
+                    return errorLevelProblemMarker;
+                }
+            }
+        }
+        return errorLevelProblemMarker;
+    }
+
+    private static final String simpleDateFormat = "yyyyMMddHHmmssSSS"; //$NON-NLS-1$
+
+    private static final SimpleDateFormat format =
+            new SimpleDateFormat(simpleDateFormat);
+
+    /**
+     * Sid ACE-122 - Moved from DAANamingUtils
+     * 
+     * @return Auto-generated (current time) version qualifier.
+     * 
+     */
+    public static String getAutogeneratedQualifier() {
+        String formattedDate = format.format(new Date());
+        return formattedDate;
     }
 
 }

@@ -22,8 +22,6 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.window.IShellProvider;
 import org.eclipse.swt.widgets.Display;
 
-import com.tibco.xpd.daa.internal.util.CompositeUtil;
-import com.tibco.xpd.daa.internal.util.DAANamingUtils;
 import com.tibco.xpd.n2.brm.BRMActivator;
 import com.tibco.xpd.n2.brm.BRMGenerator;
 import com.tibco.xpd.n2.brm.internal.Messages;
@@ -33,6 +31,7 @@ import com.tibco.xpd.resources.builder.BuildSynchronizerUtil;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.projectconfig.SpecialFolder;
 import com.tibco.xpd.resources.util.ProjectUtil;
+import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.resources.util.SpecialFolderUtil;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.DestinationLocationType;
 import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog;
@@ -94,25 +93,27 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
             }
 
             progress.worked(10);
-            progress.setTaskName(Messages.WDMExportOperation_BuildinProjects_message);
+            progress.setTaskName(
+                    Messages.WDMExportOperation_BuildinProjects_message);
             IStatus synchronizedBuildStatus =
-                    BuildSynchronizerUtil
-                            .synchronizedBuild(selectedProjects,
-                                    new SubProgressMonitor(progress,
-                                            IProgressMonitor.UNKNOWN),
-                                    ResourcesPlugin.getWorkspace()
-                                            .isAutoBuilding() ? false : true);
+                    BuildSynchronizerUtil.synchronizedBuild(selectedProjects,
+                            new SubProgressMonitor(progress,
+                                    IProgressMonitor.UNKNOWN),
+                            ResourcesPlugin.getWorkspace().isAutoBuilding()
+                                    ? false
+                                    : true);
             if (synchronizedBuildStatus.getSeverity() > IStatus.WARNING) {
                 setStatus(synchronizedBuildStatus);
                 return;
             }
             progress.worked(20);
-            progress.setTaskName(Messages.WDMExportOperation_Validation_message);
+            progress.setTaskName(
+                    Messages.WDMExportOperation_Validation_message);
             for (IProject project : selectedProjects) {
-                if (CompositeUtil.hasErrorLevelProblemMarkers(project)) {
-                    String message =
-                            String.format(Messages.WDMExportOperation_ProjectHasErrors_message,
-                                    project);
+                if (ProjectUtil2.hasErrorLevelProblemMarkers(project)) {
+                    String message = String.format(
+                            Messages.WDMExportOperation_ProjectHasErrors_message,
+                            project);
                     setStatus(new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID,
                             message));
                     return;
@@ -126,7 +127,8 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                 public void run(IProgressMonitor monitor) {
 
                     int size = selectedProjects.size();
-                    monitor.beginTask(Messages.WDMExportOperation_ExportingWDM_message,
+                    monitor.beginTask(
+                            Messages.WDMExportOperation_ExportingWDM_message,
                             100 * size);
                     operationStatus = null;
                     BRMGenerator brmGenerator = BRMGenerator.getInstance();
@@ -137,20 +139,15 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                                     project.getFolder(".tempWDMGen"); //$NON-NLS-1$
                             if (tempOutLocation.exists()) {
                                 tempOutLocation.delete(true,
-                                        new SubProgressMonitor(
-                                                monitor,
-                                                0,
+                                        new SubProgressMonitor(monitor, 0,
                                                 SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
                             }
-                            ProjectUtil
-                                    .createFolder(tempOutLocation,
-                                            true,
-                                            new SubProgressMonitor(
-                                                    monitor,
-                                                    0,
-                                                    SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
+                            ProjectUtil.createFolder(tempOutLocation,
+                                    true,
+                                    new SubProgressMonitor(monitor, 0,
+                                            SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
                             String timestamp =
-                                    DAANamingUtils.getAutogeneratedQualifier();
+                                    ProjectUtil2.getAutogeneratedQualifier();
                             brmGenerator.generateBRMModules(project,
                                     tempOutLocation,
                                     timestamp);
@@ -158,11 +155,10 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                             brmGenerator.generatePFActivityModel(project,
                                     tempOutLocation,
                                     timestamp);
-                            String destPath =
-                                    new Path(destOutFolderPath).append(project
-                                            .getName()
-                                            + TIMESTAMP_SEPARATOR
-                                            + timestamp).toPortableString();
+                            String destPath = new Path(destOutFolderPath)
+                                    .append(project.getName()
+                                            + TIMESTAMP_SEPARATOR + timestamp)
+                                    .toPortableString();
                             monitor.worked(20);
                             Set<IProject> refHierarchy =
                                     new HashSet<IProject>();
@@ -172,10 +168,9 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                             refHierarchy.add(project);
                             monitor.worked(30);
                             for (IProject p : refHierarchy) {
-                                SpecialFolder sf =
-                                        SpecialFolderUtil
-                                                .getSpecialFolderOfKind(p,
-                                                        BOM2XSD_SF_KIND);
+                                SpecialFolder sf = SpecialFolderUtil
+                                        .getSpecialFolderOfKind(p,
+                                                BOM2XSD_SF_KIND);
                                 if (sf != null) {
                                     IFolder sfFolder = sf.getFolder();
                                     if (sfFolder != null && sfFolder.exists()) {
@@ -186,18 +181,18 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                                                             .getFullPath()
                                                             .append(resource
                                                                     .getName());
-                                            if (ResourcesPlugin
-                                                    .getWorkspace()
-                                                    .getRoot()
-                                                    .findMember(destResourcePath) == null) {
+                                            if (ResourcesPlugin.getWorkspace()
+                                                    .getRoot().findMember(
+                                                            destResourcePath) == null) {
                                                 resource.copy(destResourcePath,
                                                         true,
                                                         new SubProgressMonitor(
-                                                                monitor,
-                                                                0,
+                                                                monitor, 0,
                                                                 SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
                                             } else {
-                                                LOG.error("WDM Export: Destination path already existed: " + destResourcePath); //$NON-NLS-1$
+                                                LOG.error(
+                                                        "WDM Export: Destination path already existed: " //$NON-NLS-1$
+                                                                + destResourcePath);
                                             }
                                         }
                                     }
@@ -213,21 +208,17 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                             monitor.worked(20);
 
                             if (tempOutLocation.exists()) {
-                                tempOutLocation
-                                        .delete(true,
-                                                new SubProgressMonitor(
-                                                        monitor,
-                                                        0,
-                                                        SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
+                                tempOutLocation.delete(true,
+                                        new SubProgressMonitor(monitor, 0,
+                                                SubProgressMonitor.SUPPRESS_SUBTASK_LABEL));
                             }
                         }
                         setStatus(Status.OK_STATUS);
                     } catch (CoreException e) {
                         String message =
                                 Messages.WDMExportOperation_ExportException_message;
-                        Status status =
-                                new Status(IStatus.ERROR,
-                                        BRMActivator.PLUGIN_ID, message, e);
+                        Status status = new Status(IStatus.ERROR,
+                                BRMActivator.PLUGIN_ID, message, e);
                         BRMActivator.getDefault().getLog().log(status);
                         setStatus(status);
                     } finally {
@@ -239,16 +230,14 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                         DestinationLocationType destLocationType,
                         String destOutFolderPath) {
                     if (srcFile != null && srcFile.exists()) {
-                        FileCopier copier =
-                                new FileCopier(srcFile, destLocationType,
-                                        destOutFolderPath);
+                        FileCopier copier = new FileCopier(srcFile,
+                                destLocationType, destOutFolderPath);
 
                         OverwriteStatus overwriteDestFile =
                                 OverwriteStatus.FILE;
                         if (copier.destinationExists() && !overwriteAll) {
-                            overwriteDestFile =
-                                    overwriteFileMessageDialog(new Path(copier
-                                            .getOutputPath()));
+                            overwriteDestFile = overwriteFileMessageDialog(
+                                    new Path(copier.getOutputPath()));
                             if (overwriteDestFile == OverwriteStatus.CANCEL) {
                                 return Status.CANCEL_STATUS;
                             } else if (overwriteDestFile == OverwriteStatus.ALL_FILES) {
@@ -259,11 +248,11 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                             try {
                                 copier.copy();
                             } catch (CoreException e) {
-                                String message =
-                                        String.format(Messages.WDMExportOperation_FileCopyProblem_message,
-                                                copier.getInputPath()
-                                                        .toPortableString(),
-                                                copier.getOutputPath());
+                                String message = String.format(
+                                        Messages.WDMExportOperation_FileCopyProblem_message,
+                                        copier.getInputPath()
+                                                .toPortableString(),
+                                        copier.getOutputPath());
                                 return new Status(IStatus.ERROR,
                                         Activator.PLUGIN_ID, message, e);
                             }
@@ -271,14 +260,12 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
                     }
                     return Status.OK_STATUS;
                 }
-            },
-                    new SubProgressMonitor(progress, 50));
+            }, new SubProgressMonitor(progress, 50));
         } catch (CoreException e) {
             String message =
                     Messages.WDMExportOperation_ExportException_message;
-            Status status =
-                    new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, message,
-                            e);
+            Status status = new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID,
+                    message, e);
             BRMActivator.getDefault().getLog().log(status);
             setStatus(status);
         } finally {
@@ -304,18 +291,18 @@ import com.tibco.xpd.ui.importexport.utils.OverwriteFileMessageDialog.OverwriteS
     /**
      * Show the overwrite file message dialog
      */
-    protected OverwriteStatus overwriteFileMessageDialog(final IPath outputPath) {
+    protected OverwriteStatus overwriteFileMessageDialog(
+            final IPath outputPath) {
         final OverwriteStatus[] result = new OverwriteStatus[1];
         Runnable runnable = new Runnable() {
             public void run() {
-                String msg =
-                        String.format(Messages.WDMExportOperation_OverwriteDestination_message,
-                                outputPath.lastSegment(),
-                                outputPath.removeLastSegments(1).toOSString());
+                String msg = String.format(
+                        Messages.WDMExportOperation_OverwriteDestination_message,
+                        outputPath.lastSegment(),
+                        outputPath.removeLastSegments(1).toOSString());
 
                 OverwriteFileMessageDialog dialog =
-                        new OverwriteFileMessageDialog(
-                                shellProvider.getShell(),
+                        new OverwriteFileMessageDialog(shellProvider.getShell(),
                                 Messages.WDMExportOperation_FileExists_title,
                                 msg);
                 OverwriteStatus status =

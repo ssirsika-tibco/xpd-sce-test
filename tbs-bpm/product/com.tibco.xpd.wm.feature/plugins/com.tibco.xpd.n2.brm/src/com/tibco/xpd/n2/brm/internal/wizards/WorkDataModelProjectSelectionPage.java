@@ -10,9 +10,9 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
-import com.tibco.xpd.daa.internal.util.CompositeUtil;
 import com.tibco.xpd.n2.brm.internal.Messages;
 import com.tibco.xpd.n2.daa.Activator;
+import com.tibco.xpd.resources.util.ProjectUtil2;
 import com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelectionWizardPage;
 
 /**
@@ -21,8 +21,8 @@ import com.tibco.xpd.ui.importexport.exportwizard.pages.AbstractInputOutputSelec
  * @see WorkDataModelExportWizard
  * @author jarciuch
  */
-public class WorkDataModelProjectSelectionPage extends
-        AbstractInputOutputSelectionWizardPage {
+public class WorkDataModelProjectSelectionPage
+        extends AbstractInputOutputSelectionWizardPage {
 
     /**
      * Create an sinstance of the page.
@@ -47,8 +47,8 @@ public class WorkDataModelProjectSelectionPage extends
         if (selectedResources.isEmpty()) {
             // No selection
             if (isInitialized()) {
-                setErrorMessage(String
-                        .format(Messages.WorkDataModelProjectSelectionPage_EmptySelection_message));
+                setErrorMessage(String.format(
+                        Messages.WorkDataModelProjectSelectionPage_EmptySelection_message));
             }
             setPageComplete(false);
             return;
@@ -58,10 +58,11 @@ public class WorkDataModelProjectSelectionPage extends
                     IProject eachSelectedProject = (IProject) object;
                     try {
                         boolean hasProjectErrorLevelProblemMarkers =
-                                CompositeUtil
-                                        .hasErrorLevelProblemMarkers(eachSelectedProject);
+                                ProjectUtil2.hasErrorLevelProblemMarkers(
+                                        eachSelectedProject);
                         if (hasProjectErrorLevelProblemMarkers) {
-                            setErrorMessage(Messages.WorkDataModelProjectSelectionPage_SelectionWithErrors_message);
+                            setErrorMessage(
+                                    Messages.WorkDataModelProjectSelectionPage_SelectionWithErrors_message);
                             setPageComplete(false);
                             return;
                         }
@@ -81,6 +82,7 @@ public class WorkDataModelProjectSelectionPage extends
      */
     @Override
     protected String getWorkspaceExportFolder() {
-        return "/" + Messages.ExportsFolder_title + "/" + Messages.WorkDataModelFolder_title; //$NON-NLS-1$ //$NON-NLS-2$
+        return "/" + Messages.ExportsFolder_title + "/" //$NON-NLS-1$ //$NON-NLS-2$
+                + Messages.WorkDataModelFolder_title;
     }
 }

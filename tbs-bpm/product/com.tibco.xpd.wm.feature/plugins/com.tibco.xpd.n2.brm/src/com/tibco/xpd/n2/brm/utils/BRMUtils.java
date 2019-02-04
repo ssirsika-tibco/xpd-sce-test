@@ -36,13 +36,8 @@ import org.eclipse.emf.query.statements.WHERE;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.osgi.framework.Version;
 
-import com.tibco.amf.sca.model.componenttype.CapabilityType;
-import com.tibco.amf.sca.model.componenttype.ComponentTypeFactory;
-import com.tibco.amf.sca.model.componenttype.ProvidedCapability;
 import com.tibco.amf.sca.model.componenttype.RequiredCapability;
-import com.tibco.amf.sca.model.componenttype.Requirements;
 import com.tibco.xpd.analyst.resources.xpdl2.Xpdl2ResourcesConsts;
-import com.tibco.xpd.daa.internal.util.PluginManifestHelper;
 import com.tibco.xpd.destinations.ui.GlobalDestinationHelper;
 import com.tibco.xpd.n2.bpel.utils.BPELN2Utils;
 import com.tibco.xpd.n2.brm.BRMActivator;
@@ -94,7 +89,8 @@ public class BRMUtils {
 
     public static final String EC_MODEL_FILENAME = "ec-spec.ec";//$NON-NLS-1$
 
-    //public static final String BRM_MODULES_SPECIAL_FOLDER = ".brmModules"; //$NON-NLS-1$
+    // public static final String BRM_MODULES_SPECIAL_FOLDER = ".brmModules";
+    // //$NON-NLS-1$
 
     public static final String WT_FILE_NAME = "wt.xml";//$NON-NLS-1$
 
@@ -104,28 +100,6 @@ public class BRMUtils {
 
     /** XPDL file extension. */
     private static final String XPDL_EXTENSION = "xpdl"; //$NON-NLS-1$
-
-    public static void addBRMFactoryRequiredCapability(
-            Requirements requirements, IProject project,
-            String qualifierReplacer) {
-        EList<RequiredCapability> includedCapabilities =
-                requirements.getRequiredCapabilities();
-        List<RequiredCapability> omRCList =
-                BRMUtils.getOMRequiredCapabilityList(project);
-        includedCapabilities.addAll(omRCList);
-        RequiredCapability wpRC =
-                BRMUtils.getWPRequiredCapability(project, qualifierReplacer);
-        includedCapabilities.add(wpRC);
-        RequiredCapability brmRequiredCapability =
-                ComponentTypeFactory.eINSTANCE.createRequiredCapability();
-        brmRequiredCapability.setId(BRM_REQUIRED_CAPABILITY_ID);
-        brmRequiredCapability.setType(CapabilityType.FACTORY);
-        brmRequiredCapability.setVersion("1.0.0"); //$NON-NLS-1$
-        EList<RequiredCapability> rcWithList = brmRequiredCapability.getWiths();
-        rcWithList.addAll(omRCList);
-        rcWithList.add(wpRC);
-        includedCapabilities.add(brmRequiredCapability);
-    }
 
     public static IResource getWTResource(IContainer stagingArea) {
         if (stagingArea == null || !stagingArea.exists()) {
@@ -145,7 +119,8 @@ public class BRMUtils {
     /** Special folder kind for OM special folders. */
     public final static String OM_SPECIAL_FOLDER_KIND = "om"; //$NON-NLS-1$
 
-    public static EObject getOMModelElement(ExternalReference externalReference) {
+    public static EObject getOMModelElement(
+            ExternalReference externalReference) {
 
         String sfRelativeLoc = externalReference.getLocation();
 
@@ -174,48 +149,44 @@ public class BRMUtils {
                 if (resourceFromURL instanceof IFile) {
                     IProject urlProject = resourceFromURL.getProject();
                     // Check if resource in the same or referenced project.
-                    if (contextProject.equals(urlProject)
-                            || ProjectUtil.isProjectReferenced(contextProject,
-                                    urlProject)) {
+                    if (contextProject.equals(urlProject) || ProjectUtil
+                            .isProjectReferenced(contextProject, urlProject)) {
                         // And it is in the OM special folder.
-                        ProjectConfig config =
-                                XpdResourcesPlugin.getDefault()
-                                        .getProjectConfig(urlProject);
+                        ProjectConfig config = XpdResourcesPlugin.getDefault()
+                                .getProjectConfig(urlProject);
 
                         // Config may be null if not XPD project.
                         if (config != null) {
-                            SpecialFolder sf =
-                                    config.getSpecialFolders()
-                                            .getFolderContainer(resourceFromURL);
-                            if (sf != null
-                                    && OM_SPECIAL_FOLDER_KIND.equals(sf
-                                            .getKind())) {
+                            SpecialFolder sf = config.getSpecialFolders()
+                                    .getFolderContainer(resourceFromURL);
+                            if (sf != null && OM_SPECIAL_FOLDER_KIND
+                                    .equals(sf.getKind())) {
                                 // Also check that SF relative path is the
                                 // same.
                                 IPath specialFolderRelativePath =
                                         SpecialFolderUtil
-                                                .getSpecialFolderRelativePath(resourceFromURL,
+                                                .getSpecialFolderRelativePath(
+                                                        resourceFromURL,
                                                         OM_SPECIAL_FOLDER_KIND);
-                                if (sfRelativeLoc != null
-                                        && sfRelativeLoc
-                                                .equals(specialFolderRelativePath
-                                                        .toPortableString())) {
+                                if (sfRelativeLoc != null && sfRelativeLoc
+                                        .equals(specialFolderRelativePath
+                                                .toPortableString())) {
                                     TransactionalEditingDomain ed =
                                             XpdResourcesPlugin.getDefault()
                                                     .getEditingDomain();
                                     if (resourceFromURL != null) {
                                         // load resource
-                                        Resource resource =
-                                                ed.getResourceSet()
-                                                        .getResource(URI
-                                                                .createPlatformResourceURI(resourceFromURL
+                                        Resource resource = ed.getResourceSet()
+                                                .getResource(URI
+                                                        .createPlatformResourceURI(
+                                                                resourceFromURL
                                                                         .getFullPath()
                                                                         .toPortableString(),
-                                                                        true),
-                                                                true);
+                                                                true),
+                                                        true);
                                         if (resource != null) {
-                                            return resource
-                                                    .getEObject(orgModelEntityId);
+                                            return resource.getEObject(
+                                                    orgModelEntityId);
                                         }
                                     }
                                 }
@@ -281,10 +252,8 @@ public class BRMUtils {
      */
     public static IFolder getSpecialFolder(IProject project, String folderName,
             String kind) {
-        SpecialFolder sf =
-                SpecialFolderUtil.getCreateSpecialFolderOfKind(project,
-                        kind,
-                        folderName);
+        SpecialFolder sf = SpecialFolderUtil
+                .getCreateSpecialFolderOfKind(project, kind, folderName);
         return sf != null ? sf.getFolder() : null;
     }
 
@@ -301,9 +270,9 @@ public class BRMUtils {
                 if (object instanceof com.tibco.xpd.xpdl2.Process) {
                     com.tibco.xpd.xpdl2.Process process =
                             (com.tibco.xpd.xpdl2.Process) object;
-                    if (!GlobalDestinationHelper
-                            .isGlobalDestinationEnabled(process,
-                                    N2Utils.N2_GLOBAL_DESTINATION_ID)) {
+                    if (!GlobalDestinationHelper.isGlobalDestinationEnabled(
+                            process,
+                            N2Utils.N2_GLOBAL_DESTINATION_ID)) {
                         return true;
                     }
                     if (Xpdl2ModelUtil.isPageflow(process)) {
@@ -313,9 +282,8 @@ public class BRMUtils {
                 return false;
             }
         };
-        IQueryResult result =
-                new SELECT(new FROM(xpdlPackages), new WHERE(
-                        new IsUserTaskActivity(pruneHandler))).execute();
+        IQueryResult result = new SELECT(new FROM(xpdlPackages),
+                new WHERE(new IsUserTaskActivity(pruneHandler))).execute();
         Exception e = result.getException();
         if (e != null) {
             throw new RuntimeException(e);
@@ -336,9 +304,9 @@ public class BRMUtils {
                 if (object instanceof com.tibco.xpd.xpdl2.Process) {
                     com.tibco.xpd.xpdl2.Process process =
                             (com.tibco.xpd.xpdl2.Process) object;
-                    if (!GlobalDestinationHelper
-                            .isGlobalDestinationEnabled(process,
-                                    N2Utils.N2_GLOBAL_DESTINATION_ID)) {
+                    if (!GlobalDestinationHelper.isGlobalDestinationEnabled(
+                            process,
+                            N2Utils.N2_GLOBAL_DESTINATION_ID)) {
                         return true;
                     }
                     if (!Xpdl2ModelUtil.isPageflow(process)) {
@@ -348,9 +316,8 @@ public class BRMUtils {
                 return false;
             }
         };
-        IQueryResult result =
-                new SELECT(new FROM(xpdlPackages), new WHERE(
-                        new IsUserTaskActivity(pruneHandler))).execute();
+        IQueryResult result = new SELECT(new FROM(xpdlPackages),
+                new WHERE(new IsUserTaskActivity(pruneHandler))).execute();
         Exception e = result.getException();
         if (e != null) {
             throw new RuntimeException(e);
@@ -375,7 +342,8 @@ public class BRMUtils {
             if (object instanceof Activity) {
                 Activity activity = (Activity) object;
                 if (activity.getImplementation() instanceof Task
-                        && ((Task) activity.getImplementation()).getTaskUser() != null) {
+                        && ((Task) activity.getImplementation())
+                                .getTaskUser() != null) {
                     return true;
                 }
             }
@@ -414,8 +382,8 @@ public class BRMUtils {
                 XpdResourcesPlugin.getDefault().getProjectConfig(project);
         if (config != null) {
             EList<IFolder> packageFolders =
-                    config.getSpecialFolders()
-                            .getEclipseIFoldersOfKind(Xpdl2ResourcesConsts.PROCESSES_SPECIAL_FOLDER_KIND);
+                    config.getSpecialFolders().getEclipseIFoldersOfKind(
+                            Xpdl2ResourcesConsts.PROCESSES_SPECIAL_FOLDER_KIND);
             try {
                 SpecialFolderVisitor specialFolderVisitor =
                         new SpecialFolderVisitor(packages);
@@ -448,19 +416,19 @@ public class BRMUtils {
                 String fileExtension = file.getFileExtension();
                 if (fileExtension != null
                         && XPDL_EXTENSION.equals(fileExtension.toLowerCase())) {
-                    WorkingCopy wc =
-                            XpdResourcesPlugin.getDefault()
-                                    .getWorkingCopy(resource);
+                    WorkingCopy wc = XpdResourcesPlugin.getDefault()
+                            .getWorkingCopy(resource);
                     if (wc instanceof Xpdl2WorkingCopyImpl
                             && !wc.isInvalidFile()
-                            && !((Xpdl2WorkingCopyImpl) wc).isInvalidVersion()) {
+                            && !((Xpdl2WorkingCopyImpl) wc)
+                                    .isInvalidVersion()) {
                         Package xpdlPackage = (Package) wc.getRootElement();
                         if (xpdlPackage != null) {
                             packages.add(xpdlPackage);
                         } else {
-                            LOG.error(String
-                                    .format("Could not load XPDL WC for '%s'.", //$NON-NLS-1$
-                                            file.getName()));
+                            LOG.error(String.format(
+                                    "Could not load XPDL WC for '%s'.", //$NON-NLS-1$
+                                    file.getName()));
                         }
                     }
                 }
@@ -484,9 +452,8 @@ public class BRMUtils {
     private static void getFormTasksFromPageFlow(Process pageFlow,
             LinkedHashSet<Activity> formTasks) {
         if (Xpdl2ModelUtil.isPageflow(pageFlow)) {
-            IQueryResult formTasksResult =
-                    new SELECT(new FROM(pageFlow), new WHERE(
-                            new BRMUtils.IsUserTaskActivity())).execute();
+            IQueryResult formTasksResult = new SELECT(new FROM(pageFlow),
+                    new WHERE(new BRMUtils.IsUserTaskActivity())).execute();
             if (formTasksResult.getException() != null) {
                 throw new RuntimeException(formTasksResult.getException());
             }
@@ -519,12 +486,11 @@ public class BRMUtils {
             IProject project) {
         List<RequiredCapability> requiresCapability =
                 new ArrayList<RequiredCapability>();
-        List<IResource> xpdlResources =
-                SpecialFolderUtil
-                        .getAllDeepResourcesInSpecialFolderOfKind(project,
-                                N2PENamingUtils.PROCESS_SPECIALFOLDER_KIND,
-                                N2PENamingUtils.XPDL_FILE_EXTENSION,
-                                false);
+        List<IResource> xpdlResources = SpecialFolderUtil
+                .getAllDeepResourcesInSpecialFolderOfKind(project,
+                        N2PENamingUtils.PROCESS_SPECIALFOLDER_KIND,
+                        N2PENamingUtils.XPDL_FILE_EXTENSION,
+                        false);
         Set<IResource> omFiles = new HashSet<IResource>();
         if (xpdlResources != null && !xpdlResources.isEmpty()) {
             for (final IResource resource : xpdlResources) {
@@ -563,92 +529,13 @@ public class BRMUtils {
 
     private static final String VER_KEY_FORMAT = "%s" + KEY_SEPARATOR + "%s"; //$NON-NLS-1$ //$NON-NLS-2$
 
-    public static RequiredCapability getWPRequiredCapability(IProject project,
-            String qualifierReplacer) {
-        String projectId = ProjectUtil.getProjectId(project);
-        String projectVersion = ProjectUtil.getProjectVersion(project);
-        String updatedBundleVersion =
-                PluginManifestHelper.getUpdatedBundleVersion(projectVersion,
-                        qualifierReplacer);
-        RequiredCapability requiredCapability =
-                ComponentTypeFactory.eINSTANCE.createRequiredCapability();
-        requiredCapability.setId(projectId + "." + BRMUtils.WP
-                + BRMUtils.CAPABILITY);
-        requiredCapability.setType(CapabilityType.CUSTOM);
-        requiredCapability.setVersion(updatedBundleVersion);
-        return requiredCapability;
-    }
-
-    public static ProvidedCapability getWPProvidedCapability(IProject project,
-            String qualifierReplacer) {
-        String projectId = ProjectUtil.getProjectId(project);
-        String projectVersion = ProjectUtil.getProjectVersion(project);
-        String updatedBundleVersion =
-                PluginManifestHelper.getUpdatedBundleVersion(projectVersion,
-                        qualifierReplacer);
-        ProvidedCapability providedCapability =
-                ComponentTypeFactory.eINSTANCE.createProvidedCapability();
-        providedCapability.setId(projectId + "." + BRMUtils.WP
-                + BRMUtils.CAPABILITY);
-        providedCapability.setType(CapabilityType.CUSTOM);
-        providedCapability.setVersion(updatedBundleVersion);
-        return providedCapability;
-    }
-
-    public static ProvidedCapability getBRMProvidedCapability(IProject project,
-            String qualifierReplacer) {
-        String projectId = ProjectUtil.getProjectId(project);
-        String projectVersion = ProjectUtil.getProjectVersion(project);
-        String updatedBundleVersion =
-                PluginManifestHelper.getUpdatedBundleVersion(projectVersion,
-                        qualifierReplacer);
-        ProvidedCapability providedCapability =
-                ComponentTypeFactory.eINSTANCE.createProvidedCapability();
-        providedCapability.setId(projectId + "." + BRMUtils.BRM
-                + BRMUtils.CAPABILITY);
-        providedCapability.setType(CapabilityType.CUSTOM);
-        providedCapability.setVersion(updatedBundleVersion);
-        return providedCapability;
-    }
-
-    public static ProvidedCapability getEcProvidedCapability(IProject project,
-            String qualifierReplacer) {
-        String projectId = ProjectUtil.getProjectId(project);
-        String projectVersion = ProjectUtil.getProjectVersion(project);
-        String updatedBundleVersion =
-                PluginManifestHelper.getUpdatedBundleVersion(projectVersion,
-                        qualifierReplacer);
-        ProvidedCapability providedCapability =
-                ComponentTypeFactory.eINSTANCE.createProvidedCapability();
-        providedCapability.setId(projectId + "." + BRMUtils.EC
-                + BRMUtils.CAPABILITY);
-        providedCapability.setType(CapabilityType.CUSTOM);
-        providedCapability.setVersion(updatedBundleVersion);
-        return providedCapability;
-    }
-
-    public static RequiredCapability getBRMRequiredCapability(IProject project,
-            String qualifierReplacer) {
-        String projectId = ProjectUtil.getProjectId(project);
-        String projectVersion = ProjectUtil.getProjectVersion(project);
-        String updatedBundleVersion =
-                PluginManifestHelper.getUpdatedBundleVersion(projectVersion,
-                        qualifierReplacer);
-        RequiredCapability requiredCapability =
-                ComponentTypeFactory.eINSTANCE.createRequiredCapability();
-        requiredCapability.setId(projectId + "." + BRMUtils.BRM
-                + BRMUtils.CAPABILITY);
-        requiredCapability.setType(CapabilityType.CUSTOM);
-        requiredCapability.setVersion(updatedBundleVersion);
-        return requiredCapability;
-    }
-
     /**
      * @param project
      * @return Map of version numbers for OM within a project's scope. OMs keyed
      *         using the resource and OM name
      */
-    public static Map<String, String> getReferencedOMVersions(IProject project) {
+    public static Map<String, String> getReferencedOMVersions(
+            IProject project) {
 
         Map<String, String> ret = new HashMap<String, String>();
         ret.putAll(getProjectsOMVersions(project));
@@ -661,8 +548,10 @@ public class BRMUtils {
                 ret.putAll(getProjectsOMVersions(refProject));
             }
         } catch (CyclicDependencyException e) {
-            String msg =
-                    String.format("Project cyclic dependency detected whilst attempt to determine version numbers for OMs referenced by %s:\n\t %s", project.getName(), e.getMessage()); //$NON-NLS-1$
+            String msg = String.format(
+                    "Project cyclic dependency detected whilst attempt to determine version numbers for OMs referenced by %s:\n\t %s", //$NON-NLS-1$
+                    project.getName(),
+                    e.getMessage());
             BRMActivator.getDefault().getLogger().error(msg);
         }
 
@@ -676,12 +565,11 @@ public class BRMUtils {
     private static Map<String, String> getProjectsOMVersions(IProject project) {
 
         // determine whether given referenced project contains OM files
-        List<IResource> omResources =
-                SpecialFolderUtil
-                        .getAllDeepResourcesInSpecialFolderOfKind(project,
-                                OMResourcesActivator.OM_SPECIAL_FOLDER_KIND,
-                                OMResourcesActivator.OM_FILE_EXTENSION,
-                                false);
+        List<IResource> omResources = SpecialFolderUtil
+                .getAllDeepResourcesInSpecialFolderOfKind(project,
+                        OMResourcesActivator.OM_SPECIAL_FOLDER_KIND,
+                        OMResourcesActivator.OM_FILE_EXTENSION,
+                        false);
 
         Map<String, String> ret = new HashMap<String, String>();
 
@@ -691,9 +579,8 @@ public class BRMUtils {
             if ((wc instanceof OMWorkingCopy) && (!wc.isInvalidFile())) {
 
                 BaseOrgModel rootElement = (BaseOrgModel) wc.getRootElement();
-                String key =
-                        createOmVerKey(omResource.getName(),
-                                rootElement.getName());
+                String key = createOmVerKey(omResource.getName(),
+                        rootElement.getName());
                 String omFileVersion = rootElement.getVersion();
                 ret.put(key, omFileVersion);
             }
@@ -722,8 +609,10 @@ public class BRMUtils {
             try {
                 currentMajorVer = new Version(version).getMajor();
             } catch (IllegalArgumentException e) {
-                String msg =
-                        String.format("Major version number (%s) for project '%s' could not be determined", project.getName(), version); //$NON-NLS-1$
+                String msg = String.format(
+                        "Major version number (%s) for project '%s' could not be determined", //$NON-NLS-1$
+                        project.getName(),
+                        version);
                 BRMActivator.getDefault().getLogger().error(msg);
                 return null; // fail
             }
@@ -767,9 +656,8 @@ public class BRMUtils {
 
     public static List<Process> getPageflowOrBusinessServiceList(String path) {
         List<Process> pageflows = new ArrayList<Process>();
-        IFile xpdlFile =
-                ResourcesPlugin.getWorkspace().getRoot()
-                        .getFile(new Path(path));
+        IFile xpdlFile = ResourcesPlugin.getWorkspace().getRoot()
+                .getFile(new Path(path));
         WorkingCopy wc = WorkingCopyUtil.getWorkingCopy(xpdlFile);
         if (wc != null) {
             EObject root = wc.getRootElement();
@@ -841,9 +729,9 @@ public class BRMUtils {
     private static boolean isCaseService(Process xpdlProcess) {
 
         return Xpdl2ModelUtil.isCaseService(xpdlProcess)
-                && GlobalDestinationHelper
-                        .isGlobalDestinationEnabled(xpdlProcess,
-                                N2Utils.N2_GLOBAL_DESTINATION_ID);
+                && GlobalDestinationHelper.isGlobalDestinationEnabled(
+                        xpdlProcess,
+                        N2Utils.N2_GLOBAL_DESTINATION_ID);
     }
 
     /**
@@ -879,9 +767,9 @@ public class BRMUtils {
 
         return Xpdl2ModelUtil.isPageflowBusinessService(xpdlProcess)
                 && !Xpdl2ModelUtil.isCaseService(xpdlProcess)
-                && GlobalDestinationHelper
-                        .isGlobalDestinationEnabled(xpdlProcess,
-                                N2Utils.N2_GLOBAL_DESTINATION_ID);
+                && GlobalDestinationHelper.isGlobalDestinationEnabled(
+                        xpdlProcess,
+                        N2Utils.N2_GLOBAL_DESTINATION_ID);
     }
 
     /**
@@ -894,9 +782,9 @@ public class BRMUtils {
     private static boolean isStandardPageFlow(Process xpdlProcess) {
         return Xpdl2ModelUtil.isPageflow(xpdlProcess)
                 && !Xpdl2ModelUtil.isPageflowBusinessService(xpdlProcess)
-                && GlobalDestinationHelper
-                        .isGlobalDestinationEnabled(xpdlProcess,
-                                N2Utils.N2_GLOBAL_DESTINATION_ID);
+                && GlobalDestinationHelper.isGlobalDestinationEnabled(
+                        xpdlProcess,
+                        N2Utils.N2_GLOBAL_DESTINATION_ID);
     }
 
     /**

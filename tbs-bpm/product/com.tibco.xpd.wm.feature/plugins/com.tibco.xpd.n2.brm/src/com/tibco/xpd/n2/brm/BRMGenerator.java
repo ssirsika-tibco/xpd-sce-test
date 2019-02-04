@@ -70,8 +70,6 @@ import com.tibco.n2.common.worktype.util.WorktypeResourceFactoryImpl;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceData;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ActivityInterfaceDataUtil;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
-import com.tibco.xpd.daa.internal.util.CompositeUtil;
-import com.tibco.xpd.daa.internal.util.PluginManifestHelper;
 import com.tibco.xpd.datamapper.api.DataMapperUtils;
 import com.tibco.xpd.datamapper.scripts.DataMapperJavascriptGenerator;
 import com.tibco.xpd.n2.brm.internal.Messages;
@@ -267,7 +265,8 @@ public class BRMGenerator {
      * @param timestamp
      */
     public List<Resource> generateBRMResources(final IProject project,
-            final IFolder generationRoot, final ResourceSet rs, String timestamp) {
+            final IFolder generationRoot, final ResourceSet rs,
+            String timestamp) {
         final Map<String, Object> extensionToFactoryMap =
                 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
         final Object previousXMLFactory =
@@ -281,9 +280,18 @@ public class BRMGenerator {
                 BRMUtils.getN2ManualActivities(packages);
 
         List<Resource> brmResources = new ArrayList<Resource>();
-        String version =
-                PluginManifestHelper.getUpdatedBundleVersion(CompositeUtil
-                        .getVersionNumber(project), timestamp);
+
+        /**
+         * TODO SID ACE-122 replace method of getting version into work-type
+         * root.
+         */
+        if (true) {
+            throw new RuntimeException(
+                    "TODO SID ACE-122 replace method of getting version into work-type");
+        }
+        String version = "1.0.0.gazillion";
+        // PluginManifestHelper.getUpdatedBundleVersion(CompositeUtil
+        // .getVersionNumber(project), timestamp);
 
         // create BRM resources
         try {
@@ -298,10 +306,9 @@ public class BRMGenerator {
                     // there are work types.
                     extensionToFactoryMap.put(XML_EXTENSION,
                             new WorktypeResourceFactoryImpl());
-                    final String filePath =
-                            baseWTPath.append(WT_MODULE_FILE_NAME_BASE)
-                                    .addFileExtension(XML_EXTENSION)
-                                    .toPortableString();
+                    final String filePath = baseWTPath
+                            .append(WT_MODULE_FILE_NAME_BASE)
+                            .addFileExtension(XML_EXTENSION).toPortableString();
                     final URI resourceURI =
                             URI.createPlatformResourceURI(filePath, true);
                     final Resource workTypeResource =
@@ -329,10 +336,9 @@ public class BRMGenerator {
                     // are work models.
                     extensionToFactoryMap.put(XML_EXTENSION,
                             new WorkmodelResourceFactoryImpl());
-                    final String filePath =
-                            baseWTPath.append(WM_MODULE_FILE_NAME_BASE)
-                                    .addFileExtension(XML_EXTENSION)
-                                    .toPortableString();
+                    final String filePath = baseWTPath
+                            .append(WM_MODULE_FILE_NAME_BASE)
+                            .addFileExtension(XML_EXTENSION).toPortableString();
                     final URI resourceURI =
                             URI.createPlatformResourceURI(filePath, true);
                     final Resource workModelsResource =
@@ -402,13 +408,12 @@ public class BRMGenerator {
                 extensionToFactoryMap.put(XML_EXTENSION,
                         new WorktypeResourceFactoryImpl());
 
-                final IPath filePath =
-                        generationRoot.getFullPath()
-                                .append(PF_ACT_MODULE_FILE_NAME_BASE)
-                                .addFileExtension(XML_EXTENSION);
-                final URI resourceURI =
-                        URI.createPlatformResourceURI(filePath
-                                .toPortableString(), true);
+                final IPath filePath = generationRoot.getFullPath()
+                        .append(PF_ACT_MODULE_FILE_NAME_BASE)
+                        .addFileExtension(XML_EXTENSION);
+                final URI resourceURI = URI.createPlatformResourceURI(
+                        filePath.toPortableString(),
+                        true);
                 final ResourceSet rs = new ResourceSetImpl();
                 final Resource resource = rs.createResource(resourceURI);
 
@@ -419,9 +424,8 @@ public class BRMGenerator {
 
                 resource.save(N2Utils.getDefaultXMLSaveOptions());
 
-                IFile file =
-                        ResourcesPlugin.getWorkspace().getRoot()
-                                .getFile(filePath);
+                IFile file = ResourcesPlugin.getWorkspace().getRoot()
+                        .getFile(filePath);
                 if (file.isAccessible()) {
                     file.refreshLocal(IResource.DEPTH_ZERO, null);
                     file.setDerived(true);
@@ -430,9 +434,9 @@ public class BRMGenerator {
         } catch (Exception e) {
             BRMActivator.getDefault().getLogger().error(e);
             String msg = e.getLocalizedMessage();
-            msg =
-                    (msg == null || msg.trim().isEmpty()) ? Messages.BRMGenerator_GenerationException_message
-                            : msg;
+            msg = (msg == null || msg.trim().isEmpty())
+                    ? Messages.BRMGenerator_GenerationException_message
+                    : msg;
             return new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, msg, e);
         } finally {
             /* Revert previous registry settings. */
@@ -448,16 +452,27 @@ public class BRMGenerator {
     private PageActivities createPageActivities(
             Collection<Activity> pageFlowManualActivities, IProject project,
             String timestamp) {
-        String version =
-                PluginManifestHelper.getUpdatedBundleVersion(CompositeUtil
-                        .getVersionNumber(project), timestamp);
+
+        /**
+         * TODO SID ACE-122 replace method of getting version into work-type
+         * root.
+         */
+        if (true) {
+            throw new RuntimeException(
+                    "TODO SID ACE-122 replace method of getting version into work-type");
+        }
+        String version = "1.0.0.gazillion";
+
+        // String version = PluginManifestHelper.getUpdatedBundleVersion(
+        // CompositeUtil.getVersionNumber(project),
+        // timestamp);
 
         PageactivitymodelFactory f = PageactivitymodelFactory.eINSTANCE;
         PageActivities wpPageActivities = f.createPageActivities();
         for (Activity activity : pageFlowManualActivities) {
             PageActivity wpPageActivity = f.createPageActivity();
-            wpPageActivity.setActivityModelID(PAGE_FLOW_ACTIVITY_ID_PREFIX
-                    + activity.getId());
+            wpPageActivity.setActivityModelID(
+                    PAGE_FLOW_ACTIVITY_ID_PREFIX + activity.getId());
             wpPageActivity.setActivityDescription(activity.getName());
             wpPageActivity.setProcessName(activity.getProcess().getName());
             wpPageActivity.setModuleName(getModuleName(activity));
@@ -507,11 +522,9 @@ public class BRMGenerator {
              * "Overwrite work item data even if it has chanegd since arrival".
              */
             boolean overwriteModifiedWorkItemData = false;
-            Object otherAttribute =
-                    Xpdl2ModelUtil
-                            .getOtherAttribute(activity,
-                                    XpdExtensionPackage.eINSTANCE
-                                            .getDocumentRoot_OverwriteAlreadyModifiedTaskData());
+            Object otherAttribute = Xpdl2ModelUtil.getOtherAttribute(activity,
+                    XpdExtensionPackage.eINSTANCE
+                            .getDocumentRoot_OverwriteAlreadyModifiedTaskData());
             if (otherAttribute instanceof Boolean) {
                 overwriteModifiedWorkItemData =
                         ((Boolean) otherAttribute).booleanValue();
@@ -612,8 +625,8 @@ public class BRMGenerator {
             N2BRMFactory brmApiFactory = N2BRMFactory.eINSTANCE;
             WorkModel brmWorkModel = brmApiFactory.createWorkModel();
 
-            brmWorkModel.setWorkModelUID(WORK_MODEL_ID_PREFIX
-                    + activity.getId());
+            brmWorkModel
+                    .setWorkModelUID(WORK_MODEL_ID_PREFIX + activity.getId());
 
             ActivityResourcePatterns activityResourcePatterns =
                     getActivityResourcePatterns(activity);
@@ -621,15 +634,14 @@ public class BRMGenerator {
             // WorkModel BaseModelInfo
             BaseModelInfo baseModelInfo = brmApiFactory.createBaseModelInfo();
             baseModelInfo.setName(activity.getName());
-            baseModelInfo.setDescription(Xpdl2ModelUtil
-                    .getDisplayNameOrName(activity));
+            baseModelInfo.setDescription(
+                    Xpdl2ModelUtil.getDisplayNameOrName(activity));
 
             baseModelInfo.setPriority(WORK_MODEL_DEFAULT_PRIORITY);
             if (activityResourcePatterns != null
                     && activityResourcePatterns.getWorkItemPriority() != null) {
-                String priority =
-                        activityResourcePatterns.getWorkItemPriority()
-                                .getInitialPriority();
+                String priority = activityResourcePatterns.getWorkItemPriority()
+                        .getInitialPriority();
                 try {
                     baseModelInfo.setPriority(Integer.parseInt(priority));
                 } catch (Exception e) {
@@ -669,20 +681,20 @@ public class BRMGenerator {
                     switch (allocationStrategy.getOffer().getValue()) {
                     case AllocationType.OFFER_ALL_VALUE:
                     case AllocationType.OFFER_ONE_VALUE:
-                        workModelEntity
-                                .setDistributionStrategy(DistributionStrategy.OFFER);
+                        workModelEntity.setDistributionStrategy(
+                                DistributionStrategy.OFFER);
                         break;
                     case AllocationType.ALLOCATE_ONE_VALUE:
-                        workModelEntity
-                                .setDistributionStrategy(DistributionStrategy.ALLOCATE);
+                        workModelEntity.setDistributionStrategy(
+                                DistributionStrategy.ALLOCATE);
                         break;
                     /*
                      * ABPM-901: Saket: Introducing a new distribution strategy:
                      * Allocate to offer-set member.
                      */
                     case AllocationType.ALLOCATE_OFFER_SET_MEMBER_VALUE:
-                        workModelEntity
-                                .setDistributionStrategy(DistributionStrategy.OFFER);
+                        workModelEntity.setDistributionStrategy(
+                                DistributionStrategy.OFFER);
                         break;
                     default:
                         // DO NOTHING
@@ -692,9 +704,8 @@ public class BRMGenerator {
             }
             Process process = activity.getProcess();
             for (Performer performer : activity.getPerformerList()) {
-                Object participantObj =
-                        Xpdl2ModelUtil.getParticipantOrProcessData(process,
-                                performer);
+                Object participantObj = Xpdl2ModelUtil
+                        .getParticipantOrProcessData(process, performer);
                 if (participantObj instanceof Participant) {
                     Participant p = ((Participant) participantObj);
                     ExternalReference externalReference =
@@ -707,7 +718,8 @@ public class BRMGenerator {
                                     OrganisationFactory.eINSTANCE
                                             .createXmlModelEntityId();
                             entity.setGuid(((ModelElement) refObj).getId());
-                            entity.setModelVersion(getOMEntityVersion((ModelElement) refObj));
+                            entity.setModelVersion(
+                                    getOMEntityVersion((ModelElement) refObj));
                             entity.setEntityType(getEntityType(refObj));
                             workModelEntity.getEntities().add(entity);
                         }
@@ -715,12 +727,10 @@ public class BRMGenerator {
                         ParticipantType participantType =
                                 p.getParticipantType().getType();
                         if (participantType == ParticipantType.RESOURCE_SET_LITERAL) {
-                            Object pQuery =
-                                    Xpdl2ModelUtil
-                                            .getOtherElement(p
-                                                    .getParticipantType(),
-                                                    XpdExtensionPackage.eINSTANCE
-                                                            .getDocumentRoot_ParticipantQuery());
+                            Object pQuery = Xpdl2ModelUtil.getOtherElement(
+                                    p.getParticipantType(),
+                                    XpdExtensionPackage.eINSTANCE
+                                            .getDocumentRoot_ParticipantQuery());
                             if (pQuery instanceof Expression) {
                                 Expression pqe = (Expression) pQuery;
                                 XmlResourceQuery xmlResourceQuery =
@@ -728,8 +738,8 @@ public class BRMGenerator {
                                                 .createXmlResourceQuery();
                                 xmlResourceQuery.setQuery(pqe.getText());
 
-                                Integer majorVer =
-                                        BRMUtils.getReferencedOMMajorVersion(project);
+                                Integer majorVer = BRMUtils
+                                        .getReferencedOMMajorVersion(project);
                                 if (majorVer == null) {
                                     majorVer = -1;
                                 }
@@ -764,9 +774,20 @@ public class BRMGenerator {
             WorkModelTypes workModelTypes =
                     brmApiFactory.createWorkModelTypes();
             WorkModelType workModelType = brmApiFactory.createWorkModelType();
-            String version =
-                    PluginManifestHelper.getUpdatedBundleVersion(CompositeUtil
-                            .getVersionNumber(project), timestamp);
+
+            /**
+             * TODO SID ACE-122 replace method of getting version into work-type
+             * root.
+             */
+            if (true) {
+                throw new RuntimeException(
+                        "TODO SID ACE-122 replace method of getting version into work-type");
+            }
+            String version = "1.0.0.gazillion";
+
+            // String version = PluginManifestHelper.getUpdatedBundleVersion(
+            // CompositeUtil.getVersionNumber(project),
+            // timestamp);
 
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("["); //$NON-NLS-1$
@@ -813,27 +834,25 @@ public class BRMGenerator {
                             .setScriptOperation(WorkItemScriptOperation.CLOSE);
                     workModelScripts.getWorkModelScript().add(closeScript);
                 }
-                WorkModelScript completeScript =
-                        createWorkModelScript(userTaskScripts.getSubmitScript());
+                WorkModelScript completeScript = createWorkModelScript(
+                        userTaskScripts.getSubmitScript());
                 if (completeScript != null) {
-                    completeScript
-                            .setScriptOperation(WorkItemScriptOperation.COMPLETE);
+                    completeScript.setScriptOperation(
+                            WorkItemScriptOperation.COMPLETE);
                     workModelScripts.getWorkModelScript().add(completeScript);
                 }
-                WorkModelScript scheduleScript =
-                        createWorkModelScript(userTaskScripts
-                                .getScheduleScript());
+                WorkModelScript scheduleScript = createWorkModelScript(
+                        userTaskScripts.getScheduleScript());
                 if (scheduleScript != null) {
-                    scheduleScript
-                            .setScriptOperation(WorkItemScriptOperation.SCHEDULE);
+                    scheduleScript.setScriptOperation(
+                            WorkItemScriptOperation.SCHEDULE);
                     workModelScripts.getWorkModelScript().add(scheduleScript);
                 }
-                WorkModelScript rescheduleScript =
-                        createWorkModelScript(userTaskScripts
-                                .getRescheduleScript());
+                WorkModelScript rescheduleScript = createWorkModelScript(
+                        userTaskScripts.getRescheduleScript());
                 if (rescheduleScript != null) {
-                    rescheduleScript
-                            .setScriptOperation(WorkItemScriptOperation.RESCHEDULE);
+                    rescheduleScript.setScriptOperation(
+                            WorkItemScriptOperation.RESCHEDULE);
                     workModelScripts.getWorkModelScript().add(rescheduleScript);
                 }
             }
@@ -850,17 +869,16 @@ public class BRMGenerator {
                 // Add the generated script for their equivalent mapping.
                 if (physicalAttributeMappingScript != null) {
                     Expression expression =
-                            Xpdl2Factory.eINSTANCE
-                                    .createExpression(physicalAttributeMappingScript
-                                            .toString());
+                            Xpdl2Factory.eINSTANCE.createExpression(
+                                    physicalAttributeMappingScript.toString());
 
                     expression.setScriptGrammar(GRAMMAR_JAVA_SCRIPT);
                     WorkModelScript workModelScript =
                             createWorkModelScript(expression);
                     workModelScript
                             .setScriptTypeID(getParentProcessId(activity));
-                    workModelScript
-                            .setScriptOperation(WorkItemScriptOperation.SYSAPPEND);
+                    workModelScript.setScriptOperation(
+                            WorkItemScriptOperation.SYSAPPEND);
                     // set generated script
                     workModelScript
                             .setScriptBody(physicalAttributeMappingScript);
@@ -903,11 +921,9 @@ public class BRMGenerator {
 
         // get all Physical Work Item Attribute mappings from process
         Process process = Xpdl2ModelUtil.getProcess(activity);
-        Object otherElement =
-                Xpdl2ModelUtil
-                        .getOtherElement(process,
-                                XpdExtensionPackage.eINSTANCE
-                                        .getDocumentRoot_ProcessDataWorkItemAttributeMappings());
+        Object otherElement = Xpdl2ModelUtil.getOtherElement(process,
+                XpdExtensionPackage.eINSTANCE
+                        .getDocumentRoot_ProcessDataWorkItemAttributeMappings());
 
         // collection of Attribute Mapping equivalent script, relevant to the
         // Activity
@@ -1026,9 +1042,9 @@ public class BRMGenerator {
                  * XPD-6542: Integer Attributes should be assigned 0 , when Proc
                  * Data is null
                  */
-                String nullCheckScriptBlock =
-                        (integerAttribute(attributeName)) ? NULL_CHECK_BLOCK_SCRIPT_FOR_INTEGER
-                                : NULL_CHECK_BLOCK_SCRIPT;
+                String nullCheckScriptBlock = (integerAttribute(attributeName))
+                        ? NULL_CHECK_BLOCK_SCRIPT_FOR_INTEGER
+                        : NULL_CHECK_BLOCK_SCRIPT;
 
                 script.append(generateNullCheckScriptFor(attributeName,
                         parentElementFullPath.toString(),
@@ -1055,10 +1071,9 @@ public class BRMGenerator {
                                 qualifiedNameOfProcessData);
             } else {
                 // Append Block for Mapped element Assignment
-                assignmentScript =
-                        String.format(MAPPING_ASSIGNMENT_SCRIPT,
-                                attributeName,
-                                qualifiedNameOfProcessData);
+                assignmentScript = String.format(MAPPING_ASSIGNMENT_SCRIPT,
+                        attributeName,
+                        qualifiedNameOfProcessData);
 
             }
             if (mappingSrcPathElements.length == 1) {
@@ -1086,9 +1101,8 @@ public class BRMGenerator {
 
             if (property.getName().equals(attributeName)) {
 
-                Object targetType =
-                        BasicTypeConverterFactory.INSTANCE
-                                .getBaseType(property, true);
+                Object targetType = BasicTypeConverterFactory.INSTANCE
+                        .getBaseType(property, true);
 
                 if (targetType instanceof BasicType) {
                     BasicType type = (BasicType) targetType;
@@ -1129,18 +1143,16 @@ public class BRMGenerator {
             String parentElementInHeirarchy, String qualifiedNameOfProcessData,
             String processLabel, String userTaskLabel,
             String nullCheckScriptBlock) {
-        String log =
-                String.format(LOG_STATEMENT_SCRIPT,
-                        processLabel,
-                        userTaskLabel,
-                        mappedElement,
-                        parentElementInHeirarchy,
-                        qualifiedNameOfProcessData);
-        String script =
-                String.format(nullCheckScriptBlock,
-                        parentElementInHeirarchy,
-                        mappedElement,
-                        log);
+        String log = String.format(LOG_STATEMENT_SCRIPT,
+                processLabel,
+                userTaskLabel,
+                mappedElement,
+                parentElementInHeirarchy,
+                qualifiedNameOfProcessData);
+        String script = String.format(nullCheckScriptBlock,
+                parentElementInHeirarchy,
+                mappedElement,
+                log);
         return script;
     }
 
@@ -1306,8 +1318,8 @@ public class BRMGenerator {
                     DatamodelFactory.eINSTANCE.createSimpleSpecType();
             BasicType basicType = (BasicType) dataType;
             if (basicType.getLength() != null) {
-                simpleSpecType.setLength(BRMUtils.parseInt(basicType
-                        .getLength().getValue(), 0));
+                simpleSpecType.setLength(
+                        BRMUtils.parseInt(basicType.getLength().getValue(), 0));
             }
             if (basicType.getPrecision() != null) {
                 simpleSpecType.setLength(basicType.getPrecision().getValue());
@@ -1321,17 +1333,15 @@ public class BRMGenerator {
                     DatamodelFactory.eINSTANCE.createComplexSpecType();
             ExternalReference externalRef = (ExternalReference) dataType;
 
-            IProject project =
-                    WorkspaceSynchronizer.getFile(externalRef.eResource())
-                            .getProject();
+            IProject project = WorkspaceSynchronizer
+                    .getFile(externalRef.eResource()).getProject();
             ComplexDataTypeReference complexDataTypeReference =
                     new ComplexDataTypeReference(externalRef.getLocation(),
                             externalRef.getXref(), externalRef.getNamespace());
-            Object object =
-                    ComplexDataTypeExtPointHelper
-                            .getAllComplexDataTypesMergedInfo()
-                            .getComplexDataTypeFromReference(complexDataTypeReference,
-                                    project);
+            Object object = ComplexDataTypeExtPointHelper
+                    .getAllComplexDataTypesMergedInfo()
+                    .getComplexDataTypeFromReference(complexDataTypeReference,
+                            project);
             // uml.DataType is general type of uml.PrimitiveType and
             // uml.Enumeration
             if (object instanceof org.eclipse.uml2.uml.Class
@@ -1443,9 +1453,9 @@ public class BRMGenerator {
             IResource resource = wc.getEclipseResources().get(0);
             return resource.getFullPath().toPortableString();
         } else {
-            LOG.error(String
-                    .format("EObject has to be contained inside a valid resource: %1$s", //$NON-NLS-1$
-                            eo.toString()));
+            LOG.error(String.format(
+                    "EObject has to be contained inside a valid resource: %1$s", //$NON-NLS-1$
+                    eo.toString()));
         }
         return null;
 
@@ -1464,12 +1474,11 @@ public class BRMGenerator {
     public IStatus generateWlfModel(final IProject project,
             final IFolder generationRoot, final String timestamp) {
 
-        final List<IResource> wlfFiles =
-                SpecialFolderUtil
-                        .getAllDeepResourcesInSpecialFolderOfKind(project,
-                                WorkListFacadeResourcePlugin.WLF_SPECIAL_FOLDER_KIND,
-                                WorkListFacadeResourcePlugin.WLF_FILE_EXTENSION,
-                                false);
+        final List<IResource> wlfFiles = SpecialFolderUtil
+                .getAllDeepResourcesInSpecialFolderOfKind(project,
+                        WorkListFacadeResourcePlugin.WLF_SPECIAL_FOLDER_KIND,
+                        WorkListFacadeResourcePlugin.WLF_FILE_EXTENSION,
+                        false);
 
         if (!wlfFiles.isEmpty()) {
             if (wlfFiles.size() != 1) {
@@ -1489,9 +1498,9 @@ public class BRMGenerator {
                     (com.tibco.xpd.worklistfacade.model.DocumentRoot) wc
                             .getRootElement();
             if (srcWlfRoot == null || wc.isInvalidFile()) {
-                final String msg =
-                        String.format(Messages.BRMGenerator_invalidWlfContent_message,
-                                srcWlfFile.getFullPath());
+                final String msg = String.format(
+                        Messages.BRMGenerator_invalidWlfContent_message,
+                        srcWlfFile.getFullPath());
                 return new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, msg);
             }
             WorkListFacade srcWlf = srcWlfRoot.getWorkListFacade();
@@ -1500,11 +1509,22 @@ public class BRMGenerator {
             WorkListAttributeFacadeType destWlf =
                     destFactory.createWorkListAttributeFacadeType();
             String projectVersion = ProjectUtil.getProjectVersion(project);
-            @SuppressWarnings("restriction")
-            String wlfVersion =
-                    PluginManifestHelper
-                            .getUpdatedBundleVersion(projectVersion, timestamp);
+
+            /**
+             * TODO SID ACE-122 replace method of getting version into work-type
+             * root.
+             */
+            if (true) {
+                throw new RuntimeException(
+                        "TODO SID ACE-122 replace method of getting version into work-type");
+            }
+            String wlfVersion = "1.0.0.gazillion";
+
+            // @SuppressWarnings("restriction")
+            // String wlfVersion = PluginManifestHelper
+            // .getUpdatedBundleVersion(projectVersion, timestamp);
             destWlf.setVersion(wlfVersion);
+
             // DAA generation fails for empty WLF file.
             if (srcWlf.getWorkItemAttributes() != null) {
 
@@ -1522,10 +1542,9 @@ public class BRMGenerator {
             final com.tibco.n2.common.attributefacade.DocumentRoot destWlfRoot =
                     destFactory.createDocumentRoot();
             destWlfRoot.setWorkListAttributeFacade(destWlf);
-            final IPath filePath =
-                    generationRoot.getFullPath()
-                            .append(WLF_MODULE_FILE_NAME_BASE)
-                            .addFileExtension(XML_EXTENSION);
+            final IPath filePath = generationRoot.getFullPath()
+                    .append(WLF_MODULE_FILE_NAME_BASE)
+                    .addFileExtension(XML_EXTENSION);
             return saveXmlFileToWorkspace(filePath,
                     destWlfRoot,
                     new AttributefacadeResourceFactoryImpl());
@@ -1541,8 +1560,8 @@ public class BRMGenerator {
      * @param documentRoot
      *            the document root element.
      */
-    private IStatus saveXmlFileToWorkspace(IPath filePath,
-            EObject documentRoot, Resource.Factory resourceFactory) {
+    private IStatus saveXmlFileToWorkspace(IPath filePath, EObject documentRoot,
+            Resource.Factory resourceFactory) {
         final Map<String, Object> extensionToFactoryMap =
                 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
         final Object previousXMLFactory =
@@ -1577,11 +1596,9 @@ public class BRMGenerator {
         } catch (Exception e) {
             BRMActivator.getDefault().getLogger().error(e);
             String msg = e.getLocalizedMessage();
-            msg =
-                    (msg == null || msg.trim().isEmpty()) ? String
-                            .format(Messages.BRMGenerator_resourceSaveProblem_message,
-                                    filePath)
-                            : msg;
+            msg = (msg == null || msg.trim().isEmpty()) ? String.format(
+                    Messages.BRMGenerator_resourceSaveProblem_message,
+                    filePath) : msg;
             return new Status(IStatus.ERROR, BRMActivator.PLUGIN_ID, msg, e);
         } finally {
             /* Revert previous registry settings. */

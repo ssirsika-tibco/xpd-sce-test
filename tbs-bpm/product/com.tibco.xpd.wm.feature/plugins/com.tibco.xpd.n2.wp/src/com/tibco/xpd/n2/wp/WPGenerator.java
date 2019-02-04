@@ -55,8 +55,6 @@ import com.tibco.n2.wp.archive.service.ServiceArchiveDescriptorType;
 import com.tibco.n2.wp.archive.service.WPFactory;
 import com.tibco.n2.wp.archive.service.WorkTypeType;
 import com.tibco.n2.wp.archive.service.util.WPResourceFactoryImpl;
-import com.tibco.xpd.daa.internal.util.CompositeUtil;
-import com.tibco.xpd.daa.internal.util.PluginManifestHelper;
 import com.tibco.xpd.n2.bpel.utils.BPELN2Utils;
 import com.tibco.xpd.n2.brm.utils.BRMUtils;
 import com.tibco.xpd.n2.daa.utils.N2PENamingUtils;
@@ -153,9 +151,9 @@ public class WPGenerator {
     private static final String CUSTOM_FORM_RELATIVE_PATH = "CUSTOM_FORM"; //$NON-NLS-1$
 
     /** */
-    private static final Status PROBLEM_WARNING_STATUS = new Status(
-            IStatus.WARNING, WPActivator.PLUGIN_ID,
-            Messages.WPGenerator_ProblemsWithWP_message2);
+    private static final Status PROBLEM_WARNING_STATUS =
+            new Status(IStatus.WARNING, WPActivator.PLUGIN_ID,
+                    Messages.WPGenerator_ProblemsWithWP_message2);
 
     /** Forms BOM Special Folder kind. */
     private static final String FORMS_BOM_FOLDER_KIND = "formsBOM"; //$NON-NLS-1$
@@ -209,9 +207,8 @@ public class WPGenerator {
      * AMX-BPM supporeted channel destinations.
      */
     private static final BasicEList<ChannelDestination> AMX_BPM_CHANNEL_DESTINATIONS =
-            new BasicEList<ChannelDestination>(
-                    PresentationManager
-                            .getChannelDestinationsByIds(AMXBPM_DESTINATION_ID));
+            new BasicEList<ChannelDestination>(PresentationManager
+                    .getChannelDestinationsByIds(AMXBPM_DESTINATION_ID));
 
     public static WPGenerator getInstance() {
         return INSTANCE;
@@ -238,10 +235,9 @@ public class WPGenerator {
     @Deprecated
     public void generateN2Modules(final IProject project) {
 
-        final IFolder wpModulesOut =
-                BRMUtils.getSpecialFolder(project,
-                        WP_MODULES_SPECIAL_FILDER_NAME,
-                        WP_MODULES_SPECIAL_FOLDER_KIND);
+        final IFolder wpModulesOut = BRMUtils.getSpecialFolder(project,
+                WP_MODULES_SPECIAL_FILDER_NAME,
+                WP_MODULES_SPECIAL_FOLDER_KIND);
         generateN2Modules(project,
                 wpModulesOut,
                 Long.toString(System.currentTimeMillis()));
@@ -287,7 +283,8 @@ public class WPGenerator {
                 new WorkspaceJob(Messages.WPGenerator_GenWPArtifacts_message) {
                     @Override
                     public IStatus runInWorkspace(IProgressMonitor monitor) {
-                        monitor.beginTask(Messages.WPGenerator_GenWPArtifacts_message,
+                        monitor.beginTask(
+                                Messages.WPGenerator_GenWPArtifacts_message,
                                 IProgressMonitor.UNKNOWN);
                         try {
                             generateN2Modules(project);
@@ -342,10 +339,9 @@ public class WPGenerator {
         // Create EMF resource for descriptor.
         // Use private resource set.
         ResourceSet rs = new ResourceSetImpl();
-        Resource descriptor =
-                createWPDescriptorResource(wpDescriptor,
-                        rContainer.getGenerationRootFolder(),
-                        rs);
+        Resource descriptor = createWPDescriptorResource(wpDescriptor,
+                rContainer.getGenerationRootFolder(),
+                rs);
         if (descriptor == null) {
             return Status.OK_STATUS;
         }
@@ -353,9 +349,8 @@ public class WPGenerator {
         // Create archive and add all necessary artifacts in a proper layout.
         try {
 
-            IPath descriptorPath =
-                    new Path(WP_SERVICE_ARCHIVE_PATH_PREFIX)
-                            .append(WORK_PRESENTATION_DESCRIPTOR_NAME);
+            IPath descriptorPath = new Path(WP_SERVICE_ARCHIVE_PATH_PREFIX)
+                    .append(WORK_PRESENTATION_DESCRIPTOR_NAME);
             OutputStream entryOutStream =
                     rContainer.getEntryOutStream(descriptorPath);
             try {
@@ -365,20 +360,31 @@ public class WPGenerator {
                 if (rContainer.shouldCloseEntryOutStream()
                         && entryOutStream != null) {
                     entryOutStream.close();
-                    rContainer
-                            .refreshPath(descriptorPath.removeLastSegments(1),
-                                    IResource.DEPTH_ONE);
+                    rContainer.refreshPath(descriptorPath.removeLastSegments(1),
+                            IResource.DEPTH_ONE);
                 }
             }
 
-            String projectVersion =
-                    PluginManifestHelper.getUpdatedBundleVersion(CompositeUtil
-                            .getVersionNumber(project), timestamp);
+            /**
+             * TODO SID ACE-122 replace method of getting version into work-type
+             * root.
+             */
+            if (true) {
+                throw new RuntimeException(
+                        "TODO SID ACE-122 replace method of getting version into work-type");
+            }
+            String projectVersion = "1.0.0.gazillion";
+
+            // String projectVersion =
+            // PluginManifestHelper.getUpdatedBundleVersion(CompositeUtil
+            // .getVersionNumber(project), timestamp);
 
             // FORM-4691/XPD-3480: Deployable forms artefacts are now
             // contributed by FormCompositeContributor.
 
-            creeateChannelPropertiesEntries(project, rContainer, projectVersion);
+            creeateChannelPropertiesEntries(project,
+                    rContainer,
+                    projectVersion);
 
         } catch (Exception e) {
             LOG.error(e);
@@ -387,9 +393,8 @@ public class WPGenerator {
         } finally {
             try {
                 rContainer.closeContainer();
-                rContainer
-                        .refreshPath(new Path(WP_SERVICE_ARCHIVE_PATH_PREFIX),
-                                IResource.DEPTH_INFINITE);
+                rContainer.refreshPath(new Path(WP_SERVICE_ARCHIVE_PATH_PREFIX),
+                        IResource.DEPTH_INFINITE);
             } catch (Exception e) {
                 LOG.error(e);
                 return PROBLEM_WARNING_STATUS;
@@ -398,8 +403,9 @@ public class WPGenerator {
         if (ctx.getProblems().isEmpty()) {
             return Status.OK_STATUS;
         } else {
-            return new MultiStatus(WPActivator.PLUGIN_ID, 0, ctx.getProblems()
-                    .toArray(new IStatus[ctx.getProblems().size()]),
+            return new MultiStatus(WPActivator.PLUGIN_ID, 0,
+                    ctx.getProblems()
+                            .toArray(new IStatus[ctx.getProblems().size()]),
                     Messages.WPGenerator_ProblemsWithWP_message2, null);
         }
     }
@@ -457,12 +463,10 @@ public class WPGenerator {
 
                         // All attr. of type: RESOURCE will have this path
                         // prepended (if it's not empty).
-                        IPath resourcesPrefixPath =
-                                rContainer.getGenerationRootFolder()
-                                        .getFullPath()
-                                        .append(WP_SERVICE_ARCHIVE_PATH_PREFIX)
-                                        .append(projectVersion)
-                                        .append(channelID);
+                        IPath resourcesPrefixPath = rContainer
+                                .getGenerationRootFolder().getFullPath()
+                                .append(WP_SERVICE_ARCHIVE_PATH_PREFIX)
+                                .append(projectVersion).append(channelID);
 
                         Properties propetries = new Properties();
 
@@ -474,10 +478,9 @@ public class WPGenerator {
                             String value = attr.getResolvedDefaultValue();
                             if (AttributeType.RESOURCE.equals(attr.getType())
                                     && isSet(value)) {
-                                value =
-                                        resourcesPrefixPath
-                                                .append(nullSafe(value))
-                                                .toPortableString();
+                                value = resourcesPrefixPath
+                                        .append(nullSafe(value))
+                                        .toPortableString();
                             }
                             if (name != null) {
                                 propetries.setProperty(name, nullSafe(value));
@@ -487,12 +490,11 @@ public class WPGenerator {
                                 .getAttributeValues()) {
                             String name = attrValue.getAttributeName();
                             String value = attrValue.getResolvedValue(true);
-                            if (AttributeType.RESOURCE.equals(attrValue
-                                    .getType()) && isSet(value)) {
-                                value =
-                                        resourcesPrefixPath
-                                                .append(nullSafe(value))
-                                                .toPortableString();
+                            if (AttributeType.RESOURCE.equals(
+                                    attrValue.getType()) && isSet(value)) {
+                                value = resourcesPrefixPath
+                                        .append(nullSafe(value))
+                                        .toPortableString();
                             }
                             if (name != null) {
                                 propetries.setProperty(name, nullSafe(value));
@@ -524,8 +526,8 @@ public class WPGenerator {
                             if (rContainer.shouldCloseEntryOutStream()
                                     && propertiesOutStream != null) {
                                 propertiesOutStream.close();
-                                rContainer.refreshPath(propertyPath
-                                        .removeLastSegments(1),
+                                rContainer.refreshPath(
+                                        propertyPath.removeLastSegments(1),
                                         IResource.DEPTH_ONE);
                             }
                         }
@@ -564,8 +566,8 @@ public class WPGenerator {
 
     }
 
-    /* package */static class FolderResourceContainer implements
-            ResourceContainer {
+    /* package */static class FolderResourceContainer
+            implements ResourceContainer {
 
         private final IFolder gentrationRoot;
 
@@ -602,14 +604,15 @@ public class WPGenerator {
             if (destFile.exists()) {
                 // The file will be overwritten. It shouldn't be normal
                 // situation but it's not forbidden.
-                LOG.warn(String
-                        .format("File '%1$s' existed and was overwritten by '%2$s'.", //$NON-NLS-1$
-                                destFile,
-                                file));
+                LOG.warn(String.format(
+                        "File '%1$s' existed and was overwritten by '%2$s'.", //$NON-NLS-1$
+                        destFile,
+                        file));
                 destFile.delete(true, null);
             }
-            file.copy(destFile.getFullPath(), IResource.FORCE
-                    | IResource.DERIVED, null);
+            file.copy(destFile.getFullPath(),
+                    IResource.FORCE | IResource.DERIVED,
+                    null);
 
         }
 
@@ -626,8 +629,9 @@ public class WPGenerator {
             ProjectUtil.createFolder(outFolder, derived, null);
             IFolder destFolder = gentrationRoot.getFolder(path);
             if (!destFolder.exists()) {
-                folder.copy(destFolder.getFullPath(), IResource.FORCE
-                        | IResource.DERIVED, null);
+                folder.copy(destFolder.getFullPath(),
+                        IResource.FORCE | IResource.DERIVED,
+                        null);
             } else {
                 addAllMembersToContainer(folder, path);
                 if (destFolder.exists()) {
@@ -672,8 +676,8 @@ public class WPGenerator {
          * @throws IOException
          * @throws CoreException
          */
-        public OutputStream getEntryOutStream(IPath path) throws IOException,
-                CoreException {
+        public OutputStream getEntryOutStream(IPath path)
+                throws IOException, CoreException {
             IPath outFolderPath = path.removeLastSegments(1);
             IFolder outFolder = gentrationRoot.getFolder(outFolderPath);
             ProjectUtil.createFolder(outFolder, derived, null);
@@ -703,7 +707,8 @@ public class WPGenerator {
         }
     }
 
-    /* package */static class ZipResourceContainer implements ResourceContainer {
+    /* package */static class ZipResourceContainer
+            implements ResourceContainer {
 
         /** Presentation module name's post-fix. */
         private static final String PRESENTATION_ARCHIVE_NAME = "wp.war"; //$NON-NLS-1$
@@ -842,9 +847,8 @@ public class WPGenerator {
          */
         private static void addFolderToZip(ZipOutputStream zip, IFolder folder,
                 String pathPrefix) throws IOException, CoreException {
-            String folderPath =
-                    new Path(pathPrefix).append(folder.getName())
-                            .toPortableString();
+            String folderPath = new Path(pathPrefix).append(folder.getName())
+                    .toPortableString();
             IResource[] members = folder.members();
             if (members.length == 0) {
                 ZipEntry zipEntry = new ZipEntry(folderPath + '/');
@@ -856,9 +860,8 @@ public class WPGenerator {
             }
             for (IResource member : members) {
                 if (member instanceof IFile) {
-                    String zipPath =
-                            new Path(folderPath).append(member.getName())
-                                    .toPortableString();
+                    String zipPath = new Path(folderPath)
+                            .append(member.getName()).toPortableString();
                     addFileToZip(zip, (IFile) member, zipPath);
                 } else if (member instanceof IFolder) {
                     addFolderToZip(zip, (IFolder) member, folderPath);
@@ -915,12 +918,10 @@ public class WPGenerator {
             ChannelType wpChannel) {
         IFile formFile = null;
         String channelTypeId =
-                PresentationManager.getInstance()
-                        .findChannelTypeIdByComponents(wpChannel
-                                .getTargetChannelType().getLiteral(),
-                                wpChannel.getPresentationChannelType()
-                                        .getLiteral(),
-                                wpChannel.getImplementationType().getLiteral());
+                PresentationManager.getInstance().findChannelTypeIdByComponents(
+                        wpChannel.getTargetChannelType().getLiteral(),
+                        wpChannel.getPresentationChannelType().getLiteral(),
+                        wpChannel.getImplementationType().getLiteral());
 
         /*
          * ChannelId contains the channel type id plus the description. We have
@@ -935,9 +936,8 @@ public class WPGenerator {
         SpecialFolder formsImplSF =
                 SpecialFolderUtil.getSpecialFolderOfKind(project, sfKind);
         // Platform independent implementation.
-        String formExtension =
-                getPresentationToFormExtensionMap().get(wpChannel
-                        .getPresentationChannelType().getLiteral());
+        String formExtension = getPresentationToFormExtensionMap()
+                .get(wpChannel.getPresentationChannelType().getLiteral());
         if (formImpl != null
                 && FormImplementationType.FORM.equals(formImpl.getFormType())) {
             // User specified implementation.
@@ -946,14 +946,13 @@ public class WPGenerator {
                 if (url.startsWith(TaskObjectUtil.FORM_SCHEMA)) {
                     String path =
                             url.substring(TaskObjectUtil.FORM_SCHEMA.length());
-                    if (formsImplSF != null && formsImplSF.getFolder() != null) {
-                        String formPath =
-                                (new Path(path)).removeFileExtension()
-                                        .addFileExtension(formExtension)
-                                        .toPortableString();
-                        formFile =
-                                project.getFile(formsImplSF.getFolder()
-                                        .getProjectRelativePath()
+                    if (formsImplSF != null
+                            && formsImplSF.getFolder() != null) {
+                        String formPath = (new Path(path)).removeFileExtension()
+                                .addFileExtension(formExtension)
+                                .toPortableString();
+                        formFile = project.getFile(
+                                formsImplSF.getFolder().getProjectRelativePath()
                                         .append(formPath).toString());
                     }
                 }
@@ -963,16 +962,11 @@ public class WPGenerator {
             Process process = activity.getProcess();
             Package pkg = process.getPackage();
             if (formsImplSF != null && formsImplSF.getFolder() != null) {
-                formFile =
-                        project.getFile(formsImplSF
-                                .getFolder()
-                                .getProjectRelativePath()
-                                .append(".default") //$NON-NLS-1$
-                                .append(pkg.getName())
-                                .append(process.getName())
-                                .append(activity.getName())
-                                .append(activity.getName())
-                                .addFileExtension(formExtension).toString());
+                formFile = project.getFile(formsImplSF.getFolder()
+                        .getProjectRelativePath().append(".default") //$NON-NLS-1$
+                        .append(pkg.getName()).append(process.getName())
+                        .append(activity.getName()).append(activity.getName())
+                        .addFileExtension(formExtension).toString());
             }
         }
 
@@ -992,11 +986,18 @@ public class WPGenerator {
     private ServiceArchiveDescriptorType createWPDescriptor(
             GenerationContext ctx) {
 
-        String version =
-                PluginManifestHelper
-                        .getUpdatedBundleVersion(CompositeUtil
-                                .getVersionNumber(ctx.getProject()), ctx
-                                .getTimestamp());
+        /**
+         * TODO SID ACE-122 replace method of getting version into work-type
+         * root.
+         */
+        if (true) {
+            throw new RuntimeException(
+                    "TODO SID ACE-122 replace method of getting version into work-type");
+        }
+        String version = "1.0.0.gazillion";
+        // String version = PluginManifestHelper.getUpdatedBundleVersion(
+        // CompositeUtil.getVersionNumber(ctx.getProject()),
+        // ctx.getTimestamp());
 
         WPFactory f = WPFactory.eINSTANCE;
         ServiceArchiveDescriptorType wpDescriptor =
@@ -1022,28 +1023,40 @@ public class WPGenerator {
                         wpChannel.setChannelId(channelID);
                         wpChannel.setName(projectChannel.getName());
                         wpChannel.setDescription(projectChannel.getName());
-                        wpChannel
-                                .setTargetChannelType(com.tibco.n2.common.channeltype.ChannelType
+                        wpChannel.setTargetChannelType(
+                                com.tibco.n2.common.channeltype.ChannelType
                                         .get(projectChannelType.getTarget()
                                                 .getId()));
-                        wpChannel
-                                .setPresentationChannelType(com.tibco.n2.common.channeltype.PresentationType
+                        wpChannel.setPresentationChannelType(
+                                com.tibco.n2.common.channeltype.PresentationType
                                         .get(projectChannelType
                                                 .getPresentation().getId()));
-                        wpChannel
-                                .setImplementationType(com.tibco.n2.common.channeltype.ImplementationType
+                        wpChannel.setImplementationType(
+                                com.tibco.n2.common.channeltype.ImplementationType
                                         .get(projectChannelType
                                                 .getImplementation().getId()));
-                        wpChannel.setDomain(""); // TODO check domain. //$NON-NLS-1$
+                        wpChannel.setDomain(""); // TODO check //$NON-NLS-1$
+                                                 // domain.
                         wpChannel.setDefaultChannel(projectChannel.isDefault());
                         ChannelExtentionType channelExtention =
                                 f.createChannelExtentionType();
-                        String projectVersion =
-                                PluginManifestHelper
-                                        .getUpdatedBundleVersion(CompositeUtil
-                                                .getVersionNumber(ctx
-                                                        .getProject()), ctx
-                                                .getTimestamp());
+
+                        /**
+                         * TODO SID ACE-122 replace method of getting version
+                         * into work-type root.
+                         */
+                        if (true) {
+                            throw new RuntimeException(
+                                    "TODO SID ACE-122 replace method of getting version into work-type");
+                        }
+                        String projectVersion = "1.0.0.gazillion";
+
+                        // String projectVersion =
+                        // PluginManifestHelper.getUpdatedBundleVersion(
+                        // CompositeUtil.getVersionNumber(
+                        // ctx.getProject()),
+                        // ctx.getTimestamp());
+
                         channelExtention.setLocation(new Path(projectVersion)
                                 .append(channelID).toPortableString());
                         channelExtention.setFilename(new Path(channelID)
@@ -1085,27 +1098,28 @@ public class WPGenerator {
                     IFile formFile =
                             getUserTaskChannelFormFile(activity, wpChannel);
                     if (formFile == null) {
-                        String msg =
-                                String.format(Messages.WPGenerator_InvalidFormRef_message,
-                                        activity.getName());
+                        String msg = String.format(
+                                Messages.WPGenerator_InvalidFormRef_message,
+                                activity.getName());
                         LOG.error(msg);
                         ctx.getProblems().add(createWarnStatus(msg));
                     }
                     if (formFile != null && !formFile.exists()) {
-                        String msg =
-                                String.format(Messages.WPGenerator_FormNoExist_message,
-                                        formFile.getFullPath()
-                                                .toPortableString(),
-                                        activity.getName());
+                        String msg = String.format(
+                                Messages.WPGenerator_FormNoExist_message,
+                                formFile.getFullPath().toPortableString(),
+                                activity.getName());
                         LOG.error(msg);
                         ctx.getProblems().add(createWarnStatus(msg));
                     }
                     FormType wpForm = f.createFormType();
                     String relativePath =
-                            formFile != null ? getRelativePath(new Path(
-                                    wpChannel.getChannelId()),
-                                    formFile,
-                                    ctx.getTimestamp()) : ""; //$NON-NLS-1$
+                            formFile != null
+                                    ? getRelativePath(
+                                            new Path(wpChannel.getChannelId()),
+                                            formFile,
+                                            ctx.getTimestamp())
+                                    : ""; //$NON-NLS-1$
                     wpForm.setRelativePath(relativePath);
                     wpForm.setName(formFile != null ? formFile.getName() : ""); //$NON-NLS-1$
                     wpForm.setFormIdentifier(new Path(relativePath)
@@ -1117,9 +1131,8 @@ public class WPGenerator {
                     ctx.getProcessRefMap().put(wpForm, activity);
 
                 } else if (isUserDefinedFormUserTask(activity)) { // custom form
-                    FormImplementation formImplementation =
-                            TaskObjectUtil
-                                    .getUserTaskFormImplementation(activity);
+                    FormImplementation formImplementation = TaskObjectUtil
+                            .getUserTaskFormImplementation(activity);
                     FormType wpForm = f.createFormType();
                     wpForm.setName(formImplementation.getFormURI());
                     wpForm.setRelativePath(CUSTOM_FORM_RELATIVE_PATH);
@@ -1135,14 +1148,12 @@ public class WPGenerator {
 
                     if (pageflowProcess != null) {
                         // Check if page flow is in the same project.
-                        WorkingCopy wc =
-                                WorkingCopyUtil
-                                        .getWorkingCopyFor(pageflowProcess);
+                        WorkingCopy wc = WorkingCopyUtil
+                                .getWorkingCopyFor(pageflowProcess);
                         IResource resource = wc.getEclipseResources().get(0);
 
-                        if (resource == null
-                                || !ctx.getProject()
-                                        .equals(resource.getProject())) {
+                        if (resource == null || !ctx.getProject()
+                                .equals(resource.getProject())) {
                             /*
                              * XPD-2608 : the code below for logging of the
                              * error message and also adding of warning message
@@ -1166,7 +1177,8 @@ public class WPGenerator {
                                     BRMUtils.getN2ProcessPackages(crossProject);
                             if (crossProjProcessPckgs.size() > 0) {
                                 Collection<Process> crossProjStandardPageFlows =
-                                        BRMUtils.getStandardPageFlows(crossProjProcessPckgs);
+                                        BRMUtils.getStandardPageFlows(
+                                                crossProjProcessPckgs);
                                 if (crossProjStandardPageFlows.size() > 0) {
                                     standardPageFlows
                                             .addAll(crossProjStandardPageFlows);
@@ -1194,7 +1206,7 @@ public class WPGenerator {
                         wpChannel.getWorkType().add(wpWorkType);
                     }
                 }
-            }// Manual activities on Process :END
+            } // Manual activities on Process :END
 
             // Business services.
             for (Process businessService : businessServices) {
@@ -1223,9 +1235,8 @@ public class WPGenerator {
 
             for (Process standardPageFlow : standardPageFlows) {
                 String pageFlowId = standardPageFlow.getId();
-                PageFlowType wpPageFlow =
-                        ctx.getPageFlows(wpChannel.getChannelId())
-                                .get(pageFlowId);
+                PageFlowType wpPageFlow = ctx
+                        .getPageFlows(wpChannel.getChannelId()).get(pageFlowId);
                 if (wpPageFlow == null) {
                     wpPageFlow = f.createPageFlowType();
                     ctx.getPageFlows(wpChannel.getChannelId()).put(pageFlowId,
@@ -1252,17 +1263,26 @@ public class WPGenerator {
     private void fillPageFlowType(PageFlowType wpPageFlow,
             Process pageflowProcess, ChannelType wpChannel,
             GenerationContext ctx) {
-        String version =
-                PluginManifestHelper
-                        .getUpdatedBundleVersion(CompositeUtil
-                                .getVersionNumber(ctx.getProject()), ctx
-                                .getTimestamp());
+
+        /**
+         * TODO SID ACE-122 replace method of getting version into work-type
+         * root.
+         */
+        if (true) {
+            throw new RuntimeException(
+                    "TODO SID ACE-122 replace method of getting version into work-type");
+        }
+        String version = "1.0.0.gazillion";
+        // String version = PluginManifestHelper.getUpdatedBundleVersion(
+        // CompositeUtil.getVersionNumber(ctx.getProject()),
+        // ctx.getTimestamp());
+
         WPFactory f = WPFactory.eINSTANCE;
         WorkingCopy wc = WorkingCopyUtil.getWorkingCopyFor(pageflowProcess);
         if (wc == null) {
-            LOG.error(String
-                    .format("PageFlow has to be contained inside a resource.", //$NON-NLS-1$
-                            pageflowProcess.getName()));
+            LOG.error(String.format(
+                    "PageFlow has to be contained inside a resource.", //$NON-NLS-1$
+                    pageflowProcess.getName()));
         }
         IResource resource = wc.getEclipseResources().get(0);
         wpPageFlow.setId(pageflowProcess.getId());
@@ -1276,29 +1296,27 @@ public class WPGenerator {
         if (!ctx.getProject().equals(resource.getProject())) {
             /* XPD-2608 : remove .qualifier before setting the version */
             String pageflowProcessVersion =
-                    Xpdl2ModelUtil
-                            .getProcessPackageVersionNumber(pageflowProcess
-                                    .getPackage());
+                    Xpdl2ModelUtil.getProcessPackageVersionNumber(
+                            pageflowProcess.getPackage());
             if (null != pageflowProcessVersion) {
                 Version pageflowProjVer = new Version(pageflowProcessVersion);
                 String qualifier = pageflowProjVer.getQualifier();
                 if (null != qualifier && qualifier.length() > 0) {
-                    String strVersion =
-                            pageflowProjVer.getMajor() + "."
-                                    + pageflowProjVer.getMinor() + "."
-                                    + pageflowProjVer.getMicro();
+                    String strVersion = pageflowProjVer.getMajor() + "."
+                            + pageflowProjVer.getMinor() + "."
+                            + pageflowProjVer.getMicro();
                     wpPageFlow.setModuleVersion(strVersion);
                 } else {
                     wpPageFlow.setModuleVersion(pageflowProcessVersion);
                 }
             }
         } else {
-            wpPageFlow.setModuleVersion(getModuleVersion(pageflowProcess
-                    .getPackage(), ctx.getTimestamp()));
+            wpPageFlow.setModuleVersion(
+                    getModuleVersion(pageflowProcess.getPackage(),
+                            ctx.getTimestamp()));
         }
-        String xpdlFileName =
-                WorkingCopyUtil.getWorkingCopyFor(pageflowProcess)
-                        .getEclipseResources().get(0).getName();
+        String xpdlFileName = WorkingCopyUtil.getWorkingCopyFor(pageflowProcess)
+                .getEclipseResources().get(0).getName();
         wpPageFlow.setUrl(new Path(resource.getProject().getName())
                 .append(N2PENamingUtils.COMPOSITE_OUTPUTFOLDER_NAME)
                 .append(BPELN2Utils.BPEL_ROOT_OUTPUTFOLDER_NAME)
@@ -1321,9 +1339,8 @@ public class WPGenerator {
                 pageActivityType.setName(pfActivity.getName());
 
                 FormType wpForm = f.createFormType();
-                FormImplementation userTaskFormImplementation =
-                        TaskObjectUtil
-                                .getUserTaskFormImplementation(pfActivity);
+                FormImplementation userTaskFormImplementation = TaskObjectUtil
+                        .getUserTaskFormImplementation(pfActivity);
                 // If userTastFormImplementation is 'null' then it means default
                 // form option is selected.
                 if (userTaskFormImplementation == null
@@ -1332,32 +1349,34 @@ public class WPGenerator {
                             getUserTaskChannelFormFile(pfActivity, wpChannel);
 
                     if (pfActivityFormFile == null) {
-                        String message =
-                                String.format(Messages.WPGenerator_InvalidFormRef_message,
-                                        pfActivity.getName());
+                        String message = String.format(
+                                Messages.WPGenerator_InvalidFormRef_message,
+                                pfActivity.getName());
                         LOG.error(message);
                         ctx.getProblems().add(createWarnStatus(message));
                     }
                     if (pfActivityFormFile != null
                             && !pfActivityFormFile.exists()) {
-                        String message =
-                                String.format(Messages.WPGenerator_FormNoExist_message,
-                                        pfActivityFormFile.getFullPath()
-                                                .toPortableString(),
-                                        pfActivity.getName());
+                        String message = String.format(
+                                Messages.WPGenerator_FormNoExist_message,
+                                pfActivityFormFile.getFullPath()
+                                        .toPortableString(),
+                                pfActivity.getName());
                         LOG.error(message);
                         ctx.getProblems().add(createWarnStatus(message));
                     }
 
                     String relativePath =
-                            pfActivityFormFile != null ? getRelativePath(new Path(
-                                    wpChannel.getChannelId()),
-                                    pfActivityFormFile,
-                                    ctx.getTimestamp())
+                            pfActivityFormFile != null
+                                    ? getRelativePath(
+                                            new Path(wpChannel.getChannelId()),
+                                            pfActivityFormFile,
+                                            ctx.getTimestamp())
                                     : ""; //$NON-NLS-1$
                     wpForm.setRelativePath(relativePath);
-                    wpForm.setName(pfActivityFormFile != null ? pfActivityFormFile
-                            .getName() : ""); //$NON-NLS-1$
+                    wpForm.setName(pfActivityFormFile != null
+                            ? pfActivityFormFile.getName()
+                            : ""); //$NON-NLS-1$
                     wpForm.setVersion(version);
                     wpForm.setFormIdentifier(new Path(relativePath)
                             .append(wpForm.getName()).toPortableString());
@@ -1365,9 +1384,8 @@ public class WPGenerator {
                     ctx.getProcessRefMap().put(wpForm, pfActivity);
                     wpPageFlow.getPageActivity().add(pageActivityType);
                 } else if (isUserDefinedFormUserTask(pfActivity)) {
-                    FormImplementation formImplementation =
-                            TaskObjectUtil
-                                    .getUserTaskFormImplementation(pfActivity);
+                    FormImplementation formImplementation = TaskObjectUtil
+                            .getUserTaskFormImplementation(pfActivity);
                     wpForm.setName(formImplementation.getFormURI());
                     wpForm.setVersion(version);
                     wpForm.setRelativePath(CUSTOM_FORM_RELATIVE_PATH);
@@ -1386,17 +1404,27 @@ public class WPGenerator {
      */
     private String getModuleVersion(Package xpdlPackage, String timestamp) {
         String vn = Xpdl2ModelUtil.getProcessPackageVersionNumber(xpdlPackage);
-        String version =
-                PluginManifestHelper.getUpdatedBundleVersion(vn, timestamp);
+
+        /**
+         * TODO SID ACE-122 replace method of getting version into work-type
+         * root.
+         */
+        if (true) {
+            throw new RuntimeException(
+                    "TODO SID ACE-122 replace method of getting version into work-type");
+        }
+        String version = "1.0.0.gazillion";
+
+        // String version =
+        // PluginManifestHelper.getUpdatedBundleVersion(vn, timestamp);
         return version;
     }
 
     private boolean isFormUserTask(Activity activity) {
         FormImplementation formImplementation =
                 TaskObjectUtil.getUserTaskFormImplementation(activity);
-        if (formImplementation != null
-                && FormImplementationType.FORM.equals(formImplementation
-                        .getFormType())) {
+        if (formImplementation != null && FormImplementationType.FORM
+                .equals(formImplementation.getFormType())) {
             return true;
         }
         return false;
@@ -1405,9 +1433,8 @@ public class WPGenerator {
     private boolean isUserDefinedFormUserTask(Activity activity) {
         FormImplementation formImplementation =
                 TaskObjectUtil.getUserTaskFormImplementation(activity);
-        if (formImplementation != null
-                && FormImplementationType.USER_DEFINED
-                        .equals(formImplementation.getFormType())) {
+        if (formImplementation != null && FormImplementationType.USER_DEFINED
+                .equals(formImplementation.getFormType())) {
             return true;
         }
         return false;
@@ -1416,9 +1443,8 @@ public class WPGenerator {
     private boolean isPageFlow(Activity activity) {
         FormImplementation formImplementation =
                 TaskObjectUtil.getUserTaskFormImplementation(activity);
-        if (formImplementation != null
-                && FormImplementationType.PAGEFLOW.equals(formImplementation
-                        .getFormType())) {
+        if (formImplementation != null && FormImplementationType.PAGEFLOW
+                .equals(formImplementation.getFormType())) {
             return true;
         }
         return false;
@@ -1465,19 +1491,31 @@ public class WPGenerator {
         }
     }
 
-    private String getRelativePath(IPath path, IFile formFile, String timestamp) {
+    private String getRelativePath(IPath path, IFile formFile,
+            String timestamp) {
         IPath projectRelativePath = formFile.getProjectRelativePath();
         projectRelativePath = projectRelativePath.removeLastSegments(1);
         int fragmentsToRemove = 2;
         projectRelativePath =
                 projectRelativePath.removeFirstSegments(fragmentsToRemove);
         IProject project = formFile.getProject();
-        String projectVersion =
-                PluginManifestHelper.getUpdatedBundleVersion(CompositeUtil
-                        .getVersionNumber(project), timestamp);
-        projectRelativePath =
-                new Path(projectVersion).append(path)
-                        .append(projectRelativePath);
+
+        /**
+         * TODO SID ACE-122 replace method of getting version into work-type
+         * root.
+         */
+        if (true) {
+            throw new RuntimeException(
+                    "TODO SID ACE-122 replace method of getting version into work-type");
+        }
+        String projectVersion = "1.0.0.gazillion";
+
+        // String projectVersion = PluginManifestHelper.getUpdatedBundleVersion(
+        // CompositeUtil.getVersionNumber(project),
+        // timestamp);
+
+        projectRelativePath = new Path(projectVersion).append(path)
+                .append(projectRelativePath);
         String toReturn = projectRelativePath.toPortableString();
         return toReturn;
     }
