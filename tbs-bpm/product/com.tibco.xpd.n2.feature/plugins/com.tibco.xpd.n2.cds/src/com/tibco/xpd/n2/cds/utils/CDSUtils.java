@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -45,6 +46,7 @@ import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.resource.UMLResource;
 
 import com.tibco.amf.model.productfeature.IncludedPlugin;
+import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessUIUtil;
 import com.tibco.xpd.bom.gen.biz.GenerationException;
@@ -59,7 +61,6 @@ import com.tibco.xpd.n2.cds.CdsConsts;
 import com.tibco.xpd.n2.cds.script.CdsContentAssistIconProvider;
 import com.tibco.xpd.n2.daa.utils.N2PENamingUtils;
 import com.tibco.xpd.n2.resources.util.N2Utils;
-import com.tibco.xpd.n2.scriptdescriptor.ScriptDescriptorGenerator;
 import com.tibco.xpd.process.js.model.ProcessJsConsts;
 import com.tibco.xpd.process.js.model.util.ProcessUtil;
 import com.tibco.xpd.processeditor.xpdl2.util.ProcessRelevantDataUtil;
@@ -114,8 +115,8 @@ public class CDSUtils {
      * 
      */
 
-    private static final class EMFProjectGenerationRunnable implements
-            IWorkspaceRunnable {
+    private static final class EMFProjectGenerationRunnable
+            implements IWorkspaceRunnable {
         private final List<IncludedPlugin> generatedPlugins;
 
         private final LinkedHashMap<IResource, List<IProject>> bomsToBuildMap;
@@ -170,7 +171,7 @@ public class CDSUtils {
     private static final String BOM_SOURCE_PERSISTENT_PROPERTY =
             "BOM_RESOURCE_NAME"; //$NON-NLS-1$
 
-    private static final String TOKEN_PATH_SEPARATOR = "."; //$NON-NLS-1$    
+    private static final String TOKEN_PATH_SEPARATOR = "."; //$NON-NLS-1$
 
     public static final String BOM_SPECIAL_FOLDER =
             BOMResourcesPlugin.BOM_SPECIAL_FOLDER_KIND;
@@ -179,7 +180,7 @@ public class CDSUtils {
             BOMResourcesPlugin.BOM_FILE_EXTENSION;
 
     /** cds special folder kind. */
-    public static final String CDS_SPECIAL_FOLDER_KIND = "cdsOutput"; //$NON-NLS-1$   
+    public static final String CDS_SPECIAL_FOLDER_KIND = "cdsOutput"; //$NON-NLS-1$
 
     /** cds special folder name. */
     public static final String CDS_SPECIAL_FOLDER_NAME = ".cdsOut"; //$NON-NLS-1$
@@ -204,11 +205,11 @@ public class CDSUtils {
         return null;
     }
 
-    private static IFolder getCDSDestFolder(IProject project, String folderName) {
+    private static IFolder getCDSDestFolder(IProject project,
+            String folderName) {
         if (project != null) {
-            IPath distFolderPath =
-                    project.getFullPath().append(CDS_SPECIAL_FOLDER_NAME)
-                            .append(folderName);
+            IPath distFolderPath = project.getFullPath()
+                    .append(CDS_SPECIAL_FOLDER_NAME).append(folderName);
             IFolder distFolder =
                     project.getWorkspace().getRoot().getFolder(distFolderPath);
             return distFolder;
@@ -224,12 +225,11 @@ public class CDSUtils {
      */
     public static List<IResource> getBomResources(IProject project) {
         if (project != null && project.isAccessible()) {
-            List<IResource> bomResources =
-                    SpecialFolderUtil
-                            .getAllDeepResourcesInSpecialFolderOfKind(project,
-                                    BOM_SPECIAL_FOLDER,
-                                    BOM_SPECIAL_FOLDER,
-                                    false);
+            List<IResource> bomResources = SpecialFolderUtil
+                    .getAllDeepResourcesInSpecialFolderOfKind(project,
+                            BOM_SPECIAL_FOLDER,
+                            BOM_SPECIAL_FOLDER,
+                            false);
             if (bomResources != null && !bomResources.isEmpty()) {
                 return bomResources;
             }
@@ -278,17 +278,16 @@ public class CDSUtils {
 
     public static Set<Package> getReferencedBomPackages(
             Set<IResource> referencedBomResources) {
-        if (referencedBomResources != null && !referencedBomResources.isEmpty()) {
-            ResourceSet resourceSet =
-                    XpdResourcesPlugin.getDefault().getEditingDomain()
-                            .getResourceSet();
+        if (referencedBomResources != null
+                && !referencedBomResources.isEmpty()) {
+            ResourceSet resourceSet = XpdResourcesPlugin.getDefault()
+                    .getEditingDomain().getResourceSet();
             if (resourceSet != null) {
                 Set<Package> referencedBomPackages = new HashSet<Package>();
                 for (IResource referencedBomResource : referencedBomResources) {
                     if (referencedBomResource instanceof IFile) {
-                        Set<URI> allPackagesURIs =
-                                ScriptDescriptorGenerator
-                                        .getAllPackagesURIs((IFile) referencedBomResource);
+                        Set<URI> allPackagesURIs = CDSUtils.getAllPackagesURIs(
+                                (IFile) referencedBomResource);
                         if (allPackagesURIs != null) {
                             for (URI uri : allPackagesURIs) {
                                 EObject object =
@@ -306,6 +305,30 @@ public class CDSUtils {
         return Collections.emptySet();
     }
 
+    /**
+     * @param packageName
+     * @return
+     */
+    public static Set<URI> getAllPackagesURIs(IFile bomFile) {
+        /*
+         * Sid XPD_3641: Switch to using non-indexer-hitting get packages
+         * method.
+         */
+
+        Collection<Package> allPackages = CDSBOMIndexerService.getInstance()
+                .getAllPackagesWithCDS(bomFile);
+
+        if (allPackages != null) {
+            Set<URI> allPackagesURIs = new HashSet<URI>();
+
+            for (Package pkg : allPackages) {
+                allPackagesURIs.add(EcoreUtil.getURI(pkg));
+            }
+            return allPackagesURIs;
+        }
+        return Collections.emptySet();
+    }
+
     public static Set<IResource> getReferencedBomResources(
             Set<String> referencedBoms, boolean includeIndirectReferences,
             IProject project) {
@@ -319,12 +342,11 @@ public class CDSUtils {
                 } catch (UnsupportedEncodingException e) {
                     XpdResourcesPlugin.getDefault().getLogger().error(e);
                 }
-                IFile bomResource =
-                        SpecialFolderUtil
-                                .resolveSpecialFolderRelativePath(project,
-                                        N2PENamingUtils.BOM_SPECIALFOLDER_KIND,
-                                        referencedBom,
-                                        true);
+                IFile bomResource = SpecialFolderUtil
+                        .resolveSpecialFolderRelativePath(project,
+                                N2PENamingUtils.BOM_SPECIALFOLDER_KIND,
+                                referencedBom,
+                                true);
                 if (bomResource != null) {
                     if (includeIndirectReferences) {
                         addIndirectlyReferencedBomResources(bomResource,
@@ -384,16 +406,14 @@ public class CDSUtils {
     protected static void initDefaultListClasses() {
         if (defaultMultipleClass == null
                 || defaultPaginatedMultipleClass == null) {
-            URL entry =
-                    CDSActivator.getDefault().getBundle()
-                            .getEntry(CdsConsts.CDS_MODEL_FILE_NAME);
+            URL entry = CDSActivator.getDefault().getBundle()
+                    .getEntry(CdsConsts.CDS_MODEL_FILE_NAME);
             if (entry != null) {
                 URI uri = URI.createURI(entry.toExternalForm());
                 ResourceSetImpl resourceSet = new ResourceSetImpl();
                 resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI,
                         UMLPackage.eINSTANCE);
-                resourceSet
-                        .getResourceFactoryRegistry()
+                resourceSet.getResourceFactoryRegistry()
                         .getExtensionToFactoryMap()
                         .put(UMLResource.FILE_EXTENSION,
                                 UMLResource.Factory.INSTANCE);
@@ -401,10 +421,9 @@ public class CDSUtils {
                     Resource resource = resourceSet.createResource(uri);
                     resource.load(Collections.EMPTY_MAP);
 
-                    Package umlPackage =
-                            (Package) EcoreUtil
-                                    .getObjectByType(resource.getContents(),
-                                            UMLPackage.Literals.PACKAGE);
+                    Package umlPackage = (Package) EcoreUtil.getObjectByType(
+                            resource.getContents(),
+                            UMLPackage.Literals.PACKAGE);
 
                     List<PackageableElement> packagedElements =
                             umlPackage.getPackagedElements();
@@ -455,8 +474,8 @@ public class CDSUtils {
     private static void storeBOMPersistentProperty(IProject emfProject,
             IResource bomResource) {
         try {
-            emfProject.setPersistentProperty(getQualifierName(), bomResource
-                    .getFullPath().toPortableString());
+            emfProject.setPersistentProperty(getQualifierName(),
+                    bomResource.getFullPath().toPortableString());
         } catch (CoreException e) {
             e.printStackTrace();
         }
@@ -591,9 +610,8 @@ public class CDSUtils {
             List<IResource> dependencyList = bomWC.getDependency();
             if (dependencyList != null) {
                 for (IResource dependencyRes : dependencyList) {
-                    String resPath =
-                            path + CDSUtils.TOKEN_PATH_SEPARATOR
-                                    + getResourceName(dependencyRes);
+                    String resPath = path + CDSUtils.TOKEN_PATH_SEPARATOR
+                            + getResourceName(dependencyRes);
                     dependencyBOMList.put(resPath, dependencyRes);
                     if (includeIndirectDependency) {
                         workOutBOMExternalReference(dependencyRes,
@@ -644,8 +662,7 @@ public class CDSUtils {
             final LinkedHashMap<IResource, List<IProject>> bomsToBuildMap)
             throws CoreException {
         ResourcesPlugin.getWorkspace().run(new EMFProjectGenerationRunnable(
-                generatedPlugins, bomsToBuildMap),
-                new NullProgressMonitor());
+                generatedPlugins, bomsToBuildMap), new NullProgressMonitor());
 
     }
 
@@ -659,7 +676,8 @@ public class CDSUtils {
         List<IResource> dependencyList = null;
         if (N2PENamingUtils.XPDL_FILE_EXTENSION.equals(fileExtension)) {
             dependencyList = getBOMDependencyForXpdlFile(file);
-        } else if (N2PENamingUtils.BOM_SPECIALFOLDER_KIND.equals(fileExtension)) {
+        } else if (N2PENamingUtils.BOM_SPECIALFOLDER_KIND
+                .equals(fileExtension)) {
             dependencyList = getExternalBOMDependencyForBOMFile(file);
         } else {
             throw new IllegalArgumentException("File Extension not supported"); //$NON-NLS-1$
@@ -732,8 +750,8 @@ public class CDSUtils {
                     processRelevantDataList.iterator(); iterator.hasNext();) {
                 ProcessRelevantData processRelevantData = iterator.next();
                 if (processRelevantData != null) {
-                    IScriptRelevantData theProcessScriptRelevantData =
-                            CDSUtils.convertToScriptRelevantData(processRelevantData,
+                    IScriptRelevantData theProcessScriptRelevantData = CDSUtils
+                            .convertToScriptRelevantData(processRelevantData,
                                     project,
                                     readers);
                     if (theProcessScriptRelevantData != null) {
@@ -751,9 +769,8 @@ public class CDSUtils {
         if (processRelevantData == null) {
             return null;
         }
-        String scriptRelevantDataType =
-                ProcessUtil
-                        .getProcessScriptRelevantDataType(processRelevantData);
+        String scriptRelevantDataType = ProcessUtil
+                .getProcessScriptRelevantDataType(processRelevantData);
         IScriptRelevantData iScriptRelevantData = null;
         if (scriptRelevantDataType == null) {
             return null;
@@ -764,9 +781,8 @@ public class CDSUtils {
                 || scriptRelevantDataType.equals(ProcessJsConsts.REFERENCE)) {
             DataType dataType = processRelevantData.getDataType();
             if (dataType instanceof DeclaredType) {
-                dataType =
-                        ProcessRelevantDataUtil
-                                .getFinalDataType(processRelevantData);
+                dataType = ProcessRelevantDataUtil
+                        .getFinalDataType(processRelevantData);
             }
             if (dataType instanceof RecordType) {
                 RecordType caseRefType = (RecordType) dataType;
@@ -781,12 +797,11 @@ public class CDSUtils {
             }
             if (dataType instanceof ExternalReference) {
                 iScriptRelevantData =
-                        ProcessUtil
-                                .convertToUMLScriptRelevantData((ExternalReference) dataType,
-                                        project,
-                                        ProcessUtil
-                                                .getImage(processRelevantData),
-                                        null);
+                        ProcessUtil.convertToUMLScriptRelevantData(
+                                (ExternalReference) dataType,
+                                project,
+                                ProcessUtil.getImage(processRelevantData),
+                                null);
 
                 /*
                  * XPD-2209: if it is not a uml class and is a primitive type or
@@ -795,8 +810,8 @@ public class CDSUtils {
                 if (null == iScriptRelevantData) {
 
                     ComplexDataTypeReference complexDataTypeRef =
-                            ProcessUtil
-                                    .xpdl2RefToComplexDataTypeRef((ExternalReference) dataType);
+                            ProcessUtil.xpdl2RefToComplexDataTypeRef(
+                                    (ExternalReference) dataType);
 
                     /*
                      * Sid Fixed NPE when field set to External reference type
@@ -804,15 +819,15 @@ public class CDSUtils {
                      */
                     if (complexDataTypeRef != null) {
                         Object object =
-                                ProcessUtil
-                                        .referenceToComplexDataTypeModel(complexDataTypeRef,
-                                                project);
+                                ProcessUtil.referenceToComplexDataTypeModel(
+                                        complexDataTypeRef,
+                                        project);
 
                         if (object instanceof PrimitiveType
                                 || object instanceof Enumeration) {
-                            String basicType =
-                                    ProcessUtil
-                                            .getProcessScriptRelevantDataType(processRelevantData);
+                            String basicType = ProcessUtil
+                                    .getProcessScriptRelevantDataType(
+                                            processRelevantData);
 
                             if (null != basicType && basicType.length() > 0) {
                                 /*
@@ -820,21 +835,21 @@ public class CDSUtils {
                                  * external reference to primitive type then
                                  * resolve it get the actual basic type
                                  */
-                                if (ProcessJsConsts.REFERENCE.equals(basicType)) {
+                                if (ProcessJsConsts.REFERENCE
+                                        .equals(basicType)) {
                                     Object baseType =
                                             BasicTypeConverterFactory.INSTANCE
                                                     .getBaseType(object, true);
 
                                     if (baseType instanceof BasicType) {
-                                        basicType =
-                                                ProcessUtil
-                                                        .getStrType((BasicType) baseType);
+                                        basicType = ProcessUtil.getStrType(
+                                                (BasicType) baseType);
                                     }
                                 }
                                 iScriptRelevantData =
-                                        new DefaultScriptRelevantData(
-                                                basicType, basicType,
-                                                processRelevantData.isIsArray());
+                                        new DefaultScriptRelevantData(basicType,
+                                                basicType, processRelevantData
+                                                        .isIsArray());
                             }
                         }
                     }
@@ -843,12 +858,10 @@ public class CDSUtils {
         }
         // Other Basic Type Fields
         else {
-            String basicType =
-                    ProcessUtil
-                            .getProcessScriptRelevantDataType(processRelevantData);
-            iScriptRelevantData =
-                    new DefaultScriptRelevantData(basicType, basicType,
-                            processRelevantData.isIsArray());
+            String basicType = ProcessUtil
+                    .getProcessScriptRelevantDataType(processRelevantData);
+            iScriptRelevantData = new DefaultScriptRelevantData(basicType,
+                    basicType, processRelevantData.isIsArray());
             IScriptRelevantData resolvedScriptRelevantData =
                     ProcessUtil.resolveBasicTypeToUML(basicType,
                             processRelevantData.isIsArray(),
@@ -856,9 +869,8 @@ public class CDSUtils {
                             CDSUtils.getN2JavaScriptType());
             if (resolvedScriptRelevantData instanceof IUMLScriptRelevantData
                     && iScriptRelevantData instanceof ITypeResolution) {
-                ((ITypeResolution) iScriptRelevantData)
-                        .setTypesResolution(Collections
-                                .singletonList(resolvedScriptRelevantData));
+                ((ITypeResolution) iScriptRelevantData).setTypesResolution(
+                        Collections.singletonList(resolvedScriptRelevantData));
             }
         }
         /*
@@ -866,10 +878,9 @@ public class CDSUtils {
          * ScriptRelevantData
          */
         if (iScriptRelevantData != null) {
-            iScriptRelevantData =
-                    ProcessUtil
-                            .setDetailsToScriptRelevantData(processRelevantData,
-                                    iScriptRelevantData);
+            iScriptRelevantData = ProcessUtil.setDetailsToScriptRelevantData(
+                    processRelevantData,
+                    iScriptRelevantData);
         }
         return iScriptRelevantData;
     }
@@ -1125,16 +1136,17 @@ public class CDSUtils {
                     && !associatedProcessRelevantData.isEmpty()) {
                 Set<String> referencedBomFiles = new HashSet<String>();
                 for (ProcessRelevantData processRelevantData : associatedProcessRelevantData) {
-                    if (processRelevantData != null
-                            && (processRelevantData.getDataType() instanceof ExternalReference || processRelevantData
+                    if (processRelevantData != null && (processRelevantData
+                            .getDataType() instanceof ExternalReference
+                            || processRelevantData
                                     .getDataType() instanceof RecordType)) {
                         ExternalReference externalRef = null;
                         // XPD-3129: Factories should also be available if only
                         // Case Ref types are in scope
-                        if (processRelevantData.getDataType() instanceof RecordType) {
-                            RecordType record =
-                                    (RecordType) processRelevantData
-                                            .getDataType();
+                        if (processRelevantData
+                                .getDataType() instanceof RecordType) {
+                            RecordType record = (RecordType) processRelevantData
+                                    .getDataType();
                             Member member = record.getMember().get(0);
                             externalRef = member.getExternalReference();
 
@@ -1149,17 +1161,17 @@ public class CDSUtils {
                         }
                     }
                 }
-                if (referencedBomFiles != null && !referencedBomFiles.isEmpty()) {
+                if (referencedBomFiles != null
+                        && !referencedBomFiles.isEmpty()) {
                     IProject project = WorkingCopyUtil.getProjectFor(activity);
                     if (project != null) {
                         // Include indirect dependency
-                        Set<IResource> referencedBomResources =
-                                CDSUtils.getReferencedBomResources(referencedBomFiles,
+                        Set<IResource> referencedBomResources = CDSUtils
+                                .getReferencedBomResources(referencedBomFiles,
                                         true,
                                         project);
-                        bomPackages
-                                .addAll(CDSUtils
-                                        .getReferencedBomPackages(referencedBomResources));
+                        bomPackages.addAll(CDSUtils.getReferencedBomPackages(
+                                referencedBomResources));
                     }
                 }
             }
@@ -1169,8 +1181,8 @@ public class CDSUtils {
             }
             if (packaze != null) {
                 com.tibco.xpd.xpdl2.Package xpdlPackage = packaze;
-                bomPackages.addAll(CDSUtils
-                        .getReferencedBomPackages(xpdlPackage));
+                bomPackages
+                        .addAll(CDSUtils.getReferencedBomPackages(xpdlPackage));
             }
         }
         return bomPackages;
@@ -1182,9 +1194,8 @@ public class CDSUtils {
 
         IScriptRelevantData iScriptRelevantData = null;
 
-        String scriptRelevantDataType =
-                ProcessUtil
-                        .getProcessScriptRelevantDataType(processRelevantData);
+        String scriptRelevantDataType = ProcessUtil
+                .getProcessScriptRelevantDataType(processRelevantData);
         if (scriptRelevantDataType == null) {
             return null;
         }
@@ -1197,14 +1208,12 @@ public class CDSUtils {
                 Member member = caseRefType.getMember().get(0);
                 ExternalReference externalReference =
                         member.getExternalReference();
-                iScriptRelevantData =
-                        ProcessUtil
-                                .convertToUMLScriptRelevantData(externalReference,
-                                        project,
-                                        ProcessUtil
-                                                .getImage(processRelevantData),
-                                        ProcessUtil
-                                                .getMultipleClassFromReaders(readers));
+                iScriptRelevantData = ProcessUtil
+                        .convertToUMLScriptRelevantData(externalReference,
+                                project,
+                                ProcessUtil.getImage(processRelevantData),
+                                ProcessUtil
+                                        .getMultipleClassFromReaders(readers));
             }
         }
 
@@ -1222,13 +1231,11 @@ public class CDSUtils {
             ComplexDataTypeReference complexDataTypeRef =
                     ProcessUtil.xpdl2RefToComplexDataTypeRef(extRef);
             if (null != project && null != complexDataTypeRef) {
-                umlClass =
-                        ProcessUtil.getComplexDataTypeModel(complexDataTypeRef,
-                                project);
+                umlClass = ProcessUtil
+                        .getComplexDataTypeModel(complexDataTypeRef, project);
                 if (null != umlClass) {
-                    caseUMLScriptRelevantData =
-                            JScriptUtils
-                                    .convertToCaseUMLScriptRelevantData(umlClass);
+                    caseUMLScriptRelevantData = JScriptUtils
+                            .convertToCaseUMLScriptRelevantData(umlClass);
                 }
             }
         }
@@ -1237,7 +1244,8 @@ public class CDSUtils {
     }
 
     public static IUMLScriptRelevantData convertToUMLScriptRelevantData(
-            ExternalReference extRef, IProject project, String specialFolderKind) {
+            ExternalReference extRef, IProject project,
+            String specialFolderKind) {
 
         IUMLScriptRelevantData scriptRelevantData = null;
         Class umlClass = null;
@@ -1253,10 +1261,8 @@ public class CDSUtils {
                 if (null != umlClass) {
                     UmlJsonSchemaLabelProvider lp =
                             new UmlJsonSchemaLabelProvider();
-                    scriptRelevantData =
-                            JScriptUtils
-                                    .convertToUMLScriptRelevantData(umlClass,
-                                            lp);
+                    scriptRelevantData = JScriptUtils
+                            .convertToUMLScriptRelevantData(umlClass, lp);
                 }
             }
         }

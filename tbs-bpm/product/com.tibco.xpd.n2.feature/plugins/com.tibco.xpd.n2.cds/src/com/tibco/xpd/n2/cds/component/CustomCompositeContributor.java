@@ -41,7 +41,6 @@ import com.tibco.xpd.n2.cds.customfeature.CustomFeatureEnum;
 import com.tibco.xpd.n2.cds.customfeature.CustomFeatureManager;
 import com.tibco.xpd.n2.cds.internal.Messages;
 import com.tibco.xpd.n2.cds.utils.CDSCustomFeatureUtils;
-import com.tibco.xpd.n2.scriptdescriptor.ScriptDescriptorGenerator;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.util.ProjectUtil;
 import com.tibco.xpd.resources.util.SubProgressMonitorEx;
@@ -55,8 +54,8 @@ import com.tibco.xpd.resources.util.SubProgressMonitorEx;
  * @author patkinso
  * @since 18 Jan 2013
  */
-public class CustomCompositeContributor extends CompositeContributor implements
-        ICustomCompositeContributor {
+public class CustomCompositeContributor extends CompositeContributor
+        implements ICustomCompositeContributor {
 
     /**
      * @see com.tibco.xpd.daa.ICustomCompositeContributor#getCustomFeatureIds(org.eclipse.core.resources.IProject)
@@ -76,22 +75,12 @@ public class CustomCompositeContributor extends CompositeContributor implements
      * sure last '_' is caught.
      */
 
-    /**
-     * @param project
-     * @param stagingFolder
-     * @param timeStamp
+    /*
+     * Sid ACE-122 no need to add script descritptors to DAA any more because
+     * there are no BOM-specific JS classes any more.
+     * 
+     * Removed generateScriptDescriptors() function
      */
-    private void generateScriptDescriptors(IProject project,
-            IFolder stagingFolder, String timeStamp) {
-
-        ScriptDescriptorGenerator.getInstance()
-                .generateScriptDescriptor(project, stagingFolder, timeStamp);
-
-        /*
-         * BDSScriptDescriptorGenerator .getInstance()
-         * .generateScriptDescriptor(project, stagingFolder, timeStamp);
-         */
-    }
 
     /**
      * Replaces qualifier for all plug-ins projects participating in the BPM
@@ -114,7 +103,9 @@ public class CustomCompositeContributor extends CompositeContributor implements
              * replacing all plug-in version qualifier with TS for user
              * generated & wsdl generated BOM(s)
              */
-            replaceCDSBundlesQualifierWithTS(project, timeStamp, changeRecorder);
+            replaceCDSBundlesQualifierWithTS(project,
+                    timeStamp,
+                    changeRecorder);
 
             /*
              * XPD-7262 - Forms feature is returning to use of BOM JS custom
@@ -153,10 +144,8 @@ public class CustomCompositeContributor extends CompositeContributor implements
     public IStatus prepareProject(IProject procOrGlobalBOMProject,
             IProgressMonitor monitor) {
 
-        IStatus status =
-                CDSCustomFeatureUtils
-                        .runOnDemandBdsGenerators(procOrGlobalBOMProject,
-                                monitor);
+        IStatus status = CDSCustomFeatureUtils
+                .runOnDemandBdsGenerators(procOrGlobalBOMProject, monitor);
         if (Status.OK != status.getSeverity()) {
 
             return status;
@@ -182,7 +171,8 @@ public class CustomCompositeContributor extends CompositeContributor implements
                  * get all BOM resources for specified project
                  */
                 Set<IFile> bomResources = getAllBomFiles(project);
-                monitor.beginTask(Messages.CDSCompositeContributor_CheckingSourceBoms_message,
+                monitor.beginTask(
+                        Messages.CDSCompositeContributor_CheckingSourceBoms_message,
                         bomResources.size() + 1);
 
                 /*
@@ -198,18 +188,16 @@ public class CustomCompositeContributor extends CompositeContributor implements
                      */
                     if (!BOMGlobalDataUtils.hasCaseDataInProject(project)) {
 
-                        allGeneratorIDs =
-                                Collections
-                                        .<String> singleton(CDSCustomFeatureUtils.BOM_CDS_GENERATOR_ID);
+                        allGeneratorIDs = Collections.<String> singleton(
+                                CDSCustomFeatureUtils.BOM_CDS_GENERATOR_ID);
                     }
                 } else {
                     /*
                      * It is not a global data bom project, then we need only
                      * bds generator id
                      */
-                    allGeneratorIDs =
-                            Collections
-                                    .<String> singleton(CDSCustomFeatureUtils.BOM_CDS_GENERATOR_ID);
+                    allGeneratorIDs = Collections.<String> singleton(
+                            CDSCustomFeatureUtils.BOM_CDS_GENERATOR_ID);
                 }
 
                 BOMGenerator2ExtensionHelper genHelper =
@@ -233,10 +221,10 @@ public class CustomCompositeContributor extends CompositeContributor implements
 
                                 LOG.info("Expected project " + proj.getName() //$NON-NLS-1$
                                         + " not found in the workspace"); //$NON-NLS-1$
-                                return new Status(
-                                        IStatus.ERROR,
+                                return new Status(IStatus.ERROR,
                                         CDSActivator.PLUGIN_ID,
-                                        String.format(Messages.CDSCompositeContributor_BDSProjectsMissing_error_message_2,
+                                        String.format(
+                                                Messages.CDSCompositeContributor_BDSProjectsMissing_error_message_2,
                                                 proj.getName()));
                             }
                         }
@@ -277,11 +265,11 @@ public class CustomCompositeContributor extends CompositeContributor implements
      * @param changeRecorder
      */
     private static void replaceBundlesQualifierWithTS(IProject project,
-            String projectType, String timeStamp, IChangeRecorder changeRecorder) {
+            String projectType, String timeStamp,
+            IChangeRecorder changeRecorder) {
 
-        Map<String, String> generatedProjectsFromBOM =
-                CDSCustomFeatureUtils.getGeneratedProjectsFromBOM(project,
-                        projectType);
+        Map<String, String> generatedProjectsFromBOM = CDSCustomFeatureUtils
+                .getGeneratedProjectsFromBOM(project, projectType);
 
         if (generatedProjectsFromBOM.size() > 0) {
 
@@ -289,10 +277,9 @@ public class CustomCompositeContributor extends CompositeContributor implements
 
             for (String generatedPluginId : generatedPluginIds) {
 
-                IProject emfProject =
-                        DAANamingUtils
-                                .getProjectWithName(DAANamingUtils
-                                        .getGeneratedEMFPlugProjectName(generatedPluginId));
+                IProject emfProject = DAANamingUtils.getProjectWithName(
+                        DAANamingUtils.getGeneratedEMFPlugProjectName(
+                                generatedPluginId));
 
                 if (emfProject == null || !emfProject.isAccessible()) {
                     continue;
@@ -310,18 +297,18 @@ public class CustomCompositeContributor extends CompositeContributor implements
 
                     String buildVersionTimeStamp =
                             BOMUtils.getBuildVersionTimeStamp(srcBOMProject);
-                    PluginManifestHelper
-                            .replaceBundleManifestQualifierWithTS(emfProject,
-                                    buildVersionTimeStamp,
-                                    Boolean.TRUE,
-                                    changeRecorder);
+                    PluginManifestHelper.replaceBundleManifestQualifierWithTS(
+                            emfProject,
+                            buildVersionTimeStamp,
+                            Boolean.TRUE,
+                            changeRecorder);
                 } else {
 
-                    PluginManifestHelper
-                            .replaceBundleManifestQualifierWithTS(emfProject,
-                                    timeStamp,
-                                    Boolean.TRUE,
-                                    changeRecorder);
+                    PluginManifestHelper.replaceBundleManifestQualifierWithTS(
+                            emfProject,
+                            timeStamp,
+                            Boolean.TRUE,
+                            changeRecorder);
                 }
             }
         }
@@ -340,12 +327,10 @@ public class CustomCompositeContributor extends CompositeContributor implements
         try {
             if (emfProject.getName().endsWith(".bds")) { //$NON-NLS-1$
 
-                String persistentProperty =
-                        emfProject
-                                .getPersistentProperty(CustomFeatureManager.SRC_FILE);
-                IFile srcFile =
-                        ResourcesPlugin.getWorkspace().getRoot()
-                                .getFile(new Path(persistentProperty));
+                String persistentProperty = emfProject
+                        .getPersistentProperty(CustomFeatureManager.SRC_FILE);
+                IFile srcFile = ResourcesPlugin.getWorkspace().getRoot()
+                        .getFile(new Path(persistentProperty));
                 IProject srcBOMProject = srcFile.getProject();
                 return srcBOMProject;
             }
@@ -384,13 +369,20 @@ public class CustomCompositeContributor extends CompositeContributor implements
 
         long beforeTimeMillis = System.currentTimeMillis();
 
-        monitor.beginTask(Messages.CDSCompositeContributor_AddingRuntimeBundles_message,
+        monitor.beginTask(
+                Messages.CDSCompositeContributor_AddingRuntimeBundles_message,
                 100);
 
         if (stagingArea instanceof IFolder) {
             IFolder stagingFolder = (IFolder) stagingArea;
 
-            generateScriptDescriptors(project, stagingFolder, timeStamp);
+            /*
+             * Sid ACE-122 no need to add script descritptors to DAA any more
+             * because there are no BOM-specific JS classes any more.
+             * 
+             * Removed generateScriptDescriptors() function
+             */
+
             try {
                 if (DAAGenPreferences.shouldCacheBomJars()) {
 
@@ -434,31 +426,30 @@ public class CustomCompositeContributor extends CompositeContributor implements
                                     .getProjectsToBuild(project, pluginProjects)
                                     .isEmpty()) {
 
-                                CustomFeatureManager
-                                        .buildProjectsIntoCache(monitor,
-                                                project,
-                                                stagingFolder,
-                                                pluginProjects);
+                                CustomFeatureManager.buildProjectsIntoCache(
+                                        monitor,
+                                        project,
+                                        stagingFolder,
+                                        pluginProjects);
                             }
 
                         }
                     }
                     IFolder stagingCustFeatureFolder =
-                            CustomFeatureManager
-                                    .stageCustomFeatureJars(project,
-                                            pluginProjects,
-                                            stagingFolder,
-                                            timeStamp,
-                                            SubProgressMonitorEx
-                                                    .createMainProgressMonitor(monitor,
-                                                            90));
+                            CustomFeatureManager.stageCustomFeatureJars(project,
+                                    pluginProjects,
+                                    stagingFolder,
+                                    timeStamp,
+                                    SubProgressMonitorEx
+                                            .createMainProgressMonitor(monitor,
+                                                    90));
 
                     // features
                     // (P/{bom-proj}/.bpm/customfeatures/features)
-                    CustomFeatureManager
-                            .generateCustomFeaturesWhenJarsCached(project,
-                                    timeStamp,
-                                    stagingCustFeatureFolder);
+                    CustomFeatureManager.generateCustomFeaturesWhenJarsCached(
+                            project,
+                            timeStamp,
+                            stagingCustFeatureFolder);
 
                     if (monitor.isCanceled()) {
                         return Status.CANCEL_STATUS;
@@ -484,10 +475,10 @@ public class CustomCompositeContributor extends CompositeContributor implements
                     }
                     monitor.worked(50);
 
-                    CustomFeatureManager
-                            .generateCustomFeaturesWhenJarsCacheOff(project,
-                                    timeStamp,
-                                    stagingFolder);
+                    CustomFeatureManager.generateCustomFeaturesWhenJarsCacheOff(
+                            project,
+                            timeStamp,
+                            stagingFolder);
 
                     monitor.worked(50);
                 }
@@ -567,15 +558,14 @@ public class CustomCompositeContributor extends CompositeContributor implements
     private void replaceJavaServicePluginQualifierWithTS(IProject project,
             String timeStamp, IChangeRecorder changeRecorder) {
 
-        Set<IProject> javaServicePlugins =
-                CDSCustomFeatureUtils
-                        .getAllReferencedJavaServicePlugins(project);
+        Set<IProject> javaServicePlugins = CDSCustomFeatureUtils
+                .getAllReferencedJavaServicePlugins(project);
         for (IProject eachReferencedProject : javaServicePlugins) {
-            PluginManifestHelper
-                    .replaceBundleManifestQualifierWithTS(eachReferencedProject,
-                            timeStamp,
-                            Boolean.TRUE,
-                            changeRecorder);
+            PluginManifestHelper.replaceBundleManifestQualifierWithTS(
+                    eachReferencedProject,
+                    timeStamp,
+                    Boolean.TRUE,
+                    changeRecorder);
         }
     }
 

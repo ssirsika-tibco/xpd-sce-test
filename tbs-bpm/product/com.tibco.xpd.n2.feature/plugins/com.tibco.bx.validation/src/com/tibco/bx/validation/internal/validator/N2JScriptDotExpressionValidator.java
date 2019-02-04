@@ -20,12 +20,6 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 
-import antlr.Token;
-
-import com.tibco.bds.designtime.api.BDSAPI;
-import com.tibco.bds.designtime.api.exception.DQLValidationException;
-import com.tibco.bds.designtime.api.validation.ValidationResult;
-import com.tibco.bx.validation.BxValidationPlugin;
 import com.tibco.bx.validation.internal.Messages;
 import com.tibco.xpd.bom.types.PrimitivesUtil;
 import com.tibco.xpd.bom.xsdtransform.XsdStereotypeUtils;
@@ -64,6 +58,8 @@ import com.tibco.xpd.xpdl2.Activity;
 import com.tibco.xpd.xpdl2.Process;
 import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
 
+import antlr.Token;
+
 /**
  * @author mtorres
  * 
@@ -72,8 +68,8 @@ import com.tibco.xpd.xpdl2.util.Xpdl2ModelUtil;
  *         FactoryClass.method(""); ie: field.method("");
  * 
  */
-public class N2JScriptDotExpressionValidator extends
-        JScriptDotExpressionValidator {
+public class N2JScriptDotExpressionValidator
+        extends JScriptDotExpressionValidator {
 
     /**
      * auditLog method name on Process java script class from PEJavaScript.uml
@@ -154,12 +150,15 @@ public class N2JScriptDotExpressionValidator extends
 
                 if (JsConsts.DQL_STRING.equals(methodParams[i].getType())) {
 
-                    /* validate the DQL String. this calls BDS API to validate */
+                    /*
+                     * validate the DQL String. this calls BDS API to validate
+                     */
                     handleDQLStringCase(currentGenericContext,
                             matchMethod,
                             token,
                             actualParamNames[i]);
-                } else if (JsConsts.CRITERIA.equals(methodParams[i].getType())) {
+                } else if (JsConsts.CRITERIA
+                        .equals(methodParams[i].getType())) {
                     /*
                      * XPD-5976: validate the correct criteria context for
                      * expected param and actual param (currentGenericContext
@@ -253,16 +252,16 @@ public class N2JScriptDotExpressionValidator extends
             if (!expectedCaseClassContext
                     .equals(actualPassedInCaseClassContext)) {
 
-                String errMsg =
-                        new String(
-                                Messages.N2JScriptDotExpressionValidator_InvalidCriteriaParameterMsg);
+                String errMsg = new String(
+                        Messages.N2JScriptDotExpressionValidator_InvalidCriteriaParameterMsg);
                 List<String> additionalAttributes = new ArrayList<String>();
                 /* passed in parameter context */
-                additionalAttributes.add(actualPassedInCaseClassContext
-                        .getName() + JsConsts.CRITERIA);
+                additionalAttributes
+                        .add(actualPassedInCaseClassContext.getName()
+                                + JsConsts.CRITERIA);
                 /* expected parameter context */
-                additionalAttributes.add(expectedCaseClassContext.getName()
-                        + JsConsts.CRITERIA);
+                additionalAttributes.add(
+                        expectedCaseClassContext.getName() + JsConsts.CRITERIA);
 
                 addErrorMessage(token, errMsg, additionalAttributes);
             }
@@ -348,53 +347,62 @@ public class N2JScriptDotExpressionValidator extends
             String dqlQuery) {
 
         if (null != contextCaseClass) {
+            /**
+             * SID ACE-122 - we are removing com.tibco.bds.designtime.feature as
+             * it is mainly for unsupported things in ACE. DQL 9case data queery
+             * language will survive in some form BUT will be very different and
+             * much more simple. I've spoken to Joshy and Simon and they have
+             * agreed that this will be the case. Thereore commenting this peice
+             * out and throwing an exception so that we can come back later and
+             * replace with something else.
+             */
+            throw new RuntimeException(
+                    "SCE: DQL Query string validation requires port to new DQL language."); //$NON-NLS-1$
 
-            try {
-
-                List<ValidationResult> validateDQL =
-                        BDSAPI.validateDQL(contextCaseClass, dqlQuery);
-
-                if (!validateDQL.isEmpty()) {
-
-                    for (ValidationResult validationResult : validateDQL) {
-
-                        List<ValidationResult> errors =
-                                validationResult.getErrors(validateDQL);
-                        if (!errors.isEmpty()) {
-
-                            for (ValidationResult err : errors) {
-
-                                StringBuffer errMsg =
-                                        new StringBuffer(
-                                                Messages.N2JScriptDotExpressionValidator_InvalidDQLQueryStringMsg);
-                                errMsg.append(err.getMessage());
-                                addErrorMessage(token, errMsg.toString());
-                            }
-                        }
-
-                        List<ValidationResult> warnings =
-                                validationResult.getWarnings(validateDQL);
-                        if (errors.isEmpty() && !warnings.isEmpty()) {
-
-                            for (ValidationResult warn : warnings) {
-
-                                StringBuffer warningMsg =
-                                        new StringBuffer(
-                                                Messages.N2JScriptDotExpressionValidator_DQLQueryWarningMsg);
-                                warningMsg.append(warn.getMessage());
-                                addWarningMessage(token, warningMsg.toString());
-                            }
-                        }
-                    }
-                }
-            } catch (DQLValidationException e) {
-
-                BxValidationPlugin.getDefault().getLogger()
-                        .error(e.getMessage());
-                String errMsg =
-                        Messages.N2JScriptDotExpressionValidator_ErrorValidatingDQLQueryString;
-                addErrorMessage(token, errMsg);
-            }
+            // try {
+            //
+            // List<ValidationResult> validateDQL =
+            // BDSAPI.validateDQL(contextCaseClass, dqlQuery);
+            //
+            // if (!validateDQL.isEmpty()) {
+            //
+            // for (ValidationResult validationResult : validateDQL) {
+            //
+            // List<ValidationResult> errors =
+            // validationResult.getErrors(validateDQL);
+            // if (!errors.isEmpty()) {
+            //
+            // for (ValidationResult err : errors) {
+            //
+            // StringBuffer errMsg = new StringBuffer(
+            // Messages.N2JScriptDotExpressionValidator_InvalidDQLQueryStringMsg);
+            // errMsg.append(err.getMessage());
+            // addErrorMessage(token, errMsg.toString());
+            // }
+            // }
+            //
+            // List<ValidationResult> warnings =
+            // validationResult.getWarnings(validateDQL);
+            // if (errors.isEmpty() && !warnings.isEmpty()) {
+            //
+            // for (ValidationResult warn : warnings) {
+            //
+            // StringBuffer warningMsg = new StringBuffer(
+            // Messages.N2JScriptDotExpressionValidator_DQLQueryWarningMsg);
+            // warningMsg.append(warn.getMessage());
+            // addWarningMessage(token, warningMsg.toString());
+            // }
+            // }
+            // }
+            // }
+            // } catch (DQLValidationException e) {
+            //
+            // BxValidationPlugin.getDefault().getLogger()
+            // .error(e.getMessage());
+            // String errMsg =
+            // Messages.N2JScriptDotExpressionValidator_ErrorValidatingDQLQueryString;
+            // addErrorMessage(token, errMsg);
+            // }
         }
     }
 
@@ -416,9 +424,8 @@ public class N2JScriptDotExpressionValidator extends
                     ((IUMLScriptRelevantData) resolvedType).getJsClass();
             if (jsClass instanceof CaseAccessJsClass) {
 
-                caseClass =
-                        ((CaseAccessJsClass) jsClass).getCaseRefJsClass()
-                                .getUmlClass();
+                caseClass = ((CaseAccessJsClass) jsClass).getCaseRefJsClass()
+                        .getUmlClass();
             } else if (jsClass instanceof CaseRefJsClass) {
 
                 caseClass = ((CaseRefJsClass) jsClass).getUmlClass();
@@ -432,25 +439,23 @@ public class N2JScriptDotExpressionValidator extends
         String dataType = null;
         if (jsAttribute != null) {
             dataType = JScriptUtils.getJsAttributeBaseDataType(jsAttribute);
-            if (dataType != null
-                    && (dataType.equals(JsConsts.INTEGER) || dataType
-                            .equals(JsConsts.DECIMAL))) {
+            if (dataType != null && (dataType.equals(JsConsts.INTEGER)
+                    || dataType.equals(JsConsts.DECIMAL))) {
                 if (jsAttribute instanceof IUMLElement) {
                     Element element = ((IUMLElement) jsAttribute).getElement();
                     if (element instanceof Property) {
                         Property property = (Property) element;
                         if (property.getType() instanceof PrimitiveType) {
                             PrimitiveType basePrimitiveType =
-                                    PrimitivesUtil
-                                            .getBasePrimitiveType((PrimitiveType) property
-                                                    .getType());
+                                    PrimitivesUtil.getBasePrimitiveType(
+                                            (PrimitiveType) property.getType());
                             if (dataType.equals(JsConsts.INTEGER)) {
                                 Object facetPropertyValue =
-                                        PrimitivesUtil
-                                                .getFacetPropertyValue((PrimitiveType) property
+                                        PrimitivesUtil.getFacetPropertyValue(
+                                                (PrimitiveType) property
                                                         .getType(),
-                                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
-                                                        property);
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_INTEGER_SUBTYPE,
+                                                property);
                                 if (facetPropertyValue instanceof EnumerationLiteral
                                         && PrimitivesUtil.INTEGER_SUBTYPE_FIXEDLENGTH
                                                 .equals((((EnumerationLiteral) facetPropertyValue)
@@ -459,11 +464,11 @@ public class N2JScriptDotExpressionValidator extends
                                 }
                             } else if (dataType.equals(JsConsts.DECIMAL)) {
                                 Object facetPropertyValue =
-                                        PrimitivesUtil
-                                                .getFacetPropertyValue((PrimitiveType) property
+                                        PrimitivesUtil.getFacetPropertyValue(
+                                                (PrimitiveType) property
                                                         .getType(),
-                                                        PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
-                                                        property);
+                                                PrimitivesUtil.BOM_PRIMITIVE_FACET_DECIMAL_SUBTYPE,
+                                                property);
                                 if (facetPropertyValue instanceof EnumerationLiteral
                                         && PrimitivesUtil.DECIMAL_SUBTYPE_FIXEDPOINT
                                                 .equals((((EnumerationLiteral) facetPropertyValue)
@@ -490,7 +495,8 @@ public class N2JScriptDotExpressionValidator extends
 
                 List<JsClass> supportedJsClasses =
                         getSupportedJsClasses(getInfoObject());
-                if (JScriptUtils.isDynamicComplexType(type, supportedJsClasses)) {
+                if (JScriptUtils.isDynamicComplexType(type,
+                        supportedJsClasses)) {
 
                     if (!(type instanceof CaseUMLScriptRelevantData)) {
 
@@ -521,7 +527,8 @@ public class N2JScriptDotExpressionValidator extends
                         if (methodName.equals("split")) {//$NON-NLS-1$
                             return false;
                         }
-                    } else if (genericType.equals(JsConsts.REGULAR_EXPRESSION)) {
+                    } else if (genericType
+                            .equals(JsConsts.REGULAR_EXPRESSION)) {
                         if (methodName.equals("exec")) {//$NON-NLS-1$
                             return false;
                         }
@@ -540,8 +547,8 @@ public class N2JScriptDotExpressionValidator extends
                             EObject input = getInput(getInfoObject());
                             Process process = Xpdl2ModelUtil.getProcess(input);
                             if (Xpdl2ModelUtil.isPageflow(process)
-                                    || Xpdl2ModelUtil
-                                            .isPageflowBusinessService(process)) {
+                                    || Xpdl2ModelUtil.isPageflowBusinessService(
+                                            process)) {
 
                                 String message =
                                         Messages.N2JScriptDotExpressionValidator_ProcessAuditLogMethodContext_message;
@@ -552,7 +559,8 @@ public class N2JScriptDotExpressionValidator extends
                                         message,
                                         additionalAttributes);
 
-                            } else if (Xpdl2ModelUtil.isServiceProcess(process)) {
+                            } else if (Xpdl2ModelUtil
+                                    .isServiceProcess(process)) {
                                 /*
                                  * Sid XPD-8271: Warn that Process.auditLog() is
                                  * not available in serviec process scripts.
@@ -573,15 +581,14 @@ public class N2JScriptDotExpressionValidator extends
                 }
             }
         }
-        if (methodName != null
-                && methodName
-                        .equals(ADD_ACTIVITY_LOOP_ADDITIONAL_INSTANCES_METHOD)) {
+        if (methodName != null && methodName
+                .equals(ADD_ACTIVITY_LOOP_ADDITIONAL_INSTANCES_METHOD)) {
             validateAddActivityLoopAdditionalInstancesMethod(methodName,
                     token,
                     parameters);
         } else if (methodName != null
-                && (methodName.equals(GETCONTEXTVARIABLE_METHOD) || methodName
-                        .equals(SETCONTEXTVARIABLE_METHOD))) {
+                && (methodName.equals(GETCONTEXTVARIABLE_METHOD)
+                        || methodName.equals(SETCONTEXTVARIABLE_METHOD))) {
             if (getInput(getInfoObject()) != null) {
                 Process process =
                         Xpdl2ModelUtil.getProcess(getInput(getInfoObject()));
@@ -642,9 +649,8 @@ public class N2JScriptDotExpressionValidator extends
                 addWarningMessage(token, message, additionalAttributes);
                 return;
             } else {
-                Activity activityByName =
-                        Xpdl2ModelUtil.getActivityByName(process,
-                                targetActivity);
+                Activity activityByName = Xpdl2ModelUtil
+                        .getActivityByName(process, targetActivity);
                 if (activityByName == null) {
                     String message =
                             Messages.N2JScriptDotExpressionValidator_TargetActivityDoesNotExist;
@@ -694,8 +700,8 @@ public class N2JScriptDotExpressionValidator extends
                                         .getGenericContextType();
                         if (genericContextType != null) {
 
-                            if (!genericContextType.isArray()
-                                    && CDSUtils.isBDSObject(genericContextType)) {
+                            if (!genericContextType.isArray() && CDSUtils
+                                    .isBDSObject(genericContextType)) {
 
                                 return true;
                             }
@@ -745,16 +751,16 @@ public class N2JScriptDotExpressionValidator extends
                         IScriptRelevantData scriptRelevantData =
                                 parameters.get(key);
                         if (scriptRelevantData != null) {
-                            if (JScriptUtils.isGenericType(scriptRelevantData
-                                    .getType())) {
+                            if (JScriptUtils.isGenericType(
+                                    scriptRelevantData.getType())) {
                                 if (scriptRelevantData instanceof ITypeResolution) {
                                     IScriptRelevantData genericContextType =
                                             ((ITypeResolution) scriptRelevantData)
                                                     .getGenericContextType();
                                     if (genericContextType != null) {
                                         if (!genericContextType.isArray()
-                                                && CDSUtils
-                                                        .isBDSObject(genericContextType)) {
+                                                && CDSUtils.isBDSObject(
+                                                        genericContextType)) {
                                             return genericContextType;
                                         }
                                     }
@@ -785,21 +791,20 @@ public class N2JScriptDotExpressionValidator extends
                                     if (scriptRelevantDataType instanceof IUMLScriptRelevantData) {
                                         IUMLScriptRelevantData umlScriptRelevantData =
                                                 (IUMLScriptRelevantData) scriptRelevantDataType;
-                                        JsClass jsClass =
-                                                umlScriptRelevantData
-                                                        .getJsClass();
-                                        if (jsClass != null
-                                                && jsClass.getUmlClass() != null) {
+                                        JsClass jsClass = umlScriptRelevantData
+                                                .getJsClass();
+                                        if (jsClass != null && jsClass
+                                                .getUmlClass() != null) {
                                             String qualifiedName =
                                                     jsClass.getUmlClass()
                                                             .getQualifiedName();
                                             if (qualifiedName != null) {
-                                                String umlName =
-                                                        qualifiedName
-                                                                .replace("::", "."); //$NON-NLS-1$//$NON-NLS-2$
-                                                if (contextType.equals(umlName)) {
-                                                    return createUMLScriptRelevantData(jsClass
-                                                            .getName(),
+                                                String umlName = qualifiedName
+                                                        .replace("::", "."); //$NON-NLS-1$//$NON-NLS-2$
+                                                if (contextType
+                                                        .equals(umlName)) {
+                                                    return createUMLScriptRelevantData(
+                                                            jsClass.getName(),
                                                             false,
                                                             jsClass.getUmlClass(),
                                                             null,
@@ -820,10 +825,10 @@ public class N2JScriptDotExpressionValidator extends
                         null);
             }
         }
-        return super
-                .getCurrentSpecialGenericContextForMethod(currentGenericContext,
-                        mathMethod,
-                        parameters);
+        return super.getCurrentSpecialGenericContextForMethod(
+                currentGenericContext,
+                mathMethod,
+                parameters);
     }
 
     @Override
@@ -887,9 +892,8 @@ public class N2JScriptDotExpressionValidator extends
 
             if (lhsDataType instanceof DefaultScriptRelevantData) {
 
-                typeCoercionCriteria =
-                        ((DefaultScriptRelevantData) lhsDataType)
-                                .getParamCoercionCriteria();
+                typeCoercionCriteria = ((DefaultScriptRelevantData) lhsDataType)
+                        .getParamCoercionCriteria();
             }
 
             if (typeCoercionCriteria != null) {
@@ -921,9 +925,8 @@ public class N2JScriptDotExpressionValidator extends
                         boolean lhsSubTypeOfRhs =
                                 JScriptUtils.isSubType(lhsCaseRefUmlClass,
                                         rhsCaseRefUmlClass);
-                        if (lhsSubTypeOfRhs
-                                || lhsCaseRefUmlClass
-                                        .equals(rhsCaseRefUmlClass)) {
+                        if (lhsSubTypeOfRhs || lhsCaseRefUmlClass
+                                .equals(rhsCaseRefUmlClass)) {
 
                             return true;
                         }
@@ -938,9 +941,8 @@ public class N2JScriptDotExpressionValidator extends
                         boolean rhsSubTypeOfLhs =
                                 JScriptUtils.isSubType(rhsCaseRefUmlClass,
                                         lhsCaseRefUmlClass);
-                        if (rhsSubTypeOfLhs
-                                || lhsCaseRefUmlClass
-                                        .equals(rhsCaseRefUmlClass)) {
+                        if (rhsSubTypeOfLhs || lhsCaseRefUmlClass
+                                .equals(rhsCaseRefUmlClass)) {
 
                             return true;
                         }
@@ -996,7 +998,8 @@ public class N2JScriptDotExpressionValidator extends
 
             if (srd instanceof DefaultScriptRelevantData) {
 
-                if (((DefaultScriptRelevantData) srd).getExtendedInfo() instanceof JsMethodParam) {
+                if (((DefaultScriptRelevantData) srd)
+                        .getExtendedInfo() instanceof JsMethodParam) {
 
                     return true;
                 }
@@ -1170,12 +1173,11 @@ public class N2JScriptDotExpressionValidator extends
                     if (dataTypeMapper instanceof IJScriptDataTypeMapper) {
                         IJScriptDataTypeMapper jsDataTypeMapper =
                                 (IJScriptDataTypeMapper) dataTypeMapper;
+                        compatibleAssignmentOperatorTypesMap = jsDataTypeMapper
+                                .getCompatibleAssignmentTypesMap();
                         compatibleAssignmentOperatorTypesMap =
-                                jsDataTypeMapper
-                                        .getCompatibleAssignmentTypesMap();
-                        compatibleAssignmentOperatorTypesMap =
-                                jsDataTypeMapper
-                                        .convertSpecificMapToGeneric(compatibleAssignmentOperatorTypesMap);
+                                jsDataTypeMapper.convertSpecificMapToGeneric(
+                                        compatibleAssignmentOperatorTypesMap);
                     }
                     if (compatibleAssignmentOperatorTypesMap != null) {
                         Set<String> compatibleEqualityOperatorSet =
@@ -1183,16 +1185,16 @@ public class N2JScriptDotExpressionValidator extends
                                         .get(rhsTypeStr);
                         if (compatibleEqualityOperatorSet != null
                                 && compatibleEqualityOperatorSet
-                                        .contains(JScriptUtils
-                                                .getFQType(basePrimitiveType))) {
+                                        .contains(JScriptUtils.getFQType(
+                                                basePrimitiveType))) {
                             return true;
                         }
                     }
 
                 } else if (memberDataType instanceof Enumeration) {
 
-                    if (!JsConsts.UNDEFINED_DATA_TYPE.equals(rhsDataType
-                            .getType())) {
+                    if (!JsConsts.UNDEFINED_DATA_TYPE
+                            .equals(rhsDataType.getType())) {
 
                         String memberDataTypeStr =
                                 JScriptUtils.getFQType(memberDataType);
@@ -1284,11 +1286,9 @@ public class N2JScriptDotExpressionValidator extends
 
                         if (defaultCDSMultipleClass.getName()
                                 .equals(paramClass.getName())
-                                && defaultCDSMultipleClass
-                                        .getPackage()
-                                        .getName()
-                                        .equals(paramClass.getPackage()
-                                                .getName())) {
+                                && defaultCDSMultipleClass.getPackage()
+                                        .getName().equals(paramClass
+                                                .getPackage().getName())) {
 
                             return true;
                         }
@@ -1299,15 +1299,14 @@ public class N2JScriptDotExpressionValidator extends
                             CDSUtils.getDefaultCDSPaginatedMultipleClass();
 
                     if (defaultCDSPaginatedMultipleClass != null
-                            && defaultCDSPaginatedMultipleClass.getPackage() != null) {
+                            && defaultCDSPaginatedMultipleClass
+                                    .getPackage() != null) {
 
                         if (defaultCDSPaginatedMultipleClass.getName()
                                 .equals(paramClass.getName())
-                                && defaultCDSPaginatedMultipleClass
-                                        .getPackage()
-                                        .getName()
-                                        .equals(paramClass.getPackage()
-                                                .getName())) {
+                                && defaultCDSPaginatedMultipleClass.getPackage()
+                                        .getName().equals(paramClass
+                                                .getPackage().getName())) {
 
                             return true;
                         }
@@ -1354,15 +1353,16 @@ public class N2JScriptDotExpressionValidator extends
                         Class bomClass = (Class) element;
 
                         Stereotype abstractStereotype =
-                                bomClass.getAppliedStereotype(XsdStereotypeUtils.XSD_NOTATION_PROFILE_NAME
-                                        + "::" //$NON-NLS-1$
-                                        + XsdStereotypeUtils.XSD_BASED_CLASS);
+                                bomClass.getAppliedStereotype(
+                                        XsdStereotypeUtils.XSD_NOTATION_PROFILE_NAME
+                                                + "::" //$NON-NLS-1$
+                                                + XsdStereotypeUtils.XSD_BASED_CLASS);
                         if (abstractStereotype != null) {
 
                             Boolean stereoTypeVal =
-                                    Boolean.valueOf((String) (bomClass
-                                            .getValue(abstractStereotype,
-                                                    XsdStereotypeUtils.XSD_PROPERTY_ABSTRACT)));
+                                    Boolean.valueOf((String) (bomClass.getValue(
+                                            abstractStereotype,
+                                            XsdStereotypeUtils.XSD_PROPERTY_ABSTRACT)));
 
                             return stereoTypeVal;
                         }

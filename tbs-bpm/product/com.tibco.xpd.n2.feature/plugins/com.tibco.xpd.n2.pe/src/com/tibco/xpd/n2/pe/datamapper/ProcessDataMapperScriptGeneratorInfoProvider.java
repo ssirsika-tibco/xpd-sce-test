@@ -8,12 +8,13 @@ import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PrimitiveType;
 
+import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.BasicTypeConverterFactory;
 import com.tibco.xpd.bom.modeler.custom.enumlitext.util.EnumLitValueUtil;
 import com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider;
-import com.tibco.xpd.n2.scriptdescriptor.ScriptDescriptorGenerator;
 import com.tibco.xpd.processeditor.xpdl2.properties.ChoiceConceptPath;
 import com.tibco.xpd.processeditor.xpdl2.properties.ConceptPath;
+import com.tibco.xpd.ui.util.NameUtil;
 import com.tibco.xpd.xpdExtension.ScriptDataMapper;
 import com.tibco.xpd.xpdl2.BasicType;
 import com.tibco.xpd.xpdl2.BasicTypeType;
@@ -26,8 +27,8 @@ import com.tibco.xpd.xpdl2.RecordType;
  * @author Ali
  * @since 6 Mar 2015
  */
-public class ProcessDataMapperScriptGeneratorInfoProvider implements
-        IScriptGeneratorInfoProvider {
+public class ProcessDataMapperScriptGeneratorInfoProvider
+        implements IScriptGeneratorInfoProvider {
 
     /**
      * @see com.tibco.xpd.datamapper.api.IScriptGeneratorInfoProvider#getAssignmentStatement(java.lang.Object,
@@ -109,17 +110,14 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
         case DATE_LITERAL:
         case DATETIME_LITERAL:
             assignStatement =
-                    ScriptDescriptorGenerator
-                            .getQualifiedNameOfEnumForScript(qn) + ".get(" //$NON-NLS-1$
+                    NameUtil.formatQualifiedNameForScripting(qn) + ".get(" //$NON-NLS-1$
                             + assignStatement + ".toXMLFormat())"; //$NON-NLS-1$
             break;
         case TIME_LITERAL:
         default:
-            assignStatement =
-                    ScriptDescriptorGenerator
-                            .getQualifiedNameOfEnumForScript(qn)
-                            + ".get(String(" //$NON-NLS-1$
-                            + assignStatement + "))"; //$NON-NLS-1$
+            assignStatement = NameUtil.formatQualifiedNameForScripting(qn)
+                    + ".get(String(" //$NON-NLS-1$
+                    + assignStatement + "))"; //$NON-NLS-1$
         }
         return assignStatement;
     }
@@ -198,16 +196,16 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
             getter = "Number(" + getEnumStatement + ")"; //$NON-NLS-1$ //$NON-NLS-2$
             break;
         case DATE_LITERAL:
-            getter =
-                    "DateTimeUtil.createDate(String(" + getEnumStatement + "))"; //$NON-NLS-1$ //$NON-NLS-2$
+            getter = "DateTimeUtil.createDate(String(" + getEnumStatement //$NON-NLS-1$
+                    + "))"; //$NON-NLS-1$
             break;
         case DATETIME_LITERAL:
             getter = "DateTimeUtil.createDatetimetz(String(" + getEnumStatement //$NON-NLS-1$
                     + "))"; //$NON-NLS-1$
             break;
         case TIME_LITERAL:
-            getter =
-                    "DateTimeUtil.createTime(String(" + getEnumStatement + "))"; //$NON-NLS-1$ //$NON-NLS-2$
+            getter = "DateTimeUtil.createTime(String(" + getEnumStatement //$NON-NLS-1$
+                    + "))"; //$NON-NLS-1$
             break;
         default:
             getter = "String(" + getEnumStatement + ")"; //$NON-NLS-1$ //$NON-NLS-2$
@@ -243,7 +241,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
              * far as we're concerned.
              */
             else if (cp.getItem() instanceof ProcessRelevantData
-                    && ((ProcessRelevantData) cp.getItem()).getDataType() instanceof RecordType) {
+                    && ((ProcessRelevantData) cp.getItem())
+                            .getDataType() instanceof RecordType) {
                 return true;
             }
 
@@ -251,9 +250,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
              * Any process data of primitive type should be counted as simple
              * content
              */
-            BasicType basicType =
-                    BasicTypeConverterFactory.INSTANCE.getBasicType(cp
-                            .getItem());
+            BasicType basicType = BasicTypeConverterFactory.INSTANCE
+                    .getBasicType(cp.getItem());
             if (basicType != null) {
                 return true;
             }
@@ -312,8 +310,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
                  */
                 /* Sid XPD-7996 Allow subclass to adjust final path */
 
-                script.append(internalFinaliseObjectPath(cp, objectParentJsVar
-                        + "." + cp.getName())); //$NON-NLS-1$
+                script.append(internalFinaliseObjectPath(cp,
+                        objectParentJsVar + "." + cp.getName())); //$NON-NLS-1$
             } else {
                 /*
                  * Here we are Using the original content object (field / param
@@ -355,10 +353,11 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
                     && cp.getType().getNearestPackage() != null) {
                 Package pkg = cp.getType().getNearestPackage();
 
-                String factoryForPackage =
-                        ScriptDescriptorGenerator.getFactoryForPackage(pkg);
+                String factoryForPackage = CDSBOMIndexerService.getInstance()
+                        .getCDSFactoryForPackage(pkg);
 
-                if (factoryForPackage != null && factoryForPackage.length() > 0) {
+                if (factoryForPackage != null
+                        && factoryForPackage.length() > 0) {
                     String clazzName = cp.getType().getName();
 
                     return factoryForPackage + ".create" + clazzName + "()"; //$NON-NLS-1$ //$NON-NLS-2$
@@ -409,7 +408,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
      *         instance property.
      */
     private String internalGetCollectionElementScript(Object collection,
-            String indexVarName, String objectParentJsVar, boolean isTargetMerge) {
+            String indexVarName, String objectParentJsVar,
+            boolean isTargetMerge) {
         if (collection instanceof ConceptPath) {
             ConceptPath cp = (ConceptPath) collection;
 
@@ -441,8 +441,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
                  */
                 /* Sid XPD-7996 Allow subclass to adjust final path */
 
-                script.append(internalFinaliseObjectPath(cp, objectParentJsVar
-                        + "." + cp.getName())); //$NON-NLS-1$
+                script.append(internalFinaliseObjectPath(cp,
+                        objectParentJsVar + "." + cp.getName())); //$NON-NLS-1$
             } else {
                 /*
                  * Here we are Using the original content object (field / param
@@ -466,9 +466,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
             String getter = script.toString();
 
             if (isEnumeration(cp)) {
-                getter =
-                        getEnumConversionGetterStatement(getter,
-                                (Enumeration) cp.getType());
+                getter = getEnumConversionGetterStatement(getter,
+                        (Enumeration) cp.getType());
             }
 
             return getter;
@@ -532,8 +531,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
                  * etc)
                  */
                 /* Sid XPD-7996 Allow subclass to adjust final path */
-                script.append(internalFinaliseObjectPath(cp, objectParentJsVar
-                        + "." + cp.getName())); //$NON-NLS-1$
+                script.append(internalFinaliseObjectPath(cp,
+                        objectParentJsVar + "." + cp.getName())); //$NON-NLS-1$
 
             } else {
                 /*
@@ -590,8 +589,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
                  * etc)
                  */
                 /* Sid XPD-7996 Allow subclass to adjust final path */
-                script.append(internalFinaliseObjectPath(cp, objectParentJsVar
-                        + "." + cp.getName())); //$NON-NLS-1$
+                script.append(internalFinaliseObjectPath(cp,
+                        objectParentJsVar + "." + cp.getName())); //$NON-NLS-1$
 
             } else {
                 /*
@@ -632,8 +631,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
                  * etc)
                  */
                 /* Sid XPD-7996 Allow subclass to adjust final path */
-                script.append(internalFinaliseObjectPath(cp, jsVarAlias
-                        + "." + cp.getName())); //$NON-NLS-1$
+                script.append(internalFinaliseObjectPath(cp,
+                        jsVarAlias + "." + cp.getName())); //$NON-NLS-1$
 
             } else {
                 /*
@@ -742,9 +741,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
             /*
              * Here we are Using the original content object (field / param etc)
              */
-            pathToCheck =
-                    internalFinaliseObjectPath((ConceptPath) object,
-                            ((ConceptPath) object).getPath());
+            pathToCheck = internalFinaliseObjectPath((ConceptPath) object,
+                    ((ConceptPath) object).getPath());
         }
 
         /* Sid XPD-7996 Allow subclass to adjust final path */
@@ -852,8 +850,8 @@ public class ProcessDataMapperScriptGeneratorInfoProvider implements
      * @param jsVarAlias
      * @return
      */
-    public String getSingleToMultiInstanceAssignmentStatement(
-            Object targetItem, String rhsObjectStatement, String jsVarAlias) {
+    public String getSingleToMultiInstanceAssignmentStatement(Object targetItem,
+            String rhsObjectStatement, String jsVarAlias) {
         // TODO Auto-generated method stub
         return null;
     }

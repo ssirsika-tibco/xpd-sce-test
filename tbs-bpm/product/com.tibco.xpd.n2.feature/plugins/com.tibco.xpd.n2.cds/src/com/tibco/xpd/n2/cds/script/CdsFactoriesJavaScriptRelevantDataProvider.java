@@ -20,12 +20,12 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Package;
 
+import com.tibco.bds.designtime.generator.CDSBOMIndexerService;
 import com.tibco.xpd.analyst.resources.xpdl2.utils.ProcessDataUtil;
 import com.tibco.xpd.js.validation.tools.PackageScopeEnumCache;
 import com.tibco.xpd.n2.cds.CDSActivator;
 import com.tibco.xpd.n2.cds.CdsConsts;
 import com.tibco.xpd.n2.cds.utils.CDSUtils;
-import com.tibco.xpd.n2.scriptdescriptor.ScriptDescriptorGenerator;
 import com.tibco.xpd.process.js.model.DefaultJavaScriptRelevantDataProvider;
 import com.tibco.xpd.resources.XpdResourcesPlugin;
 import com.tibco.xpd.script.model.client.IScriptRelevantData;
@@ -40,8 +40,8 @@ import com.tibco.xpd.xpdl2.ProcessRelevantData;
 /**
  * @author mtorres
  */
-public class CdsFactoriesJavaScriptRelevantDataProvider extends
-        DefaultJavaScriptRelevantDataProvider {
+public class CdsFactoriesJavaScriptRelevantDataProvider
+        extends DefaultJavaScriptRelevantDataProvider {
 
     private Map<String, List<Class>> factoryClassesMap = null;
 
@@ -83,7 +83,8 @@ public class CdsFactoriesJavaScriptRelevantDataProvider extends
     }
 
     private List<JsClass> createFactoryJsClasses(
-            String factoryTemplateClassName, List<Package> referencedBomPackages) {
+            String factoryTemplateClassName,
+            List<Package> referencedBomPackages) {
         Set<String> bomPackageFactoryNames =
                 getBomFactoryPackageNames(factoryTemplateClassName,
                         referencedBomPackages);
@@ -121,8 +122,8 @@ public class CdsFactoriesJavaScriptRelevantDataProvider extends
                                         Collections.EMPTY_LIST, param, false,
                                         false, "");//$NON-NLS-1$
                         method.setIcon(getIcon());
-                        method.setContentAssistIconProvider(CDSUtils
-                                .getCdsContentAssistIconProvider());
+                        method.setContentAssistIconProvider(
+                                CDSUtils.getCdsContentAssistIconProvider());
                         factoryMethods.add(method);
                     }
                 }
@@ -154,29 +155,28 @@ public class CdsFactoriesJavaScriptRelevantDataProvider extends
     public Image getIcon() {
         Image image = null;
         if (!XpdResourcesPlugin.isInHeadlessMode()) {
-            image =
-                    CDSActivator.getDefault().getImageRegistry()
-                            .get(CdsConsts.CDS_FACTORY);
+            image = CDSActivator.getDefault().getImageRegistry()
+                    .get(CdsConsts.CDS_FACTORY);
         }
         return image;
     }
 
-    protected JsClass createJsClass(String className, List<JsMethod> methodList) {
-        DefaultJsFactoryClass jsClass =
-                new DefaultJsFactoryClass(className, methodList,
-                        Collections.EMPTY_LIST, Collections.EMPTY_LIST,
-                        className);
+    protected JsClass createJsClass(String className,
+            List<JsMethod> methodList) {
+        DefaultJsFactoryClass jsClass = new DefaultJsFactoryClass(className,
+                methodList, Collections.EMPTY_LIST, Collections.EMPTY_LIST,
+                className);
         jsClass.setIcon(getIcon());
-        jsClass.setContentAssistIconProvider(CDSUtils
-                .getCdsContentAssistIconProvider());
+        jsClass.setContentAssistIconProvider(
+                CDSUtils.getCdsContentAssistIconProvider());
         return jsClass;
     }
 
     protected JsEnumeration createJsEnumeration(Enumeration umlEnumeration) {
         DefaultJsEnumeration jsEnumeration =
                 new DefaultJsEnumeration(umlEnumeration);
-        jsEnumeration.setContentAssistIconProvider(CDSUtils
-                .getCdsContentAssistIconProvider());
+        jsEnumeration.setContentAssistIconProvider(
+                CDSUtils.getCdsContentAssistIconProvider());
         return jsEnumeration;
     }
 
@@ -217,9 +217,8 @@ public class CdsFactoriesJavaScriptRelevantDataProvider extends
                                  * scope.
                                  */
                                 Enumeration enumeration = (Enumeration) object;
-                                Set<Enumeration> enums =
-                                        enumerationsMap.get(enumeration
-                                                .getName());
+                                Set<Enumeration> enums = enumerationsMap
+                                        .get(enumeration.getName());
                                 if (enums == null) {
                                     enums = new HashSet<Enumeration>();
                                     enumerationsMap.put(enumeration.getName(),
@@ -282,9 +281,9 @@ public class CdsFactoriesJavaScriptRelevantDataProvider extends
                             createJsEnumeration(enumeration);
                     String jsEnumerationName = jsEnumeration.getName();
                     if (jsEnumeration instanceof DefaultJsEnumeration) {
-                        ((DefaultJsEnumeration) jsEnumeration)
-                                .setQualifiedName(ProcessDataUtil
-                                        .getQualifiedNameForScripting((enumeration)));
+                        ((DefaultJsEnumeration) jsEnumeration).setQualifiedName(
+                                ProcessDataUtil.getQualifiedNameForScripting(
+                                        (enumeration)));
                         // to use the qualified name
                         jsEnumerationName = jsEnumeration.getName();
                     }
@@ -338,7 +337,8 @@ public class CdsFactoriesJavaScriptRelevantDataProvider extends
             if (processPackage != null) {
                 // Should always be set for validations
                 PackageScopeEnumCache packageScopeEnumCache =
-                        (PackageScopeEnumCache) getCustomPropertyClass(PackageScopeEnumCache.class);
+                        (PackageScopeEnumCache) getCustomPropertyClass(
+                                PackageScopeEnumCache.class);
                 if (packageScopeEnumCache == null) {
                     // This stage is true only for content-assist and
                     // refactoring
@@ -365,7 +365,8 @@ public class CdsFactoriesJavaScriptRelevantDataProvider extends
              * Sid XPD_3641: Switch to using non-indexer-hitting get package
              * name
              */
-            return ScriptDescriptorGenerator.getFactoryForPackage(pkg);
+            return CDSBOMIndexerService.getInstance()
+                    .getCDSFactoryForPackage(pkg);
         }
         return null;
     }
@@ -373,10 +374,10 @@ public class CdsFactoriesJavaScriptRelevantDataProvider extends
     @Override
     protected List<IScriptRelevantData> convertToScriptRelevantData(
             List<ProcessRelevantData> processDataList) {
-        return CDSUtils
-                .convertToScriptRelevantData(processDataList,
-                        getProject(),
-                        readContributedDefinitionReaders(getProcessDestinationList(getProcess())));
+        return CDSUtils.convertToScriptRelevantData(processDataList,
+                getProject(),
+                readContributedDefinitionReaders(
+                        getProcessDestinationList(getProcess())));
     }
 
 }
