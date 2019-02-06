@@ -7,8 +7,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import com.tibco.xpd.bom.validator.IBOMValidationPreferenceManager.ValidationDestination;
-import com.tibco.xpd.bom.validator.internal.validation.BOMValidationPreferenceManager;
 import com.tibco.xpd.destinations.GlobalDestinationUtil;
 import com.tibco.xpd.resources.logger.Logger;
 import com.tibco.xpd.resources.logger.LoggerFactory;
@@ -53,9 +51,8 @@ public class BOMValidatorActivator extends AbstractUIPlugin {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
-     * )
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.
+     * BundleContext )
      */
     @Override
     public void start(BundleContext context) throws Exception {
@@ -65,9 +62,8 @@ public class BOMValidatorActivator extends AbstractUIPlugin {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
-     * )
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.
+     * BundleContext )
      */
     @Override
     public void stop(BundleContext context) throws Exception {
@@ -119,32 +115,6 @@ public class BOMValidatorActivator extends AbstractUIPlugin {
                 GlobalDestinationUtil.isValidationDestinationEnabled(project,
                         validationDestinationId);
 
-        if (!enabled) {
-            /*
-             * Otherwise see if user has forced destination on in project
-             * preference page.
-             */
-            ValidationDestination validationDestination =
-                    ValidationDestination
-                            .getDestination(validationDestinationId);
-
-            if (validationDestination != null) {
-                enabled =
-                        getPreferenceManager().isValidationEnabled(project,
-                                validationDestination);
-            }
-        }
-
         return enabled;
-    }
-
-    /**
-     * Get the BOM preference manager that deals with getting and setting
-     * preference and properties values for BOM validation destinations.
-     * 
-     * @return
-     */
-    public IBOMValidationPreferenceManager getPreferenceManager() {
-        return new BOMValidationPreferenceManager(getPreferenceStore());
     }
 }

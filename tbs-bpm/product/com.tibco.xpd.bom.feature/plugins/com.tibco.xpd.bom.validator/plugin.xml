@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-	<extension
-         id="com.tibco.xpd.bom.validator.xsdValidationMarker"
-         name="%xsd.xsdValidation"
-         point="org.eclipse.core.resources.markers">
-      <persistent
-            value="true">
-      </persistent>
-      <super
-            type="com.tibco.xpd.validation.ValidationMarker">
-      </super>
-   </extension>
- <extension
-       id="com.tibco.xpd.bom.validator.wsdlValidationMarker"
-       name="%wsdl.wsdlValidation"
-       point="org.eclipse.core.resources.markers">
-    <persistent
-          value="true">
-    </persistent>
-    <super
-          type="com.tibco.xpd.validation.ValidationMarker">
-    </super>
- </extension>
  <extension
        id="com.tibco.xpd.bom.validator.javaValidationMarker"
        name="%java.javaValidation"
@@ -557,376 +535,13 @@
             severity="ERROR">
       </issue>
    </extension>
-   <extension
-         point="com.tibco.xpd.validation.provider">
-      <provider
-            id="com.tibco.xpd.bom.xsd.validator.id"
-            markerType="com.tibco.xpd.bom.validator.xsdValidationMarker"
-            name="XSD"
-            scopeProvider="com.tibco.xpd.bom.validator.XSDScopeProvider">
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.EnumTextLiteralsNotMeetLengthOrPatternRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.EnumerationGeneralisingEnemerationRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.GeneralisedClassContainsDuplicateAttributeRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.PrimitiveTypeDefaultLostRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.AssociationTypeRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.generic.BrokenReferencesRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.PrimitiveTypeRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.OperationRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.PackageNameRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.AssociationClassTypeRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.PropertyRestrictionsRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.XSDCyclicDependencyRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.ClassifierNameForTLE">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.ClassifierRules">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.PrimitiveTypeRestrictions">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.GeneralisedClassIsElementRule">
-         </rule>
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.xsd.EnumLitValueRule">
-         </rule>
-      </provider>
-      <issue
-            id="xsd.duplicate.attribute.ids.issue"
-            message="%xsd.duplicate.attribute.ids.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.invalid.enumlit.for.pattern.issue"
-            message="%xsd.invalid.enumlit.for.pattern.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.not.contain.parent.enumlits.issue"
-            message="%xsd.not.contain.parent.enumlits.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.generalised.class.contains.duplicate.attribute.issue"
-            message="%xsd.generalised.class.contains.duplicate.attribute.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.primitivetype.default.lost.issue"
-            message="%xsd.primitivetype.default.lost.issue.message"
-            severity="WARNING">
-      </issue>
-      <issue
-            id="xsd.primitive.type.default.issue"
-            message="%xsd.primitive.type.default.issue.message"
-            severity="WARNING">
-      </issue>
-      <issue
-            id="xsd.operation.issue"
-            message="%xsd.operation.issue.message"
-            severity="WARNING">
-      </issue>
-      <issue
-            id="xsd.unsupported.relationship.issue"
-            message="%xsd.unsupported.relationship.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.invalid.package.name.issue"
-            message="%xsd.invalid.package.name.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.unsupported.association.class.issue"
-            message="%xsd.unsupported.association.class.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.issue"
-            message="%xsd.property.constraints.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.maxtextlen.issue"
-            message="%xsd.property.constraints.maxtextlen.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.lowerexceedsupperlimit.issue"
-            message="%xsd.property.constraints.lowerexceedsupperlimit.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.lowerlimitexceedsdefault.issue"
-            message="%xsd.property.constraints.lowerlimitexceedsdefault.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.defaultexceedsupperlimit.issue"
-            message="%xsd.property.constraints.defaultexceedsupperlimit.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.lowerlimitlenexceedsnumlen.issue"
-            message="%xsd.property.constraints.lowerlimitlenexceedsnumlen.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.upperlimitlenexceedsnumlen.issue"
-            message="%xsd.property.constraints.upperlimitlenexceedsnumlen.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.defvallenexceedsnumlen.issue"
-            message="%xsd.property.constraints.defvallenexceedsnumlen.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.lowerlimitdecplaces.issue"
-            message="%xsd.property.constraints.lowerlimitdecplaces.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.upperlimitdecplaces.issue"
-            message="%xsd.property.constraints.upperlimitdecplaces.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.defvaldecplaces.issue"
-            message="%xsd.property.constraints.defvaldecplaces.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.constraints.patternmismatch.issue"
-            message="%xsd.property.constraints.patternmismatch.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-       id="xsd.property.constraints.patterninvalid.issue"
-            message="%xsd.property.constraints.patterninvalid.issue"
-            severity="ERROR">
-      </issue>      
-      <issue
-            id="xsd.property.constraints.decplacesexceedsnumlen.issue"
-            message="%xsd.property.constraints.decplacesexceedsnumlen.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.xsdCyclicDependency.issue"
-            message="%xsd.xsdCyclicDependency.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.classifierTLEname.issue"
-            message="%xsd.classifierTLEname.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.primitivetype.objecttype.issue"
-            message="%xsd.primitivetype.objecttype.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.duplicateobjecttype.issue"
-            message="%xsd.property.onlyoneanyoccuranceallowed.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.property.notypeset.issue"
-            message="%xsd.property.notypeset.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.primitivetype.objectposition.issue"
-            message="%xsd.primitivetype.objectposition.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.primitivetype.objectpreceedingminmax.issue"
-            message="%xsd.primitivetype.objectpreceedingminmax.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.invalid.package.nameclash.issue"
-            message="%xsd.invalid.package.nameclash.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.primitivetype.objectfollowingminmax.issue"
-            message="%xsd.primitivetype.objectfollowingminmax.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.primitivetype.objectextendedclass.issue"
-            message="%xsd.primitivetype.objectextendedclass.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.classifier.generalizesfinaltype.issue"
-            message="%xsd.classifier.generalizesfinaltype.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.primitivetyperestrictions.issue"
-            message="%xsd.primitivetyperestrictions.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.propertyrestrictionsrule.generalfirstproperty.issue"
-            message="%xsd.propertyrestrictionsrule.generalfirstproperty.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.class.generalizesanontype.issue"
-            message="%xsd.class.generalizesanontype.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.invalid.enumlit.for.length.issue"
-            message="%xsd.invalid.enumlit.for.length.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.not.contain.parent.enumlits.value.issue"
-            message="%xsd.not.contain.parent.enumlits.value.issue"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.invalidEnumLitValue"
-            message="%xsd.invalidEnumLitValue"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.enumLitValueDoesNotFitInLowerAndUpperLimits"
-            message="%xsd.enumLitValueDoesNotFitInLowerAndUpperLimits"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.lowerOrUpperLimitExceedsLengthIssue"
-            message="%xsd.lowerOrUpperLimitExceedsLengthIssue"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="xsd.lowerLimitGreaterThanUpperLimitIssue"
-            message="%xsd.lowerLimitGreaterThanUpperLimitIssue"
-            severity="ERROR">
-      </issue>
-   </extension>
-   <extension
-         point="com.tibco.xpd.validation.provider">
-      <provider
-            id="com.tibco.xpd.bom.wsdl.validator.id"
-            markerType="com.tibco.xpd.bom.validator.wsdlValidationMarker"
-            name="WSDL"
-            scopeProvider="com.tibco.xpd.bom.validator.WSDLScopeProvider">
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.wsdl.OperationParamMultiplicityNotSupportedRule">
-         </rule>
-      </provider>
-      <issue
-            id="wsdl.multiplicity.not.supported.output.param.issue"
-            message="%wsdl.multiplicity.not.supported.output.param.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="wsdl.multiplicity.not.supported.input.param.issue"
-            message="%wsdl.multiplicity.not.supported.input.param.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="wsdl.no.operation.param.issue"
-            message="%wsdl.no.operation.param.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="wsdl.bom.ref.not.allowed.issue"
-            message="%wsdl.bom.ref.not.allowed.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="wsdl.property.bom.ref.not.allowed.issue"
-            message="%wsdl.property.bom.ref.not.allowed.issue.message"
-            severity="ERROR">
-      </issue>
-      <issue
-            id="wsdl.operation.parameter.bom.ref.not.allowed.issue"
-            message="%wsdl.operation.parameter.bom.ref.not.allowed.message"
-            severity="ERROR">
-      </issue>
-   </extension>
    
-   <extension
-         point="com.tibco.xpd.validation.provider">
-      <provider
-            id="com.tibco.xpd.wsdltobom.validator.id"
-            markerType="com.tibco.xpd.wsdltobom.validator.wsdlValidationMarker"
-            name="WSDL to BOM"
-            scopeProvider="com.tibco.xpd.bom.validator.WSDLtoBOMScopeProvider">
-         <rule
-               class="com.tibco.xpd.bom.validator.rules.wsdltobom.SchemaLocationInvalidRule">
-         </rule>
-          <rule
-               class="com.tibco.xpd.bom.validator.rules.wsdltobom.WsdlImportAbsoluteSchemaLocationInvalidRule">
-         </rule>         
-      </provider>
-      <issue
-            id="wsdltobom.absoluteSchemaLocInvalid"
-            message="%wsdltobom.absoluteSchemaLocInvalid"
-            severity="WARNING">
-      </issue>
-   </extension>
    
-   <extension
-         id="com.tibco.xpd.wsdltobom.validator.wsdlValidationMarker"
-         name="%wsdltobomvalidation"
-         point="org.eclipse.core.resources.markers">
-      <persistent
-            value="true">
-      </persistent>
-      <super
-            type="com.tibco.xpd.validation.ValidationMarker">
-      </super>
-   </extension>
    <!-- ============ DESTINATIONS ========================================== -->
 
 
    <extension
          point="com.tibco.xpd.validation.destinations">
-      <destination
-            id="bom.java.destination"
-            name="%java.destination.name"
-            selectable="false"
-            version="">
-         <validationProvider
-               id="com.tibco.xpd.bom.java.validator.id">
-         </validationProvider>
-         <filter class="com.tibco.xpd.bom.validator.BOMFileFilter"/>
-      </destination>
       <destination
             id="bom.generic.validation.destination"
             name="%destination.name.0"
@@ -940,42 +555,6 @@
          </filter>
          <validationProvider
                id="com.tibco.xpd.bom.xsdtransform.validator.id">
-         </validationProvider>
-      </destination>
-      <destination
-            id="bom.xsd.destination"
-            name="%xsd.destination.name"
-            selectable="true"
-            version="">
-         <validationProvider
-               id="com.tibco.xpd.bom.xsd.validator.id">
-         </validationProvider>
-         <filter
-               class="com.tibco.xpd.bom.validator.BOMFileFilter">
-         </filter>
-      </destination>
-      <destination
-            id="bom.wsdl.destination"
-            name="%wsdl.destination.name"            
-            selectable="true"
-            version="">
-         <validationProvider
-               id="com.tibco.xpd.bom.wsdl.validator.id">
-         </validationProvider>
-         <filter
-               class="com.tibco.xpd.bom.validator.BOMFileFilter">
-         </filter>
-      </destination>
-      <destination
-            id="wsdltobom.destination"
-            name="%wsdltobom.destination"
-            selectable="false"
-            version="">
-         <filter
-               class="com.tibco.xpd.bom.validator.WSDLFileFilter">
-         </filter>
-         <validationProvider
-               id="com.tibco.xpd.wsdltobom.validator.id">
          </validationProvider>
       </destination>
       <destination
@@ -1003,15 +582,6 @@
             name="%page.name.errorsWarnings">
          <keywordReference id="com.tibco.xpd.bom.validator.errorwarning"/>
       </page>
-      <page
-            category="com.tibco.xpd.bom.pref"
-            class="com.tibco.xpd.bom.validator.internal.validation.ValidationOptionsPreferencePage"
-            id="com.tibco.xpd.bom.validator.preferences.validation"
-            name="%preference.wsdlNxsdGeneration.label">
-         <keywordReference
-               id="com.tibco.xpd.bom.validator.validation">
-         </keywordReference>
-      </page>
    </extension>
 
    <!-- ============ KEYWORDS ============================================== -->
@@ -1023,7 +593,7 @@
             label="%validationPref_keywords_message"/>
       <keyword
             id="com.tibco.xpd.bom.validator.validation"
-            label="bom BOM validation XSD xsd WSDL wsdl">
+            label="bom BOM validation">
       </keyword>
    </extension>
 
@@ -1057,31 +627,6 @@
             label="%resolution.label.restoreReference">
       </resolution>
       
-      <!-- XSD -->
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.bom.validator.resolution.xsd.OperationRemovalResolution"
-            description="%resolution.description.removeOperation"
-            id="xsd.operation.issue"
-            label="%resolution.label.removeOperation" />      		
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.bom.validator.resolution.xsd.DefaultValueRemovalResolution"
-            description="%resolution.description.removeDefaultValue"
-            id="xsd.primitive.type.default.issue"
-            label="%resolution.label.removeDefaultValue" />
-      <resolution
-            canApplyToMultiple="true"
-            class="com.tibco.xpd.bom.validator.resolution.UMLElementsInDiagramBadgeResolution"
-            description="%umlElementsInBadge.resolution.message"
-            id="umlElementsInBadge.issue"
-            label="%umlElementsInBadge.resolution.message">
-      </resolution>
-      <resolution
-            class="com.tibco.xpd.bom.validator.resolution.ResetEnumLitSingleValue"
-            id="xsd.invalidEnumLitValue"
-            label="%resetEnumLitSingleValue.resolution.message">
-      </resolution>
       <!-- Global Data-->      
       <resolution
             class="com.tibco.xpd.bom.validator.resolution.globaldata.SetCaseIDMultiplicityResolution"
@@ -1179,37 +724,6 @@
             globalDestinationComponentId="com.tibco.xpd.wsdltobom.globalDestinationComponent"
             validationDestinationId="wsdltobom.destination.disabled">
       </globalDestinationComponentVersion>
-   </extension>
-   <extension
-         point="org.eclipse.ui.propertyPages">
-      <page
-            category="com.tibco.xpd.bom.propertiesPage"
-            class="com.tibco.xpd.bom.validator.internal.validation.ValidationOptionsPreferencePage"
-            id="com.tibco.xpd.bom.validator.properties.validation"
-            name="%preference.wsdlNxsdGeneration.label">
-         <keywordReference
-               id="com.tibco.xpd.bom.validator.validation">
-         </keywordReference>
-         <enabledWhen>
-            <and>
-               <instanceof
-                     value="org.eclipse.core.resources.IProject">
-               </instanceof>
-               <test
-                     property="org.eclipse.core.resources.open">
-               </test>
-               <test
-                     property="org.eclipse.core.resources.projectNature"
-                     value="com.tibco.xpd.resources.xpdNature">
-               </test>
-            </and></enabledWhen>
-      </page>
-   </extension>
-   <extension
-         point="org.eclipse.core.runtime.preferences">
-      <initializer
-            class="com.tibco.xpd.bom.validator.internal.validation.ValidationOptionsPreferenceInitializer">
-      </initializer>
    </extension>
    <extension
          point="com.tibco.xpd.validation.workspaceResourceValidationProvider">

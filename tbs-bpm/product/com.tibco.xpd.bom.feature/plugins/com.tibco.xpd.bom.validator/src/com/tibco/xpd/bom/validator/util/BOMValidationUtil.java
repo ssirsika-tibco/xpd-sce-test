@@ -28,13 +28,6 @@ import com.tibco.xpd.validation.ValidationActivator;
  */
 public class BOMValidationUtil {
 
-    /***
-     * constant used in the ValidationOptionPreferencePage to set boolean
-     * true/false for xsd validation
-     */
-    public static final String VALIDATE_XSD =
-            "validateXsdsReferredForGivenWsdl"; //$NON-NLS-1$
-
     /**
      * The value for the generated attribute for the generated BOM special
      * folder.
@@ -106,9 +99,8 @@ public class BOMValidationUtil {
 
                     Model model = (Model) rootElement;
                     isXsdProfileAppliedToModel =
-                            BOMProfileUtils
-                                    .isProfileAppliedToModel(model,
-                                            BOMResourcesPlugin.PATHMAP_XSDNOTATION_PROFILE);
+                            BOMProfileUtils.isProfileAppliedToModel(model,
+                                    BOMResourcesPlugin.PATHMAP_XSDNOTATION_PROFILE);
                 }
             }
 
