@@ -16,15 +16,18 @@ import com.tibco.xpd.n2.daa.test.junit.SampleAbsolutePathTest;
  * @since 24 Jun 2015
  */
 public class RestSetUpTest extends SampleAbsolutePathTest {
-
-    /**
-     * @see com.tibco.xpd.n2.daa.test.junit.SetUpTest#getContextPlugInId()
-     * 
-     * @return
+    /*
+     * SID ACE-122 - commenting out for now - as may be usefil to preserve the
+     * test projects at least from this implementation.
      */
-    @Override
-    protected String getContextPlugInId() {
-
-        return RestDAATestActivator.PLUGIN_ID;
-    }
+    // /**
+    // * @see com.tibco.xpd.n2.daa.test.junit.SetUpTest#getContextPlugInId()
+    // *
+    // * @return
+    // */
+    // @Override
+    // protected String getContextPlugInId() {
+    //
+    // return RestDAATestActivator.PLUGIN_ID;
+    // }
 }

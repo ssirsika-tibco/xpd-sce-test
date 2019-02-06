@@ -4,9 +4,6 @@
 
 package com.tibco.xpd.n2.datausecases.projectswithqualifiercacheoff.daa.test;
 
-import org.eclipse.core.resources.IProject;
-
-import com.tibco.xpd.daa.internal.preferences.DAAGenPreferences;
 import com.tibco.xpd.n2.daa.test.junit.SampleAbsolutePathTest;
 
 /**
@@ -21,44 +18,51 @@ import com.tibco.xpd.n2.daa.test.junit.SampleAbsolutePathTest;
  * @author bharge
  * @since 29 Nov 2013
  */
-public class ProjectWithQualifierCachingOffSetUpTest extends
-        SampleAbsolutePathTest {
+public class ProjectWithQualifierCachingOffSetUpTest
+        extends SampleAbsolutePathTest {
 
-    /**
-     * @see com.tibco.xpd.n2.daa.test.junit.SetUpTest#aboutToGenerateDAA(org.eclipse.core.resources.IProject)
-     * 
-     * @param project
+    /*
+     * SID ACE-122 - commenting out for now - as may be usefil to preserve the
+     * test projects at least from this implementation.
      */
-    @Override
-    protected void aboutToGenerateDAA(IProject project) {
-        super.aboutToGenerateDAA(project);
 
-        /* turn off bom caching! */
-        DAAGenPreferences.setCacheBomJars(false);
-    }
+    // /**
+    // * @see
+    // com.tibco.xpd.n2.daa.test.junit.SetUpTest#aboutToGenerateDAA(org.eclipse.core.resources.IProject)
+    // *
+    // * @param project
+    // */
+    // @Override
+    // protected void aboutToGenerateDAA(IProject project) {
+    // super.aboutToGenerateDAA(project);
+    //
+    // /* turn off bom caching! */
+    // DAAGenPreferences.setCacheBomJars(false);
+    // }
+    //
+    // /**
+    // * @see
+    // com.tibco.xpd.n2.daa.test.junit.SetUpTest#generateDAADone(org.eclipse.core.resources.IProject)
+    // *
+    // * @param project
+    // */
+    // @Override
+    // protected void generateDAADone(IProject project) {
+    // super.generateDAADone(project);
+    //
+    // /* turn off bom caching back on! */
+    // DAAGenPreferences.setCacheBomJars(false);
+    //
+    // }
 
-    /**
-     * @see com.tibco.xpd.n2.daa.test.junit.SetUpTest#generateDAADone(org.eclipse.core.resources.IProject)
-     * 
-     * @param project
-     */
-    @Override
-    protected void generateDAADone(IProject project) {
-        super.generateDAADone(project);
-
-        /* turn off bom caching back on! */
-        DAAGenPreferences.setCacheBomJars(false);
-
-    }
-
-    /**
-     * @see com.tibco.xpd.n2.daa.test.junit.SetUpTest#getContextPlugInId()
-     * 
-     * @return
-     */
-    @Override
-    protected String getContextPlugInId() {
-
-        return Activator.PLUGIN_ID;
-    }
+    // /**
+    // * @see com.tibco.xpd.n2.daa.test.junit.SetUpTest#getContextPlugInId()
+    // *
+    // * @return
+    // */
+    // @Override
+    // protected String getContextPlugInId() {
+    //
+    // return Activator.PLUGIN_ID;
+    // }
 }

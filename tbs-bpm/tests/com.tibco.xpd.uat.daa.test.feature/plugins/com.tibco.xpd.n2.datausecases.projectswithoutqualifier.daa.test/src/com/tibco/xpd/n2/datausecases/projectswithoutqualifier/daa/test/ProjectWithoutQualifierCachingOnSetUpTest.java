@@ -12,17 +12,20 @@ import com.tibco.xpd.n2.daa.test.junit.SampleAbsolutePathTest;
  * @author bharge
  * @since 2 Dec 2013
  */
-public class ProjectWithoutQualifierCachingOnSetUpTest extends
-        SampleAbsolutePathTest {
-
-    /**
-     * @see com.tibco.xpd.n2.daa.test.junit.SetUpTest#getContextPlugInId()
-     * 
-     * @return
+public class ProjectWithoutQualifierCachingOnSetUpTest
+        extends SampleAbsolutePathTest {
+    /*
+     * SID ACE-122 - commenting out for now - as may be usefil to preserve the
+     * test projects at least from this implementation.
      */
-    @Override
-    protected String getContextPlugInId() {
-
-        return Activator.PLUGIN_ID;
-    }
+    // /**
+    // * @see com.tibco.xpd.n2.daa.test.junit.SetUpTest#getContextPlugInId()
+    // *
+    // * @return
+    // */
+    // @Override
+    // protected String getContextPlugInId() {
+    //
+    // return Activator.PLUGIN_ID;
+    // }
 }

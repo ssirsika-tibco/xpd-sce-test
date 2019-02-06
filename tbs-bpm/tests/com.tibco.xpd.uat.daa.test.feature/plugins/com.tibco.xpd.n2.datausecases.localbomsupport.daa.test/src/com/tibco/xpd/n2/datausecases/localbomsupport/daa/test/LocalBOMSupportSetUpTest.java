@@ -11,10 +11,13 @@ import com.tibco.xpd.n2.daa.test.junit.SampleAbsolutePathTest;
  * 
  */
 public class LocalBOMSupportSetUpTest extends SampleAbsolutePathTest {
-
-    @Override
-    protected String getContextPlugInId() {
-
-        return LocalBomSupportActivator.PLUGIN_ID;
-    }
+    /*
+     * SID ACE-122 - commenting out for now - as may be usefil to preserve the
+     * test projects at least from this implementation.
+     */
+    // @Override
+    // protected String getContextPlugInId() {
+    //
+    // return LocalBomSupportActivator.PLUGIN_ID;
+    // }
 }

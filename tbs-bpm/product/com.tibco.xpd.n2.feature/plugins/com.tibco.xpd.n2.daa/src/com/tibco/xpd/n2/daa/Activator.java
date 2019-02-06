@@ -55,9 +55,8 @@ public class Activator extends AbstractUIPlugin {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
-     * )
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.
+     * BundleContext )
      */
     @Override
     public void start(BundleContext context) throws Exception {
@@ -68,9 +67,8 @@ public class Activator extends AbstractUIPlugin {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
-     * )
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.
+     * BundleContext )
      */
     @Override
     public void stop(BundleContext context) throws Exception {
@@ -98,10 +96,7 @@ public class Activator extends AbstractUIPlugin {
 
     @Override
     protected void initializeImageRegistry(ImageRegistry reg) {
-        String[] imgs = DAAConstants.IMAGES;
-        for (int i = 0; i < imgs.length; i++) {
-            reg.put(imgs[i], getImageDescriptor(imgs[i]));
-        }
+
     }
 
     /**
@@ -147,10 +142,9 @@ public class Activator extends AbstractUIPlugin {
             IFile policyFile = policyFolder.getFile(policyFileName);
             if (!policyFile.exists()) {
                 InputStream policyInputStream =
-                        new ResourceSetImpl()
-                                .getURIConverter()
-                                .createInputStream(URI
-                                        .createURI(PLATFORM_PLUGIN_RES_URI_PREFIX
+                        new ResourceSetImpl().getURIConverter()
+                                .createInputStream(URI.createURI(
+                                        PLATFORM_PLUGIN_RES_URI_PREFIX
                                                 + policyFileName));
                 // policyFile.create(policyInputStream, IResource.FORCE
                 // | IResource.DERIVED, null);
